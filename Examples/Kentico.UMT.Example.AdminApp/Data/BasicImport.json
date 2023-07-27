@@ -1,0 +1,438 @@
+[
+  {
+    "$type": "DataClass",
+    
+    "ClassGUID": "adeaf5ce-13cb-4457-a0be-efe29e23f513",
+    "ClassResourceID": null,    
+    "ClassDisplayName": "UMT - Test page",
+    "ClassName": "UMT.TestPage",
+    "ClassIsDocumentType": true,
+    "ClassIsCoupledClass": true,    
+    "ClassNodeNameSource": "",
+    "ClassTableName": "UMT_TestPage",
+    "ClassShowAsSystemTable": false,
+    "ClassUsePublishFromTo": null,
+    "ClassShowTemplateSelection": null,
+    "ClassNodeAliasSource": null,
+    "ClassLastModified": null,
+    "ClassShowColumns": null,
+    "ClassInheritsFromClassGUID": null,
+    "ClassContactMapping": null,
+    "ClassContactOverwriteEnabled": null,
+    "ClassConnectionString": null,
+    "ClassDefaultObjectType": null,
+    "ClassIsForm": false,
+    "ClassCustomizedColumns": null,
+    "ClassCodeGenerationSettings": null,
+    "ClassIconClass": null,
+    "ClassURLPattern": null,
+    "ClassUsesPageBuilder": true,
+    "ClassHasURL": true,
+    "ClassHasMetadata": false,
+    "ClassIsPage": true,
+    "ClassHasUnmanagedDbSchema": false,
+    
+    "Fields": [
+      {
+        "ColumnType": "longtext",
+        "Column": "Perex",
+        "AllowEmpty": true,
+        "Enabled": true,
+        "Visible": true,
+        "Guid": "872dcec6-2c57-4d0c-af67-35e7ea8584be",
+        "Properties": {
+          "FieldCaption": "Perex"
+        },
+        "Settings": {
+          "ControlName": "Kentico.Administration.TextArea"
+        }
+      },
+      {
+        "ColumnType": "longtext",
+        "Column": "SomeNewKindOfField",
+        "AllowEmpty": true,
+        "Enabled": true,
+        "Visible": true,
+        "Guid": "8837A4A9-EEB6-4160-B957-2A7799FFE97A",
+        "Properties": {
+          "FieldCaption": "SomeNewKindOfField"
+        },
+        "Settings": {
+          "ControlName": "Kentico.Administration.TextArea"
+        }
+      }
+    ]
+  },
+  {
+    "$type": "TreeNode",
+    "NodeClassGuid": "adeaf5ce-13cb-4457-a0be-efe29e23f513",
+    "NodeOwnerGuid": "6415b8ce-8072-4bcd-8e48-9d7178b826b7",
+    "NodeParentGuid": "acdd2058-bde0-4c9d-8332-45f417220571",
+    "NodeGUID": "dcbde667-ac3f-4ef1-b092-61d7c3912e2c",
+    "NodeAlias": "umt.test.nestedpages1.nodealias",
+    "NodeName": "umt.test.nestedpages1.ndoename",
+    "NodeOrder": null,
+    "DocumentCulture": "en-US",
+    "DocumentName": "umt.test.nestedpages1.documentname",
+    "DocumentLastPublished": "2023-01-01T00:00:00",
+    "DocumentModifiedWhen": "2023-01-01T00:00:00",
+    "DocumentCreatedWhen": "2023-01-01T00:00:00",
+    "DocumentPublishFrom": "2023-01-01T00:00:00",
+    "DocumentPublishTo": "2026-01-01T00:00:00",
+    "DocumentGUID": "945aaabc-940b-42f6-bf99-3fcd6ffab03b",
+    "DocumentCreatedByUserGuid": "6415b8ce-8072-4bcd-8e48-9d7178b826b7",
+    "DocumentModifiedByUserGuid": "6415b8ce-8072-4bcd-8e48-9d7178b826b7",
+    "NodeIsPage": true,
+    "Perex": "Testing perex"
+  },
+  {
+    "$type": "TreeNode",
+    "NodeClassGuid": "adeaf5ce-13cb-4457-a0be-efe29e23f513",
+    "NodeOwnerGuid": "6415b8ce-8072-4bcd-8e48-9d7178b826b7",
+    "NodeParentGuid": "dcbde667-ac3f-4ef1-b092-61d7c3912e2c",
+    "NodeGUID": "bd089033-a00e-40f1-aff3-00992293df10",
+    "NodeAlias": "umt.test.nestedpages2.nodealias",
+    "NodeName": "umt.test.nestedpages2.ndoename",
+    "NodeOrder": null,
+    "DocumentCulture": "en-US",
+    "DocumentName": "umt.test.nestedpages2.documentname",
+    "DocumentLastPublished": "2023-01-01T00:00:00",
+    "DocumentModifiedWhen": "2023-01-01T00:00:00",
+    "DocumentCreatedWhen": "2023-01-01T00:00:00",
+    "DocumentPublishFrom": "2023-01-01T00:00:00",
+    "DocumentPublishTo": "2026-01-01T00:00:00",
+    "DocumentGUID": "03f3cddf-b8aa-41a3-bc5d-7fd6d9909fd2",
+    "DocumentCreatedByUserGuid": "6415b8ce-8072-4bcd-8e48-9d7178b826b7",
+    "DocumentModifiedByUserGuid": "6415b8ce-8072-4bcd-8e48-9d7178b826b7",
+    "NodeIsPage": true,
+    "Perex": "Testing perex"
+  },
+
+
+
+  {
+    "$type": "DataClass",
+
+    "ClassGUID": "3b1f93a5-dcdf-4f5c-b71f-67e1d3f7d3ac",
+    "ClassResourceID": null,    
+    "ClassDisplayName": "UMT - Test page 2",
+    "ClassName": "UMT.TestPage2",
+    "ClassIsDocumentType": true,
+    "ClassIsCoupledClass": true,
+    "ClassNodeNameSource": "",
+    "ClassTableName": "UMT_TestPage2",
+    "ClassShowAsSystemTable": false,
+    "ClassUsePublishFromTo": null,
+    "ClassShowTemplateSelection": null,
+    "ClassNodeAliasSource": null,
+    "ClassLastModified": null,
+    "ClassShowColumns": null,
+    "ClassInheritsFromClassGUID": null,
+    "ClassContactMapping": null,
+    "ClassContactOverwriteEnabled": null,
+    "ClassConnectionString": null,
+    "ClassDefaultObjectType": null,
+    "ClassIsForm": false,
+    "ClassCustomizedColumns": null,
+    "ClassCodeGenerationSettings": null,
+    "ClassIconClass": null,
+    "ClassURLPattern": null,
+    "ClassUsesPageBuilder": true,
+    "ClassHasURL": true,
+    "ClassHasMetadata": false,
+    "ClassIsPage": true,
+    "ClassHasUnmanagedDbSchema": false,
+
+    "Fields": [
+      {
+        "ColumnType": "longtext",
+        "Column": "Perex2",
+        "AllowEmpty": true,
+        "Enabled": true,
+        "Visible": true,
+        "Guid": "872dcec6-2c57-4d0c-af67-35e7ea8584be",
+        "Properties": {
+          "FieldCaption": "Perex"
+        },
+        "Settings": {
+          "ControlName": "Kentico.Administration.TextArea"
+        }
+      },
+      {
+        "ColumnType": "longtext",
+        "Column": "SomeNewKindOfField2",
+        "AllowEmpty": true,
+        "Enabled": true,
+        "Visible": true,
+        "Guid": "8837A4A9-EEB6-4160-B957-2A7799FFE97A",
+        "Properties": {
+          "FieldCaption": "SomeNewKindOfField"
+        },
+        "Settings": {
+          "ControlName": "Kentico.Administration.TextArea"
+        }
+      }
+    ]
+  },
+  {
+    "$type": "TreeNode",
+    "NodeClassGuid": "3b1f93a5-dcdf-4f5c-b71f-67e1d3f7d3ac",
+    "NodeOwnerGuid": "6415b8ce-8072-4bcd-8e48-9d7178b826b7",
+    "NodeParentGuid": "acdd2058-bde0-4c9d-8332-45f417220571",
+    "NodeGUID": "c27c359f-ff6b-4b27-87f7-c8a19a80678e",
+    "NodeAlias": "umt.test.nestedpages3.nodealias",
+    "NodeName": "umt.test.nestedpages3.nodename",
+    "NodeOrder": null,
+    "DocumentCulture": "en-US",
+    "DocumentName": "umt.test.nestedpages3.documentname",
+    "DocumentLastPublished": "2023-01-01T00:00:00",
+    "DocumentModifiedWhen": "2023-01-01T00:00:00",
+    "DocumentCreatedWhen": "2023-01-01T00:00:00",
+    "DocumentPublishFrom": "2023-01-01T00:00:00",
+    "DocumentPublishTo": "2026-01-01T00:00:00",
+    "DocumentGUID": "c27c359f-ff6b-4b27-87f7-c8a19a80678e",
+    "DocumentCreatedByUserGuid": "6415b8ce-8072-4bcd-8e48-9d7178b826b7",
+    "DocumentModifiedByUserGuid": "6415b8ce-8072-4bcd-8e48-9d7178b826b7",
+    "NodeIsPage": true,
+    "Perex2": "Testing perex",
+    "SomeNewKindOfField2": "Test of some kind of new field"
+  },
+
+
+
+
+
+  {
+    "$type": "DataClass",
+
+    "ClassGUID": "842d988e-ca59-4cc2-b976-000313fb03e6",
+    "ClassResourceID": null,
+    "ClassDisplayName": "UMT - Event",
+    "ClassName": "UMT.Event",
+    "ClassIsDocumentType": true,
+    "ClassIsCoupledClass": true,
+    "ClassNodeNameSource": "",
+    "ClassTableName": "UMT_Event",
+    "ClassShowAsSystemTable": false,
+    "ClassUsePublishFromTo": null,
+    "ClassShowTemplateSelection": null,
+    "ClassNodeAliasSource": null,
+    "ClassLastModified": null,
+    "ClassShowColumns": null,
+    "ClassInheritsFromClassGUID": null,
+    "ClassContactMapping": null,
+    "ClassContactOverwriteEnabled": null,
+    "ClassConnectionString": null,
+    "ClassDefaultObjectType": null,
+    "ClassIsForm": false,
+    "ClassCustomizedColumns": null,
+    "ClassCodeGenerationSettings": null,
+    "ClassIconClass": null,
+    "ClassURLPattern": null,
+    "ClassUsesPageBuilder": true,
+    "ClassHasURL": true,
+    "ClassHasMetadata": false,
+    "ClassIsPage": true,
+    "ClassHasUnmanagedDbSchema": false,
+
+    "Fields": [     
+      {
+        "ColumnType": "longtext",
+        "Column": "EventName",
+        "AllowEmpty": true,
+        "Enabled": true,
+        "Visible": true,
+        "Guid": "383fd6d3-c4f1-4ce1-8dd7-d667a89f59d2",
+        "Properties": {
+          "FieldCaption": "Name"
+        },
+        "Settings": {
+          "ControlName": "Kentico.Administration.TextArea"
+        }
+      },
+      {
+        "ColumnType": "longtext",
+        "Column": "EventDescription",
+        "AllowEmpty": true,
+        "Enabled": true,
+        "Visible": true,
+        "Guid": "4793a867-a90b-4bf3-bd71-b71ddb4bf6a5",
+        "Properties": {
+          "FieldCaption": "Description"
+        },
+        "Settings": {
+          "ControlName": "Kentico.Administration.TextArea"
+        }
+      }
+    ]
+  },
+  {
+    "$type": "TreeNode",
+    "NodeClassGuid": "8FA3E50A-B5EF-48F1-B506-FAD8F3F9E50A",
+    "NodeOwnerGuid": "6415b8ce-8072-4bcd-8e48-9d7178b826b7",
+    "NodeParentGuid": "acdd2058-bde0-4c9d-8332-45f417220571",
+    "NodeGUID": "878e309a-03f2-46b3-b56d-041d52a08cea",
+    "NodeAlias": "Events",
+    "NodeName": "events",
+    "NodeOrder": null,
+    "DocumentCulture": "en-US",
+    "DocumentName": "Events",
+    "DocumentLastPublished": "2023-01-01T00:00:00",
+    "DocumentModifiedWhen": "2023-01-01T00:00:00",
+    "DocumentCreatedWhen": "2023-01-01T00:00:00",
+    "DocumentPublishFrom": "2023-01-01T00:00:00",
+    "DocumentPublishTo": "2026-01-01T00:00:00",
+    "DocumentGUID": "1040aec8-8c49-466b-94d3-56791903311e",
+    "DocumentCreatedByUserGuid": "6415b8ce-8072-4bcd-8e48-9d7178b826b7",
+    "DocumentModifiedByUserGuid": "6415b8ce-8072-4bcd-8e48-9d7178b826b7",
+    "NodeIsPage": true
+  },
+  {
+    "$type": "TreeNode",
+    "NodeClassGuid": "842d988e-ca59-4cc2-b976-000313fb03e6",
+    "NodeOwnerGuid": "6415b8ce-8072-4bcd-8e48-9d7178b826b7",
+    "NodeParentGuid": "878e309a-03f2-46b3-b56d-041d52a08cea",
+    "NodeGUID": "f13523cc-5ad6-4f2c-a438-2f0c8295749b",
+    "NodeAlias": "summer-event",
+    "NodeName": "summer-event",
+    "NodeOrder": null,
+    "DocumentCulture": "en-US",
+    "DocumentName": "Summer event",
+    "DocumentLastPublished": "2023-01-01T00:00:00",
+    "DocumentModifiedWhen": "2023-01-01T00:00:00",
+    "DocumentCreatedWhen": "2023-01-01T00:00:00",
+    "DocumentPublishFrom": "2023-01-01T00:00:00",
+    "DocumentPublishTo": "2026-01-01T00:00:00",
+    "DocumentGUID": "291b4e22-2481-40d0-b0f0-57d5d81b728b",
+    "DocumentCreatedByUserGuid": "6415b8ce-8072-4bcd-8e48-9d7178b826b7",
+    "DocumentModifiedByUserGuid": "6415b8ce-8072-4bcd-8e48-9d7178b826b7",
+    "NodeIsPage": false,
+    "EventName": "Summer event",
+    "EventDescription": "Let us invite you to our summer event"
+  },
+
+
+
+
+
+
+  {
+    "$type": "DataClass",
+
+    "ClassGUID": "47032429-315e-4a6d-aa07-0f8898ebf8ba",
+    "ClassResourceID": null,
+    "ClassDisplayName": "UMT - Picture with description",
+    "ClassName": "UMT.PictureWithDescription",
+    "ClassIsDocumentType": true,
+    "ClassIsCoupledClass": true,
+    "ClassNodeNameSource": "",
+    "ClassTableName": "UMT_PictureWithDescription",
+    "ClassShowAsSystemTable": false,
+    "ClassUsePublishFromTo": null,
+    "ClassShowTemplateSelection": null,
+    "ClassNodeAliasSource": null,
+    "ClassLastModified": null,
+    "ClassShowColumns": null,
+    "ClassInheritsFromClassGUID": null,
+    "ClassContactMapping": null,
+    "ClassContactOverwriteEnabled": null,
+    "ClassConnectionString": null,
+    "ClassDefaultObjectType": null,
+    "ClassIsForm": false,
+    "ClassCustomizedColumns": null,
+    "ClassCodeGenerationSettings": null,
+    "ClassIconClass": null,
+    "ClassURLPattern": null,
+    "ClassUsesPageBuilder": false,
+    "ClassHasURL": false,
+    "ClassHasMetadata": false,
+    "ClassIsPage": false,
+    "ClassHasUnmanagedDbSchema": false,
+
+    "Fields": [
+      {
+        "ColumnType": "longtext",
+        "Column": "PictureUrl",
+        "AllowEmpty": true,
+        "Enabled": true,
+        "Visible": true,
+        "Guid": "49d18e55-8085-4bac-8d53-f9c2a5d8cd93",
+        "Properties": {
+          "FieldCaption": "PictureUrl"
+        },
+        "Settings": {
+          "ControlName": "Kentico.Administration.TextArea"
+        }
+      },
+      {
+        "ColumnType": "longtext",
+        "Column": "PictureDescription",
+        "AllowEmpty": true,
+        "Enabled": true,
+        "Visible": true,
+        "Guid": "7e9a591e-a20a-4b08-89e6-c56c313f667d",
+        "Properties": {
+          "FieldCaption": "PictureDescription"
+        },
+        "Settings": {
+          "ControlName": "Kentico.Administration.TextArea"
+        }
+      }
+    ]
+  },
+  {
+    "$type": "TreeNode",
+    "NodeClassGuid": "47032429-315e-4a6d-aa07-0f8898ebf8ba",
+    "NodeOwnerGuid": "6415b8ce-8072-4bcd-8e48-9d7178b826b7",
+    "NodeParentGuid": "A07FB7D8-758A-42CE-AA4D-BEFBA9F8696D",
+    "NodeGUID": "26d8531e-06ba-4561-8e9c-c3ceb647448e",
+    "NodeAlias": "my-picture",
+    "NodeName": "my-picture",
+    "NodeOrder": null,
+    "DocumentCulture": "en-US",
+    "DocumentName": "My picture",
+    "DocumentLastPublished": "2023-01-01T00:00:00",
+    "DocumentModifiedWhen": "2023-01-01T00:00:00",
+    "DocumentCreatedWhen": "2023-01-01T00:00:00",
+    "DocumentPublishFrom": "2023-01-01T00:00:00",
+    "DocumentPublishTo": "2026-01-01T00:00:00",
+    "DocumentGUID": "6d7160a3-daa7-4faa-adf4-de9057046420",
+    "DocumentCreatedByUserGuid": "6415b8ce-8072-4bcd-8e48-9d7178b826b7",
+    "DocumentModifiedByUserGuid": "6415b8ce-8072-4bcd-8e48-9d7178b826b7",
+    "NodeIsPage": false,
+    "PictureUrl": "https://localhost/mypicture",
+    "PictureDescription": "This is description of my picture"
+  },
+
+  {
+    "$type": "UserInfo",
+
+    "UserName": "frank-admin",
+    "FirstName": "Frank",
+    "LastName": "Washington",
+    "Email": "frank@mysite.localhost",
+    "UserPassword": "ABAnAAABpOUVtARNlQRP9RA9JIl+LzqhTT2ALIvb04LfquGolrto/qQ=",
+    "UserEnabled": true,
+    "UserCreated": "2023-01-01T00:00:00",
+    "UserGUID": "543EFFB0-2DE9-4CE1-A2EB-C0181D4C8DF8",
+    "UserLastModified": "2023-01-01T00:00:00",
+    "UserIsPendingRegistration": false,
+    "UserAdministrationAccess": true,
+    "UserIsExternal": false
+  },
+
+  {
+    "$type": "MediaLibrary",
+    
+    "LibraryName": "web-assets",
+    "LibraryDisplayName": "Web assets",
+    "LibraryDescription": "Library stores assets related to articles/news/events",
+    "LibraryFolder": "web-assets",
+    "LibrarySiteGUID": "7396CC88-52E4-4537-A12D-E4AD3569B341",
+    "LibraryGUID": "F356BD09-047A-4A9B-AC07-FEB5DAC6BF4E",
+    "LibraryLastModified": "2023-01-01T00:00:00",
+    "LibraryTeaserPath": null,
+    "LibraryTeaserGUID": null,
+    "LibraryUseDirectPathForContent": false
+  }
+]

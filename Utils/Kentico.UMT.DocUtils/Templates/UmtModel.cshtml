@@ -1,0 +1,74 @@
+﻿@using RazorLight
+@inherits TemplatePage<List<Kentico.Xperience.UMT.Templates.ModelClass>>
+@{
+    string FormatCode(object? value)
+    {
+        return value != null ? $"`{value}`" : "";
+    }
+}
+<!-- generated file with tool "Kentico.UMT.DocUtils" - edited through template "UmtModel.cshtml" -->
+@foreach (var (typeSymbol, name, summary, modelProperties, samples, discriminator) in Model)
+{
+    @Raw($"## {name}\r\n")
+    
+    @if (!string.IsNullOrWhiteSpace(summary))
+    {
+        @Raw($"{summary}\r\n\r\n")
+    }
+    @if (!string.IsNullOrWhiteSpace(discriminator))
+    {
+        @Raw($"Model [discriminator](../UmtModel.md#discriminator): `{discriminator}`\r\n")
+    }
+    @if (modelProperties is {Count:>0})
+    {
+        @Raw(@"
+|PropertyName|Summary|.NET Type|Notes|
+|---|---|---|---|
+")
+        @foreach (var (propName, propSummary, propType, reference, isUniqueId, validationInfo) in modelProperties)
+        {
+            var refDesc = "";
+            if (reference != null)
+            {
+                var (namedTypeSymbol, referencedPropertyName, isReferenceRequired, searchField, searchValue) = reference;
+
+                refDesc = $"Reference to [{namedTypeSymbol.Name}](../References.md#{namedTypeSymbol.Name}) on property {referencedPropertyName}";
+                if (isReferenceRequired)
+                {
+                    refDesc += " **required**";
+                }
+            }
+            var uniqueIdDesc = "";
+            if (isUniqueId)
+            {
+                uniqueIdDesc = "[UniqueId](../UmtModel.md#UniqueId)";
+            }
+            
+            @Raw($"|{propName + (validationInfo.IsRequired?"\\*":"")}|{propSummary}|{propType}|{uniqueIdDesc + refDesc}|\r\n")
+        }
+        @if (typeSymbol.BaseType?.Name == "UmtModel" && typeSymbol.Name != "DataClassModel")
+        {
+            @Raw($"|[customPropertyName]|custom property defined by created [DataClass](./DataClassModel.md)|.NET type defined by data class field||\r\n")    
+        }
+    }
+
+@Raw(@"
+<p>*) value is required</p>
+
+")
+
+    @if (samples is {Count:>0})
+    {
+        @foreach (var (header, description, sample) in samples)
+        {
+
+            @Raw($@"
+### {header}
+{description}
+```json
+{sample}
+```
+");
+        }
+    }
+}

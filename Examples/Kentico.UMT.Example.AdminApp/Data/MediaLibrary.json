@@ -1,0 +1,16 @@
+[
+  {
+    "$type": "MediaLibrary",
+
+    "LibraryName": "web-assets",
+    "LibraryDisplayName": "Web assets",
+    "LibraryDescription": "Library stores assets related to articles/news/events",
+    "LibraryFolder": "web-assets",
+    "LibrarySiteGUID": "7396CC88-52E4-4537-A12D-E4AD3569B341",
+    "LibraryGUID": "F356BD09-047A-4A9B-AC07-FEB5DAC6BF4E",
+    "LibraryLastModified": "2023-01-01T00:00:00",
+    "LibraryTeaserPath": null,
+    "LibraryTeaserGUID": null,
+    "LibraryUseDirectPathForContent": false
+  }
+]

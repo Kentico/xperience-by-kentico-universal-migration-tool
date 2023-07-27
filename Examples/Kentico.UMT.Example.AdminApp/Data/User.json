@@ -1,0 +1,18 @@
+[
+  {
+    "$type": "UserInfo",
+
+    "UserName": "frank-admin",
+    "FirstName": "Frank",
+    "LastName": "Washington",
+    "Email": "frank@mysite.localhost",
+    "UserPassword": "ABAnAAABpOUVtARNlQRP9RA9JIl+LzqhTT2ALIvb04LfquGolrto/qQ=",
+    "UserEnabled": true,
+    "UserCreated": "2023-01-01T00:00:00",
+    "UserGUID": "543EFFB0-2DE9-4CE1-A2EB-C0181D4C8DF8",
+    "UserLastModified": "2023-01-01T00:00:00",
+    "UserIsPendingRegistration": false,
+    "UserAdministrationAccess": true,
+    "UserIsExternal": false
+  }
+]

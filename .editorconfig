@@ -295,11 +295,11 @@ dotnet_diagnostic.IDE1006.severity                                        = erro
 dotnet_naming_symbols.const_field_symbols.applicable_kinds                = field
 dotnet_naming_symbols.const_field_symbols.required_modifiers              = const
 dotnet_naming_symbols.const_field_symbols.applicable_accessibilities      = *
-dotnet_naming_style.const_field_symbols.capitalization                    = pascal_case
+dotnet_naming_style.const_field_symbols.capitalization                    = all_upper
 
-dotnet_naming_rule.const_fields_must_be_pascal_case.severity              = error
-dotnet_naming_rule.const_fields_must_be_pascal_case.symbols               = const_field_symbols
-dotnet_naming_rule.const_fields_must_be_pascal_case.style                 = const_field_symbols
+dotnet_naming_rule.const_fields_must_be_all_upper.severity              = error
+dotnet_naming_rule.const_fields_must_be_all_upper.symbols               = const_field_symbols
+dotnet_naming_rule.const_fields_must_be_all_upper.style                 = const_field_symbols
 
 dotnet_naming_symbols.private_field_symbol.applicable_kinds               = field
 dotnet_naming_symbols.private_field_symbol.applicable_accessibilities     = private
