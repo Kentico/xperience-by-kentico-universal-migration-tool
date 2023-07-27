@@ -8,7 +8,7 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\..\src\Kentico.UMT\Kentico.UMT.csproj" />
+      <ProjectReference Include="..\..\src\Kentico.Xperience.UMT\Kentico.Xperience.UMT.csproj" />
     </ItemGroup>
 
 </Project>

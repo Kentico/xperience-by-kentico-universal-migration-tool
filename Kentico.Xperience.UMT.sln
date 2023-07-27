@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kentico.UMT", "src\Kentico.UMT\Kentico.UMT.csproj", "{F499DE79-C15E-4ABA-9E42-E0A243E0F598}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kentico.Xperience.UMT", "src\Kentico.Xperience.UMT\Kentico.Xperience.UMT.csproj", "{F499DE79-C15E-4ABA-9E42-E0A243E0F598}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kentico.UMT.Example.Console", "Examples\Kentico.UMT.Example.Console\Kentico.UMT.Example.Console.csproj", "{B34D5B62-F958-48E4-84A3-35343529FCF7}"
 EndProject
