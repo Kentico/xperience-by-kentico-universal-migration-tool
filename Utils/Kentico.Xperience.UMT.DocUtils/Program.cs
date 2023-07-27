@@ -15,14 +15,16 @@ using Microsoft.CodeAnalysis.MSBuild;
 using Microsoft.Extensions.DependencyInjection;
 using NJsonSchema;
 
+const string projectNameKenticoXperienceUmt = "Kentico.Xperience.UMT";
+
 string solutionFilePath;
 string targetDirectory;
 switch (args)
 {
     case [var solutionPath, var targetDir]:
     {
-        solutionFilePath = solutionPath;
-        targetDirectory = targetDir;
+        solutionFilePath = solutionPath.Trim('"');
+        targetDirectory = targetDir.Trim('"');
         break;
     }
     default:
@@ -67,44 +69,41 @@ if (sampleApp != null)
 
     string markdownFilePath = Path.Join(targetDirectory, $"Enums\\FormComponents.md");
 
-    var fc1Symbol = compilation.GetTypeByMetadataName("Kentico.Xperience.Admin.Base.Forms.FormComponent`2");
-    var fc2Symbol = compilation.GetTypeByMetadataName("Kentico.Forms.Web.Mvc.FormComponent`2");
-    var fc3Symbol = compilation.GetTypeByMetadataName("Kentico.Xperience.Admin.Base.Forms.FormComponent`3");
-    if (fc1Symbol != null && fc3Symbol != null && fc2Symbol != null)
+    string[] formComponentMetaNames = { "Kentico.Xperience.Admin.Base.Forms.FormComponent`2", "Kentico.Forms.Web.Mvc.FormComponent`2", "Kentico.Xperience.Admin.Base.Forms.FormComponent`3" };
+    var fcSymbols = formComponentMetaNames.Select(compilation.GetTypeByMetadataName);
+
+    var formComponents = new ConcurrentDictionary<IModuleSymbol, List<FormComponent>>(SymbolEqualityComparer.Default);
+    foreach (var fcSymbol in fcSymbols)
     {
-        var derived1 = (await SymbolFinder.FindDerivedClassesAsync(fc1Symbol, solution))
-            .Concat(await SymbolFinder.FindDerivedClassesAsync(fc3Symbol, solution))
-            .Concat(await SymbolFinder.FindDerivedClassesAsync(fc2Symbol, solution));
-
-        var formComponents = new ConcurrentDictionary<IModuleSymbol, List<FormComponent>>(SymbolEqualityComparer.Default);
-        foreach (var symbol in derived1)
+        if (fcSymbol != null)
         {
-            Console.WriteLine($"FormComponent: {symbol.ToDisplayString()}");
-            var list = formComponents.GetOrAdd(symbol.ContainingModule, _ => new List<FormComponent>());
-            if (symbol.GetFirstBaseType(bt => bt is { Name: "FormComponent", TypeArguments.Length: >= 2 and <= 3 }) is { TypeArguments: { Length: <= 3 and >= 2 } typeArguments })
+            var foundSymbols = await SymbolFinder.FindDerivedClassesAsync(fcSymbol, solution);
+            foreach (var symbol in foundSymbols)
             {
-                var propertiesType = typeArguments.FirstOrDefault();
-                var valueType = typeArguments.LastOrDefault();
-                var newFormComponent = new FormComponent(symbol, null, valueType, propertiesType);
-
-                foreach (var member in symbol.GetMembers())
+                Console.WriteLine($"FormComponent: {symbol.ToDisplayString()}");
+                var list = formComponents.GetOrAdd(symbol.ContainingModule, _ => new List<FormComponent>());
+                if (symbol.GetFirstBaseType(bt => bt is { Name: "FormComponent", TypeArguments.Length: >= 2 and <= 3 }) is { TypeArguments: { Length: <= 3 and >= 2 } typeArguments })
                 {
-                    if (member is IFieldSymbol { IsConst: true, Name: "IDENTIFIER" } fieldSymbol)
-                    {
-                        newFormComponent = newFormComponent with
-                        {
-                            Identifier = fieldSymbol.ConstantValue?.ToString()
-                        };
-                    }
-                }
+                    var propertiesType = typeArguments.FirstOrDefault();
+                    var valueType = typeArguments.LastOrDefault();
+                    var newFormComponent = new FormComponent(symbol, null, valueType, propertiesType);
 
-                list.Add(newFormComponent);
+                    foreach (var member in symbol.GetMembers())
+                    {
+                        if (member is IFieldSymbol { IsConst: true, Name: "IDENTIFIER" } fieldSymbol)
+                        {
+                            newFormComponent = newFormComponent with { Identifier = fieldSymbol.ConstantValue?.ToString() };
+                        }
+                    }
+
+                    list.Add(newFormComponent);
+                }
             }
         }
-
-        var fcModel = formComponents.Select(x => new FormComponentTemplateModel(x.Key, x.Value.ToArray())).ToArray();
-        await MdHelper.RenderTemplateToFile("Kentico.Xperience.UMT.DocUtils.Templates.FormComponents", fcModel, markdownFilePath);
     }
+    
+    var fcModel = formComponents.Select(x => new FormComponentTemplateModel(x.Key, x.Value.ToArray())).ToArray();
+    await MdHelper.RenderTemplateToFile("FormComponents", fcModel, markdownFilePath);
 }
 
 var schema = JsonSchema.FromType(typeof(List<UmtModel>));
@@ -112,7 +111,7 @@ var schema = JsonSchema.FromType(typeof(List<UmtModel>));
 
 var jsonSchemaModel = new UmtSchemaJsonViewModel(schema.ToJson());
 string jsonSchemaMarkdownFilePath = Path.Join(targetDirectory, $"Model\\UMT.schema.json");
-await MdHelper.RenderTemplateToFile("Kentico.Xperience.UMT.DocUtils.Templates.UMT.schema.json", jsonSchemaModel, jsonSchemaMarkdownFilePath);
+await MdHelper.RenderTemplateToFile("UMT.schema.json", jsonSchemaModel, jsonSchemaMarkdownFilePath);
 
 var classesToRenderAsDoc = new List<Type>
 {
@@ -120,17 +119,17 @@ var classesToRenderAsDoc = new List<Type>
     typeof(IImportService),
 };
 
-var umtProject = solution.Projects.FirstOrDefault(p => p.Name == "Kentico.Xperience.UMT(net6.0)");
-if (umtProject != null && await umtProject.GetCompilationAsync() is { } compilation1)
+var umtProject = solution.Projects.FirstOrDefault(p => p.Name == "Kentico.Xperience.UMT");
+if (umtProject != null && await umtProject.GetCompilationAsync() is { } umtCompilation)
 {
     foreach (var typeToRender in classesToRenderAsDoc)
     {
-        var typeSymbol = compilation1.GetTypeByMetadataName(typeToRender.FullName!);
+        var typeSymbol = umtCompilation.GetTypeByMetadataName(typeToRender.FullName!);
         var visitor = new ClassDocsVisitor();
         visitor.Visit(typeSymbol);
 
         string markdownFilePath = Path.Join(targetDirectory, $"Class\\{typeSymbol?.Name}.md");
-        await MdHelper.RenderTemplateToFile("Kentico.Xperience.UMT.DocUtils.Templates.ClassDocs", new ClassDocsViewModel(importService, new ClassViewModel(
+        await MdHelper.RenderTemplateToFile("ClassDocs", new ClassDocsViewModel(importService, new ClassViewModel(
             visitor.Class,
             visitor.Properties,
             visitor.Methods,
@@ -143,7 +142,8 @@ if (umtProject != null && await umtProject.GetCompilationAsync() is { } compilat
 foreach (var solutionProject in solution.Projects)
 {
     Console.WriteLine($"Resolving project '{solutionProject.Name}'");
-    if (solutionProject.Name == "Kentico.Xperience.UMT(net6.0)")
+    
+    if (solutionProject.Name == projectNameKenticoXperienceUmt)
     {
         var compilation = await solutionProject.GetCompilationAsync();
         if (compilation == null)
@@ -181,7 +181,7 @@ foreach (var solutionProject in solution.Projects)
 
                         string markdownFilePath = Path.Join(targetDirectory, $"Model\\{modelClass?.Name}.md");
 
-                        await MdHelper.RenderTemplateToFile("Kentico.Xperience.UMT.DocUtils.Templates.UmtModel", modelVisitor.ModelClasses, markdownFilePath);
+                        await MdHelper.RenderTemplateToFile("UmtModel", modelVisitor.ModelClasses, markdownFilePath);
                     }
                 }
             }

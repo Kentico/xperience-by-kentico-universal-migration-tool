@@ -19,9 +19,6 @@ public class UmtModelVisitor: SymbolVisitor
     public override void VisitNamedType(INamedTypeSymbol symbol)
     {
         var docsXml = symbol.GetDocumentationXml();
-        string summary = docsXml?.XPathSelectElement("//summary")?.Value.Trim() ?? "";
-        Console.WriteLine($"    Class: {symbol.Name} docs: {summary}");
-
         var sampleList = new List<SerializedSampleInfo>();
         var samples = docsXml?.XPathSelectElements("//sample") ?? new List<XElement>();
         foreach (var sample in samples)
@@ -33,7 +30,8 @@ public class UmtModelVisitor: SymbolVisitor
             }
         }
         
-        ModelClasses.Add(new ModelClass(symbol, symbol.Name, summary, new List<ModelProperty>(), sampleList));
+        var docs = new SymbolXmlDocsWrapperMarkdown(new SymbolXmlDocsWrapper(symbol));
+        ModelClasses.Add(new ModelClass(symbol, symbol.Name, docs.GetSummaryOrEmpty() ?? "", new List<ModelProperty>(), sampleList));
         
         foreach (var member in symbol.GetMembers())
         {
@@ -64,13 +62,14 @@ public class UmtModelVisitor: SymbolVisitor
 
     public override void VisitProperty(IPropertySymbol symbol)
     {
-        string summary = symbol.GetDocumentationXml()?.XPathSelectElement("//summary")?.Value.Trim() ?? "";
+        var docs = new SymbolXmlDocsWrapperMarkdown(new SymbolXmlDocsWrapper(symbol));
 
         var docRefs = symbol.GetDocumentationXml()?
             .XPathSelectElements("//docref")
             .Select(x=> new DocRef(x.Attribute("uri")?.Value, x.Attribute("header")?.Value, x.Value))
             .ToArray() ?? Array.Empty<DocRef>();
-        
+
+        string? summary = docs.GetSummaryOrEmpty();
         if (docRefs.Length > 0)
         {
             if (!string.IsNullOrWhiteSpace(summary))
@@ -106,7 +105,7 @@ public class UmtModelVisitor: SymbolVisitor
         }
 
         var modelClass = ModelClasses.FirstOrDefault(x => symbol.ContainingSymbol?.Equals(x.Symbol, SymbolEqualityComparer.Default) == true);
-        modelClass?.Properties.Add(new ModelProperty(symbol.Name, summary, new SymbolFormatter(symbol.Type).ToNiceDisplayName(), reference, isUniqueId, validationInfo));
+        modelClass?.Properties.Add(new ModelProperty(symbol.Name, summary ?? "", new SymbolFormatter(symbol.Type).ToNiceDisplayName(), reference, isUniqueId, validationInfo));
 
         if (symbol.Type is INamedTypeSymbol { TypeArguments.Length: > 0 } namedTypeSymbol)
         {

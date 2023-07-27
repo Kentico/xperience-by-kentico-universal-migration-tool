@@ -1,4 +1,4 @@
-<!-- generated file with tool "Kentico.UMT.DocUtils" - edited through template "UmtModel.cshtml" -->
+<!-- generated file with tool "Kentico.Xperience.UMT.DocUtils" - edited through template "UmtModel.cshtml" -->
 ## TreeNodeModel
 Model [discriminator](../UmtModel.md#discriminator): `TreeNode`
 
@@ -17,8 +17,7 @@ Model [discriminator](../UmtModel.md#discriminator): `TreeNode`
 |DocumentModifiedWhen|document last modification date - defaults to null|System.DateTime?||
 |DocumentCreatedWhen|document creation date - defaults to current server time|System.DateTime?||
 |DocumentPublishFrom|planned publication date, document will/was accessible to public from this date|System.DateTime?||
-|DocumentPublishTo|planned publication date, document will/was accessible to public until this date
-    nullish value is DateTime.MaxDate - XbyK API considers NULL and DataTime.MaxDate same for this field|System.DateTime?||
+|DocumentPublishTo|planned publication date, document will/was accessible to public until this date<br/>    nullish value is DateTime.MaxDate - XbyK API considers NULL and DataTime.MaxDate same for this field|System.DateTime?||
 |DocumentGUID\*|UniqueId of TreeNodeModel, unique for each combination of DocumentCulture, NodeGuid, NodeSiteID|System.Guid?|[UniqueId](../UmtModel.md#UniqueId)|
 |DocumentCreatedByUserGuid\*|UniqueId of user that created document|System.Guid?|Reference to [UserInfo](../References.md#UserInfo) on property DocumentCreatedByUserID **required**|
 |DocumentModifiedByUserGuid|UniqueId of user that modified document, can be set to null|System.Guid?|Reference to [UserInfo](../References.md#UserInfo) on property DocumentModifiedByUserID|

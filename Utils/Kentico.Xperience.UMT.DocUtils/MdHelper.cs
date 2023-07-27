@@ -12,7 +12,7 @@ public static class MdHelper
     {
         var builder = new RazorLightEngineBuilder()
             .EnableDebugMode()
-            .UseEmbeddedResourcesProject(typeof(Program).Assembly)
+            .UseEmbeddedResourcesProject(typeof(MdHelper).Assembly, "Kentico.Xperience.UMT.Templates")
             .UseMemoryCachingProvider();
     
         Engine = builder
@@ -21,10 +21,23 @@ public static class MdHelper
     
     public static async Task<string> RenderTemplate<TModel>(string templateKey, TModel model)
     {
-        var templateTask = templates.GetOrAdd(templateKey, (tk) => Engine.CompileTemplateAsync(templateKey));
-        var template = await templateTask;
+        try
+        {
+            var templateTask = templates.GetOrAdd(templateKey, (tk) => Engine.CompileTemplateAsync(templateKey));
+            var template = await templateTask;
 
-        return await Engine.RenderTemplateAsync(template, model);
+            return await Engine.RenderTemplateAsync(template, model);
+        }
+        catch (TemplateNotFoundException tex)
+        {
+            Console.WriteLine($"Template key '{templateKey}' not found, existing:");
+            foreach (string? existingTemplateKey in tex.KnownProjectTemplateKeys)
+            {
+                Console.WriteLine($"  {existingTemplateKey}");
+            }
+
+            throw;
+        }
     }
 
     public static async Task RenderTemplateToFile<TModel>(string templateKey, TModel model, string filePath)

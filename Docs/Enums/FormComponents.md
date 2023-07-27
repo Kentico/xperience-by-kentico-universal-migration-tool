@@ -1,4 +1,4 @@
-<!-- generated file with tool "Kentico.UMT.DocUtils" - edited through template "FormComponents.cshtml" -->
+<!-- generated file with tool "Kentico.Xperience.UMT.DocUtils" - edited through template "FormComponents.cshtml" -->
 # Form components
 <div name="generatedpart_Kentico.Content.Web.Mvc.dll">
 

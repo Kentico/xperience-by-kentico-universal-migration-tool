@@ -4,10 +4,10 @@
         <OutputType>Exe</OutputType>
         <TargetFramework>net6.0</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
-        <Nullable>enable</Nullable>
-        <PreserveCompilationContext>true</PreserveCompilationContext>
+        <Nullable>enable</Nullable>        
         <LangVersion>latest</LangVersion>
         <AssemblyName>Kentico.Xperience.UMT.DocUtils</AssemblyName>
+        <PreserveCompilationContext>true</PreserveCompilationContext>
     </PropertyGroup>
 
     <ItemGroup>
@@ -24,9 +24,7 @@
 
 
     <ItemGroup>
-      <EmbeddedResource Include="Templates\UmtModel.cshtml" />
-      <None Remove="Templates\UmtModel.hbs" />
-      <None Remove="Templates\FormComponents.hbs" />
+      <EmbeddedResource Include="Templates\UmtModel.cshtml" />      
       <None Remove="Templates\FormComponents.cshtml" />
       <EmbeddedResource Include="Templates\FormComponents.cshtml" />
       <None Remove="Templates\UMT.schema.json.cshtml" />
@@ -37,7 +35,7 @@
 
 
     <ItemGroup>
-      <ProjectReference Include="..\..\Examples\Kentico.UMT.Examples\Kentico.UMT.Examples.csproj" />
+      <ProjectReference Include="..\..\Examples\Kentico.Xperience.UMT.Examples\Kentico.Xperience.UMT.Examples.csproj" />
       <ProjectReference Include="..\..\src\Kentico.Xperience.UMT\Kentico.Xperience.UMT.csproj" />
     </ItemGroup>
 

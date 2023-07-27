@@ -1,4 +1,5 @@
-﻿@using RazorLight
+﻿@using Kentico.Xperience.UMT.Helpers
+@using RazorLight
 @inherits TemplatePage<List<Kentico.Xperience.UMT.Templates.ModelClass>>
 @{
     string FormatCode(object? value)
@@ -31,7 +32,7 @@
             if (reference != null)
             {
                 var (namedTypeSymbol, referencedPropertyName, isReferenceRequired, searchField, searchValue) = reference;
-
+                
                 refDesc = $"Reference to [{namedTypeSymbol.Name}](../References.md#{namedTypeSymbol.Name}) on property {referencedPropertyName}";
                 if (isReferenceRequired)
                 {

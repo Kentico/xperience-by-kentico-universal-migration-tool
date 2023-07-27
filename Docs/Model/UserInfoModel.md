@@ -1,4 +1,4 @@
-<!-- generated file with tool "Kentico.UMT.DocUtils" - edited through template "UmtModel.cshtml" -->
+<!-- generated file with tool "Kentico.Xperience.UMT.DocUtils" - edited through template "UmtModel.cshtml" -->
 ## UserInfoModel
 Model represents XbyK UserInfo
 

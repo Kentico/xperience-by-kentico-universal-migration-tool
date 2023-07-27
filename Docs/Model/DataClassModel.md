@@ -1,13 +1,12 @@
-<!-- generated file with tool "Kentico.UMT.DocUtils" - edited through template "UmtModel.cshtml" -->
+<!-- generated file with tool "Kentico.Xperience.UMT.DocUtils" - edited through template "UmtModel.cshtml" -->
 ## DataClassModel
 Model represents XbyK DataClassInfo
 
-Model [discriminator](../UmtModel.md#discriminator): `DataClass`
 
 |PropertyName|Summary|.NET Type|Notes|
 |---|---|---|---|
 |ClassDisplayName\*|Friendly name for class|string?||
-|ClassName\*|Class unique codename|string?||
+|ClassName\*|Class unique codename|string||
 |ClassIsDocumentType\*|If data class represents Page/TreeNode set to true, otherwise false|bool?||
 |ClassIsCoupledClass\*|if DataClass contains custom data this will be true, if not set to false|bool?||
 |ClassNodeNameSource\*|Source field name for node name, this has impact on generated URL of page|string?||
@@ -17,26 +16,26 @@ Model [discriminator](../UmtModel.md#discriminator): `DataClass`
 |ClassShowTemplateSelection||bool?||
 |ClassNodeAliasSource\*|Defines property that will XbyK API use for Page Alias|string?||
 |ClassLastModified|last modification performed through API / UI|System.DateTime?||
-|ClassGUID|UniqueId of DataClass|System.Guid|[UniqueId](../UmtModel.md#UniqueId)|
+|ClassGuid|UniqueId of DataClass|System.Guid|[UniqueId](../UmtModel.md#UniqueId)|
 |ClassShowColumns||string?||
-|ClassInheritsFromClassGUID|in case of inheritance set parent class GUID|System.Guid?|Reference to [DataClassInfo](../References.md#DataClassInfo) on property ClassInheritsFromClassID|
+|ClassInheritsFromClassGuid|in case of inheritance set parent class GUID|System.Guid?|Reference to [DataClassInfo](../References.md#DataClassInfo) on property ClassInheritsFromClassID|
 |ClassContactMapping||string?||
 |ClassContactOverwriteEnabled||bool?||
 |ClassConnectionString||string?||
 |ClassDefaultObjectType||string?||
 |ClassIsForm||bool?||
-|ClassResourceGUID|Relation to CMS Resource (Custom module), set if dataclass is part custom module|System.Guid?|Reference to [ResourceInfo](../References.md#ResourceInfo) on property ClassResourceID|
+|ClassResourceGuid|Relation to CMS Resource (Custom module), set if dataclass is part custom module|System.Guid?|Reference to [ResourceInfo](../References.md#ResourceInfo) on property ClassResourceID|
 |ClassCustomizedColumns||string?||
 |ClassCodeGenerationSettings||string?||
 |ClassIconClass||string?||
-|ClassURLPattern||string?||
+|ClassUrlPattern||string?||
 |ClassUsesPageBuilder\*|Page Builder feature, if enabled ClassHasURL is required too|bool?||
-|ClassHasURL\*||bool?||
+|ClassHasUrl\*||bool?||
 |ClassHasMetadata\*||bool?||
 |ClassIsPage|If true, DataClass represents Page/TreeNode|bool?||
 |ClassHasUnmanagedDbSchema\*|only if consumer wishes to manage SQL table manually|bool?||
 |ClassPrimaryKeyName\*|primary key name in database table|string?||
-|Fields|custom data fields for DataClass|Kentico.UMT.Model.FormField[]||
+|Fields|custom data fields for DataClass|Kentico.Xperience.UMT.Model.FormField[]||
 
 <p>*) value is required</p>
 
@@ -54,10 +53,10 @@ This sample describes how to create class inside XbyK to hold Article data
   "ClassTableName": "UMT_Article",
   "ClassShowAsSystemTable": false,
   "ClassNodeAliasSource": "ArticleTitle",
-  "ClassGUID": "2cb15794-9ab1-450f-b69b-ebdee1f5b5fe",
+  "ClassGuid": "2cb15794-9ab1-450f-b69b-ebdee1f5b5fe",
   "ClassIsForm": false,
   "ClassUsesPageBuilder": true,
-  "ClassHasURL": true,
+  "ClassHasUrl": true,
   "ClassHasMetadata": true,
   "ClassIsPage": true,
   "ClassHasUnmanagedDbSchema": false,
@@ -110,10 +109,10 @@ This sample describes how to create class inside XbyK to hold Article data
   "ClassTableName": "UMT_Event",
   "ClassShowAsSystemTable": false,
   "ClassNodeAliasSource": "EventTitle",
-  "ClassGUID": "3d36917e-de3e-4db3-9d71-7961d250085d",
+  "ClassGuid": "3d36917e-de3e-4db3-9d71-7961d250085d",
   "ClassIsForm": false,
   "ClassUsesPageBuilder": true,
-  "ClassHasURL": true,
+  "ClassHasUrl": true,
   "ClassHasMetadata": true,
   "ClassIsPage": true,
   "ClassHasUnmanagedDbSchema": false,
@@ -195,8 +194,8 @@ Represents information about custom data field
 |Enabled||bool||
 |Guid\*|Unique identification of field|System.Guid?||
 |Visible|Field visibility in administration form|bool||
-|Properties|[definition](#FormFieldProperties)|Kentico.UMT.Model.FormFieldProperties||
-|Settings|[definition](#FormFieldSettings)|Kentico.UMT.Model.FormFieldSettings||
+|Properties|[definition](#FormFieldProperties)|Kentico.Xperience.UMT.Model.FormFieldProperties||
+|Settings|[definition](#FormFieldSettings)|Kentico.Xperience.UMT.Model.FormFieldSettings||
 
 <p>*) value is required</p>
 
@@ -206,7 +205,7 @@ additional form field properties, they may differ by property type
 
 |PropertyName|Summary|.NET Type|Notes|
 |---|---|---|---|
-|FieldCaption|Friendly name displayed in form|string||
+|FieldCaption|Friendly name displayed in form|string?||
 
 <p>*) value is required</p>
 
@@ -216,7 +215,7 @@ settings related to form field
 
 |PropertyName|Summary|.NET Type|Notes|
 |---|---|---|---|
-|ControlName|Admin UI Component used for field data editing [(for pages use enumeration here)](../Enums/FormComponents.md#module-kenticoxperienceadminbasedll.md)|string||
+|ControlName|Admin UI Component used for field data editing [(for pages use enumeration here)](../Enums/FormComponents.md#module-kenticoxperienceadminbasedll.md)|string?||
 
 <p>*) value is required</p>
 

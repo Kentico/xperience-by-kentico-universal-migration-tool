@@ -18,7 +18,7 @@
         ]
       },
       "properties": {
-        "_CustomProperties": {
+        "CustomProperties": {
           "type": "object",
           "additionalProperties": {}
         }
@@ -192,7 +192,7 @@
             "ClassTableName",
             "ClassNodeAliasSource",
             "ClassUsesPageBuilder",
-            "ClassHasURL",
+            "ClassHasUrl",
             "ClassHasMetadata",
             "ClassHasUnmanagedDbSchema",
             "ClassPrimaryKeyName"
@@ -258,7 +258,7 @@
               "description": "last modification performed through API / UI",
               "format": "date-time"
             },
-            "ClassGUID": {
+            "ClassGuid": {
               "type": "string",
               "description": "UniqueId of DataClass",
               "format": "guid"
@@ -269,7 +269,7 @@
                 "string"
               ]
             },
-            "ClassInheritsFromClassGUID": {
+            "ClassInheritsFromClassGuid": {
               "type": [
                 "null",
                 "string"
@@ -307,7 +307,7 @@
                 "null"
               ]
             },
-            "ClassResourceGUID": {
+            "ClassResourceGuid": {
               "type": [
                 "null",
                 "string"
@@ -333,7 +333,7 @@
                 "string"
               ]
             },
-            "ClassURLPattern": {
+            "ClassUrlPattern": {
               "type": [
                 "null",
                 "string"
@@ -343,7 +343,7 @@
               "type": "boolean",
               "description": "Page Builder feature, if enabled ClassHasURL is required too"
             },
-            "ClassHasURL": {
+            "ClassHasUrl": {
               "type": "boolean"
             },
             "ClassHasMetadata": {
@@ -432,7 +432,10 @@
       "additionalProperties": false,
       "properties": {
         "FieldCaption": {
-          "type": "string",
+          "type": [
+            "null",
+            "string"
+          ],
           "description": "Friendly name displayed in form"
         }
       }
@@ -443,7 +446,10 @@
       "additionalProperties": false,
       "properties": {
         "ControlName": {
-          "type": "string",
+          "type": [
+            "null",
+            "string"
+          ],
           "description": "Admin UI Component used for field data editing"
         }
       }
