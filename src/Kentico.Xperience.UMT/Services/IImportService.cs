@@ -22,6 +22,13 @@ public interface IImportService
     /// <param name="options"></param>
     /// <returns></returns>
     string SerializeToJson(UmtModel model, JsonSerializerOptions? options = null);
+
+    /// <summary>
+    /// Serializes umt model to JSON
+    /// </summary>
+    /// <param name="model"></param>
+    /// <param name="options"></param>
+    string SerializeToJson(UmtModel[] model, JsonSerializerOptions? options = null);
     
     /// <summary>
     /// Reads json from stream and returns enumerable of UmtModel

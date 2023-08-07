@@ -28,9 +28,9 @@ Model represents XbyK DataClassInfo
 |ClassCustomizedColumns||string?||
 |ClassCodeGenerationSettings||string?||
 |ClassIconClass||string?||
-|ClassUrlPattern||string?||
+|ClassURLPattern||string?||
 |ClassUsesPageBuilder\*|Page Builder feature, if enabled ClassHasURL is required too|bool?||
-|ClassHasUrl\*||bool?||
+|ClassHasURL\*||bool?||
 |ClassHasMetadata\*||bool?||
 |ClassIsPage|If true, DataClass represents Page/TreeNode|bool?||
 |ClassHasUnmanagedDbSchema\*|only if consumer wishes to manage SQL table manually|bool?||
@@ -56,7 +56,7 @@ This sample describes how to create class inside XbyK to hold Article data
   "ClassGuid": "2cb15794-9ab1-450f-b69b-ebdee1f5b5fe",
   "ClassIsForm": false,
   "ClassUsesPageBuilder": true,
-  "ClassHasUrl": true,
+  "ClassHasURL": true,
   "ClassHasMetadata": true,
   "ClassIsPage": true,
   "ClassHasUnmanagedDbSchema": false,
@@ -112,7 +112,7 @@ This sample describes how to create class inside XbyK to hold Article data
   "ClassGuid": "3d36917e-de3e-4db3-9d71-7961d250085d",
   "ClassIsForm": false,
   "ClassUsesPageBuilder": true,
-  "ClassHasUrl": true,
+  "ClassHasURL": true,
   "ClassHasMetadata": true,
   "ClassIsPage": true,
   "ClassHasUnmanagedDbSchema": false,

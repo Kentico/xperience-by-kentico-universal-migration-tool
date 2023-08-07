@@ -1,4 +1,5 @@
 ﻿using System.Collections.Concurrent;
+using System.Reflection;
 using RazorLight;
 
 namespace Kentico.Xperience.UMT;
@@ -49,5 +50,24 @@ public static class MdHelper
 
         Directory.CreateDirectory(Path.GetDirectoryName(filePath) ?? throw new InvalidOperationException("No directory name"));
         await File.WriteAllTextAsync(filePath, renderResult);
+    }
+
+    public static string? LocateRepositoryRoot()
+    {
+        if (Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) is { } assemblyPath && Path.GetDirectoryName(assemblyPath) is { } assemblyDir)
+        {
+            string[] split = assemblyDir.Split(Path.DirectorySeparatorChar);
+
+            for (int i = split.Length; i > 1; i--)
+            {
+                string current = string.Join(Path.DirectorySeparatorChar, split.Take(i).Concat(new[] { ".git" }));
+                if (Directory.Exists(current))
+                {
+                    return string.Join(Path.DirectorySeparatorChar, split.Take(i));
+                }
+            }
+        }
+
+        return null;
     }
 }

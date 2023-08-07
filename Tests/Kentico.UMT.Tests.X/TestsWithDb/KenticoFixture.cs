@@ -1,9 +1,11 @@
 ﻿using CMS.Core;
 using CMS.DataEngine;
+using Kentico.Xperience.UMT.ProviderProxy;
 using Kentico.Xperience.UMT.Services.Model;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Configuration.Memory;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.DependencyInjection.Extensions;
 using Microsoft.Extensions.Logging;
 
 namespace Kentico.Xperience.UMT;
@@ -24,7 +26,7 @@ public sealed class KenticoFixture : IDisposable
     {
         var root = new ConfigurationRoot(new List<IConfigurationProvider>(new[] { new MemoryConfigurationProvider(new MemoryConfigurationSource()) }));
         root[ConfigurationPath.Combine("ConnectionStrings", "CMSConnectionString")] =
-            "Data Source=.;Initial Catalog=Kentico14_CLI_26_03_01;Integrated Security=True;Persist Security Info=False;Connect Timeout=60;Encrypt=False;Current Language=English;";
+            "Data Source=.;Initial Catalog=Kentico14_CLI_26_04_00;Integrated Security=True;Persist Security Info=False;Connect Timeout=60;Encrypt=False;Current Language=English;";
         Service.Use<IConfiguration>(root);
         CMSApplication.Init();
     }
@@ -70,6 +72,22 @@ public sealed class KenticoFixture : IDisposable
         services.AddLogging(b => b.AddDebug());
         services.AddUniversalMigrationToolkit();
         return services.BuildServiceProvider();
+    }
+    
+    public static ServiceCollection FakeDiContainer(ProviderProxyContext fakedContext)
+    {
+        var services = new ServiceCollection();
+        services.AddUniversalMigrationToolkit();
+        services.AddLogging(b => b.AddDebug());
+        services.Replace(ServiceDescriptor.Transient<IProviderProxyFactory>(s => new FakeProviderProxyFactory(fakedContext)));
+        
+        var root = new ConfigurationRoot(new List<IConfigurationProvider>(new[] { new MemoryConfigurationProvider(new MemoryConfigurationSource()) }));
+        root[ConfigurationPath.Combine("ConnectionStrings", "CMSConnectionString")] =
+            "Data Source=.;Initial Catalog=Kentico14_CLI_26_04_00;Integrated Security=True;Persist Security Info=False;Connect Timeout=60;Encrypt=False;Current Language=English;";
+        Service.Use<IConfiguration>(root);
+        CMSApplication.Init();
+        
+        return services;
     }
 }
 

@@ -2,6 +2,7 @@
 using System.Runtime.CompilerServices;
 using System.Text.Json;
 using CMS.DataEngine;
+using CMS.DocumentEngine;
 using Kentico.Xperience.UMT.Attributes;
 using Kentico.Xperience.UMT.Model;
 using Kentico.Xperience.UMT.ProviderProxy;
@@ -31,15 +32,19 @@ internal class GenericInfoAdapter<TTargetInfo> : IInfoAdapter<TTargetInfo, IUmtM
 {
     private readonly ILogger<GenericInfoAdapter<TTargetInfo>> logger;
     private readonly UmtModelService modelService;
+    private readonly IProviderProxyFactory providerProxyFactory;
 
     public IProviderProxy ProviderProxy { get; }
 
-    internal GenericInfoAdapter(ILogger<GenericInfoAdapter<TTargetInfo>> logger, UmtModelService modelService, IProviderProxy providerProxy)
+    internal GenericInfoAdapter(ILogger<GenericInfoAdapter<TTargetInfo>> logger, UmtModelService modelService, IProviderProxy providerProxy, IProviderProxyFactory providerProxyFactory)
     {
         this.logger = logger;
         this.modelService = modelService;
+        this.providerProxyFactory = providerProxyFactory;
         ProviderProxy = providerProxy;
     }
+
+    protected virtual TTargetInfo ObjectFactory(UmtModelInfo umtModelInfo, IUmtModel umtModel) => new();
 
     public virtual TTargetInfo Adapt(IUmtModel input)
     {
@@ -70,7 +75,7 @@ internal class GenericInfoAdapter<TTargetInfo> : IInfoAdapter<TTargetInfo, IUmtM
             }
             else
             {
-                current = new();
+                current = ObjectFactory(model, input);
                 current.SetValue(current.TypeInfo.GUIDColumn, objectGuid);
                 logger.LogTrace("Info {Guid} created", objectGuid);
             }
@@ -78,7 +83,7 @@ internal class GenericInfoAdapter<TTargetInfo> : IInfoAdapter<TTargetInfo, IUmtM
         else
         {
             // no strategy for getting existing object
-            current = new();
+            current = ObjectFactory(model, input);
             logger.LogTrace("Info created, no strategy used for selecting existing object");
         }
 
@@ -92,7 +97,7 @@ internal class GenericInfoAdapter<TTargetInfo> : IInfoAdapter<TTargetInfo, IUmtM
             object? refObject = referenceProperty.Property?.GetValue(input);
             if (refObject is Guid foreignObjectGuid)
             {
-                var providerProxy = ProviderProxyFactory.CreateProviderProxy(referenceProperty.ReferencedInfoType, ProviderProxy.Context);
+                var providerProxy = providerProxyFactory.CreateProviderProxy(referenceProperty.ReferencedInfoType, ProviderProxy.Context);
                 var foreign = referenceProperty.SearchedField == null
                     ? providerProxy.GetBaseInfoByGuid(foreignObjectGuid)
                     : providerProxy.GetBaseInfoBy(foreignObjectGuid, referenceProperty.SearchedField);

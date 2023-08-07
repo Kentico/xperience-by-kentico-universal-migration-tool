@@ -10,6 +10,14 @@ Parameters
 |---|---|---|
 |model|Kentico.Xperience.UMT.Model.UmtModel|
 |options|System.Text.Json.JsonSerializerOptions?|
+### SerializeToJson
+`Kentico.Xperience.UMT.Services.IImportService.SerializeToJson(Kentico.Xperience.UMT.Model.UmtModel[], System.Text.Json.JsonSerializerOptions?)`  
+Serializes umt model to JSON  
+Parameters
+|Name|Type|Summary|
+|---|---|---|
+|model|Kentico.Xperience.UMT.Model.UmtModel[]|
+|options|System.Text.Json.JsonSerializerOptions?|
 ### FromJsonStream
 `Kentico.Xperience.UMT.Services.IImportService.FromJsonStream(System.IO.Stream)`  
 Reads json from stream and returns enumerable of UmtModel  

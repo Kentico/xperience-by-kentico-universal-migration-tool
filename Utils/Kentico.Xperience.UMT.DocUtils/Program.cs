@@ -19,6 +19,7 @@ const string projectNameKenticoXperienceUmt = "Kentico.Xperience.UMT";
 
 string solutionFilePath;
 string targetDirectory;
+
 switch (args)
 {
     case [var solutionPath, var targetDir]:
@@ -29,6 +30,17 @@ switch (args)
     }
     default:
     {
+        if (MdHelper.LocateRepositoryRoot() is { } repoRoot)
+        {
+            string[] solutionFiles = Directory.GetFiles(repoRoot, "*.sln");
+            if (solutionFiles.FirstOrDefault() is { } sln && sln.Contains("Kentico.Xperience.UMT", StringComparison.OrdinalIgnoreCase))
+            {
+                solutionFilePath = sln;
+                targetDirectory = Path.Combine(repoRoot, "Docs");
+                break;
+            }
+        }
+      
         throw new InvalidOperationException($"Incorrect number of parameters. Specify solution path as first argument and target documentation directory as second");
     }
 }

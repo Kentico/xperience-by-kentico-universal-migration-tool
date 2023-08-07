@@ -14,7 +14,7 @@ public static class UserSamples
         LastName = "The admin",
         UserCreated = new DateTime(1990, 01, 01),
         UserEnabled = true,
-        UserPassword = "",
+        UserPassword = "[sample hash]",
         UserName = "fradmin",
         UserAdministrationAccess = true,
         UserIsPendingRegistration = false,

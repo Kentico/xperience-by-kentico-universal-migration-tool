@@ -11,7 +11,7 @@ internal class DataClassAdapter: GenericInfoAdapter<DataClassInfo>
 {
     private const string CONTROL_NAME = "controlname";
 
-    internal DataClassAdapter(ILogger<DataClassAdapter> logger, UmtModelService modelService, IProviderProxy providerProxy) : base(logger, modelService, providerProxy)
+    internal DataClassAdapter(ILogger<DataClassAdapter> logger, UmtModelService modelService, IProviderProxy providerProxy, IProviderProxyFactory providerProxyFactory) : base(logger, modelService, providerProxy, providerProxyFactory)
     {
     }
 

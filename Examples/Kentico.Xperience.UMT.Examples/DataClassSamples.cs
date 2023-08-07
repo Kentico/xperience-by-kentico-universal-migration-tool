@@ -16,7 +16,7 @@ public static class DataClassSamples
         ClassNodeNameSource = "ArticleTitle",
         ClassNodeAliasSource = "ArticleTitle",
         ClassUsesPageBuilder = true,
-        ClassHasUrl = true, // Cannot set info object, domain validation failed (Field name: ClassHasURL): Page Builder can only be used together with the URL feature.
+        ClassHasURL = true, // Cannot set info object, domain validation failed (Field name: ClassHasURL): Page Builder can only be used together with the URL feature.
         ClassHasMetadata = true,
         ClassHasUnmanagedDbSchema = false,
         Fields = new List<FormField>
@@ -72,7 +72,7 @@ public static class DataClassSamples
         ClassNodeAliasSource = "EventTitle",
         ClassNodeNameSource = "EventTitle",
         ClassUsesPageBuilder = true,
-        ClassHasUrl = true, // Cannot set info object, domain validation failed (Field name: ClassHasURL): Page Builder can only be used together with the URL feature.
+        ClassHasURL = true, // Cannot set info object, domain validation failed (Field name: ClassHasURL): Page Builder can only be used together with the URL feature.
         ClassHasMetadata = true,
         ClassHasUnmanagedDbSchema = false,
         Fields = new List<FormField>

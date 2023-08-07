@@ -4,6 +4,7 @@ using CMS.DataEngine;
 using CMS.Modules;
 using Kentico.Xperience.UMT.Attributes;
 using Kentico.Xperience.UMT.Services.Validation;
+// ReSharper disable InconsistentNaming
 
 namespace Kentico.Xperience.UMT.Model;
 
@@ -125,7 +126,7 @@ public class DataClassModel: UmtModel
     [Map]
     public string?          ClassIconClass                { get; set; } = null;
     [Map]
-    public string?          ClassUrlPattern               { get; set; }
+    public string?          ClassURLPattern               { get; set; }
     /// <summary>
     /// Page Builder feature, if enabled ClassHasURL is required too
     /// </summary>
@@ -135,7 +136,7 @@ public class DataClassModel: UmtModel
     
     [Map]
     [Required]
-    public bool?            ClassHasUrl                   { get; set; }
+    public bool?            ClassHasURL                   { get; set; }
     
     /// <summary>
     /// 

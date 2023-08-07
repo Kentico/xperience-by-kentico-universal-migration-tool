@@ -1,4 +1,5 @@
 ﻿using Kentico.Xperience.UMT.InfoAdapter;
+using Kentico.Xperience.UMT.ProviderProxy;
 using Kentico.Xperience.UMT.Services;
 using Kentico.Xperience.UMT.Services.Model;
 using Microsoft.Extensions.DependencyInjection;
@@ -39,6 +40,7 @@ public static class ServiceCollectionExtensions
     private static void RegisterServices(IServiceCollection services)
     {
         services.AddTransient<IImportService, ImportService>();
+        services.AddSingleton<IProviderProxyFactory, ProviderProxyFactory>();
         services.AddSingleton<AdapterFactory>();
         services.AddSingleton<UmtModelService>(s => new UmtModelService(new[] { typeof(ServiceCollectionExtensions).Assembly }));
     }

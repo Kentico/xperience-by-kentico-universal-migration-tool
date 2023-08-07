@@ -2,13 +2,22 @@
   "version": 1,
   "dependencies": {
     "net7.0": {
+      "FluentAssertions": {
+        "type": "Direct",
+        "requested": "[6.11.0, )",
+        "resolved": "6.11.0",
+        "contentHash": "aBaagwdNtVKkug1F3imGXUlmoBd8ZUZX8oQ5niThaJhF79SpESe1Gzq7OFuZkQdKD5Pa4Mone+jrbas873AT4g==",
+        "dependencies": {
+          "System.Configuration.ConfigurationManager": "4.4.0"
+        }
+      },
       "Kentico.Xperience.Libraries.Tests": {
         "type": "Direct",
-        "requested": "[13.0.114, )",
-        "resolved": "13.0.114",
-        "contentHash": "oLA9WZa6MUdcAg8ezfp/YYa53Zo6EBGYREOct9oBvKnjOo33TnmWg5p64ndsErafQGiCcGqdlzmoYqgL4nzIvw==",
+        "requested": "[13.0.118, )",
+        "resolved": "13.0.118",
+        "contentHash": "Zoa17xRcsOdmS98GjEmdXFpuN9gLnLUXdNk5m+3cC25LSHs7oAtQi1aF+omt7LtlWzYEJ2a0ZBigDmrgGeINsg==",
         "dependencies": {
-          "Kentico.Xperience.Libraries": "[13.0.114]",
+          "Kentico.Xperience.Libraries": "[13.0.118]",
           "NUnit": "3.12.0",
           "Newtonsoft.Json": "13.0.3",
           "System.CodeDom": "4.5.0",
@@ -23,6 +32,22 @@
         "requested": "[6.0.0, )",
         "resolved": "6.0.0",
         "contentHash": "UcSjPsst+DfAdJGVDsu346FX0ci0ah+lw3WRtn18NUwEqRt70HaOQ7lI72vy3+1LxtqI3T5GWwV39rQSrCzAeg=="
+      },
+      "Microsoft.NET.Test.Sdk": {
+        "type": "Direct",
+        "requested": "[17.7.0, )",
+        "resolved": "17.7.0",
+        "contentHash": "sEhKSZqPYWCLbOvdwG1g0hW0FHzm8P+1T7e/WpueaKXDbeKm6NkWCdN/wYmowyExtOgcxEZQs0pKGZHQPTIc1Q==",
+        "dependencies": {
+          "Microsoft.CodeCoverage": "17.7.0",
+          "Microsoft.TestPlatform.TestHost": "17.7.0"
+        }
+      },
+      "NUnit3TestAdapter": {
+        "type": "Direct",
+        "requested": "[4.5.0, )",
+        "resolved": "4.5.0",
+        "contentHash": "s8JpqTe9bI2f49Pfr3dFRfoVSuFQyraTj68c3XXjIS/MRGvvkLnrg6RLqnTjdShX+AdFUCCU/4Xex58AdUfs6A=="
       },
       "SonarAnalyzer.CSharp": {
         "type": "Direct",
@@ -85,8 +110,8 @@
       },
       "Kentico.Xperience.Libraries": {
         "type": "Transitive",
-        "resolved": "13.0.114",
-        "contentHash": "Qvx7xC6XhAgGsfKCj+k6xBA2ZVDtIINJYPUWsY9X0Rl5mxPfEmhJCOZOgxJ+iTrOJpSpt7bxGGuESEt6QMXJ3w==",
+        "resolved": "13.0.118",
+        "contentHash": "zGboIOa17LiIOePxvavZgr9pww53aBqAcp6D5UDQPXpqmStDBP7xxJ5J6VhrqDKultlb3E3OS1p8YVB/qaaVxQ==",
         "dependencies": {
           "AWSSDK.Core": "3.5.1.13",
           "AWSSDK.S3": "3.5.1.4",
@@ -287,6 +312,11 @@
           "System.Runtime.Serialization.Primitives": "4.1.1",
           "System.Threading.Thread": "4.0.0"
         }
+      },
+      "Microsoft.CodeCoverage": {
+        "type": "Transitive",
+        "resolved": "17.7.0",
+        "contentHash": "oBZHjl2Y10ERfZUjQf9IPxqDBghKm7/V3naA+mgIK5y+dtcJyPw7Px530jTFoWQTryzgxVGPSdf9wvEJ+K7Zgw=="
       },
       "Microsoft.CSharp": {
         "type": "Transitive",
@@ -500,6 +530,24 @@
           "System.Threading.ThreadPool": "4.3.0"
         }
       },
+      "Microsoft.TestPlatform.ObjectModel": {
+        "type": "Transitive",
+        "resolved": "17.7.0",
+        "contentHash": "wHzM3AM5K0XZQIh+E+/qM3EvDWxZh984LPQGOe4oVOo4/OWZe9rAMzX9+Ws6NwKoaaUyXHXIx+7QW3BINQ7hUQ==",
+        "dependencies": {
+          "NuGet.Frameworks": "6.5.0",
+          "System.Reflection.Metadata": "1.6.0"
+        }
+      },
+      "Microsoft.TestPlatform.TestHost": {
+        "type": "Transitive",
+        "resolved": "17.7.0",
+        "contentHash": "UUTU0zo9kirI/MObGuaeG/8VfgJEBkW/+laGflgWWWgehKgfOyZOXNUjEa4AXV/f9rorOh9Jvw6ZPVFpXclfug==",
+        "dependencies": {
+          "Microsoft.TestPlatform.ObjectModel": "17.7.0",
+          "Newtonsoft.Json": "13.0.1"
+        }
+      },
       "Microsoft.Win32.Primitives": {
         "type": "Transitive",
         "resolved": "4.3.0",
@@ -585,8 +633,8 @@
       },
       "NuGet.Frameworks": {
         "type": "Transitive",
-        "resolved": "5.3.1",
-        "contentHash": "K+48whT18GCxeDBlawMddXLBJLyl/hti7upEifqKDr9yllfeuxbfdxD85LR01tQUfFSqF9otkMxOBqr2g89eGg=="
+        "resolved": "6.5.0",
+        "contentHash": "QWINE2x3MbTODsWT1Gh71GaGb5icBz4chS8VYvTgsBnsi8esgN6wtHhydd7fvToWECYGq7T4cgBBDiKD/363fg=="
       },
       "NuGet.Packaging": {
         "type": "Transitive",

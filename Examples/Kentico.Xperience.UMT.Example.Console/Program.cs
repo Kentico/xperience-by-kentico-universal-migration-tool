@@ -14,7 +14,11 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 
 var root = new ConfigurationRoot(new List<IConfigurationProvider>(new[] { new MemoryConfigurationProvider(new MemoryConfigurationSource()) }));
-root[ConfigurationPath.Combine("ConnectionStrings", "CMSConnectionString")] = "Data Source=.;Initial Catalog=Kentico14_CLI_26_04_00;Integrated Security=True;Persist Security Info=False;Connect Timeout=60;Encrypt=False;Current Language=English;";
+
+root[ConfigurationPath.Combine("ConnectionStrings", "CMSConnectionString")]
+    // TODO: change connection string to target XbyK instance
+    = "";
+
 Service.Use<IConfiguration>(root);
 CMSApplication.Init();
 

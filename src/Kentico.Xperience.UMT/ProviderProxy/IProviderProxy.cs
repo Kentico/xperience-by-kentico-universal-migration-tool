@@ -7,7 +7,7 @@ using CMS.SiteProvider;
 
 namespace Kentico.Xperience.UMT.ProviderProxy;
 
-internal interface IProviderProxy
+public interface IProviderProxy
 {
     BaseInfo? GetBaseInfoByGuid(Guid guid);
     BaseInfo? GetBaseInfoBy(Guid guid, string searchedField);
@@ -17,25 +17,7 @@ internal interface IProviderProxy
     ProviderProxyContext Context { get; }
 }
 
-internal record ProviderProxyContext(string SiteName, string CultureCode);
-
-internal static class ProviderProxyFactory
-{
-    public static IProviderProxy CreateProviderProxy<TInfo>(ProviderProxyContext context) where TInfo : BaseInfo => CreateProviderProxy(typeof(TInfo), context);
-
-    public static IProviderProxy CreateProviderProxy(Type? infoType, ProviderProxyContext context)
-    {
-        ArgumentNullException.ThrowIfNull(infoType, nameof(infoType));
-        
-        if (infoType.IsAssignableTo(typeof(TreeNode)))
-        {
-            return new TreeProviderProxy(context);
-        }
-
-        return (IProviderProxy)(Activator.CreateInstance(typeof(ProviderProxy<>).MakeGenericType(infoType), context) ?? 
-                                throw new InvalidOperationException($"Cannot create proxy for type '{infoType.FullName}'"));
-    }
-}
+public  record ProviderProxyContext(string SiteName, string CultureCode);
 
 internal class TreeProviderProxy : IProviderProxy
 {

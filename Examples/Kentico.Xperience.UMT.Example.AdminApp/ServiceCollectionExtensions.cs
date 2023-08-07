@@ -108,10 +108,18 @@ public static class ServiceCollectionExtensions
                 observer = await importService.StartImportAsync(data!, new ImporterContext("Boilerplate", "en-US"), observer);
                 observer.ImportedInfo += async info =>
                 {
-                    byte[]? payload = Encoding.UTF8.GetBytes(JsonConvert.SerializeObject(new { type = "msg", payload = $"Processed: {info.TypeInfo.ObjectType} {info.GetValue(info.TypeInfo.GUIDColumn)}" }));
-                    await webSocket.SendAsync(new ArraySegment<byte>(payload, 0, payload.Length), WebSocketMessageType.Text, true, CancellationToken.None);
+                    await SendProgressReport($"Processed: {info.TypeInfo.ObjectType} {info.GetValue(info.TypeInfo.GUIDColumn)}");
                 };
-                
+                observer.ValidationError += async (model, id, validationResults) =>
+                {
+                    string validationMessage = string.Join("\r\n", validationResults.Select(x => $"{string.Join(", ", x.MemberNames)}: {x.ErrorMessage}"));
+                    await SendProgressReport($"Validation error: {id} {validationMessage}");
+                };
+                observer.Exception += async (model, id, exception) =>
+                {
+                    await SendProgressReport($"Error: {id} {exception}");
+                };
+
                 await observer.ImportCompletedTask;
                 
                 await SendProgressReport($"...finished");
@@ -141,6 +149,7 @@ public static class ServiceCollectionExtensions
 
                     if (buffer[0] == 0x2D && buffer.Take(5).All(x => x.Equals(0X2D)))
                     {
+                        ms.Flush();
                         break;    
                     }
                     

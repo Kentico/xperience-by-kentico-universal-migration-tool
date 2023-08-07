@@ -90,7 +90,6 @@ public class UmtModelService
                 {
                     ModelType = umtModelType,
                     ModelDiscriminator = umtModelAttribute?.Discriminator ?? throw new InvalidOperationException("Invalid model attribute - discriminator must be specified non empty, non null"),
-                    ReferenceProperties = new List<UmtReferencePropertyInfo>()
                 };
 
                 yield return modelInfo;

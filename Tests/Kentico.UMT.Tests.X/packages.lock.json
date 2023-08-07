@@ -1559,11 +1559,17 @@
           "xunit.extensibility.core": "[2.4.2]"
         }
       },
-      "Kentico.Xperience.UMT": {
+      "kentico.xperience.umt": {
         "type": "Project",
         "dependencies": {
           "Kentico.Xperience.Core": "[26.4.0, )",
           "Microsoft.Bcl.AsyncInterfaces": "[6.0.0, )"
+        }
+      },
+      "kentico.xperience.umt.examples": {
+        "type": "Project",
+        "dependencies": {
+          "Kentico.Xperience.UMT": "[0.1.5, )"
         }
       }
     }

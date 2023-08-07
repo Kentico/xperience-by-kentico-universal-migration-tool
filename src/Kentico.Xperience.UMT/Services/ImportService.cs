@@ -89,6 +89,15 @@ internal class ImportService : IImportService
         options.Converters.Add(converter);
         return JsonSerializer.Serialize(model, options);
     }
+    
+    /// <inheritdoc />
+    public string SerializeToJson(UmtModel[] model, JsonSerializerOptions? options = null)
+    {
+        var converter = new UmtModelStjConverter(umtModelService.GetAll());
+        options ??= new JsonSerializerOptions();
+        options.Converters.Add(converter);
+        return JsonSerializer.Serialize(model, options);
+    }
 
     /// <inheritdoc />
     public IAsyncEnumerable<UmtModel?> FromJsonStream(Stream jsonStream)
@@ -104,20 +113,15 @@ internal class ImportService : IImportService
     public ImportStateObserver StartImport(IEnumerable<UmtModel> importedObjects, ImporterContext context, ImportStateObserver? importObserver = null)
     {
         var observer = importObserver ?? new ImportStateObserver();
-        var importerTask = new TaskFactory().StartNew((state) =>
+        observer.ImportCompletedTask = Task.Run(() =>
         {
-            var o = state as ImportStateObserver;
-            ArgumentNullException.ThrowIfNull(o);
-            
             var providerProxyContext = new ProviderProxyContext(context.SiteName, context.CultureCode);
 
             foreach (var importedObject in importedObjects)
             {
-                ImportObject(importedObject, o, providerProxyContext);
+                ImportObject(importedObject, observer, providerProxyContext);
             }
-        }, observer);
-
-        observer.ImportCompletedTask = importerTask;
+        });
 
         return observer;
     }
@@ -126,11 +130,8 @@ internal class ImportService : IImportService
     public Task<ImportStateObserver> StartImportAsync(IAsyncEnumerable<UmtModel> importedObjects, ImporterContext context, ImportStateObserver? importObserver = null)
     {
         var observer = importObserver ?? new ImportStateObserver();
-        var importerTask = new TaskFactory().StartNew(async (state) =>
+        observer.ImportCompletedTask = Task.Run(async () =>
         {
-            var o = state as ImportStateObserver;
-            ArgumentNullException.ThrowIfNull(o);
-            
             try
             {
                 var providerProxyContext = new ProviderProxyContext(context.SiteName, context.CultureCode);
@@ -139,16 +140,14 @@ internal class ImportService : IImportService
                 {
                     var current = enumerator.Current;
 
-                    ImportObject(current, o, providerProxyContext);
+                    ImportObject(current, observer, providerProxyContext);
                 }
             }
             catch (Exception ex)
             {
                 logger.LogError(ex, "Error occured");
             }
-        }, observer);
-
-        observer.ImportCompletedTask = importerTask;
+        });
 
         return Task.FromResult(observer);
     }

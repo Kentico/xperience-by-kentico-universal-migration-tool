@@ -5,6 +5,7 @@ using FluentAssertions;
 using Kentico.Xperience.UMT.InfoAdapter;
 using Kentico.Xperience.UMT.Model;
 using Kentico.Xperience.UMT.ProviderProxy;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace Kentico.Xperience.UMT;
 
@@ -14,12 +15,15 @@ public class AdapterTests
     [Fact]
     public void GenericAdapterTest_TreeNode_WithRequiredDeps()
     {
-        var providerProxy = ProviderProxyFactory
+        var sp = KenticoFixture.GetUmtServiceProvider();
+        var providerProxyFactory = sp.GetRequiredService<IProviderProxyFactory>();
+        
+        var providerProxy = providerProxyFactory
             .CreateProviderProxy(typeof(TreeNode), new("Boilerplate", "en-US"));
         var documentGuid = new Guid("389E2A56-F2EA-48CD-998C-D44D74691360");
 
         var logger = KenticoFixture.CreateLogger<GenericInfoAdapter<TreeNode>>();
-        var adapter = new GenericInfoAdapter<TreeNode>(logger, KenticoFixture.ModelService, providerProxy);
+        var adapter = new GenericInfoAdapter<TreeNode>(logger, KenticoFixture.ModelService, providerProxy, providerProxyFactory);
 
         var actual = adapter.Adapt(new TreeNodeModel
         {
@@ -60,13 +64,16 @@ public class AdapterTests
     [Fact]
     public void GenericAdapterTest_TreeNode_WithRequiredDeps_Insert()
     {
-        var providerProxy = ProviderProxyFactory
+        var sp = KenticoFixture.GetUmtServiceProvider();
+        var providerProxyFactory = sp.GetRequiredService<IProviderProxyFactory>();
+        
+        var providerProxy = providerProxyFactory
             .CreateProviderProxy(typeof(TreeNode), new("Boilerplate", "en-US"));
         
         var documentGuid = new Guid("389E2A56-F2EA-48CD-998C-D44D74691360");
 
         var logger = KenticoFixture.CreateLogger<GenericInfoAdapter<TreeNode>>();
-        var adapter = new GenericInfoAdapter<TreeNode>(logger, KenticoFixture.ModelService, providerProxy);
+        var adapter = new GenericInfoAdapter<TreeNode>(logger, KenticoFixture.ModelService, providerProxy, providerProxyFactory);
 
         var adapted = adapter.Adapt(new TreeNodeModel
         {
@@ -122,10 +129,13 @@ public class AdapterTests
     [Fact]
     public void GenericAdapterTest_UserInfo()
     {
-        var providerProxy = ProviderProxyFactory
+        var sp = KenticoFixture.GetUmtServiceProvider();
+        var providerProxyFactory = sp.GetRequiredService<IProviderProxyFactory>();
+        
+        var providerProxy = providerProxyFactory
             .CreateProviderProxy(typeof(UserInfo), new("Boilerplate", "en-US"));
         var logger = KenticoFixture.CreateLogger<GenericInfoAdapter<UserInfo>>();
-        var adapter = new GenericInfoAdapter<UserInfo>(logger, KenticoFixture.ModelService, providerProxy);
+        var adapter = new GenericInfoAdapter<UserInfo>(logger, KenticoFixture.ModelService, providerProxy, providerProxyFactory);
 
         var adapted = adapter.Adapt(new UserInfoModel
         {

@@ -192,7 +192,7 @@
             "ClassTableName",
             "ClassNodeAliasSource",
             "ClassUsesPageBuilder",
-            "ClassHasUrl",
+            "ClassHasURL",
             "ClassHasMetadata",
             "ClassHasUnmanagedDbSchema",
             "ClassPrimaryKeyName"
@@ -333,7 +333,7 @@
                 "string"
               ]
             },
-            "ClassUrlPattern": {
+            "ClassURLPattern": {
               "type": [
                 "null",
                 "string"
@@ -343,7 +343,7 @@
               "type": "boolean",
               "description": "Page Builder feature, if enabled ClassHasURL is required too"
             },
-            "ClassHasUrl": {
+            "ClassHasURL": {
               "type": "boolean"
             },
             "ClassHasMetadata": {
