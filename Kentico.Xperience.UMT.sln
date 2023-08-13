@@ -20,8 +20,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Utils", "Utils", "{66C1E923
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kentico.Xperience.UMT.DocUtils", "Utils\Kentico.Xperience.UMT.DocUtils\Kentico.Xperience.UMT.DocUtils.csproj", "{71299533-CB05-4068-B5C3-9BCE76413E26}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kentico14_CLI_26_04_00", "..\KXO\kxo_web_26_04_00\Kentico14_CLI_26_04_00\Kentico14_CLI_26_04_00.csproj", "{923C3AAD-820C-40EC-AECB-B35C3E00F757}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -56,10 +54,6 @@ Global
 		{71299533-CB05-4068-B5C3-9BCE76413E26}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{71299533-CB05-4068-B5C3-9BCE76413E26}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{71299533-CB05-4068-B5C3-9BCE76413E26}.Release|Any CPU.Build.0 = Release|Any CPU
-		{923C3AAD-820C-40EC-AECB-B35C3E00F757}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{923C3AAD-820C-40EC-AECB-B35C3E00F757}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{923C3AAD-820C-40EC-AECB-B35C3E00F757}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{923C3AAD-820C-40EC-AECB-B35C3E00F757}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{B34D5B62-F958-48E4-84A3-35343529FCF7} = {A22B7345-BFCB-4BB2-85DA-A32BE7024061}
