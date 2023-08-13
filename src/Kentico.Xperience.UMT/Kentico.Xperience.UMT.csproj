@@ -1,0 +1,36 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+
+        <AdminOrgName>kentico</AdminOrgName>
+        <TargetFramework>net6.0</TargetFramework>
+        <AssemblyName>Kentico.Xperience.UMT</AssemblyName>
+    </PropertyGroup>
+
+    <PropertyGroup>
+        <Title>Xperience by Kentico Universal migration toolkit</Title>
+        <PackageId>Kentico.Xperience.UMT</PackageId>
+        <VersionPrefix>0.1.5</VersionPrefix>
+        <!--        <PackageVersionSuffix>$([System.DateTime]::Now.Ticks.ToString(&quot;1.MM.dd.HHmm&quot;))</PackageVersionSuffix>-->
+        <Authors>Kentico Software</Authors>
+        <Company>Kentico Software</Company>
+        <!--        <PackageIcon>icon.png</PackageIcon>-->
+        <PackageLicenseExpression>MIT</PackageLicenseExpression>
+        <PackageTags>kentico xperience migration data import</PackageTags>
+        <!--        <Description>Enables the creation of Algolia search indexes and the indexing of Xperience content tree pages using a code-first approach.</Description>-->
+        <!--        <RepositoryUrl>https://github.com/kentico/kentico-xperience-algolia</RepositoryUrl>-->
+        <RepositoryType>git</RepositoryType>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+
+        <!--        <VersionSuffix Condition="$(Configuration) == 'Debug'">$([System.DateTime]::Now.ToString('yyMMddHHmm'))</VersionSuffix>-->
+        <!--        <PackageOutputDir Condition="$(Configuration) == 'Debug'">$(LOCAL_NUGET_REPO)\</PackageOutputDir>-->
+        <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Kentico.Xperience.Core" Version="26.4.0" />
+        <PackageReference Include="Microsoft.Bcl.AsyncInterfaces" Version="6.0.0" />
+    </ItemGroup>
+</Project>

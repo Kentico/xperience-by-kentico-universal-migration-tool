@@ -1,40 +1,57 @@
-# -Package Name-
+# Universal migration toolkit for Xperience
 
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-Please put here some general information about your Intergration / App / Solution.
+UMT is an open-source set of software libraries, documentation, and samples distributed via NuGet packages to facilitate and automate data import from external systems (Sitecore, Sitefinity, Legacy Kentico, etc. ) into Xperience by Kentico.
 
-<!-- GETTING STARTED -->
+<!-- GETTING STARTED 
 ## Getting Started
 
 This is an example of how you may give instructions on setting up your project locally.
-To get a local copy up and running follow these simple example steps.
+To get a local copy up and running follow these simple example steps.-->
 
 ### Prerequisites
 
 This is an example of how to list things you need to use the software and how to install them.
 
-* [.NET 7+ SDK](https://dotnet.microsoft.com/en-us/download/dotnet/7.0)
+* [.NET 6+ SDK](https://dotnet.microsoft.com/en-us/download/dotnet/6.0)
+* Xperience by Kentico of version **26.4.0**
+
 
 ### Installation
-
-_Below is an example of how you can instruct your audience on installing and setting up your app. This template doesn't rely on any external dependencies or services._
 
 1. Install the NuGet package
 
    ```powershell
    dotnet add package <Package Name> --version 1.2.3
    ```
-
-1. Use library in your project
+2. Open file with dependency injection container configuration (`Program.cs` / `Startup.cs` / ...)
+3. import namespace `Kentico.UMT`
+4. register Umt to service collection `IServiceCollection` using `AddUniversalMigrationToolkit()`
+5. inject `IImportService` where you want use migration toolkit
 
 <!-- USAGE EXAMPLES -->
 ## Usage
 
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
+### Convert & Import samples
+
+advanced usage is covered [here](./Docs/README.md)
+
+#### Console sample
+
+[Console application](./Examples/Kentico.Xperience.UMT.Example.Console/README.md) sample shows usage of toolkit in console application. 
+
+#### Administration plug-in sample
+[Administration plugin](./Examples/Kentico.Xperience.UMT.Example.AdminApp/README.md) sample shows deployment of toolkit as administration application that receives file with serialized data as JSON and performs import of data.
+
+<!-- 
+### Export samples
+
+**TODO**
 
 _For more examples, please refer to the [Documentation](./Documentation.md)_
+-->
 
 <!-- CONTRIBUTING -->
 ## Contributing
@@ -43,7 +60,7 @@ For Contributing please see  <a href="./CONTRIBUTING.md">`CONTRIBUTING.md`</a> f
 
 ### Requirements
 
-* [.NET 7+ SDK](https://dotnet.microsoft.com/en-us/download/dotnet/7.0)
+* [.NET 6+ SDK](https://dotnet.microsoft.com/en-us/download/dotnet/6.0)
 
 <!-- LICENSE -->
 ## License

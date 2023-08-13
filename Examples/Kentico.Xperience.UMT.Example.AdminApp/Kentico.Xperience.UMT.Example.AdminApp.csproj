@@ -1,0 +1,48 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net6.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+        <AdminOrgName>umt</AdminOrgName>
+        <AssemblyName>Kentico.Xperience.UMT.Example.AdminApp</AssemblyName>
+    </PropertyGroup>
+
+    <PropertyGroup>
+        <Title>Xperience by Kentico UMT Example</Title>
+        <PackageId>Kentico.Xperience.UMT.Example</PackageId>
+        <VersionPrefix>0.1.10</VersionPrefix>
+        <Authors>Kentico Software</Authors>
+        <Company>Kentico Software</Company>
+        <PackageLicenseExpression>MIT</PackageLicenseExpression>
+        <RepositoryType>git</RepositoryType>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+        <GenerateDocumentationFile>true</GenerateDocumentationFile>
+
+        <VersionSuffix Condition="$(Configuration) == 'Debug'">$([System.DateTime]::Now.ToString('yyMMddHHmm'))</VersionSuffix>
+        <PackageOutputDir Condition="$(Configuration) == 'Debug'">$(LOCAL_NUGET_REPO)\</PackageOutputDir>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\..\src\Kentico.Xperience.UMT\Kentico.Xperience.UMT.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <AdminClientPath Include="Client\dist\**">
+            <ProjectName>web-admin</ProjectName>
+        </AdminClientPath>
+    </ItemGroup>
+    <ItemGroup>
+        <Compile Remove="Client\node_modules\**" />
+        <EmbeddedResource Remove="Client\node_modules\**" />
+        <None Remove="Client\node_modules\**" />
+        <None Remove="README.md" />
+    </ItemGroup>
+    <ItemGroup>
+        <FrameworkReference Include="Microsoft.AspNetCore.App" />
+    </ItemGroup>
+    <ItemGroup>
+        <PackageReference Include="kentico.xperience.admin" Version="26.4.0" />
+    </ItemGroup>
+    
+</Project>

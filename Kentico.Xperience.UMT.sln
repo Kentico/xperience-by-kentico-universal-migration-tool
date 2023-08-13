@@ -1,0 +1,72 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kentico.Xperience.UMT", "src\Kentico.Xperience.UMT\Kentico.Xperience.UMT.csproj", "{F499DE79-C15E-4ABA-9E42-E0A243E0F598}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kentico.Xperience.UMT.Example.Console", "Examples\Kentico.Xperience.UMT.Example.Console\Kentico.Xperience.UMT.Example.Console.csproj", "{B34D5B62-F958-48E4-84A3-35343529FCF7}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Examples", "Examples", "{A22B7345-BFCB-4BB2-85DA-A32BE7024061}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kentico.Xperience.UMT.Example.AdminApp", "Examples\Kentico.Xperience.UMT.Example.AdminApp\Kentico.Xperience.UMT.Example.AdminApp.csproj", "{4ABF76B5-3ED7-44CF-9FFA-39F299BD947C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kentico.Xperience.UMT.Examples", "Examples\Kentico.Xperience.UMT.Examples\Kentico.Xperience.UMT.Examples.csproj", "{85138B06-9F3F-40A6-8465-479F591D2845}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{DAA23102-FA1A-419D-AE83-6E37EF024006}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kentico.UMT.Tests", "Tests\Kentico.UMT.Tests\Kentico.UMT.Tests.csproj", "{DED290A5-2F69-4A3E-95C5-11ABEECF75E8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kentico.UMT.Tests.X", "Tests\Kentico.UMT.Tests.X\Kentico.UMT.Tests.X.csproj", "{62569A7A-D250-40D9-A33A-B02EB6B0D395}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Utils", "Utils", "{66C1E923-BA9C-4674-8534-F456FE27592A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kentico.Xperience.UMT.DocUtils", "Utils\Kentico.Xperience.UMT.DocUtils\Kentico.Xperience.UMT.DocUtils.csproj", "{71299533-CB05-4068-B5C3-9BCE76413E26}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kentico14_CLI_26_04_00", "..\KXO\kxo_web_26_04_00\Kentico14_CLI_26_04_00\Kentico14_CLI_26_04_00.csproj", "{923C3AAD-820C-40EC-AECB-B35C3E00F757}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F499DE79-C15E-4ABA-9E42-E0A243E0F598}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F499DE79-C15E-4ABA-9E42-E0A243E0F598}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F499DE79-C15E-4ABA-9E42-E0A243E0F598}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F499DE79-C15E-4ABA-9E42-E0A243E0F598}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B34D5B62-F958-48E4-84A3-35343529FCF7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B34D5B62-F958-48E4-84A3-35343529FCF7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B34D5B62-F958-48E4-84A3-35343529FCF7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B34D5B62-F958-48E4-84A3-35343529FCF7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4ABF76B5-3ED7-44CF-9FFA-39F299BD947C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4ABF76B5-3ED7-44CF-9FFA-39F299BD947C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4ABF76B5-3ED7-44CF-9FFA-39F299BD947C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4ABF76B5-3ED7-44CF-9FFA-39F299BD947C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{85138B06-9F3F-40A6-8465-479F591D2845}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{85138B06-9F3F-40A6-8465-479F591D2845}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{85138B06-9F3F-40A6-8465-479F591D2845}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{85138B06-9F3F-40A6-8465-479F591D2845}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DED290A5-2F69-4A3E-95C5-11ABEECF75E8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DED290A5-2F69-4A3E-95C5-11ABEECF75E8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DED290A5-2F69-4A3E-95C5-11ABEECF75E8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DED290A5-2F69-4A3E-95C5-11ABEECF75E8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{62569A7A-D250-40D9-A33A-B02EB6B0D395}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{62569A7A-D250-40D9-A33A-B02EB6B0D395}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{62569A7A-D250-40D9-A33A-B02EB6B0D395}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{62569A7A-D250-40D9-A33A-B02EB6B0D395}.Release|Any CPU.Build.0 = Release|Any CPU
+		{71299533-CB05-4068-B5C3-9BCE76413E26}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{71299533-CB05-4068-B5C3-9BCE76413E26}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{71299533-CB05-4068-B5C3-9BCE76413E26}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{71299533-CB05-4068-B5C3-9BCE76413E26}.Release|Any CPU.Build.0 = Release|Any CPU
+		{923C3AAD-820C-40EC-AECB-B35C3E00F757}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{923C3AAD-820C-40EC-AECB-B35C3E00F757}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{923C3AAD-820C-40EC-AECB-B35C3E00F757}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{923C3AAD-820C-40EC-AECB-B35C3E00F757}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{B34D5B62-F958-48E4-84A3-35343529FCF7} = {A22B7345-BFCB-4BB2-85DA-A32BE7024061}
+		{4ABF76B5-3ED7-44CF-9FFA-39F299BD947C} = {A22B7345-BFCB-4BB2-85DA-A32BE7024061}
+		{85138B06-9F3F-40A6-8465-479F591D2845} = {A22B7345-BFCB-4BB2-85DA-A32BE7024061}
+		{DED290A5-2F69-4A3E-95C5-11ABEECF75E8} = {DAA23102-FA1A-419D-AE83-6E37EF024006}
+		{62569A7A-D250-40D9-A33A-B02EB6B0D395} = {DAA23102-FA1A-419D-AE83-6E37EF024006}
+		{71299533-CB05-4068-B5C3-9BCE76413E26} = {66C1E923-BA9C-4674-8534-F456FE27592A}
+	EndGlobalSection
+EndGlobal

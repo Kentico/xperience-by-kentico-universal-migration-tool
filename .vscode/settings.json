@@ -4,5 +4,6 @@
 
   "files.associations": {
     ".azuredevops/**/*.yml": "azure-pipelines"
-  }
+  },
+  "dotnet.defaultSolution": "Kentico.Xperience.UMT.sln"
 }

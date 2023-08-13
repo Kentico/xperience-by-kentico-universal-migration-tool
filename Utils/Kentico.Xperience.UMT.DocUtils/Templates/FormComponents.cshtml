@@ -1,0 +1,47 @@
+﻿@using Microsoft.CodeAnalysis
+@using RazorLight
+@inherits TemplatePage<Kentico.Xperience.UMT.Templates.FormComponentTemplateModel[]>
+@{
+    string FormatCode(object? value)
+    {
+        return value != null ? $"`{value}`" : "";
+    }
+
+    string FormatType(ITypeSymbol? type)
+    {
+        if (type == null) return "";
+        if (type is INamedTypeSymbol nts)
+        {
+            if (nts.ConstructedFrom?.MetadataName == "IEnumerable`1")
+            {
+                return $"{nts.TypeArguments[0].Name}[]";
+                // return type.ToDisplayString();
+            }    
+        }
+        
+        return type.ToDisplayString();
+    }
+}
+<!-- generated file with tool "Kentico.Xperience.UMT.DocUtils" - edited through template "FormComponents.cshtml" -->
+# Form components
+@foreach (var (symbol, formComponents) in Model.OrderBy(x=>x.Module.ToDisplayString()))
+{
+<div name="generatedpart_@symbol.MetadataName">
+
+## Module `@symbol.ToDisplayString()`
+
+|Value type|Identifier|Class|Properties type|notes|
+|----------|-----|----------|---------------|-----|
+@foreach (var (className, identifier, valueType, property) in formComponents.OrderBy(fc=>fc.ValueType?.MetadataName).ThenBy(x=>x.ClassName.MetadataName))
+{
+    @Raw($"|{FormatCode(FormatType(valueType))}|{FormatCode(identifier)}|{FormatCode(className.Name)}|{FormatCode(property?.Name)}|");
+    var notes = new List<string>();
+    if (className.IsAbstract)
+    {
+        notes.Add($"**abstract**");
+    }
+    @Raw($"{string.Join(" ", notes)}|\r\n")
+}
+
+</div>
+}

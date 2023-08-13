@@ -1,0 +1,582 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "ListOfUmtModel",
+  "type": "array",
+  "items": {
+    "$ref": "#/definitions/UmtModel"
+  },
+  "definitions": {
+    "UmtModel": {
+      "type": "object",
+      "x-abstract": true,
+      "additionalProperties": {
+        "oneOf": [
+          {},
+          {
+            "type": "null"
+          }
+        ]
+      },
+      "properties": {
+        "CustomProperties": {
+          "type": "object",
+          "additionalProperties": {}
+        }
+      }
+    },
+    "TreeNodeModel": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/UmtModel"
+        },
+        {
+          "type": "object",
+          "additionalProperties": {
+            "oneOf": [
+              {},
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "required": [
+            "NodeClassGuid",
+            "NodeOwnerGuid",
+            "NodeParentGuid",
+            "NodeGUID",
+            "NodeAlias",
+            "NodeName",
+            "DocumentCulture",
+            "DocumentGUID",
+            "DocumentCreatedByUserGuid"
+          ],
+          "properties": {
+            "NodeClassGuid": {
+              "type": "string",
+              "description": "Required reference to DataClass unique id ",
+              "format": "guid",
+              "minLength": 1
+            },
+            "NodeOwnerGuid": {
+              "type": "string",
+              "description": "Required reference to user that owns node",
+              "format": "guid",
+              "minLength": 1
+            },
+            "NodeParentGuid": {
+              "type": "string",
+              "description": "Required reference to node parent node",
+              "format": "guid",
+              "minLength": 1
+            },
+            "NodeGUID": {
+              "type": "string",
+              "description": "unique identification of Node in tree structure, culture independent",
+              "format": "guid",
+              "minLength": 1
+            },
+            "NodeAlias": {
+              "type": "string",
+              "description": "Node alias is used internally by XbyK API to organize node by path (NodeAliasPath)",
+              "minLength": 1
+            },
+            "NodeName": {
+              "type": "string",
+              "minLength": 1
+            },
+            "NodeOrder": {
+              "type": [
+                "integer",
+                "null"
+              ],
+              "description": "Order of node in tree structure, decides order of nodes in same level of tree structure, default to calculated value by XbyK API",
+              "format": "int32"
+            },
+            "DocumentCulture": {
+              "type": "string",
+              "description": "document culture specified in .NET culture format - en-US, en-GB,...",
+              "minLength": 1
+            },
+            "DocumentName": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "DocumentLastPublished": {
+              "type": [
+                "null",
+                "string"
+              ],
+              "description": "property is set when workflow is applied to publication date",
+              "format": "date-time"
+            },
+            "DocumentModifiedWhen": {
+              "type": [
+                "null",
+                "string"
+              ],
+              "description": "document last modification date - defaults to null",
+              "format": "date-time"
+            },
+            "DocumentCreatedWhen": {
+              "type": [
+                "null",
+                "string"
+              ],
+              "description": "document creation date - defaults to current server time",
+              "format": "date-time"
+            },
+            "DocumentPublishFrom": {
+              "type": [
+                "null",
+                "string"
+              ],
+              "description": "planned publication date, document will/was accessible to public from this date",
+              "format": "date-time"
+            },
+            "DocumentPublishTo": {
+              "type": [
+                "null",
+                "string"
+              ],
+              "description": "planned publication date, document will/was accessible to public until this date\nnullish value is DateTime.MaxDate - XbyK API considers NULL and DataTime.MaxDate same for this field",
+              "format": "date-time"
+            },
+            "DocumentGUID": {
+              "type": "string",
+              "description": "UniqueId of TreeNodeModel, unique for each combination of DocumentCulture, NodeGuid, NodeSiteID",
+              "format": "guid",
+              "minLength": 1
+            },
+            "DocumentCreatedByUserGuid": {
+              "type": "string",
+              "description": "UniqueId of user that created document",
+              "format": "guid",
+              "minLength": 1
+            },
+            "DocumentModifiedByUserGuid": {
+              "type": [
+                "null",
+                "string"
+              ],
+              "description": "UniqueId of user that modified document, can be set to null",
+              "format": "guid"
+            }
+          }
+        }
+      ]
+    },
+    "DataClassModel": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/UmtModel"
+        },
+        {
+          "type": "object",
+          "description": "Model represents XbyK DataClassInfo",
+          "additionalProperties": {
+            "oneOf": [
+              {},
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "required": [
+            "ClassDisplayName",
+            "ClassName",
+            "ClassIsDocumentType",
+            "ClassIsCoupledClass",
+            "ClassNodeNameSource",
+            "ClassTableName",
+            "ClassNodeAliasSource",
+            "ClassUsesPageBuilder",
+            "ClassHasURL",
+            "ClassHasMetadata",
+            "ClassHasUnmanagedDbSchema",
+            "ClassPrimaryKeyName"
+          ],
+          "properties": {
+            "ClassDisplayName": {
+              "type": "string",
+              "description": "Friendly name for class",
+              "minLength": 1
+            },
+            "ClassName": {
+              "type": "string",
+              "description": "Class unique codename",
+              "minLength": 1
+            },
+            "ClassIsDocumentType": {
+              "type": "boolean",
+              "description": "If data class represents Page/TreeNode set to true, otherwise false"
+            },
+            "ClassIsCoupledClass": {
+              "type": "boolean",
+              "description": "if DataClass contains custom data this will be true, if not set to false"
+            },
+            "ClassNodeNameSource": {
+              "type": "string",
+              "description": "Source field name for node name, this has impact on generated URL of page ",
+              "minLength": 1
+            },
+            "ClassTableName": {
+              "type": "string",
+              "description": "SQL Table name",
+              "minLength": 1
+            },
+            "ClassShowAsSystemTable": {
+              "type": [
+                "boolean",
+                "null"
+              ],
+              "description": "Marks DataClass as internal, for all custom classes managed by consumer value will be false "
+            },
+            "ClassUsePublishFromTo": {
+              "type": [
+                "boolean",
+                "null"
+              ]
+            },
+            "ClassShowTemplateSelection": {
+              "type": [
+                "boolean",
+                "null"
+              ]
+            },
+            "ClassNodeAliasSource": {
+              "type": "string",
+              "description": "Defines property that will XbyK API use for Page Alias",
+              "minLength": 1
+            },
+            "ClassLastModified": {
+              "type": [
+                "null",
+                "string"
+              ],
+              "description": "last modification performed through API / UI",
+              "format": "date-time"
+            },
+            "ClassGuid": {
+              "type": "string",
+              "description": "UniqueId of DataClass",
+              "format": "guid"
+            },
+            "ClassShowColumns": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "ClassInheritsFromClassGuid": {
+              "type": [
+                "null",
+                "string"
+              ],
+              "description": "in case of inheritance set parent class GUID",
+              "format": "guid"
+            },
+            "ClassContactMapping": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "ClassContactOverwriteEnabled": {
+              "type": [
+                "boolean",
+                "null"
+              ]
+            },
+            "ClassConnectionString": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "ClassDefaultObjectType": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "ClassIsForm": {
+              "type": [
+                "boolean",
+                "null"
+              ]
+            },
+            "ClassResourceGuid": {
+              "type": [
+                "null",
+                "string"
+              ],
+              "description": "Relation to CMS Resource (Custom module), set if dataclass is part custom module  ",
+              "format": "guid"
+            },
+            "ClassCustomizedColumns": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "ClassCodeGenerationSettings": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "ClassIconClass": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "ClassURLPattern": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "ClassUsesPageBuilder": {
+              "type": "boolean",
+              "description": "Page Builder feature, if enabled ClassHasURL is required too"
+            },
+            "ClassHasURL": {
+              "type": "boolean"
+            },
+            "ClassHasMetadata": {
+              "type": "boolean"
+            },
+            "ClassIsPage": {
+              "type": [
+                "boolean",
+                "null"
+              ],
+              "description": "If true, DataClass represents Page/TreeNode   "
+            },
+            "ClassHasUnmanagedDbSchema": {
+              "type": "boolean",
+              "description": "only if consumer wishes to manage SQL table manually"
+            },
+            "ClassPrimaryKeyName": {
+              "type": "string",
+              "description": "primary key name in database table",
+              "minLength": 1
+            },
+            "Fields": {
+              "type": "array",
+              "description": "custom data fields for DataClass",
+              "items": {
+                "$ref": "#/definitions/FormField"
+              }
+            }
+          }
+        }
+      ]
+    },
+    "FormField": {
+      "type": "object",
+      "description": "Represents information about custom data field",
+      "additionalProperties": false,
+      "required": [
+        "Column",
+        "ColumnType",
+        "Guid"
+      ],
+      "properties": {
+        "AllowEmpty": {
+          "type": "boolean",
+          "description": "marks field as nullable"
+        },
+        "Column": {
+          "type": "string",
+          "description": "Name of column, this will be used for column naming in SQL Table",
+          "minLength": 1
+        },
+        "ColumnSize": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "ColumnType": {
+          "type": "string",
+          "description": "Column type, defines used type from vector [.NET type, SQL type, xsd schema type]",
+          "minLength": 1,
+          "pattern": "^(boolean)|(integer)|(longinteger)|(double)|(datetime)|(longtext)|(binary)|(guid)|(decimal)|(timespan)|(binary)|(text)|(date)|(xml)|(pages)|(contentitems)|(contentitemasset)|(assets)|(bizformfile)|(objectcodenames)|(objectguids)|(objectids)$"
+        },
+        "Enabled": {
+          "type": "boolean"
+        },
+        "Guid": {
+          "type": "string",
+          "description": "Unique identification of field",
+          "format": "guid",
+          "minLength": 1
+        },
+        "Visible": {
+          "type": "boolean",
+          "description": "Field visibility in administration form"
+        },
+        "Properties": {
+          "$ref": "#/definitions/FormFieldProperties"
+        },
+        "Settings": {
+          "$ref": "#/definitions/FormFieldSettings"
+        }
+      }
+    },
+    "FormFieldProperties": {
+      "type": "object",
+      "description": "additional form field properties, they may differ by property type",
+      "additionalProperties": false,
+      "properties": {
+        "FieldCaption": {
+          "type": [
+            "null",
+            "string"
+          ],
+          "description": "Friendly name displayed in form"
+        }
+      }
+    },
+    "FormFieldSettings": {
+      "type": "object",
+      "description": "settings related to form field",
+      "additionalProperties": false,
+      "properties": {
+        "ControlName": {
+          "type": [
+            "null",
+            "string"
+          ],
+          "description": "Admin UI Component used for field data editing"
+        }
+      }
+    },
+    "UserInfoModel": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/UmtModel"
+        },
+        {
+          "type": "object",
+          "description": "Model represents XbyK UserInfo",
+          "additionalProperties": {
+            "oneOf": [
+              {},
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "required": [
+            "UserName",
+            "Email",
+            "UserPassword",
+            "UserEnabled",
+            "UserGUID",
+            "UserIsPendingRegistration",
+            "UserAdministrationAccess",
+            "UserIsExternal"
+          ],
+          "properties": {
+            "UserName": {
+              "type": "string",
+              "description": "user nane / login name - must be unique",
+              "minLength": 1
+            },
+            "FirstName": {
+              "type": [
+                "null",
+                "string"
+              ],
+              "description": "First name of user"
+            },
+            "LastName": {
+              "type": [
+                "null",
+                "string"
+              ],
+              "description": "Last name of user"
+            },
+            "Email": {
+              "type": "string",
+              "description": "valid email address according to XbyK API domain requirements (ValidationHelper.IsEmail()) or custom regex set through configuration \"CMSEmailValidationRegex\"",
+              "minLength": 1
+            },
+            "UserPassword": {
+              "type": "string",
+              "description": "hashed user password",
+              "minLength": 1
+            },
+            "UserEnabled": {
+              "type": "boolean",
+              "description": "disable/enable user"
+            },
+            "UserCreated": {
+              "type": [
+                "null",
+                "string"
+              ],
+              "description": "datetime of user creation, defaults to current server time ",
+              "format": "date-time"
+            },
+            "LastLogon": {
+              "type": [
+                "null",
+                "string"
+              ],
+              "description": "lost logon of user to administration",
+              "format": "date-time"
+            },
+            "UserGUID": {
+              "type": "string",
+              "description": "uniqueId of user used for reference in other models ",
+              "format": "guid",
+              "minLength": 1
+            },
+            "UserLastModified": {
+              "type": [
+                "null",
+                "string"
+              ],
+              "description": "date of last modification of user",
+              "format": "date-time"
+            },
+            "UserSecurityStamp": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "UserPasswordLastChanged": {
+              "type": [
+                "null",
+                "string"
+              ],
+              "format": "date-time"
+            },
+            "UserIsPendingRegistration": {
+              "type": "boolean"
+            },
+            "UserRegistrationLinkExpiration": {
+              "type": [
+                "null",
+                "string"
+              ],
+              "format": "date-time"
+            },
+            "UserAdministrationAccess": {
+              "type": "boolean",
+              "description": "if set user has access to administration XbyK instance"
+            },
+            "UserIsExternal": {
+              "type": "boolean"
+            }
+          }
+        }
+      ]
+    }
+  }
+}
