@@ -16,6 +16,8 @@ To get a local copy up and running follow these simple example steps.-->
 This is an example of how to list things you need to use the software and how to install them.
 
 * [.NET 6+ SDK](https://dotnet.microsoft.com/en-us/download/dotnet/6.0)
+* Xperience by Kentico of version **26.4.0**
+
 
 ### Installation
 
@@ -34,14 +36,14 @@ This is an example of how to list things you need to use the software and how to
 
 ### Convert & Import samples
 
+advanced usage is covered [here](./Docs/README.md)
+
 #### Console sample
 
-[Console application](./Examples/Kentico.UMT.Example.Console/) sample shows usage of toolkit in console application. 
+[Console application](./Examples/Kentico.Xperience.UMT.Example.Console/README.md) sample shows usage of toolkit in console application. 
 
 #### Administration plug-in sample
-[Administration plugin](./Examples/Kentico.UMT.Example.AdminApp/) sample shows deployment of toolkit as administration application that receives file with serialized data as JSON and performs import of data.
-
-advanced usage is covered [here](./Docs/README.md)
+[Administration plugin](./Examples/Kentico.Xperience.UMT.Example.AdminApp/README.md) sample shows deployment of toolkit as administration application that receives file with serialized data as JSON and performs import of data.
 
 <!-- 
 ### Export samples

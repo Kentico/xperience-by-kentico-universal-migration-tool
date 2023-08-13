@@ -9,8 +9,8 @@
 5. inject `IImportService` where you want use migration toolkit
 
 Installation and usage samples:
--  [Console application](../Examples/Kentico.UMT.Example.Console/)
--  [Administration plugin](../Examples/Kentico.UMT.Example.AdminApp/)
+-  [Console application](../Examples/Kentico.Xperience.UMT.Example.Console/)
+-  [Administration plugin](../Examples/Kentico.Xperience.UMT.Example.AdminApp/)
 
 ## Usage
 
@@ -23,65 +23,6 @@ Installation and usage samples:
 4. call [StartImportAsync](Class/IImportService.md#startimportasync) to start import
    1. (optional) deserialize from json stream using [FromJsonStream](Class/IImportService.md#fromjsonstream)
 5. await [importObserver.ImportCompletedTask](Class/ImportStateObserver.md#importcompletedtask)
-
-### Pseudo code [Console sample](../Examples/Kentico.UMT.Example.Console/Program.cs)
-```csharp
-
-// create observer to track import state
-var importObserver = new ImportStateObserver();
-
-// listen to validation errors
-importObserver.ValidationError += (model, uniqueId, errors) =>
-{
-    Console.WriteLine($"Validation error '{uniqueId}': {JsonSerializer.Serialize(errors)}");
-};
-
-// listen to successfully adapted and persisted objects
-importObserver.ImportedInfo += info =>
-{
-    if (info is TreeNode tn)
-    {
-        Console.WriteLine($"Imported node: {tn.NodeAlias}");
-    }
-    else
-    {
-        Console.WriteLine($"Imported: {info[info.TypeInfo.CodeNameColumn]}");    
-    }
-};
-
-// listen for exception occurence
-importObserver.Exception += (model, uniqueId, exception) =>
-{
-    Console.WriteLine($"Error: '{uniqueId}': {exception}");
-};
-
-// sample data
-var sourceData = new UmtModel[]
-{
-    //TODO: use your data
-    UserSamples.FreddyAdministrator,
-    DataClassSamples.ArticleClassSample,
-    DataClassSamples.EventDataClass,
-    TreeNodeSamples.YearlyEvent,
-    TreeNodeSamples.SingleOccurenceEvent,
-};
-
-// fill context
-var context = new ImporterContext(
-    // TODO: change site name
-    "Boilerplate",
-    // TODO: change culture if needed
-    "en-US"
-);
-
-// initiate import
-var observer = importService.StartImport(sourceData, context, importObserver);
-
-// wait until import finishes
-await observer.ImportCompletedTask;
-
-```
-
 
 
 ## Model creation & design

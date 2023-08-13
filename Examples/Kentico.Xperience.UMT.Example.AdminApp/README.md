@@ -8,7 +8,7 @@
 2. run instance and navigate to on of sample applications  
    ![Sample apps screenshot](./.images/sample-apps.png)
 3. prepare sample data, edit [here](./Data/Samples.json)  
-   1. change `"NodeParentGuid": "acdd2058-bde0-4c9d-8332-45f417220571",` to NodeGuid of root node in Your site  <!-- TODO: kde vezmu node parent a co to je node parent? -->
+   1. change `"NodeParentGuid": "acdd2058-bde0-4c9d-8332-45f417220571",` to NodeGuid of [root node](../../Docs/References.md#root-node) in Your site
 4. choose file (sample file is [here](./Data/Samples.json))  
    ![Pick file](./.images/pick-file.png)
 5. click "Send file"

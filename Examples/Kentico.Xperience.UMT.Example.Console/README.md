@@ -20,5 +20,5 @@ to run console sample, you need to change connection string to target instance:
     );
     ```
 
-3. change `TreeNodeSamples.SiteRootNodeGuid` to NodeGuid of root node in Your site (root node of Your site) <!-- odkaz na vysvětlení RottNodeGuid -->
+3. change `TreeNodeSamples.SiteRootNodeGuid` to NodeGuid of root node in Your site (root node of Your site) [Root node guid](../../Docs/References.md#root-node)
 4. run sample
