@@ -1,9 +1,46 @@
 {
+  "files.exclude": {
+    "**/.git": true,
+    "**/.svn": true,
+    "**/.hg": true,
+    "**/CVS": true,
+    "**/.DS_Store": true,
+    "**/Thumbs.db": true,
+    "**/node_modules": true,
+    "**/bin": true,
+    "**/obj": true,
+    "**/packages.lock.json": true
+  },
+
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
+
+  "[markdown]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+
+  "[xml]": {
+    "editor.defaultFormatter": "DotJoshJohnson.xml"
+  },
+
+  "[csharp]": {
+    "editor.defaultFormatter": "ms-dotnettools.csharp"
+  },
+
+  "[aspnetcorerazor]": {
+    "editor.defaultFormatter": "ms-dotnettools.csharp"
+  },
 
   "files.associations": {
     ".azuredevops/**/*.yml": "azure-pipelines"
   },
+
+  "eslint.workingDirectories": [
+    "./Examples/Kentico.Xperience.UMT.Example.AdminApp/Client"
+  ],
+
   "dotnet.defaultSolution": "Kentico.Xperience.UMT.sln"
 }

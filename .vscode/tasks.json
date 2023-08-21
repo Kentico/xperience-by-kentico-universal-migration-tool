@@ -1,0 +1,54 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "type": "npm",
+      "script": "install",
+      "path": "Examples/Kentico.Xperience.UMT.Example.AdminApp/Client",
+      "group": "clean",
+      "problemMatcher": [],
+      "label": "npm: install - Examples/Kentico.Xperience.UMT.Example.AdminApp/Client",
+      "detail": "install dependencies from package"
+    },
+    {
+      "type": "dotnet",
+      "task": "build",
+      "problemMatcher": ["$msCompile"],
+      "group": "build",
+      "label": "dotnet: build"
+    },
+    {
+      "type": "dotnet",
+      "task": "clean",
+      "problemMatcher": ["$msCompile"],
+      "group": "clean",
+      "label": "dotnet: clean"
+    },
+    {
+      "type": "npm",
+      "script": "build",
+      "path": "Examples/Kentico.Xperience.UMT.Example.AdminApp/Client",
+      "group": "build",
+      "problemMatcher": [],
+      "label": "npm: build - Examples/Kentico.Xperience.UMT.Example.AdminApp/Client",
+      "detail": "webpack --mode=production"
+    },
+    {
+      "type": "npm",
+      "script": "build:dev",
+      "path": "Examples/Kentico.Xperience.UMT.Example.AdminApp/Client",
+      "group": "build",
+      "problemMatcher": [],
+      "label": "npm: build:dev - Examples/Kentico.Xperience.UMT.Example.AdminApp/Client",
+      "detail": "webpack --mode=development"
+    },
+    {
+      "type": "npm",
+      "script": "start",
+      "path": "Examples/Kentico.Xperience.UMT.Example.AdminApp/Client",
+      "problemMatcher": [],
+      "label": "npm: start - Examples/Kentico.Xperience.UMT.Example.AdminApp/Client",
+      "detail": "webpack serve --mode development"
+    }
+  ]
+}
