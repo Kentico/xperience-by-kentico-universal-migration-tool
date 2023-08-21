@@ -13,12 +13,12 @@ internal class Reflect<T>
         PublicProperties = instance.PublicProperties;
         PropertyGetters = instance.PropertyGetters;
     }
-    
+
 #pragma warning disable S2743 // that is the idea, for each type parameter reflected info will exist
     // ReSharper disable once StaticMemberInGenericType
     public static ImmutableHashSet<PropertyInfo> PublicProperties { get; set; }
     // ReSharper disable once StaticMemberInGenericType
-    private static ImmutableDictionary<string,MethodInfo?> PropertyGetters { get; set; }
+    private static ImmutableDictionary<string, MethodInfo?> PropertyGetters { get; set; }
     // ReSharper disable once StaticMemberInGenericType
     private static Type Current { get; }
 #pragma warning restore S2743
@@ -47,7 +47,7 @@ internal class Reflect
             return new Reflect(current: c, publicProperties: publicProperties, propertyGetters: propertyGetters);
         });
 
-    public ImmutableDictionary<string,MethodInfo?> PropertyGetters { get; }
+    public ImmutableDictionary<string, MethodInfo?> PropertyGetters { get; }
     public ImmutableHashSet<PropertyInfo> PublicProperties { get; }
     public Type Current { get; }
 

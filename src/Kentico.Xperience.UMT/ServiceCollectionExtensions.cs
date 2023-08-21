@@ -36,12 +36,12 @@ public static class ServiceCollectionExtensions
 
         RegisterServices(services);
     }
-    
+
     private static void RegisterServices(IServiceCollection services)
     {
         services.AddTransient<IImportService, ImportService>();
         services.AddSingleton<IProviderProxyFactory, ProviderProxyFactory>();
         services.AddSingleton<AdapterFactory>();
-        services.AddSingleton<UmtModelService>(s => new UmtModelService(new[] { typeof(ServiceCollectionExtensions).Assembly }));
+        services.AddSingleton(s => new UmtModelService(new[] { typeof(ServiceCollectionExtensions).Assembly }));
     }
 }

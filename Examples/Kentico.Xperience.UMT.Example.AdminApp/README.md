@@ -3,11 +3,12 @@
 1. Install the NuGet package
 
    ```powershell
-   dotnet add package <Package Name> --version 1.2.3
+   dotnet add package Kentico.Xperience.UMT
    ```
+
 2. run instance and navigate to on of sample applications  
    ![Sample apps screenshot](./.images/sample-apps.png)
-3. prepare sample data, edit [here](./Data/Samples.json)  
+3. prepare sample data, edit [here](./Data/Samples.json)
    1. change `"NodeParentGuid": "acdd2058-bde0-4c9d-8332-45f417220571",` to NodeGuid of [root node](../../Docs/References.md#root-node) in Your site
 4. choose file (sample file is [here](./Data/Samples.json))  
    ![Pick file](./.images/pick-file.png)

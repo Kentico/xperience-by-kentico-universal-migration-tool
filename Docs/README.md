@@ -4,13 +4,14 @@
 
 1. install nuget package
 2. Open file with dependency injection container configuration (`Program.cs` / `Startup.cs` / ...)
-3. import namespace `Kentico.UMT`
+3. import namespace `Kentico.Xperience.UMT`
 4. register Umt to service collection `IServiceCollection` using `AddUniversalMigrationToolkit()`
 5. inject `IImportService` where you want use migration toolkit
 
 Installation and usage samples:
--  [Console application](../Examples/Kentico.Xperience.UMT.Example.Console/)
--  [Administration plugin](../Examples/Kentico.Xperience.UMT.Example.AdminApp/)
+
+- [Console application](../Examples/Kentico.Xperience.UMT.Example.Console/)
+- [Administration plugin](../Examples/Kentico.Xperience.UMT.Example.AdminApp/)
 
 ## Usage
 
@@ -24,10 +25,10 @@ Installation and usage samples:
    1. (optional) deserialize from json stream using [FromJsonStream](Class/IImportService.md#fromjsonstream)
 5. await [importObserver.ImportCompletedTask](Class/ImportStateObserver.md#importcompletedtask)
 
-
 ## Model creation & design
 
 Following concepts are subject to this guide:
+
 - Overview of UMT and concepts behind
 - [DataClass](./Model/DataClassModel.md) creation
 - [TreeNode](./Model/TreeNodeModel.md) creation specifically **Page**
@@ -61,7 +62,7 @@ some data are subject to CMS domain constraints, verification phase will ensure 
 
 #### Adaptation
 
-transformation of serializable structure to XbyK Info objects and connection of object refrences 
+transformation of serializable structure to XbyK Info objects and connection of object refrences
 
 #### Persistnce
 
@@ -72,7 +73,7 @@ using appropriate XbyK InfoProvider UMT performs insert/update to target XbyK in
 ```mermaid
 graph LR;
     ED[external data]
-    M[marshalling / deserialization]        
+    M[marshalling / deserialization]
 
     subgraph ES [External system]
     EDBs[external data storage]--export-->ED-->CtUM[Data conversion to UMT model]
@@ -80,7 +81,7 @@ graph LR;
 
     subgraph UMT
     DP[model processing] --> PA[persistence action]
-    end    
+    end
 
     ES --> M --> UMT
 ```
@@ -88,10 +89,12 @@ graph LR;
 ### Data export
 
 multiple strategies are recommended:
+
 - export raw data and convert them later
 - perform conversion to UMT model while exporting data
 
 Supported serialization formats by UMT:
+
 - JSON
 - XML (in future)
 
@@ -100,6 +103,7 @@ Exported data are constrained by [supported property types by XbyK](./Enums/Colu
 ### Data class modeling
 
 Lets discuss following example:
+
 ```json
 {
   "$type": "DataClass",
@@ -127,6 +131,7 @@ Example creates model for [Content type](https://docs.xperience.io/xp/developers
 This enables creation [Content item](./References.md#content_item) of class `UMT.Event`.
 
 Properties set in this example:
+
 - `$type` - <sup>important</sup>first we need to set [discriminator](./UmtModel.md#discriminator) by which UMT will know `DataClassModel` model. Next fill properties according to [DataClassModel docs](./Model/DataClassModel.md).
 - `ClassDisplayName` - this value is displayed in administration, administrators/editors will see it
 - `ClassName` - [CodeName](./References.md#code_name) of object
@@ -142,6 +147,7 @@ Properties set in this example:
   - for field you define how database column is created, how field is viewed in XbyK administration
 
 lets add field by creating object in `Fields` array ([more](./Model/DataClassModel.md#formfield) about modeling field):
+
 ```json
 "Fields": [
   {

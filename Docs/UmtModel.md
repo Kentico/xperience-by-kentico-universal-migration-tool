@@ -1,11 +1,14 @@
+# UMT Model
+
 ## Discriminator
 
 Discriminator is specified for all model roots, it describes which model will be picked for deserialization.
 
 For example in JSON structure with property `$type`:
+
 ```json
 {
-    "$type": "DataClass"    
+  "$type": "DataClass"
 }
 ```
 
