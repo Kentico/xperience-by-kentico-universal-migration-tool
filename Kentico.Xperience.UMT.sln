@@ -12,9 +12,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kentico.Xperience.UMT.Examp
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{DAA23102-FA1A-419D-AE83-6E37EF024006}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kentico.UMT.Tests", "Tests\Kentico.UMT.Tests\Kentico.UMT.Tests.csproj", "{DED290A5-2F69-4A3E-95C5-11ABEECF75E8}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kentico.Xperience.UMT.Tests", "Tests\Kentico.Xperience.UMT.Tests\Kentico.Xperience.UMT.Tests.csproj", "{DED290A5-2F69-4A3E-95C5-11ABEECF75E8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kentico.UMT.Tests.X", "Tests\Kentico.UMT.Tests.X\Kentico.UMT.Tests.X.csproj", "{62569A7A-D250-40D9-A33A-B02EB6B0D395}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kentico.Xperience.UMT.Tests.X", "Tests\Kentico.Xperience.UMT.Tests.X\Kentico.Xperience.UMT.Tests.X.csproj", "{62569A7A-D250-40D9-A33A-B02EB6B0D395}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Utils", "Utils", "{66C1E923-BA9C-4674-8534-F456FE27592A}"
 EndProject
