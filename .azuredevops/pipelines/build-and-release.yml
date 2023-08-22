@@ -75,7 +75,7 @@ stages:
 
           - publish: $(System.DefaultWorkingDirectory)/packages
             displayName: Publish NuGet package as artifact
-            artifact: packages
+            artifact: artifact
 
   - ${{ if eq(variables['Build.SourceBranch'], 'refs/heads/main') }}:
       - stage: PublishNuGetPackages
@@ -91,9 +91,6 @@ stages:
               ${{ if ne(length(parameters.AgentName), 1) }}:
                 demands:
                   - Agent.Name -equals ${{ parameters.AgentName }}
-
-            workspace:
-              clean: all
 
             environment: integrations-release-nuget
             strategy:
