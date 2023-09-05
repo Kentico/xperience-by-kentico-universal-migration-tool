@@ -2,7 +2,7 @@
 using System.Runtime.CompilerServices;
 using System.Text.Json;
 using CMS.DataEngine;
-using CMS.DocumentEngine;
+// using CMS.DocumentEngine; => obsolete
 using Kentico.Xperience.UMT.Attributes;
 using Kentico.Xperience.UMT.Model;
 using Kentico.Xperience.UMT.ProviderProxy;

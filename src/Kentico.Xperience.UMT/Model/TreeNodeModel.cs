@@ -2,7 +2,7 @@
 
 using System.ComponentModel.DataAnnotations;
 using CMS.DataEngine;
-using CMS.DocumentEngine;
+// using CMS.DocumentEngine; => obsolete
 using CMS.Membership;
 using Kentico.Xperience.UMT.Attributes;
 
@@ -29,20 +29,22 @@ public class TreeNodeModel: UmtModel
     [Required]
     [ReferenceProperty(typeof(DataClassInfo), "NodeClassID", IsRequired = true)]
     public Guid? NodeClassGuid { get; set; }
-    
+
+    // TODO tomas.krch: 2023-09-05 migration v27: obsolete
     /// <summary>
     /// Required reference to user that owns node
     /// </summary>
-    [Required]
-    [ReferenceProperty(typeof(UserInfo), nameof(TreeNode.NodeOwner), IsRequired = true)]
-    public Guid? NodeOwnerGuid { get; set; }
+    // [Required]
+    // [ReferenceProperty(typeof(UserInfo), nameof(TreeNode.NodeOwner), IsRequired = true)]
+    // public Guid? NodeOwnerGuid { get; set; }
 
+    // TODO tomas.krch: 2023-09-05 migration v27: obsolete
     /// <summary>
     /// Required reference to node parent node
     /// </summary>
-    [Required]
-    [ReferenceProperty(typeof(TreeNode), nameof(TreeNode.NodeParentID), IsRequired = true, SearchedField = nameof(TreeNode.NodeGUID), ValueField = nameof(TreeNode.NodeID))]
-    public Guid? NodeParentGuid { get; set; }
+    // [Required]
+    // [ReferenceProperty(typeof(TreeNode), nameof(TreeNode.NodeParentID), IsRequired = true, SearchedField = nameof(TreeNode.NodeGUID), ValueField = nameof(TreeNode.NodeID))]
+    // public Guid? NodeParentGuid { get; set; }
 
     #endregion
 
@@ -124,18 +126,19 @@ public class TreeNodeModel: UmtModel
     [UniqueIdProperty]
     public Guid? DocumentGUID { get; set; }
 
-    /// <summary>
-    /// UniqueId of user that created document
-    /// </summary>
-    [Required]
-    [ReferenceProperty(typeof(UserInfo), nameof(TreeNode.DocumentCreatedByUserID), IsRequired = true)]
-    public Guid? DocumentCreatedByUserGuid { get; set; } //DocumentCreatedByUserID
-    
-    /// <summary>
-    /// UniqueId of user that modified document, can be set to null
-    /// </summary>
-    [ReferenceProperty(typeof(UserInfo), nameof(TreeNode.DocumentModifiedByUserID), IsRequired = false)]
-    public Guid? DocumentModifiedByUserGuid { get; set; } //DocumentModifiedByUserID
+    // TODO tomas.krch: 2023-09-05 migration v27: obsolete
+    // /// <summary>
+    // /// UniqueId of user that created document
+    // /// </summary>
+    // [Required]
+    // [ReferenceProperty(typeof(UserInfo), nameof(TreeNode.DocumentCreatedByUserID), IsRequired = true)]
+    // public Guid? DocumentCreatedByUserGuid { get; set; } //DocumentCreatedByUserID
+    //
+    // /// <summary>
+    // /// UniqueId of user that modified document, can be set to null
+    // /// </summary>
+    // [ReferenceProperty(typeof(UserInfo), nameof(TreeNode.DocumentModifiedByUserID), IsRequired = false)]
+    // public Guid? DocumentModifiedByUserGuid { get; set; } //DocumentModifiedByUserID
 
     #endregion
 

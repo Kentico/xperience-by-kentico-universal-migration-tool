@@ -99,8 +99,9 @@ public class DataClassModel: UmtModel
     /// <summary>
     /// in case of inheritance set parent class GUID
     /// </summary>
-    [ReferenceProperty(typeof(DataClassInfo), nameof(DataClassInfo.ClassInheritsFromClassID), IsRequired = false)]
-    public Guid?            ClassInheritsFromClassGuid    { get; set; }
+    // TODO tomas.krch: 2023-09-05 migration v27: Class inheritance broken !!!! 
+    // [ReferenceProperty(typeof(DataClassInfo), nameof(DataClassInfo.ClassInheritsFromClassID), IsRequired = false)]
+    // public Guid?            ClassInheritsFromClassGuid    { get; set; }
     // [Map]
     // public bool?            ClassSearchEnabled            { get; set; }
     [Map]
