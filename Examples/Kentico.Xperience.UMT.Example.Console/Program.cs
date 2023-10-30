@@ -2,6 +2,7 @@
 // See https://aka.ms/new-console-template for more information
 
 using System.Text.Json;
+using Azure.Identity;
 using CMS.Core;
 using CMS.DataEngine;
 // using CMS.DocumentEngine; => obsolete
@@ -41,14 +42,15 @@ importObserver.ValidationError += (model, uniqueId, errors) =>
 // listen to successfully adapted and persisted objects
 importObserver.ImportedInfo += info =>
 {
-    if (info is TreeNode tn)
-    {
-        Console.WriteLine($"Imported node: {tn.NodeAlias}");
-    }
-    else
-    {
-        Console.WriteLine($"Imported: {info[info.TypeInfo.CodeNameColumn]}");    
-    }
+    // TODO tomas.krch: 2023-10-30 TreeNode obsolete... refactor
+    // if (info is TreeNode tn)
+    // {
+    //     Console.WriteLine($"Imported node: {tn.NodeAlias}");
+    // }
+    // else
+    // {
+    //     Console.WriteLine($"Imported: {info[info.TypeInfo.CodeNameColumn]}");    
+    // }
 };
 
 // listen for exception occurence

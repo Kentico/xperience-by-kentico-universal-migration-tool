@@ -46,7 +46,8 @@ internal class DataClassAdapter: GenericInfoAdapter<DataClassInfo>
                 }
             }
 
-            adapted.ClassXmlSchema = classStructureInfo.GetXmlSchema();
+            // TODO tomas.krch: 2023-10-30 make xml schema or is it really needed?
+            // adapted.ClassXmlSchema = classStructureInfo.GetXmlSchema();
             adapted.ClassFormDefinition = formInfo.GetXmlDefinition();
         
             return adapted;   

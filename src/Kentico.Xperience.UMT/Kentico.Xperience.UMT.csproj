@@ -18,7 +18,7 @@
     </ItemGroup>
 
     <ItemGroup>
-        <PackageReference Include="Kentico.Xperience.Core" Version="27.0.0-b241883" />
+        <PackageReference Include="Kentico.Xperience.Core" Version="27.0.2" />
         <PackageReference Include="Microsoft.Bcl.AsyncInterfaces" Version="6.0.0" />
     </ItemGroup>
 </Project>
