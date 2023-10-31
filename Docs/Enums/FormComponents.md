@@ -49,19 +49,21 @@
 |----------|-----|----------|---------------|-----|
 |`bool`|`Kentico.Administration.Checkbox`|`CheckBoxComponent`|`CheckBoxClientProperties`||
 |`bool`|`Kentico.Administration.Checkbox`|`CheckBoxComponent`|`CheckBoxClientProperties`||
+|`CMS.ContentEngine.ContentItemAssetMetadata`|`Kentico.Administration.ContentItemAssetUploader`|`ContentItemAssetUploaderComponent`|`ContentItemAssetUploaderProperties`||
 |`AssetRelatedItem[]`|`Kentico.Administration.AssetSelector`|`AssetSelectorComponent`|`AssetSelectorProperties`||
+|`ContentItemReference[]`|`Kentico.Administration.ContentItemSelector`|`ContentItemSelectorComponent`|`ContentItemSelectorProperties`||
+|`String[]`||`GeneralSelectorComponent`|`GeneralSelectorProperties`||
+|`TSingleItemValue[]`||`MultipleObjectSelectorBase`|`TProperties`|**abstract**|
 |`String[]`|`Kentico.Administration.ObjectCodeNameSelector`|`ObjectCodeNameSelectorComponent`|`ObjectSelectorProperties`||
 |`Guid[]`|`Kentico.Administration.ObjectGuidSelector`|`ObjectGuidSelectorComponent`|`ObjectSelectorProperties`||
 |`Int32[]`|`Kentico.Administration.ObjectIdSelector`|`ObjectIdSelectorComponent`|`ObjectSelectorProperties`||
-|`TValueElement[]`||`ObjectSelectorBase`|`TProperties`|**abstract**|
 |`ObjectRelatedItem[]`||`ObjectSelectorComponent`|`ObjectSelectorProperties`||
 |`int`|`Kentico.Administration.NumberWithLabel`|`NumberWithLabelComponent`|`FormComponentProperties`||
-|`System.DateTime?`|`Kentico.Administration.DateInput`|`DateInputComponent`|`DateInputClientProperties`||
-|`System.DateTime?`|`Kentico.Administration.DateInput`|`DateInputComponent`|`DateInputClientProperties`||
-|`System.DateTime?`|`Kentico.Administration.DateTimeInput`|`DateTimeInputComponent`|`DateTimeInputClientProperties`||
-|`System.DateTime?`|`Kentico.Administration.DateTimeInput`|`DateTimeInputComponent`|`DateTimeInputClientProperties`||
+|`System.DateTime?`|`Kentico.Administration.DateInput`|`DateInputComponent`|`FormComponentProperties`||
+|`System.DateTime?`|`Kentico.Administration.DateTimeInput`|`DateTimeInputComponent`|`FormComponentProperties`||
 |`decimal?`|`Kentico.Administration.DecimalNumberInput`|`DecimalNumberInputComponent`|`DecimalNumberInputProperties`||
 |`int?`|`Kentico.Administration.NumberInput`|`NumberInputComponent`|`NumberInputProperties`||
+|`int?`|`Kentico.Administration.SingleObjectIdSelector`|`SingleObjectIdSelectorComponent`|`SingleObjectSelectorProperties`||
 |`string`|`Kentico.Administration.CodeEditor`|`CodeEditorComponent`|`CodeEditorProperties`||
 |`string`|`Kentico.Administration.ConditionBuilder`|`ConditionBuilderComponent`|`ConditionBuilderProperties`||
 |`string`|`Kentico.Administration.DropDownSelector`|`DropDownComponent`|`DropDownProperties`||
@@ -72,23 +74,17 @@
 |`string`|`Kentico.Administration.Password`|`PasswordComponent`|`PasswordProperties`||
 |`string`|`Kentico.Administration.RadioGroup`|`RadioGroupComponent`|`RadioGroupProperties`||
 |`string`|`Kentico.Administration.RichTextEditor`|`RichTextEditorComponent`|`RichTextEditorProperties`||
+|`string`||`SingleGeneralSelectorComponent`|`SingleGeneralSelectorProperties`||
 |`string`|`Kentico.Administration.TextArea`|`TextAreaComponent`|`TextAreaProperties`||
 |`string`|`Kentico.Administration.TextInput`|`TextInputComponent`|`TextInputProperties`||
 |`string`|`Kentico.Administration.TextWithLabel`|`TextWithLabelComponent`|`TextWithLabelProperties`||
+|`TFormComponentValue`||`GeneralSelectorComponentBase`|`TProperties`|**abstract**|
+|`TFormComponentValue`||`ObjectSelectorBase`|`TProperties`|**abstract**|
+|`TFormComponentValue`||`SingleObjectSelectorBase`|`TProperties`|**abstract**|
+|`Kentico.Xperience.Admin.Base.Forms.TileSelectorItem`|`Kentico.Administration.TileSelector`|`TileSelectorComponent`|`TileSelectorProperties`||
+|`TValue`||`DateInputComponentBase`|`TProperties`|**abstract**|
 |`TValue`||`FormComponent`|`FormComponentProperties`|**abstract**|
 |`TValue`||`FormComponentWithNestedComponents`|`TProperties`|**abstract**|
-
-</div>
-<div name="generatedpart_Kentico.Xperience.Admin.Content.dll">
-
-## Module `Kentico.Xperience.Admin.Content.dll`
-
-|Value type|Identifier|Class|Properties type|notes|
-|----------|-----|----------|---------------|-----|
-|`CMS.DocumentEngine.ContentItemAssetMetadata`|`Kentico.Administration.ContentItemAssetUploader`|`ContentItemAssetUploaderComponent`|`ContentItemAssetUploaderProperties`||
-|`LinkedContentItem[]`|`Kentico.Administration.ContentItemSelector`|`ContentItemSelectorComponent`|`ContentItemSelectorProperties`||
-|`PageRelatedItem[]`|`Kentico.Administration.PageSelector`|`PageSelectorComponent`|`PageSelectorProperties`||
-|`string`|`Kentico.Administration.UrlSelector`|`UrlSelectorComponent`|`FormComponentProperties`||
 
 </div>
 <div name="generatedpart_Kentico.Xperience.Admin.DigitalMarketing.dll">
@@ -97,6 +93,17 @@
 
 |Value type|Identifier|Class|Properties type|notes|
 |----------|-----|----------|---------------|-----|
+|`EmailRelatedItem[]`|`Kentico.Administration.EmailSelector`|`EmailSelectorComponent`|`EmailSelectorProperties`||
 |`ObjectRelatedItem[]`||`FormSelectorComponent`|`ObjectSelectorProperties`||
+
+</div>
+<div name="generatedpart_Kentico.Xperience.Admin.Websites.dll">
+
+## Module `Kentico.Xperience.Admin.Websites.dll`
+
+|Value type|Identifier|Class|Properties type|notes|
+|----------|-----|----------|---------------|-----|
+|`WebPageRelatedItem[]`|`Kentico.Administration.WebPageSelector`|`WebPageSelectorComponent`|`WebPageSelectorProperties`||
+|`string`|`Kentico.Administration.UrlSelector`|`UrlSelectorComponent`|`FormComponentProperties`||
 
 </div>

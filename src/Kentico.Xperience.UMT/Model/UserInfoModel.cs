@@ -8,6 +8,7 @@ namespace Kentico.Xperience.UMT.Model;
 /// <summary>
 /// Model represents XbyK UserInfo
 /// </summary>
+/// <sample>userinfo.sampleadmin.XYZ</sample>
 [UmtModel(DISCRIMINATOR)]
 public class UserInfoModel: UmtModel
 {

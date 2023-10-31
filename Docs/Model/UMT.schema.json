@@ -41,31 +41,16 @@
           },
           "required": [
             "NodeClassGuid",
-            "NodeOwnerGuid",
-            "NodeParentGuid",
             "NodeGUID",
             "NodeAlias",
             "NodeName",
             "DocumentCulture",
-            "DocumentGUID",
-            "DocumentCreatedByUserGuid"
+            "DocumentGUID"
           ],
           "properties": {
             "NodeClassGuid": {
               "type": "string",
               "description": "Required reference to DataClass unique id ",
-              "format": "guid",
-              "minLength": 1
-            },
-            "NodeOwnerGuid": {
-              "type": "string",
-              "description": "Required reference to user that owns node",
-              "format": "guid",
-              "minLength": 1
-            },
-            "NodeParentGuid": {
-              "type": "string",
-              "description": "Required reference to node parent node",
               "format": "guid",
               "minLength": 1
             },
@@ -148,20 +133,6 @@
               "description": "UniqueId of TreeNodeModel, unique for each combination of DocumentCulture, NodeGuid, NodeSiteID",
               "format": "guid",
               "minLength": 1
-            },
-            "DocumentCreatedByUserGuid": {
-              "type": "string",
-              "description": "UniqueId of user that created document",
-              "format": "guid",
-              "minLength": 1
-            },
-            "DocumentModifiedByUserGuid": {
-              "type": [
-                "null",
-                "string"
-              ],
-              "description": "UniqueId of user that modified document, can be set to null",
-              "format": "guid"
             }
           }
         }
@@ -269,19 +240,12 @@
                 "string"
               ]
             },
-            "ClassInheritsFromClassGuid": {
-              "type": [
-                "null",
-                "string"
-              ],
-              "description": "in case of inheritance set parent class GUID",
-              "format": "guid"
-            },
             "ClassContactMapping": {
               "type": [
                 "null",
                 "string"
-              ]
+              ],
+              "description": "in case of inheritance set parent class GUID"
             },
             "ClassContactOverwriteEnabled": {
               "type": [

@@ -1,9 +1,4 @@
-﻿using CMS.DataEngine;
-// using CMS.DocumentEngine; => obsolete
-using Kentico.Xperience.UMT.Model;
-using Kentico.Xperience.UMT.ProviderProxy;
-using Kentico.Xperience.UMT.Services.Model;
-using Microsoft.Extensions.Logging;
+﻿// using CMS.DocumentEngine; => obsolete
 
 namespace Kentico.Xperience.UMT.InfoAdapter;
 // TODO tomas.krch: 2023-09-05 migration v27: OBSOLETE REMOVE

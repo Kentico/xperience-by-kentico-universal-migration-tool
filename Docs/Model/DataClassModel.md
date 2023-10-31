@@ -18,8 +18,7 @@ Model represents XbyK DataClassInfo
 |ClassLastModified|last modification performed through API / UI|System.DateTime?||
 |ClassGuid|UniqueId of DataClass|System.Guid|[UniqueId](../UmtModel.md#UniqueId)|
 |ClassShowColumns||string?||
-|ClassInheritsFromClassGuid|in case of inheritance set parent class GUID|System.Guid?|Reference to [DataClassInfo](../References.md#DataClassInfo) on property ClassInheritsFromClassID|
-|ClassContactMapping||string?||
+|ClassContactMapping|in case of inheritance set parent class GUID|string?||
 |ClassContactOverwriteEnabled||bool?||
 |ClassConnectionString||string?||
 |ClassDefaultObjectType||string?||

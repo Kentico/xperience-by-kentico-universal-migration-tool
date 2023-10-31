@@ -3,7 +3,6 @@
 using System.ComponentModel.DataAnnotations;
 using CMS.DataEngine;
 // using CMS.DocumentEngine; => obsolete
-using CMS.Membership;
 using Kentico.Xperience.UMT.Attributes;
 
 namespace Kentico.Xperience.UMT.Model;
