@@ -1,6 +1,8 @@
 ﻿using CMS.DataEngine;
+using CMS.EmailLibrary;
 // using CMS.DocumentEngine; => obsolete
 using CMS.Membership;
+using CMS.Websites;
 using Kentico.Xperience.UMT.Model;
 using Kentico.Xperience.UMT.ProviderProxy;
 using Kentico.Xperience.UMT.Services.Model;
@@ -27,7 +29,9 @@ internal class AdapterFactory
             UserInfoModel => new GenericInfoAdapter<UserInfo>(loggerFactory.CreateLogger<GenericInfoAdapter<UserInfo>>(), modelService, providerProxyFactory.CreateProviderProxy<UserInfo>(providerProxyContext), providerProxyFactory),
             // TODO tomas.krch: 2023-09-05 migration v27: obsolete
             // TreeNodeModel => new TreeNodeAdapter(loggerFactory.CreateLogger<TreeNodeAdapter>(), modelService, providerProxyFactory.CreateProviderProxy<TreeNode>(providerProxyContext), providerProxyFactory),
+            WebsiteChannelModel => new WebSiteChannelAdapter(loggerFactory.CreateLogger<WebSiteChannelAdapter>(), modelService, providerProxyFactory.CreateProviderProxy<WebsiteChannelInfo>(providerProxyContext), providerProxyFactory),
+            EmailChannelModel => new EmailChannelAdapter(loggerFactory.CreateLogger<EmailChannelAdapter>(), modelService, providerProxyFactory.CreateProviderProxy<EmailChannelInfo>(providerProxyContext), providerProxyFactory),
             DataClassModel => new DataClassAdapter(loggerFactory.CreateLogger<DataClassAdapter>(), modelService, providerProxyFactory.CreateProviderProxy<DataClassInfo>(providerProxyContext), providerProxyFactory),
-            _ => null
+            _ => null,
         };
 }

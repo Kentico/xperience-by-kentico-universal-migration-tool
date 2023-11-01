@@ -7,6 +7,7 @@ using CMS.Core;
 using CMS.DataEngine;
 // using CMS.DocumentEngine; => obsolete
 using Kentico.Xperience.UMT;
+using Kentico.Xperience.UMT.Examples;
 using Kentico.Xperience.UMT.Model;
 using Kentico.Xperience.UMT.Services;
 using Microsoft.Extensions.Configuration;
@@ -18,7 +19,7 @@ var root = new ConfigurationRoot(new List<IConfigurationProvider>(new[] { new Me
 
 root[ConfigurationPath.Combine("ConnectionStrings", "CMSConnectionString")]
     // TODO: change connection string to target XbyK instance
-    = "";
+    = "Data Source=localhost;Initial Catalog=FixingKbank;Integrated Security=True;Persist Security Info=False;Connect Timeout=60;Encrypt=False;Current Language=English;";
 
 Service.Use<IConfiguration>(root);
 CMSApplication.Init();
@@ -64,10 +65,8 @@ var sourceData = new UmtModel[]
 {
     // TODO: use your data
     UserSamples.SampleAdministrator,
-    DataClassSamples.ArticleClassSample,
-    DataClassSamples.EventDataClass,
-    TreeNodeSamples.YearlyEvent,
-    TreeNodeSamples.SingleOccurenceEvent,
+    WebSiteChannelSamples.SampleWebSiteChannel,
+    EmailChannelSamples.SampleEmailChannel
 };
 
 // fill context

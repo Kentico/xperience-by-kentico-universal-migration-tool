@@ -30,7 +30,7 @@ internal interface IInfoAdapter<out TInfo, in TModel> : IInfoAdapter<TModel> whe
 
 internal class GenericInfoAdapter<TTargetInfo> : IInfoAdapter<TTargetInfo, IUmtModel> where TTargetInfo : AbstractInfoBase<TTargetInfo>, new()
 {
-    private readonly ILogger<GenericInfoAdapter<TTargetInfo>> logger;
+    protected readonly ILogger<GenericInfoAdapter<TTargetInfo>> logger;
     private readonly UmtModelService modelService;
     private readonly IProviderProxyFactory providerProxyFactory;
 
