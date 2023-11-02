@@ -6,8 +6,15 @@ using Kentico.Xperience.UMT.Attributes;
 
 namespace Kentico.Xperience.UMT.Model;
 
+/// <summary>
+/// 
+/// </summary>
+/// <sample>emailchannelchannel.sample</sample>
+[UmtModel(DISCRIMINATOR)]
 public class ChannelModel : UmtModel
 {
+    public const string DISCRIMINATOR = "Channel";
+
     [Map]
     [Required]
     public string? ChannelDisplayName { get; set; }

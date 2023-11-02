@@ -541,6 +541,172 @@
           }
         }
       ]
+    },
+    "ChannelModel": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/UmtModel"
+        },
+        {
+          "type": "object",
+          "additionalProperties": {
+            "oneOf": [
+              {},
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "required": [
+            "ChannelDisplayName",
+            "ChannelName",
+            "ChannelGUID",
+            "ChannelType"
+          ],
+          "properties": {
+            "ChannelDisplayName": {
+              "type": "string",
+              "minLength": 1
+            },
+            "ChannelName": {
+              "type": "string",
+              "minLength": 1
+            },
+            "ChannelGUID": {
+              "type": "string",
+              "format": "guid",
+              "minLength": 1
+            },
+            "ChannelType": {
+              "$ref": "#/definitions/ChannelType"
+            }
+          }
+        }
+      ]
+    },
+    "ChannelType": {
+      "type": "integer",
+      "description": "Channel types enum.",
+      "x-enumNames": [
+        "Website",
+        "Email"
+      ],
+      "enum": [
+        0,
+        1
+      ]
+    },
+    "WebsiteChannelModel": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/UmtModel"
+        },
+        {
+          "type": "object",
+          "description": "Model represents EmailChannel",
+          "additionalProperties": {
+            "oneOf": [
+              {},
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "required": [
+            "WebsiteChannelGUID",
+            "WebsiteChannelChannelGuid",
+            "WebsiteChannelDomain",
+            "WebsiteChannelPrimaryContentLanguageGuid",
+            "WebsiteChannelDefaultCookieLevel",
+            "WebsiteChannelStoreFormerUrls"
+          ],
+          "properties": {
+            "WebsiteChannelGUID": {
+              "type": "string",
+              "format": "guid",
+              "minLength": 1
+            },
+            "WebsiteChannelChannelGuid": {
+              "type": "string",
+              "format": "guid",
+              "minLength": 1
+            },
+            "WebsiteChannelDomain": {
+              "type": "string",
+              "minLength": 1
+            },
+            "WebsiteChannelHomePage": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "WebsiteChannelPrimaryContentLanguageGuid": {
+              "type": "string",
+              "format": "guid",
+              "minLength": 1
+            },
+            "WebsiteChannelDefaultCookieLevel": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "WebsiteChannelStoreFormerUrls": {
+              "type": "boolean"
+            }
+          }
+        }
+      ]
+    },
+    "EmailChannelModel": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/UmtModel"
+        },
+        {
+          "type": "object",
+          "description": "Model represents EmailChannel",
+          "additionalProperties": {
+            "oneOf": [
+              {},
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "required": [
+            "EmailChannelGUID",
+            "EmailChannelSendingDomain",
+            "EmailChannelPrimaryContentLanguageGUID",
+            "EmailChannelChannelGuid",
+            "EmailChannelServiceDomain"
+          ],
+          "properties": {
+            "EmailChannelGUID": {
+              "type": "string",
+              "format": "guid",
+              "minLength": 1
+            },
+            "EmailChannelSendingDomain": {
+              "type": "string",
+              "minLength": 1
+            },
+            "EmailChannelPrimaryContentLanguageGUID": {
+              "type": "string",
+              "format": "guid",
+              "minLength": 1
+            },
+            "EmailChannelChannelGuid": {
+              "type": "string",
+              "format": "guid",
+              "minLength": 1
+            },
+            "EmailChannelServiceDomain": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        }
+      ]
     }
   }
 }

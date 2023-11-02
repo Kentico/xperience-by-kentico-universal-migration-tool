@@ -11,16 +11,17 @@ namespace Kentico.Xperience.UMT.Model;
 /// </summary>
 /// <sample>websitechannels.sample</sample>
 [UmtModel(DISCRIMINATOR)]
-public class WebsiteChannelModel : ChannelModel
+public class WebsiteChannelModel : UmtModel
 {
     public const string DISCRIMINATOR = "WebSiteChannel";
 
+    [Map]
     [Required]
     [UniqueIdProperty]
-    //[ReferenceProperty(typeof(DataClassInfo), "NodeClassID", IsRequired = true)]
-    public Guid? WebsiteChannelGuid { get; set; }
-    
+    public Guid? WebsiteChannelGUID { get; set; }
+
     // example of extended settings [ReferenceProperty(typeof(ChannelInfo), "WebsiteChannelChannelID", IsRequired = true, SearchedField = "WebsiteChannelChannelGUID", ValueField = "WebsiteChannelChannelID")]
+    [Required]
     [ReferenceProperty(typeof(ChannelInfo), "WebsiteChannelChannelID", IsRequired = true)]
     public Guid? WebsiteChannelChannelGuid { get; set; }
 
@@ -31,7 +32,6 @@ public class WebsiteChannelModel : ChannelModel
     [Map]
     public string? WebsiteChannelHomePage { get; set; }
 
-    [Map]
     [Required]
     [ReferenceProperty(typeof(ContentLanguageInfo), "WebsiteChannelPrimaryContentLanguageID", IsRequired = true)]
     public Guid? WebsiteChannelPrimaryContentLanguageGuid { get; set; }
@@ -42,5 +42,6 @@ public class WebsiteChannelModel : ChannelModel
     public int? WebsiteChannelDefaultCookieLevel { get; set; }
 
     [Map]
+    [Required]
     public bool? WebsiteChannelStoreFormerUrls { get; set; }
 }
