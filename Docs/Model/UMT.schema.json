@@ -157,16 +157,10 @@
           "required": [
             "ClassDisplayName",
             "ClassName",
-            "ClassIsDocumentType",
-            "ClassIsCoupledClass",
-            "ClassNodeNameSource",
-            "ClassTableName",
-            "ClassNodeAliasSource",
-            "ClassUsesPageBuilder",
-            "ClassHasURL",
-            "ClassHasMetadata",
+            "ClassLastModified",
+            "ClassGUID",
             "ClassHasUnmanagedDbSchema",
-            "ClassPrimaryKeyName"
+            "ClassType"
           ],
           "properties": {
             "ClassDisplayName": {
@@ -179,36 +173,12 @@
               "description": "Class unique codename",
               "minLength": 1
             },
-            "ClassIsDocumentType": {
-              "type": "boolean",
-              "description": "If data class represents Page/TreeNode set to true, otherwise false"
-            },
-            "ClassIsCoupledClass": {
-              "type": "boolean",
-              "description": "if DataClass contains custom data this will be true, if not set to false"
-            },
-            "ClassNodeNameSource": {
-              "type": "string",
-              "description": "Source field name for node name, this has impact on generated URL of page ",
-              "minLength": 1
-            },
             "ClassTableName": {
-              "type": "string",
-              "description": "SQL Table name",
-              "minLength": 1
-            },
-            "ClassShowAsSystemTable": {
               "type": [
-                "boolean",
-                "null"
+                "null",
+                "string"
               ],
-              "description": "Marks DataClass as internal, for all custom classes managed by consumer value will be false "
-            },
-            "ClassUsePublishFromTo": {
-              "type": [
-                "boolean",
-                "null"
-              ]
+              "description": "SQL Table name"
             },
             "ClassShowTemplateSelection": {
               "type": [
@@ -216,36 +186,23 @@
                 "null"
               ]
             },
-            "ClassNodeAliasSource": {
+            "ClassLastModified": {
               "type": "string",
-              "description": "Defines property that will XbyK API use for Page Alias",
+              "description": "last modification performed through API / UI",
+              "format": "date-time",
               "minLength": 1
             },
-            "ClassLastModified": {
-              "type": [
-                "null",
-                "string"
-              ],
-              "description": "last modification performed through API / UI",
-              "format": "date-time"
-            },
-            "ClassGuid": {
+            "ClassGUID": {
               "type": "string",
               "description": "UniqueId of DataClass",
-              "format": "guid"
-            },
-            "ClassShowColumns": {
-              "type": [
-                "null",
-                "string"
-              ]
+              "format": "guid",
+              "minLength": 1
             },
             "ClassContactMapping": {
               "type": [
                 "null",
                 "string"
-              ],
-              "description": "in case of inheritance set parent class GUID"
+              ]
             },
             "ClassContactOverwriteEnabled": {
               "type": [
@@ -265,12 +222,6 @@
                 "string"
               ]
             },
-            "ClassIsForm": {
-              "type": [
-                "boolean",
-                "null"
-              ]
-            },
             "ClassResourceGuid": {
               "type": [
                 "null",
@@ -279,55 +230,31 @@
               "description": "Relation to CMS Resource (Custom module), set if dataclass is part custom module  ",
               "format": "guid"
             },
-            "ClassCustomizedColumns": {
-              "type": [
-                "null",
-                "string"
-              ]
-            },
             "ClassCodeGenerationSettings": {
               "type": [
                 "null",
                 "string"
               ]
             },
-            "ClassIconClass": {
-              "type": [
-                "null",
-                "string"
-              ]
-            },
-            "ClassURLPattern": {
-              "type": [
-                "null",
-                "string"
-              ]
-            },
-            "ClassUsesPageBuilder": {
-              "type": "boolean",
-              "description": "Page Builder feature, if enabled ClassHasURL is required too"
-            },
-            "ClassHasURL": {
-              "type": "boolean"
-            },
-            "ClassHasMetadata": {
-              "type": "boolean"
-            },
-            "ClassIsPage": {
-              "type": [
-                "boolean",
-                "null"
-              ],
-              "description": "If true, DataClass represents Page/TreeNode   "
-            },
             "ClassHasUnmanagedDbSchema": {
               "type": "boolean",
               "description": "only if consumer wishes to manage SQL table manually"
             },
-            "ClassPrimaryKeyName": {
+            "ClassType": {
               "type": "string",
-              "description": "primary key name in database table",
               "minLength": 1
+            },
+            "ClassContentTypeType": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "ClassWebPageHasUrl": {
+              "type": [
+                "boolean",
+                "null"
+              ]
             },
             "Fields": {
               "type": "array",

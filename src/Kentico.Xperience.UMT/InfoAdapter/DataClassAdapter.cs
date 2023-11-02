@@ -1,4 +1,6 @@
-﻿using CMS.DataEngine;
+﻿using CMS.ContentEngine;
+using CMS.Core;
+using CMS.DataEngine;
 using CMS.FormEngine;
 using Kentico.Xperience.UMT.Model;
 using Kentico.Xperience.UMT.ProviderProxy;
@@ -21,8 +23,10 @@ internal class DataClassAdapter: GenericInfoAdapter<DataClassInfo>
         {
             var adapted = base.Adapt(input);
 
-            var classStructureInfo = new ClassStructureInfo(dcm.ClassName, "", dcm.ClassTableName);
-            var formInfo = FormHelper.GetBasicFormDefinition(dcm.ClassPrimaryKeyName ?? $"{dcm.ClassName?.Split('.').LastOrDefault()}ID");
+            var contentTypeManager = Service.Resolve<IContentTypeManager>();
+            contentTypeManager.Initialize(adapted);
+
+            var formInfo = new FormInfo(adapted.ClassFormDefinition);
 
             if (dcm.Fields is { Count: > 0 })
             {
@@ -46,8 +50,6 @@ internal class DataClassAdapter: GenericInfoAdapter<DataClassInfo>
                 }
             }
 
-            // TODO tomas.krch: 2023-10-30 make xml schema or is it really needed?
-            // adapted.ClassXmlSchema = classStructureInfo.GetXmlSchema();
             adapted.ClassFormDefinition = formInfo.GetXmlDefinition();
         
             return adapted;   

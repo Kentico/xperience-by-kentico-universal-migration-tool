@@ -6,34 +6,21 @@ Model represents XbyK DataClassInfo
 |PropertyName|Summary|.NET Type|Notes|
 |---|---|---|---|
 |ClassDisplayName\*|Friendly name for class|string?||
-|ClassName\*|Class unique codename|string||
-|ClassIsDocumentType\*|If data class represents Page/TreeNode set to true, otherwise false|bool?||
-|ClassIsCoupledClass\*|if DataClass contains custom data this will be true, if not set to false|bool?||
-|ClassNodeNameSource\*|Source field name for node name, this has impact on generated URL of page|string?||
-|ClassTableName\*|SQL Table name|string?||
-|ClassShowAsSystemTable|Marks DataClass as internal, for all custom classes managed by consumer value will be false|bool?||
-|ClassUsePublishFromTo||bool?||
+|ClassName\*|Class unique codename|string?||
+|ClassTableName|SQL Table name|string?||
 |ClassShowTemplateSelection||bool?||
-|ClassNodeAliasSource\*|Defines property that will XbyK API use for Page Alias|string?||
-|ClassLastModified|last modification performed through API / UI|System.DateTime?||
-|ClassGuid|UniqueId of DataClass|System.Guid|[UniqueId](../UmtModel.md#UniqueId)|
-|ClassShowColumns||string?||
-|ClassContactMapping|in case of inheritance set parent class GUID|string?||
+|ClassLastModified\*|last modification performed through API / UI|System.DateTime?||
+|ClassGUID\*|UniqueId of DataClass|System.Guid?|[UniqueId](../UmtModel.md#UniqueId)|
+|ClassContactMapping||string?||
 |ClassContactOverwriteEnabled||bool?||
 |ClassConnectionString||string?||
 |ClassDefaultObjectType||string?||
-|ClassIsForm||bool?||
 |ClassResourceGuid|Relation to CMS Resource (Custom module), set if dataclass is part custom module|System.Guid?|Reference to [ResourceInfo](../References.md#ResourceInfo) on property ClassResourceID|
-|ClassCustomizedColumns||string?||
 |ClassCodeGenerationSettings||string?||
-|ClassIconClass||string?||
-|ClassURLPattern||string?||
-|ClassUsesPageBuilder\*|Page Builder feature, if enabled ClassHasURL is required too|bool?||
-|ClassHasURL\*||bool?||
-|ClassHasMetadata\*||bool?||
-|ClassIsPage|If true, DataClass represents Page/TreeNode|bool?||
 |ClassHasUnmanagedDbSchema\*|only if consumer wishes to manage SQL table manually|bool?||
-|ClassPrimaryKeyName\*|primary key name in database table|string?||
+|ClassType\*||string?||
+|ClassContentTypeType||string?||
+|ClassWebPageHasUrl||bool?||
 |Fields|custom data fields for DataClass|Kentico.Xperience.UMT.Model.FormField[]||
 
 <p>*) value is required</p>
@@ -44,26 +31,19 @@ This sample describes how to create class inside XbyK to hold Article data
 ```json
 {
   "$type": "DataClass",
-  "ClassDisplayName": "Article",
+  "ClassDisplayName": "This is Article example",
   "ClassName": "UMT.Article",
-  "ClassIsDocumentType": true,
-  "ClassIsCoupledClass": true,
-  "ClassNodeNameSource": "ArticleTitle",
   "ClassTableName": "UMT_Article",
-  "ClassShowAsSystemTable": false,
-  "ClassNodeAliasSource": "ArticleTitle",
-  "ClassGuid": "2cb15794-9ab1-450f-b69b-ebdee1f5b5fe",
-  "ClassIsForm": false,
-  "ClassUsesPageBuilder": true,
-  "ClassHasURL": true,
-  "ClassHasMetadata": true,
-  "ClassIsPage": true,
+  "ClassLastModified": "2023-11-02T17:19:46.3045652\u002B01:00",
+  "ClassGUID": "06540294-3b56-4cf7-8773-088bb766ac23",
+  "ClassResourceGuid": "0e4beef1-989c-4687-80ca-ae21fec09734",
   "ClassHasUnmanagedDbSchema": false,
-  "ClassPrimaryKeyName": "ArticleID",
+  "ClassType": "Content",
+  "ClassContentTypeType": "Reusable",
   "Fields": [
     {
       "AllowEmpty": true,
-      "Column": "ArticleTitle",
+      "Column": "This is an ArticleTitle",
       "ColumnSize": 200,
       "ColumnType": "text",
       "Enabled": true,
@@ -102,20 +82,13 @@ This sample describes how to create class inside XbyK to hold Article data
   "$type": "DataClass",
   "ClassDisplayName": "Event",
   "ClassName": "UMT.Event",
-  "ClassIsDocumentType": true,
-  "ClassIsCoupledClass": true,
-  "ClassNodeNameSource": "EventTitle",
   "ClassTableName": "UMT_Event",
-  "ClassShowAsSystemTable": false,
-  "ClassNodeAliasSource": "EventTitle",
-  "ClassGuid": "3d36917e-de3e-4db3-9d71-7961d250085d",
-  "ClassIsForm": false,
-  "ClassUsesPageBuilder": true,
-  "ClassHasURL": true,
-  "ClassHasMetadata": true,
-  "ClassIsPage": true,
+  "ClassLastModified": "2023-11-02T17:19:46.3249359\u002B01:00",
+  "ClassGUID": "c361e91f-2739-4b03-a5e2-9f5d7ebb34f0",
+  "ClassResourceGuid": "ff8285c1-9d1a-49b3-8c9d-7502e1e533f7",
   "ClassHasUnmanagedDbSchema": false,
-  "ClassPrimaryKeyName": "EventID",
+  "ClassType": "Content",
+  "ClassContentTypeType": "Reusable",
   "Fields": [
     {
       "AllowEmpty": true,

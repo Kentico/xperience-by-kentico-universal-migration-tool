@@ -22,7 +22,7 @@ This sample describes how to create class inside XbyK to hold Channel data to be
   "$type": "Channel",
   "ChannelDisplayName": "ChannelForEmailChannelExample",
   "ChannelName": "ChannelForEmailChannelExampleNotDisplayed",
-  "ChannelGUID": "23e5e2ef-df79-4c5d-8d31-739c004c2095",
+  "ChannelGUID": "b90b4535-eb9d-4f2c-9f52-813be4102e00",
   "ChannelType": 1
 }
 ```

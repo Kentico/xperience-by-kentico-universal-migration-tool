@@ -15,7 +15,7 @@ namespace Kentico.Xperience.UMT.Model;
 /// <sample>dataclass.event</sample>
 [UmtModel(Discriminator)]
 [SuppressMessage("Major Code Smell", "S125:Sections of code should not be commented out", Justification = "For sake of completeness and to avoid unresolved properties in Kentico Info object. All commented properties exist in target model.")]
-public class DataClassModel: UmtModel
+public class DataClassModel : UmtModel
 {
     /// <summary>
     /// Discriminator used in serialized structures to identify model 
@@ -36,74 +36,36 @@ public class DataClassModel: UmtModel
     /// </summary>
     [Map]
     [Required]
-    public string          ClassName                     { get; set; } = null!;
+    public string?          ClassName                     { get; set; } = null!;
 
-    /// <summary>
-    /// If data class represents Page/TreeNode set to true, otherwise false
-    /// </summary>
-    [Map]
-    [Required]
-    public bool?            ClassIsDocumentType           { get; private set; } = true;
-    /// <summary>
-    /// if DataClass contains custom data this will be true, if not set to false
-    /// </summary>
-    [Map]
-    [Required]
-    public bool?            ClassIsCoupledClass           { get; private set; } = true;
     // set internally, replace by Fields property 
     // public string?          ClassXmlSchema                { get; private set; }
     // set internally, replace by Fields property
     // public string?          ClassFormDefinition           { get; private set; }
-    /// <summary>
-    /// Source field name for node name, this has impact on generated URL of page 
-    /// </summary>
-    [Map]
-    [Required]
-    public string?          ClassNodeNameSource           { get; set; }
+    
     /// <summary>
     /// SQL Table name
     /// </summary>
     [Map]
-    [Required]
     public string?          ClassTableName                { get; set; }
-    /// <summary>
-    /// Marks DataClass as internal, for all custom classes managed by consumer value will be false 
-    /// </summary>
-    [Map]
-    public bool?            ClassShowAsSystemTable        { get; private set; } = false;
-    [Map]
-    public bool?            ClassUsePublishFromTo         { get; set; }
+    
     [Map]
     public bool?            ClassShowTemplateSelection    { get; set; }
-    /// <summary>
-    /// Defines property that will XbyK API use for Page Alias
-    /// </summary>
-    [Map]
-    [Required]
-    public string?          ClassNodeAliasSource          { get; set; }
+
     /// <summary>
     /// last modification performed through API / UI
     /// </summary>
     [Map]
+    [Required]
     public DateTime?        ClassLastModified             { get; set; }
     /// <summary>
     /// UniqueId of DataClass
     /// </summary>
-    [UniqueIdProperty]
-    public Guid             ClassGuid                     { get; set; }
-    // [Map]
-    // public bool?            ClassIsCustomTable            { get; private set; } = false;
     [Map]
-    public string?          ClassShowColumns              { get; set; }
-    // public int?             ClassInheritsFromClassID      { get; set; }
-    /// <summary>
-    /// in case of inheritance set parent class GUID
-    /// </summary>
-    // TODO tomas.krch: 2023-09-05 migration v27: Class inheritance broken !!!! 
-    // [ReferenceProperty(typeof(DataClassInfo), nameof(DataClassInfo.ClassInheritsFromClassID), IsRequired = false)]
-    // public Guid?            ClassInheritsFromClassGuid    { get; set; }
-    // [Map]
-    // public bool?            ClassSearchEnabled            { get; set; }
+    [Required]
+    [UniqueIdProperty]
+    public Guid?             ClassGUID                     { get; set; }
+    
     [Map]
     public string?          ClassContactMapping           { get; set; }
     [Map]
@@ -112,46 +74,16 @@ public class DataClassModel: UmtModel
     public string?          ClassConnectionString         { get; set; }
     [Map]
     public string?          ClassDefaultObjectType        { get; set; }
-    [Map]
-    public bool?            ClassIsForm                   { get; set; } = false;
 
     /// <summary>
     /// Relation to CMS Resource (Custom module), set if dataclass is part custom module  
     /// </summary>
-    [ReferenceProperty(typeof(ResourceInfo), nameof(DataClassInfo.ClassResourceID), IsRequired = false)]
+    [ReferenceProperty(typeof(ResourceInfo), "ClassResourceID", IsRequired = false)]
     public Guid?            ClassResourceGuid             { get; set; }
-    [Map]
-    public string?          ClassCustomizedColumns        { get; set; } = null;
+    
     [Map]
     public string?          ClassCodeGenerationSettings   { get; set; } = null;
-    [Map]
-    public string?          ClassIconClass                { get; set; } = null;
-    [Map]
-    public string?          ClassURLPattern               { get; set; }
-    /// <summary>
-    /// Page Builder feature, if enabled ClassHasURL is required too
-    /// </summary>
-    [Map]
-    [Required]
-    public bool?            ClassUsesPageBuilder          { get; set; }
-    
-    [Map]
-    [Required]
-    public bool?            ClassHasURL                   { get; set; }
-    
-    /// <summary>
-    /// 
-    /// </summary>
-    [Map]
-    [Required]
-    public bool?            ClassHasMetadata              { get; set; }
-    
-    /// <summary>
-    /// If true, DataClass represents Page/TreeNode   
-    /// </summary>
-    [Map]
-    public bool?            ClassIsPage                   { get; set; } = true;
-    
+
     /// <summary>
     /// only if consumer wishes to manage SQL table manually
     /// </summary>
@@ -159,11 +91,15 @@ public class DataClassModel: UmtModel
     [Required]
     public bool?            ClassHasUnmanagedDbSchema     { get; set; }
 
-    /// <summary>
-    /// primary key name in database table
-    /// </summary>
+    [Map]
     [Required]
-    public string? ClassPrimaryKeyName { get; set; }
+    public string? ClassType { get; set; }
+
+    [Map]
+    public string? ClassContentTypeType { get; set; }
+
+    [Map]
+    public bool? ClassWebPageHasUrl { get; set; }
     
     /// <summary>
     /// custom data fields for DataClass

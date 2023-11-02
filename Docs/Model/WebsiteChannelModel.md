@@ -23,8 +23,8 @@ This sample describes how to create class inside XbyK to hold WebSiteChannel lan
 ```json
 {
   "$type": "WebSiteChannel",
-  "WebsiteChannelGUID": "7e4c44b5-b595-495a-8b46-11171918191e",
-  "WebsiteChannelChannelGuid": "3acd3312-0f35-42d0-b6cc-16eb5bf4a1bc",
+  "WebsiteChannelGUID": "736a802c-eb32-4c47-a0b6-ee3696c41c0c",
+  "WebsiteChannelChannelGuid": "69c12b80-4681-41b8-8529-764a746a5ab7",
   "WebsiteChannelDomain": "samplewebsitedomain.com",
   "WebsiteChannelHomePage": "home",
   "WebsiteChannelPrimaryContentLanguageGuid": "fd0a0727-fc68-4936-b868-119df0f0ad7a",
