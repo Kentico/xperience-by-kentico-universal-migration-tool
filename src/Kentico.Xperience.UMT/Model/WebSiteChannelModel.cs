@@ -1,5 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using CMS.ContentEngine;
 using CMS.DataEngine;
+using CMS.Websites;
 using Kentico.Xperience.UMT.Attributes;
 
 namespace Kentico.Xperience.UMT.Model;
@@ -17,6 +19,10 @@ public class WebsiteChannelModel : ChannelModel
     [UniqueIdProperty]
     //[ReferenceProperty(typeof(DataClassInfo), "NodeClassID", IsRequired = true)]
     public Guid? WebsiteChannelGuid { get; set; }
+    
+    // example of extended settings [ReferenceProperty(typeof(ChannelInfo), "WebsiteChannelChannelID", IsRequired = true, SearchedField = "WebsiteChannelChannelGUID", ValueField = "WebsiteChannelChannelID")]
+    [ReferenceProperty(typeof(ChannelInfo), "WebsiteChannelChannelID", IsRequired = true)]
+    public Guid? WebsiteChannelChannelGuid { get; set; }
 
     [Map]
     [Required]
@@ -27,12 +33,14 @@ public class WebsiteChannelModel : ChannelModel
 
     [Map]
     [Required]
-    public int WebsiteChannelPrimaryContentLanguageID { get; set; }
+    [ReferenceProperty(typeof(ContentLanguageInfo), "WebsiteChannelPrimaryContentLanguageID", IsRequired = true)]
+    public Guid? WebsiteChannelPrimaryContentLanguageGuid { get; set; }
 
+    // TODO tomas.krch: 2023-11-02 CookieLevelConstants.ALL
     [Map]
     [Required]
-    public int WebsiteChannelDefaultCookieLevel { get; set; }
+    public int? WebsiteChannelDefaultCookieLevel { get; set; }
 
     [Map]
-    public bool WebsiteChannelStoreFormerUrls { get; set; }
+    public bool? WebsiteChannelStoreFormerUrls { get; set; }
 }
