@@ -549,6 +549,7 @@
         },
         {
           "type": "object",
+          "description": "Model represents XbyK ChannelInfo",
           "additionalProperties": {
             "oneOf": [
               {},
@@ -603,7 +604,7 @@
         },
         {
           "type": "object",
-          "description": "Model represents EmailChannel",
+          "description": "Model represents XbyK WebSiteChannelInfo",
           "additionalProperties": {
             "oneOf": [
               {},
@@ -664,7 +665,7 @@
         },
         {
           "type": "object",
-          "description": "Model represents EmailChannel",
+          "description": "Model represents XbyK EmailChannelInfo",
           "additionalProperties": {
             "oneOf": [
               {},

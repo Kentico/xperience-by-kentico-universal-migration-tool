@@ -1,13 +1,11 @@
 ﻿using CMS.ContentEngine;
-using CMS.DataEngine;
-using CMS.EmailLibrary;
 using Kentico.Xperience.UMT.Attributes;
 using System.ComponentModel.DataAnnotations;
 
 namespace Kentico.Xperience.UMT.Model;
 
 /// <summary>
-/// Model represents EmailChannel
+/// Model represents XbyK EmailChannelInfo
 /// </summary>
 /// <sample>emailchannels.sample</sample>
 [UmtModel(DISCRIMINATOR)]

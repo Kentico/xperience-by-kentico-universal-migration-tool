@@ -4,21 +4,24 @@ namespace Kentico.Xperience.UMT.Examples;
 
 public static class ChannelSamples
 {
-    [Sample("emailchannelchannel.sample", "Channel for EmailChannel", "Sample")]
+    public static readonly Guid EMMAIL_CHANNEL_SAMPLE_GUID = Guid.NewGuid();
+    public static readonly Guid WEBSITE_CHANNEL_SAMPLE_GUID = Guid.NewGuid();
+
+    [Sample("emailchannelchannel.sample", "This sample describes how to create class inside XbyK to hold Channel data to be used with EmailChannel data", "Channel Sample for Email Channel Sample")]
     public static ChannelModel SampleChannelForEmailChannel => new()
     {
-        ChannelGUID = Guid.NewGuid(),
-        ChannelDisplayName = "absoluteluz11Newemailchannelllllll",
-        ChannelName = "abs11Newexampleemailchannellllll",
+        ChannelGUID = EMMAIL_CHANNEL_SAMPLE_GUID,
+        ChannelDisplayName = "ChannelForEmailChannelExample",
+        ChannelName = "ChannelForEmailChannelExampleNotDisplayed",
         ChannelType = CMS.ContentEngine.ChannelType.Email
     };
 
-    [Sample("websitechannelchannel.sample", "Channel for WebSiteChannel", "Sample")]
+    [Sample("websitechannelchannel.sample", "This sample describes how to create class inside XbyK to hold Channel data to be used with WebSiteChannel data", "Channel Sample for WebSite Channel Sample")]
     public static ChannelModel SampleChannelForWebSiteChannel => new()
     {
-        ChannelGUID = Guid.NewGuid(),
-        ChannelDisplayName = "Newwebsitechannelll",
-        ChannelName = "Newexamplewebsitechannelll",
+        ChannelGUID = WEBSITE_CHANNEL_SAMPLE_GUID,
+        ChannelDisplayName = "ChannelForWebSiteChannelExample",
+        ChannelName = "ChannelForWebSiteChannelExampleNotDisplayed",
         ChannelType = CMS.ContentEngine.ChannelType.Website
     };
 }

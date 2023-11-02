@@ -7,7 +7,7 @@ using Kentico.Xperience.UMT.Attributes;
 namespace Kentico.Xperience.UMT.Model;
 
 /// <summary>
-/// 
+/// Model represents XbyK ChannelInfo
 /// </summary>
 /// <sample>emailchannelchannel.sample</sample>
 [UmtModel(DISCRIMINATOR)]

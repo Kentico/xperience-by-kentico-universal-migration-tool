@@ -1,6 +1,6 @@
 <!-- generated file with tool "Kentico.Xperience.UMT.DocUtils" - edited through template "UmtModel.cshtml" -->
 ## EmailChannelModel
-Model represents EmailChannel
+Model represents XbyK EmailChannelInfo
 
 Model [discriminator](../UmtModel.md#discriminator): `EmailChannel`
 
@@ -16,15 +16,15 @@ Model [discriminator](../UmtModel.md#discriminator): `EmailChannel`
 <p>*) value is required</p>
 
 
-### Sample
-Sample
+### EmailChannel Sample
+This sample describes how to create class inside XbyK to hold EmailChannel data
 ```json
 {
   "$type": "EmailChannel",
-  "EmailChannelGUID": "d9d985a7-64cc-4123-8fe7-0a9d3671f8a3",
-  "EmailChannelSendingDomain": "aaaaaaaaaaaabsolutelynew11111111111emaildomainfortryingfinalversionofsample.com",
+  "EmailChannelGUID": "38523545-9bff-4833-bcfc-8aeeefe816ee",
+  "EmailChannelSendingDomain": "emailChannelSendingDomainSample.com",
   "EmailChannelPrimaryContentLanguageGUID": "fd0a0727-fc68-4936-b868-119df0f0ad7a",
-  "EmailChannelChannelGuid": "81f8e302-40a3-4286-b772-fb7405f68a08",
-  "EmailChannelServiceDomain": "aaaaaaaaaaaaaaaaaaaabsse111111111111ndingdomainfortryingthesamethingbutdiffetrentdomain.com"
+  "EmailChannelChannelGuid": "23e5e2ef-df79-4c5d-8d31-739c004c2095",
+  "EmailChannelServiceDomain": "www.emailChannelSendingDomainSample"
 }
 ```

@@ -65,10 +65,12 @@ var sourceData = new UmtModel[]
 {
     // TODO: use your data
     UserSamples.SampleAdministrator,
+    ContentLanguageSample.SampleContentLanugage,
     ChannelSamples.SampleChannelForEmailChannel,
     ChannelSamples.SampleChannelForWebSiteChannel,
     EmailChannelSamples.SampleEmailChannel,
     WebSiteChannelSamples.SampleWebSiteChannel,
+    DataClassSamples.ArticleClassSample,
 };
 
 // fill context
