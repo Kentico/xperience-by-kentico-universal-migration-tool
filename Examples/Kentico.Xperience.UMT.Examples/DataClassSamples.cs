@@ -1,4 +1,5 @@
-﻿using Kentico.Xperience.UMT.Model;
+﻿using CMS.DataEngine;
+using Kentico.Xperience.UMT.Model;
 
 namespace Kentico.Xperience.UMT;
 
@@ -9,21 +10,19 @@ public static class DataClassSamples
     public static DataClassModel ArticleClassSample => new()
     {
         ClassName = "UMT.Article",
-        ClassDisplayName = "Article",
+        ClassType = ClassType.CONTENT_TYPE,
+        ClassContentTypeType = ClassContentTypeType.REUSABLE,
+        ClassGUID = new Guid("06540294-3B56-4CF7-8773-088BB766AC23"),
+        ClassLastModified = DateTime.Now,
+        ClassResourceGuid = new Guid("0E4BEEF1-989C-4687-80CA-AE21FEC09734"),
+        ClassDisplayName = "This is Article example",
         ClassTableName = "UMT_Article",
-        ClassPrimaryKeyName = "ArticleID",
-        ClassGuid = new Guid("2CB15794-9AB1-450F-B69B-EBDEE1F5B5FE"),
-        ClassNodeNameSource = "ArticleTitle",
-        ClassNodeAliasSource = "ArticleTitle",
-        ClassUsesPageBuilder = true,
-        ClassHasURL = true, // Cannot set info object, domain validation failed (Field name: ClassHasURL): Page Builder can only be used together with the URL feature.
-        ClassHasMetadata = true,
         ClassHasUnmanagedDbSchema = false,
         Fields = new List<FormField>
         {
             new()
             {
-                Column = "ArticleTitle",
+                Column = "This is an ArticleTitle",
                 ColumnType = "text",
                 ColumnSize = 200,
                 AllowEmpty = true,
@@ -65,15 +64,13 @@ public static class DataClassSamples
     public static DataClassModel EventDataClass => new()
     {
         ClassName = "UMT.Event",
+        ClassType = ClassType.CONTENT_TYPE,
+        ClassContentTypeType = ClassContentTypeType.REUSABLE,
+        ClassGUID = Guid.NewGuid(),
+        ClassLastModified = DateTime.Now,
+        ClassResourceGuid = new Guid("FF8285C1-9D1A-49B3-8C9D-7502E1E533F7"),
         ClassDisplayName = "Event",
         ClassTableName = "UMT_Event",
-        ClassPrimaryKeyName = "EventID",
-        ClassGuid = new Guid("3D36917E-DE3E-4DB3-9D71-7961D250085D"),
-        ClassNodeAliasSource = "EventTitle",
-        ClassNodeNameSource = "EventTitle",
-        ClassUsesPageBuilder = true,
-        ClassHasURL = true, // Cannot set info object, domain validation failed (Field name: ClassHasURL): Page Builder can only be used together with the URL feature.
-        ClassHasMetadata = true,
         ClassHasUnmanagedDbSchema = false,
         Fields = new List<FormField>
         {

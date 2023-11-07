@@ -13,7 +13,7 @@ public static class TreeNodeSamples
     {
         NodeGUID = new Guid("E2B53C6C-020D-45D3-ACB7-C2651BF7171A"),
         //NodeParentGuid = SiteRootNodeGuid,
-        NodeClassGuid = DataClassSamples.EventDataClass.ClassGuid,
+       //NodeClassGuid = DataClassSamples.EventDataClass.ClassGuid,
         //NodeOwnerGuid = UserSamples.SampleAdministrator.UserGUID,
         // DocumentCreatedByUserGuid = UserSamples.SampleAdministrator.UserGUID,
         DocumentCulture = "en-US",
@@ -35,7 +35,7 @@ public static class TreeNodeSamples
     {
         NodeGUID = new Guid("50CF01D4-1C39-4910-82CA-298C9F7A4840"),
         //NodeParentGuid = SiteRootNodeGuid,
-        NodeClassGuid = DataClassSamples.EventDataClass.ClassGuid,
+        //NodeClassGuid = DataClassSamples.EventDataClass.ClassGuid,
         //NodeOwnerGuid = UserSamples.SampleAdministrator.UserGUID,
         DocumentGUID = new Guid("15F0EFD6-6961-4640-AF6D-9C06B3A0A24D"),
         //DocumentCreatedByUserGuid = UserSamples.SampleAdministrator.UserGUID,

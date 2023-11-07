@@ -28,7 +28,6 @@ Model [discriminator](../UmtModel.md#discriminator): `TreeNode`
 ```json
 {
   "$type": "TreeNode",
-  "NodeClassGuid": "3d36917e-de3e-4db3-9d71-7961d250085d",
   "NodeGUID": "50cf01d4-1c39-4910-82ca-298c9f7a4840",
   "NodeAlias": "announcement-of-economic-results",
   "NodeName": "Announcement of economic results",
@@ -47,7 +46,6 @@ Model [discriminator](../UmtModel.md#discriminator): `TreeNode`
 ```json
 {
   "$type": "TreeNode",
-  "NodeClassGuid": "3d36917e-de3e-4db3-9d71-7961d250085d",
   "NodeGUID": "e2b53c6c-020d-45d3-acb7-c2651bf7171a",
   "NodeAlias": "yearly-barbecue-for-customers",
   "NodeName": "Yearly barbeque for customers",
