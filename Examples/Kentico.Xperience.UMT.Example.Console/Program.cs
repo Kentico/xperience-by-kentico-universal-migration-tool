@@ -64,13 +64,15 @@ importObserver.Exception += (model, uniqueId, exception) =>
 var sourceData = new UmtModel[]
 {
     // TODO: use your data
-    UserSamples.SampleAdministrator,
-    ContentLanguageSample.SampleContentLanugage,
-    ChannelSamples.SampleChannelForEmailChannel,
-    ChannelSamples.SampleChannelForWebSiteChannel,
-    EmailChannelSamples.SampleEmailChannel,
-    WebSiteChannelSamples.SampleWebSiteChannel,
-    DataClassSamples.ArticleClassSample,
+    //UserSamples.SampleAdministrator,
+    //ContentLanguageSamples.SampleContentLanugage,
+    //ChannelSamples.SampleChannelForEmailChannel,
+    //ChannelSamples.SampleChannelForWebSiteChannel,
+    //EmailChannelSamples.SampleEmailChannel,
+    //WebSiteChannelSamples.SampleWebSiteChannel,
+    //DataClassSamples.ArticleClassSample,
+    ContentItemSamples.SampleContentItem,
+    WebPageContentItemSamples.SampleWebPageItem,
 };
 
 // fill context

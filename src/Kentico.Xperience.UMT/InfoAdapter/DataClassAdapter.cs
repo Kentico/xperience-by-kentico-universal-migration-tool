@@ -9,7 +9,7 @@ using Microsoft.Extensions.Logging;
 
 namespace Kentico.Xperience.UMT.InfoAdapter;
 
-internal class DataClassAdapter: GenericInfoAdapter<DataClassInfo>
+internal class DataClassAdapter : GenericInfoAdapter<DataClassInfo>
 {
     private const string CONTROL_NAME = "controlname";
 
@@ -42,7 +42,6 @@ internal class DataClassAdapter: GenericInfoAdapter<DataClassInfo>
                         Enabled = field.Enabled,
                         Visible = field.Visible
                     };
-                    
                     nfi.Caption = field.Properties.FieldCaption;
                     nfi.Settings[CONTROL_NAME] = field.Settings.ControlName;
 
@@ -51,8 +50,7 @@ internal class DataClassAdapter: GenericInfoAdapter<DataClassInfo>
             }
 
             adapted.ClassFormDefinition = formInfo.GetXmlDefinition();
-        
-            return adapted;   
+            return adapted;
         }
         else
         {

@@ -1,9 +1,11 @@
 ﻿using CMS.ContentEngine;
+using CMS.ContentEngine.Internal;
 using CMS.DataEngine;
 using CMS.EmailLibrary;
 // using CMS.DocumentEngine; => obsolete
 using CMS.Membership;
 using CMS.Websites;
+using CMS.Websites.Internal;
 using Kentico.Xperience.UMT.Model;
 using Kentico.Xperience.UMT.ProviderProxy;
 using Kentico.Xperience.UMT.Services.Model;
@@ -34,6 +36,8 @@ internal class AdapterFactory
             WebsiteChannelModel => new GenericInfoAdapter<WebsiteChannelInfo>(loggerFactory.CreateLogger<GenericInfoAdapter<WebsiteChannelInfo>>(), modelService, providerProxyFactory.CreateProviderProxy<WebsiteChannelInfo>(providerProxyContext), providerProxyFactory),
             EmailChannelModel => new GenericInfoAdapter<EmailChannelInfo>(loggerFactory.CreateLogger<GenericInfoAdapter<EmailChannelInfo>>(), modelService, providerProxyFactory.CreateProviderProxy<EmailChannelInfo>(providerProxyContext), providerProxyFactory),
             ContentLanguageModel => new GenericInfoAdapter<ContentLanguageInfo>(loggerFactory.CreateLogger<GenericInfoAdapter<ContentLanguageInfo>>(), modelService, providerProxyFactory.CreateProviderProxy<ContentLanguageInfo>(providerProxyContext), providerProxyFactory),
+            ContentItemModel => new GenericInfoAdapter<ContentItemInfo>(loggerFactory.CreateLogger<GenericInfoAdapter<ContentItemInfo>>(), modelService, providerProxyFactory.CreateProviderProxy<ContentItemInfo>(providerProxyContext), providerProxyFactory),
+            WebPageItemModel => new GenericInfoAdapter<WebPageItemInfo>(loggerFactory.CreateLogger<GenericInfoAdapter<WebPageItemInfo>>(), modelService, providerProxyFactory.CreateProviderProxy<WebPageItemInfo>(providerProxyContext), providerProxyFactory),
             DataClassModel => new DataClassAdapter(loggerFactory.CreateLogger<DataClassAdapter>(), modelService, providerProxyFactory.CreateProviderProxy<DataClassInfo>(providerProxyContext), providerProxyFactory),
             _ => null,
         };

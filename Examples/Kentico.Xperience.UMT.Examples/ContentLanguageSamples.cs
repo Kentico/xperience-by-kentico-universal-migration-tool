@@ -2,7 +2,7 @@
 
 namespace Kentico.Xperience.UMT.Examples;
 
-public static class ContentLanguageSample
+public static class ContentLanguageSamples
 {
     public static readonly Guid CONTENT_LANGUAGE_SAMPLE = Guid.NewGuid();
 

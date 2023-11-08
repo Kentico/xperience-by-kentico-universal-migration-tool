@@ -17,6 +17,9 @@ public interface IUmtModel
 [KnownType(typeof(WebsiteChannelModel))]
 [KnownType(typeof(EmailChannelModel))]
 [KnownType(typeof(ContentLanguageModel))]
+[KnownType(typeof(ContentItemModel))]
+[KnownType(typeof(WebPageItemModel))]
+[KnownType()]
 public abstract class UmtModel : IUmtModel
 {
     [System.Text.Json.Serialization.JsonExtensionData]

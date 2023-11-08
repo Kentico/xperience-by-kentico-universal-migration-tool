@@ -164,9 +164,6 @@ internal class GenericInfoAdapter<TTargetInfo> : IInfoAdapter<TTargetInfo, IUmtM
                 {
                     continue;
                 }
-
-                // TODO tomas.krch: 2023-06-27 guard custom vs base properties (deny setting base property with custom accessor)
-                
                 if (current.ColumnNames.Contains(customProperty))
                 {
                     object? value = input.CustomProperties[customProperty];
@@ -177,7 +174,6 @@ internal class GenericInfoAdapter<TTargetInfo> : IInfoAdapter<TTargetInfo, IUmtM
                     }
 
                     current.SetValue(customProperty, value);
-                    
                     logger.LogTrace("[{ColumnName}]={Value}", customProperty, value);
                 }
                 else
