@@ -40,6 +40,7 @@ public static class ServiceCollectionExtensions
     private static void RegisterServices(IServiceCollection services)
     {
         services.AddTransient<IImportService, ImportService>();
+        services.AddTransient<IImporter, Importer>();
         services.AddSingleton<IProviderProxyFactory, ProviderProxyFactory>();
         services.AddSingleton<AdapterFactory>();
         services.AddSingleton(s => new UmtModelService(new[] { typeof(ServiceCollectionExtensions).Assembly }));
