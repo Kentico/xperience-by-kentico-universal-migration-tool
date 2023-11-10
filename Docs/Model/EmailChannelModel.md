@@ -21,10 +21,10 @@ This sample describes how to create class inside XbyK to hold EmailChannel data
 ```json
 {
   "$type": "EmailChannel",
-  "EmailChannelGUID": "60389185-de57-4c7a-a0e5-a51e098b67a6",
-  "EmailChannelSendingDomain": "emailChannelSendingDomainSample.com",
+  "EmailChannelGUID": "2c7309ec-1e24-4715-ae6c-8c7efc98a4c5",
+  "EmailChannelSendingDomain": "emailChannelsample.com",
   "EmailChannelPrimaryContentLanguageGUID": "fd0a0727-fc68-4936-b868-119df0f0ad7a",
-  "EmailChannelChannelGuid": "b90b4535-eb9d-4f2c-9f52-813be4102e00",
+  "EmailChannelChannelGuid": "fc847362-e4b0-40ae-8235-f20098daf09f",
   "EmailChannelServiceDomain": "www.emailChannelSendingDomainSample"
 }
 ```

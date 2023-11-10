@@ -15,6 +15,7 @@ internal class DataClassAdapter : GenericInfoAdapter<DataClassInfo>
 
     internal DataClassAdapter(ILogger<DataClassAdapter> logger, UmtModelService modelService, IProviderProxy providerProxy, IProviderProxyFactory providerProxyFactory) : base(logger, modelService, providerProxy, providerProxyFactory)
     {
+
     }
 
     public override DataClassInfo Adapt(IUmtModel input)

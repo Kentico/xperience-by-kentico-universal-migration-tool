@@ -46,6 +46,45 @@ internal class GenericInfoAdapter<TTargetInfo> : IInfoAdapter<TTargetInfo, IUmtM
 
     protected virtual TTargetInfo ObjectFactory(UmtModelInfo umtModelInfo, IUmtModel umtModel) => new();
 
+    protected virtual TTargetInfo MapProperties(IUmtModel umtModel, TTargetInfo current)
+    {
+        var inputReflected = Reflect.Type(umtModel.GetType());
+        foreach (var property in inputReflected.PublicProperties)
+        {
+            if (property.GetCustomAttribute<MapAttribute>() is { })
+            {
+                if (current.ColumnNames.Contains(property.Name))
+                {
+                    object? value = property.GetValue(umtModel);
+                    current.SetValue(property.Name, value);
+                    logger.LogTrace("[{ColumnName}]={Value}", property.Name, value);
+                }
+                else
+                {
+                    logger.LogError("Info doesn't contain column with name '{ColumnName}' - MapAttribute is on invalid property, property SHALL have same name as column in target Info object", property.Name);
+                    throw new InvalidOperationException($"Info doesn't contain column with name '{property.Name}' - MapAttribute is on invalid property, property SHALL have same name as column in target Info object");
+                }
+            }
+
+            if (property.GetCustomAttribute<MapToAttribute>() is { PropertyName: not null } mapTo)
+            {
+                if (current.ColumnNames.Contains(mapTo.PropertyName))
+                {
+                    object? value = property.GetValue(umtModel);
+                    current.SetValue(mapTo.PropertyName, value);
+                    logger.LogTrace("[{ColumnName}]={Value}", mapTo.PropertyName, value);
+                }
+                else
+                {
+                    logger.LogError("Info doesn't contain column with name '{ColumnName}' - MapToAttribute has invalid PropertyName argument, property SHALL have same name as column in target Info object", property.Name);
+                    throw new InvalidOperationException($"Info doesn't contain column with name '{property.Name}' - MapToAttribute has invalid PropertyName argument, property SHALL have same name as column in target Info object");
+                }
+            }
+        }
+
+        return current;
+    }
+
     public virtual TTargetInfo Adapt(IUmtModel input)
     {
         if (!modelService.TryGetModelInfo(input.GetType(), out var model) || model == null)
@@ -121,40 +160,7 @@ internal class GenericInfoAdapter<TTargetInfo> : IInfoAdapter<TTargetInfo, IUmtM
             }
         }
 
-
-        var inputReflected = Reflect.Type(input.GetType());
-        foreach (var property in inputReflected.PublicProperties)
-        {
-            if (property.GetCustomAttribute<MapAttribute>() is { })
-            {
-                if (current.ColumnNames.Contains(property.Name))
-                {
-                    object? value = property.GetValue(input);
-                    current.SetValue(property.Name, value);
-                    logger.LogTrace("[{ColumnName}]={Value}", property.Name, value);
-                }
-                else
-                {
-                    logger.LogError("Info doesn't contain column with name '{ColumnName}' - MapAttribute is on invalid property, property SHALL have same name as column in target Info object", property.Name);
-                    throw new InvalidOperationException($"Info doesn't contain column with name '{property.Name}' - MapAttribute is on invalid property, property SHALL have same name as column in target Info object");
-                }
-            }
-
-            if (property.GetCustomAttribute<MapToAttribute>() is { PropertyName: not null } mapTo)
-            {
-                if (current.ColumnNames.Contains(mapTo.PropertyName))
-                {
-                    object? value = property.GetValue(input);
-                    current.SetValue(mapTo.PropertyName, value);
-                    logger.LogTrace("[{ColumnName}]={Value}", mapTo.PropertyName, value);
-                }
-                else
-                {
-                    logger.LogError("Info doesn't contain column with name '{ColumnName}' - MapToAttribute has invalid PropertyName argument, property SHALL have same name as column in target Info object", property.Name);
-                    throw new InvalidOperationException($"Info doesn't contain column with name '{property.Name}' - MapToAttribute has invalid PropertyName argument, property SHALL have same name as column in target Info object");
-                }
-            }
-        }
+        current = MapProperties(input, current);
 
         if (input.CustomProperties.Keys is { } customProperties)
         {

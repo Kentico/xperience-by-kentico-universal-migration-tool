@@ -21,6 +21,10 @@ public class ContentItemModel : UmtModel
 
     [Map]
     [Required]
+    public bool? ContentItemIsReusable { get; set; }
+
+    [Map]
+    [Required]
     public bool? ContentItemIsSecured { get; set; }
 
     [ReferenceProperty(typeof(DataClassInfo), "ContentItemContentTypeID", IsRequired = false)]

@@ -27,6 +27,7 @@ public class ContentItemCommonDataModel : UmtModel
     public Guid? ContentItemCommonDataContentLanguageGuid { get; set; }
 
     [Map]
+    [Required]
     public int? ContentItemCommonDataVersionStatus { get; set; }
 
     [Map]

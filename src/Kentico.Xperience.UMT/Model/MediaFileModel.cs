@@ -1,0 +1,63 @@
+﻿using System.ComponentModel.DataAnnotations;
+using CMS.MediaLibrary;
+using CMS.Membership;
+using Kentico.Xperience.UMT.Attributes;
+
+namespace Kentico.Xperience.UMT.Model;
+
+[UmtModel(DISCRIMINATOR)]
+public class MediaFileModel : UmtModel
+{
+    public const string DISCRIMINATOR = "Media_File";
+
+    public string? DataSourcePath { get; set; }
+
+    [Map]
+    [Required]
+    [UniqueIdProperty]
+    public Guid? FileGUID { get; set; }
+
+    [Required]
+    [ReferenceProperty(typeof(MediaLibraryInfo), "FileLibraryID", IsRequired = true)]
+    public Guid? FileLibraryGuid { get; set; }
+
+    [ReferenceProperty(typeof(UserInfo), "FileCreatedByUserID", IsRequired = false)]
+    public Guid? FileCreatedByUserGuid { get; set; }
+
+    [ReferenceProperty(typeof(UserInfo), "FileModifiedByUserID", IsRequired = false)]
+    public Guid? FileModifiedByUserGuid { get; set; }
+
+    [Map]
+    [Required]
+    public string? FileName { get; set; }
+
+    [Map]
+    public string? FileTitle { get; set; }
+
+    [Map]
+    public string? FileDescription { get; set; }
+
+    [Map]
+    public string? FileExtension { get; set; }
+
+    [Map]
+    public string? FileMimeType { get; set; }
+
+    [Map]
+    public string? FilePath { get; set; }
+
+    [Map]
+    public int? FileImageWidth { get; set; }
+
+    [Map]
+    public int? FileImageHeight { get; set; }
+
+    [Map]
+    public DateTime? FileCreatedWhen { get; set; }
+
+    [Map]
+    public DateTime? FileModifiedWhen { get; set; }
+
+    [Map]
+    public string? FileCustomData { get; set; }
+}

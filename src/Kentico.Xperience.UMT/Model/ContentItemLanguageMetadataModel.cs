@@ -25,6 +25,7 @@ public class ContentItemLanguageMetadataModel : UmtModel
     public string? ContentItemLanguageMetadataDisplayName { get; set; }
 
     [Map]
+    [Required]
     public int? ContentItemLanguageMetadataLatestVersionStatus { get; set; }
 
     [Map]
