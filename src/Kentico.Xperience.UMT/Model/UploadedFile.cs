@@ -6,7 +6,7 @@ public class UploadedFile : IUploadedFile
 {
     public Stream InputStream { get; }
 
-    public string ContentType { get; }
+    public string? ContentType { get; }
 
     public long Length { get; }
 
