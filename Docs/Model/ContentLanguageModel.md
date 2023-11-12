@@ -22,7 +22,7 @@ This sample describes how to create class inside XbyK to hold Content language d
 ```json
 {
   "$type": "ContentLanguage",
-  "ContentLanguageGUID": "9692d487-5eee-4609-a8b6-f483c04bed95",
+  "ContentLanguageGUID": "f454e93b-5fe9-42a9-b1af-b572234ed9c4",
   "ContentLanguageDisplayName": "Slovak",
   "ContentLanguageName": "sk",
   "ContentLanguageIsDefault": false,

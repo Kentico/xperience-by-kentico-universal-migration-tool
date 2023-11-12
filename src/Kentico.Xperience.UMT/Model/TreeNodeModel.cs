@@ -13,7 +13,7 @@ namespace Kentico.Xperience.UMT.Model;
 /// <sample>treenode.singleevent</sample>
 /// <sample>treenode.yearlyevent</sample>
 [UmtModel(DISCRIMINATOR)]
-public class TreeNodeModel: UmtModel
+public class TreeNodeModel : UmtModel
 {
     /// <summary>
     /// Discriminator used in serialized structures to identify model 
@@ -48,25 +48,25 @@ public class TreeNodeModel: UmtModel
     #endregion
 
     #region Node properties
-    
+
     /// <summary>
     /// unique identification of Node in tree structure, culture independent
     /// </summary>
     [Map]
     [Required]
     public Guid? NodeGUID { get; set; }
-    
+
     /// <summary>
     /// Node alias is used internally by XbyK API to organize node by path (NodeAliasPath)
     /// </summary>
     [Map]
     [Required]
     public string? NodeAlias { get; set; }
-    
+
     [Map]
     [Required]
     public string? NodeName { get; set; }
-    
+
     /// <summary>
     /// Order of node in tree structure, decides order of nodes in same level of tree structure, default to calculated value by XbyK API
     /// </summary>
@@ -110,7 +110,7 @@ public class TreeNodeModel: UmtModel
     /// </summary>
     [Map]
     public DateTime? DocumentPublishFrom { get; set; }
-    
+
     /// <summary>
     /// planned publication date, document will/was accessible to public until this date
     /// nullish value is DateTime.MaxDate - XbyK API considers NULL and DataTime.MaxDate same for this field

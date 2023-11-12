@@ -1,11 +1,17 @@
+using System.Data;
+using System.Diagnostics;
+using System.Text.Json;
 using CMS.Base;
 using CMS.ContentEngine;
 using CMS.ContentEngine.Internal;
 using CMS.Core;
 using CMS.DataEngine;
 using CMS.DataEngine.Internal;
+using CMS.FormEngine;
 // using CMS.DocumentEngine; => obsolete
 using CMS.Membership;
+using Kentico.Xperience.UMT.Model;
+using Microsoft.Extensions.Logging;
 
 namespace Kentico.Xperience.UMT.ProviderProxy;
 
@@ -101,18 +107,22 @@ internal class TreeProviderProxy : IProviderProxy
     }
 }
 
-internal class ContentItemProxy : IProviderProxy
+internal class ContentItemProxy : ProviderProxy<ContentItemInfo>
 {
-    public ContentItemProxy(ProviderProxyContext context) => Context = context;
+    private readonly IInfoProvider<DataClassInfo> dataClassProviderInstance;
 
-    // TODO tomas.krch: 2023-09-05 migration v27: implement content item proxy
-    public BaseInfo? GetBaseInfoByGuid(Guid guid) => throw new NotImplementedException();
+    public ContentItemProxy(ProviderProxyContext context) : base(context) => dataClassProviderInstance = Provider<DataClassInfo>.Instance;
 
-    public BaseInfo? GetBaseInfoBy(Guid guid, string searchedField) => throw new NotImplementedException();
+    public override ContentItemInfo Save(ContentItemInfo info)
+    {
+        var contentItemContentType = dataClassProviderInstance.Get().WithID(info.ContentItemContentTypeID).FirstOrDefault();
 
-    public BaseInfo Save(BaseInfo info) => throw new NotImplementedException();
+        var isReusable = contentItemContentType?.ClassContentTypeType == ClassContentTypeType.REUSABLE;
 
-    public ProviderProxyContext Context { get; }
+        info.ContentItemIsReusable = isReusable;
+
+        return base.Save(info);
+    }
 
     private void Create_ContentHub_Item()
     {
@@ -170,7 +180,7 @@ internal class ProviderProxy<TInfo> : IProviderProxy where TInfo : AbstractInfoB
 {
     public ProviderProxyContext Context { get; }
 
-    private readonly IInfoProvider<TInfo> providerInstance;
+    protected readonly IInfoProvider<TInfo> providerInstance;
 
     public ProviderProxy(ProviderProxyContext context)
     {
@@ -192,7 +202,7 @@ internal class ProviderProxy<TInfo> : IProviderProxy where TInfo : AbstractInfoB
 
     public BaseInfo? GetBaseInfoBy(Guid guid, string searchedField) => GetInfoBy(guid, searchedField);
 
-    public TInfo Save(TInfo info)
+    public virtual TInfo Save(TInfo info)
     {
         using (new CMSActionContext(UserInfoProvider.AdministratorUser) { User = UserInfoProvider.AdministratorUser, UseGlobalAdminContext = true })
         {

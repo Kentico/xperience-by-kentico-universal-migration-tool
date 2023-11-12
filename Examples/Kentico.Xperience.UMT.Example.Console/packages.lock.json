@@ -69,8 +69,8 @@
       },
       "Kentico.Xperience.Core": {
         "type": "Transitive",
-        "resolved": "27.0.2",
-        "contentHash": "ye88YouAJ5EruthXrs0O8/XXVSjAJGf4grw5O3fdTXq2Z5N/54N/N/SCmcr+7F+K8RXQ8SM5TXjlTSHcHwUYMQ==",
+        "resolved": "27.0.0",
+        "contentHash": "P22fyx/djBKyLx632s6h8qw7MULnWB0uWrroaw8c1FxkDYSbtr1nDbrfYKUywtdouIO9oXQJsLI3pqkEXtxNxA==",
         "dependencies": {
           "AngleSharp": "0.17.1",
           "MailKit": "4.2.0",
@@ -559,7 +559,7 @@
       "kentico.xperience.umt": {
         "type": "Project",
         "dependencies": {
-          "Kentico.Xperience.Core": "[27.0.2, )",
+          "Kentico.Xperience.Core": "[27.0.0, )",
           "Microsoft.Bcl.AsyncInterfaces": "[6.0.0, )"
         }
       },

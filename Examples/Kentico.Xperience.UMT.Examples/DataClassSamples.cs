@@ -5,6 +5,8 @@ namespace Kentico.Xperience.UMT;
 
 public static class DataClassSamples
 {
+    public static readonly Guid FAQ_SAMPLE_GUID = new Guid("7ED6604E-613B-4CE0-8C21-ACFB372C416A");
+
     [Sample("dataclass.article", "This sample describes how to create class inside XbyK to hold Article data", "Article sample")]
     // ReSharper disable once UnusedMember.Global #used implicitly by xml doc <sample>
     public static DataClassModel ArticleClassSample => new()
@@ -58,6 +60,57 @@ public static class DataClassSamples
         }
     };
 
+    [Sample("dataclass.faq", "", "Faq sample")]
+    public static DataClassModel FaqDataClass => new()
+    {
+        ClassName = "UMT.Faq",
+        ClassType = ClassType.CONTENT_TYPE,
+        ClassGUID = FAQ_SAMPLE_GUID,
+        ClassContentTypeType = ClassContentTypeType.REUSABLE,
+        ClassLastModified = DateTime.Now,
+        ClassDisplayName = "Faq",
+        ClassTableName = "UMT_Faq",
+        ClassHasUnmanagedDbSchema = false,
+        Fields = new List<FormField>
+        { 
+            new()
+            { 
+                Column = "FaqQuestion",
+                ColumnType = "text",
+                ColumnSize = 200,
+                AllowEmpty = false,
+                Visible = true,
+                Enabled = true,
+                Guid = new Guid("B7A99EF4-6775-4088-ACC7-41C21299AABF"),
+                Properties = new FormFieldProperties
+                {
+                    FieldCaption = "Question",
+                },
+                Settings = new FormFieldSettings
+                {
+                    ControlName = "Kentico.Administration.TextInput"
+                }
+            },
+            new()
+            {
+                Column = "FaqAnswer",
+                ColumnType = "text",
+                ColumnSize = 200,
+                AllowEmpty = false,
+                Visible = true,
+                Enabled = true,
+                Guid = new Guid("87995645-5868-470B-B25A-0E2A4E6D0E85"),
+                Properties = new FormFieldProperties
+                {
+                    FieldCaption = "Answer",
+                },
+                Settings = new FormFieldSettings
+                {
+                    ControlName = "Kentico.Administration.TextInput"
+                }
+            }
+        }
+    };
 
     [Sample("dataclass.event", "", "Event sample")]
     // ReSharper disable once UnusedMember.Global #used implicitly by xml doc <sample>

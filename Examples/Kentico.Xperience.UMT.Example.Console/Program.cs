@@ -21,7 +21,11 @@ root[ConfigurationPath.Combine("ConnectionStrings", "CMSConnectionString")]
     // TODO: change connection string to target XbyK instance
     = "Data Source=localhost;Initial Catalog=FixingKbank;Integrated Security=True;Persist Security Info=False;Connect Timeout=60;Encrypt=False;Current Language=English;";
 
+const string applicationPhysicalPath = "C:\\Users\\asus\\Source\\Repos\\xbk-demo-site\\src\\Kbank.Web\\";
+
 Service.Use<IConfiguration>(root);
+CMS.Base.SystemContext.WebApplicationPhysicalPath = applicationPhysicalPath;
+
 CMSApplication.Init();
 
 var services = new ServiceCollection();
@@ -65,12 +69,27 @@ var sourceData = new UmtModel[]
 {
     // TODO: use your data
     UserSamples.SampleAdministrator,
-    ContentLanguageSample.SampleContentLanugage,
+    ContentLanguageSamples.SampleContentLanugage,
+
     ChannelSamples.SampleChannelForEmailChannel,
     ChannelSamples.SampleChannelForWebSiteChannel,
     EmailChannelSamples.SampleEmailChannel,
     WebSiteChannelSamples.SampleWebSiteChannel,
+    
     DataClassSamples.ArticleClassSample,
+    DataClassSamples.FaqDataClass,
+    
+    ContentItemSamples.SampleContentItem,
+    ContentItemLanguageMetadataSamples.SampleContentItemLanguageMetadata,
+    ContentItemLanguageMetadataSamples.SampleContentItemLanguageMetadataBasic,
+
+    ContentItemSamples.SampleFaqContentItem,
+    ContentItemCommonDataSamples.SampleFaqContentItemCommonData,
+    
+    WebPageContentItemSamples.SampleWebPageItem,
+
+    AssetSamples.SampleMediaLibrary,
+    AssetSamples.SampleMediaFile
 };
 
 // fill context
