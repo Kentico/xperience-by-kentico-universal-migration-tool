@@ -92,16 +92,8 @@ var sourceData = new UmtModel[]
     AssetSamples.SampleMediaFile
 };
 
-// fill context
-var context = new ImporterContext(
-    // TODO: change site name
-    "Boilerplate",
-    // TODO: change culture if needed
-    "en-US"
-);
-
 // initiate import
-var observer = importService.StartImport(sourceData, context, importObserver);
+var observer = importService.StartImport(sourceData, importObserver);
 
 // wait until import finishes
 await observer.ImportCompletedTask;

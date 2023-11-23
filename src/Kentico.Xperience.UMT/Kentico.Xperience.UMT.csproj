@@ -14,11 +14,11 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <AssemblyAttribute Include="CMS.AssemblyDiscoverableAttribute"></AssemblyAttribute>
+        <AssemblyAttribute Include="CMS.AssemblyDiscoverableAttribute" />
     </ItemGroup>
 
     <ItemGroup>
-        <PackageReference Include="Kentico.Xperience.Core" Version="27.0.0" />
+        <PackageReference Include="Kentico.Xperience.Core" Version="27.0.4" />
         <PackageReference Include="Microsoft.Bcl.AsyncInterfaces" Version="6.0.0" />
     </ItemGroup>
 </Project>

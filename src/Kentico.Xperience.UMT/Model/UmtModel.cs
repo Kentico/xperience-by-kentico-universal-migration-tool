@@ -23,6 +23,7 @@ public interface IUmtModel
 [KnownType(typeof(ContentItemCommonDataModel))]
 [KnownType(typeof(MediaLibraryModel))]
 [KnownType(typeof(MediaFileModel))]
+[KnownType(typeof(WebPageUrlPathModel))]
 public abstract class UmtModel : IUmtModel
 {
     [System.Text.Json.Serialization.JsonExtensionData]

@@ -1,4 +1,5 @@
-﻿using CMS.ContentEngine.Internal;
+﻿using System.Diagnostics;
+using CMS.ContentEngine.Internal;
 using CMS.Core;
 using CMS.DataEngine;
 using CMS.DataEngine.Internal;
@@ -69,8 +70,20 @@ internal class ContentItemCommonDataAdapter : GenericInfoAdapter<ContentItemComm
         }
 
         var adapted = base.Adapt(toAdapt);
+        if (adapted.ContentItemCommonDataID == 0 && contentItemCommonDataInfoProvider.Get(adapted.ContentItemCommonDataGUID)?.ContentItemCommonDataID is { } id)
+        {
+            adapted.ContentItemCommonDataID = id;    
+        }
 
-        contentItemCommonDataInfoProvider.Set(adapted);
+        try
+        {
+            contentItemCommonDataInfoProvider.Set(adapted);
+        }
+        catch (Exception ex)
+        {
+            bool breaker = true;
+        }
+        
 
         var savedCommonDataInfo = contentItemCommonDataInfoProvider.Get().WithGuid(model.ContentItemCommonDataGUID!.Value).FirstOrDefault();
         var itemDataProvider = Service.Resolve<IContentItemDataInfoProviderAccessor>().Get(dataClassInfo.ClassName);
@@ -88,6 +101,8 @@ internal class ContentItemCommonDataAdapter : GenericInfoAdapter<ContentItemComm
             contentItemDataInfo.SetValue(prop.Key, prop.Value);
         }
 
+        Debug.Assert(contentItemDataInfo.ContentItemDataCommonDataID == adapted.ContentItemCommonDataID, "contentItemDataInfo.ContentItemDataCommonDataID == adapted.ContentItemCommonDataID");
+        
         itemDataProvider.Set(contentItemDataInfo);
         return adapted;
     }

@@ -14,7 +14,7 @@ public class SampleTests
     [Fact(Skip = "This test needs to be run using https://docs.xperience.io/custom-development/writing-automated-tests")]
     public async Task SampleTest()
     {
-        var sp = KenticoFixture.FakeDiContainer(new ProviderProxyContext("boilerplate", "en-US")).BuildServiceProvider();
+        var sp = KenticoFixture.FakeDiContainer(new ProviderProxyContext()).BuildServiceProvider();
         var log = sp.GetRequiredService<ILoggerFactory>().CreateLogger<SampleTests>();
         var importService = sp.GetRequiredService<IImportService>();
 
@@ -43,7 +43,7 @@ public class SampleTests
             DataClassSamples.EventDataClass,
             TreeNodeSamples.YearlyEvent,
             TreeNodeSamples.SingleOccurenceEvent
-        }.AsAsyncEnumerable(), new ImporterContext("boilerplate", "en-US"), importObserver);
+        }.AsAsyncEnumerable(), importObserver);
 
         await importObserver.ImportCompletedTask;
 

@@ -29,10 +29,10 @@ internal class Importer : IImporter
         this.adapterFactory = adapterFactory;
     }
 
-    public async Task<IImportResult> ImportAsync(UmtModel umtModel, ImporterContext context)
+    public async Task<IImportResult> ImportAsync(IUmtModel umtModel)
     {
-        var providerProxyContext = new ProviderProxyContext(context.SiteName, context.CultureCode);
-
+        var providerProxyContext = new ProviderProxyContext();
+        
         try
         {
             var importResult = await ImportObject(umtModel, providerProxyContext);
@@ -55,7 +55,7 @@ internal class Importer : IImporter
 
     }
 
-    private async Task<ImportResult> ImportObject(UmtModel model, ProviderProxyContext providerProxyContext)
+    private async Task<ImportResult> ImportObject(IUmtModel model, ProviderProxyContext providerProxyContext)
     {
         var adapter = adapterFactory.CreateAdapter(model, providerProxyContext);
 
@@ -80,7 +80,7 @@ internal class Importer : IImporter
             };
         }
 
-        BaseInfo? adapted;
+        BaseInfo? adapted = null;
         try
         {
             adapted = adapter.Adapt(model);
@@ -91,7 +91,8 @@ internal class Importer : IImporter
             return new ImportResult()
             {
                 Exception = ex,
-                Success = false
+                Success = false,
+                Imported = adapted
             };
         }
 

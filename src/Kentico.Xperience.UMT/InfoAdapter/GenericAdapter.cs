@@ -56,7 +56,7 @@ internal class GenericInfoAdapter<TTargetInfo> : IInfoAdapter<TTargetInfo, IUmtM
                 if (current.ColumnNames.Contains(property.Name))
                 {
                     object? value = property.GetValue(umtModel);
-                    current.SetValue(property.Name, value);
+                    SetValue(current, property.Name, value);
                     logger.LogTrace("[{ColumnName}]={Value}", property.Name, value);
                 }
                 else
@@ -71,7 +71,7 @@ internal class GenericInfoAdapter<TTargetInfo> : IInfoAdapter<TTargetInfo, IUmtM
                 if (current.ColumnNames.Contains(mapTo.PropertyName))
                 {
                     object? value = property.GetValue(umtModel);
-                    current.SetValue(mapTo.PropertyName, value);
+                    SetValue(current, mapTo.PropertyName, value);
                     logger.LogTrace("[{ColumnName}]={Value}", mapTo.PropertyName, value);
                 }
                 else
@@ -84,6 +84,8 @@ internal class GenericInfoAdapter<TTargetInfo> : IInfoAdapter<TTargetInfo, IUmtM
 
         return current;
     }
+
+    protected virtual void SetValue(TTargetInfo current, string propertyName, object? value) => current.SetValue(propertyName, value);
 
     public virtual TTargetInfo Adapt(IUmtModel input)
     {

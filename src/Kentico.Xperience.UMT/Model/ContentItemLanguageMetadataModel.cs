@@ -26,7 +26,7 @@ public class ContentItemLanguageMetadataModel : UmtModel
 
     [Map]
     [Required]
-    public int? ContentItemLanguageMetadataLatestVersionStatus { get; set; }
+    public VersionStatus? ContentItemLanguageMetadataLatestVersionStatus { get; set; }
 
     [Map]
     [Required]

@@ -3,6 +3,7 @@ using CMS.ContentEngine.Internal;
 using CMS.Websites;
 using CMS.Websites.Internal;
 using Kentico.Xperience.UMT.Attributes;
+// ReSharper disable InconsistentNaming
 
 namespace Kentico.Xperience.UMT.Model;
 
@@ -32,7 +33,7 @@ public class WebPageItemModel : UmtModel
     public Guid? WebPageItemWebsiteChannelGuid { get; set; }
 
     [Required]
-    [ReferenceProperty(typeof(ContentItemInfo), "WebPageItemContentItemID", IsRequired = false)]
+    [ReferenceProperty(typeof(ContentItemInfo), "WebPageItemContentItemID", IsRequired = true)]
     public Guid? WebPageItemContentItemGuid { get; set; }
 
     [Map]

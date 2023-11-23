@@ -4,12 +4,12 @@
     "net7.0": {
       "Kentico.Xperience.Admin": {
         "type": "Direct",
-        "requested": "[27.0.0, )",
-        "resolved": "27.0.0",
-        "contentHash": "cqc1QQsS74+Vj3XgvsM/5iKlnmJrDi5UhvG3dIRIGwS8lvTMyuBH2x57Ov/EuRmn/uN0/GRIfFotwTP8T1EMSw==",
+        "requested": "[27.0.4, )",
+        "resolved": "27.0.4",
+        "contentHash": "lrh59nFtm2EfG5b8VR+FIUZwR635QiCCDSkBGyhmhYJ7g3n1q4caE22FdWqHMTxWVKo5uLxIeAeeKFc5KJVjTA==",
         "dependencies": {
           "Kentico.Aira.Client": "1.0.22",
-          "Kentico.Xperience.WebApp": "[27.0.0]",
+          "Kentico.Xperience.WebApp": "[27.0.4]",
           "Microsoft.AspNetCore.SpaServices.Extensions": "6.0.22",
           "Microsoft.Extensions.FileProviders.Embedded": "6.0.22"
         }
@@ -77,8 +77,8 @@
       },
       "HtmlSanitizer": {
         "type": "Transitive",
-        "resolved": "8.0.718",
-        "contentHash": "Owu8E1J6nVS5qcDOfmUZje3dVs9ZxD7nGOkbXuqID+k9vDoK6lwmBsNiH8EA0W5ZPk+L808gQneA1L4trGHDrA==",
+        "resolved": "8.0.723",
+        "contentHash": "C4RZX+Mv9OqY+sAM3SD3BdLxvtr9QimIGvLvN5SDjbi7rb6ibeHhGnQA5EyKbkiuQKHO6MBa3h2AZQzjy6z9HA==",
         "dependencies": {
           "AngleSharp": "[0.17.1]",
           "AngleSharp.Css": "[0.17.0]",
@@ -99,8 +99,8 @@
       },
       "Kentico.Xperience.Core": {
         "type": "Transitive",
-        "resolved": "27.0.0",
-        "contentHash": "P22fyx/djBKyLx632s6h8qw7MULnWB0uWrroaw8c1FxkDYSbtr1nDbrfYKUywtdouIO9oXQJsLI3pqkEXtxNxA==",
+        "resolved": "27.0.4",
+        "contentHash": "btK5R7fPQO9F0xOzyjLbw6bu78RzpPNukatbjX8ScirSE2034z7lRXFhTDCdY6Brls5j5qjOG/1nMkwX8Fpnqg==",
         "dependencies": {
           "AngleSharp": "0.17.1",
           "MailKit": "4.2.0",
@@ -121,12 +121,12 @@
       },
       "Kentico.Xperience.WebApp": {
         "type": "Transitive",
-        "resolved": "27.0.0",
-        "contentHash": "TmBYtTHmqTo+mENh1/35+KgRulEXzj4In7C/NbwXVBUWbXlmff85rnlPz+wLH0WlOfGnH8fCN25y1oy5TJZ5UA==",
+        "resolved": "27.0.4",
+        "contentHash": "3vZjKe2G+kEFot94ai5U7Dgyftbp16aFThFnLPtuJiKtw6NFKdDuJ6aaxiGyNIqvBfUglSeUGrZye1tuA1ZRDw==",
         "dependencies": {
           "CommandLineParser": "2.9.1",
-          "HtmlSanitizer": "8.0.718",
-          "Kentico.Xperience.Core": "[27.0.0]",
+          "HtmlSanitizer": "8.0.723",
+          "Kentico.Xperience.Core": "[27.0.4]",
           "Microsoft.Extensions.FileProviders.Embedded": "6.0.22",
           "Microsoft.Extensions.Localization": "6.0.22"
         }
@@ -644,7 +644,7 @@
       "kentico.xperience.umt": {
         "type": "Project",
         "dependencies": {
-          "Kentico.Xperience.Core": "[27.0.0, )",
+          "Kentico.Xperience.Core": "[27.0.4, )",
           "Microsoft.Bcl.AsyncInterfaces": "[6.0.0, )"
         }
       }

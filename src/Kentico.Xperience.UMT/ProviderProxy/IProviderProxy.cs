@@ -25,7 +25,7 @@ public interface IProviderProxy
     ProviderProxyContext Context { get; }
 }
 
-public record ProviderProxyContext(string SiteName, string CultureCode);
+public record ProviderProxyContext();
 
 // TODO tomas.krch: 2023-09-05 migration v27: TreeProvider obsolete - implement using ContentItemInfo 
 internal class TreeProviderProxy : IProviderProxy
@@ -117,7 +117,7 @@ internal class ContentItemProxy : ProviderProxy<ContentItemInfo>
     {
         var contentItemContentType = dataClassProviderInstance.Get().WithID(info.ContentItemContentTypeID).FirstOrDefault();
 
-        var isReusable = contentItemContentType?.ClassContentTypeType == ClassContentTypeType.REUSABLE;
+        bool isReusable = contentItemContentType?.ClassContentTypeType == ClassContentTypeType.REUSABLE;
 
         info.ContentItemIsReusable = isReusable;
 

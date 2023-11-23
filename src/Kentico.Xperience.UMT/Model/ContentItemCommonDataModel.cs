@@ -28,7 +28,7 @@ public class ContentItemCommonDataModel : UmtModel
 
     [Map]
     [Required]
-    public int? ContentItemCommonDataVersionStatus { get; set; }
+    public VersionStatus? ContentItemCommonDataVersionStatus { get; set; }
 
     [Map]
     [Required]

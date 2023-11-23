@@ -110,12 +110,12 @@ internal class ImportService : IImportService
     }
 
     /// <inheritdoc />
-    public ImportStateObserver StartImport(IEnumerable<UmtModel> importedObjects, ImporterContext context, ImportStateObserver? importObserver = null)
+    public ImportStateObserver StartImport(IEnumerable<UmtModel> importedObjects, ImportStateObserver? importObserver = null)
     {
         var observer = importObserver ?? new ImportStateObserver();
         observer.ImportCompletedTask = Task.Run(() =>
         {
-            var providerProxyContext = new ProviderProxyContext(context.SiteName, context.CultureCode);
+            var providerProxyContext = new ProviderProxyContext();
 
             foreach (var importedObject in importedObjects)
             {
@@ -127,14 +127,14 @@ internal class ImportService : IImportService
     }
 
     /// <inheritdoc />
-    public Task<ImportStateObserver> StartImportAsync(IAsyncEnumerable<UmtModel> importedObjects, ImporterContext context, ImportStateObserver? importObserver = null)
+    public Task<ImportStateObserver> StartImportAsync(IAsyncEnumerable<UmtModel> importedObjects, ImportStateObserver? importObserver = null)
     {
         var observer = importObserver ?? new ImportStateObserver();
         observer.ImportCompletedTask = Task.Run(async () =>
         {
             try
             {
-                var providerProxyContext = new ProviderProxyContext(context.SiteName, context.CultureCode);
+                var providerProxyContext = new ProviderProxyContext();
                 var enumerator = importedObjects.GetAsyncEnumerator();
                 while (await enumerator.MoveNextAsync())
                 {
