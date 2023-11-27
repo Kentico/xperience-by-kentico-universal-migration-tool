@@ -1,6 +1,6 @@
 ﻿using Microsoft.CodeAnalysis;
 
-namespace Kentico.Xperience.UMT.Walkers;
+namespace Kentico.Xperience.UMT.DocUtils.Walkers;
 
 public class ClassDocsVisitor: SymbolVisitor
 {

@@ -1,6 +1,6 @@
 ﻿using System.Text;
 
-namespace Kentico.Xperience.UMT.Templates;
+namespace Kentico.Xperience.UMT.DocUtils.Templates;
 
 public record DocRef(string? Uri, string? Header, string Text)
 {

@@ -1,5 +1,6 @@
 ﻿using CMS.ContentEngine;
 using CMS.ContentEngine.Internal;
+using CMS.Core;
 using CMS.EmailLibrary;
 using CMS.Websites;
 
@@ -62,6 +63,17 @@ public class WIP_ChannelTest
             ContentItemCommonDataPageBuilderWidgets = null, // bude třeba konvertovat na model - vlastnost jako string nedává pro UMT smysl
             ContentItemCommonDataPageTemplateConfiguration = null // bude třeba konvertovat na model - vlastnost jako string nedává pro UMT smysl
         };
+
+        var contentItemDataInfoAccessor = Service.Resolve<IContentItemDataInfoProviderAccessor>().Get("SampleClass");
+        var contentItemDataInfo = contentItemDataInfoAccessor.Get().First();
+        contentItemDataInfo.ContentItemDataCommonDataID = 0;
+        contentItemDataInfo.ContentItemDataGUID = Guid.NewGuid();
+        contentItemDataInfo.SetValue("SomeCustomValue", 1);
+        // var contentItemDataInfo = new ContentItemDataInfo
+        // {
+        //     ContentItemDataCommonDataID = 0,
+        //     ContentItemDataGUID = default
+        // };
 
         var contentItemLanguageMetadataInfo = new ContentItemLanguageMetadataInfo
         {

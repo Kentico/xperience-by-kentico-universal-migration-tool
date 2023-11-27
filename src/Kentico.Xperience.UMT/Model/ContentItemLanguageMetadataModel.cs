@@ -36,7 +36,7 @@ public class ContentItemLanguageMetadataModel : UmtModel
     public Guid? ContentItemLanguageMetadataCreatedByUserGuid { get; set; }
 
     [Map]
-    [Required]
+    // [Required]
     public DateTime? ContentItemLanguageMetadataModifiedWhen { get; set; }
 
     [ReferenceProperty(typeof(UserInfo), "ContentItemLanguageMetadataModifiedByUserID", IsRequired = false)]

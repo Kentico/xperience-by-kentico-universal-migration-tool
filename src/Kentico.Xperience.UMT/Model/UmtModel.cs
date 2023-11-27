@@ -10,20 +10,20 @@ public interface IUmtModel
     public Dictionary<string, object?> CustomProperties { get; }
 }
 
-[KnownType(typeof(TreeNodeModel))]
-[KnownType(typeof(DataClassModel))]
-[KnownType(typeof(UserInfoModel))]
 [KnownType(typeof(ChannelModel))]
-[KnownType(typeof(WebsiteChannelModel))]
-[KnownType(typeof(EmailChannelModel))]
-[KnownType(typeof(ContentLanguageModel))]
-[KnownType(typeof(ContentItemModel))]
-[KnownType(typeof(WebPageItemModel))]
-[KnownType(typeof(ContentItemLanguageMetadataModel))]
 [KnownType(typeof(ContentItemCommonDataModel))]
-[KnownType(typeof(MediaLibraryModel))]
+[KnownType(typeof(ContentItemDataModel))]
+[KnownType(typeof(ContentItemLanguageMetadataModel))]
+[KnownType(typeof(ContentItemModel))]
+[KnownType(typeof(ContentLanguageModel))]
+[KnownType(typeof(DataClassModel))]
+[KnownType(typeof(EmailChannelModel))]
 [KnownType(typeof(MediaFileModel))]
+[KnownType(typeof(MediaLibraryModel))]
+[KnownType(typeof(UserInfoModel))]
+[KnownType(typeof(WebPageItemModel))]
 [KnownType(typeof(WebPageUrlPathModel))]
+[KnownType(typeof(WebsiteChannelModel))]
 public abstract class UmtModel : IUmtModel
 {
     [System.Text.Json.Serialization.JsonExtensionData]

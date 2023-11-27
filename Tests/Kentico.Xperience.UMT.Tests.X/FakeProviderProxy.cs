@@ -2,7 +2,7 @@
 using CMS.DataEngine;
 using Kentico.Xperience.UMT.ProviderProxy;
 
-namespace Kentico.Xperience.UMT;
+namespace Kentico.Xperience.UMT.Tests.X;
 
 public class FakeProviderProxyFactory : IProviderProxyFactory
 {

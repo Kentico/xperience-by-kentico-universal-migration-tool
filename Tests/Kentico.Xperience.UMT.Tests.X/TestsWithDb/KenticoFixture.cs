@@ -8,7 +8,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
 using Microsoft.Extensions.Logging;
 
-namespace Kentico.Xperience.UMT;
+namespace Kentico.Xperience.UMT.Tests.X.TestsWithDb;
 
 // ReSharper disable once ClassNeverInstantiated.Global
 public sealed class KenticoFixture : IDisposable

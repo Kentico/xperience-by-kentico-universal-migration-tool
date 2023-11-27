@@ -24,7 +24,62 @@
         }
       }
     },
-    "TreeNodeModel": {
+    "ChannelModel": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/UmtModel"
+        },
+        {
+          "type": "object",
+          "description": "Model represents XbyK ChannelInfo",
+          "additionalProperties": {
+            "oneOf": [
+              {},
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "required": [
+            "ChannelDisplayName",
+            "ChannelName",
+            "ChannelGUID",
+            "ChannelType"
+          ],
+          "properties": {
+            "ChannelDisplayName": {
+              "type": "string",
+              "minLength": 1
+            },
+            "ChannelName": {
+              "type": "string",
+              "minLength": 1
+            },
+            "ChannelGUID": {
+              "type": "string",
+              "format": "guid",
+              "minLength": 1
+            },
+            "ChannelType": {
+              "$ref": "#/definitions/ChannelType"
+            }
+          }
+        }
+      ]
+    },
+    "ChannelType": {
+      "type": "integer",
+      "description": "Channel types enum.",
+      "x-enumNames": [
+        "Website",
+        "Email"
+      ],
+      "enum": [
+        0,
+        1
+      ]
+    },
+    "ContentItemCommonDataModel": {
       "allOf": [
         {
           "$ref": "#/definitions/UmtModel"
@@ -40,98 +95,289 @@
             ]
           },
           "required": [
-            "NodeClassGuid",
-            "NodeGUID",
-            "NodeAlias",
-            "NodeName",
-            "DocumentCulture",
-            "DocumentGUID"
+            "ContentItemCommonDataGUID",
+            "ContentItemCommonDataContentItemGuid",
+            "ContentItemCommonDataContentLanguageGuid",
+            "ContentItemCommonDataVersionStatus",
+            "ContentItemCommonDataIsLatest"
           ],
           "properties": {
-            "NodeClassGuid": {
+            "ContentItemCommonDataGUID": {
               "type": "string",
-              "description": "Required reference to DataClass unique id ",
               "format": "guid",
               "minLength": 1
             },
-            "NodeGUID": {
+            "ContentItemCommonDataContentItemGuid": {
               "type": "string",
-              "description": "unique identification of Node in tree structure, culture independent",
               "format": "guid",
               "minLength": 1
             },
-            "NodeAlias": {
+            "ContentItemCommonDataContentLanguageGuid": {
               "type": "string",
-              "description": "Node alias is used internally by XbyK API to organize node by path (NodeAliasPath)",
+              "format": "guid",
               "minLength": 1
             },
-            "NodeName": {
-              "type": "string",
-              "minLength": 1
+            "ContentItemCommonDataVersionStatus": {
+              "$ref": "#/definitions/VersionStatus"
             },
-            "NodeOrder": {
-              "type": [
-                "integer",
-                "null"
-              ],
-              "description": "Order of node in tree structure, decides order of nodes in same level of tree structure, default to calculated value by XbyK API",
-              "format": "int32"
+            "ContentItemCommonDataIsLatest": {
+              "type": "boolean"
             },
-            "DocumentCulture": {
-              "type": "string",
-              "description": "document culture specified in .NET culture format - en-US, en-GB,...",
-              "minLength": 1
-            },
-            "DocumentName": {
+            "ContentItemCommonDataPageBuilderWidgets": {
               "type": [
                 "null",
                 "string"
               ]
             },
-            "DocumentLastPublished": {
+            "ContentItemCommonDataPageTemplateConfiguration": {
               "type": [
                 "null",
                 "string"
-              ],
-              "description": "property is set when workflow is applied to publication date",
-              "format": "date-time"
-            },
-            "DocumentModifiedWhen": {
-              "type": [
-                "null",
-                "string"
-              ],
-              "description": "document last modification date - defaults to null",
-              "format": "date-time"
-            },
-            "DocumentCreatedWhen": {
-              "type": [
-                "null",
-                "string"
-              ],
-              "description": "document creation date - defaults to current server time",
-              "format": "date-time"
-            },
-            "DocumentPublishFrom": {
-              "type": [
-                "null",
-                "string"
-              ],
-              "description": "planned publication date, document will/was accessible to public from this date",
-              "format": "date-time"
-            },
-            "DocumentPublishTo": {
-              "type": [
-                "null",
-                "string"
-              ],
-              "description": "planned publication date, document will/was accessible to public until this date\nnullish value is DateTime.MaxDate - XbyK API considers NULL and DataTime.MaxDate same for this field",
-              "format": "date-time"
-            },
-            "DocumentGUID": {
+              ]
+            }
+          }
+        }
+      ]
+    },
+    "VersionStatus": {
+      "type": "integer",
+      "description": "Specifies item version.",
+      "x-enumNames": [
+        "InitialDraft",
+        "Draft",
+        "Published",
+        "Archived"
+      ],
+      "enum": [
+        0,
+        1,
+        2,
+        3
+      ]
+    },
+    "ContentItemDataModel": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/UmtModel"
+        },
+        {
+          "type": "object",
+          "description": "Model represents XbyK ContentItemDataInfo",
+          "additionalProperties": {
+            "oneOf": [
+              {},
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "required": [
+            "ContentItemDataGUID",
+            "ContentItemDataCommonDataGuid",
+            "ContentItemContentTypeName"
+          ],
+          "properties": {
+            "ContentItemDataGUID": {
               "type": "string",
-              "description": "UniqueId of TreeNodeModel, unique for each combination of DocumentCulture, NodeGuid, NodeSiteID",
               "format": "guid",
+              "minLength": 1
+            },
+            "ContentItemDataCommonDataGuid": {
+              "type": "string",
+              "format": "guid",
+              "minLength": 1
+            },
+            "ContentItemContentTypeName": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        }
+      ]
+    },
+    "ContentItemLanguageMetadataModel": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/UmtModel"
+        },
+        {
+          "type": "object",
+          "additionalProperties": {
+            "oneOf": [
+              {},
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "required": [
+            "ContentItemLanguageMetadataGUID",
+            "ContentItemLanguageMetadataContentItemGuid",
+            "ContentItemLanguageMetadataDisplayName",
+            "ContentItemLanguageMetadataLatestVersionStatus",
+            "ContentItemLanguageMetadataCreatedWhen",
+            "ContentItemLanguageMetadataHasImageAsset",
+            "ContentItemLanguageMetadataContentLanguageGuid"
+          ],
+          "properties": {
+            "ContentItemLanguageMetadataGUID": {
+              "type": "string",
+              "format": "guid",
+              "minLength": 1
+            },
+            "ContentItemLanguageMetadataContentItemGuid": {
+              "type": "string",
+              "format": "guid",
+              "minLength": 1
+            },
+            "ContentItemLanguageMetadataDisplayName": {
+              "type": "string",
+              "minLength": 1
+            },
+            "ContentItemLanguageMetadataLatestVersionStatus": {
+              "$ref": "#/definitions/VersionStatus"
+            },
+            "ContentItemLanguageMetadataCreatedWhen": {
+              "type": "string",
+              "format": "date-time",
+              "minLength": 1
+            },
+            "ContentItemLanguageMetadataCreatedByUserGuid": {
+              "type": [
+                "null",
+                "string"
+              ],
+              "format": "guid"
+            },
+            "ContentItemLanguageMetadataModifiedWhen": {
+              "type": [
+                "null",
+                "string"
+              ],
+              "format": "date-time"
+            },
+            "ContentItemLanguageMetadataModifiedByUserGuid": {
+              "type": [
+                "null",
+                "string"
+              ],
+              "format": "guid"
+            },
+            "ContentItemLanguageMetadataHasImageAsset": {
+              "type": "boolean"
+            },
+            "ContentItemLanguageMetadataContentLanguageGuid": {
+              "type": "string",
+              "format": "guid",
+              "minLength": 1
+            }
+          }
+        }
+      ]
+    },
+    "ContentItemModel": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/UmtModel"
+        },
+        {
+          "type": "object",
+          "additionalProperties": {
+            "oneOf": [
+              {},
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "required": [
+            "ContentItemGUID",
+            "ContentItemName",
+            "ContentItemIsReusable",
+            "ContentItemIsSecured",
+            "ContentItemChannelGuid"
+          ],
+          "properties": {
+            "ContentItemGUID": {
+              "type": "string",
+              "format": "guid",
+              "minLength": 1
+            },
+            "ContentItemName": {
+              "type": "string",
+              "minLength": 1
+            },
+            "ContentItemIsReusable": {
+              "type": "boolean"
+            },
+            "ContentItemIsSecured": {
+              "type": "boolean"
+            },
+            "ContentItemDataClassGuid": {
+              "type": [
+                "null",
+                "string"
+              ],
+              "format": "guid"
+            },
+            "ContentItemChannelGuid": {
+              "type": "string",
+              "format": "guid",
+              "minLength": 1
+            }
+          }
+        }
+      ]
+    },
+    "ContentLanguageModel": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/UmtModel"
+        },
+        {
+          "type": "object",
+          "description": "Model represents XbyK ContentLanguageInfo",
+          "additionalProperties": {
+            "oneOf": [
+              {},
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "required": [
+            "ContentLanguageGUID",
+            "ContentLanguageDisplayName",
+            "ContentLanguageName",
+            "ContentLanguageIsDefault",
+            "ContentLanguageCultureFormat"
+          ],
+          "properties": {
+            "ContentLanguageGUID": {
+              "type": "string",
+              "format": "guid",
+              "minLength": 1
+            },
+            "ContentLanguageDisplayName": {
+              "type": "string",
+              "minLength": 1
+            },
+            "ContentLanguageName": {
+              "type": "string",
+              "minLength": 1
+            },
+            "ContentLanguageIsDefault": {
+              "type": "boolean"
+            },
+            "ContentLanguageFallbackContentLanguageGuid": {
+              "type": [
+                "null",
+                "string"
+              ],
+              "format": "guid"
+            },
+            "ContentLanguageCultureFormat": {
+              "type": "string",
               "minLength": 1
             }
           }
@@ -345,6 +591,243 @@
         }
       }
     },
+    "EmailChannelModel": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/UmtModel"
+        },
+        {
+          "type": "object",
+          "description": "Model represents XbyK EmailChannelInfo",
+          "additionalProperties": {
+            "oneOf": [
+              {},
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "required": [
+            "EmailChannelGUID",
+            "EmailChannelSendingDomain",
+            "EmailChannelPrimaryContentLanguageGUID",
+            "EmailChannelChannelGuid",
+            "EmailChannelServiceDomain"
+          ],
+          "properties": {
+            "EmailChannelGUID": {
+              "type": "string",
+              "format": "guid",
+              "minLength": 1
+            },
+            "EmailChannelSendingDomain": {
+              "type": "string",
+              "minLength": 1
+            },
+            "EmailChannelPrimaryContentLanguageGUID": {
+              "type": "string",
+              "format": "guid",
+              "minLength": 1
+            },
+            "EmailChannelChannelGuid": {
+              "type": "string",
+              "format": "guid",
+              "minLength": 1
+            },
+            "EmailChannelServiceDomain": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        }
+      ]
+    },
+    "MediaFileModel": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/UmtModel"
+        },
+        {
+          "type": "object",
+          "additionalProperties": {
+            "oneOf": [
+              {},
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "required": [
+            "FileGUID",
+            "FileLibraryGuid",
+            "FileName"
+          ],
+          "properties": {
+            "DataSourcePath": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "FileGUID": {
+              "type": "string",
+              "format": "guid",
+              "minLength": 1
+            },
+            "FileLibraryGuid": {
+              "type": "string",
+              "format": "guid",
+              "minLength": 1
+            },
+            "FileCreatedByUserGuid": {
+              "type": [
+                "null",
+                "string"
+              ],
+              "format": "guid"
+            },
+            "FileModifiedByUserGuid": {
+              "type": [
+                "null",
+                "string"
+              ],
+              "format": "guid"
+            },
+            "FileName": {
+              "type": "string",
+              "minLength": 1
+            },
+            "FileTitle": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "FileDescription": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "FileExtension": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "FileMimeType": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "FilePath": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "FileImageWidth": {
+              "type": [
+                "integer",
+                "null"
+              ],
+              "format": "int32"
+            },
+            "FileImageHeight": {
+              "type": [
+                "integer",
+                "null"
+              ],
+              "format": "int32"
+            },
+            "FileCreatedWhen": {
+              "type": [
+                "null",
+                "string"
+              ],
+              "format": "date-time"
+            },
+            "FileModifiedWhen": {
+              "type": [
+                "null",
+                "string"
+              ],
+              "format": "date-time"
+            },
+            "FileCustomData": {
+              "type": [
+                "null",
+                "string"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    "MediaLibraryModel": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/UmtModel"
+        },
+        {
+          "type": "object",
+          "additionalProperties": {
+            "oneOf": [
+              {},
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "required": [
+            "LibraryName",
+            "LibraryDisplayName",
+            "LibraryFolder",
+            "LibraryGUID"
+          ],
+          "properties": {
+            "LibraryName": {
+              "type": "string",
+              "minLength": 1
+            },
+            "LibraryDisplayName": {
+              "type": "string",
+              "minLength": 1
+            },
+            "LibraryDescription": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "LibraryFolder": {
+              "type": "string",
+              "minLength": 1
+            },
+            "LibraryAccess": {
+              "type": [
+                "integer",
+                "null"
+              ],
+              "format": "int32"
+            },
+            "LibraryGUID": {
+              "type": "string",
+              "format": "guid",
+              "minLength": 1
+            },
+            "LibraryLastModified": {
+              "type": [
+                "null",
+                "string"
+              ],
+              "format": "date-time"
+            }
+          }
+        }
+      ]
+    },
     "UserInfoModel": {
       "allOf": [
         {
@@ -469,282 +952,6 @@
         }
       ]
     },
-    "ChannelModel": {
-      "allOf": [
-        {
-          "$ref": "#/definitions/UmtModel"
-        },
-        {
-          "type": "object",
-          "description": "Model represents XbyK ChannelInfo",
-          "additionalProperties": {
-            "oneOf": [
-              {},
-              {
-                "type": "null"
-              }
-            ]
-          },
-          "required": [
-            "ChannelDisplayName",
-            "ChannelName",
-            "ChannelGUID",
-            "ChannelType"
-          ],
-          "properties": {
-            "ChannelDisplayName": {
-              "type": "string",
-              "minLength": 1
-            },
-            "ChannelName": {
-              "type": "string",
-              "minLength": 1
-            },
-            "ChannelGUID": {
-              "type": "string",
-              "format": "guid",
-              "minLength": 1
-            },
-            "ChannelType": {
-              "$ref": "#/definitions/ChannelType"
-            }
-          }
-        }
-      ]
-    },
-    "ChannelType": {
-      "type": "integer",
-      "description": "Channel types enum.",
-      "x-enumNames": [
-        "Website",
-        "Email"
-      ],
-      "enum": [
-        0,
-        1
-      ]
-    },
-    "WebsiteChannelModel": {
-      "allOf": [
-        {
-          "$ref": "#/definitions/UmtModel"
-        },
-        {
-          "type": "object",
-          "description": "Model represents XbyK WebSiteChannelInfo",
-          "additionalProperties": {
-            "oneOf": [
-              {},
-              {
-                "type": "null"
-              }
-            ]
-          },
-          "required": [
-            "WebsiteChannelGUID",
-            "WebsiteChannelChannelGuid",
-            "WebsiteChannelDomain",
-            "WebsiteChannelPrimaryContentLanguageGuid",
-            "WebsiteChannelDefaultCookieLevel",
-            "WebsiteChannelStoreFormerUrls"
-          ],
-          "properties": {
-            "WebsiteChannelGUID": {
-              "type": "string",
-              "format": "guid",
-              "minLength": 1
-            },
-            "WebsiteChannelChannelGuid": {
-              "type": "string",
-              "format": "guid",
-              "minLength": 1
-            },
-            "WebsiteChannelDomain": {
-              "type": "string",
-              "minLength": 1
-            },
-            "WebsiteChannelHomePage": {
-              "type": [
-                "null",
-                "string"
-              ]
-            },
-            "WebsiteChannelPrimaryContentLanguageGuid": {
-              "type": "string",
-              "format": "guid",
-              "minLength": 1
-            },
-            "WebsiteChannelDefaultCookieLevel": {
-              "type": "integer",
-              "format": "int32"
-            },
-            "WebsiteChannelStoreFormerUrls": {
-              "type": "boolean"
-            }
-          }
-        }
-      ]
-    },
-    "EmailChannelModel": {
-      "allOf": [
-        {
-          "$ref": "#/definitions/UmtModel"
-        },
-        {
-          "type": "object",
-          "description": "Model represents XbyK EmailChannelInfo",
-          "additionalProperties": {
-            "oneOf": [
-              {},
-              {
-                "type": "null"
-              }
-            ]
-          },
-          "required": [
-            "EmailChannelGUID",
-            "EmailChannelSendingDomain",
-            "EmailChannelPrimaryContentLanguageGUID",
-            "EmailChannelChannelGuid",
-            "EmailChannelServiceDomain"
-          ],
-          "properties": {
-            "EmailChannelGUID": {
-              "type": "string",
-              "format": "guid",
-              "minLength": 1
-            },
-            "EmailChannelSendingDomain": {
-              "type": "string",
-              "minLength": 1
-            },
-            "EmailChannelPrimaryContentLanguageGUID": {
-              "type": "string",
-              "format": "guid",
-              "minLength": 1
-            },
-            "EmailChannelChannelGuid": {
-              "type": "string",
-              "format": "guid",
-              "minLength": 1
-            },
-            "EmailChannelServiceDomain": {
-              "type": "string",
-              "minLength": 1
-            }
-          }
-        }
-      ]
-    },
-    "ContentLanguageModel": {
-      "allOf": [
-        {
-          "$ref": "#/definitions/UmtModel"
-        },
-        {
-          "type": "object",
-          "description": "Model represents XbyK ContentLanguageInfo",
-          "additionalProperties": {
-            "oneOf": [
-              {},
-              {
-                "type": "null"
-              }
-            ]
-          },
-          "required": [
-            "ContentLanguageGUID",
-            "ContentLanguageDisplayName",
-            "ContentLanguageName",
-            "ContentLanguageIsDefault",
-            "ContentLanguageCultureFormat"
-          ],
-          "properties": {
-            "ContentLanguageGUID": {
-              "type": "string",
-              "format": "guid",
-              "minLength": 1
-            },
-            "ContentLanguageDisplayName": {
-              "type": "string",
-              "minLength": 1
-            },
-            "ContentLanguageName": {
-              "type": "string",
-              "minLength": 1
-            },
-            "ContentLanguageIsDefault": {
-              "type": "boolean"
-            },
-            "ContentLanguageFallbackContentLanguageGuid": {
-              "type": [
-                "null",
-                "string"
-              ],
-              "format": "guid"
-            },
-            "ContentLanguageCultureFormat": {
-              "type": "string",
-              "minLength": 1
-            }
-          }
-        }
-      ]
-    },
-    "ContentItemModel": {
-      "allOf": [
-        {
-          "$ref": "#/definitions/UmtModel"
-        },
-        {
-          "type": "object",
-          "additionalProperties": {
-            "oneOf": [
-              {},
-              {
-                "type": "null"
-              }
-            ]
-          },
-          "required": [
-            "ContentItemGUID",
-            "ContentItemName",
-            "ContentItemIsReusable",
-            "ContentItemIsSecured",
-            "ContentItemChannelGuid"
-          ],
-          "properties": {
-            "ContentItemGUID": {
-              "type": "string",
-              "format": "guid",
-              "minLength": 1
-            },
-            "ContentItemName": {
-              "type": "string",
-              "minLength": 1
-            },
-            "ContentItemIsReusable": {
-              "type": "boolean"
-            },
-            "ContentItemIsSecured": {
-              "type": "boolean"
-            },
-            "ContentItemDataClassGuid": {
-              "type": [
-                "null",
-                "string"
-              ],
-              "format": "guid"
-            },
-            "ContentItemChannelGuid": {
-              "type": "string",
-              "format": "guid",
-              "minLength": 1
-            }
-          }
-        }
-      ]
-    },
     "WebPageItemModel": {
       "allOf": [
         {
@@ -807,7 +1014,7 @@
         }
       ]
     },
-    "ContentItemLanguageMetadataModel": {
+    "WebPageUrlPathModel": {
       "allOf": [
         {
           "$ref": "#/definitions/UmtModel"
@@ -823,318 +1030,116 @@
             ]
           },
           "required": [
-            "ContentItemLanguageMetadataGUID",
-            "ContentItemLanguageMetadataContentItemGuid",
-            "ContentItemLanguageMetadataDisplayName",
-            "ContentItemLanguageMetadataLatestVersionStatus",
-            "ContentItemLanguageMetadataCreatedWhen",
-            "ContentItemLanguageMetadataModifiedWhen",
-            "ContentItemLanguageMetadataHasImageAsset",
-            "ContentItemLanguageMetadataContentLanguageGuid"
+            "WebPageUrlPathGUID",
+            "WebPageUrlPathWebPageItemGuid",
+            "WebPageUrlPathWebsiteChannelGuid",
+            "WebPageUrlPathContentLanguageGuid"
           ],
           "properties": {
-            "ContentItemLanguageMetadataGUID": {
+            "WebPageUrlPathGUID": {
               "type": "string",
               "format": "guid",
               "minLength": 1
             },
-            "ContentItemLanguageMetadataContentItemGuid": {
+            "WebPageUrlPath": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "WebPageUrlPathHash": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "WebPageUrlPathWebPageItemGuid": {
               "type": "string",
               "format": "guid",
               "minLength": 1
             },
-            "ContentItemLanguageMetadataDisplayName": {
+            "WebPageUrlPathWebsiteChannelGuid": {
+              "type": "string",
+              "format": "guid",
+              "minLength": 1
+            },
+            "WebPageUrlPathContentLanguageGuid": {
+              "type": "string",
+              "format": "guid",
+              "minLength": 1
+            },
+            "WebPageUrlPathIsLatest": {
+              "type": [
+                "boolean",
+                "null"
+              ]
+            },
+            "WebPageUrlPathIsDraft": {
+              "type": [
+                "boolean",
+                "null"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    "WebsiteChannelModel": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/UmtModel"
+        },
+        {
+          "type": "object",
+          "description": "Model represents XbyK WebSiteChannelInfo",
+          "additionalProperties": {
+            "oneOf": [
+              {},
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "required": [
+            "WebsiteChannelGUID",
+            "WebsiteChannelChannelGuid",
+            "WebsiteChannelDomain",
+            "WebsiteChannelPrimaryContentLanguageGuid",
+            "WebsiteChannelDefaultCookieLevel",
+            "WebsiteChannelStoreFormerUrls"
+          ],
+          "properties": {
+            "WebsiteChannelGUID": {
+              "type": "string",
+              "format": "guid",
+              "minLength": 1
+            },
+            "WebsiteChannelChannelGuid": {
+              "type": "string",
+              "format": "guid",
+              "minLength": 1
+            },
+            "WebsiteChannelDomain": {
               "type": "string",
               "minLength": 1
             },
-            "ContentItemLanguageMetadataLatestVersionStatus": {
+            "WebsiteChannelHomePage": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "WebsiteChannelPrimaryContentLanguageGuid": {
+              "type": "string",
+              "format": "guid",
+              "minLength": 1
+            },
+            "WebsiteChannelDefaultCookieLevel": {
               "type": "integer",
               "format": "int32"
             },
-            "ContentItemLanguageMetadataCreatedWhen": {
-              "type": "string",
-              "format": "date-time",
-              "minLength": 1
-            },
-            "ContentItemLanguageMetadataCreatedByUserGuid": {
-              "type": [
-                "null",
-                "string"
-              ],
-              "format": "guid"
-            },
-            "ContentItemLanguageMetadataModifiedWhen": {
-              "type": "string",
-              "format": "date-time",
-              "minLength": 1
-            },
-            "ContentItemLanguageMetadataModifiedByUserGuid": {
-              "type": [
-                "null",
-                "string"
-              ],
-              "format": "guid"
-            },
-            "ContentItemLanguageMetadataHasImageAsset": {
+            "WebsiteChannelStoreFormerUrls": {
               "type": "boolean"
-            },
-            "ContentItemLanguageMetadataContentLanguageGuid": {
-              "type": "string",
-              "format": "guid",
-              "minLength": 1
-            }
-          }
-        }
-      ]
-    },
-    "ContentItemCommonDataModel": {
-      "allOf": [
-        {
-          "$ref": "#/definitions/UmtModel"
-        },
-        {
-          "type": "object",
-          "additionalProperties": {
-            "oneOf": [
-              {},
-              {
-                "type": "null"
-              }
-            ]
-          },
-          "required": [
-            "ContentItemCommonDataGUID",
-            "ContentItemCommonDataContentItemGuid",
-            "ContentItemDataGuid",
-            "ContentItemCommonDataContentLanguageGuid",
-            "ContentItemCommonDataVersionStatus",
-            "ContentItemCommonDataIsLatest"
-          ],
-          "properties": {
-            "ContentItemCommonDataGUID": {
-              "type": "string",
-              "format": "guid",
-              "minLength": 1
-            },
-            "ContentItemCommonDataContentItemGuid": {
-              "type": "string",
-              "format": "guid",
-              "minLength": 1
-            },
-            "ContentItemDataGuid": {
-              "type": "string",
-              "format": "guid",
-              "minLength": 1
-            },
-            "ContentItemCommonDataContentLanguageGuid": {
-              "type": "string",
-              "format": "guid",
-              "minLength": 1
-            },
-            "ContentItemCommonDataVersionStatus": {
-              "type": "integer",
-              "format": "int32"
-            },
-            "ContentItemCommonDataIsLatest": {
-              "type": "boolean"
-            },
-            "ContentItemCommonDataPageBuilderWidgets": {
-              "type": [
-                "null",
-                "string"
-              ]
-            },
-            "ContentItemCommonDataPageTemplateConfiguration": {
-              "type": [
-                "null",
-                "string"
-              ]
-            }
-          }
-        }
-      ]
-    },
-    "MediaLibraryModel": {
-      "allOf": [
-        {
-          "$ref": "#/definitions/UmtModel"
-        },
-        {
-          "type": "object",
-          "additionalProperties": {
-            "oneOf": [
-              {},
-              {
-                "type": "null"
-              }
-            ]
-          },
-          "required": [
-            "LibraryName",
-            "LibraryDisplayName",
-            "LibraryFolder",
-            "LibraryGUID"
-          ],
-          "properties": {
-            "LibraryName": {
-              "type": "string",
-              "minLength": 1
-            },
-            "LibraryDisplayName": {
-              "type": "string",
-              "minLength": 1
-            },
-            "LibraryDescription": {
-              "type": [
-                "null",
-                "string"
-              ]
-            },
-            "LibraryFolder": {
-              "type": "string",
-              "minLength": 1
-            },
-            "LibraryAccess": {
-              "type": [
-                "integer",
-                "null"
-              ],
-              "format": "int32"
-            },
-            "LibraryGUID": {
-              "type": "string",
-              "format": "guid",
-              "minLength": 1
-            },
-            "LibraryLastModified": {
-              "type": [
-                "null",
-                "string"
-              ],
-              "format": "date-time"
-            }
-          }
-        }
-      ]
-    },
-    "MediaFileModel": {
-      "allOf": [
-        {
-          "$ref": "#/definitions/UmtModel"
-        },
-        {
-          "type": "object",
-          "additionalProperties": {
-            "oneOf": [
-              {},
-              {
-                "type": "null"
-              }
-            ]
-          },
-          "required": [
-            "FileGUID",
-            "FileLibraryGuid",
-            "FileName"
-          ],
-          "properties": {
-            "DataSourcePath": {
-              "type": [
-                "null",
-                "string"
-              ]
-            },
-            "FileGUID": {
-              "type": "string",
-              "format": "guid",
-              "minLength": 1
-            },
-            "FileLibraryGuid": {
-              "type": "string",
-              "format": "guid",
-              "minLength": 1
-            },
-            "FileCreatedByUserGuid": {
-              "type": [
-                "null",
-                "string"
-              ],
-              "format": "guid"
-            },
-            "FileModifiedByUserGuid": {
-              "type": [
-                "null",
-                "string"
-              ],
-              "format": "guid"
-            },
-            "FileName": {
-              "type": "string",
-              "minLength": 1
-            },
-            "FileTitle": {
-              "type": [
-                "null",
-                "string"
-              ]
-            },
-            "FileDescription": {
-              "type": [
-                "null",
-                "string"
-              ]
-            },
-            "FileExtension": {
-              "type": [
-                "null",
-                "string"
-              ]
-            },
-            "FileMimeType": {
-              "type": [
-                "null",
-                "string"
-              ]
-            },
-            "FilePath": {
-              "type": [
-                "null",
-                "string"
-              ]
-            },
-            "FileImageWidth": {
-              "type": [
-                "integer",
-                "null"
-              ],
-              "format": "int32"
-            },
-            "FileImageHeight": {
-              "type": [
-                "integer",
-                "null"
-              ],
-              "format": "int32"
-            },
-            "FileCreatedWhen": {
-              "type": [
-                "null",
-                "string"
-              ],
-              "format": "date-time"
-            },
-            "FileModifiedWhen": {
-              "type": [
-                "null",
-                "string"
-              ],
-              "format": "date-time"
-            },
-            "FileCustomData": {
-              "type": [
-                "null",
-                "string"
-              ]
             }
           }
         }

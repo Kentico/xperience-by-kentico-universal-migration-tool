@@ -2,7 +2,6 @@
 using System.Runtime.CompilerServices;
 using System.Text.Json;
 using CMS.DataEngine;
-// using CMS.DocumentEngine; => obsolete
 using Kentico.Xperience.UMT.Attributes;
 using Kentico.Xperience.UMT.Model;
 using Kentico.Xperience.UMT.ProviderProxy;
@@ -87,6 +86,8 @@ internal class GenericInfoAdapter<TTargetInfo> : IInfoAdapter<TTargetInfo, IUmtM
 
     protected virtual void SetValue(TTargetInfo current, string propertyName, object? value) => current.SetValue(propertyName, value);
 
+    protected virtual string GetGuidColumnName(BaseInfo info) => info.TypeInfo.GUIDColumn;
+
     public virtual TTargetInfo Adapt(IUmtModel input)
     {
         if (!modelService.TryGetModelInfo(input.GetType(), out var model) || model == null)
@@ -99,7 +100,7 @@ internal class GenericInfoAdapter<TTargetInfo> : IInfoAdapter<TTargetInfo, IUmtM
 
         if (model.ObjectGuidProperty is { } objectGuidProperty && objectGuidProperty.GetValue(input) is Guid objectGuid)
         {
-            var existing = ProviderProxy.GetBaseInfoByGuid(objectGuid);
+            var existing = ProviderProxy.GetBaseInfoByGuid(objectGuid, input);
 
             if (existing != null)
             {
@@ -117,7 +118,7 @@ internal class GenericInfoAdapter<TTargetInfo> : IInfoAdapter<TTargetInfo, IUmtM
             else
             {
                 current = ObjectFactory(model, input);
-                current.SetValue(current.TypeInfo.GUIDColumn, objectGuid);
+                current.SetValue(GetGuidColumnName(current), objectGuid);
                 logger.LogTrace("Info {Guid} created", objectGuid);
             }
         }
@@ -140,8 +141,8 @@ internal class GenericInfoAdapter<TTargetInfo> : IInfoAdapter<TTargetInfo, IUmtM
             {
                 var providerProxy = providerProxyFactory.CreateProviderProxy(referenceProperty.ReferencedInfoType, ProviderProxy.Context);
                 var foreign = referenceProperty.SearchedField == null
-                    ? providerProxy.GetBaseInfoByGuid(foreignObjectGuid)
-                    : providerProxy.GetBaseInfoBy(foreignObjectGuid, referenceProperty.SearchedField);
+                    ? providerProxy.GetBaseInfoByGuid(foreignObjectGuid, input)
+                    : providerProxy.GetBaseInfoBy(foreignObjectGuid, referenceProperty.SearchedField, input);
 
                 if (foreign is not null)
                 {

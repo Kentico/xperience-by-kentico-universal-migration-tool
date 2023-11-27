@@ -35,7 +35,7 @@ public sealed class ImportStateObserver
     /// <summary>
     /// Delegate specifies callback method for event ValidationError
     /// </summary>
-    public delegate void ModelValidationError(UmtModel model, Guid? uniqueId, ICollection<ValidationResult> errors);
+    public delegate void ModelValidationError(IUmtModel model, Guid? uniqueId, ICollection<ValidationResult> errors);
     /// <summary>
     /// Invoked when format of model is incorrect
     /// </summary>
@@ -45,7 +45,7 @@ public sealed class ImportStateObserver
     /// <summary>
     /// Delegate specifies callback method for event Exception
     /// </summary>
-    public delegate void RaisedException(UmtModel relatedModel, Guid? uniqueId, Exception exception);
+    public delegate void RaisedException(IUmtModel relatedModel, Guid? uniqueId, Exception exception);
     /// <summary>
     /// Invoked when exception related to one model instance
     /// </summary>
@@ -54,9 +54,9 @@ public sealed class ImportStateObserver
 
     internal void OnImportedInfo(BaseInfo info) => ImportedInfo?.Invoke(info);
 
-    internal void OnValidationError(UmtModel model, Guid? uniqueId, ICollection<ValidationResult> errors) => ValidationError?.Invoke(model, uniqueId, errors);
+    internal void OnValidationError(IUmtModel model, Guid? uniqueId, ICollection<ValidationResult> errors) => ValidationError?.Invoke(model, uniqueId, errors);
 
-    internal void OnException(UmtModel relatedModel, Guid? uniqueId, Exception exception) => Exception?.Invoke(relatedModel, uniqueId, exception);
+    internal void OnException(IUmtModel relatedModel, Guid? uniqueId, Exception exception) => Exception?.Invoke(relatedModel, uniqueId, exception);
 }
 
 
@@ -91,12 +91,12 @@ internal class ImportService : IImportService
     }
     
     /// <inheritdoc />
-    public string SerializeToJson(UmtModel[] model, JsonSerializerOptions? options = null)
+    public string SerializeToJson(IEnumerable<IUmtModel> models, JsonSerializerOptions? options = null)
     {
         var converter = new UmtModelStjConverter(umtModelService.GetAll());
         options ??= new JsonSerializerOptions();
         options.Converters.Add(converter);
-        return JsonSerializer.Serialize(model, options);
+        return JsonSerializer.Serialize(models.Cast<UmtModel>(), options);
     }
 
     /// <inheritdoc />
@@ -110,7 +110,7 @@ internal class ImportService : IImportService
     }
 
     /// <inheritdoc />
-    public ImportStateObserver StartImport(IEnumerable<UmtModel> importedObjects, ImportStateObserver? importObserver = null)
+    public ImportStateObserver StartImport(IEnumerable<IUmtModel> importedObjects, ImportStateObserver? importObserver = null)
     {
         var observer = importObserver ?? new ImportStateObserver();
         observer.ImportCompletedTask = Task.Run(() =>
@@ -152,7 +152,7 @@ internal class ImportService : IImportService
         return Task.FromResult(observer);
     }
 
-    private void ImportObject(UmtModel model, ImportStateObserver observer, ProviderProxyContext providerProxyContext)
+    private void ImportObject(IUmtModel model, ImportStateObserver observer, ProviderProxyContext providerProxyContext)
     {
         var adapter = adapterFactory.CreateAdapter(model, providerProxyContext);
         if (adapter == null)
@@ -184,7 +184,7 @@ internal class ImportService : IImportService
 
         try
         {
-            adapter.ProviderProxy.Save(adapted);
+            adapter.ProviderProxy.Save(adapted, model);
         }
         catch (Exception ex)
         {

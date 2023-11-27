@@ -3,7 +3,7 @@ using System.Net.Sockets;
 using System.Net.WebSockets;
 using System.Text;
 using CMS.Core;
-using Kentico.Xperience.UMT.Auxiliary;
+using Kentico.Xperience.UMT.Example.AdminApp.Auxiliary;
 using Kentico.Xperience.UMT.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
@@ -11,7 +11,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
-namespace Kentico.Xperience.UMT;
+namespace Kentico.Xperience.UMT.Example.AdminApp;
 
 public static class ServiceCollectionExtensions
 {

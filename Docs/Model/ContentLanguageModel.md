@@ -16,17 +16,3 @@ Model [discriminator](../UmtModel.md#discriminator): `ContentLanguage`
 
 <p>*) value is required</p>
 
-
-### ContentLanguage Sample
-This sample describes how to create class inside XbyK to hold Content language data
-```json
-{
-  "$type": "ContentLanguage",
-  "ContentLanguageGUID": "f454e93b-5fe9-42a9-b1af-b572234ed9c4",
-  "ContentLanguageDisplayName": "Slovak",
-  "ContentLanguageName": "sk",
-  "ContentLanguageIsDefault": false,
-  "ContentLanguageFallbackContentLanguageGuid": "fd0a0727-fc68-4936-b868-119df0f0ad7a",
-  "ContentLanguageCultureFormat": "sk"
-}
-```

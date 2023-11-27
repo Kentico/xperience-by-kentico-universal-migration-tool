@@ -1,5 +1,4 @@
-﻿// // using CMS.DocumentEngine; => obsolete
-// using CMS.Membership;
+﻿// using CMS.Membership;
 // using FluentAssertions;
 // using Kentico.Xperience.UMT.ProviderProxy;
 // using Microsoft.Extensions.DependencyInjection;

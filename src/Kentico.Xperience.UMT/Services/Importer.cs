@@ -98,7 +98,7 @@ internal class Importer : IImporter
 
         try
         {
-            adapter.ProviderProxy.Save(adapted);
+            adapter.ProviderProxy.Save(adapted, model);
             return new ImportResult()
             {
                 Success = true,

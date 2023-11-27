@@ -34,7 +34,7 @@ This sample describes how to create class inside XbyK to hold Article data
   "ClassDisplayName": "This is Article example",
   "ClassName": "UMT.Article",
   "ClassTableName": "UMT_Article",
-  "ClassLastModified": "2023-11-10T12:15:22.5643011\u002B01:00",
+  "ClassLastModified": "2023-11-27T01:36:40.6998547\u002B01:00",
   "ClassGUID": "06540294-3b56-4cf7-8773-088bb766ac23",
   "ClassResourceGuid": "0e4beef1-989c-4687-80ca-ae21fec09734",
   "ClassHasUnmanagedDbSchema": false,
@@ -43,7 +43,7 @@ This sample describes how to create class inside XbyK to hold Article data
   "Fields": [
     {
       "AllowEmpty": true,
-      "Column": "This is an ArticleTitle",
+      "Column": "ArticleTitle",
       "ColumnSize": 200,
       "ColumnType": "text",
       "Enabled": true,
@@ -83,8 +83,8 @@ This sample describes how to create class inside XbyK to hold Article data
   "ClassDisplayName": "Event",
   "ClassName": "UMT.Event",
   "ClassTableName": "UMT_Event",
-  "ClassLastModified": "2023-11-10T12:15:22.5891688\u002B01:00",
-  "ClassGUID": "eeba87d3-b5fb-4d25-a7b6-6b98e7cca6f7",
+  "ClassLastModified": "2023-11-27T01:36:40.7671865\u002B01:00",
+  "ClassGUID": "02989009-a16f-4f88-9f93-bfc4fc1e191a",
   "ClassResourceGuid": "ff8285c1-9d1a-49b3-8c9d-7502e1e533f7",
   "ClassHasUnmanagedDbSchema": false,
   "ClassType": "Content",

@@ -1,13 +1,15 @@
 ﻿using CMS.DataEngine;
 using CMS.Membership;
 using FluentAssertions;
+using Kentico.Xperience.UMT.Examples;
 using Kentico.Xperience.UMT.Model;
 using Kentico.Xperience.UMT.ProviderProxy;
 using Kentico.Xperience.UMT.Services;
+using Kentico.Xperience.UMT.Tests.X.TestsWithDb;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 
-namespace Kentico.Xperience.UMT;
+namespace Kentico.Xperience.UMT.Tests.X;
 
 public class SampleTests
 {
@@ -41,8 +43,7 @@ public class SampleTests
             UserSamples.SampleAdministrator,
             DataClassSamples.ArticleClassSample,
             DataClassSamples.EventDataClass,
-            TreeNodeSamples.YearlyEvent,
-            TreeNodeSamples.SingleOccurenceEvent
+            
         }.AsAsyncEnumerable(), importObserver);
 
         await importObserver.ImportCompletedTask;

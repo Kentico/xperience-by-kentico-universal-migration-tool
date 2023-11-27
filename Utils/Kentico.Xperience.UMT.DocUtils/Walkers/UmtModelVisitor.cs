@@ -1,12 +1,13 @@
 ﻿using System.Xml.Linq;
 using System.Xml.XPath;
 using Kentico.Xperience.UMT.Attributes;
-using Kentico.Xperience.UMT.Helpers;
+using Kentico.Xperience.UMT.DocUtils.Helpers;
+using Kentico.Xperience.UMT.DocUtils.Templates;
+using Kentico.Xperience.UMT.Examples;
 using Kentico.Xperience.UMT.Services;
-using Kentico.Xperience.UMT.Templates;
 using Microsoft.CodeAnalysis;
 
-namespace Kentico.Xperience.UMT.Walkers;
+namespace Kentico.Xperience.UMT.DocUtils.Walkers;
 
 public class UmtModelVisitor: SymbolVisitor
 {

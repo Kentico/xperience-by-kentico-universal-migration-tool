@@ -27,7 +27,7 @@ This sample describes how to create class inside XbyK to hold WebSiteChannel lan
   "WebsiteChannelChannelGuid": "5322a379-5b5f-4220-9383-8e3115e66cd3",
   "WebsiteChannelDomain": "websitesamplewebsitedomain.com",
   "WebsiteChannelHomePage": "home",
-  "WebsiteChannelPrimaryContentLanguageGuid": "fd0a0727-fc68-4936-b868-119df0f0ad7a",
+  "WebsiteChannelPrimaryContentLanguageGuid": "f454e93b-5fe9-42a9-b1af-b572234ed9c4",
   "WebsiteChannelDefaultCookieLevel": 1000,
   "WebsiteChannelStoreFormerUrls": false
 }

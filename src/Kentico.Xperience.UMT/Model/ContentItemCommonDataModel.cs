@@ -2,11 +2,12 @@
 using CMS.ContentEngine;
 using CMS.ContentEngine.Internal;
 using Kentico.Xperience.UMT.Attributes;
+// ReSharper disable InconsistentNaming
 
 namespace Kentico.Xperience.UMT.Model;
 
 [UmtModel(DISCRIMINATOR)]
-public class ContentItemCommonDataModel : UmtModel
+public class ContentItemCommonDataModel: UmtModel
 {
     public const string DISCRIMINATOR = "ContentItemCommonData";
 
@@ -18,9 +19,6 @@ public class ContentItemCommonDataModel : UmtModel
     [Required]
     [ReferenceProperty(typeof(ContentItemInfo), "ContentItemCommonDataContentItemID", IsRequired = true)]
     public Guid? ContentItemCommonDataContentItemGuid { get; set; }
-
-    [Required]
-    public Guid? ContentItemDataGuid { get; set; }
 
     [Required]
     [ReferenceProperty(typeof(ContentLanguageInfo), "ContentItemCommonDataContentLanguageID", IsRequired = true)]
@@ -39,5 +37,4 @@ public class ContentItemCommonDataModel : UmtModel
 
     [Map]
     public string? ContentItemCommonDataPageTemplateConfiguration { get; set; }
-
 }

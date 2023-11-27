@@ -2,29 +2,23 @@
 // See https://aka.ms/new-console-template for more information
 
 using System.Text.Json;
-using Azure.Identity;
 using CMS.Core;
 using CMS.DataEngine;
-// using CMS.DocumentEngine; => obsolete
 using Kentico.Xperience.UMT;
 using Kentico.Xperience.UMT.Examples;
 using Kentico.Xperience.UMT.Model;
 using Kentico.Xperience.UMT.Services;
 using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.Configuration.Memory;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 
-var root = new ConfigurationRoot(new List<IConfigurationProvider>(new[] { new MemoryConfigurationProvider(new MemoryConfigurationSource()) }));
-
-root[ConfigurationPath.Combine("ConnectionStrings", "CMSConnectionString")]
-    // TODO: change connection string to target XbyK instance
-    = "Data Source=localhost;Initial Catalog=FixingKbank;Integrated Security=True;Persist Security Info=False;Connect Timeout=60;Encrypt=False;Current Language=English;";
-
-const string applicationPhysicalPath = "C:\\Users\\asus\\Source\\Repos\\xbk-demo-site\\src\\Kbank.Web\\";
+var root = new ConfigurationBuilder()
+    .AddJsonFile("appsettings.json", false)
+    .AddJsonFile("appsettings.local.json", true)
+    .Build();
 
 Service.Use<IConfiguration>(root);
-CMS.Base.SystemContext.WebApplicationPhysicalPath = applicationPhysicalPath;
+CMS.Base.SystemContext.WebApplicationPhysicalPath = root.GetValue<string>("WebApplicationPhysicalPath");
 
 CMSApplication.Init();
 
@@ -47,15 +41,7 @@ importObserver.ValidationError += (model, uniqueId, errors) =>
 // listen to successfully adapted and persisted objects
 importObserver.ImportedInfo += info =>
 {
-    // TODO tomas.krch: 2023-10-30 TreeNode obsolete... refactor
-    // if (info is TreeNode tn)
-    // {
-    //     Console.WriteLine($"Imported node: {tn.NodeAlias}");
-    // }
-    // else
-    // {
-    //     Console.WriteLine($"Imported: {info[info.TypeInfo.CodeNameColumn]}");    
-    // }
+    
 };
 
 // listen for exception occurence
@@ -65,11 +51,12 @@ importObserver.Exception += (model, uniqueId, exception) =>
 };
 
 // sample data
-var sourceData = new UmtModel[]
+var sourceData = new List<IUmtModel>
 {
     // TODO: use your data
     UserSamples.SampleAdministrator,
-    ContentLanguageSamples.SampleContentLanugage,
+    ContentLanguageSamples.SampleContentLanguageEnUs,
+    ContentLanguageSamples.SampleContentLanguageEnGb,
 
     ChannelSamples.SampleChannelForEmailChannel,
     ChannelSamples.SampleChannelForWebSiteChannel,
@@ -91,6 +78,22 @@ var sourceData = new UmtModel[]
     AssetSamples.SampleMediaLibrary,
     AssetSamples.SampleMediaFile
 };
+
+sourceData.AddRange(new IUmtModel[]
+{
+    ContentItemSamples.SampleArticleContentItem,
+    
+    ContentItemSamples.SampleArticleContentItemCommonDataEnUs,
+    ContentItemSamples.SampleArticleContentItemCommonDataEnGb,
+    
+    ContentItemSamples.SampleArticleDataEnUs,
+    ContentItemSamples.SampleArticleDataEnGb,
+    
+    ContentItemSamples.SampleArticleContentItemLanguageMetadataEnUs,
+    ContentItemSamples.SampleArticleContentItemLanguageMetadataEnGb,
+    
+    ContentItemSamples.SampleArticleWebPageItem,
+});
 
 // initiate import
 var observer = importService.StartImport(sourceData, importObserver);

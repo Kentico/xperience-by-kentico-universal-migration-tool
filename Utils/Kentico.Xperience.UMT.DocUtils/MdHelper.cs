@@ -2,7 +2,7 @@
 using System.Reflection;
 using RazorLight;
 
-namespace Kentico.Xperience.UMT;
+namespace Kentico.Xperience.UMT.DocUtils;
 
 public static class MdHelper
 {

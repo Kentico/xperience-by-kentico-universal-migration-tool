@@ -1,7 +1,7 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 
-namespace Kentico.Xperience.UMT;
+namespace Kentico.Xperience.UMT.DocUtils;
 
 public static class Initializer
 {

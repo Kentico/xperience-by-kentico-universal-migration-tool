@@ -6,9 +6,8 @@ Model [discriminator](../UmtModel.md#discriminator): `ContentItemCommonData`
 |---|---|---|---|
 |ContentItemCommonDataGUID\*||System.Guid?|[UniqueId](../UmtModel.md#UniqueId)|
 |ContentItemCommonDataContentItemGuid\*||System.Guid?|Reference to [ContentItemInfo](../References.md#ContentItemInfo) on property ContentItemCommonDataContentItemID **required**|
-|ContentItemDataGuid\*||System.Guid?||
 |ContentItemCommonDataContentLanguageGuid\*||System.Guid?|Reference to [ContentLanguageInfo](../References.md#ContentLanguageInfo) on property ContentItemCommonDataContentLanguageID **required**|
-|ContentItemCommonDataVersionStatus\*||int?||
+|ContentItemCommonDataVersionStatus\*||CMS.ContentEngine.VersionStatus?||
 |ContentItemCommonDataIsLatest\*||bool?||
 |ContentItemCommonDataPageBuilderWidgets||string?||
 |ContentItemCommonDataPageTemplateConfiguration||string?||

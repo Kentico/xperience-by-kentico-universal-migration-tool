@@ -1,6 +1,6 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 
-namespace Kentico.Xperience.UMT;
+namespace Kentico.Xperience.UMT.Tests.X.TestsWithDb;
 
 public class DefaultFixture : IDisposable
 {

@@ -7,10 +7,10 @@ Model [discriminator](../UmtModel.md#discriminator): `ContentItemLanguageMetadat
 |ContentItemLanguageMetadataGUID\*||System.Guid?|[UniqueId](../UmtModel.md#UniqueId)|
 |ContentItemLanguageMetadataContentItemGuid\*||System.Guid?|Reference to [ContentItemInfo](../References.md#ContentItemInfo) on property ContentItemLanguageMetaDataContentItemID **required**|
 |ContentItemLanguageMetadataDisplayName\*||string?||
-|ContentItemLanguageMetadataLatestVersionStatus\*||int?||
+|ContentItemLanguageMetadataLatestVersionStatus\*||CMS.ContentEngine.VersionStatus?||
 |ContentItemLanguageMetadataCreatedWhen\*||System.DateTime?||
 |ContentItemLanguageMetadataCreatedByUserGuid||System.Guid?|Reference to [UserInfo](../References.md#UserInfo) on property ContentItemLanguageMetadataCreatedByUserID|
-|ContentItemLanguageMetadataModifiedWhen\*||System.DateTime?||
+|ContentItemLanguageMetadataModifiedWhen||System.DateTime?||
 |ContentItemLanguageMetadataModifiedByUserGuid||System.Guid?|Reference to [UserInfo](../References.md#UserInfo) on property ContentItemLanguageMetadataModifiedByUserID|
 |ContentItemLanguageMetadataHasImageAsset\*||bool?||
 |ContentItemLanguageMetadataContentLanguageGuid\*||System.Guid?|Reference to [ContentLanguageInfo](../References.md#ContentLanguageInfo) on property ContentItemLanguageMetadataContentLanguageID **required**|

@@ -12,6 +12,6 @@ public static class WebPageContentItemSamples
         WebPageItemName = "NewWebPageItem",
         WebPageItemOrder = 1,
         WebPageItemTreePath = "/home",
-        WebPageItemWebsiteChannelGuid = new Guid("5322A379-5B5F-4220-9383-8E3115E66CD3")
+        WebPageItemWebsiteChannelGuid = WebSiteChannelSamples.WebsiteChannelGuid
     };
 }

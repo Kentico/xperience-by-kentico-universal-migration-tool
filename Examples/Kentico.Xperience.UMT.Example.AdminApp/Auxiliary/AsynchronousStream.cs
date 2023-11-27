@@ -1,6 +1,6 @@
 ﻿using System.Collections.Concurrent;
 
-namespace Kentico.Xperience.UMT.Auxiliary;
+namespace Kentico.Xperience.UMT.Example.AdminApp.Auxiliary;
 
 /// <summary>
 /// single purpose stream - consumer (read) waits for promised data, implementation of stream abstract class is not complete and is not needed (internal class) 

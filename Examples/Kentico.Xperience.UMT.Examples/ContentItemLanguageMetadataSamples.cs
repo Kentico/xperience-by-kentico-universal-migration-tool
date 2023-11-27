@@ -14,12 +14,12 @@ public static class ContentItemLanguageMetadataSamples
     {
         ContentItemLanguageMetadataGUID = CONTENT_ITEM_LANGUAGE_METADATA_GUID_SAMPLE_BASIC,
         ContentItemLanguageMetadataContentItemGuid = ContentItemSamples.CONTENT_ITEM_GUID,
-        ContentItemLanguageMetadataContentLanguageGuid = ContentLanguageSamples.CONTENT_LANGUAGE_SAMPLE_GUID,
+        ContentItemLanguageMetadataContentLanguageGuid = ContentLanguageSamples.CONTENT_LANGUAGE_ENUS_SAMPLE_GUID,
         ContentItemLanguageMetadataDisplayName = "Basic Language Metadata Example",
         ContentItemLanguageMetadataCreatedWhen = DateTime.Now.AddDays(-2),
         ContentItemLanguageMetadataModifiedWhen = DateTime.Now,
         ContentItemLanguageMetadataHasImageAsset = false,
-        ContentItemLanguageMetadataLatestVersionStatus = VersionStatus.InitialDraft.ToInteger(0),
+        ContentItemLanguageMetadataLatestVersionStatus = VersionStatus.InitialDraft,
     };
 
     [Sample("contentitemlanguagemetadata.sample", "This sample describes how to create class inside XbyK to hold Content Item Language Metadata", "ContentItemLanguageMetadata Sample")]
@@ -27,13 +27,13 @@ public static class ContentItemLanguageMetadataSamples
     {
         ContentItemLanguageMetadataGUID = CONTENT_ITEM_LANGUAGE_METADATA_GUID_SAMPLE,
         ContentItemLanguageMetadataContentItemGuid = ContentItemSamples.CONTENT_ITEM_GUID,
-        ContentItemLanguageMetadataContentLanguageGuid = ContentLanguageSamples.CONTENT_LANGUAGE_SAMPLE_GUID,
+        ContentItemLanguageMetadataContentLanguageGuid = ContentLanguageSamples.CONTENT_LANGUAGE_ENUS_SAMPLE_GUID,
         ContentItemLanguageMetadataDisplayName = "Language Metadata Example",
         ContentItemLanguageMetadataCreatedWhen = DateTime.Now.AddDays(-2),
         ContentItemLanguageMetadataModifiedWhen = DateTime.Now,
         ContentItemLanguageMetadataHasImageAsset = false,
         ContentItemLanguageMetadataCreatedByUserGuid = new Guid("95F42FD4-6A14-4E88-B214-4E136479F788"),
         ContentItemLanguageMetadataModifiedByUserGuid = new Guid("95F42FD4-6A14-4E88-B214-4E136479F788"),
-        ContentItemLanguageMetadataLatestVersionStatus = VersionStatus.InitialDraft.ToInteger(0),
+        ContentItemLanguageMetadataLatestVersionStatus = VersionStatus.InitialDraft,
     };
 }
