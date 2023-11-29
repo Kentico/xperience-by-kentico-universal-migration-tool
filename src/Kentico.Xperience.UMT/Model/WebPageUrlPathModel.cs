@@ -40,4 +40,6 @@ public class WebPageUrlPathModel : UmtModel
     
     [Map]
     public bool? WebPageUrlPathIsDraft { get; set; }
+
+    protected override (Guid? uniqueId, string? name, string? displayName) GetPrintArgs() => (WebPageUrlPathGUID, WebPageUrlPath, NOT_AVAILABLE);
 }

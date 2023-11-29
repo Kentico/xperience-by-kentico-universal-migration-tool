@@ -28,4 +28,6 @@ public class ContentItemDataModel: UmtModel
 
     [Required]
     public string? ContentItemContentTypeName { get; set; }
+
+    protected override (Guid? uniqueId, string? name, string? displayName) GetPrintArgs() => (ContentItemDataGUID, NOT_AVAILABLE, NOT_AVAILABLE);
 }

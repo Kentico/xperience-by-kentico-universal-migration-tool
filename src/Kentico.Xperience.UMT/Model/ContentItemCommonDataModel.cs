@@ -44,4 +44,7 @@ public class ContentItemCommonDataModel: UmtModel
 
     [Map]
     public string? ContentItemCommonDataPageTemplateConfiguration { get; set; }
+
+
+    protected override (Guid? uniqueId, string? name, string? displayName) GetPrintArgs() => (ContentItemCommonDataGUID, NOT_AVAILABLE, NOT_AVAILABLE);
 }

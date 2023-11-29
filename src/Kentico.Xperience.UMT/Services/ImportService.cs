@@ -25,7 +25,7 @@ public sealed class ImportStateObserver
     /// <summary>
     /// Delegate specifies callback method for event ImportedInfo
     /// </summary>
-    public delegate void ImportedInfoDelegate(BaseInfo info);
+    public delegate void ImportedInfoDelegate(IUmtModel model, BaseInfo info);
     
     /// <summary>
     /// Invoked when Kentico API Info object is successfully created
@@ -52,7 +52,7 @@ public sealed class ImportStateObserver
     public event RaisedException? Exception;
     
 
-    internal void OnImportedInfo(BaseInfo info) => ImportedInfo?.Invoke(info);
+    internal void OnImportedInfo(IUmtModel model, BaseInfo info) => ImportedInfo?.Invoke(model, info);
 
     internal void OnValidationError(IUmtModel model, Guid? uniqueId, ICollection<ValidationResult> errors) => ValidationError?.Invoke(model, uniqueId, errors);
 
@@ -193,6 +193,6 @@ internal class ImportService : IImportService
             return;
         }
         
-        observer.OnImportedInfo(adapted);
+        observer.OnImportedInfo(model, adapted);
     }
 }

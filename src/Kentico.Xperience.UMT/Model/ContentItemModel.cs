@@ -37,4 +37,6 @@ public class ContentItemModel : UmtModel
 
     [ReferenceProperty(typeof(ChannelInfo), "ContentItemChannelID", IsRequired = false)]
     public Guid? ContentItemChannelGuid { get; set; }
+
+    protected override (Guid? uniqueId, string? name, string? displayName) GetPrintArgs() => (ContentItemGUID, ContentItemName, NOT_AVAILABLE);
 }

@@ -64,4 +64,6 @@ public class MediaFileModel : UmtModel
 
     [Map]
     public string? FileCustomData { get; set; }
+
+    protected override (Guid? uniqueId, string? name, string? displayName) GetPrintArgs() => (FileGUID, FileName, FileTitle);
 }

@@ -118,7 +118,7 @@ public static class ServiceCollectionExtensions
                 var stats = new ConcurrentDictionary<string, int>();
                 
                 observer = await importService.StartImportAsync(data!, observer);
-                observer.ImportedInfo += async info =>
+                observer.ImportedInfo += async (model, info) =>
                 {
                     await SendProgressReport($"Processed: {info.TypeInfo.ObjectType} {info.GetValue(info.TypeInfo.GUIDColumn)}");
                     stats.AddOrUpdate(info.TypeInfo.ObjectType, s => 1, (s, i) => i + 1);

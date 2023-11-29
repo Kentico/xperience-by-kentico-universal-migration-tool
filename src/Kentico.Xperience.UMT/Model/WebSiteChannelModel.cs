@@ -42,4 +42,6 @@ public class WebsiteChannelModel : UmtModel
     [Map]
     [Required]
     public bool? WebsiteChannelStoreFormerUrls { get; set; }
+
+    protected override (Guid? uniqueId, string? name, string? displayName) GetPrintArgs() => (WebsiteChannelGUID, NOT_AVAILABLE, NOT_AVAILABLE);
 }

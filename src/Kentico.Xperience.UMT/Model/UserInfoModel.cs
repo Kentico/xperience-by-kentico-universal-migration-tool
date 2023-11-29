@@ -97,4 +97,6 @@ public class UserInfoModel : UmtModel
     [Map]
     [Required]
     public bool? UserIsExternal { get; set; }
+
+    protected override (Guid? uniqueId, string? name, string? displayName) GetPrintArgs() => (UserGUID, UserName, NOT_AVAILABLE);
 }

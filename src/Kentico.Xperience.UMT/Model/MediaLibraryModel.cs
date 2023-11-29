@@ -34,4 +34,6 @@ public class MediaLibraryModel : UmtModel
 
     [Map]
     public DateTime? LibraryLastModified { get; set; }
+
+    protected override (Guid? uniqueId, string? name, string? displayName) GetPrintArgs() => (LibraryGUID, LibraryName, LibraryDisplayName);
 }

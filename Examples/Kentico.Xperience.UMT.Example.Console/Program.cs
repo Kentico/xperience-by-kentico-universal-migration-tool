@@ -35,19 +35,20 @@ var importObserver = new ImportStateObserver();
 // listen to validation errors
 importObserver.ValidationError += (model, uniqueId, errors) =>
 {
-    Console.WriteLine($"Validation error '{uniqueId}': {JsonSerializer.Serialize(errors)}");
+    Console.WriteLine($"Validation error in model '{model.PrintMe()}': {JsonSerializer.Serialize(errors)}");
 };
 
 // listen to successfully adapted and persisted objects
-importObserver.ImportedInfo += info =>
+importObserver.ImportedInfo += (model, info) =>
 {
-    Console.WriteLine($"{info[info.TypeInfo.DisplayNameColumn] ?? info[info.TypeInfo.GUIDColumn]} imported");
+    
+    Console.WriteLine($"{model.PrintMe()} imported");
 };
 
 // listen for exception occurence
 importObserver.Exception += (model, uniqueId, exception) =>
 {
-    Console.WriteLine($"Error: '{uniqueId}': {exception}");
+    Console.WriteLine($"Error in model {model.PrintMe()}: '{uniqueId}': {exception}");
 };
 
 // sample data

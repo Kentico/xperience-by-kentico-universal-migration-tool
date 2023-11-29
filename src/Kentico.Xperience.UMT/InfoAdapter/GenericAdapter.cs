@@ -29,7 +29,7 @@ internal interface IInfoAdapter<out TInfo, in TModel> : IInfoAdapter<TModel> whe
 
 internal class GenericInfoAdapter<TTargetInfo> : IInfoAdapter<TTargetInfo, IUmtModel> where TTargetInfo : AbstractInfoBase<TTargetInfo>, new()
 {
-    protected readonly ILogger<GenericInfoAdapter<TTargetInfo>> logger;
+    protected readonly ILogger<GenericInfoAdapter<TTargetInfo>> Logger;
     private readonly UmtModelService modelService;
     private readonly IProviderProxyFactory providerProxyFactory;
 
@@ -37,7 +37,7 @@ internal class GenericInfoAdapter<TTargetInfo> : IInfoAdapter<TTargetInfo, IUmtM
 
     internal GenericInfoAdapter(ILogger<GenericInfoAdapter<TTargetInfo>> logger, UmtModelService modelService, IProviderProxy providerProxy, IProviderProxyFactory providerProxyFactory)
     {
-        this.logger = logger;
+        Logger = logger;
         this.modelService = modelService;
         this.providerProxyFactory = providerProxyFactory;
         ProviderProxy = providerProxy;
@@ -56,11 +56,11 @@ internal class GenericInfoAdapter<TTargetInfo> : IInfoAdapter<TTargetInfo, IUmtM
                 {
                     object? value = property.GetValue(umtModel);
                     SetValue(current, property.Name, value);
-                    logger.LogTrace("[{ColumnName}]={Value}", property.Name, value);
+                    Logger.LogTrace("[{ColumnName}]={Value}", property.Name, value);
                 }
                 else
                 {
-                    logger.LogError("Info doesn't contain column with name '{ColumnName}' - MapAttribute is on invalid property, property SHALL have same name as column in target Info object", property.Name);
+                    Logger.LogError("Info doesn't contain column with name '{ColumnName}' - MapAttribute is on invalid property, property SHALL have same name as column in target Info object", property.Name);
                     throw new InvalidOperationException($"Info doesn't contain column with name '{property.Name}' - MapAttribute is on invalid property, property SHALL have same name as column in target Info object");
                 }
             }
@@ -71,11 +71,11 @@ internal class GenericInfoAdapter<TTargetInfo> : IInfoAdapter<TTargetInfo, IUmtM
                 {
                     object? value = property.GetValue(umtModel);
                     SetValue(current, mapTo.PropertyName, value);
-                    logger.LogTrace("[{ColumnName}]={Value}", mapTo.PropertyName, value);
+                    Logger.LogTrace("[{ColumnName}]={Value}", mapTo.PropertyName, value);
                 }
                 else
                 {
-                    logger.LogError("Info doesn't contain column with name '{ColumnName}' - MapToAttribute has invalid PropertyName argument, property SHALL have same name as column in target Info object", property.Name);
+                    Logger.LogError("Info doesn't contain column with name '{ColumnName}' - MapToAttribute has invalid PropertyName argument, property SHALL have same name as column in target Info object", property.Name);
                     throw new InvalidOperationException($"Info doesn't contain column with name '{property.Name}' - MapToAttribute has invalid PropertyName argument, property SHALL have same name as column in target Info object");
                 }
             }
@@ -92,7 +92,7 @@ internal class GenericInfoAdapter<TTargetInfo> : IInfoAdapter<TTargetInfo, IUmtM
     {
         if (!modelService.TryGetModelInfo(input.GetType(), out var model) || model == null)
         {
-            logger.LogError("Model info for type {Type} not found => unsupported model", input.GetType().FullName);
+            Logger.LogError("Model info for type {Type} not found => unsupported model", input.GetType().FullName);
             throw new InvalidOperationException($"Model info for type {input?.GetType().FullName} not found => unsupported model");
         }
 
@@ -106,12 +106,12 @@ internal class GenericInfoAdapter<TTargetInfo> : IInfoAdapter<TTargetInfo, IUmtM
             {
                 if (existing is TTargetInfo @base)
                 {
-                    logger.LogTrace("Info {Guid} exists", objectGuid);
+                    Logger.LogTrace("Info {Guid} exists", objectGuid);
                     current = @base;
                 }
                 else
                 {
-                    logger.LogError("Returned object of type '{ReturnedType}' is not assignable to wanted type '{WantedType}'", existing.GetType().FullName, typeof(TTargetInfo).FullName);
+                    Logger.LogError("Returned object of type '{ReturnedType}' is not assignable to wanted type '{WantedType}'", existing.GetType().FullName, typeof(TTargetInfo).FullName);
                     throw new InvalidOperationException($"Returned object of type '{existing.GetType().FullName}' is not assignable to wanted type '{typeof(TTargetInfo).FullName}'");
                 }
             }
@@ -119,14 +119,14 @@ internal class GenericInfoAdapter<TTargetInfo> : IInfoAdapter<TTargetInfo, IUmtM
             {
                 current = ObjectFactory(model, input);
                 current.SetValue(GetGuidColumnName(current), objectGuid);
-                logger.LogTrace("Info {Guid} created", objectGuid);
+                Logger.LogTrace("Info {Guid} created", objectGuid);
             }
         }
         else
         {
             // no strategy for getting existing object
             current = ObjectFactory(model, input);
-            logger.LogTrace("Info created, no strategy used for selecting existing object");
+            Logger.LogTrace("Info created, no strategy used for selecting existing object");
         }
 
         // field mapping phase
@@ -134,7 +134,7 @@ internal class GenericInfoAdapter<TTargetInfo> : IInfoAdapter<TTargetInfo, IUmtM
         // map all foreign references to ensure they exist
         foreach (var referenceProperty in model.ReferenceProperties)
         {
-            logger.LogInformation("Mapping reference property '{RefProp}' from '{RefType}' ObjectId", referenceProperty.ReferencedPropertyName, referenceProperty.ReferencedInfoType?.Name);
+            Logger.LogInformation("Mapping reference property '{RefProp}' from '{RefType}' ObjectId", referenceProperty.ReferencedPropertyName, referenceProperty.ReferencedInfoType?.Name);
 
             object? refObject = referenceProperty.Property?.GetValue(input);
             if (refObject is Guid foreignObjectGuid)
@@ -148,17 +148,17 @@ internal class GenericInfoAdapter<TTargetInfo> : IInfoAdapter<TTargetInfo, IUmtM
                 {
                     object? id = foreign[referenceProperty.ValueField ?? foreign.TypeInfo.IDColumn];
                     current.SetValue(referenceProperty.ReferencedPropertyName, id);
-                    logger.LogTrace("Dependency '{DepName}' set as ObjectId '{Id}'", referenceProperty.ReferencedPropertyName, id);
+                    Logger.LogTrace("Dependency '{DepName}' set as ObjectId '{Id}'", referenceProperty.ReferencedPropertyName, id);
                 }
                 else if (referenceProperty.IsRequired)
                 {
-                    logger.LogError("Missing required dependency - Object of type '{ReferencedInfoType}' with ObjectGUID '{ObjectGuid}' cannot be found", referenceProperty.ReferencedInfoType, foreignObjectGuid);
+                    Logger.LogError("Missing required dependency - Object of type '{ReferencedInfoType}' with ObjectGUID '{ObjectGuid}' cannot be found", referenceProperty.ReferencedInfoType, foreignObjectGuid);
                     throw new InvalidOperationException($"Missing required dependency - Object of type '{referenceProperty.ReferencedInfoType}' with ObjectGUID '{foreignObjectGuid}' cannot be found");
                 }
             }
             else if (referenceProperty.IsRequired)
             {
-                logger.LogError("Missing required dependency - '{PropName}' is not valid ObjectGUID", referenceProperty.Property?.Name);
+                Logger.LogError("Missing required dependency - '{PropName}' is not valid ObjectGUID", referenceProperty.Property?.Name);
                 throw new InvalidOperationException($"Missing required dependency - '{referenceProperty.Property?.Name}' is not valid ObjectGUID");
             }
         }
@@ -183,11 +183,11 @@ internal class GenericInfoAdapter<TTargetInfo> : IInfoAdapter<TTargetInfo, IUmtM
                     }
 
                     current.SetValue(customProperty, value);
-                    logger.LogTrace("[{ColumnName}]={Value}", customProperty, value);
+                    Logger.LogTrace("[{ColumnName}]={Value}", customProperty, value);
                 }
                 else
                 {
-                    logger.LogError("Info doesn't contain column with name '{ColumnName}' - _CustomProperties has invalid key, key SHALL have same name as column in target Info object", customProperty);
+                    Logger.LogError("Info doesn't contain column with name '{ColumnName}' - _CustomProperties has invalid key, key SHALL have same name as column in target Info object", customProperty);
                     throw new InvalidOperationException($"Info doesn't contain column with name '{customProperty}' - _CustomProperties has invalid key, key SHALL have same name as column in target Info object");
                 }
             }
@@ -204,7 +204,7 @@ internal class GenericInfoAdapter<TTargetInfo> : IInfoAdapter<TTargetInfo, IUmtM
         }
         if (!modelService.TryGetModelInfo(input.GetType(), out var model))
         {
-            logger.LogError("Model info for type {Type} not found => unsupported model", input?.GetType()?.FullName);
+            Logger.LogError("Model info for type {Type} not found => unsupported model", input?.GetType()?.FullName);
             return null;
         }
 

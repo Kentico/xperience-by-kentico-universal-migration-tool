@@ -43,4 +43,6 @@ public class WebPageItemModel : UmtModel
     [Map]
     [Required]
     public int? WebPageItemOrder { get; set; }
+
+    protected override (Guid? uniqueId, string? name, string? displayName) GetPrintArgs() => (WebPageItemGUID, WebPageItemName, NOT_AVAILABLE);
 }

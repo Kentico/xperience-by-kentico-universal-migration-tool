@@ -107,6 +107,8 @@ public class DataClassModel : UmtModel
     /// </summary>
     [CheckEnumerable]
     public List<FormField> Fields { get; set; } = new();
+
+    protected override (Guid? uniqueId, string? name, string? displayName) GetPrintArgs() => (ClassGUID, ClassName, ClassDisplayName);
 }
 
 /// <summary>

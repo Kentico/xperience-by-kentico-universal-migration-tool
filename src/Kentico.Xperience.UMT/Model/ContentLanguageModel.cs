@@ -37,4 +37,6 @@ public class ContentLanguageModel : UmtModel
     [Map]
     [Required]
     public string? ContentLanguageCultureFormat { get; set; }
+
+    protected override (Guid? uniqueId, string? name, string? displayName) GetPrintArgs() => (ContentLanguageGUID, ContentLanguageName, ContentLanguageDisplayName);
 }

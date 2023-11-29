@@ -34,4 +34,6 @@ public class EmailChannelModel : UmtModel
     [Map]
     [Required]
     public string? EmailChannelServiceDomain { get; set; }
+
+    protected override (Guid? uniqueId, string? name, string? displayName) GetPrintArgs() => (EmailChannelGUID, NOT_AVAILABLE, NOT_AVAILABLE);
 }

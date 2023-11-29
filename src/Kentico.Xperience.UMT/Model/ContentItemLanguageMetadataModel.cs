@@ -56,4 +56,6 @@ public class ContentItemLanguageMetadataModel : UmtModel
     [Required]
     [ReferenceProperty(typeof(ContentLanguageInfo), "ContentItemLanguageMetadataContentLanguageID", IsRequired = true)]
     public Guid? ContentItemLanguageMetadataContentLanguageGuid { get; set; }
+
+    protected override (Guid? uniqueId, string? name, string? displayName) GetPrintArgs() => (ContentItemLanguageMetadataGUID, NOT_AVAILABLE, ContentItemLanguageMetadataDisplayName);
 }

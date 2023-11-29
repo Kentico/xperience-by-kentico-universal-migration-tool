@@ -19,9 +19,12 @@ internal class MediaFileAdapter : GenericInfoAdapter<MediaFileInfo>
         var model = (MediaFileModel)umtModel;
         if (!File.Exists(model.DataSourcePath))
         {
-            mediaFileInfo = new MediaFileInfo();
-            mediaFileInfo.SaveFileToDisk(false);
-            return mediaFileInfo;
+#pragma warning disable S125 // temporarily unsupported, support for media file import without binary information will be unlock if there is demand 
+            // mediaFileInfo = new MediaFileInfo();
+            // mediaFileInfo.SaveFileToDisk(false);
+            // return mediaFileInfo;
+#pragma warning restore S125
+            throw new InvalidOperationException($"File '{model.DataSourcePath}' not found");
         }
 
         var memoryStream = new MemoryStream();
