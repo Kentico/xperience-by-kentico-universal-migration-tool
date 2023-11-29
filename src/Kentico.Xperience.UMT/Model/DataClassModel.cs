@@ -13,6 +13,7 @@ namespace Kentico.Xperience.UMT.Model;
 /// </summary>
 /// <sample>dataclass.article</sample>
 /// <sample>dataclass.event</sample>
+/// <sample>dataclass.faq</sample>
 [UmtModel(Discriminator)]
 [SuppressMessage("Major Code Smell", "S125:Sections of code should not be commented out", Justification = "For sake of completeness and to avoid unresolved properties in Kentico Info object. All commented properties exist in target model.")]
 public class DataClassModel : UmtModel

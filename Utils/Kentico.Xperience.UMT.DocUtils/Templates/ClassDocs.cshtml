@@ -6,23 +6,18 @@
 @if (Model.ClassViewModel is {Properties.Count:>0})
 {
     @Raw($"## Properties\r\n")
-    @* @Raw($"|Name|Type|Summary|\r\n") *@
-    @* @Raw($"|---|---|---|\r\n") *@
     @foreach (var propertySymbol in Model.ClassViewModel.Properties)
     {
         var docs = new SymbolXmlDocsWrapperMarkdown(new SymbolXmlDocsWrapper(propertySymbol));
         @Raw($"### {propertySymbol.Name}\r\n")
         @Raw($"`{propertySymbol.ToDisplayString()}`\r\n\r\n")
         @Raw($"{docs.GetSummaryOrEmpty()}\r\n  ")
-        @* @Raw($"|{propertySymbol.Name}|{propertySymbol.Type.ToDisplayString()}|{docs.GetSummaryOrEmpty()}|\r\n"); *@
     }
 }
 
 @if (Model.ClassViewModel is {Methods.Count:>0})
 {
     @Raw($"## Methods\r\n")
-    @* @Raw($"|Name|Returns|Summary||\r\n") *@
-    @* @Raw($"|---|---|---|---|\r\n") *@
     
     @foreach (var methodSymbol in Model.ClassViewModel.Methods)
     {
@@ -40,7 +35,6 @@
                 @Raw($"|{symbol.Name}|{symbol.Type.ToDisplayString()}|{docs.GetParamSummaryOrEmpty(symbol)}\r\n")
             }    
         }
-        @* @Raw($"|{methodSymbol.Name}|{docs.GetReturnsOrEmpty()}|{docs.GetSummaryOrEmpty()}|{""}|\r\n") *@
     }
 }
 
@@ -59,14 +53,11 @@
 @if (Model.ClassViewModel is {Events.Count:>0})
 {
     @Raw($"## Events\r\n")
-    @* @Raw($"|Name|Type|Summary|\r\n") *@
-    @* @Raw($"|---|---|---|\r\n") *@
     @foreach (var eventSymbol in Model.ClassViewModel.Events)
     {
         var docs = new SymbolXmlDocsWrapperMarkdown(new SymbolXmlDocsWrapper(eventSymbol));
         @Raw($"### {eventSymbol.Name}\r\n")
         @Raw($"`{eventSymbol.ToDisplayString()}`  \r\n")
         @Raw($"{docs.GetSummaryOrEmpty()}  \r\n")
-        @* @Raw($"|{eventSymbol.Name}|{eventSymbol.Type.ToDisplayString()}|{docs.GetSummaryOrEmpty()}|\r\n") *@
     }
 }

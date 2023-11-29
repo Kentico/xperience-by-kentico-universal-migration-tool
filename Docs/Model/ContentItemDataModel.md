@@ -39,3 +39,29 @@ This sample describes how to create content item data inside XbyK
   "ArticleText": "This article is only example of creation UMT model for en-GB language"
 }
 ```
+
+### Reusable ContentItemCommonData Faq
+This sample describes how to create reusable content item common data inside XbyK
+```json
+{
+  "$type": "ContentItemCommonData",
+  "ContentItemCommonDataGUID": "2b1987bf-680b-48c0-85ce-47ff9fde24c7",
+  "ContentItemCommonDataContentItemGuid": "b64b3e3e-f5a9-4d02-8cdb-6d81805c0fee",
+  "ContentItemCommonDataContentLanguageGuid": "f454e93b-5fe9-42a9-b1af-b572234ed9c4",
+  "ContentItemCommonDataVersionStatus": 2,
+  "ContentItemCommonDataIsLatest": true
+}
+```
+
+### Reusable ContentItemCommonData faq
+This sample describes how to create content item common data inside XbyK
+```json
+{
+  "$type": "ContentItemCommonData",
+  "ContentItemCommonDataGUID": "96016b05-b3d3-42f9-b5aa-71e2f816eb8f",
+  "ContentItemCommonDataContentItemGuid": "b64b3e3e-f5a9-4d02-8cdb-6d81805c0fee",
+  "ContentItemCommonDataContentLanguageGuid": "a6c0a558-8b33-47b6-87a8-491b437c9923",
+  "ContentItemCommonDataVersionStatus": 2,
+  "ContentItemCommonDataIsLatest": true
+}
+```

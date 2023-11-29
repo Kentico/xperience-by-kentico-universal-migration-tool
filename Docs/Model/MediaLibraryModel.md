@@ -15,3 +15,16 @@ Model [discriminator](../UmtModel.md#discriminator): `Media_Library`
 
 <p>*) value is required</p>
 
+
+### Sample of media library
+
+```json
+{
+  "$type": "Media_Library",
+  "LibraryName": "LibrarySample",
+  "LibraryDisplayName": "LibraryDisplayedName",
+  "LibraryDescription": "TestLibrary",
+  "LibraryFolder": "TestFolder",
+  "LibraryGUID": "e3a9c50c-2b76-4ba8-ac19-2f0aa64c47d5"
+}
+```

@@ -294,8 +294,7 @@
             "ContentItemGUID",
             "ContentItemName",
             "ContentItemIsReusable",
-            "ContentItemIsSecured",
-            "ContentItemChannelGuid"
+            "ContentItemIsSecured"
           ],
           "properties": {
             "ContentItemGUID": {
@@ -321,9 +320,11 @@
               "format": "guid"
             },
             "ContentItemChannelGuid": {
-              "type": "string",
-              "format": "guid",
-              "minLength": 1
+              "type": [
+                "null",
+                "string"
+              ],
+              "format": "guid"
             }
           }
         }

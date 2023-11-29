@@ -34,12 +34,12 @@ This sample describes how to create class inside XbyK to hold Article data
   "ClassDisplayName": "This is Article example",
   "ClassName": "UMT.Article",
   "ClassTableName": "UMT_Article",
-  "ClassLastModified": "2023-11-27T01:36:40.6998547\u002B01:00",
+  "ClassLastModified": "2023-11-29T22:18:29.7034616\u002B01:00",
   "ClassGUID": "06540294-3b56-4cf7-8773-088bb766ac23",
   "ClassResourceGuid": "0e4beef1-989c-4687-80ca-ae21fec09734",
   "ClassHasUnmanagedDbSchema": false,
   "ClassType": "Content",
-  "ClassContentTypeType": "Reusable",
+  "ClassContentTypeType": "Website",
   "Fields": [
     {
       "AllowEmpty": true,
@@ -83,8 +83,8 @@ This sample describes how to create class inside XbyK to hold Article data
   "ClassDisplayName": "Event",
   "ClassName": "UMT.Event",
   "ClassTableName": "UMT_Event",
-  "ClassLastModified": "2023-11-27T01:36:40.7671865\u002B01:00",
-  "ClassGUID": "02989009-a16f-4f88-9f93-bfc4fc1e191a",
+  "ClassLastModified": "2023-11-29T22:18:29.751369\u002B01:00",
+  "ClassGUID": "1b4cca67-94a9-4347-ae9b-67b772f5e347",
   "ClassResourceGuid": "ff8285c1-9d1a-49b3-8c9d-7502e1e533f7",
   "ClassHasUnmanagedDbSchema": false,
   "ClassType": "Content",
@@ -148,6 +148,54 @@ This sample describes how to create class inside XbyK to hold Article data
       },
       "Settings": {
         "ControlName": "Kentico.Administration.Checkbox"
+      }
+    }
+  ]
+}
+```
+
+### Faq sample
+
+```json
+{
+  "$type": "DataClass",
+  "ClassDisplayName": "Faq",
+  "ClassName": "UMT.Faq",
+  "ClassTableName": "UMT_Faq",
+  "ClassLastModified": "2023-11-29T22:18:29.7525035\u002B01:00",
+  "ClassGUID": "7ed6604e-613b-4ce0-8c21-acfb372c416a",
+  "ClassHasUnmanagedDbSchema": false,
+  "ClassType": "Content",
+  "ClassContentTypeType": "Reusable",
+  "Fields": [
+    {
+      "AllowEmpty": false,
+      "Column": "FaqQuestion",
+      "ColumnSize": 200,
+      "ColumnType": "text",
+      "Enabled": true,
+      "Guid": "b7a99ef4-6775-4088-acc7-41c21299aabf",
+      "Visible": true,
+      "Properties": {
+        "FieldCaption": "Question"
+      },
+      "Settings": {
+        "ControlName": "Kentico.Administration.TextInput"
+      }
+    },
+    {
+      "AllowEmpty": false,
+      "Column": "FaqAnswer",
+      "ColumnSize": 200,
+      "ColumnType": "text",
+      "Enabled": true,
+      "Guid": "87995645-5868-470b-b25a-0e2a4e6d0e85",
+      "Visible": true,
+      "Properties": {
+        "FieldCaption": "Answer"
+      },
+      "Settings": {
+        "ControlName": "Kentico.Administration.TextInput"
       }
     }
   ]

@@ -5,6 +5,10 @@ using Kentico.Xperience.UMT.Attributes;
 
 namespace Kentico.Xperience.UMT.Model;
 
+/// <summary>
+/// 
+/// </summary>
+/// <sample>mediafile.sample</sample>
 [UmtModel(DISCRIMINATOR)]
 public class MediaFileModel : UmtModel
 {

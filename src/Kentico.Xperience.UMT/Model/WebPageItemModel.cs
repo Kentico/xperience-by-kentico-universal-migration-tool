@@ -7,6 +7,10 @@ using Kentico.Xperience.UMT.Attributes;
 
 namespace Kentico.Xperience.UMT.Model;
 
+/// <summary>
+/// 
+/// </summary>
+/// <sample>webpageitem.sample.article</sample>
 [UmtModel(DISCRIMINATOR)]
 public class WebPageItemModel : UmtModel
 {

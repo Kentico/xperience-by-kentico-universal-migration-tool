@@ -41,7 +41,7 @@ importObserver.ValidationError += (model, uniqueId, errors) =>
 // listen to successfully adapted and persisted objects
 importObserver.ImportedInfo += info =>
 {
-    
+    Console.WriteLine($"{info[info.TypeInfo.DisplayNameColumn] ?? info[info.TypeInfo.GUIDColumn]} imported");
 };
 
 // listen for exception occurence
@@ -69,9 +69,6 @@ var sourceData = new List<IUmtModel>
     ContentItemSamples.SampleContentItem,
     ContentItemLanguageMetadataSamples.SampleContentItemLanguageMetadata,
     ContentItemLanguageMetadataSamples.SampleContentItemLanguageMetadataBasic,
-
-    ContentItemSamples.SampleFaqContentItem,
-    ContentItemCommonDataSamples.SampleFaqContentItemCommonData,
     
     WebPageContentItemSamples.SampleWebPageItem,
 
@@ -79,6 +76,7 @@ var sourceData = new List<IUmtModel>
     AssetSamples.SampleMediaFile
 };
 
+// sample website content item
 sourceData.AddRange(new IUmtModel[]
 {
     ContentItemSamples.SampleArticleContentItem,
@@ -95,10 +93,27 @@ sourceData.AddRange(new IUmtModel[]
     ContentItemSamples.SampleArticleWebPageItem,
 });
 
+// sample reusable content item
+sourceData.AddRange(new IUmtModel[]
+{
+    ContentItemSamples.SampleFaqContentItem,
+    
+    ContentItemSamples.SampleFaqContentItemCommonDataEnUs,
+    ContentItemSamples.SampleFaqContentItemCommonDataEnGb,
+    
+    ContentItemSamples.SampleFaqDataEnUs,
+    ContentItemSamples.SampleFaqDataEnGb,
+    
+    ContentItemSamples.SampleFaqContentItemLanguageMetadataEnUs,
+    ContentItemSamples.SampleFaqContentItemLanguageMetadataEnGb,
+});
+
 // initiate import
 var observer = importService.StartImport(sourceData, importObserver);
 
 // wait until import finishes
 await observer.ImportCompletedTask;
+
+Console.WriteLine("Finished!");
 
 #pragma warning restore S1135

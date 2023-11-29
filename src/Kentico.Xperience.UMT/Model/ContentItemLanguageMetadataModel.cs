@@ -6,6 +6,13 @@ using Kentico.Xperience.UMT.Attributes;
 
 namespace Kentico.Xperience.UMT.Model;
 
+/// <summary>
+/// 
+/// </summary>
+/// <sample>contentitemlanguagemetadata.sample.article.enus</sample>
+/// <sample>contentitemlanguagemetadata.sample.article.engb</sample>
+/// <sample>contentitemlanguagemetadata.sample.faq.enus</sample>
+/// <sample>contentitemlanguagemetadata.sample.faq.engb</sample>
 [UmtModel(DISCRIMINATOR)]
 public class ContentItemLanguageMetadataModel : UmtModel
 {

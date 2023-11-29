@@ -38,6 +38,7 @@ public static class SampleProvider
 
     public static List<IUmtModel> GetFullSample()
     {
+        // sample data
         var sourceData = new List<IUmtModel>
         {
             UserSamples.SampleAdministrator,
@@ -62,6 +63,7 @@ public static class SampleProvider
             AssetSamples.SampleMediaFile
         };
 
+        // sample website content item
         sourceData.AddRange(new IUmtModel[]
         {
             ContentItemSamples.SampleArticleContentItem,
@@ -76,6 +78,21 @@ public static class SampleProvider
             ContentItemSamples.SampleArticleContentItemLanguageMetadataEnGb,
     
             ContentItemSamples.SampleArticleWebPageItem,
+        });
+
+        // sample reusable content item
+        sourceData.AddRange(new IUmtModel[]
+        {
+            ContentItemSamples.SampleFaqContentItem,
+    
+            ContentItemSamples.SampleFaqContentItemCommonDataEnUs,
+            ContentItemSamples.SampleFaqContentItemCommonDataEnGb,
+    
+            ContentItemSamples.SampleFaqDataEnUs,
+            ContentItemSamples.SampleFaqDataEnGb,
+    
+            ContentItemSamples.SampleFaqContentItemLanguageMetadataEnUs,
+            ContentItemSamples.SampleFaqContentItemLanguageMetadataEnGb,
         });
         return sourceData;
     }

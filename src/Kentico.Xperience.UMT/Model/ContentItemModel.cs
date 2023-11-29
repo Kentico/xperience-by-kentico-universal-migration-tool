@@ -5,6 +5,11 @@ using Kentico.Xperience.UMT.Attributes;
 
 namespace Kentico.Xperience.UMT.Model;
 
+/// <summary>
+/// 
+/// </summary>
+/// <sample>ContentItemModel.Sample.Article</sample>
+/// <sample>ContentItemModel.Sample.Faq</sample>
 [UmtModel(DISCRIMINATOR)]
 public class ContentItemModel : UmtModel
 {
@@ -30,7 +35,6 @@ public class ContentItemModel : UmtModel
     [ReferenceProperty(typeof(DataClassInfo), "ContentItemContentTypeID", IsRequired = false)]
     public Guid? ContentItemDataClassGuid { get; set; }
 
-    [Required]
     [ReferenceProperty(typeof(ChannelInfo), "ContentItemChannelID", IsRequired = false)]
     public Guid? ContentItemChannelGuid { get; set; }
 }

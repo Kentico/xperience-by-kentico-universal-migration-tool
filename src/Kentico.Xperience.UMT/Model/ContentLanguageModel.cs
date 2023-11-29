@@ -7,7 +7,8 @@ namespace Kentico.Xperience.UMT.Model;
 /// <summary>
 /// Model represents XbyK ContentLanguageInfo
 /// </summary>
-/// <sample>contentlanguage.sample</sample>
+/// <sample>contentlanguage.sample.en-us</sample>
+/// <sample>contentlanguage.sample.en-gb</sample>
 [UmtModel(DISCRIMINATOR)]
 public class ContentLanguageModel : UmtModel
 {

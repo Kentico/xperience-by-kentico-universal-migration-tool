@@ -16,6 +16,8 @@ internal class ContentItemDataAdapter: GenericInfoAdapter<ContentItemDataInfo>
 
     protected override string GetGuidColumnName(BaseInfo info) => nameof(ContentItemDataInfo.ContentItemDataGUID);
 
+    
+    
     protected override ContentItemDataInfo ObjectFactory(UmtModelInfo umtModelInfo, IUmtModel umtModel)
     {
         if (umtModel is ContentItemDataModel contentItemDataModel)

@@ -26,7 +26,7 @@ internal class DataClassAdapter : GenericInfoAdapter<DataClassInfo>
 
             var contentTypeManager = Service.Resolve<IContentTypeManager>();
             contentTypeManager.Initialize(adapted);
-
+            adapted.ClassTableName = dcm.ClassTableName;
             var formInfo = new FormInfo(adapted.ClassFormDefinition);
 
             if (dcm.Fields is { Count: > 0 })
@@ -41,7 +41,8 @@ internal class DataClassAdapter : GenericInfoAdapter<DataClassInfo>
                         AllowEmpty = field.AllowEmpty,
                         DataType = field.ColumnType,
                         Enabled = field.Enabled,
-                        Visible = field.Visible
+                        Visible = field.Visible,
+                        Size = field.ColumnSize
                     };
                     nfi.Caption = field.Properties.FieldCaption;
                     nfi.Settings[CONTROL_NAME] = field.Settings.ControlName;

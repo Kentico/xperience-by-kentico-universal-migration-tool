@@ -8,6 +8,7 @@ public static class DataClassSamples
     public static readonly Guid FAQ_SAMPLE_GUID = new Guid("7ED6604E-613B-4CE0-8C21-ACFB372C416A");
     public static readonly Guid ARTICLE_SAMPLE_GUID = new Guid("06540294-3B56-4CF7-8773-088BB766AC23");
     public const string ARTICLE_SAMPLE_CLASS_NAME = "UMT.Article";
+    public const string FAQ_SAMPLE_CLASS_NAME = "UMT.Faq";
 
     [Sample("dataclass.article", "This sample describes how to create class inside XbyK to hold Article data", "Article sample")]
     // ReSharper disable once UnusedMember.Global #used implicitly by xml doc <sample>
@@ -15,7 +16,7 @@ public static class DataClassSamples
     {
         ClassName = ARTICLE_SAMPLE_CLASS_NAME,
         ClassType = ClassType.CONTENT_TYPE,
-        ClassContentTypeType = ClassContentTypeType.REUSABLE,
+        ClassContentTypeType = ClassContentTypeType.WEBSITE,
         ClassGUID = ARTICLE_SAMPLE_GUID,
         ClassLastModified = DateTime.Now,
         ClassResourceGuid = new Guid("0E4BEEF1-989C-4687-80CA-AE21FEC09734"),

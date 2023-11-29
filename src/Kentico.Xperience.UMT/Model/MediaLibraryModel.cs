@@ -3,6 +3,7 @@ using Kentico.Xperience.UMT.Attributes;
 
 namespace Kentico.Xperience.UMT.Model;
 
+/// <sample>medialibrary.sample</sample>
 [UmtModel(DISCRIMINATOR)]
 public class MediaLibraryModel : UmtModel
 {
