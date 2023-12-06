@@ -11,12 +11,18 @@ namespace Kentico.Xperience.UMT.Examples
         {
             // TODO tomas.krch: 2023-11-26 CHANGE SAMPLE => PATH SHALL BE RELATIVE TO SAMPLE PROJECT
             DataSourcePath = ".\\sample.png",
+            DataSourceBase64 = "",
             FileGUID = new Guid("214E29AA-32D5-40D7-9FEA-896591439E74"),
             FileCreatedByUserGuid = new Guid("863F796E-823A-4F5E-BBDB-E4A6F15B349B"),
             FileLibraryGuid = MEDIA_LIBRARY_SAMPLE_GUID,
-            FileName = "NewTestFile",
+            FileName = "NewTestFile.png",
+            FileExtension = ".png",
             FileTitle = "Title",
-            FilePath = "newPath"
+            FilePath = "newPath/somepath",
+            CustomProperties =
+            {
+                {"", ""}
+            }
         };
 
         [Sample("medialibrary.sample", "", "Sample of media library")]

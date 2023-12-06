@@ -91,12 +91,12 @@ internal class ImportService : IImportService
     }
     
     /// <inheritdoc />
-    public string SerializeToJson(IEnumerable<IUmtModel> models, JsonSerializerOptions? options = null)
+    public string SerializeToJson(IEnumerable<UmtModel> model, JsonSerializerOptions? options = null)
     {
         var converter = new UmtModelStjConverter(umtModelService.GetAll());
         options ??= new JsonSerializerOptions();
         options.Converters.Add(converter);
-        return JsonSerializer.Serialize(models.Cast<UmtModel>(), options);
+        return JsonSerializer.Serialize(model, options);
     }
 
     /// <inheritdoc />
@@ -107,6 +107,13 @@ internal class ImportService : IImportService
         {
             Converters = { converter }
         });
+    }
+
+    /// <inheritdoc />
+    public IEnumerable<IUmtModel>? FromJsonString(string jsonString)
+    {
+        var converter = new UmtModelStjConverter(umtModelService.GetAll());
+        return JsonSerializer.Deserialize<UmtModel[]>(jsonString, new JsonSerializerOptions { Converters = { converter } })?.Cast<IUmtModel>();  
     }
 
     /// <inheritdoc />
@@ -127,7 +134,7 @@ internal class ImportService : IImportService
     }
 
     /// <inheritdoc />
-    public Task<ImportStateObserver> StartImportAsync(IAsyncEnumerable<UmtModel> importedObjects, ImportStateObserver? importObserver = null)
+    public Task<ImportStateObserver> StartImportAsync(IAsyncEnumerable<IUmtModel> importedObjects, ImportStateObserver? importObserver = null)
     {
         var observer = importObserver ?? new ImportStateObserver();
         observer.ImportCompletedTask = Task.Run(async () =>
@@ -135,7 +142,7 @@ internal class ImportService : IImportService
             try
             {
                 var providerProxyContext = new ProviderProxyContext();
-                var enumerator = importedObjects.GetAsyncEnumerator();
+                await using var enumerator = importedObjects.GetAsyncEnumerator();
                 while (await enumerator.MoveNextAsync())
                 {
                     var current = enumerator.Current;

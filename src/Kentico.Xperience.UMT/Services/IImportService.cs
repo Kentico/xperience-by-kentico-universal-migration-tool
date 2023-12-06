@@ -21,7 +21,7 @@ public interface IImportService
     /// </summary>
     /// <param name="model"></param>
     /// <param name="options"></param>
-    string SerializeToJson(IEnumerable<IUmtModel> model, JsonSerializerOptions? options = null);
+    string SerializeToJson(IEnumerable<UmtModel> model, JsonSerializerOptions? options = null);
     
     /// <summary>
     /// Reads json from stream and returns enumerable of UmtModel
@@ -29,6 +29,13 @@ public interface IImportService
     /// <param name="jsonStream">Stream of data, content must be valid JSON array of UMT model</param>
     /// <returns>UMT model enumerable</returns>
     IAsyncEnumerable<UmtModel?> FromJsonStream(Stream jsonStream);
+
+    /// <summary>
+    /// Reads model from json string and returns enumerable of UmtModel
+    /// </summary>
+    /// <param name="jsonString">String that contains valid JSON UMT model</param>
+    /// <returns>UMT model enumerable</returns>
+    IEnumerable<IUmtModel>? FromJsonString(string jsonString);
 
     /// <summary>
     /// Starts import
@@ -44,5 +51,5 @@ public interface IImportService
     /// <param name="importedObjects">UMT model, imported objects</param>
     /// <param name="importObserver">Import state observer, stores current information about import with events</param>
     /// <returns>Task, that will return object that represents import state</returns>
-    Task<ImportStateObserver> StartImportAsync(IAsyncEnumerable<UmtModel> importedObjects, ImportStateObserver? importObserver = null);
+    Task<ImportStateObserver> StartImportAsync(IAsyncEnumerable<IUmtModel> importedObjects, ImportStateObserver? importObserver = null);
 }

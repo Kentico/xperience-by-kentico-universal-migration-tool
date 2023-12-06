@@ -18,6 +18,24 @@ internal class DataClassAdapter : GenericInfoAdapter<DataClassInfo>
 
     }
 
+    protected override void SetValue(DataClassInfo current, string propertyName, object? value)
+    {
+        if (Reflect<DataClassInfo>.TrySetProperty(current, propertyName, value))
+        {
+            // OK
+            Logger.LogTrace("Setting property '{PropertyName}' of type '{Type}' to value: {Value}", propertyName, Reflect<DataClassInfo>.Current.FullName, value);
+        }
+        else if (Reflect<DataClassInfoBase<DataClassInfo>>.TrySetProperty(current, propertyName, value))
+        {
+            // OK
+            Logger.LogTrace("Setting property '{PropertyName}' of type '{Type}' to value: {Value}", propertyName, Reflect<DataClassInfoBase<DataClassInfo>>.Current.FullName, value);
+        }
+        else
+        {
+            Logger.LogError("Object of type '{Type}' doesn't contain property '{PropertyName}' => unable to set value", current.GetType().FullName, propertyName);
+        }
+    }
+
     public override DataClassInfo Adapt(IUmtModel input)
     {
         if (input is DataClassModel dcm)

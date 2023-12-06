@@ -1,6 +1,9 @@
-﻿using System.Reflection;
+﻿using System.Diagnostics;
+using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Text.Json;
+using CMS.ContentEngine;
+using CMS.ContentEngine.Internal;
 using CMS.DataEngine;
 using Kentico.Xperience.UMT.Attributes;
 using Kentico.Xperience.UMT.Model;
@@ -55,6 +58,10 @@ internal class GenericInfoAdapter<TTargetInfo> : IInfoAdapter<TTargetInfo, IUmtM
                 if (current.ColumnNames.Contains(property.Name))
                 {
                     object? value = property.GetValue(umtModel);
+                    if (value is VersionStatus) // workaround, remove as soon possible
+                    {
+                        value = (int)value;
+                    }
                     SetValue(current, property.Name, value);
                     Logger.LogTrace("[{ColumnName}]={Value}", property.Name, value);
                 }
@@ -84,7 +91,23 @@ internal class GenericInfoAdapter<TTargetInfo> : IInfoAdapter<TTargetInfo, IUmtM
         return current;
     }
 
-    protected virtual void SetValue(TTargetInfo current, string propertyName, object? value) => current.SetValue(propertyName, value);
+    protected virtual void SetValue(TTargetInfo current, string propertyName, object? value)
+    {
+        Debug.Assert(current.ColumnNames.Contains(propertyName), "current.ColumnNames.Contains(propertyName)");
+        if (Reflect<TTargetInfo>.TrySetProperty(current, propertyName, value))
+        {
+            if (current is DataClassInfo dci && propertyName.Equals("ClassName", StringComparison.InvariantCultureIgnoreCase))
+            {
+                Debug.Assert(dci.ClassName != null, "dci.ClassName != null");
+            }
+            // OK
+            Logger.LogTrace("Setting property '{PropertyName}' of type '{Type}' to value: {Value}", propertyName, Reflect<TTargetInfo>.Current.FullName, value);
+        }
+        else
+        {
+            Logger.LogError("Object of type '{Type}' doesn't contain property '{PropertyName}' => unable to set value", current.GetType().FullName, propertyName);
+        }
+    }
 
     protected virtual string GetGuidColumnName(BaseInfo info) => info.TypeInfo.GUIDColumn;
 

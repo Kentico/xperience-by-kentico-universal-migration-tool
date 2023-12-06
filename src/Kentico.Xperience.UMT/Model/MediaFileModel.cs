@@ -15,6 +15,8 @@ public class MediaFileModel : UmtModel
     public const string DISCRIMINATOR = "Media_File";
 
     public string? DataSourcePath { get; set; }
+    public string? DataSourceBase64 { get; set; } // TODO tomas.krch: 2023-12-06 implement
+    public string? DataSourceUrl { get; set; } // TODO tomas.krch: 2023-12-06 impl
 
     [Map]
     [Required]

@@ -831,7 +831,7 @@
         "type": "Project",
         "dependencies": {
           "Kentico.Xperience.Core": "[28.0.1, )",
-          "Microsoft.Bcl.AsyncInterfaces": "[6.0.0, )"
+          "Microsoft.Bcl.AsyncInterfaces": "[7.0.0, )"
         }
       },
       "kentico.xperience.umt.examples": {

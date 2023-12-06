@@ -12,6 +12,7 @@ internal class Reflect<T>
         Current = instance.Current;
         PublicProperties = instance.PublicProperties;
         PropertyGetters = instance.PropertyGetters;
+        PropertySetters = instance.PropertySetters;
     }
 
 #pragma warning disable S2743 // that is the idea, for each type parameter reflected info will exist
@@ -20,7 +21,9 @@ internal class Reflect<T>
     // ReSharper disable once StaticMemberInGenericType
     private static ImmutableDictionary<string, MethodInfo?> PropertyGetters { get; set; }
     // ReSharper disable once StaticMemberInGenericType
-    private static Type Current { get; }
+    public static Type Current { get; }
+    // ReSharper disable once StaticMemberInGenericType
+    private static ImmutableDictionary<string, MethodInfo?> PropertySetters { get; set; }
 #pragma warning restore S2743
 
     public object? GetPropertyValue(string propertyName, object o)
@@ -32,6 +35,17 @@ internal class Reflect<T>
 
         throw new KeyNotFoundException($"Public property '{propertyName}' is not present on type '{Current.FullName}'");
     }
+
+    public static bool TrySetProperty(object o, string propertyName, object? value)
+    {
+        if (PropertySetters.TryGetValue(propertyName, out var setter) && setter != null)
+        {
+            setter.Invoke(o, new[] { value });
+            return true;
+        }
+
+        return false;
+    }
 }
 
 internal class Reflect
@@ -41,20 +55,24 @@ internal class Reflect
     public static Reflect Type(Type type) =>
         instances.GetOrAdd(type, c =>
         {
-            var publicProperties = c.GetProperties(BindingFlags.Instance | BindingFlags.Public).ToImmutableHashSet();
-            var propertyGetters = c.GetProperties(BindingFlags.Instance | BindingFlags.Public).ToImmutableDictionary(x => x.Name, x => x.GetMethod);
-
-            return new Reflect(current: c, publicProperties: publicProperties, propertyGetters: propertyGetters);
+            var propertyInfos = c.GetProperties(BindingFlags.Instance | BindingFlags.Public | BindingFlags.DeclaredOnly).ToList();
+            var publicProperties = propertyInfos.ToImmutableHashSet();
+            var propertyGetters = propertyInfos.ToImmutableDictionary(x => x.Name, x => x.GetMethod);
+            var propertySetters = propertyInfos.ToImmutableDictionary(x => x.Name, x => x.SetMethod);
+            
+            return new Reflect(current: c, publicProperties: publicProperties, propertyGetters: propertyGetters, propertySetters: propertySetters);
         });
 
     public ImmutableDictionary<string, MethodInfo?> PropertyGetters { get; }
+    public ImmutableDictionary<string, MethodInfo?> PropertySetters { get; }
     public ImmutableHashSet<PropertyInfo> PublicProperties { get; }
     public Type Current { get; }
 
-    private Reflect(Type current, ImmutableHashSet<PropertyInfo> publicProperties, ImmutableDictionary<string, MethodInfo?> propertyGetters)
+    private Reflect(Type current, ImmutableHashSet<PropertyInfo> publicProperties, ImmutableDictionary<string, MethodInfo?> propertyGetters, ImmutableDictionary<string, MethodInfo?> propertySetters)
     {
         Current = current;
         PublicProperties = publicProperties;
         PropertyGetters = propertyGetters;
+        PropertySetters = propertySetters;
     }
 }

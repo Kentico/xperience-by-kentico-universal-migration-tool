@@ -29,9 +29,9 @@
       },
       "Microsoft.Bcl.AsyncInterfaces": {
         "type": "Direct",
-        "requested": "[6.0.0, )",
-        "resolved": "6.0.0",
-        "contentHash": "UcSjPsst+DfAdJGVDsu346FX0ci0ah+lw3WRtn18NUwEqRt70HaOQ7lI72vy3+1LxtqI3T5GWwV39rQSrCzAeg=="
+        "requested": "[7.0.0, )",
+        "resolved": "7.0.0",
+        "contentHash": "3aeMZ1N0lJoSyzqiP03hqemtb1BijhsJADdobn/4nsMJ8V1H+CrpuduUe4hlRdx+ikBQju1VGjMD1GJ3Sk05Eg=="
       },
       "Microsoft.NET.Test.Sdk": {
         "type": "Direct",

@@ -112,8 +112,8 @@
       },
       "Microsoft.Bcl.AsyncInterfaces": {
         "type": "Transitive",
-        "resolved": "6.0.0",
-        "contentHash": "UcSjPsst+DfAdJGVDsu346FX0ci0ah+lw3WRtn18NUwEqRt70HaOQ7lI72vy3+1LxtqI3T5GWwV39rQSrCzAeg=="
+        "resolved": "7.0.0",
+        "contentHash": "3aeMZ1N0lJoSyzqiP03hqemtb1BijhsJADdobn/4nsMJ8V1H+CrpuduUe4hlRdx+ikBQju1VGjMD1GJ3Sk05Eg=="
       },
       "Microsoft.CSharp": {
         "type": "Transitive",
@@ -585,7 +585,7 @@
         "type": "Project",
         "dependencies": {
           "Kentico.Xperience.Core": "[28.0.1, )",
-          "Microsoft.Bcl.AsyncInterfaces": "[6.0.0, )"
+          "Microsoft.Bcl.AsyncInterfaces": "[7.0.0, )"
         }
       },
       "kentico.xperience.umt.examples": {
