@@ -44,7 +44,10 @@ internal class DataClassAdapter : GenericInfoAdapter<DataClassInfo>
 
             var contentTypeManager = Service.Resolve<IContentTypeManager>();
             contentTypeManager.Initialize(adapted);
-            adapted.ClassTableName = dcm.ClassTableName;
+            if (dcm.ClassTableName != null)
+            {
+                adapted.ClassTableName = dcm.ClassTableName;
+            }
             var formInfo = new FormInfo(adapted.ClassFormDefinition);
 
             if (dcm.Fields is { Count: > 0 })

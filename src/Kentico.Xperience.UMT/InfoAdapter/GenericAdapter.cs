@@ -58,10 +58,6 @@ internal class GenericInfoAdapter<TTargetInfo> : IInfoAdapter<TTargetInfo, IUmtM
                 if (current.ColumnNames.Contains(property.Name))
                 {
                     object? value = property.GetValue(umtModel);
-                    if (value is VersionStatus) // workaround, remove as soon possible
-                    {
-                        value = (int)value;
-                    }
                     SetValue(current, property.Name, value);
                     Logger.LogTrace("[{ColumnName}]={Value}", property.Name, value);
                 }
@@ -96,10 +92,6 @@ internal class GenericInfoAdapter<TTargetInfo> : IInfoAdapter<TTargetInfo, IUmtM
         Debug.Assert(current.ColumnNames.Contains(propertyName), "current.ColumnNames.Contains(propertyName)");
         if (Reflect<TTargetInfo>.TrySetProperty(current, propertyName, value))
         {
-            if (current is DataClassInfo dci && propertyName.Equals("ClassName", StringComparison.InvariantCultureIgnoreCase))
-            {
-                Debug.Assert(dci.ClassName != null, "dci.ClassName != null");
-            }
             // OK
             Logger.LogTrace("Setting property '{PropertyName}' of type '{Type}' to value: {Value}", propertyName, Reflect<TTargetInfo>.Current.FullName, value);
         }
@@ -157,7 +149,7 @@ internal class GenericInfoAdapter<TTargetInfo> : IInfoAdapter<TTargetInfo, IUmtM
         // map all foreign references to ensure they exist
         foreach (var referenceProperty in model.ReferenceProperties)
         {
-            Logger.LogInformation("Mapping reference property '{RefProp}' from '{RefType}' ObjectId", referenceProperty.ReferencedPropertyName, referenceProperty.ReferencedInfoType?.Name);
+            Logger.LogDebug("Mapping reference property '{RefProp}' from '{RefType}' ObjectId", referenceProperty.ReferencedPropertyName, referenceProperty.ReferencedInfoType?.Name);
 
             object? refObject = referenceProperty.Property?.GetValue(input);
             if (refObject is Guid foreignObjectGuid)
