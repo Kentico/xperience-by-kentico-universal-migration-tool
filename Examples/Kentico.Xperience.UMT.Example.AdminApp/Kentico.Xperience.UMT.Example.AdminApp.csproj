@@ -1,9 +1,6 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <TargetFramework>net7.0</TargetFramework>
-        <ImplicitUsings>enable</ImplicitUsings>
-        <Nullable>enable</Nullable>
         <AdminOrgName>umt</AdminOrgName>
         <AssemblyName>Kentico.Xperience.UMT.Example.AdminApp</AssemblyName>
     </PropertyGroup>
@@ -14,8 +11,6 @@
         <VersionPrefix>0.1.10</VersionPrefix>
         <Authors>Kentico Software</Authors>
         <Company>Kentico Software</Company>
-        <PackageLicenseExpression>MIT</PackageLicenseExpression>
-        <RepositoryType>git</RepositoryType>
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
         <GenerateDocumentationFile>true</GenerateDocumentationFile>
 
@@ -24,7 +19,7 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\..\src\Kentico.Xperience.UMT\Kentico.Xperience.UMT.csproj" />
+        <ProjectReference Include="..\..\src\Kentico.Xperience.UMT\Kentico.Xperience.UMT.csproj" />
     </ItemGroup>
 
     <ItemGroup>
@@ -42,7 +37,7 @@
         <FrameworkReference Include="Microsoft.AspNetCore.App" />
     </ItemGroup>
     <ItemGroup>
-      <PackageReference Include="Kentico.Xperience.Admin" Version="28.0.1" />
+        <PackageReference Include="Kentico.Xperience.Admin" />
     </ItemGroup>
-    
+
 </Project>
