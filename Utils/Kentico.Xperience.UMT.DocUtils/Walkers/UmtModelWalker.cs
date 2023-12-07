@@ -2,7 +2,7 @@
 using Microsoft.CodeAnalysis.CSharp;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
 
-namespace Kentico.Xperience.UMT.Walkers;
+namespace Kentico.Xperience.UMT.DocUtils.Walkers;
 
 public class UmtModelWalker: CSharpSyntaxWalker
 {

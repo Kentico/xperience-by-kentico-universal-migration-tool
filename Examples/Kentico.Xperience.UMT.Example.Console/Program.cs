@@ -4,22 +4,23 @@
 using System.Text.Json;
 using CMS.Core;
 using CMS.DataEngine;
-using CMS.DocumentEngine;
 using Kentico.Xperience.UMT;
+using Kentico.Xperience.UMT.Example.Console;
+using Kentico.Xperience.UMT.Examples;
 using Kentico.Xperience.UMT.Model;
 using Kentico.Xperience.UMT.Services;
 using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.Configuration.Memory;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 
-var root = new ConfigurationRoot(new List<IConfigurationProvider>(new[] { new MemoryConfigurationProvider(new MemoryConfigurationSource()) }));
-
-root[ConfigurationPath.Combine("ConnectionStrings", "CMSConnectionString")]
-    // TODO: change connection string to target XbyK instance
-    = "";
+var root = new ConfigurationBuilder()
+    .AddJsonFile("appsettings.json", false)
+    .AddJsonFile("appsettings.local.json", true)
+    .Build();
 
 Service.Use<IConfiguration>(root);
+CMS.Base.SystemContext.WebApplicationPhysicalPath = root.GetValue<string>("WebApplicationPhysicalPath");
+
 CMSApplication.Init();
 
 var services = new ServiceCollection();
@@ -29,57 +30,120 @@ services.AddUniversalMigrationToolkit();
 var serviceProvider = services.BuildServiceProvider();
 var importService = serviceProvider.GetRequiredService<IImportService>();
 
-// create observer to track import state
-var importObserver = new ImportStateObserver();
-
-// listen to validation errors
-importObserver.ValidationError += (model, uniqueId, errors) =>
-{
-    Console.WriteLine($"Validation error '{uniqueId}': {JsonSerializer.Serialize(errors)}");
-};
-
-// listen to successfully adapted and persisted objects
-importObserver.ImportedInfo += info =>
-{
-    if (info is TreeNode tn)
-    {
-        Console.WriteLine($"Imported node: {tn.NodeAlias}");
-    }
-    else
-    {
-        Console.WriteLine($"Imported: {info[info.TypeInfo.CodeNameColumn]}");    
-    }
-};
-
-// listen for exception occurence
-importObserver.Exception += (model, uniqueId, exception) =>
-{
-    Console.WriteLine($"Error: '{uniqueId}': {exception}");
-};
-
 // sample data
-var sourceData = new UmtModel[]
+List<IUmtModel> sourceData = null!;
+
+bool useSerializedSample = true;
+if (useSerializedSample)
 {
-    // TODO: use your data
-    UserSamples.FreddyAdministrator,
-    DataClassSamples.ArticleClassSample,
-    DataClassSamples.EventDataClass,
-    TreeNodeSamples.YearlyEvent,
-    TreeNodeSamples.SingleOccurenceEvent,
-};
+    sourceData = importService.FromJsonString(SampleJson.FullSample)?.ToList() ?? new List<IUmtModel>();
+}
+else
+{
+    sourceData = new List<IUmtModel>
+    {
+        // TODO: use your data
+        UserSamples.SampleAdministrator,
+        ContentLanguageSamples.SampleContentLanguageEnUs,
+        ContentLanguageSamples.SampleContentLanguageEnGb,
+        ChannelSamples.SampleChannelForEmailChannel,
+        ChannelSamples.SampleChannelForWebSiteChannel,
+        EmailChannelSamples.SampleEmailChannel,
+        WebSiteChannelSamples.SampleWebSiteChannel,
+        DataClassSamples.ArticleClassSample,
+        DataClassSamples.FaqDataClass,
+        ContentItemSamples.SampleContentItem,
+        ContentItemLanguageMetadataSamples.SampleContentItemLanguageMetadata,
+        ContentItemLanguageMetadataSamples.SampleContentItemLanguageMetadataBasic,
+        WebPageContentItemSamples.SampleWebPageItem,
+        AssetSamples.SampleMediaLibrary,
+        AssetSamples.SampleMediaFile
+    };
 
-// fill context
-var context = new ImporterContext(
-    // TODO: change site name
-    "Boilerplate",
-    // TODO: change culture if needed
-    "en-US"
-);
+    // sample website content item
+    sourceData.AddRange(new IUmtModel[]
+    {
+        ContentItemSamples.SampleArticleContentItem, ContentItemSamples.SampleArticleContentItemCommonDataEnUs, ContentItemSamples.SampleArticleContentItemCommonDataEnGb, ContentItemSamples.SampleArticleDataEnUs,
+        ContentItemSamples.SampleArticleDataEnGb, ContentItemSamples.SampleArticleContentItemLanguageMetadataEnUs, ContentItemSamples.SampleArticleContentItemLanguageMetadataEnGb, ContentItemSamples.SampleArticleWebPageItem,
+    });
 
-// initiate import
-var observer = importService.StartImport(sourceData, context, importObserver);
+    // sample reusable content item
+    sourceData.AddRange(new IUmtModel[]
+    {
+        ContentItemSamples.SampleFaqContentItem, ContentItemSamples.SampleFaqContentItemCommonDataEnUs, ContentItemSamples.SampleFaqContentItemCommonDataEnGb, ContentItemSamples.SampleFaqDataEnUs, ContentItemSamples.SampleFaqDataEnGb,
+        ContentItemSamples.SampleFaqContentItemLanguageMetadataEnUs, ContentItemSamples.SampleFaqContentItemLanguageMetadataEnGb,
+    });
+}
 
-// wait until import finishes
-await observer.ImportCompletedTask;
+bool variantWithObserver = false;
+if (variantWithObserver)
+{
+    // simplified usage for streamlined import
+    
+    // create observer to track import state
+    var importObserver = new ImportStateObserver();
+
+    // listen to validation errors
+    importObserver.ValidationError += (model, uniqueId, errors) =>
+    {
+        Console.WriteLine($"Validation error in model '{model.PrintMe()}': {JsonSerializer.Serialize(errors)}");
+    };
+
+    // listen to successfully adapted and persisted objects
+    importObserver.ImportedInfo += (model, info) =>
+    {
+        Console.WriteLine($"{model.PrintMe()} imported");
+    };
+
+    // listen for exception occurence
+    importObserver.Exception += (model, uniqueId, exception) =>
+    {
+        Console.WriteLine($"Error in model {model.PrintMe()}: '{uniqueId}': {exception}");
+    };
+
+    // initiate import
+    var observer = importService.StartImport(sourceData, importObserver);
+
+    // wait until import finishes
+    await observer.ImportCompletedTask;
+}
+else
+{
+    // sample with more control over process
+    var importer = serviceProvider.GetRequiredService<IImporter>();
+    foreach (var umtModel in sourceData)
+    {
+        var result = await importer.ImportAsync(umtModel);
+        switch (result)
+        {
+            // OK
+            case { Success: true, Imported: {} }:
+            {
+                Console.WriteLine($"{umtModel.PrintMe()} imported");
+                break;
+            }
+            // some exception was thrown when importing
+            case { Success: false, Exception: { } exception }:
+            {
+                Console.WriteLine($"Error in model {umtModel.PrintMe()}: {exception}");
+                break;
+            }
+            // validation error were found on input model
+            case { Success: false, ModelValidationResults: { } validationResults }:
+            {
+                Console.WriteLine($"Validation error in model '{umtModel.PrintMe()}': {JsonSerializer.Serialize(validationResults)}");
+                break;
+            }
+            default:
+            {
+                Console.WriteLine($"UNEXPECTED CASE occured on model: {umtModel.PrintMe()}");
+                break;
+            }
+        }
+    }
+}
+
+
+Console.WriteLine("Finished!");
 
 #pragma warning restore S1135

@@ -25,7 +25,7 @@ public sealed class ImportStateObserver
     /// <summary>
     /// Delegate specifies callback method for event ImportedInfo
     /// </summary>
-    public delegate void ImportedInfoDelegate(BaseInfo info);
+    public delegate void ImportedInfoDelegate(IUmtModel model, BaseInfo info);
     
     /// <summary>
     /// Invoked when Kentico API Info object is successfully created
@@ -35,7 +35,7 @@ public sealed class ImportStateObserver
     /// <summary>
     /// Delegate specifies callback method for event ValidationError
     /// </summary>
-    public delegate void ModelValidationError(UmtModel model, Guid? uniqueId, ICollection<ValidationResult> errors);
+    public delegate void ModelValidationError(IUmtModel model, Guid? uniqueId, ICollection<ValidationResult> errors);
     /// <summary>
     /// Invoked when format of model is incorrect
     /// </summary>
@@ -45,18 +45,18 @@ public sealed class ImportStateObserver
     /// <summary>
     /// Delegate specifies callback method for event Exception
     /// </summary>
-    public delegate void RaisedException(UmtModel relatedModel, Guid? uniqueId, Exception exception);
+    public delegate void RaisedException(IUmtModel relatedModel, Guid? uniqueId, Exception exception);
     /// <summary>
     /// Invoked when exception related to one model instance
     /// </summary>
     public event RaisedException? Exception;
     
 
-    internal void OnImportedInfo(BaseInfo info) => ImportedInfo?.Invoke(info);
+    internal void OnImportedInfo(IUmtModel model, BaseInfo info) => ImportedInfo?.Invoke(model, info);
 
-    internal void OnValidationError(UmtModel model, Guid? uniqueId, ICollection<ValidationResult> errors) => ValidationError?.Invoke(model, uniqueId, errors);
+    internal void OnValidationError(IUmtModel model, Guid? uniqueId, ICollection<ValidationResult> errors) => ValidationError?.Invoke(model, uniqueId, errors);
 
-    internal void OnException(UmtModel relatedModel, Guid? uniqueId, Exception exception) => Exception?.Invoke(relatedModel, uniqueId, exception);
+    internal void OnException(IUmtModel relatedModel, Guid? uniqueId, Exception exception) => Exception?.Invoke(relatedModel, uniqueId, exception);
 }
 
 
@@ -91,7 +91,7 @@ internal class ImportService : IImportService
     }
     
     /// <inheritdoc />
-    public string SerializeToJson(UmtModel[] model, JsonSerializerOptions? options = null)
+    public string SerializeToJson(IEnumerable<UmtModel> model, JsonSerializerOptions? options = null)
     {
         var converter = new UmtModelStjConverter(umtModelService.GetAll());
         options ??= new JsonSerializerOptions();
@@ -110,12 +110,19 @@ internal class ImportService : IImportService
     }
 
     /// <inheritdoc />
-    public ImportStateObserver StartImport(IEnumerable<UmtModel> importedObjects, ImporterContext context, ImportStateObserver? importObserver = null)
+    public IEnumerable<IUmtModel>? FromJsonString(string jsonString)
+    {
+        var converter = new UmtModelStjConverter(umtModelService.GetAll());
+        return JsonSerializer.Deserialize<UmtModel[]>(jsonString, new JsonSerializerOptions { Converters = { converter } })?.Cast<IUmtModel>();  
+    }
+
+    /// <inheritdoc />
+    public ImportStateObserver StartImport(IEnumerable<IUmtModel> importedObjects, ImportStateObserver? importObserver = null)
     {
         var observer = importObserver ?? new ImportStateObserver();
         observer.ImportCompletedTask = Task.Run(() =>
         {
-            var providerProxyContext = new ProviderProxyContext(context.SiteName, context.CultureCode);
+            var providerProxyContext = new ProviderProxyContext();
 
             foreach (var importedObject in importedObjects)
             {
@@ -127,15 +134,15 @@ internal class ImportService : IImportService
     }
 
     /// <inheritdoc />
-    public Task<ImportStateObserver> StartImportAsync(IAsyncEnumerable<UmtModel> importedObjects, ImporterContext context, ImportStateObserver? importObserver = null)
+    public Task<ImportStateObserver> StartImportAsync(IAsyncEnumerable<IUmtModel> importedObjects, ImportStateObserver? importObserver = null)
     {
         var observer = importObserver ?? new ImportStateObserver();
         observer.ImportCompletedTask = Task.Run(async () =>
         {
             try
             {
-                var providerProxyContext = new ProviderProxyContext(context.SiteName, context.CultureCode);
-                var enumerator = importedObjects.GetAsyncEnumerator();
+                var providerProxyContext = new ProviderProxyContext();
+                await using var enumerator = importedObjects.GetAsyncEnumerator();
                 while (await enumerator.MoveNextAsync())
                 {
                     var current = enumerator.Current;
@@ -152,7 +159,7 @@ internal class ImportService : IImportService
         return Task.FromResult(observer);
     }
 
-    private void ImportObject(UmtModel model, ImportStateObserver observer, ProviderProxyContext providerProxyContext)
+    private void ImportObject(IUmtModel model, ImportStateObserver observer, ProviderProxyContext providerProxyContext)
     {
         var adapter = adapterFactory.CreateAdapter(model, providerProxyContext);
         if (adapter == null)
@@ -184,7 +191,7 @@ internal class ImportService : IImportService
 
         try
         {
-            adapter.ProviderProxy.Save(adapted);
+            adapter.ProviderProxy.Save(adapted, model);
         }
         catch (Exception ex)
         {
@@ -193,6 +200,6 @@ internal class ImportService : IImportService
             return;
         }
         
-        observer.OnImportedInfo(adapted);
+        observer.OnImportedInfo(model, adapted);
     }
 }

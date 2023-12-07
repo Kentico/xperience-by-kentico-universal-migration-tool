@@ -1,5 +1,5 @@
 ﻿using Kentico.Xperience.Admin.Base;
-using Kentico.Xperience.UMT;
+using Kentico.Xperience.UMT.Example.AdminApp;
 
 [assembly: CMS.AssemblyDiscoverable]
 [assembly: CMS.RegisterModule(typeof(UmtWebAdminModule))]
@@ -7,7 +7,7 @@ using Kentico.Xperience.UMT;
 // Adds a new application category 
 [assembly: UICategory(UmtWebAdminModule.CustomCategory, "Migration samples", Icons.CustomElement, 100)]
 
-namespace Kentico.Xperience.UMT
+namespace Kentico.Xperience.UMT.Example.AdminApp
 {
     internal class UmtWebAdminModule : AdminModule
     {

@@ -1,20 +1,22 @@
 ﻿using CMS.DataEngine;
 using CMS.Membership;
 using FluentAssertions;
+using Kentico.Xperience.UMT.Examples;
 using Kentico.Xperience.UMT.Model;
 using Kentico.Xperience.UMT.ProviderProxy;
 using Kentico.Xperience.UMT.Services;
+using Kentico.Xperience.UMT.Tests.X.TestsWithDb;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 
-namespace Kentico.Xperience.UMT;
+namespace Kentico.Xperience.UMT.Tests.X;
 
 public class SampleTests
 {
     [Fact(Skip = "This test needs to be run using https://docs.xperience.io/custom-development/writing-automated-tests")]
     public async Task SampleTest()
     {
-        var sp = KenticoFixture.FakeDiContainer(new ProviderProxyContext("boilerplate", "en-US")).BuildServiceProvider();
+        var sp = KenticoFixture.FakeDiContainer(new ProviderProxyContext()).BuildServiceProvider();
         var log = sp.GetRequiredService<ILoggerFactory>().CreateLogger<SampleTests>();
         var importService = sp.GetRequiredService<IImportService>();
 
@@ -38,12 +40,11 @@ public class SampleTests
 
         await importService.StartImportAsync(new UmtModel[]
         {
-            UserSamples.FreddyAdministrator,
+            UserSamples.SampleAdministrator,
             DataClassSamples.ArticleClassSample,
             DataClassSamples.EventDataClass,
-            TreeNodeSamples.YearlyEvent,
-            TreeNodeSamples.SingleOccurenceEvent
-        }.AsAsyncEnumerable(), new ImporterContext("boilerplate", "en-US"), importObserver);
+            
+        }.AsAsyncEnumerable(), importObserver);
 
         await importObserver.ImportCompletedTask;
 
@@ -52,7 +53,7 @@ public class SampleTests
         {
             if (first.Should().BeOfType<UserInfo>().Subject is { } user)
             {
-                user.Should().BeEquivalentTo(UserSamples.FreddyAdministrator, options => options
+                user.Should().BeEquivalentTo(UserSamples.SampleAdministrator, options => options
                     .Including(ui => ui.Email)
                     .Including(ui => ui.FirstName)
                     .Including(ui => ui.LastName)

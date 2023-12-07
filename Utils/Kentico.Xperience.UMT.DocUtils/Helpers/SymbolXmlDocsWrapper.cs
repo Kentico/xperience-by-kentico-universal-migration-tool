@@ -1,10 +1,10 @@
 ﻿using System.Text.RegularExpressions;
 using System.Xml.Linq;
 using System.Xml.XPath;
-using Kentico.Xperience.UMT.Walkers;
+using Kentico.Xperience.UMT.DocUtils.Walkers;
 using Microsoft.CodeAnalysis;
 
-namespace Kentico.Xperience.UMT.Helpers;
+namespace Kentico.Xperience.UMT.DocUtils.Helpers;
 
 public interface ISymbolXmlDocsWrapper
 {

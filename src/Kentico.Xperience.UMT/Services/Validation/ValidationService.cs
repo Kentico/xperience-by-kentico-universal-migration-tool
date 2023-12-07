@@ -17,7 +17,7 @@ public class ValidationService : IValidationService
     /// <param name="model"></param>
     /// <param name="result">collection where results are appended</param>
     /// <returns>true if valid, false if invalid</returns>
-    public bool TryValidateModel(UmtModel model, ref List<ValidationResult> result)
+    public bool TryValidateModel(IUmtModel model, ref List<ValidationResult> result)
     {
         // TODO tomas.krch: 2023-07-22 validation context factory to enable DI?
         var validationContext = new ValidationContext(model);

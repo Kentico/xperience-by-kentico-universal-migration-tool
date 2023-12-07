@@ -14,5 +14,5 @@ public interface IValidationService
     /// <param name="model"></param>
     /// <param name="result">collection where results are appended</param>
     /// <returns>true if valid, false if invalid</returns>
-    bool TryValidateModel(UmtModel model, ref List<ValidationResult> result);
+    bool TryValidateModel(IUmtModel model, ref List<ValidationResult> result);
 }

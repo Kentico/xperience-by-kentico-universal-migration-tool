@@ -2,10 +2,11 @@
 
 using System.Collections.Concurrent;
 using Kentico.Xperience.UMT;
+using Kentico.Xperience.UMT.DocUtils;
+using Kentico.Xperience.UMT.DocUtils.Templates;
+using Kentico.Xperience.UMT.DocUtils.Walkers;
 using Kentico.Xperience.UMT.Model;
 using Kentico.Xperience.UMT.Services;
-using Kentico.Xperience.UMT.Templates;
-using Kentico.Xperience.UMT.Walkers;
 using Microsoft.Build.Locator;
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp;
@@ -200,3 +201,5 @@ foreach (var solutionProject in solution.Projects)
         }
     }
 }
+
+await MdHelper.RenderTemplateToFile("SampleJson", new SampleJsonViewModel(importService), Path.Join(targetDirectory, $"Samples\\basic.json"));

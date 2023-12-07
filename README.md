@@ -13,7 +13,7 @@ The Universal Migration Toolkit (UMT) is an open-source set of software librarie
 ### Prerequisites
 
 - [.NET 6+ SDK](https://dotnet.microsoft.com/en-us/download/dotnet/6.0)
-- Xperience by Kentico of version **26.4.0**
+- Xperience by Kentico of version **28.0.1**
 
 ### Installation
 

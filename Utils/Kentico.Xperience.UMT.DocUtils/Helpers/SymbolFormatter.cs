@@ -1,6 +1,6 @@
 ﻿using Microsoft.CodeAnalysis;
 
-namespace Kentico.Xperience.UMT.Helpers;
+namespace Kentico.Xperience.UMT.DocUtils.Helpers;
 
 public class SymbolFormatter
 {

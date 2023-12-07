@@ -1,5 +1,5 @@
-﻿using CMS.DataEngine;
-using CMS.DocumentEngine;
+﻿using CMS.ContentEngine.Internal;
+using CMS.DataEngine;
 
 namespace Kentico.Xperience.UMT.ProviderProxy;
 
@@ -16,12 +16,12 @@ internal class ProviderProxyFactory : IProviderProxyFactory
     public IProviderProxy CreateProviderProxy(Type? infoType, ProviderProxyContext context)
     {
         ArgumentNullException.ThrowIfNull(infoType, nameof(infoType));
-        
-        if (infoType.IsAssignableTo(typeof(TreeNode)))
-        {
-            return new TreeProviderProxy(context);
-        }
 
+        if (typeof(ContentItemDataInfo) == infoType)
+        {
+            return new ContentItemDataProxy(context);
+        }
+        
         return (IProviderProxy)(Activator.CreateInstance(typeof(ProviderProxy<>).MakeGenericType(infoType), context) ?? 
                                 throw new InvalidOperationException($"Cannot create proxy for type '{infoType.FullName}'"));
     }

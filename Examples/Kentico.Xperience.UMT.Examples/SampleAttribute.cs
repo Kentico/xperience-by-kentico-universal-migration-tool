@@ -1,4 +1,4 @@
-﻿namespace Kentico.Xperience.UMT;
+﻿namespace Kentico.Xperience.UMT.Examples;
 
 public class SampleAttribute: Attribute
 {

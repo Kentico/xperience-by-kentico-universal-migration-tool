@@ -2,7 +2,7 @@
 using System.Reflection;
 using RazorLight;
 
-namespace Kentico.Xperience.UMT;
+namespace Kentico.Xperience.UMT.DocUtils;
 
 public static class MdHelper
 {
@@ -13,7 +13,7 @@ public static class MdHelper
     {
         var builder = new RazorLightEngineBuilder()
             .EnableDebugMode()
-            .UseEmbeddedResourcesProject(typeof(MdHelper).Assembly, "Kentico.Xperience.UMT.Templates")
+            .UseEmbeddedResourcesProject(typeof(MdHelper).Assembly, "Kentico.Xperience.UMT.DocUtils.Templates")
             .UseMemoryCachingProvider();
     
         Engine = builder

@@ -2,7 +2,7 @@
 
     <PropertyGroup>
         <OutputType>Exe</OutputType>
-        <TargetFramework>net6.0</TargetFramework>
+        <TargetFramework>net7.0</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>        
         <LangVersion>latest</LangVersion>
@@ -15,15 +15,16 @@
       <PackageReference Include="Microsoft.Build.Locator" Version="1.5.5" />
       <PackageReference Include="Microsoft.CodeAnalysis" Version="4.7.0-2.final" />
       <PackageReference Include="Microsoft.CodeAnalysis.Workspaces.MSBuild" Version="4.7.0-2.final" />
-      <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="6.0.3" />
-      <PackageReference Include="Microsoft.Extensions.Logging.Configuration" Version="6.0.0" />
-      <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="6.0.0" />
+      <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="7.0.1" />
+      <PackageReference Include="Microsoft.Extensions.Logging.Configuration" Version="7.0.0" />
+      <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="7.0.0" />
       <PackageReference Include="NJsonSchema" Version="10.9.0" />
       <PackageReference Include="RazorLight" Version="2.3.1" />
     </ItemGroup>
 
 
     <ItemGroup>
+      <EmbeddedResource Include="Templates\SampleJson.cshtml" />
       <EmbeddedResource Include="Templates\UmtModel.cshtml" />      
       <None Remove="Templates\FormComponents.cshtml" />
       <EmbeddedResource Include="Templates\FormComponents.cshtml" />

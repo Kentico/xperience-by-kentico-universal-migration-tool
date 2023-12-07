@@ -26,3 +26,22 @@ Model [discriminator](../UmtModel.md#discriminator): `UserInfo`
 
 <p>*) value is required</p>
 
+
+### Instance of dataclass UserInfo - Sample admin
+Sample demonstrates how to create administrator user
+```json
+{
+  "$type": "UserInfo",
+  "UserName": "sadmin",
+  "FirstName": "Sample",
+  "LastName": "Admin",
+  "Email": "XYZ@sample.localhost",
+  "UserPassword": "[sample hash]",
+  "UserEnabled": true,
+  "UserCreated": "1990-01-01T00:00:00",
+  "UserGUID": "dbfcc244-2cb9-4934-857f-9d75404c1553",
+  "UserIsPendingRegistration": false,
+  "UserAdministrationAccess": true,
+  "UserIsExternal": false
+}
+```

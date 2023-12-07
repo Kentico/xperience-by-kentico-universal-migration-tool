@@ -1,8 +1,9 @@
-﻿using System.Net.Sockets;
+﻿using System.Collections.Concurrent;
+using System.Net.Sockets;
 using System.Net.WebSockets;
 using System.Text;
 using CMS.Core;
-using Kentico.Xperience.UMT.Auxiliary;
+using Kentico.Xperience.UMT.Example.AdminApp.Auxiliary;
 using Kentico.Xperience.UMT.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
@@ -10,7 +11,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
-namespace Kentico.Xperience.UMT;
+namespace Kentico.Xperience.UMT.Example.AdminApp;
 
 public static class ServiceCollectionExtensions
 {
@@ -63,6 +64,15 @@ public static class ServiceCollectionExtensions
                 await webSocket.SendAsync(new ArraySegment<byte>(payload, 0, payload.Length), WebSocketMessageType.Text, true, CancellationToken.None);
             }
         }
+        
+        async Task SendStats(IDictionary<string, int> stats)
+        {
+            if (webSocket.State == WebSocketState.Open)
+            {
+                byte[] payload = Encoding.UTF8.GetBytes(JsonConvert.SerializeObject(new { type = "stats", payload = System.Text.Json.JsonSerializer.Serialize(stats) }));
+                await webSocket.SendAsync(new ArraySegment<byte>(payload, 0, payload.Length), WebSocketMessageType.Text, true, CancellationToken.None);
+            }
+        }
 
         async Task SendTooFastReport()
         {
@@ -105,10 +115,13 @@ public static class ServiceCollectionExtensions
                 var data = importService.FromJsonStream(ms);
                 var observer = new ImportStateObserver();
 
-                observer = await importService.StartImportAsync(data!, new ImporterContext("Boilerplate", "en-US"), observer);
-                observer.ImportedInfo += async info =>
+                var stats = new ConcurrentDictionary<string, int>();
+                
+                observer = await importService.StartImportAsync(data!, observer);
+                observer.ImportedInfo += async (model, info) =>
                 {
                     await SendProgressReport($"Processed: {info.TypeInfo.ObjectType} {info.GetValue(info.TypeInfo.GUIDColumn)}");
+                    stats.AddOrUpdate(info.TypeInfo.ObjectType, s => 1, (s, i) => i + 1);
                 };
                 observer.ValidationError += async (model, id, validationResults) =>
                 {
@@ -121,7 +134,8 @@ public static class ServiceCollectionExtensions
                 };
 
                 await observer.ImportCompletedTask;
-                
+
+                await SendStats(stats);
                 await SendProgressReport($"...finished");
             }
             finally
