@@ -1,5 +1,6 @@
 ﻿using System.Collections.Concurrent;
 using CMS.DataEngine;
+using Kentico.Xperience.UMT.Model;
 using Kentico.Xperience.UMT.ProviderProxy;
 
 namespace Kentico.Xperience.UMT.Tests.X;
@@ -15,11 +16,11 @@ public class FakeProviderProxyFactory : IProviderProxyFactory
     public IProviderProxy CreateProviderProxy(Type? infoType, ProviderProxyContext context) => fakeProxy;
 }
 
-public class FakeProviderProxy: IProviderProxy
+public class FakeProviderProxy : IProviderProxy
 {
-    private readonly List<BaseInfo> fakedObjects = new();
+    private readonly List<BaseInfo> fakedObjects = [];
     private readonly ConcurrentDictionary<Type, int> providedIds = new();
-    
+
     public FakeProviderProxy(ProviderProxyContext context) => Context = context;
 
     public BaseInfo? GetBaseInfoByGuid(Guid guid) => fakedObjects.FirstOrDefault(x => guid.Equals(x[x.TypeInfo.GUIDColumn]));
@@ -29,11 +30,15 @@ public class FakeProviderProxy: IProviderProxy
     public BaseInfo Save(BaseInfo info)
     {
         ArgumentNullException.ThrowIfNull(info);
-        
+
         fakedObjects.Add(info);
         info[info.TypeInfo.IDColumn] = providedIds.AddOrUpdate(info.GetType(), type => 1, (type, i) => i + 1);
         return info;
     }
+
+    public BaseInfo? GetBaseInfoByGuid(Guid guid, IUmtModel model) => throw new NotImplementedException();
+    public BaseInfo? GetBaseInfoBy(Guid guid, string searchedField, IUmtModel model) => throw new NotImplementedException();
+    public BaseInfo Save(BaseInfo info, IUmtModel model) => throw new NotImplementedException();
 
     public ProviderProxyContext Context { get; }
 }

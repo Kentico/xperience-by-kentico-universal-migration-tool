@@ -22,7 +22,7 @@ public class SampleTests
 
         var importObserver = new ImportStateObserver();
         var results = new List<BaseInfo>();
-        importObserver.ImportedInfo += info =>
+        importObserver.ImportedInfo += (model, info) =>
         {
             results.Add(info);
         };
@@ -43,7 +43,7 @@ public class SampleTests
             UserSamples.SampleAdministrator,
             DataClassSamples.ArticleClassSample,
             DataClassSamples.EventDataClass,
-            
+
         }.AsAsyncEnumerable(), importObserver);
 
         await importObserver.ImportCompletedTask;
