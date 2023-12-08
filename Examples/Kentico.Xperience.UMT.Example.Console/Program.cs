@@ -36,7 +36,7 @@ List<IUmtModel> sourceData = null!;
 bool useSerializedSample = true;
 if (useSerializedSample)
 {
-    sourceData = importService.FromJsonString(SampleJson.FullSample)?.ToList() ?? new List<IUmtModel>();
+    sourceData = importService.FromJsonString(SampleJson.FULL_SAMPLE)?.ToList() ?? new List<IUmtModel>();
 }
 else
 {

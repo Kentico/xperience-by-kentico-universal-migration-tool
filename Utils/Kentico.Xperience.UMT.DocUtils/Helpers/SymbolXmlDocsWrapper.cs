@@ -16,14 +16,9 @@ public interface ISymbolXmlDocsWrapper
 
 public class SymbolXmlDocsWrapper : ISymbolXmlDocsWrapper
 {
-    private readonly ISymbol symbol;
     public XDocument? DocsXml { get; set; }
 
-    public SymbolXmlDocsWrapper(ISymbol symbol)
-    {
-        this.symbol = symbol;
-        DocsXml = symbol.GetDocumentationXml();
-    }
+    public SymbolXmlDocsWrapper(ISymbol symbol) => DocsXml = symbol.GetDocumentationXml();
 
     public bool TryGetSummary(out string summary)
     {

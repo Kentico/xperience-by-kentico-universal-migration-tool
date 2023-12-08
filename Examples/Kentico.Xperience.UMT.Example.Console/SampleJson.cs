@@ -1,9 +1,9 @@
 ﻿namespace Kentico.Xperience.UMT.Example.Console;
 
-public class SampleJson
+public static class SampleJson
 {
 #pragma warning disable S2479
-    public const string FullSample = """
+    public const string FULL_SAMPLE = """
                                      [
                                        {
                                          "$type": "UserInfo",

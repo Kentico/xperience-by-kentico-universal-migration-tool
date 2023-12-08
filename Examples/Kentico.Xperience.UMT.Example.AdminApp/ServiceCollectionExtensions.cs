@@ -52,7 +52,7 @@ public static class ServiceCollectionExtensions
     private sealed record Message(string Type, HeaderPayload? Payload);
 
     // ReSharper disable once ClassNeverInstantiated.Local
-    private sealed record HeaderPayload();
+    private sealed record HeaderPayload(string? Body);
 
     private static async Task DownloadAndImport(WebSocket webSocket, IImportService importService, IEventLogService logService)
     {
