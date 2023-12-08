@@ -2,8 +2,6 @@
 using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Text.Json;
-using CMS.ContentEngine;
-using CMS.ContentEngine.Internal;
 using CMS.DataEngine;
 using Kentico.Xperience.UMT.Attributes;
 using Kentico.Xperience.UMT.Model;
@@ -108,7 +106,7 @@ internal class GenericInfoAdapter<TTargetInfo> : IInfoAdapter<TTargetInfo, IUmtM
         if (!modelService.TryGetModelInfo(input.GetType(), out var model) || model == null)
         {
             Logger.LogError("Model info for type {Type} not found => unsupported model", input.GetType().FullName);
-            throw new InvalidOperationException($"Model info for type {input?.GetType().FullName} not found => unsupported model");
+            throw new InvalidOperationException($"Model info for type {input.GetType().FullName} not found => unsupported model");
         }
 
         TTargetInfo? current;
@@ -191,9 +189,9 @@ internal class GenericInfoAdapter<TTargetInfo> : IInfoAdapter<TTargetInfo, IUmtM
         // map all foreign references to ensure they exist
         foreach (var referenceProperty in model.ReferenceProperties)
         {
-            Logger.LogDebug("Mapping reference property '{RefProp}' from '{RefType}' ObjectId", referenceProperty.ReferencedPropertyName, referenceProperty.ReferencedInfoType?.Name);
+            Logger.LogDebug("Mapping reference property '{RefProp}' from '{RefType}' ObjectId", referenceProperty.ReferencedPropertyName, referenceProperty.ReferencedInfoType.Name);
 
-            object? refObject = referenceProperty.Property?.GetValue(input);
+            object? refObject = referenceProperty.Property.GetValue(input);
             if (refObject is Guid foreignObjectGuid)
             {
                 var providerProxy = providerProxyFactory.CreateProviderProxy(referenceProperty.ReferencedInfoType, ProviderProxy.Context);
@@ -215,8 +213,8 @@ internal class GenericInfoAdapter<TTargetInfo> : IInfoAdapter<TTargetInfo, IUmtM
             }
             else if (referenceProperty.IsRequired)
             {
-                Logger.LogError("Missing required dependency - '{PropName}' is not valid ObjectGUID", referenceProperty.Property?.Name);
-                throw new InvalidOperationException($"Missing required dependency - '{referenceProperty.Property?.Name}' is not valid ObjectGUID");
+                Logger.LogError("Missing required dependency - '{PropName}' is not valid ObjectGUID", referenceProperty.Property.Name);
+                throw new InvalidOperationException($"Missing required dependency - '{referenceProperty.Property.Name}' is not valid ObjectGUID");
             }
         }
 
@@ -235,7 +233,7 @@ internal class GenericInfoAdapter<TTargetInfo> : IInfoAdapter<TTargetInfo, IUmtM
                     object? value = input.CustomProperties[customProperty];
                     if (value is JsonElement jsonElement)
                     {
-                        // TODO tomas.krch: 2023-06-27 convert to correct column type (don't rely on internal handling) from perspective of UMT this is unpredictability
+                        
                         value = jsonElement.ToString();
                     }
 
@@ -261,7 +259,7 @@ internal class GenericInfoAdapter<TTargetInfo> : IInfoAdapter<TTargetInfo, IUmtM
         }
         if (!modelService.TryGetModelInfo(input.GetType(), out var model))
         {
-            Logger.LogError("Model info for type {Type} not found => unsupported model", input?.GetType()?.FullName);
+            Logger.LogError("Model info for type {Type} not found => unsupported model", input.GetType().FullName);
             return null;
         }
 

@@ -1,5 +1,4 @@
 ﻿using System.ComponentModel.DataAnnotations;
-using System.Xml.Serialization;
 using CMS.DataEngine;
 using Kentico.Xperience.UMT.Model;
 
@@ -11,10 +10,10 @@ public interface IImportResult
     int PrimaryKey { get; }
     BaseInfo? Imported { get; }
     Exception? Exception { get; set; }
-    List<ValidationResult>? ModelValidationResults { get; set; } // TODO tomas.krch: 2023-11-16 convert to interface
+    List<ValidationResult>? ModelValidationResults { get; set; }
 }
 
-public interface IImporter : IDisposable
+public interface IImporter
 {
     Task<IImportResult> ImportAsync(IUmtModel model);
 }

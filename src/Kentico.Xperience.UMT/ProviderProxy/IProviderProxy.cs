@@ -17,15 +17,15 @@ public interface IProviderProxy
     
     BaseInfo Save(BaseInfo info, IUmtModel model);
     
-    ProviderProxyContext Context { get; }
+    IProviderProxyContext Context { get; }
 }
 
-public record ProviderProxyContext();
+public interface IProviderProxyContext;
 
-internal class ContentItemDataProxy : IProviderProxy
+public class ProviderProxyContext: IProviderProxyContext;
+
+internal class ContentItemDataProxy(IProviderProxyContext context) : IProviderProxy
 {
-    public ContentItemDataProxy(ProviderProxyContext context) => Context = context;
-
     private IInfoProvider<ContentItemDataInfo> GetProviderOrThrow(IUmtModel model)
     {
         if (model is ContentItemDataModel contentItemDataModel)
@@ -77,16 +77,16 @@ internal class ContentItemDataProxy : IProviderProxy
         }
     }
 
-    public ProviderProxyContext Context { get; }
+    public IProviderProxyContext Context { get; } = context;
 }
 
 internal class ProviderProxy<TInfo> : IProviderProxy where TInfo : AbstractInfoBase<TInfo>, new()
 {
-    public ProviderProxyContext Context { get; }
+    public IProviderProxyContext Context { get; }
 
     protected readonly IInfoProvider<TInfo> ProviderInstance;
 
-    public ProviderProxy(ProviderProxyContext context)
+    public ProviderProxy(IProviderProxyContext context)
     {
         Context = context;
         if (typeof(TInfo).IsAssignableTo(typeof(DataClassInfo)))
