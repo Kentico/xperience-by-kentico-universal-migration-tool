@@ -33,7 +33,7 @@ public static class ContentItemSamples
         ContentItemChannelGuid = ChannelSamples.WEBSITE_CHANNEL_SAMPLE_GUID,
         ContentItemDataClassGuid = DataClassSamples.ARTICLE_SAMPLE_GUID,
         ContentItemIsSecured = true,
-        ContentItemIsReusable = true,
+        ContentItemIsReusable = false,
         ContentItemName = "CreationOfUmtModel"
     };
 
@@ -61,6 +61,8 @@ public static class ContentItemSamples
         {
             ["ArticleTitle"] = "en-US UMT model creation", 
             ["ArticleText"] = "This article is only example of creation UMT model for en-US language",
+            ["RelatedArticles"] = null,
+            ["RelatedFaq"] = null
         }
     };
 
@@ -105,6 +107,8 @@ public static class ContentItemSamples
         {
             ["ArticleTitle"] = "en-GB UMT model creation", 
             ["ArticleText"] = "This article is only example of creation UMT model for en-GB language",
+            ["RelatedArticles"] = null,
+            ["RelatedFaq"] = null
         }
     };
 
@@ -132,6 +136,149 @@ public static class ContentItemSamples
         WebPageItemName = "CreationOfUmtModelUs",
         WebPageItemOrder = 1,
         WebPageItemTreePath = "/creation-of-umt-model",
+        WebPageItemWebsiteChannelGuid = WebSiteChannelSamples.WebsiteChannelGuid
+    };
+
+    #endregion
+    
+    #region "Sample article content item with relations to FAQ and first item"
+
+    public static readonly Guid SampleArticleContentItemGuidWithRelations = new Guid("E09121AD-DD97-472F-B8F6-85FE5428ED6A");
+    public static readonly Guid SampleArticleCommonDataGuidEnUsWithRelations = new Guid("56F0E676-8FCC-4A5D-8B69-F6ECA372B998");
+    public static readonly Guid SampleArticleCommonDataGuidEnGbWithRelations = new Guid("A790B2D4-5AC1-4FB0-812C-2AD2171C61C9");
+
+    [Sample("ContentItemModel.Sample.Article.WithRelations", "This sample describes how to create content item with relations to other content items", "ContentItem with relations sample")]
+    public static ContentItemModel SampleArticleContentItemWithRelations => new()
+    {
+        ContentItemGUID = SampleArticleContentItemGuidWithRelations,
+        ContentItemChannelGuid = ChannelSamples.WEBSITE_CHANNEL_SAMPLE_GUID,
+        ContentItemDataClassGuid = DataClassSamples.ARTICLE_SAMPLE_GUID,
+        ContentItemIsSecured = true,
+        ContentItemIsReusable = false,
+        ContentItemName = "Content-item-with-relations"
+    };
+
+    #region "EnUs version"
+
+    [Sample("ContentItemCommonDataModel.Sample.Article.enUS.WithRelations", "This sample describes how to create content item common data inside XbyK", "ContentItemCommonData basic Sample")]
+    public static ContentItemCommonDataModel SampleArticleContentItemCommonDataEnUsWithRelations => new()
+    {
+        ContentItemCommonDataGUID = SampleArticleCommonDataGuidEnUsWithRelations,
+        ContentItemCommonDataContentItemGuid = SampleArticleContentItemGuidWithRelations,
+        ContentItemCommonDataContentLanguageGuid = ContentLanguageSamples.CONTENT_LANGUAGE_ENUS_SAMPLE_GUID,
+        ContentItemCommonDataVersionStatus = VersionStatus.InitialDraft,
+        ContentItemCommonDataIsLatest = true,
+        ContentItemCommonDataPageBuilderWidgets = null,
+        ContentItemCommonDataPageTemplateConfiguration = null
+    };
+
+    [Sample("ContentItemDataModel.Sample.Article.enUS.WithRelations", "This sample describes how to create content item data inside XbyK", "ContentItemData article sample (en-US)")]
+    public static ContentItemDataModel SampleArticleDataEnUsWithRelations => new()
+    {
+        ContentItemDataGUID = new Guid("B6847866-12B1-4A4A-ABA7-D93860102BC8"),
+        ContentItemDataCommonDataGuid = SampleArticleCommonDataGuidEnUsWithRelations,
+        ContentItemContentTypeName = DataClassSamples.ARTICLE_SAMPLE_CLASS_NAME,
+        CustomProperties = new Dictionary<string, object?>
+        {
+            ["ArticleTitle"] = "en-US UMT model creation", 
+            ["ArticleText"] = "This article is only example of creation UMT model for en-US language",
+            ["RelatedArticles"] = $$"""[{"WebPageGuid":"{{SampleArticleWebPageItem.WebPageItemGUID}}"}]""",
+            ["RelatedFaq"] = $$"""
+                             [{"Identifier":"{{SampleFaqContentItemGuid}}"}]
+                             """
+        }
+    };
+
+    [Sample("ContentItemReferenceModel.Sample.Article.enUS.WithRelations", "Sample of relation between 2 content items inside XbyK", "ContentItemReference article sample (en-US)")]
+    public static ContentItemReferenceModel SampleArticleDataEnUsWithRelationsReference => new()
+    {
+        ContentItemReferenceGUID = new Guid("186E37C6-5C55-4637-8FEB-EC5CB6547ABA"),
+        ContentItemReferenceSourceCommonDataGuid = SampleArticleContentItemCommonDataEnUs.ContentItemCommonDataGUID,
+        ContentItemReferenceTargetItemGuid = SampleFaqContentItemGuid,
+        ContentItemReferenceGroupGUID = DataClassSamples.RelatedFaqFieldGuid
+    };
+
+
+    [Sample("contentitemlanguagemetadata.sample.article.enus.WithRelations", "This sample describes how to create class inside XbyK to hold Content Item Language Metadata", "ContentItemLanguageMetadata Sample")]
+    public static ContentItemLanguageMetadataModel SampleArticleContentItemLanguageMetadataEnUsWithRelations => new()
+    {
+        ContentItemLanguageMetadataGUID = new Guid("9EC48558-4E26-4DDF-9804-FA0FBE95142D"),
+        ContentItemLanguageMetadataContentItemGuid = SampleArticleContentItemGuidWithRelations,
+        ContentItemLanguageMetadataContentLanguageGuid = ContentLanguageSamples.CONTENT_LANGUAGE_ENUS_SAMPLE_GUID,
+        ContentItemLanguageMetadataDisplayName = "Content item with relations",
+        ContentItemLanguageMetadataCreatedWhen = new DateTime(2023, 12, 10, 0,0,0,0, DateTimeKind.Utc),
+        ContentItemLanguageMetadataHasImageAsset = false,
+        ContentItemLanguageMetadataCreatedByUserGuid = UserSamples.SampleAdminGuid,
+        ContentItemLanguageMetadataModifiedByUserGuid = UserSamples.SampleAdminGuid,
+        ContentItemLanguageMetadataLatestVersionStatus = VersionStatus.InitialDraft,
+    };
+
+    #endregion
+
+    #region "EnGb version"
+
+    [Sample("ContentItemCommonDataModel.Sample.Article.enGB.WithRelations", "This sample describes how to create content item common data inside XbyK", "ContentItemCommonData basic Sample")]
+    public static ContentItemCommonDataModel SampleArticleContentItemCommonDataEnGbWithRelations => new()
+    {
+        ContentItemCommonDataGUID = SampleArticleCommonDataGuidEnGbWithRelations,
+        ContentItemCommonDataContentItemGuid = SampleArticleContentItemGuidWithRelations,
+        ContentItemCommonDataContentLanguageGuid = ContentLanguageSamples.CONTENT_LANGUAGE_ENGB_SAMPLE_GUID,
+        ContentItemCommonDataVersionStatus = VersionStatus.Published,
+        ContentItemCommonDataIsLatest = true,
+        ContentItemCommonDataPageBuilderWidgets = null,
+        ContentItemCommonDataPageTemplateConfiguration = null
+    };
+
+    [Sample("ContentItemDataModel.Sample.Article.enGB.WithRelations", "This sample describes how to create content item data inside XbyK", "ContentItemData article sample (en-GB)")]
+    public static ContentItemDataModel SampleArticleDataEnGbWithRelations => new()
+    {
+        ContentItemDataGUID = new Guid("A80F91FF-4CFC-4E28-982A-E4A434517680"),
+        ContentItemDataCommonDataGuid = SampleArticleCommonDataGuidEnGbWithRelations,
+        ContentItemContentTypeName = DataClassSamples.ARTICLE_SAMPLE_CLASS_NAME,
+        CustomProperties = new Dictionary<string, object?>
+        {
+            ["ArticleTitle"] = "en-GB UMT model creation", 
+            ["ArticleText"] = "This article is only example of creation UMT model for en-GB language",
+            ["RelatedArticles"] = $$"""[{"WebPageGuid":"{{SampleArticleWebPageItem.WebPageItemGUID}}"}]""",
+            ["RelatedFaq"] = $$"""
+                               [{"Identifier":"{{SampleFaqContentItemGuid}}"}]
+                               """
+        }
+    };
+    
+    [Sample("ContentItemReferenceModel.Sample.Article.enGB.WithRelations", "Sample of relation between 2 content items inside XbyK", "ContentItemReference article sample (en-GB)")]
+    public static ContentItemReferenceModel SampleArticleDataEnGbWithRelationsReference => new()
+    {
+        ContentItemReferenceGUID = new Guid("E95EEFE5-5B89-43AB-91C9-777BE00D5680"),
+        ContentItemReferenceSourceCommonDataGuid = SampleArticleContentItemCommonDataEnGb.ContentItemCommonDataGUID,
+        ContentItemReferenceTargetItemGuid = SampleFaqContentItemGuid,
+        ContentItemReferenceGroupGUID = DataClassSamples.RelatedFaqFieldGuid
+    };
+
+    [Sample("contentitemlanguagemetadata.sample.article.engb.WithRelations", "This sample describes how to create class inside XbyK to hold Content Item Language Metadata", "ContentItemLanguageMetadata Sample")]
+    public static ContentItemLanguageMetadataModel SampleArticleContentItemLanguageMetadataEnGbWithRelations => new()
+    {
+        ContentItemLanguageMetadataGUID = new Guid("8A3F1795-C0AC-4501-BE4E-6FBA0CD11654"),
+        ContentItemLanguageMetadataContentItemGuid = SampleArticleContentItemGuidWithRelations,
+        ContentItemLanguageMetadataContentLanguageGuid = ContentLanguageSamples.CONTENT_LANGUAGE_ENGB_SAMPLE_GUID,
+        ContentItemLanguageMetadataDisplayName = "Content item with relations en-GB",
+        ContentItemLanguageMetadataCreatedWhen = new DateTime(2023, 12, 10, 0,0,0,0, DateTimeKind.Utc),
+        ContentItemLanguageMetadataHasImageAsset = false,
+        ContentItemLanguageMetadataCreatedByUserGuid = UserSamples.SampleAdminGuid,
+        ContentItemLanguageMetadataModifiedByUserGuid = UserSamples.SampleAdminGuid,
+        ContentItemLanguageMetadataLatestVersionStatus = VersionStatus.Published,
+    };
+
+    #endregion
+
+    [Sample("webpageitem.sample.article.WithRelations", "This sample describes how to create class inside XbyK to hold WebPage Item data with relations", "ContentItem Sample")]
+    public static WebPageItemModel SampleArticleWebPageItemWithRelations => new()
+    {
+        WebPageItemGUID = new Guid("14784BF0-69D0-40CF-8BE6-E5A0D897774B"),
+        WebPageItemContentItemGuid = SampleArticleContentItemGuidWithRelations,
+        WebPageItemName = "ContentItemWithRelations",
+        WebPageItemOrder = 1,
+        WebPageItemTreePath = "/content-item-with-relations",
         WebPageItemWebsiteChannelGuid = WebSiteChannelSamples.WebsiteChannelGuid
     };
 
@@ -177,7 +324,7 @@ public static class ContentItemSamples
         CustomProperties = new Dictionary<string, object?>
         {
             ["FaqQuestion"] = "en-US FAQ question text",
-            ["FaqAnswer"] = "en-US FAQ answer text",
+            ["FaqAnswer"] = "en-US FAQ answer text"
         }
     };
 
@@ -221,7 +368,7 @@ public static class ContentItemSamples
         CustomProperties = new Dictionary<string, object?>
         {
             ["FaqQuestion"] = "en-GB FAQ question text",
-            ["FaqAnswer"] = "en-GB FAQ answer text",
+            ["FaqAnswer"] = "en-GB FAQ answer text"
         }
     };
 

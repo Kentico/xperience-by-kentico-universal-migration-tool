@@ -9,6 +9,7 @@ public static class DataClassSamples
     public static readonly Guid ARTICLE_SAMPLE_GUID = new Guid("06540294-3B56-4CF7-8773-088BB766AC23");
     public const string ARTICLE_SAMPLE_CLASS_NAME = "UMT.Article";
     public const string FAQ_SAMPLE_CLASS_NAME = "UMT.Faq";
+    public static readonly Guid RelatedFaqFieldGuid = new Guid("fc1fde10-11bf-4174-bd64-d1f114e4b421");
 
     [Sample("dataclass.article", "This sample describes how to create class inside XbyK to hold Article data", "Article sample")]
     // ReSharper disable once UnusedMember.Global #used implicitly by xml doc <sample>
@@ -23,8 +24,8 @@ public static class DataClassSamples
         ClassDisplayName = "This is Article example",
         ClassTableName = "UMT_Article",
         ClassHasUnmanagedDbSchema = false,
-        Fields = new List<FormField>
-        {
+        Fields =
+        [
             new()
             {
                 Column = "ArticleTitle",
@@ -34,15 +35,10 @@ public static class DataClassSamples
                 Visible = true,
                 Enabled = true,
                 Guid = new Guid("EA7DA631-6D9C-413F-A746-93442B623908"),
-                Properties = new FormFieldProperties
-                {
-                    FieldCaption = "Article title",
-                },
-                Settings = new FormFieldSettings
-                {
-                    ControlName = "Kentico.Administration.TextInput"
-                }
+                Properties = new FormFieldProperties { FieldCaption = "Article title", },
+                Settings = new FormFieldSettings { ControlName = "Kentico.Administration.TextInput" }
             },
+
             new()
             {
                 Column = "ArticleText",
@@ -51,16 +47,66 @@ public static class DataClassSamples
                 Visible = true,
                 Enabled = true,
                 Guid = new Guid("A54AEF74-42B3-438E-92B2-2F5B4386FB57"),
+                Properties = new FormFieldProperties { FieldCaption = "Article text", },
+                Settings = new FormFieldSettings { ControlName = "Kentico.Administration.TextArea" }
+            },
+
+            new()
+            {
+                Column = "RelatedArticles",
+                ColumnType = "webpages",
+                AllowEmpty = true,
+                Visible = true,
+                Enabled = true,
+                Guid = new Guid("4b7a3fec-ee64-4688-b441-fece563b906d"),
                 Properties = new FormFieldProperties
                 {
-                    FieldCaption = "Article text",
+                    FieldCaption = "Related articles",
+                    CustomProperties =
+                    {
+                        {"fieldcaption", "Related articles"},
+                        {"fielddescriptionashtml", "False"}
+                    }
                 },
-                Settings = new FormFieldSettings
+                Settings = new FormFieldSettings {
+                    ControlName = "Kentico.Administration.WebPageSelector",
+                    CustomProperties =
+                    {
+                        { "MaximumPages", 5 }, 
+                        { "Sortable", "False" }, 
+                        { "TreePath", "/Articles" },
+                    } 
+                }
+            },
+
+            new()
+            {
+                Column = "RelatedFaq",
+                ColumnType = "contentitemreference",
+                Visible = true,
+                Enabled = true,
+                AllowEmpty = true,
+                Guid = RelatedFaqFieldGuid,
+                Properties = new FormFieldProperties
                 {
-                    ControlName = "Kentico.Administration.TextArea"
+                    FieldCaption = "Related articles",
+                    CustomProperties =
+                    {
+                        {"fieldcaption", "Related Faq"},
+                        {"fielddescriptionashtml", "False"}
+                    }
+                },
+                Settings = new FormFieldSettings {
+                    ControlName = "Kentico.Administration.ContentItemSelector",
+                    CustomProperties =
+                    {
+                        { "AllowedContentItemTypeIdentifiers", """
+                                                               ["7ed6604e-613b-4ce0-8c21-acfb372c416a"]
+                                                               """ }
+                    } 
                 }
             }
-        }
+        ]
     };
 
     [Sample("contenttypechannel.article", "", "Sample of content type assignment to channel")]

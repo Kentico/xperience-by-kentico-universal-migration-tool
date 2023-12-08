@@ -80,6 +80,15 @@ public static class SampleProvider
     
             ContentItemSamples.SampleArticleWebPageItem,
         });
+        
+        sourceData.AddRange(new IUmtModel[]
+        {
+            ContentItemSamples.SampleArticleContentItemWithRelations, ContentItemSamples.SampleArticleContentItemCommonDataEnUsWithRelations, ContentItemSamples.SampleArticleContentItemCommonDataEnGbWithRelations, ContentItemSamples.SampleArticleDataEnUsWithRelations,
+            ContentItemSamples.SampleArticleDataEnUsWithRelationsReference,
+            ContentItemSamples.SampleArticleDataEnGbWithRelations,
+            ContentItemSamples.SampleArticleDataEnGbWithRelationsReference,
+            ContentItemSamples.SampleArticleContentItemLanguageMetadataEnUsWithRelations, ContentItemSamples.SampleArticleContentItemLanguageMetadataEnGbWithRelations, ContentItemSamples.SampleArticleWebPageItemWithRelations,
+        });
 
         // sample reusable content item
         sourceData.AddRange(new IUmtModel[]

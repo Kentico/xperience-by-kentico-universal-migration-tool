@@ -130,7 +130,7 @@ public class FormField
     /// </summary>
     /// <docref uri="../Enums/ColumnType">enumeration</docref>
     [Required]
-    [RegularExpression("^(boolean)|(integer)|(longinteger)|(double)|(datetime)|(longtext)|(binary)|(guid)|(decimal)|(timespan)|(binary)|(text)|(date)|(xml)|(pages)|(contentitems)|(contentitemasset)|(assets)|(bizformfile)|(objectcodenames)|(objectguids)|(objectids)$")]
+    // [RegularExpression("^(boolean)|(integer)|(longinteger)|(double)|(datetime)|(longtext)|(binary)|(guid)|(decimal)|(timespan)|(binary)|(text)|(date)|(xml)|(pages)|(contentitems)|(contentitemasset)|(assets)|(bizformfile)|(objectcodenames)|(objectguids)|(objectids)$")]
     public string? ColumnType { get; set; }
     
     public bool Enabled { get; set; }
@@ -165,6 +165,9 @@ public class FormFieldProperties
     /// Friendly name displayed in form
     /// </summary>
     public string? FieldCaption { get; set; }
+    
+    [System.Text.Json.Serialization.JsonExtensionData]
+    public Dictionary<string, object?> CustomProperties { get; set; } = new();
 }
 
 /// <summary>
@@ -177,4 +180,7 @@ public class FormFieldSettings
     /// </summary>
     /// <docref uri="../Enums/FormComponents.md#module-kenticoxperienceadminbasedll">(for pages use enumeration here)</docref>
     public string? ControlName { get; set; }
+    
+    [System.Text.Json.Serialization.JsonExtensionData]
+    public Dictionary<string, object?> CustomProperties { get; set; } = new();
 }

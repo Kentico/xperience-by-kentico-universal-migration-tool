@@ -44,6 +44,8 @@ internal class AdapterFactory
             WebPageUrlPathModel => new GenericInfoAdapter<WebPageUrlPathInfo>(loggerFactory.CreateLogger<GenericInfoAdapter<WebPageUrlPathInfo>>(), modelService, providerProxyFactory.CreateProviderProxy<WebPageUrlPathInfo>(providerProxyContext), providerProxyFactory),
             DataClassModel => new DataClassAdapter(loggerFactory.CreateLogger<DataClassAdapter>(), modelService, providerProxyFactory.CreateProviderProxy<DataClassInfo>(providerProxyContext), providerProxyFactory),
             ContentTypeChannelModel => new GenericInfoAdapter<ContentTypeChannelInfo>(loggerFactory.CreateLogger<GenericInfoAdapter<ContentTypeChannelInfo>>(), modelService, providerProxyFactory.CreateProviderProxy<ContentTypeChannelInfo>(providerProxyContext), providerProxyFactory),
+            ContentItemReferenceModel => new GenericInfoAdapter<ContentItemReferenceInfo>(loggerFactory.CreateLogger<GenericInfoAdapter<ContentItemReferenceInfo>>(), modelService, providerProxyFactory.CreateProviderProxy<ContentItemReferenceInfo>(providerProxyContext), providerProxyFactory),
             _ => null,
         };
 }
+

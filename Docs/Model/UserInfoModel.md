@@ -38,7 +38,7 @@ Sample demonstrates how to create administrator user
   "Email": "XYZ@sample.localhost",
   "UserPassword": "[sample hash]",
   "UserEnabled": true,
-  "UserCreated": "1990-01-01T00:00:00",
+  "UserCreated": "1990-01-01T00:00:00Z",
   "UserGUID": "dbfcc244-2cb9-4934-857f-9d75404c1553",
   "UserIsPendingRegistration": false,
   "UserAdministrationAccess": true,

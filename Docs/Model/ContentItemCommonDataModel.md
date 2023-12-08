@@ -25,7 +25,9 @@ This sample describes how to create content item data inside XbyK
   "ContentItemDataCommonDataGuid": "8f070195-2f39-463e-b7eb-c180c05fd5e0",
   "ContentItemContentTypeName": "UMT.Article",
   "ArticleTitle": "en-US UMT model creation",
-  "ArticleText": "This article is only example of creation UMT model for en-US language"
+  "ArticleText": "This article is only example of creation UMT model for en-US language",
+  "RelatedArticles": null,
+  "RelatedFaq": null
 }
 ```
 
@@ -38,7 +40,9 @@ This sample describes how to create content item data inside XbyK
   "ContentItemDataCommonDataGuid": "49d2caf6-2011-42d7-961d-02614d1b43f4",
   "ContentItemContentTypeName": "UMT.Article",
   "ArticleTitle": "en-GB UMT model creation",
-  "ArticleText": "This article is only example of creation UMT model for en-GB language"
+  "ArticleText": "This article is only example of creation UMT model for en-GB language",
+  "RelatedArticles": null,
+  "RelatedFaq": null
 }
 ```
 
@@ -65,5 +69,18 @@ This sample describes how to create content item data inside XbyK
   "ContentItemContentTypeName": "UMT.Faq",
   "FaqQuestion": "en-GB FAQ question text",
   "FaqAnswer": "en-GB FAQ answer text"
+}
+```
+
+### ContentItemCommonData basic Sample
+This sample describes how to create content item common data inside XbyK
+```json
+{
+  "$type": "ContentItemCommonData",
+  "ContentItemCommonDataGUID": "56f0e676-8fcc-4a5d-8b69-f6eca372b998",
+  "ContentItemCommonDataContentItemGuid": "e09121ad-dd97-472f-b8f6-85fe5428ed6a",
+  "ContentItemCommonDataContentLanguageGuid": "f454e93b-5fe9-42a9-b1af-b572234ed9c4",
+  "ContentItemCommonDataVersionStatus": 0,
+  "ContentItemCommonDataIsLatest": true
 }
 ```

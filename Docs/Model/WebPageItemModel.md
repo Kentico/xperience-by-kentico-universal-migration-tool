@@ -29,3 +29,17 @@ This sample describes how to create class inside XbyK to hold WebPage Item data
   "WebPageItemOrder": 1
 }
 ```
+
+### ContentItem Sample
+This sample describes how to create class inside XbyK to hold WebPage Item data with relations
+```json
+{
+  "$type": "WebPageItem",
+  "WebPageItemGUID": "14784bf0-69d0-40cf-8be6-e5a0d897774b",
+  "WebPageItemName": "ContentItemWithRelations",
+  "WebPageItemTreePath": "/content-item-with-relations",
+  "WebPageItemWebsiteChannelGuid": "a6ba6fcb-9d05-4abe-afb4-74b153c90db7",
+  "WebPageItemContentItemGuid": "e09121ad-dd97-472f-b8f6-85fe5428ed6a",
+  "WebPageItemOrder": 1
+}
+```

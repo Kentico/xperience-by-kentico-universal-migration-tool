@@ -67,6 +67,15 @@ internal class DataClassAdapter : GenericInfoAdapter<DataClassInfo>
                     };
                     nfi.Caption = field.Properties.FieldCaption;
                     nfi.Settings[CONTROL_NAME] = field.Settings.ControlName;
+                    
+                    foreach ((string? key, object? value) in field.Properties.CustomProperties)
+                    {
+                        nfi.Properties[key] = value;
+                    }
+                    foreach ((string? key, object? value) in field.Settings.CustomProperties)
+                    {
+                        nfi.Settings[key] = value;
+                    }
 
                     formInfo.AddFormItem(nfi);
                 }

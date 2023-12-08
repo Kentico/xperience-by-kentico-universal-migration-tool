@@ -22,7 +22,7 @@ This sample describes how to create content item data inside XbyK
   "$type": "ContentItem",
   "ContentItemGUID": "df81215e-1414-4d87-befd-ae123f4e5653",
   "ContentItemName": "CreationOfUmtModel",
-  "ContentItemIsReusable": true,
+  "ContentItemIsReusable": false,
   "ContentItemIsSecured": true,
   "ContentItemDataClassGuid": "06540294-3b56-4cf7-8773-088bb766ac23",
   "ContentItemChannelGuid": "5322a379-5b5f-4220-9383-8e3115e66cd3"
@@ -39,5 +39,19 @@ This sample describes how to create reusable content item data inside XbyK
   "ContentItemIsReusable": true,
   "ContentItemIsSecured": true,
   "ContentItemDataClassGuid": "7ed6604e-613b-4ce0-8c21-acfb372c416a"
+}
+```
+
+### ContentItem with relations sample
+This sample describes how to create content item with relations to other content items
+```json
+{
+  "$type": "ContentItem",
+  "ContentItemGUID": "e09121ad-dd97-472f-b8f6-85fe5428ed6a",
+  "ContentItemName": "Content-item-with-relations",
+  "ContentItemIsReusable": false,
+  "ContentItemIsSecured": true,
+  "ContentItemDataClassGuid": "06540294-3b56-4cf7-8773-088bb766ac23",
+  "ContentItemChannelGuid": "5322a379-5b5f-4220-9383-8e3115e66cd3"
 }
 ```

@@ -540,8 +540,7 @@
         "ColumnType": {
           "type": "string",
           "description": "Column type, defines used type from vector [.NET type, SQL type, xsd schema type]",
-          "minLength": 1,
-          "pattern": "^(boolean)|(integer)|(longinteger)|(double)|(datetime)|(longtext)|(binary)|(guid)|(decimal)|(timespan)|(binary)|(text)|(date)|(xml)|(pages)|(contentitems)|(contentitemasset)|(assets)|(bizformfile)|(objectcodenames)|(objectguids)|(objectids)$"
+          "minLength": 1
         },
         "Enabled": {
           "type": "boolean"
@@ -567,7 +566,14 @@
     "FormFieldProperties": {
       "type": "object",
       "description": "additional form field properties, they may differ by property type",
-      "additionalProperties": false,
+      "additionalProperties": {
+        "oneOf": [
+          {},
+          {
+            "type": "null"
+          }
+        ]
+      },
       "properties": {
         "FieldCaption": {
           "type": [
@@ -575,13 +581,24 @@
             "string"
           ],
           "description": "Friendly name displayed in form"
+        },
+        "CustomProperties": {
+          "type": "object",
+          "additionalProperties": {}
         }
       }
     },
     "FormFieldSettings": {
       "type": "object",
       "description": "settings related to form field",
-      "additionalProperties": false,
+      "additionalProperties": {
+        "oneOf": [
+          {},
+          {
+            "type": "null"
+          }
+        ]
+      },
       "properties": {
         "ControlName": {
           "type": [
@@ -589,6 +606,10 @@
             "string"
           ],
           "description": "Admin UI Component used for field data editing"
+        },
+        "CustomProperties": {
+          "type": "object",
+          "additionalProperties": {}
         }
       }
     },
@@ -700,18 +721,6 @@
           ],
           "properties": {
             "DataSourcePath": {
-              "type": [
-                "null",
-                "string"
-              ]
-            },
-            "DataSourceBase64": {
-              "type": [
-                "null",
-                "string"
-              ]
-            },
-            "DataSourceUrl": {
               "type": [
                 "null",
                 "string"

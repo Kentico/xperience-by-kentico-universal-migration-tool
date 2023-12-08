@@ -1,6 +1,7 @@
 ﻿#pragma warning disable S1135 // this is sample, todos are here for end user
 // See https://aka.ms/new-console-template for more information
 
+using System.Text;
 using System.Text.Json;
 using CMS.Core;
 using CMS.DataEngine;
@@ -33,47 +34,14 @@ var importService = serviceProvider.GetRequiredService<IImportService>();
 // sample data
 List<IUmtModel> sourceData = null!;
 
-bool useSerializedSample = true;
+bool useSerializedSample = false;
 if (useSerializedSample)
 {
     sourceData = importService.FromJsonString(SampleJson.FULL_SAMPLE)?.ToList() ?? new List<IUmtModel>();
 }
 else
 {
-    sourceData = new List<IUmtModel>
-    {
-        // TODO: use your data
-        UserSamples.SampleAdministrator,
-        ContentLanguageSamples.SampleContentLanguageEnUs,
-        ContentLanguageSamples.SampleContentLanguageEnGb,
-        ChannelSamples.SampleChannelForEmailChannel,
-        ChannelSamples.SampleChannelForWebSiteChannel,
-        EmailChannelSamples.SampleEmailChannel,
-        WebSiteChannelSamples.SampleWebSiteChannel,
-        DataClassSamples.ArticleClassSample,
-        DataClassSamples.ArticleAssignedToWebSiteChannel,
-        DataClassSamples.FaqDataClass,
-        ContentItemSamples.SampleContentItem,
-        ContentItemLanguageMetadataSamples.SampleContentItemLanguageMetadata,
-        ContentItemLanguageMetadataSamples.SampleContentItemLanguageMetadataBasic,
-        WebPageContentItemSamples.SampleWebPageItem,
-        AssetSamples.SampleMediaLibrary,
-        AssetSamples.SampleMediaFile
-    };
-
-    // sample website content item
-    sourceData.AddRange(new IUmtModel[]
-    {
-        ContentItemSamples.SampleArticleContentItem, ContentItemSamples.SampleArticleContentItemCommonDataEnUs, ContentItemSamples.SampleArticleContentItemCommonDataEnGb, ContentItemSamples.SampleArticleDataEnUs,
-        ContentItemSamples.SampleArticleDataEnGb, ContentItemSamples.SampleArticleContentItemLanguageMetadataEnUs, ContentItemSamples.SampleArticleContentItemLanguageMetadataEnGb, ContentItemSamples.SampleArticleWebPageItem,
-    });
-
-    // sample reusable content item
-    sourceData.AddRange(new IUmtModel[]
-    {
-        ContentItemSamples.SampleFaqContentItem, ContentItemSamples.SampleFaqContentItemCommonDataEnUs, ContentItemSamples.SampleFaqContentItemCommonDataEnGb, ContentItemSamples.SampleFaqDataEnUs, ContentItemSamples.SampleFaqDataEnGb,
-        ContentItemSamples.SampleFaqContentItemLanguageMetadataEnUs, ContentItemSamples.SampleFaqContentItemLanguageMetadataEnGb,
-    });
+    sourceData = SampleProvider.GetFullSample();
 }
 
 bool variantWithObserver = false;

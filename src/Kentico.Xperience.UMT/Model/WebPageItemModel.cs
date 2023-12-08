@@ -11,6 +11,7 @@ namespace Kentico.Xperience.UMT.Model;
 /// 
 /// </summary>
 /// <sample>webpageitem.sample.article</sample>
+/// <sample>webpageitem.sample.article.WithRelations</sample>
 [UmtModel(DISCRIMINATOR)]
 public class WebPageItemModel : UmtModel
 {

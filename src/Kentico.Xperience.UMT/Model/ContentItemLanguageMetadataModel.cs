@@ -13,6 +13,8 @@ namespace Kentico.Xperience.UMT.Model;
 /// <sample>contentitemlanguagemetadata.sample.article.engb</sample>
 /// <sample>contentitemlanguagemetadata.sample.faq.enus</sample>
 /// <sample>contentitemlanguagemetadata.sample.faq.engb</sample>
+/// <sample>contentitemlanguagemetadata.sample.article.enus.WithRelations</sample>
+/// <sample>contentitemlanguagemetadata.sample.article.engb.WithRelations</sample>
 [UmtModel(DISCRIMINATOR)]
 public class ContentItemLanguageMetadataModel : UmtModel
 {

@@ -13,6 +13,7 @@ namespace Kentico.Xperience.UMT.Model;
 /// <sample>ContentItemDataModel.Sample.Article.enGB</sample>
 /// <sample>ContentItemDataModel.Sample.Faq.enUS</sample>
 /// <sample>ContentItemDataModel.Sample.Faq.enGB</sample>
+/// <sample>ContentItemCommonDataModel.Sample.Article.enUS.WithRelations</sample>
 [UmtModel(DISCRIMINATOR)]
 public class ContentItemCommonDataModel: UmtModel
 {

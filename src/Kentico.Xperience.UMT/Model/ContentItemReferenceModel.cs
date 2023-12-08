@@ -6,6 +6,11 @@ using Kentico.Xperience.UMT.Attributes;
 
 namespace Kentico.Xperience.UMT.Model;
 
+/// <summary>
+/// 
+/// </summary>
+/// <sample>ContentItemReferenceModel.Sample.Article.enUS.WithRelations</sample>
+/// <sample>ContentItemReferenceModel.Sample.Article.enGB.WithRelations</sample>
 [UmtModel(DISCRIMINATOR)]
 public class ContentItemReferenceModel : UmtModel
 {

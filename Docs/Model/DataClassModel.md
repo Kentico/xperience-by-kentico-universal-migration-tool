@@ -34,7 +34,7 @@ This sample describes how to create class inside XbyK to hold Article data
   "ClassDisplayName": "This is Article example",
   "ClassName": "UMT.Article",
   "ClassTableName": "UMT_Article",
-  "ClassLastModified": "2023-12-08T16:43:01.3434325\u002B01:00",
+  "ClassLastModified": "2023-12-08T23:29:12.7097663\u002B01:00",
   "ClassGUID": "06540294-3b56-4cf7-8773-088bb766ac23",
   "ClassResourceGuid": "0e4beef1-989c-4687-80ca-ae21fec09734",
   "ClassHasUnmanagedDbSchema": false,
@@ -70,6 +70,44 @@ This sample describes how to create class inside XbyK to hold Article data
       "Settings": {
         "ControlName": "Kentico.Administration.TextArea"
       }
+    },
+    {
+      "AllowEmpty": true,
+      "Column": "RelatedArticles",
+      "ColumnSize": 0,
+      "ColumnType": "webpages",
+      "Enabled": true,
+      "Guid": "4b7a3fec-ee64-4688-b441-fece563b906d",
+      "Visible": true,
+      "Properties": {
+        "FieldCaption": "Related articles",
+        "fieldcaption": "Related articles",
+        "fielddescriptionashtml": "False"
+      },
+      "Settings": {
+        "ControlName": "Kentico.Administration.WebPageSelector",
+        "MaximumPages": 5,
+        "Sortable": "False",
+        "TreePath": "/Articles"
+      }
+    },
+    {
+      "AllowEmpty": true,
+      "Column": "RelatedFaq",
+      "ColumnSize": 0,
+      "ColumnType": "contentitemreference",
+      "Enabled": true,
+      "Guid": "fc1fde10-11bf-4174-bd64-d1f114e4b421",
+      "Visible": true,
+      "Properties": {
+        "FieldCaption": "Related articles",
+        "fieldcaption": "Related Faq",
+        "fielddescriptionashtml": "False"
+      },
+      "Settings": {
+        "ControlName": "Kentico.Administration.ContentItemSelector",
+        "AllowedContentItemTypeIdentifiers": "[\u00227ed6604e-613b-4ce0-8c21-acfb372c416a\u0022]"
+      }
     }
   ]
 }
@@ -83,8 +121,8 @@ This sample describes how to create class inside XbyK to hold Article data
   "ClassDisplayName": "Event",
   "ClassName": "UMT.Event",
   "ClassTableName": "UMT_Event",
-  "ClassLastModified": "2023-12-08T16:43:01.3677825\u002B01:00",
-  "ClassGUID": "60130044-ea7b-4fe4-969a-7253ff29da06",
+  "ClassLastModified": "2023-12-08T23:29:12.7326949\u002B01:00",
+  "ClassGUID": "8d907871-5a82-4945-a533-1c4024829b64",
   "ClassResourceGuid": "ff8285c1-9d1a-49b3-8c9d-7502e1e533f7",
   "ClassHasUnmanagedDbSchema": false,
   "ClassType": "Content",
@@ -162,7 +200,7 @@ This sample describes how to create class inside XbyK to hold Article data
   "ClassDisplayName": "Faq",
   "ClassName": "UMT.Faq",
   "ClassTableName": "UMT_Faq",
-  "ClassLastModified": "2023-12-08T16:43:01.3684507\u002B01:00",
+  "ClassLastModified": "2023-12-08T23:29:12.7333315\u002B01:00",
   "ClassGUID": "7ed6604e-613b-4ce0-8c21-acfb372c416a",
   "ClassHasUnmanagedDbSchema": false,
   "ClassType": "Content",
@@ -226,6 +264,7 @@ additional form field properties, they may differ by property type
 |PropertyName|Summary|.NET Type|Notes|
 |---|---|---|---|
 |FieldCaption|Friendly name displayed in form|string?||
+|CustomProperties||System.Collections.Generic.Dictionary<string, object?>||
 
 <p>*) value is required</p>
 
@@ -236,6 +275,7 @@ settings related to form field
 |PropertyName|Summary|.NET Type|Notes|
 |---|---|---|---|
 |ControlName|Admin UI Component used for field data editing [(for pages use enumeration here)](../Enums/FormComponents.md#module-kenticoxperienceadminbasedll.md)|string?||
+|CustomProperties||System.Collections.Generic.Dictionary<string, object?>||
 
 <p>*) value is required</p>
 
