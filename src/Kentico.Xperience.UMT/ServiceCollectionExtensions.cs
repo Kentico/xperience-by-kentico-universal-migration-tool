@@ -15,27 +15,7 @@ public static class ServiceCollectionExtensions
     /// 
     /// </summary>
     /// <param name="services"></param>
-    public static void AddUniversalMigrationToolkit(this IServiceCollection services)
-    {
-        services.AddOptions<UniversalMigrationToolkitOptions>().Configure(options =>
-        {
-        });
-
-        RegisterServices(services);
-    }
-
-    /// <summary>
-    /// Dependency injection registration of UMT services
-    /// </summary>
-    /// <param name="services"></param>
-    /// <param name="configureOptions"></param>
-    public static void AddUniversalMigrationToolkit(this IServiceCollection services,
-        Action<UniversalMigrationToolkitOptions> configureOptions)
-    {
-        services.Configure(configureOptions);
-
-        RegisterServices(services);
-    }
+    public static void AddUniversalMigrationToolkit(this IServiceCollection services) => RegisterServices(services);
 
     private static void RegisterServices(IServiceCollection services)
     {
