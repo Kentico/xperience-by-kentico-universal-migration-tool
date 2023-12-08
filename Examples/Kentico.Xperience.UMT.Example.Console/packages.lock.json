@@ -1,7 +1,7 @@
 {
-  "version": 1,
+  "version": 2,
   "dependencies": {
-    "net7.0": {
+    "net8.0": {
       "Microsoft.Extensions.Configuration.Json": {
         "type": "Direct",
         "requested": "[7.0.0, )",
@@ -34,9 +34,9 @@
       },
       "SonarAnalyzer.CSharp": {
         "type": "Direct",
-        "requested": "[8.41.0.50478, )",
-        "resolved": "8.41.0.50478",
-        "contentHash": "kfh38H/+U96R4LmFQD/4agkvT258QkF5Sg7ApKo2DG0wMnUtji/H5aypGsKfX2cH8kw9lrLR/vdwmBiD9QFx1w=="
+        "requested": "[9.6.0.74858, )",
+        "resolved": "9.6.0.74858",
+        "contentHash": "tBwiOBYcoSyHVUejjz6iH3VOpSFx7gJSuQ3695BQaoqQBcqy0IeRsKAk5FAR4fbm3QLyEM9bimKk1l038TFN2w=="
       },
       "AngleSharp": {
         "type": "Transitive",
@@ -80,28 +80,6 @@
         "resolved": "2.2.1",
         "contentHash": "A6Zr52zVqJKt18ZBsTnX0qhG0kwIQftVAjLmszmkiR/trSp8H+xj1gUOzk7XHwaKgyREMSV1v9XaKrBUeIOdvQ=="
       },
-      "Kentico.Xperience.Core": {
-        "type": "Transitive",
-        "resolved": "28.0.1",
-        "contentHash": "hdbe/sUP3W7TZHpuiitioPw4Q2qZ4uf96YMcXBcAK7q0IDMhJUh7yNCQ0WSTlPmJ23S/Io7xVDPu81TyYXi2XA==",
-        "dependencies": {
-          "AngleSharp": "0.17.1",
-          "MailKit": "4.2.0",
-          "Microsoft.Data.SqlClient": "5.1.2",
-          "Microsoft.Extensions.Caching.Memory": "6.0.1",
-          "Microsoft.Extensions.Configuration": "6.0.1",
-          "Microsoft.Extensions.Configuration.Binder": "6.0.0",
-          "Microsoft.Extensions.DependencyInjection": "6.0.1",
-          "Microsoft.Extensions.FileProviders.Physical": "6.0.0",
-          "Microsoft.Extensions.Hosting.Abstractions": "6.0.0",
-          "Microsoft.Extensions.Localization": "6.0.24",
-          "Microsoft.Extensions.Options.ConfigurationExtensions": "6.0.0",
-          "Mono.Cecil": "0.11.5",
-          "Newtonsoft.Json": "13.0.3",
-          "System.CodeDom": "7.0.0",
-          "System.Configuration.ConfigurationManager": "6.0.1"
-        }
-      },
       "MailKit": {
         "type": "Transitive",
         "resolved": "4.2.0",
@@ -109,11 +87,6 @@
         "dependencies": {
           "MimeKit": "4.2.0"
         }
-      },
-      "Microsoft.Bcl.AsyncInterfaces": {
-        "type": "Transitive",
-        "resolved": "7.0.0",
-        "contentHash": "3aeMZ1N0lJoSyzqiP03hqemtb1BijhsJADdobn/4nsMJ8V1H+CrpuduUe4hlRdx+ikBQju1VGjMD1GJ3Sk05Eg=="
       },
       "Microsoft.CSharp": {
         "type": "Transitive",
@@ -593,6 +566,35 @@
         "dependencies": {
           "Kentico.Xperience.UMT": "[1.0.0-prerelease-1, )"
         }
+      },
+      "Kentico.Xperience.Core": {
+        "type": "CentralTransitive",
+        "requested": "[28.0.1, )",
+        "resolved": "28.0.1",
+        "contentHash": "hdbe/sUP3W7TZHpuiitioPw4Q2qZ4uf96YMcXBcAK7q0IDMhJUh7yNCQ0WSTlPmJ23S/Io7xVDPu81TyYXi2XA==",
+        "dependencies": {
+          "AngleSharp": "0.17.1",
+          "MailKit": "4.2.0",
+          "Microsoft.Data.SqlClient": "5.1.2",
+          "Microsoft.Extensions.Caching.Memory": "6.0.1",
+          "Microsoft.Extensions.Configuration": "6.0.1",
+          "Microsoft.Extensions.Configuration.Binder": "6.0.0",
+          "Microsoft.Extensions.DependencyInjection": "6.0.1",
+          "Microsoft.Extensions.FileProviders.Physical": "6.0.0",
+          "Microsoft.Extensions.Hosting.Abstractions": "6.0.0",
+          "Microsoft.Extensions.Localization": "6.0.24",
+          "Microsoft.Extensions.Options.ConfigurationExtensions": "6.0.0",
+          "Mono.Cecil": "0.11.5",
+          "Newtonsoft.Json": "13.0.3",
+          "System.CodeDom": "7.0.0",
+          "System.Configuration.ConfigurationManager": "6.0.1"
+        }
+      },
+      "Microsoft.Bcl.AsyncInterfaces": {
+        "type": "CentralTransitive",
+        "requested": "[7.0.0, )",
+        "resolved": "7.0.0",
+        "contentHash": "3aeMZ1N0lJoSyzqiP03hqemtb1BijhsJADdobn/4nsMJ8V1H+CrpuduUe4hlRdx+ikBQju1VGjMD1GJ3Sk05Eg=="
       }
     }
   }

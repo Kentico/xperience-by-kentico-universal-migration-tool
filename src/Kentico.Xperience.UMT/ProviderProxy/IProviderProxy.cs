@@ -10,19 +10,21 @@ namespace Kentico.Xperience.UMT.ProviderProxy;
 
 public interface IProviderProxy
 {
+    List<BaseInfo> GetInfoByKeys(IUmtModel model, List<(string columnName, object? value)> filters);
     BaseInfo? GetBaseInfoByGuid(Guid guid, IUmtModel model);
     BaseInfo? GetBaseInfoBy(Guid guid, string searchedField, IUmtModel model);
+    
     BaseInfo Save(BaseInfo info, IUmtModel model);
     
-    ProviderProxyContext Context { get; }
+    IProviderProxyContext Context { get; }
 }
 
-public record ProviderProxyContext();
+public interface IProviderProxyContext;
 
-internal class ContentItemDataProxy : IProviderProxy
+public class ProviderProxyContext: IProviderProxyContext;
+
+internal class ContentItemDataProxy(IProviderProxyContext context) : IProviderProxy
 {
-    public ContentItemDataProxy(ProviderProxyContext context) => Context = context;
-
     private IInfoProvider<ContentItemDataInfo> GetProviderOrThrow(IUmtModel model)
     {
         if (model is ContentItemDataModel contentItemDataModel)
@@ -36,7 +38,18 @@ internal class ContentItemDataProxy : IProviderProxy
             throw new InvalidOperationException("Invalid model");
         }
     }
-    
+
+    public List<BaseInfo> GetInfoByKeys(IUmtModel model, List<(string columnName, object? value)> filters)
+    {
+        var query = GetProviderOrThrow(model).Get();
+        foreach ((string keyName, object? value) in filters)
+        {
+            query.WhereEquals(keyName, value);
+        }
+
+        return query.Cast<BaseInfo>().ToList();
+    }
+
     public BaseInfo? GetBaseInfoByGuid(Guid guid, IUmtModel model)
     {
         var provider = GetProviderOrThrow(model);
@@ -63,16 +76,16 @@ internal class ContentItemDataProxy : IProviderProxy
         }
     }
 
-    public ProviderProxyContext Context { get; }
+    public IProviderProxyContext Context => context;
 }
 
 internal class ProviderProxy<TInfo> : IProviderProxy where TInfo : AbstractInfoBase<TInfo>, new()
 {
-    public ProviderProxyContext Context { get; }
+    public IProviderProxyContext Context { get; }
 
     protected readonly IInfoProvider<TInfo> ProviderInstance;
 
-    public ProviderProxy(ProviderProxyContext context)
+    public ProviderProxy(IProviderProxyContext context)
     {
         Context = context;
         if (typeof(TInfo).IsAssignableTo(typeof(DataClassInfo)))
@@ -82,6 +95,17 @@ internal class ProviderProxy<TInfo> : IProviderProxy where TInfo : AbstractInfoB
         }
 
         ProviderInstance = Provider<TInfo>.Instance;
+    }
+    
+    public List<BaseInfo> GetInfoByKeys(IUmtModel model, List<(string columnName, object? value)> filters)
+    {
+        var query = ProviderInstance.Get();
+        foreach ((string keyName, object? value) in filters)
+        {
+            query.WhereEquals(keyName, value);
+        }
+
+        return query.Cast<BaseInfo>().ToList();
     }
 
     public BaseInfo? GetInfoByGuid(Guid guid, IUmtModel model) => ProviderInstance.Get().WithGuid(guid).FirstOrDefault();
@@ -94,7 +118,8 @@ internal class ProviderProxy<TInfo> : IProviderProxy where TInfo : AbstractInfoB
 
     public virtual TInfo Save(TInfo info, IUmtModel model)
     {
-        using (new CMSActionContext(UserInfoProvider.AdministratorUser) { User = UserInfoProvider.AdministratorUser, UseGlobalAdminContext = true })
+        var context = new CMSActionContext(UserInfoProvider.AdministratorUser) { User = UserInfoProvider.AdministratorUser, UseGlobalAdminContext = true };
+        using (context)
         {
             ProviderInstance.Set(info);
         }

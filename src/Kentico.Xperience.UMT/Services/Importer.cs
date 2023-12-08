@@ -1,5 +1,4 @@
 ﻿using System.ComponentModel.DataAnnotations;
-using System.Xml.Serialization;
 using CMS.DataEngine;
 using Kentico.Xperience.UMT.InfoAdapter;
 using Kentico.Xperience.UMT.Model;
@@ -18,31 +17,22 @@ public class ImportResult : IImportResult
     public List<ValidationResult>? ModelValidationResults { get; set; }
 }
 
-internal class Importer : IImporter
+internal class Importer(ILogger<Importer> logger, AdapterFactory factory) : IImporter
 {
-    private readonly ILogger<Importer> logger;
-    private readonly AdapterFactory adapterFactory;
-
-    public Importer(ILogger<Importer> logger, AdapterFactory adapterFactory)
-    { 
-        this.logger = logger;
-        this.adapterFactory = adapterFactory;
-    }
-
-    public async Task<IImportResult> ImportAsync(IUmtModel umtModel)
+    public async Task<IImportResult> ImportAsync(IUmtModel model)
     {
         var providerProxyContext = new ProviderProxyContext();
         
         try
         {
-            var importResult = await ImportObject(umtModel, providerProxyContext);
+            var importResult = await ImportObject(model, providerProxyContext);
             return importResult;
         }
         catch (Exception ex)
         {
             logger.LogError(ex, "Error occured");
 
-            return new ImportResult()
+            return new ImportResult
             {
                 Success = false,
                 Exception = ex
@@ -50,34 +40,29 @@ internal class Importer : IImporter
         }
     }
 
-    public void Dispose()
+    private Task<ImportResult> ImportObject(IUmtModel model, IProviderProxyContext providerProxyContext)
     {
-
-    }
-
-    private async Task<ImportResult> ImportObject(IUmtModel model, ProviderProxyContext providerProxyContext)
-    {
-        var adapter = adapterFactory.CreateAdapter(model, providerProxyContext);
+        var adapter = factory.CreateAdapter(model, providerProxyContext);
 
         if (adapter == null)
         {
             logger.LogError("Unable to find import object adapter for type '{Type}'", model.GetType());
 
-            return new ImportResult()
+            return Task.FromResult(new ImportResult
             {
                 Success = false,
                 Exception = new InvalidOperationException($"Unable to find import object adapter for type '{model.GetType()}'")
-            };
+            });
         }
 
         var modelValidationResults = new List<ValidationResult>();
         if (!ValidationService.Instance.TryValidateModel(model, ref modelValidationResults))
         {
-            return new ImportResult()
+            return Task.FromResult(new ImportResult
             {
                 Success = false,
                 ModelValidationResults = modelValidationResults
-            };
+            });
         }
 
         BaseInfo? adapted = null;
@@ -88,32 +73,32 @@ internal class Importer : IImporter
         catch(Exception ex)
         {
             logger.LogError(ex, "Model adaptation to InfoObject failed");
-            return new ImportResult()
+            return Task.FromResult(new ImportResult
             {
                 Exception = ex,
                 Success = false,
                 Imported = adapted
-            };
+            });
         }
 
         try
         {
             adapter.ProviderProxy.Save(adapted, model);
-            return new ImportResult()
+            return Task.FromResult(new ImportResult
             {
                 Success = true,
                 Imported = adapted,
                 PrimaryKey = adapted.GetIntegerValue(adapted.TypeInfo.IDColumn, 0)
-            };
+            });
         }
         catch (Exception ex)
         {
-            logger.LogError(ex, "Entity persistance failed");
-            return new ImportResult()
+            logger.LogError(ex, "Entity persistence failed");
+            return Task.FromResult(new ImportResult
             {
                 Exception = ex,
                 Success = false
-            };
+            });
         }
     }
 }

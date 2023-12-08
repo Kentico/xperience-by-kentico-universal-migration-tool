@@ -1,43 +1,39 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
-    <PropertyGroup>
-        <OutputType>Exe</OutputType>
-        <TargetFramework>net7.0</TargetFramework>
-        <ImplicitUsings>enable</ImplicitUsings>
-        <Nullable>enable</Nullable>        
-        <LangVersion>latest</LangVersion>
-        <AssemblyName>Kentico.Xperience.UMT.DocUtils</AssemblyName>
-        <PreserveCompilationContext>true</PreserveCompilationContext>
-    </PropertyGroup>
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <AssemblyName>Kentico.Xperience.UMT.DocUtils</AssemblyName>
+    <PreserveCompilationContext>true</PreserveCompilationContext>
+  </PropertyGroup>
 
-    <ItemGroup>
-      <PackageReference Include="Markdig" Version="0.31.0" />
-      <PackageReference Include="Microsoft.Build.Locator" Version="1.5.5" />
-      <PackageReference Include="Microsoft.CodeAnalysis" Version="4.7.0-2.final" />
-      <PackageReference Include="Microsoft.CodeAnalysis.Workspaces.MSBuild" Version="4.7.0-2.final" />
-      <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="7.0.1" />
-      <PackageReference Include="Microsoft.Extensions.Logging.Configuration" Version="7.0.0" />
-      <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="7.0.0" />
-      <PackageReference Include="NJsonSchema" Version="10.9.0" />
-      <PackageReference Include="RazorLight" Version="2.3.1" />
-    </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Markdig" />
+    <PackageReference Include="Microsoft.Build.Locator" />
+    <PackageReference Include="Microsoft.CodeAnalysis" />
+    <PackageReference Include="Microsoft.CodeAnalysis.Workspaces.MSBuild" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Configuration" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Debug" />
+    <PackageReference Include="NJsonSchema" />
+    <PackageReference Include="RazorLight" />
+  </ItemGroup>
 
 
-    <ItemGroup>
-      <EmbeddedResource Include="Templates\SampleJson.cshtml" />
-      <EmbeddedResource Include="Templates\UmtModel.cshtml" />      
-      <None Remove="Templates\FormComponents.cshtml" />
-      <EmbeddedResource Include="Templates\FormComponents.cshtml" />
-      <None Remove="Templates\UMT.schema.json.cshtml" />
-      <EmbeddedResource Include="Templates\UMT.schema.json.cshtml" />
-      <None Remove="Templates\ClassDocs.cshtml" />
-      <EmbeddedResource Include="Templates\ClassDocs.cshtml" />
-    </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Templates\SampleJson.cshtml" />
+    <EmbeddedResource Include="Templates\UmtModel.cshtml" />
+    <None Remove="Templates\FormComponents.cshtml" />
+    <EmbeddedResource Include="Templates\FormComponents.cshtml" />
+    <None Remove="Templates\UMT.schema.json.cshtml" />
+    <EmbeddedResource Include="Templates\UMT.schema.json.cshtml" />
+    <None Remove="Templates\ClassDocs.cshtml" />
+    <EmbeddedResource Include="Templates\ClassDocs.cshtml" />
+  </ItemGroup>
 
 
-    <ItemGroup>
-      <ProjectReference Include="..\..\Examples\Kentico.Xperience.UMT.Examples\Kentico.Xperience.UMT.Examples.csproj" />
-      <ProjectReference Include="..\..\src\Kentico.Xperience.UMT\Kentico.Xperience.UMT.csproj" />
-    </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Examples\Kentico.Xperience.UMT.Examples\Kentico.Xperience.UMT.Examples.csproj" />
+    <ProjectReference Include="..\..\src\Kentico.Xperience.UMT\Kentico.Xperience.UMT.csproj" />
+  </ItemGroup>
 
 </Project>

@@ -6,7 +6,7 @@ namespace Kentico.Xperience.UMT.DocUtils;
 
 public static class MdHelper
 {
-    private static ConcurrentDictionary<string, Task<ITemplatePage>> templates = new();
+    private static readonly ConcurrentDictionary<string, Task<ITemplatePage>> templates = new();
     public static RazorLightEngine Engine { get; }
     
     static MdHelper()
@@ -24,7 +24,7 @@ public static class MdHelper
     {
         try
         {
-            var templateTask = templates.GetOrAdd(templateKey, (tk) => Engine.CompileTemplateAsync(templateKey));
+            var templateTask = templates.GetOrAdd(templateKey, tk => Engine.CompileTemplateAsync(tk));
             var template = await templateTask;
 
             return await Engine.RenderTemplateAsync(template, model);

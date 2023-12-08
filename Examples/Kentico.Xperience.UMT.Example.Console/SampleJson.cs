@@ -1,9 +1,9 @@
 ﻿namespace Kentico.Xperience.UMT.Example.Console;
 
-public class SampleJson
+public static class SampleJson
 {
 #pragma warning disable S2479
-    public const string FullSample = """
+    public const string FULL_SAMPLE = """
                                      [
                                        {
                                          "$type": "UserInfo",
@@ -80,7 +80,7 @@ public class SampleJson
                                          "ClassName": "UMT.Article",
                                          "ClassTableName": "UMT_Article",
                                          "ClassShowTemplateSelection": null,
-                                         "ClassLastModified": "2023-11-29T22:18:30.0794385\u002B01:00",
+                                         "ClassLastModified": "2023-12-08T16:43:01.6074471\u002B01:00",
                                          "ClassGUID": "06540294-3b56-4cf7-8773-088bb766ac23",
                                          "ClassContactMapping": null,
                                          "ClassContactOverwriteEnabled": null,
@@ -126,12 +126,17 @@ public class SampleJson
                                          ]
                                        },
                                        {
+                                         "$type": "ContentTypeChannel",
+                                         "ContentTypeChannelChannelGuid": "5322a379-5b5f-4220-9383-8e3115e66cd3",
+                                         "ContentTypeChannelContentTypeGuid": "06540294-3b56-4cf7-8773-088bb766ac23"
+                                       },
+                                       {
                                          "$type": "DataClass",
                                          "ClassDisplayName": "Faq",
                                          "ClassName": "UMT.Faq",
                                          "ClassTableName": "UMT_Faq",
                                          "ClassShowTemplateSelection": null,
-                                         "ClassLastModified": "2023-11-29T22:18:30.0794636\u002B01:00",
+                                         "ClassLastModified": "2023-12-08T16:43:01.6074708\u002B01:00",
                                          "ClassGUID": "7ed6604e-613b-4ce0-8c21-acfb372c416a",
                                          "ClassContactMapping": null,
                                          "ClassContactOverwriteEnabled": null,
@@ -191,9 +196,9 @@ public class SampleJson
                                          "ContentItemLanguageMetadataContentItemGuid": "c354427d-3d02-4876-8ed4-4de817fae929",
                                          "ContentItemLanguageMetadataDisplayName": "Language Metadata Example",
                                          "ContentItemLanguageMetadataLatestVersionStatus": 0,
-                                         "ContentItemLanguageMetadataCreatedWhen": "2023-11-27T22:18:30.0805949\u002B01:00",
+                                         "ContentItemLanguageMetadataCreatedWhen": "2023-12-06T16:43:01.6084443\u002B01:00",
                                          "ContentItemLanguageMetadataCreatedByUserGuid": "95f42fd4-6a14-4e88-b214-4e136479f788",
-                                         "ContentItemLanguageMetadataModifiedWhen": "2023-11-29T22:18:30.0806078\u002B01:00",
+                                         "ContentItemLanguageMetadataModifiedWhen": "2023-12-08T16:43:01.6084543\u002B01:00",
                                          "ContentItemLanguageMetadataModifiedByUserGuid": "95f42fd4-6a14-4e88-b214-4e136479f788",
                                          "ContentItemLanguageMetadataHasImageAsset": false,
                                          "ContentItemLanguageMetadataContentLanguageGuid": "f454e93b-5fe9-42a9-b1af-b572234ed9c4"
@@ -204,9 +209,9 @@ public class SampleJson
                                          "ContentItemLanguageMetadataContentItemGuid": "c354427d-3d02-4876-8ed4-4de817fae929",
                                          "ContentItemLanguageMetadataDisplayName": "Basic Language Metadata Example",
                                          "ContentItemLanguageMetadataLatestVersionStatus": 0,
-                                         "ContentItemLanguageMetadataCreatedWhen": "2023-11-27T22:18:30.0812811\u002B01:00",
+                                         "ContentItemLanguageMetadataCreatedWhen": "2023-12-06T16:43:01.6089379\u002B01:00",
                                          "ContentItemLanguageMetadataCreatedByUserGuid": null,
-                                         "ContentItemLanguageMetadataModifiedWhen": "2023-11-29T22:18:30.081297\u002B01:00",
+                                         "ContentItemLanguageMetadataModifiedWhen": "2023-12-08T16:43:01.6089482\u002B01:00",
                                          "ContentItemLanguageMetadataModifiedByUserGuid": null,
                                          "ContentItemLanguageMetadataHasImageAsset": false,
                                          "ContentItemLanguageMetadataContentLanguageGuid": "f454e93b-5fe9-42a9-b1af-b572234ed9c4"
@@ -238,12 +243,12 @@ public class SampleJson
                                          "FileLibraryGuid": "e3a9c50c-2b76-4ba8-ac19-2f0aa64c47d5",
                                          "FileCreatedByUserGuid": "863f796e-823a-4f5e-bbdb-e4a6f15b349b",
                                          "FileModifiedByUserGuid": null,
-                                         "FileName": "NewTestFile",
+                                         "FileName": "NewTestFile.png",
                                          "FileTitle": "Title",
                                          "FileDescription": null,
-                                         "FileExtension": null,
+                                         "FileExtension": ".png",
                                          "FileMimeType": null,
-                                         "FilePath": "newPath",
+                                         "FilePath": "newPath/somepath",
                                          "FileImageWidth": null,
                                          "FileImageHeight": null,
                                          "FileCreatedWhen": null,

@@ -22,7 +22,7 @@
   </ItemGroup>
 
   <PropertyGroup>
-    <TargetFramework>net7.0</TargetFramework>
+    <TargetFramework>net8.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <WarningsAsErrors>nullable</WarningsAsErrors>
@@ -45,7 +45,7 @@
   </PropertyGroup>
 
   <ItemGroup Label="StaticCodeAnalysis">
-    <PackageReference Include="SonarAnalyzer.CSharp" Version="8.41.0.50478">
+    <PackageReference Include="SonarAnalyzer.CSharp">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>

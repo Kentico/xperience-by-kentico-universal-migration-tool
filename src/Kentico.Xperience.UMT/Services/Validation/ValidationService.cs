@@ -19,7 +19,6 @@ public class ValidationService : IValidationService
     /// <returns>true if valid, false if invalid</returns>
     public bool TryValidateModel(IUmtModel model, ref List<ValidationResult> result)
     {
-        // TODO tomas.krch: 2023-07-22 validation context factory to enable DI?
         var validationContext = new ValidationContext(model);
         return Validator.TryValidateObject(model, validationContext, result, true);
     }

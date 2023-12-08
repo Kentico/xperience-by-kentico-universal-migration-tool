@@ -1,14 +1,11 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
-    <PropertyGroup>
-        <TargetFramework>net7.0</TargetFramework>
-        <ImplicitUsings>enable</ImplicitUsings>
-        <Nullable>enable</Nullable>
-        <AssemblyName>Kentico.Xperience.UMT.Examples</AssemblyName>
-    </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyName>Kentico.Xperience.UMT.Examples</AssemblyName>
+  </PropertyGroup>
 
-    <ItemGroup>
-      <ProjectReference Include="..\..\src\Kentico.Xperience.UMT\Kentico.Xperience.UMT.csproj" />
-    </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\Kentico.Xperience.UMT\Kentico.Xperience.UMT.csproj" />
+  </ItemGroup>
 
 </Project>

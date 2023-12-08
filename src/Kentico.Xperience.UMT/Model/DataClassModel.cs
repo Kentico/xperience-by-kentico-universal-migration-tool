@@ -1,6 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.Diagnostics.CodeAnalysis;
-using CMS.DataEngine;
 using CMS.Modules;
 using Kentico.Xperience.UMT.Attributes;
 using Kentico.Xperience.UMT.Services.Validation;
@@ -177,6 +176,5 @@ public class FormFieldSettings
     /// Admin UI Component used for field data editing
     /// </summary>
     /// <docref uri="../Enums/FormComponents.md#module-kenticoxperienceadminbasedll">(for pages use enumeration here)</docref>
-    // TODO tomas.krch: 2023-07-23 validation needs to be done at runtime, target instance could contain custom form components
     public string? ControlName { get; set; }
 }

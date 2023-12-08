@@ -159,7 +159,7 @@ internal class ImportService : IImportService
         return Task.FromResult(observer);
     }
 
-    private void ImportObject(IUmtModel model, ImportStateObserver observer, ProviderProxyContext providerProxyContext)
+    private void ImportObject(IUmtModel model, ImportStateObserver observer, IProviderProxyContext providerProxyContext)
     {
         var adapter = adapterFactory.CreateAdapter(model, providerProxyContext);
         if (adapter == null)

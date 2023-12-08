@@ -5,17 +5,17 @@ namespace Kentico.Xperience.UMT.ProviderProxy;
 
 internal interface IProviderProxyFactory
 {
-    IProviderProxy CreateProviderProxy<TInfo>(ProviderProxyContext context) where TInfo : BaseInfo;
-    IProviderProxy CreateProviderProxy(Type? infoType, ProviderProxyContext context);
+    IProviderProxy CreateProviderProxy<TInfo>(IProviderProxyContext context) where TInfo : BaseInfo;
+    IProviderProxy CreateProviderProxy(Type? infoType, IProviderProxyContext context);
 }
 
 internal class ProviderProxyFactory : IProviderProxyFactory
 {
-    public IProviderProxy CreateProviderProxy<TInfo>(ProviderProxyContext context) where TInfo : BaseInfo => CreateProviderProxy(typeof(TInfo), context);
+    public IProviderProxy CreateProviderProxy<TInfo>(IProviderProxyContext context) where TInfo : BaseInfo => CreateProviderProxy(typeof(TInfo), context);
 
-    public IProviderProxy CreateProviderProxy(Type? infoType, ProviderProxyContext context)
+    public IProviderProxy CreateProviderProxy(Type? infoType, IProviderProxyContext context)
     {
-        ArgumentNullException.ThrowIfNull(infoType, nameof(infoType));
+        ArgumentNullException.ThrowIfNull(infoType);
 
         if (typeof(ContentItemDataInfo) == infoType)
         {

@@ -5,7 +5,6 @@ using System.Text;
 
 namespace Kentico.Xperience.UMT.Services.Validation;
 
-// TODO tomas.krch: 2023-07-23 replace this and propose whole object graph validation solution
 public class CheckEnumerableAttribute: ValidationAttribute
 {
     private readonly ConcurrentDictionary<int, List<ValidationResult>> validationResults = new();

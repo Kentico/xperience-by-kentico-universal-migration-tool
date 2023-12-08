@@ -46,7 +46,7 @@ public class UmtModelVisitor: SymbolVisitor
     {
         if (symbol.DeclaredAccessibility == Accessibility.Public)
         {
-            var modelClass = ModelClasses.FirstOrDefault(x => symbol.ContainingSymbol?.Equals(x.Symbol, SymbolEqualityComparer.IncludeNullability) == true)
+            var modelClass = ModelClasses.Find(x => symbol.ContainingSymbol?.Equals(x.Symbol, SymbolEqualityComparer.IncludeNullability) == true)
                              ?? throw new InvalidOperationException("DISCRIMINATOR exists but class not found => this is possibly error in tool");
         
             if (symbol.Name == "DISCRIMINATOR")
@@ -105,7 +105,7 @@ public class UmtModelVisitor: SymbolVisitor
             }
         }
 
-        var modelClass = ModelClasses.FirstOrDefault(x => symbol.ContainingSymbol?.Equals(x.Symbol, SymbolEqualityComparer.Default) == true);
+        var modelClass = ModelClasses.Find(x => symbol.ContainingSymbol?.Equals(x.Symbol, SymbolEqualityComparer.Default) == true);
         modelClass?.Properties.Add(new ModelProperty(symbol.Name, summary ?? "", new SymbolFormatter(symbol.Type).ToNiceDisplayName(), reference, isUniqueId, validationInfo));
 
         if (symbol.Type is INamedTypeSymbol { TypeArguments.Length: > 0 } namedTypeSymbol)

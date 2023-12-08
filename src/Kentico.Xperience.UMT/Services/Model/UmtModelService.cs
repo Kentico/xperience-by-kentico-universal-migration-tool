@@ -9,16 +9,18 @@ namespace Kentico.Xperience.UMT.Services.Model;
 /// </summary>
 public class UmtModelInfo
 {
-    public UmtModelInfo(List<UmtReferencePropertyInfo> referenceProperties, PropertyInfo objectGuidProperty, Type modelType)
+    public UmtModelInfo(List<UmtReferencePropertyInfo> referenceProperties, PropertyInfo? objectGuidProperty, Type modelType, List<UniqueKeyPartInfo> uniqueKeyParts)
     {
         ReferenceProperties = referenceProperties;
         ObjectGuidProperty = objectGuidProperty;
         ModelType = modelType;
+        UniqueKeyParts = uniqueKeyParts;
     }
 
     public Type ModelType { get; set; }
     public List<UmtReferencePropertyInfo> ReferenceProperties { get; init; }
-    public PropertyInfo ObjectGuidProperty { get; set; }
+    public PropertyInfo? ObjectGuidProperty { get; set; }
+    public List<UniqueKeyPartInfo> UniqueKeyParts { get; set; }
     public string? ModelDiscriminator { get; set; }
 }
 
@@ -40,6 +42,9 @@ public class UmtReferencePropertyInfo
     public string? SearchedField { get; init; }
     public string? ValueField { get; set; }
 }
+
+public record UniqueKeyPartInfo(string KeyName, PropertyInfo PropertyInfo, Type? ReferencedInfoType = null);
+
 
 /// <summary>
 /// Service handling reflection of models
@@ -65,6 +70,7 @@ public class UmtModelService
 
                 var referenceProperties = new List<UmtReferencePropertyInfo>();
                 PropertyInfo? objectGuidProperty = null;
+                var keyParts = new List<UniqueKeyPartInfo>();
                 foreach (var propertyInfo in Reflect.Type(umtModelType).PublicProperties)
                 {
                     var referenceProperty = propertyInfo.GetCustomAttribute<ReferencePropertyAttribute>();
@@ -84,9 +90,20 @@ public class UmtModelService
                     {
                         objectGuidProperty = propertyInfo;
                     }
+
+                    var uniqueKeyPartProperty = propertyInfo.GetCustomAttribute<UniqueKeyPartAttribute>();
+                    if (uniqueKeyPartProperty != null)
+                    {
+                        keyParts.Add(new UniqueKeyPartInfo(uniqueKeyPartProperty.KeyName ?? propertyInfo.Name, propertyInfo, uniqueKeyPartProperty.ReferencedInfoType));
+                    }   
+                }
+
+                if (keyParts is { Count: 0 } && objectGuidProperty == null)
+                {
+                    throw new InvalidOperationException("Object guid is required for object model");
                 }
                 
-                var modelInfo = new UmtModelInfo(referenceProperties, objectGuidProperty ?? throw new InvalidOperationException("Object guid is required for object model"), umtModelType)
+                var modelInfo = new UmtModelInfo(referenceProperties, objectGuidProperty, umtModelType, keyParts)
                 {
                     ModelType = umtModelType,
                     ModelDiscriminator = umtModelAttribute?.Discriminator ?? throw new InvalidOperationException("Invalid model attribute - discriminator must be specified non empty, non null"),

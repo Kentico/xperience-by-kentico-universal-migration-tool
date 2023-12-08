@@ -1,6 +1,8 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using CMS.ContentEngine.Internal;
 using Kentico.Xperience.UMT.Attributes;
+// ReSharper disable InconsistentNaming
+// ReSharper disable UnusedMember.Global // used implicitly
 
 namespace Kentico.Xperience.UMT.Model;
 
@@ -18,7 +20,6 @@ public class ContentItemReferenceModel : UmtModel
     [ReferenceProperty(typeof(ContentItemCommonDataInfo), "ContentItemReferenceSourceCommonDataID", IsRequired = true)]
     public Guid? ContentItemReferenceSourceCommonDataGuid { get; set; }
 
-    //TODO check if target item is ContentItem
     [Required]
     [ReferenceProperty(typeof(ContentItemInfo), "ContentItemReferenceTargetItemID", IsRequired = true)]
     public Guid? ContentItemReferenceTargetItemGuid { get; set; }

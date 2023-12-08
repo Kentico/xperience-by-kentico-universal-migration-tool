@@ -1,6 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using CMS.ContentEngine;
 using Kentico.Xperience.UMT.Attributes;
+// ReSharper disable InconsistentNaming
 
 namespace Kentico.Xperience.UMT.Model;
 
@@ -34,7 +35,6 @@ public class WebsiteChannelModel : UmtModel
     [ReferenceProperty(typeof(ContentLanguageInfo), "WebsiteChannelPrimaryContentLanguageID", IsRequired = true)]
     public Guid? WebsiteChannelPrimaryContentLanguageGuid { get; set; }
 
-    // TODO tomas.krch: 2023-11-02 CookieLevelConstants.ALL
     [Map]
     [Required]
     public int? WebsiteChannelDefaultCookieLevel { get; set; }
