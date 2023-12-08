@@ -51,6 +51,7 @@ public static class SampleProvider
             WebSiteChannelSamples.SampleWebSiteChannel,
     
             DataClassSamples.ArticleClassSample,
+            DataClassSamples.ArticleAssignedToWebSiteChannel,
             DataClassSamples.FaqDataClass,
     
             ContentItemSamples.SampleContentItem,

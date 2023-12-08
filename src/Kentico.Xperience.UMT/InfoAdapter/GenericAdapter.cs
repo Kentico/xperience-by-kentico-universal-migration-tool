@@ -136,6 +136,48 @@ internal class GenericInfoAdapter<TTargetInfo> : IInfoAdapter<TTargetInfo, IUmtM
                 current.SetValue(GetGuidColumnName(current), objectGuid);
                 Logger.LogTrace("Info {Guid} created", objectGuid);
             }
+        } 
+        else if (model.UniqueKeyParts is { Count: > 0 } keyParts)
+        {
+            var filters = new List<(string columnName, object? value)>();
+            foreach ((string keyName, var propertyInfo, var referencedInfoType) in keyParts)
+            {
+                object? value = propertyInfo.GetValue(input);
+                if (referencedInfoType != null && value is Guid uniqueId)
+                {
+                    var refObject = providerProxyFactory
+                        .CreateProviderProxy(referencedInfoType, ProviderProxy.Context)
+                        .GetBaseInfoByGuid(uniqueId, null!);
+                    value = refObject?.GetValue(refObject.TypeInfo.IDColumn);
+                }
+
+                if (value is null)
+                {
+                    Logger.LogError("Property {Property} of type {Type} is required", propertyInfo.Name, propertyInfo.DeclaringType?.FullName);
+                    throw new InvalidOperationException($"Property {propertyInfo.Name} of type {propertyInfo.DeclaringType?.FullName} is required");
+                }
+                
+                filters.Add((keyName, value));
+            }
+
+            switch (ProviderProxy.GetInfoByKeys(input, filters))
+            {
+                case { Count: 0 }:
+                {
+                    current = ObjectFactory(model, input);
+                    break;
+                }
+                case [TTargetInfo targetInfo]:
+                {
+                    current = targetInfo;
+                    break;
+                }
+                default:// case { Count: > 1 }:
+                {
+                    Logger.LogError("Multiple results found for '{Model}', cannot continue we don't know which one to update", input.PrintMe());
+                    throw new InvalidOperationException($"Multiple results found for '{input.PrintMe()}', cannot continue we don't know which one to update");
+                }
+            }
         }
         else
         {

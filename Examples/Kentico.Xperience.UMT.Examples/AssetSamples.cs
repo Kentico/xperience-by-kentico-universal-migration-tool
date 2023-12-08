@@ -18,11 +18,7 @@ namespace Kentico.Xperience.UMT.Examples
             FileName = "NewTestFile.png",
             FileExtension = ".png",
             FileTitle = "Title",
-            FilePath = "newPath/somepath",
-            CustomProperties =
-            {
-                {"", ""}
-            }
+            FilePath = "newPath/somepath"
         };
 
         [Sample("medialibrary.sample", "", "Sample of media library")]

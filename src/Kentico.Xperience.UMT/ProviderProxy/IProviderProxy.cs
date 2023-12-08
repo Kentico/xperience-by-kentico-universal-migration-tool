@@ -5,13 +5,16 @@ using CMS.DataEngine;
 using CMS.DataEngine.Internal;
 using CMS.Membership;
 using Kentico.Xperience.UMT.Model;
+using Kentico.Xperience.UMT.Services.Model;
 
 namespace Kentico.Xperience.UMT.ProviderProxy;
 
 public interface IProviderProxy
 {
+    List<BaseInfo> GetInfoByKeys(IUmtModel model, List<(string columnName, object? value)> filters);
     BaseInfo? GetBaseInfoByGuid(Guid guid, IUmtModel model);
     BaseInfo? GetBaseInfoBy(Guid guid, string searchedField, IUmtModel model);
+    
     BaseInfo Save(BaseInfo info, IUmtModel model);
     
     ProviderProxyContext Context { get; }
@@ -36,7 +39,18 @@ internal class ContentItemDataProxy : IProviderProxy
             throw new InvalidOperationException("Invalid model");
         }
     }
-    
+
+    public List<BaseInfo> GetInfoByKeys(IUmtModel model, List<(string columnName, object? value)> filters)
+    {
+        var query = GetProviderOrThrow(model).Get();
+        foreach ((string keyName, object? value) in filters)
+        {
+            query.WhereEquals(keyName, value);
+        }
+
+        return query.Cast<BaseInfo>().ToList();
+    }
+
     public BaseInfo? GetBaseInfoByGuid(Guid guid, IUmtModel model)
     {
         var provider = GetProviderOrThrow(model);
@@ -82,6 +96,17 @@ internal class ProviderProxy<TInfo> : IProviderProxy where TInfo : AbstractInfoB
         }
 
         ProviderInstance = Provider<TInfo>.Instance;
+    }
+    
+    public List<BaseInfo> GetInfoByKeys(IUmtModel model, List<(string columnName, object? value)> filters)
+    {
+        var query = ProviderInstance.Get();
+        foreach ((string keyName, object? value) in filters)
+        {
+            query.WhereEquals(keyName, value);
+        }
+
+        return query.Cast<BaseInfo>().ToList();
     }
 
     public BaseInfo? GetInfoByGuid(Guid guid, IUmtModel model) => ProviderInstance.Get().WithGuid(guid).FirstOrDefault();

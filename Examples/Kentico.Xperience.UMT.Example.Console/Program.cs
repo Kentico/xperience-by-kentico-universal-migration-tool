@@ -51,6 +51,7 @@ else
         EmailChannelSamples.SampleEmailChannel,
         WebSiteChannelSamples.SampleWebSiteChannel,
         DataClassSamples.ArticleClassSample,
+        DataClassSamples.ArticleAssignedToWebSiteChannel,
         DataClassSamples.FaqDataClass,
         ContentItemSamples.SampleContentItem,
         ContentItemLanguageMetadataSamples.SampleContentItemLanguageMetadata,

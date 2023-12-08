@@ -592,6 +592,41 @@
         }
       }
     },
+    "ContentTypeChannelModel": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/UmtModel"
+        },
+        {
+          "type": "object",
+          "description": "Model represents XbyK ContentTypeChannelInfo",
+          "additionalProperties": {
+            "oneOf": [
+              {},
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "required": [
+            "ContentTypeChannelChannelGuid",
+            "ContentTypeChannelContentTypeGuid"
+          ],
+          "properties": {
+            "ContentTypeChannelChannelGuid": {
+              "type": "string",
+              "format": "guid",
+              "minLength": 1
+            },
+            "ContentTypeChannelContentTypeGuid": {
+              "type": "string",
+              "format": "guid",
+              "minLength": 1
+            }
+          }
+        }
+      ]
+    },
     "EmailChannelModel": {
       "allOf": [
         {
@@ -665,6 +700,18 @@
           ],
           "properties": {
             "DataSourcePath": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "DataSourceBase64": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "DataSourceUrl": {
               "type": [
                 "null",
                 "string"

@@ -43,6 +43,7 @@ internal class AdapterFactory
             WebPageItemModel => new GenericInfoAdapter<WebPageItemInfo>(loggerFactory.CreateLogger<GenericInfoAdapter<WebPageItemInfo>>(), modelService, providerProxyFactory.CreateProviderProxy<WebPageItemInfo>(providerProxyContext), providerProxyFactory),
             WebPageUrlPathModel => new GenericInfoAdapter<WebPageUrlPathInfo>(loggerFactory.CreateLogger<GenericInfoAdapter<WebPageUrlPathInfo>>(), modelService, providerProxyFactory.CreateProviderProxy<WebPageUrlPathInfo>(providerProxyContext), providerProxyFactory),
             DataClassModel => new DataClassAdapter(loggerFactory.CreateLogger<DataClassAdapter>(), modelService, providerProxyFactory.CreateProviderProxy<DataClassInfo>(providerProxyContext), providerProxyFactory),
+            ContentTypeChannelModel => new GenericInfoAdapter<ContentTypeChannelInfo>(loggerFactory.CreateLogger<GenericInfoAdapter<ContentTypeChannelInfo>>(), modelService, providerProxyFactory.CreateProviderProxy<ContentTypeChannelInfo>(providerProxyContext), providerProxyFactory),
             _ => null,
         };
 }

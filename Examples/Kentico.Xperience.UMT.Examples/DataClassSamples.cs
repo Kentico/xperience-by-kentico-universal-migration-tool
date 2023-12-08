@@ -63,6 +63,14 @@ public static class DataClassSamples
         }
     };
 
+    [Sample("contenttypechannel.article", "", "Sample of content type assignment to channel")]
+    public static ContentTypeChannelModel ArticleAssignedToWebSiteChannel => new ContentTypeChannelModel
+    {
+        ContentTypeChannelChannelGuid = ChannelSamples.WEBSITE_CHANNEL_SAMPLE_GUID,
+        ContentTypeChannelContentTypeGuid = DataClassSamples.ARTICLE_SAMPLE_GUID
+    };
+    
+
     [Sample("dataclass.faq", "", "Faq sample")]
     public static DataClassModel FaqDataClass => new()
     {
