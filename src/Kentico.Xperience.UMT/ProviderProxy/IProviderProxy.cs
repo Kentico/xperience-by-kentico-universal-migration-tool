@@ -5,7 +5,6 @@ using CMS.DataEngine;
 using CMS.DataEngine.Internal;
 using CMS.Membership;
 using Kentico.Xperience.UMT.Model;
-using Kentico.Xperience.UMT.Services.Model;
 
 namespace Kentico.Xperience.UMT.ProviderProxy;
 
@@ -77,7 +76,7 @@ internal class ContentItemDataProxy(IProviderProxyContext context) : IProviderPr
         }
     }
 
-    public IProviderProxyContext Context { get; } = context;
+    public IProviderProxyContext Context => context;
 }
 
 internal class ProviderProxy<TInfo> : IProviderProxy where TInfo : AbstractInfoBase<TInfo>, new()
@@ -119,7 +118,8 @@ internal class ProviderProxy<TInfo> : IProviderProxy where TInfo : AbstractInfoB
 
     public virtual TInfo Save(TInfo info, IUmtModel model)
     {
-        using (new CMSActionContext(UserInfoProvider.AdministratorUser) { User = UserInfoProvider.AdministratorUser, UseGlobalAdminContext = true })
+        var context = new CMSActionContext(UserInfoProvider.AdministratorUser) { User = UserInfoProvider.AdministratorUser, UseGlobalAdminContext = true };
+        using (context)
         {
             ProviderInstance.Set(info);
         }

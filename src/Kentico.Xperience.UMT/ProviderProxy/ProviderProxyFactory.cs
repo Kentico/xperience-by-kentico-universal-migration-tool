@@ -15,7 +15,7 @@ internal class ProviderProxyFactory : IProviderProxyFactory
 
     public IProviderProxy CreateProviderProxy(Type? infoType, IProviderProxyContext context)
     {
-        ArgumentNullException.ThrowIfNull(infoType, nameof(infoType));
+        ArgumentNullException.ThrowIfNull(infoType);
 
         if (typeof(ContentItemDataInfo) == infoType)
         {
