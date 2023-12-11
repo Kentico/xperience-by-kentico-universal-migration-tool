@@ -33,7 +33,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\Examples\Kentico.Xperience.UMT.Examples\Kentico.Xperience.UMT.Examples.csproj" />
-    <ProjectReference Include="..\..\src\Kentico.Xperience.UMT\Kentico.Xperience.UMT.csproj" />
+    <ProjectReference Include="..\..\Kentico.Xperience.UMT\Kentico.Xperience.UMT.csproj" />    
   </ItemGroup>
 
 </Project>
