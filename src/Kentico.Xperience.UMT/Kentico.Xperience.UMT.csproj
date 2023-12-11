@@ -4,7 +4,7 @@
         <Product>Xperience by Kentico Universal migration toolkit</Product>
         <Title>$(Product)</Title>
         <PackageId>Kentico.Xperience.UMT</PackageId>
-        <Description>The Universal Migration Toolkit (UMT) is an open-source set of software libraries, documentation, and samples distributed via NuGet packages to facilitate and automate data import from external systems (Sitecore, Sitefinity, Legacy Kentico, etc...) into Xperience by Kentico.</Description>
+        <Description>The Universal Migration Toolkit (UMT) is an open-source set of software libraries, documentation, and samples distributed via NuGet packages to facilitate and automate data import from external systems into Xperience by Kentico.</Description>
     </PropertyGroup>
 
     <PropertyGroup>
