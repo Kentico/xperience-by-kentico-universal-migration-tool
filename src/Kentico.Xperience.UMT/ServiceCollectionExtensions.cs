@@ -15,14 +15,17 @@ public static class ServiceCollectionExtensions
     /// 
     /// </summary>
     /// <param name="services"></param>
-    public static void AddUniversalMigrationToolkit(this IServiceCollection services) => RegisterServices(services);
+    public static IServiceCollection AddUniversalMigrationToolkit(this IServiceCollection services) =>
+        RegisterServices(services);
 
-    private static void RegisterServices(IServiceCollection services)
+    private static IServiceCollection RegisterServices(IServiceCollection services)
     {
         services.AddTransient<IImportService, ImportService>();
         services.AddTransient<IImporter, Importer>();
         services.AddSingleton<IProviderProxyFactory, ProviderProxyFactory>();
         services.AddSingleton<AdapterFactory>();
         services.AddSingleton(_ => new UmtModelService(new[] { typeof(ServiceCollectionExtensions).Assembly }));
+
+        return services;
     }
 }

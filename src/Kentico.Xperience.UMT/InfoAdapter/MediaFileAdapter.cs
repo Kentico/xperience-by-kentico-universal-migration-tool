@@ -62,7 +62,6 @@ internal class MediaFileAdapter : GenericInfoAdapter<MediaFileInfo>
             FileImageWidth = mediaModel.FileImageWidth ?? current.FileImageWidth,
             FileCreatedWhen = mediaModel.FileCreatedWhen ?? current.FileCreatedWhen,
             FileModifiedWhen = mediaModel.FileModifiedWhen ?? current.FileModifiedWhen,
-            FileCustomData = mediaModel.FileDescription ?? ""
         };
 
         current = base.MapProperties(model, current);

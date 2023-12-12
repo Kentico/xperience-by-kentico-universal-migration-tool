@@ -31,7 +31,6 @@ public class ContentItemReferenceModel : UmtModel
 
     [Map]
     [Required]
-    [UniqueIdProperty]
     public Guid? ContentItemReferenceGroupGUID { get; set; }
 
     protected override (Guid? uniqueId, string? name, string? displayName) GetPrintArgs() => (ContentItemReferenceGUID, NOT_AVAILABLE, NOT_AVAILABLE);

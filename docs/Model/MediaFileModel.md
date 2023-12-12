@@ -19,7 +19,6 @@ Model [discriminator](../UmtModel.md#discriminator): `Media_File`
 |FileImageHeight||int?||
 |FileCreatedWhen||System.DateTime?||
 |FileModifiedWhen||System.DateTime?||
-|FileCustomData||string?||
 |[customPropertyName]|custom property defined by created [DataClass](./DataClassModel.md)|.NET type defined by data class field||
 
 <p>*) value is required</p>

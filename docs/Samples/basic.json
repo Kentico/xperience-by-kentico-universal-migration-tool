@@ -74,7 +74,7 @@
     "ClassName": "UMT.Article",
     "ClassTableName": "UMT_Article",
     "ClassShowTemplateSelection": null,
-    "ClassLastModified": "2023-12-08T23:29:13.0056045\u002B01:00",
+    "ClassLastModified": "2023-12-12T23:24:08.1076311\u002B01:00",
     "ClassGUID": "06540294-3b56-4cf7-8773-088bb766ac23",
     "ClassContactMapping": null,
     "ClassContactOverwriteEnabled": null,
@@ -85,7 +85,7 @@
     "ClassHasUnmanagedDbSchema": false,
     "ClassType": "Content",
     "ClassContentTypeType": "Website",
-    "ClassWebPageHasUrl": null,
+    "ClassWebPageHasUrl": true,
     "Fields": [
       {
         "AllowEmpty": true,
@@ -168,7 +168,7 @@
     "ClassName": "UMT.Faq",
     "ClassTableName": "UMT_Faq",
     "ClassShowTemplateSelection": null,
-    "ClassLastModified": "2023-12-08T23:29:13.0056294\u002B01:00",
+    "ClassLastModified": "2023-12-12T23:24:08.1076747\u002B01:00",
     "ClassGUID": "7ed6604e-613b-4ce0-8c21-acfb372c416a",
     "ClassContactMapping": null,
     "ClassContactOverwriteEnabled": null,
@@ -228,9 +228,9 @@
     "ContentItemLanguageMetadataContentItemGuid": "c354427d-3d02-4876-8ed4-4de817fae929",
     "ContentItemLanguageMetadataDisplayName": "Language Metadata Example",
     "ContentItemLanguageMetadataLatestVersionStatus": 0,
-    "ContentItemLanguageMetadataCreatedWhen": "2023-12-06T23:29:13.0060435\u002B01:00",
+    "ContentItemLanguageMetadataCreatedWhen": "2023-12-10T23:24:08.1082307\u002B01:00",
     "ContentItemLanguageMetadataCreatedByUserGuid": "95f42fd4-6a14-4e88-b214-4e136479f788",
-    "ContentItemLanguageMetadataModifiedWhen": "2023-12-08T23:29:13.0060512\u002B01:00",
+    "ContentItemLanguageMetadataModifiedWhen": "2023-12-12T23:24:08.1082408\u002B01:00",
     "ContentItemLanguageMetadataModifiedByUserGuid": "95f42fd4-6a14-4e88-b214-4e136479f788",
     "ContentItemLanguageMetadataHasImageAsset": false,
     "ContentItemLanguageMetadataContentLanguageGuid": "f454e93b-5fe9-42a9-b1af-b572234ed9c4"
@@ -241,9 +241,9 @@
     "ContentItemLanguageMetadataContentItemGuid": "c354427d-3d02-4876-8ed4-4de817fae929",
     "ContentItemLanguageMetadataDisplayName": "Basic Language Metadata Example",
     "ContentItemLanguageMetadataLatestVersionStatus": 0,
-    "ContentItemLanguageMetadataCreatedWhen": "2023-12-06T23:29:13.0062866\u002B01:00",
+    "ContentItemLanguageMetadataCreatedWhen": "2023-12-10T23:24:08.108501\u002B01:00",
     "ContentItemLanguageMetadataCreatedByUserGuid": null,
-    "ContentItemLanguageMetadataModifiedWhen": "2023-12-08T23:29:13.0062944\u002B01:00",
+    "ContentItemLanguageMetadataModifiedWhen": "2023-12-12T23:24:08.1085354\u002B01:00",
     "ContentItemLanguageMetadataModifiedByUserGuid": null,
     "ContentItemLanguageMetadataHasImageAsset": false,
     "ContentItemLanguageMetadataContentLanguageGuid": "f454e93b-5fe9-42a9-b1af-b572234ed9c4"
@@ -264,7 +264,6 @@
     "LibraryDisplayName": "LibraryDisplayedName",
     "LibraryDescription": "TestLibrary",
     "LibraryFolder": "TestFolder",
-    "LibraryAccess": null,
     "LibraryGUID": "e3a9c50c-2b76-4ba8-ac19-2f0aa64c47d5",
     "LibraryLastModified": null
   },
@@ -284,8 +283,7 @@
     "FileImageWidth": null,
     "FileImageHeight": null,
     "FileCreatedWhen": null,
-    "FileModifiedWhen": null,
-    "FileCustomData": null
+    "FileModifiedWhen": null
   },
   {
     "$type": "ContentItem",
@@ -361,6 +359,28 @@
     "ContentItemLanguageMetadataModifiedByUserGuid": "dbfcc244-2cb9-4934-857f-9d75404c1553",
     "ContentItemLanguageMetadataHasImageAsset": false,
     "ContentItemLanguageMetadataContentLanguageGuid": "a6c0a558-8b33-47b6-87a8-491b437c9923"
+  },
+  {
+    "$type": "WebPageUrlPath",
+    "WebPageUrlPathGUID": "2bda2458-e262-4825-b51b-5a7b345ed7bd",
+    "WebPageUrlPath": "en-US/creation-of-umt-model",
+    "WebPageUrlPathHash": null,
+    "WebPageUrlPathWebPageItemGuid": "6e995319-77e7-475e-9ebb-607bdbf5af9a",
+    "WebPageUrlPathWebsiteChannelGuid": "a6ba6fcb-9d05-4abe-afb4-74b153c90db7",
+    "WebPageUrlPathContentLanguageGuid": "f454e93b-5fe9-42a9-b1af-b572234ed9c4",
+    "WebPageUrlPathIsLatest": true,
+    "WebPageUrlPathIsDraft": false
+  },
+  {
+    "$type": "WebPageUrlPath",
+    "WebPageUrlPathGUID": "8083fa41-03fe-49c3-87fb-4f7c530b14cf",
+    "WebPageUrlPath": "en-GB/creation-of-umt-model",
+    "WebPageUrlPathHash": null,
+    "WebPageUrlPathWebPageItemGuid": "6e995319-77e7-475e-9ebb-607bdbf5af9a",
+    "WebPageUrlPathWebsiteChannelGuid": "a6ba6fcb-9d05-4abe-afb4-74b153c90db7",
+    "WebPageUrlPathContentLanguageGuid": "a6c0a558-8b33-47b6-87a8-491b437c9923",
+    "WebPageUrlPathIsLatest": true,
+    "WebPageUrlPathIsDraft": false
   },
   {
     "$type": "WebPageItem",

@@ -1,7 +1,6 @@
 ﻿// See https://aka.ms/new-console-template for more information
 
 using System.Collections.Concurrent;
-using Kentico.Xperience.UMT;
 using Kentico.Xperience.UMT.DocUtils;
 using Kentico.Xperience.UMT.DocUtils.Templates;
 using Kentico.Xperience.UMT.DocUtils.Walkers;

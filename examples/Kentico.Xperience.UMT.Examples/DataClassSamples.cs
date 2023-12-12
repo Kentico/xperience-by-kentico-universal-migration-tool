@@ -24,6 +24,7 @@ public static class DataClassSamples
         ClassDisplayName = "This is Article example",
         ClassTableName = "UMT_Article",
         ClassHasUnmanagedDbSchema = false,
+        ClassWebPageHasUrl = true,
         Fields =
         [
             new()

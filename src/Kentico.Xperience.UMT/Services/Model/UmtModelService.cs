@@ -88,6 +88,10 @@ public class UmtModelService
                     var uniqueIdProperty = propertyInfo.GetCustomAttribute<UniqueIdPropertyAttribute>();
                     if (uniqueIdProperty != null)
                     {
+                        if (objectGuidProperty != null)
+                        {
+                            throw new InvalidOperationException("Model cannot have multiple unique id columns");
+                        }
                         objectGuidProperty = propertyInfo;
                     }
 

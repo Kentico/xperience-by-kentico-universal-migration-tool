@@ -81,6 +81,19 @@ public static class ContentItemSamples
         ContentItemLanguageMetadataLatestVersionStatus = VersionStatus.Published,
     };
 
+    [Sample("webpageitem.urlpath.sample.article.enus", "", "Page url path sample")]
+    public static WebPageUrlPathModel SampleArticleWebPathUrlPathModelEnUs => new()
+    {
+        WebPageUrlPathGUID = new Guid("2BDA2458-E262-4825-B51B-5A7B345ED7BD"),
+        WebPageUrlPath = "en-US/creation-of-umt-model",
+        WebPageUrlPathHash = null,
+        WebPageUrlPathWebPageItemGuid = SampleArticleWebPageItem.WebPageItemGUID,
+        WebPageUrlPathWebsiteChannelGuid = WebSiteChannelSamples.WebsiteChannelGuid,
+        WebPageUrlPathContentLanguageGuid = ContentLanguageSamples.CONTENT_LANGUAGE_ENUS_SAMPLE_GUID,
+        WebPageUrlPathIsLatest = true,
+        WebPageUrlPathIsDraft = false
+    };
+    
     #endregion
 
     #region "EnGb version"
@@ -125,6 +138,19 @@ public static class ContentItemSamples
         ContentItemLanguageMetadataModifiedByUserGuid = UserSamples.SampleAdminGuid,
         ContentItemLanguageMetadataLatestVersionStatus = VersionStatus.Published,
     };
+    
+    [Sample("webpageitem.urlpath.sample.article.engb", "", "Page url path sample")]
+    public static WebPageUrlPathModel SampleArticleWebPathUrlPathModelEnGb => new()
+    {
+        WebPageUrlPathGUID = new Guid("8083FA41-03FE-49C3-87FB-4F7C530B14CF"),
+        WebPageUrlPath = "en-GB/creation-of-umt-model",
+        WebPageUrlPathHash = null,
+        WebPageUrlPathWebPageItemGuid = SampleArticleWebPageItem.WebPageItemGUID,
+        WebPageUrlPathWebsiteChannelGuid = WebSiteChannelSamples.WebsiteChannelGuid,
+        WebPageUrlPathContentLanguageGuid = ContentLanguageSamples.CONTENT_LANGUAGE_ENGB_SAMPLE_GUID,
+        WebPageUrlPathIsLatest = true,
+        WebPageUrlPathIsDraft = false
+    };
 
     #endregion
 
@@ -138,6 +164,8 @@ public static class ContentItemSamples
         WebPageItemTreePath = "/creation-of-umt-model",
         WebPageItemWebsiteChannelGuid = WebSiteChannelSamples.WebsiteChannelGuid
     };
+    
+    
 
     #endregion
     

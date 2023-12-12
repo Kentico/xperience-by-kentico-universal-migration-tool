@@ -17,10 +17,10 @@ public static class ServiceCollectionExtensions
 {
     private const string SOURCE = "UMT.Example";
 
-    public static void AddUmtSample(this IServiceCollection services) => services.AddUniversalMigrationToolkit();
+    public static IServiceCollection AddUmtSample(this IServiceCollection services) => services.AddUniversalMigrationToolkit();
 
 
-    public static void UseUmtSample(this IApplicationBuilder app)
+    public static IApplicationBuilder UseUmtSample(this IApplicationBuilder app)
     {
         app.UseWebSockets();
 
@@ -47,6 +47,8 @@ public static class ServiceCollectionExtensions
                 await next(context);
             }
         });
+
+        return app;
     }
 
     private sealed record Message(string Type, HeaderPayload? Payload);
@@ -64,7 +66,7 @@ public static class ServiceCollectionExtensions
                 await webSocket.SendAsync(new ArraySegment<byte>(payload, 0, payload.Length), WebSocketMessageType.Text, true, CancellationToken.None);
             }
         }
-        
+
         async Task SendStats(IDictionary<string, int> stats)
         {
             if (webSocket.State == WebSocketState.Open)
@@ -116,7 +118,7 @@ public static class ServiceCollectionExtensions
                 var observer = new ImportStateObserver();
 
                 var stats = new ConcurrentDictionary<string, int>();
-                
+
                 observer = await importService.StartImportAsync(data!, observer);
                 observer.ImportedInfo += async (model, info) =>
                 {
@@ -164,9 +166,9 @@ public static class ServiceCollectionExtensions
                     if (buffer[0] == 0x2D && buffer.Take(5).All(x => x.Equals(0X2D)))
                     {
                         ms.Flush();
-                        break;    
+                        break;
                     }
-                    
+
                     ms.Write(data.Array!, data.Offset, receiveResult.Count);
                     ms.Flush();
 
