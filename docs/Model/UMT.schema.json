@@ -811,12 +811,6 @@
                 "string"
               ],
               "format": "date-time"
-            },
-            "FileCustomData": {
-              "type": [
-                "null",
-                "string"
-              ]
             }
           }
         }
@@ -861,13 +855,6 @@
             "LibraryFolder": {
               "type": "string",
               "minLength": 1
-            },
-            "LibraryAccess": {
-              "type": [
-                "integer",
-                "null"
-              ],
-              "format": "int32"
             },
             "LibraryGUID": {
               "type": "string",
