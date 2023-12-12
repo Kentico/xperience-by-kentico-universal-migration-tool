@@ -48,9 +48,9 @@ For Contributing please see [`CONTRIBUTING.md`](https://github.com/Kentico/.gith
 
 ### Requirements
 
-- .NET SDK >= 7.0.109
+- .NET SDK >= 8.0.100
 
-  - <https://dotnet.microsoft.com/en-us/download/dotnet/7.0>
+  - <https://dotnet.microsoft.com/en-us/download/dotnet/8.0>
 
 ## License
 
