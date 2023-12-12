@@ -77,6 +77,8 @@ public static class SampleProvider
     
             ContentItemSamples.SampleArticleContentItemLanguageMetadataEnUs,
             ContentItemSamples.SampleArticleContentItemLanguageMetadataEnGb,
+            ContentItemSamples.SampleArticleWebPathUrlPathModelEnUs,
+            ContentItemSamples.SampleArticleWebPathUrlPathModelEnGb,
     
             ContentItemSamples.SampleArticleWebPageItem,
         });

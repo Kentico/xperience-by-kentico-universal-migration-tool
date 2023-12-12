@@ -25,7 +25,7 @@ CMS.Base.SystemContext.WebApplicationPhysicalPath = root.GetValue<string>("WebAp
 CMSApplication.Init();
 
 var services = new ServiceCollection();
-services.AddLogging(b => b.AddDebug());
+services.AddLogging(b => b.AddDebug().AddSimpleConsole(options => options.SingleLine = true).AddConfiguration(root.GetSection("Logging")));
 services.AddUniversalMigrationToolkit();
 
 var serviceProvider = services.BuildServiceProvider();

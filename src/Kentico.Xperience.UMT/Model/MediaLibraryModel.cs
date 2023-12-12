@@ -25,9 +25,6 @@ public class MediaLibraryModel : UmtModel
     public string? LibraryFolder { get; set; }
 
     [Map]
-    public int? LibraryAccess { get; set; }
-
-    [Map]
     [Required]
     [UniqueIdProperty]
     public Guid? LibraryGUID { get; set; }
