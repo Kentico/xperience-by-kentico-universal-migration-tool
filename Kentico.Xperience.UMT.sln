@@ -2,17 +2,17 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kentico.Xperience.UMT", "src\Kentico.Xperience.UMT\Kentico.Xperience.UMT.csproj", "{F499DE79-C15E-4ABA-9E42-E0A243E0F598}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kentico.Xperience.UMT.Example.Console", "src\Examples\Kentico.Xperience.UMT.Example.Console\Kentico.Xperience.UMT.Example.Console.csproj", "{B34D5B62-F958-48E4-84A3-35343529FCF7}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kentico.Xperience.UMT.Example.Console", "examples\Kentico.Xperience.UMT.Example.Console\Kentico.Xperience.UMT.Example.Console.csproj", "{B34D5B62-F958-48E4-84A3-35343529FCF7}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Examples", "Examples", "{A22B7345-BFCB-4BB2-85DA-A32BE7024061}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kentico.Xperience.UMT.Example.AdminApp", "src\Examples\Kentico.Xperience.UMT.Example.AdminApp\Kentico.Xperience.UMT.Example.AdminApp.csproj", "{4ABF76B5-3ED7-44CF-9FFA-39F299BD947C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kentico.Xperience.UMT.Example.AdminApp", "examples\Kentico.Xperience.UMT.Example.AdminApp\Kentico.Xperience.UMT.Example.AdminApp.csproj", "{4ABF76B5-3ED7-44CF-9FFA-39F299BD947C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kentico.Xperience.UMT.Examples", "src\Examples\Kentico.Xperience.UMT.Examples\Kentico.Xperience.UMT.Examples.csproj", "{85138B06-9F3F-40A6-8465-479F591D2845}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kentico.Xperience.UMT.Examples", "examples\Kentico.Xperience.UMT.Examples\Kentico.Xperience.UMT.Examples.csproj", "{85138B06-9F3F-40A6-8465-479F591D2845}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Utils", "Utils", "{66C1E923-BA9C-4674-8534-F456FE27592A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kentico.Xperience.UMT.DocUtils", "src\Utils\Kentico.Xperience.UMT.DocUtils\Kentico.Xperience.UMT.DocUtils.csproj", "{71299533-CB05-4068-B5C3-9BCE76413E26}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kentico.Xperience.UMT.DocUtils", "utils\Kentico.Xperience.UMT.DocUtils\Kentico.Xperience.UMT.DocUtils.csproj", "{71299533-CB05-4068-B5C3-9BCE76413E26}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
