@@ -1,6 +1,6 @@
 # Xperience by Kentico Universal Migration Toolkit
 
-[![CI: Build and Test](<[https://github.com/Kentico/xperience-by-kentico-lucene](https://github.com/Kentico/xperience-by-kentico-universal-migration-toolkit)/actions/workflows/ci.yml/badge.svg?branch=main>)](<[https://github.com/Kentico/xperience-by-kentico-lucene](https://github.com/Kentico/xperience-by-kentico-universal-migration-toolkit)/actions/workflows/ci.yml>)
+[![CI: Build and Test](https://github.com/Kentico/xperience-by-kentico-universal-migration-toolkit/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/Kentico/xperience-by-kentico-universal-migration-toolkit/actions/workflows/ci.yml)
 
 [![NuGet Package](https://img.shields.io/nuget/v/Kentico.Xperience.UMT.svg)](https://www.nuget.org/packages/Kentico.Xperience.UMT)
 
