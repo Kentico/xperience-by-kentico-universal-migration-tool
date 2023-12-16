@@ -32,15 +32,15 @@ The Universal Migration Toolkit (UMT) is an open-source set of software librarie
 
 ### Convert & Import samples
 
-Advanced usage is covered [in the extended documentation](./Docs/README.md)
+Advanced usage is covered [in the extended documentation](./docs/README.md)
 
 #### Console sample
 
-[Console application](./Examples/Kentico.Xperience.UMT.Example.Console/README.md) sample shows usage of toolkit in console application.
+[Console application](./examples/Kentico.Xperience.UMT.Example.Console/README.md) sample shows usage of toolkit in console application.
 
 #### Administration plug-in sample
 
-[Administration plugin](./Examples/Kentico.Xperience.UMT.Example.AdminApp/README.md) sample shows deployment of toolkit as administration application that receives file with serialized data as JSON and performs import of data.
+[Administration plugin](./examples/Kentico.Xperience.UMT.Example.AdminApp/README.md) sample shows deployment of toolkit as administration application that receives file with serialized data as JSON and performs import of data.
 
 ## Contributing
 
