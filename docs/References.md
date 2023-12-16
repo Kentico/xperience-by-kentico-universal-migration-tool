@@ -10,10 +10,6 @@ information about XbK info object in general.
 
 ## UserInfo
 
-## TreeNode
-
-TreeNode object represents [Page](https://docs.xperience.io/xp/business-users/pages)
-
 ### Root node
 
 Root node is topmost node in tree hierarchy, You will need NodeGuid property of root node to run example on your instance.
