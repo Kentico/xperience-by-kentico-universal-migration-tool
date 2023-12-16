@@ -31,7 +31,7 @@ Following concepts are subject to this guide:
 
 - Overview of UMT and concepts behind
 - [DataClass](./Model/DataClassModel.md) creation
-- [TreeNode](./Model/TreeNodeModel.md) creation specifically **Page**
+- [TreeNode](./Model/ContentItemModel.md) creation specifically **Page**
 - Designing storage in database
 - Designing view of edited page inside administration
 
