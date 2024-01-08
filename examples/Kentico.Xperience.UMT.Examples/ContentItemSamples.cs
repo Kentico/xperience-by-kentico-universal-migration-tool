@@ -240,6 +240,19 @@ public static class ContentItemSamples
         ContentItemLanguageMetadataModifiedByUserGuid = UserSamples.SampleAdminGuid,
         ContentItemLanguageMetadataLatestVersionStatus = VersionStatus.InitialDraft,
     };
+    
+    [Sample("webpageitem.urlpath.sample.article.WithRelations.enus", "", "Page url path sample")]
+    public static WebPageUrlPathModel SampleArticleWebPageUrlWithRelationsEnUs => new()
+    {
+        WebPageUrlPathGUID = new Guid("C0F97BA5-7A64-4309-8D58-6054FC90AC66"),
+        WebPageUrlPath = "en-US/content-item-with-relations",
+        WebPageUrlPathHash = null,
+        WebPageUrlPathWebPageItemGuid = SampleArticleWebPageItemWithRelations.WebPageItemGUID,
+        WebPageUrlPathWebsiteChannelGuid = WebSiteChannelSamples.WebsiteChannelGuid,
+        WebPageUrlPathContentLanguageGuid = ContentLanguageSamples.CONTENT_LANGUAGE_ENUS_SAMPLE_GUID,
+        WebPageUrlPathIsLatest = true,
+        WebPageUrlPathIsDraft = false
+    };
 
     #endregion
 
@@ -296,8 +309,23 @@ public static class ContentItemSamples
         ContentItemLanguageMetadataModifiedByUserGuid = UserSamples.SampleAdminGuid,
         ContentItemLanguageMetadataLatestVersionStatus = VersionStatus.Published,
     };
+    
+    [Sample("webpageitem.urlpath.sample.article.WithRelations", "", "Page url path sample")]
+    public static WebPageUrlPathModel SampleArticleWebPageUrlWithRelations => new()
+    {
+        WebPageUrlPathGUID = new Guid("CCB7AF1F-57D9-405A-84FA-D0F4129A17DA"),
+        WebPageUrlPath = "en-GB/content-item-with-relations",
+        WebPageUrlPathHash = null,
+        WebPageUrlPathWebPageItemGuid = SampleArticleWebPageItemWithRelations.WebPageItemGUID,
+        WebPageUrlPathWebsiteChannelGuid = WebSiteChannelSamples.WebsiteChannelGuid,
+        WebPageUrlPathContentLanguageGuid = ContentLanguageSamples.CONTENT_LANGUAGE_ENGB_SAMPLE_GUID,
+        WebPageUrlPathIsLatest = true,
+        WebPageUrlPathIsDraft = false
+    };
 
     #endregion
+    
+
 
     [Sample("webpageitem.sample.article.WithRelations", "This sample describes how to create class inside XbyK to hold WebPage Item data with relations", "ContentItem Sample")]
     public static WebPageItemModel SampleArticleWebPageItemWithRelations => new()

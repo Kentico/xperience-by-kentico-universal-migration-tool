@@ -13,7 +13,7 @@ public static class SampleJson
                                          "Email": "admin@sample.localhost",
                                          "UserPassword": "[sample hash]",
                                          "UserEnabled": true,
-                                         "UserCreated": "1990-01-01T00:00:00",
+                                         "UserCreated": "1990-01-01T00:00:00Z",
                                          "LastLogon": null,
                                          "UserGUID": "dbfcc244-2cb9-4934-857f-9d75404c1553",
                                          "UserLastModified": null,
@@ -80,7 +80,7 @@ public static class SampleJson
                                          "ClassName": "UMT.Article",
                                          "ClassTableName": "UMT_Article",
                                          "ClassShowTemplateSelection": null,
-                                         "ClassLastModified": "2023-12-08T16:43:01.6074471\u002B01:00",
+                                         "ClassLastModified": "2024-01-08T22:55:31.7853783\u002B01:00",
                                          "ClassGUID": "06540294-3b56-4cf7-8773-088bb766ac23",
                                          "ClassContactMapping": null,
                                          "ClassContactOverwriteEnabled": null,
@@ -91,7 +91,7 @@ public static class SampleJson
                                          "ClassHasUnmanagedDbSchema": false,
                                          "ClassType": "Content",
                                          "ClassContentTypeType": "Website",
-                                         "ClassWebPageHasUrl": null,
+                                         "ClassWebPageHasUrl": true,
                                          "Fields": [
                                            {
                                              "AllowEmpty": true,
@@ -122,6 +122,44 @@ public static class SampleJson
                                              "Settings": {
                                                "ControlName": "Kentico.Administration.TextArea"
                                              }
+                                           },
+                                           {
+                                             "AllowEmpty": true,
+                                             "Column": "RelatedArticles",
+                                             "ColumnSize": 0,
+                                             "ColumnType": "webpages",
+                                             "Enabled": true,
+                                             "Guid": "4b7a3fec-ee64-4688-b441-fece563b906d",
+                                             "Visible": true,
+                                             "Properties": {
+                                               "FieldCaption": "Related articles",
+                                               "fieldcaption": "Related articles",
+                                               "fielddescriptionashtml": "False"
+                                             },
+                                             "Settings": {
+                                               "ControlName": "Kentico.Administration.WebPageSelector",
+                                               "MaximumPages": 5,
+                                               "Sortable": "False",
+                                               "TreePath": "/Articles"
+                                             }
+                                           },
+                                           {
+                                             "AllowEmpty": true,
+                                             "Column": "RelatedFaq",
+                                             "ColumnSize": 0,
+                                             "ColumnType": "contentitemreference",
+                                             "Enabled": true,
+                                             "Guid": "fc1fde10-11bf-4174-bd64-d1f114e4b421",
+                                             "Visible": true,
+                                             "Properties": {
+                                               "FieldCaption": "Related articles",
+                                               "fieldcaption": "Related Faq",
+                                               "fielddescriptionashtml": "False"
+                                             },
+                                             "Settings": {
+                                               "ControlName": "Kentico.Administration.ContentItemSelector",
+                                               "AllowedContentItemTypeIdentifiers": "[\u00227ed6604e-613b-4ce0-8c21-acfb372c416a\u0022]"
+                                             }
                                            }
                                          ]
                                        },
@@ -136,7 +174,7 @@ public static class SampleJson
                                          "ClassName": "UMT.Faq",
                                          "ClassTableName": "UMT_Faq",
                                          "ClassShowTemplateSelection": null,
-                                         "ClassLastModified": "2023-12-08T16:43:01.6074708\u002B01:00",
+                                         "ClassLastModified": "2024-01-08T22:56:07.1472943Z",
                                          "ClassGUID": "7ed6604e-613b-4ce0-8c21-acfb372c416a",
                                          "ClassContactMapping": null,
                                          "ClassContactOverwriteEnabled": null,
@@ -196,9 +234,9 @@ public static class SampleJson
                                          "ContentItemLanguageMetadataContentItemGuid": "c354427d-3d02-4876-8ed4-4de817fae929",
                                          "ContentItemLanguageMetadataDisplayName": "Language Metadata Example",
                                          "ContentItemLanguageMetadataLatestVersionStatus": 0,
-                                         "ContentItemLanguageMetadataCreatedWhen": "2023-12-06T16:43:01.6084443\u002B01:00",
+                                         "ContentItemLanguageMetadataCreatedWhen": "2024-01-06T22:55:58.3208748Z",
                                          "ContentItemLanguageMetadataCreatedByUserGuid": "95f42fd4-6a14-4e88-b214-4e136479f788",
-                                         "ContentItemLanguageMetadataModifiedWhen": "2023-12-08T16:43:01.6084543\u002B01:00",
+                                         "ContentItemLanguageMetadataModifiedWhen": "2024-01-08T22:56:01.1939486Z",
                                          "ContentItemLanguageMetadataModifiedByUserGuid": "95f42fd4-6a14-4e88-b214-4e136479f788",
                                          "ContentItemLanguageMetadataHasImageAsset": false,
                                          "ContentItemLanguageMetadataContentLanguageGuid": "f454e93b-5fe9-42a9-b1af-b572234ed9c4"
@@ -209,9 +247,9 @@ public static class SampleJson
                                          "ContentItemLanguageMetadataContentItemGuid": "c354427d-3d02-4876-8ed4-4de817fae929",
                                          "ContentItemLanguageMetadataDisplayName": "Basic Language Metadata Example",
                                          "ContentItemLanguageMetadataLatestVersionStatus": 0,
-                                         "ContentItemLanguageMetadataCreatedWhen": "2023-12-06T16:43:01.6089379\u002B01:00",
+                                         "ContentItemLanguageMetadataCreatedWhen": "2024-01-06T22:55:48.9503105Z",
                                          "ContentItemLanguageMetadataCreatedByUserGuid": null,
-                                         "ContentItemLanguageMetadataModifiedWhen": "2023-12-08T16:43:01.6089482\u002B01:00",
+                                         "ContentItemLanguageMetadataModifiedWhen": "2024-01-08T22:55:52.0392925Z",
                                          "ContentItemLanguageMetadataModifiedByUserGuid": null,
                                          "ContentItemLanguageMetadataHasImageAsset": false,
                                          "ContentItemLanguageMetadataContentLanguageGuid": "f454e93b-5fe9-42a9-b1af-b572234ed9c4"
@@ -232,7 +270,6 @@ public static class SampleJson
                                          "LibraryDisplayName": "LibraryDisplayedName",
                                          "LibraryDescription": "TestLibrary",
                                          "LibraryFolder": "TestFolder",
-                                         "LibraryAccess": null,
                                          "LibraryGUID": "e3a9c50c-2b76-4ba8-ac19-2f0aa64c47d5",
                                          "LibraryLastModified": null
                                        },
@@ -252,14 +289,13 @@ public static class SampleJson
                                          "FileImageWidth": null,
                                          "FileImageHeight": null,
                                          "FileCreatedWhen": null,
-                                         "FileModifiedWhen": null,
-                                         "FileCustomData": null
+                                         "FileModifiedWhen": null
                                        },
                                        {
                                          "$type": "ContentItem",
                                          "ContentItemGUID": "df81215e-1414-4d87-befd-ae123f4e5653",
                                          "ContentItemName": "CreationOfUmtModel",
-                                         "ContentItemIsReusable": true,
+                                         "ContentItemIsReusable": false,
                                          "ContentItemIsSecured": true,
                                          "ContentItemDataClassGuid": "06540294-3b56-4cf7-8773-088bb766ac23",
                                          "ContentItemChannelGuid": "5322a379-5b5f-4220-9383-8e3115e66cd3"
@@ -290,7 +326,9 @@ public static class SampleJson
                                          "ContentItemDataCommonDataGuid": "8f070195-2f39-463e-b7eb-c180c05fd5e0",
                                          "ContentItemContentTypeName": "UMT.Article",
                                          "ArticleTitle": "en-US UMT model creation",
-                                         "ArticleText": "This article is only example of creation UMT model for en-US language"
+                                         "ArticleText": "This article is only example of creation UMT model for en-US language",
+                                         "RelatedArticles": null,
+                                         "RelatedFaq": null
                                        },
                                        {
                                          "$type": "ContentItemData",
@@ -298,7 +336,9 @@ public static class SampleJson
                                          "ContentItemDataCommonDataGuid": "49d2caf6-2011-42d7-961d-02614d1b43f4",
                                          "ContentItemContentTypeName": "UMT.Article",
                                          "ArticleTitle": "en-GB UMT model creation",
-                                         "ArticleText": "This article is only example of creation UMT model for en-GB language"
+                                         "ArticleText": "This article is only example of creation UMT model for en-GB language",
+                                         "RelatedArticles": null,
+                                         "RelatedFaq": null
                                        },
                                        {
                                          "$type": "ContentItemLanguageMetadata",
@@ -306,7 +346,7 @@ public static class SampleJson
                                          "ContentItemLanguageMetadataContentItemGuid": "df81215e-1414-4d87-befd-ae123f4e5653",
                                          "ContentItemLanguageMetadataDisplayName": "Creation of UMT model",
                                          "ContentItemLanguageMetadataLatestVersionStatus": 2,
-                                         "ContentItemLanguageMetadataCreatedWhen": "2023-12-10T00:00:00",
+                                         "ContentItemLanguageMetadataCreatedWhen": "2023-12-10T00:00:00Z",
                                          "ContentItemLanguageMetadataCreatedByUserGuid": "dbfcc244-2cb9-4934-857f-9d75404c1553",
                                          "ContentItemLanguageMetadataModifiedWhen": null,
                                          "ContentItemLanguageMetadataModifiedByUserGuid": "dbfcc244-2cb9-4934-857f-9d75404c1553",
@@ -319,12 +359,34 @@ public static class SampleJson
                                          "ContentItemLanguageMetadataContentItemGuid": "df81215e-1414-4d87-befd-ae123f4e5653",
                                          "ContentItemLanguageMetadataDisplayName": "Creation of UMT model GB",
                                          "ContentItemLanguageMetadataLatestVersionStatus": 2,
-                                         "ContentItemLanguageMetadataCreatedWhen": "2023-12-10T00:00:00",
+                                         "ContentItemLanguageMetadataCreatedWhen": "2023-12-10T00:00:00Z",
                                          "ContentItemLanguageMetadataCreatedByUserGuid": "dbfcc244-2cb9-4934-857f-9d75404c1553",
                                          "ContentItemLanguageMetadataModifiedWhen": null,
                                          "ContentItemLanguageMetadataModifiedByUserGuid": "dbfcc244-2cb9-4934-857f-9d75404c1553",
                                          "ContentItemLanguageMetadataHasImageAsset": false,
                                          "ContentItemLanguageMetadataContentLanguageGuid": "a6c0a558-8b33-47b6-87a8-491b437c9923"
+                                       },
+                                       {
+                                         "$type": "WebPageUrlPath",
+                                         "WebPageUrlPathGUID": "2bda2458-e262-4825-b51b-5a7b345ed7bd",
+                                         "WebPageUrlPath": "en-US/creation-of-umt-model",
+                                         "WebPageUrlPathHash": null,
+                                         "WebPageUrlPathWebPageItemGuid": "6e995319-77e7-475e-9ebb-607bdbf5af9a",
+                                         "WebPageUrlPathWebsiteChannelGuid": "a6ba6fcb-9d05-4abe-afb4-74b153c90db7",
+                                         "WebPageUrlPathContentLanguageGuid": "f454e93b-5fe9-42a9-b1af-b572234ed9c4",
+                                         "WebPageUrlPathIsLatest": true,
+                                         "WebPageUrlPathIsDraft": false
+                                       },
+                                       {
+                                         "$type": "WebPageUrlPath",
+                                         "WebPageUrlPathGUID": "8083fa41-03fe-49c3-87fb-4f7c530b14cf",
+                                         "WebPageUrlPath": "en-GB/creation-of-umt-model",
+                                         "WebPageUrlPathHash": null,
+                                         "WebPageUrlPathWebPageItemGuid": "6e995319-77e7-475e-9ebb-607bdbf5af9a",
+                                         "WebPageUrlPathWebsiteChannelGuid": "a6ba6fcb-9d05-4abe-afb4-74b153c90db7",
+                                         "WebPageUrlPathContentLanguageGuid": "a6c0a558-8b33-47b6-87a8-491b437c9923",
+                                         "WebPageUrlPathIsLatest": true,
+                                         "WebPageUrlPathIsDraft": false
                                        },
                                        {
                                          "$type": "WebPageItem",
@@ -335,6 +397,127 @@ public static class SampleJson
                                          "WebPageItemWebsiteChannelGuid": "a6ba6fcb-9d05-4abe-afb4-74b153c90db7",
                                          "WebPageItemContentItemGuid": "df81215e-1414-4d87-befd-ae123f4e5653",
                                          "WebPageItemOrder": 1
+                                       },
+                                       {
+                                         "$type": "ContentItem",
+                                         "ContentItemGUID": "e09121ad-dd97-472f-b8f6-85fe5428ed6a",
+                                         "ContentItemName": "Content-item-with-relations",
+                                         "ContentItemIsReusable": false,
+                                         "ContentItemIsSecured": true,
+                                         "ContentItemDataClassGuid": "06540294-3b56-4cf7-8773-088bb766ac23",
+                                         "ContentItemChannelGuid": "5322a379-5b5f-4220-9383-8e3115e66cd3"
+                                       },
+                                       {
+                                         "$type": "ContentItemCommonData",
+                                         "ContentItemCommonDataGUID": "56f0e676-8fcc-4a5d-8b69-f6eca372b998",
+                                         "ContentItemCommonDataContentItemGuid": "e09121ad-dd97-472f-b8f6-85fe5428ed6a",
+                                         "ContentItemCommonDataContentLanguageGuid": "f454e93b-5fe9-42a9-b1af-b572234ed9c4",
+                                         "ContentItemCommonDataVersionStatus": 0,
+                                         "ContentItemCommonDataIsLatest": true,
+                                         "ContentItemCommonDataPageBuilderWidgets": null,
+                                         "ContentItemCommonDataPageTemplateConfiguration": null
+                                       },
+                                       {
+                                         "$type": "ContentItemCommonData",
+                                         "ContentItemCommonDataGUID": "a790b2d4-5ac1-4fb0-812c-2ad2171c61c9",
+                                         "ContentItemCommonDataContentItemGuid": "e09121ad-dd97-472f-b8f6-85fe5428ed6a",
+                                         "ContentItemCommonDataContentLanguageGuid": "a6c0a558-8b33-47b6-87a8-491b437c9923",
+                                         "ContentItemCommonDataVersionStatus": 2,
+                                         "ContentItemCommonDataIsLatest": true,
+                                         "ContentItemCommonDataPageBuilderWidgets": null,
+                                         "ContentItemCommonDataPageTemplateConfiguration": null
+                                       },
+                                       {
+                                         "$type": "ContentItemData",
+                                         "ContentItemDataGUID": "b6847866-12b1-4a4a-aba7-d93860102bc8",
+                                         "ContentItemDataCommonDataGuid": "56f0e676-8fcc-4a5d-8b69-f6eca372b998",
+                                         "ContentItemContentTypeName": "UMT.Article",
+                                         "ArticleTitle": "en-US UMT model creation",
+                                         "ArticleText": "This article is only example of creation UMT model for en-US language",
+                                         "RelatedArticles": "[{\u0022WebPageGuid\u0022:\u00226e995319-77e7-475e-9ebb-607bdbf5af9a\u0022}]",
+                                         "RelatedFaq": "[{\u0022Identifier\u0022:\u0022b64b3e3e-f5a9-4d02-8cdb-6d81805c0fee\u0022}]"
+                                       },
+                                       {
+                                         "$type": "ContentItemReference",
+                                         "ContentItemReferenceGUID": "186e37c6-5c55-4637-8feb-ec5cb6547aba",
+                                         "ContentItemReferenceSourceCommonDataGuid": "8f070195-2f39-463e-b7eb-c180c05fd5e0",
+                                         "ContentItemReferenceTargetItemGuid": "b64b3e3e-f5a9-4d02-8cdb-6d81805c0fee",
+                                         "ContentItemReferenceGroupGUID": "fc1fde10-11bf-4174-bd64-d1f114e4b421"
+                                       },
+                                       {
+                                         "$type": "ContentItemData",
+                                         "ContentItemDataGUID": "a80f91ff-4cfc-4e28-982a-e4a434517680",
+                                         "ContentItemDataCommonDataGuid": "a790b2d4-5ac1-4fb0-812c-2ad2171c61c9",
+                                         "ContentItemContentTypeName": "UMT.Article",
+                                         "ArticleTitle": "en-GB UMT model creation",
+                                         "ArticleText": "This article is only example of creation UMT model for en-GB language",
+                                         "RelatedArticles": "[{\u0022WebPageGuid\u0022:\u00226e995319-77e7-475e-9ebb-607bdbf5af9a\u0022}]",
+                                         "RelatedFaq": "[{\u0022Identifier\u0022:\u0022b64b3e3e-f5a9-4d02-8cdb-6d81805c0fee\u0022}]"
+                                       },
+                                       {
+                                         "$type": "ContentItemReference",
+                                         "ContentItemReferenceGUID": "e95eefe5-5b89-43ab-91c9-777be00d5680",
+                                         "ContentItemReferenceSourceCommonDataGuid": "49d2caf6-2011-42d7-961d-02614d1b43f4",
+                                         "ContentItemReferenceTargetItemGuid": "b64b3e3e-f5a9-4d02-8cdb-6d81805c0fee",
+                                         "ContentItemReferenceGroupGUID": "fc1fde10-11bf-4174-bd64-d1f114e4b421"
+                                       },
+                                       {
+                                         "$type": "ContentItemLanguageMetadata",
+                                         "ContentItemLanguageMetadataGUID": "9ec48558-4e26-4ddf-9804-fa0fbe95142d",
+                                         "ContentItemLanguageMetadataContentItemGuid": "e09121ad-dd97-472f-b8f6-85fe5428ed6a",
+                                         "ContentItemLanguageMetadataDisplayName": "Content item with relations",
+                                         "ContentItemLanguageMetadataLatestVersionStatus": 0,
+                                         "ContentItemLanguageMetadataCreatedWhen": "2023-12-10T00:00:00Z",
+                                         "ContentItemLanguageMetadataCreatedByUserGuid": "dbfcc244-2cb9-4934-857f-9d75404c1553",
+                                         "ContentItemLanguageMetadataModifiedWhen": null,
+                                         "ContentItemLanguageMetadataModifiedByUserGuid": "dbfcc244-2cb9-4934-857f-9d75404c1553",
+                                         "ContentItemLanguageMetadataHasImageAsset": false,
+                                         "ContentItemLanguageMetadataContentLanguageGuid": "f454e93b-5fe9-42a9-b1af-b572234ed9c4"
+                                       },
+                                       {
+                                         "$type": "ContentItemLanguageMetadata",
+                                         "ContentItemLanguageMetadataGUID": "8a3f1795-c0ac-4501-be4e-6fba0cd11654",
+                                         "ContentItemLanguageMetadataContentItemGuid": "e09121ad-dd97-472f-b8f6-85fe5428ed6a",
+                                         "ContentItemLanguageMetadataDisplayName": "Content item with relations en-GB",
+                                         "ContentItemLanguageMetadataLatestVersionStatus": 2,
+                                         "ContentItemLanguageMetadataCreatedWhen": "2023-12-10T00:00:00Z",
+                                         "ContentItemLanguageMetadataCreatedByUserGuid": "dbfcc244-2cb9-4934-857f-9d75404c1553",
+                                         "ContentItemLanguageMetadataModifiedWhen": null,
+                                         "ContentItemLanguageMetadataModifiedByUserGuid": "dbfcc244-2cb9-4934-857f-9d75404c1553",
+                                         "ContentItemLanguageMetadataHasImageAsset": false,
+                                         "ContentItemLanguageMetadataContentLanguageGuid": "a6c0a558-8b33-47b6-87a8-491b437c9923"
+                                       },
+                                       {
+                                         "$type": "WebPageItem",
+                                         "WebPageItemGUID": "14784bf0-69d0-40cf-8be6-e5a0d897774b",
+                                         "WebPageItemParentGuid": null,
+                                         "WebPageItemName": "ContentItemWithRelations",
+                                         "WebPageItemTreePath": "/content-item-with-relations",
+                                         "WebPageItemWebsiteChannelGuid": "a6ba6fcb-9d05-4abe-afb4-74b153c90db7",
+                                         "WebPageItemContentItemGuid": "e09121ad-dd97-472f-b8f6-85fe5428ed6a",
+                                         "WebPageItemOrder": 1
+                                       },
+                                       {
+                                         "$type": "WebPageUrlPath",
+                                         "WebPageUrlPathGUID": "ccb7af1f-57d9-405a-84fa-d0f4129a17da",
+                                         "WebPageUrlPath": "en-US/content-item-with-relations",
+                                         "WebPageUrlPathHash": null,
+                                         "WebPageUrlPathWebPageItemGuid": "14784bf0-69d0-40cf-8be6-e5a0d897774b",
+                                         "WebPageUrlPathWebsiteChannelGuid": "a6ba6fcb-9d05-4abe-afb4-74b153c90db7",
+                                         "WebPageUrlPathContentLanguageGuid": "f454e93b-5fe9-42a9-b1af-b572234ed9c4",
+                                         "WebPageUrlPathIsLatest": true,
+                                         "WebPageUrlPathIsDraft": false
+                                       },
+                                       {
+                                         "$type": "WebPageUrlPath",
+                                         "WebPageUrlPathGUID": "ccb7af1f-57d9-405a-84fa-d0f4129a17da",
+                                         "WebPageUrlPath": "en-GB/content-item-with-relations",
+                                         "WebPageUrlPathHash": null,
+                                         "WebPageUrlPathWebPageItemGuid": "14784bf0-69d0-40cf-8be6-e5a0d897774b",
+                                         "WebPageUrlPathWebsiteChannelGuid": "a6ba6fcb-9d05-4abe-afb4-74b153c90db7",
+                                         "WebPageUrlPathContentLanguageGuid": "a6c0a558-8b33-47b6-87a8-491b437c9923",
+                                         "WebPageUrlPathIsLatest": true,
+                                         "WebPageUrlPathIsDraft": false
                                        },
                                        {
                                          "$type": "ContentItem",
@@ -387,7 +570,7 @@ public static class SampleJson
                                          "ContentItemLanguageMetadataContentItemGuid": "b64b3e3e-f5a9-4d02-8cdb-6d81805c0fee",
                                          "ContentItemLanguageMetadataDisplayName": "Sample reusable FAQ",
                                          "ContentItemLanguageMetadataLatestVersionStatus": 2,
-                                         "ContentItemLanguageMetadataCreatedWhen": "2023-12-10T00:00:00",
+                                         "ContentItemLanguageMetadataCreatedWhen": "2023-12-10T00:00:00Z",
                                          "ContentItemLanguageMetadataCreatedByUserGuid": "dbfcc244-2cb9-4934-857f-9d75404c1553",
                                          "ContentItemLanguageMetadataModifiedWhen": null,
                                          "ContentItemLanguageMetadataModifiedByUserGuid": "dbfcc244-2cb9-4934-857f-9d75404c1553",
@@ -400,7 +583,7 @@ public static class SampleJson
                                          "ContentItemLanguageMetadataContentItemGuid": "b64b3e3e-f5a9-4d02-8cdb-6d81805c0fee",
                                          "ContentItemLanguageMetadataDisplayName": "Sample reusable FAQ",
                                          "ContentItemLanguageMetadataLatestVersionStatus": 2,
-                                         "ContentItemLanguageMetadataCreatedWhen": "2023-12-10T00:00:00",
+                                         "ContentItemLanguageMetadataCreatedWhen": "2023-12-10T00:00:00Z",
                                          "ContentItemLanguageMetadataCreatedByUserGuid": "dbfcc244-2cb9-4934-857f-9d75404c1553",
                                          "ContentItemLanguageMetadataModifiedWhen": null,
                                          "ContentItemLanguageMetadataModifiedByUserGuid": "dbfcc244-2cb9-4934-857f-9d75404c1553",

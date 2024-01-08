@@ -89,7 +89,10 @@ public static class SampleProvider
             ContentItemSamples.SampleArticleDataEnUsWithRelationsReference,
             ContentItemSamples.SampleArticleDataEnGbWithRelations,
             ContentItemSamples.SampleArticleDataEnGbWithRelationsReference,
-            ContentItemSamples.SampleArticleContentItemLanguageMetadataEnUsWithRelations, ContentItemSamples.SampleArticleContentItemLanguageMetadataEnGbWithRelations, ContentItemSamples.SampleArticleWebPageItemWithRelations,
+            ContentItemSamples.SampleArticleContentItemLanguageMetadataEnUsWithRelations, ContentItemSamples.SampleArticleContentItemLanguageMetadataEnGbWithRelations,
+            ContentItemSamples.SampleArticleWebPageItemWithRelations,
+            ContentItemSamples.SampleArticleWebPageUrlWithRelationsEnUs,
+            ContentItemSamples.SampleArticleWebPageUrlWithRelations
         });
 
         // sample reusable content item

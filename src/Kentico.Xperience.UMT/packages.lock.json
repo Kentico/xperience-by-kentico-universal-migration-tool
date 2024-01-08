@@ -4,9 +4,9 @@
     "net8.0": {
       "Kentico.Xperience.Core": {
         "type": "Direct",
-        "requested": "[28.0.1, )",
-        "resolved": "28.0.1",
-        "contentHash": "hdbe/sUP3W7TZHpuiitioPw4Q2qZ4uf96YMcXBcAK7q0IDMhJUh7yNCQ0WSTlPmJ23S/Io7xVDPu81TyYXi2XA==",
+        "requested": "[28.0.3, )",
+        "resolved": "28.0.3",
+        "contentHash": "Nwxpv42OK5G8blrm8zdLNqTh4UcQ7YYv26dS6xdDc0q5m3FkRAMp12/rRgo3IOrEOwxsaUdWWMyOWhM5CcEZvw==",
         "dependencies": {
           "AngleSharp": "0.17.1",
           "MailKit": "4.2.0",
