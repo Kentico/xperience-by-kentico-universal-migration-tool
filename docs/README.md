@@ -10,8 +10,8 @@
 
 Installation and usage samples:
 
-- [Console application](../src/Examples/Kentico.Xperience.UMT.Example.Console/)
-- [Administration plugin](../src/Examples/Kentico.Xperience.UMT.Example.AdminApp/)
+- [Console application](../examples/Kentico.Xperience.UMT.Example.Console/)
+- [Administration plugin](../examples/Kentico.Xperience.UMT.Example.AdminApp/)
 
 ## Usage
 
