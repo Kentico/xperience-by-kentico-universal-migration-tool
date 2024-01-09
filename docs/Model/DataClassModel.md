@@ -123,7 +123,7 @@ This sample describes how to create class inside XbyK to hold Article data
   "ClassName": "UMT.Event",
   "ClassTableName": "UMT_Event",
   "ClassLastModified": "2024-01-08T22:56:12.2515785Z",
-  "ClassGUID": "025bbadb-41cf-4033-9b53-73ec917be110",
+  "ClassGUID": "4712c000-4d63-4333-8708-990603f73a1e",
   "ClassResourceGuid": "ff8285c1-9d1a-49b3-8c9d-7502e1e533f7",
   "ClassHasUnmanagedDbSchema": false,
   "ClassType": "Content",

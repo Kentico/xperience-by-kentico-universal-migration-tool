@@ -293,6 +293,77 @@ public static class SampleJson
                                        },
                                        {
                                          "$type": "ContentItem",
+                                         "ContentItemGUID": "b64b3e3e-f5a9-4d02-8cdb-6d81805c0fee",
+                                         "ContentItemName": "SampleReusableFaq",
+                                         "ContentItemIsReusable": true,
+                                         "ContentItemIsSecured": true,
+                                         "ContentItemDataClassGuid": "7ed6604e-613b-4ce0-8c21-acfb372c416a",
+                                         "ContentItemChannelGuid": null
+                                       },
+                                       {
+                                         "$type": "ContentItemCommonData",
+                                         "ContentItemCommonDataGUID": "2b1987bf-680b-48c0-85ce-47ff9fde24c7",
+                                         "ContentItemCommonDataContentItemGuid": "b64b3e3e-f5a9-4d02-8cdb-6d81805c0fee",
+                                         "ContentItemCommonDataContentLanguageGuid": "f454e93b-5fe9-42a9-b1af-b572234ed9c4",
+                                         "ContentItemCommonDataVersionStatus": 2,
+                                         "ContentItemCommonDataIsLatest": true,
+                                         "ContentItemCommonDataPageBuilderWidgets": null,
+                                         "ContentItemCommonDataPageTemplateConfiguration": null
+                                       },
+                                       {
+                                         "$type": "ContentItemCommonData",
+                                         "ContentItemCommonDataGUID": "96016b05-b3d3-42f9-b5aa-71e2f816eb8f",
+                                         "ContentItemCommonDataContentItemGuid": "b64b3e3e-f5a9-4d02-8cdb-6d81805c0fee",
+                                         "ContentItemCommonDataContentLanguageGuid": "a6c0a558-8b33-47b6-87a8-491b437c9923",
+                                         "ContentItemCommonDataVersionStatus": 2,
+                                         "ContentItemCommonDataIsLatest": true,
+                                         "ContentItemCommonDataPageBuilderWidgets": null,
+                                         "ContentItemCommonDataPageTemplateConfiguration": null
+                                       },
+                                       {
+                                         "$type": "ContentItemData",
+                                         "ContentItemDataGUID": "d29e7c59-09d5-443c-999d-063ba62e5f97",
+                                         "ContentItemDataCommonDataGuid": "2b1987bf-680b-48c0-85ce-47ff9fde24c7",
+                                         "ContentItemContentTypeName": "UMT.Faq",
+                                         "FaqQuestion": "en-US FAQ question text",
+                                         "FaqAnswer": "en-US FAQ answer text"
+                                       },
+                                       {
+                                         "$type": "ContentItemData",
+                                         "ContentItemDataGUID": "93269639-1c4a-48b8-b367-0da00268eeb0",
+                                         "ContentItemDataCommonDataGuid": "96016b05-b3d3-42f9-b5aa-71e2f816eb8f",
+                                         "ContentItemContentTypeName": "UMT.Faq",
+                                         "FaqQuestion": "en-GB FAQ question text",
+                                         "FaqAnswer": "en-GB FAQ answer text"
+                                       },
+                                       {
+                                         "$type": "ContentItemLanguageMetadata",
+                                         "ContentItemLanguageMetadataGUID": "46353800-21b8-48f6-8681-b19966f4b6eb",
+                                         "ContentItemLanguageMetadataContentItemGuid": "b64b3e3e-f5a9-4d02-8cdb-6d81805c0fee",
+                                         "ContentItemLanguageMetadataDisplayName": "Sample reusable FAQ",
+                                         "ContentItemLanguageMetadataLatestVersionStatus": 2,
+                                         "ContentItemLanguageMetadataCreatedWhen": "2023-12-10T00:00:00Z",
+                                         "ContentItemLanguageMetadataCreatedByUserGuid": "dbfcc244-2cb9-4934-857f-9d75404c1553",
+                                         "ContentItemLanguageMetadataModifiedWhen": null,
+                                         "ContentItemLanguageMetadataModifiedByUserGuid": "dbfcc244-2cb9-4934-857f-9d75404c1553",
+                                         "ContentItemLanguageMetadataHasImageAsset": false,
+                                         "ContentItemLanguageMetadataContentLanguageGuid": "f454e93b-5fe9-42a9-b1af-b572234ed9c4"
+                                       },
+                                       {
+                                         "$type": "ContentItemLanguageMetadata",
+                                         "ContentItemLanguageMetadataGUID": "b15b3d9f-0cb1-405a-bc04-a069daecf72d",
+                                         "ContentItemLanguageMetadataContentItemGuid": "b64b3e3e-f5a9-4d02-8cdb-6d81805c0fee",
+                                         "ContentItemLanguageMetadataDisplayName": "Sample reusable FAQ",
+                                         "ContentItemLanguageMetadataLatestVersionStatus": 2,
+                                         "ContentItemLanguageMetadataCreatedWhen": "2023-12-10T00:00:00Z",
+                                         "ContentItemLanguageMetadataCreatedByUserGuid": "dbfcc244-2cb9-4934-857f-9d75404c1553",
+                                         "ContentItemLanguageMetadataModifiedWhen": null,
+                                         "ContentItemLanguageMetadataModifiedByUserGuid": "dbfcc244-2cb9-4934-857f-9d75404c1553",
+                                         "ContentItemLanguageMetadataHasImageAsset": false,
+                                         "ContentItemLanguageMetadataContentLanguageGuid": "a6c0a558-8b33-47b6-87a8-491b437c9923"
+                                       },
+                                       {
+                                         "$type": "ContentItem",
                                          "ContentItemGUID": "df81215e-1414-4d87-befd-ae123f4e5653",
                                          "ContentItemName": "CreationOfUmtModel",
                                          "ContentItemIsReusable": false,
@@ -499,7 +570,7 @@ public static class SampleJson
                                        },
                                        {
                                          "$type": "WebPageUrlPath",
-                                         "WebPageUrlPathGUID": "ccb7af1f-57d9-405a-84fa-d0f4129a17da",
+                                         "WebPageUrlPathGUID": "c0f97ba5-7a64-4309-8d58-6054fc90ac66",
                                          "WebPageUrlPath": "en-US/content-item-with-relations",
                                          "WebPageUrlPathHash": null,
                                          "WebPageUrlPathWebPageItemGuid": "14784bf0-69d0-40cf-8be6-e5a0d897774b",
@@ -518,77 +589,6 @@ public static class SampleJson
                                          "WebPageUrlPathContentLanguageGuid": "a6c0a558-8b33-47b6-87a8-491b437c9923",
                                          "WebPageUrlPathIsLatest": true,
                                          "WebPageUrlPathIsDraft": false
-                                       },
-                                       {
-                                         "$type": "ContentItem",
-                                         "ContentItemGUID": "b64b3e3e-f5a9-4d02-8cdb-6d81805c0fee",
-                                         "ContentItemName": "SampleReusableFaq",
-                                         "ContentItemIsReusable": true,
-                                         "ContentItemIsSecured": true,
-                                         "ContentItemDataClassGuid": "7ed6604e-613b-4ce0-8c21-acfb372c416a",
-                                         "ContentItemChannelGuid": null
-                                       },
-                                       {
-                                         "$type": "ContentItemCommonData",
-                                         "ContentItemCommonDataGUID": "2b1987bf-680b-48c0-85ce-47ff9fde24c7",
-                                         "ContentItemCommonDataContentItemGuid": "b64b3e3e-f5a9-4d02-8cdb-6d81805c0fee",
-                                         "ContentItemCommonDataContentLanguageGuid": "f454e93b-5fe9-42a9-b1af-b572234ed9c4",
-                                         "ContentItemCommonDataVersionStatus": 2,
-                                         "ContentItemCommonDataIsLatest": true,
-                                         "ContentItemCommonDataPageBuilderWidgets": null,
-                                         "ContentItemCommonDataPageTemplateConfiguration": null
-                                       },
-                                       {
-                                         "$type": "ContentItemCommonData",
-                                         "ContentItemCommonDataGUID": "96016b05-b3d3-42f9-b5aa-71e2f816eb8f",
-                                         "ContentItemCommonDataContentItemGuid": "b64b3e3e-f5a9-4d02-8cdb-6d81805c0fee",
-                                         "ContentItemCommonDataContentLanguageGuid": "a6c0a558-8b33-47b6-87a8-491b437c9923",
-                                         "ContentItemCommonDataVersionStatus": 2,
-                                         "ContentItemCommonDataIsLatest": true,
-                                         "ContentItemCommonDataPageBuilderWidgets": null,
-                                         "ContentItemCommonDataPageTemplateConfiguration": null
-                                       },
-                                       {
-                                         "$type": "ContentItemData",
-                                         "ContentItemDataGUID": "d29e7c59-09d5-443c-999d-063ba62e5f97",
-                                         "ContentItemDataCommonDataGuid": "2b1987bf-680b-48c0-85ce-47ff9fde24c7",
-                                         "ContentItemContentTypeName": "UMT.Faq",
-                                         "FaqQuestion": "en-US FAQ question text",
-                                         "FaqAnswer": "en-US FAQ answer text"
-                                       },
-                                       {
-                                         "$type": "ContentItemData",
-                                         "ContentItemDataGUID": "93269639-1c4a-48b8-b367-0da00268eeb0",
-                                         "ContentItemDataCommonDataGuid": "96016b05-b3d3-42f9-b5aa-71e2f816eb8f",
-                                         "ContentItemContentTypeName": "UMT.Faq",
-                                         "FaqQuestion": "en-GB FAQ question text",
-                                         "FaqAnswer": "en-GB FAQ answer text"
-                                       },
-                                       {
-                                         "$type": "ContentItemLanguageMetadata",
-                                         "ContentItemLanguageMetadataGUID": "46353800-21b8-48f6-8681-b19966f4b6eb",
-                                         "ContentItemLanguageMetadataContentItemGuid": "b64b3e3e-f5a9-4d02-8cdb-6d81805c0fee",
-                                         "ContentItemLanguageMetadataDisplayName": "Sample reusable FAQ",
-                                         "ContentItemLanguageMetadataLatestVersionStatus": 2,
-                                         "ContentItemLanguageMetadataCreatedWhen": "2023-12-10T00:00:00Z",
-                                         "ContentItemLanguageMetadataCreatedByUserGuid": "dbfcc244-2cb9-4934-857f-9d75404c1553",
-                                         "ContentItemLanguageMetadataModifiedWhen": null,
-                                         "ContentItemLanguageMetadataModifiedByUserGuid": "dbfcc244-2cb9-4934-857f-9d75404c1553",
-                                         "ContentItemLanguageMetadataHasImageAsset": false,
-                                         "ContentItemLanguageMetadataContentLanguageGuid": "f454e93b-5fe9-42a9-b1af-b572234ed9c4"
-                                       },
-                                       {
-                                         "$type": "ContentItemLanguageMetadata",
-                                         "ContentItemLanguageMetadataGUID": "b15b3d9f-0cb1-405a-bc04-a069daecf72d",
-                                         "ContentItemLanguageMetadataContentItemGuid": "b64b3e3e-f5a9-4d02-8cdb-6d81805c0fee",
-                                         "ContentItemLanguageMetadataDisplayName": "Sample reusable FAQ",
-                                         "ContentItemLanguageMetadataLatestVersionStatus": 2,
-                                         "ContentItemLanguageMetadataCreatedWhen": "2023-12-10T00:00:00Z",
-                                         "ContentItemLanguageMetadataCreatedByUserGuid": "dbfcc244-2cb9-4934-857f-9d75404c1553",
-                                         "ContentItemLanguageMetadataModifiedWhen": null,
-                                         "ContentItemLanguageMetadataModifiedByUserGuid": "dbfcc244-2cb9-4934-857f-9d75404c1553",
-                                         "ContentItemLanguageMetadataHasImageAsset": false,
-                                         "ContentItemLanguageMetadataContentLanguageGuid": "a6c0a558-8b33-47b6-87a8-491b437c9923"
                                        }
                                      ]
                                      """;

@@ -63,6 +63,21 @@ public static class SampleProvider
             AssetSamples.SampleMediaLibrary,
             AssetSamples.SampleMediaFile
         };
+        
+        // sample reusable content item
+        sourceData.AddRange(new IUmtModel[]
+        {
+            ContentItemSamples.SampleFaqContentItem,
+    
+            ContentItemSamples.SampleFaqContentItemCommonDataEnUs,
+            ContentItemSamples.SampleFaqContentItemCommonDataEnGb,
+    
+            ContentItemSamples.SampleFaqDataEnUs,
+            ContentItemSamples.SampleFaqDataEnGb,
+    
+            ContentItemSamples.SampleFaqContentItemLanguageMetadataEnUs,
+            ContentItemSamples.SampleFaqContentItemLanguageMetadataEnGb,
+        });
 
         // sample website content item
         sourceData.AddRange(new IUmtModel[]
@@ -95,20 +110,7 @@ public static class SampleProvider
             ContentItemSamples.SampleArticleWebPageUrlWithRelations
         });
 
-        // sample reusable content item
-        sourceData.AddRange(new IUmtModel[]
-        {
-            ContentItemSamples.SampleFaqContentItem,
-    
-            ContentItemSamples.SampleFaqContentItemCommonDataEnUs,
-            ContentItemSamples.SampleFaqContentItemCommonDataEnGb,
-    
-            ContentItemSamples.SampleFaqDataEnUs,
-            ContentItemSamples.SampleFaqDataEnGb,
-    
-            ContentItemSamples.SampleFaqContentItemLanguageMetadataEnUs,
-            ContentItemSamples.SampleFaqContentItemLanguageMetadataEnGb,
-        });
+        
         return sourceData;
     }
 }

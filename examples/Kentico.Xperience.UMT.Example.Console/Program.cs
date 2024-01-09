@@ -1,9 +1,7 @@
 ﻿#pragma warning disable S1135 // this is sample, todos are here for end user
 // See https://aka.ms/new-console-template for more information
 
-using System.Text;
 using System.Text.Json;
-using CMS.ContentEngine;
 using CMS.Core;
 using CMS.DataEngine;
 using Kentico.Xperience.UMT;

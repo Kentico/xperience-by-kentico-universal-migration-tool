@@ -177,7 +177,7 @@ public static class DataClassSamples
         ClassName = "UMT.Event",
         ClassType = ClassType.CONTENT_TYPE,
         ClassContentTypeType = ClassContentTypeType.REUSABLE,
-        ClassGUID = Guid.NewGuid(),
+        ClassGUID = new Guid("4712C000-4D63-4333-8708-990603F73A1E"),
         ClassLastModified = new DateTime(638403513722515785L, DateTimeKind.Utc),
         ClassResourceGuid = new Guid("FF8285C1-9D1A-49B3-8C9D-7502E1E533F7"),
         ClassDisplayName = "Event",
