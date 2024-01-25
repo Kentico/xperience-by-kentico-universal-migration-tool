@@ -13,6 +13,7 @@ public interface IProviderProxy
     List<BaseInfo> GetInfoByKeys(IUmtModel model, List<(string columnName, object? value)> filters);
     BaseInfo? GetBaseInfoByGuid(Guid guid, IUmtModel model);
     BaseInfo? GetBaseInfoBy(Guid guid, string searchedField, IUmtModel model);
+    BaseInfo? GetBaseInfoByCodeName(string codeName, IUmtModel model);
     
     BaseInfo Save(BaseInfo info, IUmtModel model);
     
@@ -61,6 +62,8 @@ internal class ContentItemDataProxy(IProviderProxyContext context) : IProviderPr
         var provider = GetProviderOrThrow(model);
         return provider.Get().WhereEquals(searchedField, guid).FirstOrDefault();
     }
+
+    public BaseInfo? GetBaseInfoByCodeName(string codeName, IUmtModel model) => throw new InvalidOperationException("Content item data has no CodeName column");
 
     public BaseInfo Save(BaseInfo info, IUmtModel model)
     {
@@ -115,6 +118,7 @@ internal class ProviderProxy<TInfo> : IProviderProxy where TInfo : AbstractInfoB
     public BaseInfo? GetInfoBy(Guid guid, string searchedField, IUmtModel model) => ProviderInstance.Get().Where(searchedField, QueryOperator.Like, guid).FirstOrDefault();
 
     public BaseInfo? GetBaseInfoBy(Guid guid, string searchedField, IUmtModel model) => GetInfoBy(guid, searchedField, model);
+    public BaseInfo? GetBaseInfoByCodeName(string? codeName, IUmtModel model) => ProviderInstance.Get().WithCodeName(codeName).FirstOrDefault();
 
     public virtual TInfo Save(TInfo info, IUmtModel model)
     {

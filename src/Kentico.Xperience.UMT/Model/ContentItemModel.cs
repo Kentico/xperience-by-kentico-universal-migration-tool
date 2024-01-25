@@ -30,8 +30,7 @@ public class ContentItemModel : UmtModel
     public bool? ContentItemIsReusable { get; set; }
 
     [Map]
-    [Required]
-    public bool? ContentItemIsSecured { get; set; }
+    public bool? ContentItemIsSecured { get; set; } = false;
 
     [ReferenceProperty(typeof(DataClassInfo), "ContentItemContentTypeID", IsRequired = false)]
     public Guid? ContentItemDataClassGuid { get; set; }

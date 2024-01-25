@@ -34,17 +34,17 @@ public class ContentItemCommonDataModel: UmtModel
 
     [Map]
     [Required]
-    public VersionStatus? ContentItemCommonDataVersionStatus { get; set; }
+    public VersionStatus? ContentItemCommonDataVersionStatus { get; set; } = VersionStatus.InitialDraft;
 
     [Map]
     [Required]
-    public bool? ContentItemCommonDataIsLatest { get; set; }
+    public bool? ContentItemCommonDataIsLatest { get; set; } = true;
 
     [Map]
-    public string? ContentItemCommonDataPageBuilderWidgets { get; set; }
+    public string? ContentItemCommonDataPageBuilderWidgets { get; set; } = null;
 
     [Map]
-    public string? ContentItemCommonDataPageTemplateConfiguration { get; set; }
+    public string? ContentItemCommonDataPageTemplateConfiguration { get; set; } = null;
 
 
     protected override (Guid? uniqueId, string? name, string? displayName) GetPrintArgs() => (ContentItemCommonDataGUID, NOT_AVAILABLE, NOT_AVAILABLE);

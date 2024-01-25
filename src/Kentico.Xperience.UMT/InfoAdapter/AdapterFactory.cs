@@ -1,5 +1,7 @@
 ﻿using CMS.ContentEngine;
 using CMS.ContentEngine.Internal;
+using CMS.Core;
+using CMS.Core.Internal;
 using CMS.DataEngine;
 using CMS.EmailLibrary;
 using CMS.MediaLibrary;
@@ -45,6 +47,9 @@ internal class AdapterFactory
             DataClassModel => new DataClassAdapter(loggerFactory.CreateLogger<DataClassAdapter>(), modelService, providerProxyFactory.CreateProviderProxy<DataClassInfo>(providerProxyContext), providerProxyFactory),
             ContentTypeChannelModel => new GenericInfoAdapter<ContentTypeChannelInfo>(loggerFactory.CreateLogger<GenericInfoAdapter<ContentTypeChannelInfo>>(), modelService, providerProxyFactory.CreateProviderProxy<ContentTypeChannelInfo>(providerProxyContext), providerProxyFactory),
             ContentItemReferenceModel => new GenericInfoAdapter<ContentItemReferenceInfo>(loggerFactory.CreateLogger<GenericInfoAdapter<ContentItemReferenceInfo>>(), modelService, providerProxyFactory.CreateProviderProxy<ContentItemReferenceInfo>(providerProxyContext), providerProxyFactory),
+            
+            // macro models
+            ContentItemSimplifiedModel => new ContentItemSimplifiedAdapter(loggerFactory.CreateLogger<ContentItemSimplifiedAdapter>(), providerProxyFactory.CreateProviderProxy<ContentItemInfo>(providerProxyContext), providerProxyFactory, Service.Resolve<IDateTimeNowService>(), this),
             _ => null,
         };
 }

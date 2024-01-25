@@ -1,4 +1,5 @@
-﻿using CMS.MediaLibrary;
+﻿using CMS.Base;
+using CMS.MediaLibrary;
 using Kentico.Xperience.UMT.Model;
 using Kentico.Xperience.UMT.ProviderProxy;
 using Kentico.Xperience.UMT.Services.Model;
@@ -8,6 +9,8 @@ namespace Kentico.Xperience.UMT.InfoAdapter;
 
 internal class MediaFileAdapter : GenericInfoAdapter<MediaFileInfo>
 {
+    private static readonly Lazy<HttpClient> httpClient = new(() => new HttpClient());
+    
     public MediaFileAdapter(ILogger<MediaFileAdapter> logger, UmtModelService modelService, IProviderProxy providerProxy, IProviderProxyFactory providerProxyFactory) : base(logger, modelService, providerProxy, providerProxyFactory)
     {
     }
@@ -17,9 +20,10 @@ internal class MediaFileAdapter : GenericInfoAdapter<MediaFileInfo>
         MediaFileInfo mediaFileInfo;
 
         var model = (MediaFileModel)umtModel;
-        if (!File.Exists(model.DataSourcePath))
+        
+        if (!File.Exists(model.DataSourcePath) && model.DataSourceUrl == null)
         {
-#pragma warning disable S125 // temporarily unsupported, support for media file import without binary information will be unlock if there is demand 
+#pragma warning disable S125 // temporarily unsupported, support for media file import without binary information will be unlocked if there is demand 
             // mediaFileInfo = new MediaFileInfo();
             // mediaFileInfo.SaveFileToDisk(false);
             // return mediaFileInfo;
@@ -27,25 +31,50 @@ internal class MediaFileAdapter : GenericInfoAdapter<MediaFileInfo>
             throw new InvalidOperationException($"File '{model.DataSourcePath}' not found");
         }
 
-        var memoryStream = new MemoryStream();
-        var fileStream = new FileStream(model.DataSourcePath!, FileMode.Open, FileAccess.Read);
-        fileStream.CopyTo(memoryStream);
-        fileStream.Dispose();
+        string? fileNameWext = Path.GetFileNameWithoutExtension(model.FileName);
+        string? fileExt = model.FileExtension ?? Path.GetExtension(model.FileName);
+        
+        IUploadedFile? uploadedFile = null;
+        if (!string.IsNullOrWhiteSpace(model.DataSourcePath))
+        {
+            var memoryStream = new MemoryStream();
+            var fileStream = new FileStream(model.DataSourcePath!, FileMode.Open, FileAccess.Read);
+            fileStream.CopyTo(memoryStream);
+            fileStream.Dispose();
 
-        memoryStream.Position = 0;
+            memoryStream.Position = 0;
 
-        var uploadedFile = UploadedFile.FromStream(memoryStream, memoryStream.Length, model.DataSourcePath!);
+            uploadedFile = UploadedFile.FromStream(memoryStream, memoryStream.Length, $"{fileNameWext}.{fileExt?.Trim('.')}");    
+        }
+
+        if (!string.IsNullOrWhiteSpace(model.DataSourceUrl))
+        {
+            var memoryStream = new MemoryStream();
+            var stream = Task.Run(() => httpClient.Value.GetStreamAsync(model.DataSourceUrl)).GetAwaiter().GetResult();
+            stream.CopyTo(memoryStream);
+            stream.Dispose();
+
+            memoryStream.Position = 0;
+            uploadedFile = UploadedFile.FromStream(memoryStream, memoryStream.Length, $"{fileNameWext}.{fileExt?.Trim('.')}");    
+        }
+
+        if (uploadedFile == null)
+        {
+            throw new InvalidOperationException("File download failed");
+        }
+
+        var mediaLibrary = MediaLibraryInfoProvider.ProviderObject.Get(model.FileLibraryGuid!.Value);
+        MediaLibraryInfoProvider.CreateMediaLibraryFolder(mediaLibrary.LibraryID, Path.GetDirectoryName(model.FilePath));
+        
         mediaFileInfo = new MediaFileInfo(uploadedFile, 0);
-
         mediaFileInfo.SaveFileToDisk(true);
-
         return mediaFileInfo;
     }
 
     protected override MediaFileInfo MapProperties(IUmtModel umtModel, MediaFileInfo current)
     {
         var mediaModel = (MediaFileModel)umtModel;
-
+        
         var model = new MediaFileModel()
         {
             FileGUID = mediaModel.FileGUID,

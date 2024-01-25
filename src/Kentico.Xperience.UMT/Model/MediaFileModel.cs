@@ -9,13 +9,15 @@ namespace Kentico.Xperience.UMT.Model;
 /// <summary>
 /// 
 /// </summary>
-/// <sample>mediafile.sample</sample>
+/// <sample>mediafile.sample.fromdisk</sample>
+/// <sample>mediafile.sample.fromurl</sample>
 [UmtModel(DISCRIMINATOR)]
 public class MediaFileModel : UmtModel
 {
     public const string DISCRIMINATOR = "Media_File";
 
     public string? DataSourcePath { get; set; }
+    public string? DataSourceUrl { get; set; }
 
     [Map]
     [Required]

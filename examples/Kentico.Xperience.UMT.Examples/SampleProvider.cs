@@ -61,7 +61,8 @@ public static class SampleProvider
             WebPageContentItemSamples.SampleWebPageItem,
 
             AssetSamples.SampleMediaLibrary,
-            AssetSamples.SampleMediaFile
+            AssetSamples.SampleMediaFile,
+            AssetSamples.SampleMediaFileFromUri
         };
         
         // sample reusable content item
@@ -109,7 +110,9 @@ public static class SampleProvider
             ContentItemSamples.SampleArticleWebPageUrlWithRelationsEnUs,
             ContentItemSamples.SampleArticleWebPageUrlWithRelations
         });
-
+        
+        sourceData.Add(ContentItemSimplifiedSamples.SampleArticleContentItemSimplifiedModel);
+        sourceData.Add(ContentItemSimplifiedSamples.SampleFaqContentItemSimplifiedModel);
         
         return sourceData;
     }
