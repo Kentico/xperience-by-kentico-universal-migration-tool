@@ -10,27 +10,22 @@ using CMS.Websites;
 using CMS.Websites.Internal;
 using Kentico.Xperience.UMT.Model;
 using Kentico.Xperience.UMT.ProviderProxy;
-using Microsoft.Extensions.Logging;
 
 namespace Kentico.Xperience.UMT.InfoAdapter;
 
 public class ContentItemSimplifiedAdapter : IInfoAdapter<ContentItemInfo, IUmtModel>
 {
-    private readonly ILogger<ContentItemSimplifiedAdapter> logger;
     private readonly IProviderProxyFactory providerProxyFactory;
     private readonly IDateTimeNowService dateTimeNowService;
     private readonly AdapterFactory adapterFactory;
     public IProviderProxy ProviderProxy { get; }
 
-    internal ContentItemSimplifiedAdapter(
-        ILogger<ContentItemSimplifiedAdapter> logger,
-        IProviderProxy providerProxy,
+    internal ContentItemSimplifiedAdapter(IProviderProxy providerProxy,
         IProviderProxyFactory providerProxyFactory,
         IDateTimeNowService dateTimeNowService,
         AdapterFactory adapterFactory
     )
     {
-        this.logger = logger;
         this.providerProxyFactory = providerProxyFactory;
         this.dateTimeNowService = dateTimeNowService;
         this.adapterFactory = adapterFactory;
@@ -216,7 +211,9 @@ public class ContentItemSimplifiedAdapter : IInfoAdapter<ContentItemInfo, IUmtMo
                 var webPageItemInfo = (WebPageItemInfo)adapter.Adapt(webPageItemModel);
                 adapter.ProviderProxy.Save(webPageItemInfo, webPageItemModel);
 
-                foreach (var pu in pageData.PageUrls ?? throw new ArgumentNullException(nameof(pageData.PageUrls)))
+                var urls = pageData.PageUrls ?? [];
+                
+                foreach (var pu in urls)
                 {
                     ArgumentException.ThrowIfNullOrWhiteSpace(pu.LanguageName);
                     var contentLanguageInfo = contentLanguageProxy.GetBaseInfoByCodeName(pu.LanguageName, null!) as ContentLanguageInfo;

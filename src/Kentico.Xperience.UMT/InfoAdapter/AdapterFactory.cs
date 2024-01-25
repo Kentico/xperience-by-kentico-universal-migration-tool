@@ -49,7 +49,7 @@ internal class AdapterFactory
             ContentItemReferenceModel => new GenericInfoAdapter<ContentItemReferenceInfo>(loggerFactory.CreateLogger<GenericInfoAdapter<ContentItemReferenceInfo>>(), modelService, providerProxyFactory.CreateProviderProxy<ContentItemReferenceInfo>(providerProxyContext), providerProxyFactory),
             
             // macro models
-            ContentItemSimplifiedModel => new ContentItemSimplifiedAdapter(loggerFactory.CreateLogger<ContentItemSimplifiedAdapter>(), providerProxyFactory.CreateProviderProxy<ContentItemInfo>(providerProxyContext), providerProxyFactory, Service.Resolve<IDateTimeNowService>(), this),
+            ContentItemSimplifiedModel => new ContentItemSimplifiedAdapter(providerProxyFactory.CreateProviderProxy<ContentItemInfo>(providerProxyContext), providerProxyFactory, Service.Resolve<IDateTimeNowService>(), this),
             _ => null,
         };
 }

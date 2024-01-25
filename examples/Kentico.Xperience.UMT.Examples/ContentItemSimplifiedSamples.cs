@@ -3,7 +3,7 @@ using Kentico.Xperience.UMT.Model;
 
 namespace Kentico.Xperience.UMT.Examples;
 
-public class ContentItemSimplifiedSamples
+public static class ContentItemSimplifiedSamples
 {
     public static readonly Guid SampleArticleContentItemGuid = new Guid("37C3F5DD-6F2A-4EFF-B46E-A36EDDEBF572");
     public static readonly Guid SampleFaqContentItemGuid = new Guid("F9CB9484-CE90-460F-A5C8-AD953E2B9286");
