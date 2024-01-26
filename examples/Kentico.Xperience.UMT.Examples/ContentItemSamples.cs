@@ -32,7 +32,7 @@ public static class ContentItemSamples
         ContentItemGUID = SampleArticleContentItemGuid,
         ContentItemChannelGuid = ChannelSamples.WEBSITE_CHANNEL_SAMPLE_GUID,
         ContentItemDataClassGuid = DataClassSamples.ARTICLE_SAMPLE_GUID,
-        ContentItemIsSecured = true,
+        // ContentItemIsSecured = true,
         ContentItemIsReusable = false,
         ContentItemName = "CreationOfUmtModel"
     };

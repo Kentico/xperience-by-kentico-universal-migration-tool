@@ -7,7 +7,7 @@ Model [discriminator](../UmtModel.md#discriminator): `ContentItem`
 |ContentItemGUID\*||System.Guid?|[UniqueId](../UmtModel.md#UniqueId)|
 |ContentItemName\*||string?||
 |ContentItemIsReusable\*||bool?||
-|ContentItemIsSecured\*||bool?||
+|ContentItemIsSecured||bool?||
 |ContentItemDataClassGuid||System.Guid?|Reference to [DataClassInfo](../References.md#DataClassInfo) on property ContentItemContentTypeID|
 |ContentItemChannelGuid||System.Guid?|Reference to [ChannelInfo](../References.md#ChannelInfo) on property ContentItemChannelID|
 |[customPropertyName]|custom property defined by created [DataClass](./DataClassModel.md)|.NET type defined by data class field||
@@ -23,7 +23,7 @@ This sample describes how to create content item data inside XbyK
   "ContentItemGUID": "df81215e-1414-4d87-befd-ae123f4e5653",
   "ContentItemName": "CreationOfUmtModel",
   "ContentItemIsReusable": false,
-  "ContentItemIsSecured": true,
+  "ContentItemIsSecured": false,
   "ContentItemDataClassGuid": "06540294-3b56-4cf7-8773-088bb766ac23",
   "ContentItemChannelGuid": "5322a379-5b5f-4220-9383-8e3115e66cd3"
 }

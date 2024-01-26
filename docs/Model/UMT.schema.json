@@ -293,8 +293,7 @@
           "required": [
             "ContentItemGUID",
             "ContentItemName",
-            "ContentItemIsReusable",
-            "ContentItemIsSecured"
+            "ContentItemIsReusable"
           ],
           "properties": {
             "ContentItemGUID": {
@@ -310,7 +309,10 @@
               "type": "boolean"
             },
             "ContentItemIsSecured": {
-              "type": "boolean"
+              "type": [
+                "boolean",
+                "null"
+              ]
             },
             "ContentItemDataClassGuid": {
               "type": [
@@ -721,6 +723,12 @@
           ],
           "properties": {
             "DataSourcePath": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "DataSourceUrl": {
               "type": [
                 "null",
                 "string"

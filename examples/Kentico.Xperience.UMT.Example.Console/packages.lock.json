@@ -2,6 +2,17 @@
   "version": 2,
   "dependencies": {
     "net8.0": {
+      "Kentico.Xperience.ImageProcessing": {
+        "type": "Direct",
+        "requested": "[28.0.3, )",
+        "resolved": "28.0.3",
+        "contentHash": "zW7lczy08zJUxv18qy3EN6d64lOYFFTorOWYJVi0UGxWwDUyPB3D0rHU/v6VLpB+Z430le8P5dCwSEWqX+HweQ==",
+        "dependencies": {
+          "Kentico.Xperience.Core": "28.0.3",
+          "SkiaSharp": "2.88.6",
+          "SkiaSharp.NativeAssets.Linux.NoDependencies": "2.88.6"
+        }
+      },
       "Microsoft.Extensions.Configuration.Json": {
         "type": "Direct",
         "requested": "[8.0.0, )",
@@ -398,6 +409,33 @@
         "type": "Transitive",
         "resolved": "13.0.3",
         "contentHash": "HrC5BXdl00IP9zeV+0Z848QWPAoCr9P3bDEZguI+gkLcBKAOxix/tLEAAHC+UvDNPv4a2d18lOReHMOagPa+zQ=="
+      },
+      "SkiaSharp": {
+        "type": "Transitive",
+        "resolved": "2.88.6",
+        "contentHash": "wdfeBAQrEQCbJIRgAiargzP1Uy+0grZiG4CSgBnhAgcJTsPzlifIaO73JRdwIlT3TyBoeU9jEqzwFUhl4hTYnQ==",
+        "dependencies": {
+          "SkiaSharp.NativeAssets.Win32": "2.88.6",
+          "SkiaSharp.NativeAssets.macOS": "2.88.6"
+        }
+      },
+      "SkiaSharp.NativeAssets.Linux.NoDependencies": {
+        "type": "Transitive",
+        "resolved": "2.88.6",
+        "contentHash": "ecgMclPor+X1wi2dZSVDo1sV2Dm8gwEKNRtS+qiE9qfnQzGHbYWlbTBWalnZBaIl3BLC21b1QO8gMgabhSAh+g==",
+        "dependencies": {
+          "SkiaSharp": "2.88.6"
+        }
+      },
+      "SkiaSharp.NativeAssets.macOS": {
+        "type": "Transitive",
+        "resolved": "2.88.6",
+        "contentHash": "Sko9LFxRXSjb3OGh5/RxrVRXxYo48tr5NKuuSy6jB85GrYt8WRqVY1iLOLwtjPiVAt4cp+pyD4i30azanS64dw=="
+      },
+      "SkiaSharp.NativeAssets.Win32": {
+        "type": "Transitive",
+        "resolved": "2.88.6",
+        "contentHash": "7TzFO0u/g2MpQsTty4fyCDdMcfcWI+aLswwfnYXr3gtNS6VLKdMXPMeKpJa3pJSLnUBN6wD0JjuCe8OoLBQ6cQ=="
       },
       "System.Buffers": {
         "type": "Transitive",

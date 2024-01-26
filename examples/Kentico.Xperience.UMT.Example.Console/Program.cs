@@ -2,6 +2,7 @@
 // See https://aka.ms/new-console-template for more information
 
 using System.Text.Json;
+using CMS.ContentEngine;
 using CMS.Core;
 using CMS.DataEngine;
 using Kentico.Xperience.UMT;

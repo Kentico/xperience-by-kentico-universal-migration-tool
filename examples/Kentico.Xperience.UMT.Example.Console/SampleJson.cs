@@ -276,16 +276,36 @@ public static class SampleJson
                                        {
                                          "$type": "Media_File",
                                          "DataSourcePath": ".\\sample.png",
+                                         "DataSourceUrl": null,
                                          "FileGUID": "214e29aa-32d5-40d7-9fea-896591439e74",
                                          "FileLibraryGuid": "e3a9c50c-2b76-4ba8-ac19-2f0aa64c47d5",
                                          "FileCreatedByUserGuid": "863f796e-823a-4f5e-bbdb-e4a6f15b349b",
                                          "FileModifiedByUserGuid": null,
-                                         "FileName": "NewTestFile.png",
+                                         "FileName": "NewTestFile",
                                          "FileTitle": "Title",
                                          "FileDescription": null,
                                          "FileExtension": ".png",
                                          "FileMimeType": null,
-                                         "FilePath": "newPath/somepath",
+                                         "FilePath": "customdir/NewTestFile.png",
+                                         "FileImageWidth": null,
+                                         "FileImageHeight": null,
+                                         "FileCreatedWhen": null,
+                                         "FileModifiedWhen": null
+                                       },
+                                       {
+                                         "$type": "Media_File",
+                                         "DataSourcePath": null,
+                                         "DataSourceUrl": "https://devnet.kentico.com/DevNet/media/devnet/cms_screen.jpg",
+                                         "FileGUID": "94df1156-c85d-4356-8e28-16d71c6ac899",
+                                         "FileLibraryGuid": "e3a9c50c-2b76-4ba8-ac19-2f0aa64c47d5",
+                                         "FileCreatedByUserGuid": "863f796e-823a-4f5e-bbdb-e4a6f15b349b",
+                                         "FileModifiedByUserGuid": null,
+                                         "FileName": "NewTestFileFromUri",
+                                         "FileTitle": "Old devnet screen",
+                                         "FileDescription": null,
+                                         "FileExtension": ".jpg",
+                                         "FileMimeType": null,
+                                         "FilePath": "customdir/NewTestFileFromUri.jpg",
                                          "FileImageWidth": null,
                                          "FileImageHeight": null,
                                          "FileCreatedWhen": null,
@@ -367,7 +387,7 @@ public static class SampleJson
                                          "ContentItemGUID": "df81215e-1414-4d87-befd-ae123f4e5653",
                                          "ContentItemName": "CreationOfUmtModel",
                                          "ContentItemIsReusable": false,
-                                         "ContentItemIsSecured": true,
+                                         "ContentItemIsSecured": false,
                                          "ContentItemDataClassGuid": "06540294-3b56-4cf7-8773-088bb766ac23",
                                          "ContentItemChannelGuid": "5322a379-5b5f-4220-9383-8e3115e66cd3"
                                        },
@@ -589,6 +609,90 @@ public static class SampleJson
                                          "WebPageUrlPathContentLanguageGuid": "a6c0a558-8b33-47b6-87a8-491b437c9923",
                                          "WebPageUrlPathIsLatest": true,
                                          "WebPageUrlPathIsDraft": false
+                                       },
+                                       {
+                                         "$type": "ContentItemSimplified",
+                                         "ContentItemGUID": "37c3f5dd-6f2a-4eff-b46e-a36eddebf572",
+                                         "IsSecured": false,
+                                         "ContentTypeName": "UMT.Article",
+                                         "Name": "SimplifiedModelSample",
+                                         "IsReusable": true,
+                                         "ChannelName": "websitechannelExample",
+                                         "LanguageData": [
+                                           {
+                                             "LanguageName": "en-US",
+                                             "DisplayName": "Simplified model sample - en-us",
+                                             "VersionStatus": 0,
+                                             "UserGuid": "dbfcc244-2cb9-4934-857f-9d75404c1553",
+                                             "ContentItemData": {
+                                               "ArticleTitle": "en-US UMT simplified model creation",
+                                               "ArticleText": "This article is only example of creation UMT simplified model for en-US language",
+                                               "RelatedArticles": null,
+                                               "RelatedFaq": null
+                                             }
+                                           },
+                                           {
+                                             "LanguageName": "en-GB",
+                                             "DisplayName": "Simplified model sample - en-gb",
+                                             "VersionStatus": 2,
+                                             "UserGuid": "dbfcc244-2cb9-4934-857f-9d75404c1553",
+                                             "ContentItemData": {
+                                               "ArticleTitle": "en-GB UMT simplified model creation",
+                                               "ArticleText": "This article is only example of creation UMT simplified model for en-GB language",
+                                               "RelatedArticles": null,
+                                               "RelatedFaq": null
+                                             }
+                                           }
+                                         ],
+                                         "PageData": {
+                                           "PageUrls": [
+                                             {
+                                               "UrlPath": "en-us/simplified-sample",
+                                               "PathIsDraft": true,
+                                               "LanguageName": "en-US"
+                                             },
+                                             {
+                                               "UrlPath": "en-gb/simplified-sample",
+                                               "PathIsDraft": true,
+                                               "LanguageName": "en-GB"
+                                             }
+                                           ],
+                                           "ParentGuid": null,
+                                           "TreePath": "/simplified-sample",
+                                           "ItemOrder": null
+                                         }
+                                       },
+                                       {
+                                         "$type": "ContentItemSimplified",
+                                         "ContentItemGUID": "f9cb9484-ce90-460f-a5c8-ad953e2b9286",
+                                         "IsSecured": false,
+                                         "ContentTypeName": "UMT.Faq",
+                                         "Name": "SimplifiedModelSampleReusable",
+                                         "IsReusable": true,
+                                         "ChannelName": null,
+                                         "LanguageData": [
+                                           {
+                                             "LanguageName": "en-US",
+                                             "DisplayName": "FAQ: reusable simplified model sample - en-us",
+                                             "VersionStatus": 0,
+                                             "UserGuid": "dbfcc244-2cb9-4934-857f-9d75404c1553",
+                                             "ContentItemData": {
+                                               "FaqQuestion": "en-US FAQ question text (reusable)",
+                                               "FaqAnswer": "en-US FAQ answer text (reusable)"
+                                             }
+                                           },
+                                           {
+                                             "LanguageName": "en-GB",
+                                             "DisplayName": "FAQ: reusable simplified model sample - en-gb",
+                                             "VersionStatus": 2,
+                                             "UserGuid": "dbfcc244-2cb9-4934-857f-9d75404c1553",
+                                             "ContentItemData": {
+                                               "FaqQuestion": "en-US FAQ question text (reusable)",
+                                               "FaqAnswer": "en-US FAQ answer text (reusable)"
+                                             }
+                                           }
+                                         ],
+                                         "PageData": null
                                        }
                                      ]
                                      """;
