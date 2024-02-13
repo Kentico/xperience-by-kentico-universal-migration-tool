@@ -1,12 +1,17 @@
-﻿using System.Collections.Concurrent;
+﻿#define MOCK_IMPORT
+
+using System.Collections.Concurrent;
 using System.Net.Sockets;
 using System.Net.WebSockets;
 using System.Text;
+using Azure;
 using CMS.Core;
+using CMS.DataEngine;
 using Kentico.Xperience.UMT.Example.AdminApp.Auxiliary;
 using Kentico.Xperience.UMT.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.Extensions.DependencyInjection;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
@@ -18,7 +23,6 @@ public static class ServiceCollectionExtensions
     private const string SOURCE = "UMT.Example";
 
     public static IServiceCollection AddUmtSample(this IServiceCollection services) => services.AddUniversalMigrationToolkit();
-
 
     public static IApplicationBuilder UseUmtSample(this IApplicationBuilder app)
     {
@@ -51,23 +55,29 @@ public static class ServiceCollectionExtensions
         return app;
     }
 
-    private sealed record Message(string Type, HeaderPayload? Payload);
+    private sealed record Message(string Type, HeaderPayload Payload);
 
     // ReSharper disable once ClassNeverInstantiated.Local
-    private sealed record HeaderPayload(string? Body);
+    private sealed record HeaderPayload(int ByteSize, string? Body);
 
     private static async Task DownloadAndImport(WebSocket webSocket, IImportService importService, IEventLogService logService)
     {
-        async Task SendProgressReport(string message)
+        int lastPercentage = 0;
+        async Task SendProgress(double ratio)
         {
             if (webSocket.State == WebSocketState.Open)
             {
-                byte[] payload = Encoding.UTF8.GetBytes(JsonConvert.SerializeObject(new { type = "msg", payload = $"{message}" }));
-                await webSocket.SendAsync(new ArraySegment<byte>(payload, 0, payload.Length), WebSocketMessageType.Text, true, CancellationToken.None);
+                int percentage = (int)Math.Floor(ratio * 100);
+                if (lastPercentage != percentage)
+                {
+                    lastPercentage = percentage;
+                    byte[] payload = Encoding.UTF8.GetBytes(JsonConvert.SerializeObject(new { type = "progress", payload = System.Text.Json.JsonSerializer.Serialize(percentage) }));
+                    await webSocket.SendAsync(new ArraySegment<byte>(payload, 0, payload.Length), WebSocketMessageType.Text, true, CancellationToken.None);
+                }
             }
         }
 
-        async Task SendStats(IDictionary<string, int> stats)
+        async Task SendStats(ImportStats stats)
         {
             if (webSocket.State == WebSocketState.Open)
             {
@@ -85,15 +95,6 @@ public static class ServiceCollectionExtensions
             }
         }
 
-        async Task SendProgressFinished()
-        {
-            if (webSocket.State == WebSocketState.Open)
-            {
-                byte[] payload = Encoding.UTF8.GetBytes(JsonConvert.SerializeObject(new { type = "finished", payload = $"" }));
-                await webSocket.SendAsync(new ArraySegment<byte>(payload, 0, payload.Length), WebSocketMessageType.Text, true, CancellationToken.None);
-            }
-        }
-
         async Task SendConfirmHeader()
         {
             if (webSocket.State == WebSocketState.Open)
@@ -104,41 +105,75 @@ public static class ServiceCollectionExtensions
         }
 
         // indicates import start
-        _ = (await ReceiveHeader(webSocket))?.ToObject<Message>()?.Payload;
-
+        var header = (await ReceiveHeader(webSocket)).ToObject<Message>()!.Payload;
+        
         await SendConfirmHeader();
 
         bool consumerIsRunning = true;
         var ms = new AsynchronousStream(1024 * 32 * 500);
+        ms.ReadProgress += () => _ = SendProgress((double)ms.TotalBytesRead / header.ByteSize);
+        var stats = new ImportStats();
         var consumerTask = Task.Run(async () =>
         {
             try
             {
                 var data = importService.FromJsonStream(ms);
+
+#if MOCK_IMPORT
+                // Any data file works with this mock
+                int ctr = 0;
+                await foreach (var item in data)
+                {
+                    ctr++;
+                    if (ctr == 10)
+                    {
+                        ctr = 0;
+                        await Task.Delay(3);
+                    }
+                }
+                stats.SuccessfulImports["ContentItem"] = 10;
+                stats.SuccessfulImports["Language"] = 11;
+                stats.Errors.Add(new ObjectImportError(Guid.NewGuid(), ObjectImportErrorKind.ValidationError, "Name is too long. Max 60 characters"));
+                stats.Errors.Add(new ObjectImportError(Guid.NewGuid(), ObjectImportErrorKind.ValidationError, "Type cannot be empty"));
+                return;
+#endif
+
                 var observer = new ImportStateObserver();
 
-                var stats = new ConcurrentDictionary<string, int>();
-
                 observer = await importService.StartImportAsync(data!, observer);
-                observer.ImportedInfo += async (model, info) =>
+
+                observer.ImportedInfo += (model, info) =>
                 {
-                    await SendProgressReport($"Processed: {info.TypeInfo.ObjectType} {info.GetValue(info.TypeInfo.GUIDColumn)}");
-                    stats.AddOrUpdate(info.TypeInfo.ObjectType, s => 1, (s, i) => i + 1);
+                    // lock for the case when import implementation is genuinely parallel
+                    lock (stats)
+                    {
+                        if (!stats.SuccessfulImports.ContainsKey(info.TypeInfo.ObjectType))
+                        {
+                            stats.SuccessfulImports[info.TypeInfo.ObjectType] = 0;
+                        }
+
+                        stats.SuccessfulImports[info.TypeInfo.ObjectType]++;
+                    }
                 };
-                observer.ValidationError += async (model, id, validationResults) =>
+                observer.ValidationError += (model, id, validationResults) =>
                 {
                     string validationMessage = string.Join("\r\n", validationResults.Select(x => $"{string.Join(", ", x.MemberNames)}: {x.ErrorMessage}"));
-                    await SendProgressReport($"Validation error: {id} {validationMessage}");
+                    // lock for the case when import implementation is genuinely parallel
+                    lock (stats)
+                    {
+                        stats.Errors.Add(new(id, ObjectImportErrorKind.ValidationError, validationMessage));
+                    }
                 };
-                observer.Exception += async (model, id, exception) =>
+                observer.Exception += (model, id, exception) =>
                 {
-                    await SendProgressReport($"Error: {id} {exception}");
+                    // lock for the case when import implementation is genuinely parallel
+                    lock (stats)
+                    {
+                        stats.Errors.Add(new(id, ObjectImportErrorKind.Exception, exception.ToString()));
+                    }
                 };
 
                 await observer.ImportCompletedTask;
-
-                await SendStats(stats);
-                await SendProgressReport($"...finished");
             }
             finally
             {
@@ -150,6 +185,7 @@ public static class ServiceCollectionExtensions
         {
             WebSocketReceiveResult? receiveResult = null;
             int bufferSize = 1024 * 32;
+            int totalReceived = 0;
             while (true)
             {
                 if (!consumerIsRunning)
@@ -173,13 +209,14 @@ public static class ServiceCollectionExtensions
                     ms.Flush();
 
                     int count = receiveResult.Count;
-                    byte[] response = Encoding.UTF8.GetBytes(JsonConvert.SerializeObject(new { type = "progress", payload = count }));
-                    await webSocket.SendAsync(new ArraySegment<byte>(response, 0, response.Length), WebSocketMessageType.Text, true, CancellationToken.None);
+                    totalReceived += count;
+
+                    //byte[] response = Encoding.UTF8.GetBytes(JsonConvert.SerializeObject(new { type = "progress", payload = count }));
+                    //await webSocket.SendAsync(new ArraySegment<byte>(response, 0, response.Length), WebSocketMessageType.Text, true, CancellationToken.None);
 
                     if (ms.CachedBlocks > 3500)
                     {
                         await SendTooFastReport();
-                        await SendProgressReport($"Too fast, waiting 3s CachedBlocks: {ms.CachedBlocks}");
                         await Task.Delay(3000);
                     }
                 }
@@ -203,7 +240,6 @@ public static class ServiceCollectionExtensions
         catch (Exception e)
         {
             logService.LogException(SOURCE, "PRODUCER", e);
-            await SendProgressReport($"{e}");
         }
         finally
         {
@@ -222,12 +258,11 @@ public static class ServiceCollectionExtensions
         catch (Exception e)
         {
             logService.LogException(SOURCE, "CONSUMER", e);
-            await SendProgressReport($"{e}");
         }
 
         if (socketAvailable)
         {
-            await SendProgressFinished();
+            await SendStats(stats);
             await Task.Delay(1000);
             await webSocket.CloseAsync(
                 WebSocketCloseStatus.NormalClosure,
@@ -236,7 +271,7 @@ public static class ServiceCollectionExtensions
         }
     }
 
-    private static async Task<JObject?> ReceiveHeader(WebSocket webSocket)
+    private static async Task<JObject> ReceiveHeader(WebSocket webSocket)
     {
         var ms = new MemoryStream();
         const int bufferSize = 1024 * 32;
@@ -269,4 +304,18 @@ public static class ServiceCollectionExtensions
         var deserialized = JObject.Parse(msg);
         return deserialized;
     }
+}
+
+public enum ObjectImportErrorKind
+{
+    ValidationError,
+    Exception
+}
+
+public record ObjectImportError(Guid? ObjectId, ObjectImportErrorKind ErrorKind, string Description);
+
+public class ImportStats
+{
+    public Dictionary<string, int> SuccessfulImports { get; } = [];
+    public List<ObjectImportError> Errors { get; } = [];
 }

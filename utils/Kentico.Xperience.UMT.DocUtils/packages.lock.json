@@ -812,7 +812,7 @@
       "kentico.xperience.umt.examples": {
         "type": "Project",
         "dependencies": {
-          "Kentico.Xperience.UMT": "[1.0.0, )"
+          "Kentico.Xperience.UMT": "[1.0.1, )"
         }
       },
       "Kentico.Xperience.Core": {

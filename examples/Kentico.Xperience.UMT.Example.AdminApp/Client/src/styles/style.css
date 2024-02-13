@@ -1,0 +1,53 @@
+﻿#upload > div {
+    width: 280px;
+    height: 120px;
+}
+
+.import-button {
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.content-container {
+    margin-left: -60px;
+    margin-top: -40px;
+}
+
+.import-log-table > * > td {
+    padding: 0 12px 0 0;
+}
+
+.clickable-text label {
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.fade-in {
+    visibility: visible;
+    opacity: 1;
+    transition: opacity 0.5s linear;
+}
+
+.fade-out {
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s 0.5s, opacity 0.5s linear;
+}
+
+.start-again-button {
+    margin-top: 10px
+}
+
+/*@keyframes buttonTransition {
+    
+    to {
+        r: 10;
+    }
+}
+
+.progress-circle {
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    animation-name: buttonTransition;
+}*/

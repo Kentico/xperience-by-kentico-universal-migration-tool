@@ -10,6 +10,7 @@
     <PropertyGroup>
         <AdminOrgName>kentico</AdminOrgName>
         <RootNamespace>Kentico.Xperience.UMT</RootNamespace>
+        <TargetFramework>net8.0</TargetFramework>
     </PropertyGroup>
 
     <ItemGroup>
