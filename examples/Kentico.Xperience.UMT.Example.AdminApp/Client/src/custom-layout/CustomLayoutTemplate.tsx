@@ -1,3 +1,4 @@
+import React from 'react';
 import { useState } from "react";
 import { Box, Callout, CalloutPlacementType, CalloutType, Cols, Column, Headline, HeadlineSize, Row, Spacing, Stack } from "@kentico/xperience-admin-components";
 
@@ -43,7 +44,6 @@ export const CustomLayoutTemplate = ({ label }: CustomLayoutProps) => {
     // Fades out current stage, then fades in new stage
     const moveStage = (nextStageId: StageId) => {
         const nextStage = stageFromId[nextStageId]
-        console.log(`moving stage from ${curStageId} to ${nextStageId}`)
 
         setContentTransition(TransitionState.FadeOut)
         if (currentStage.hasBackground != nextStage.hasBackground)

@@ -11,7 +11,6 @@ const content = ({ service, onDone }: StageProps): JSX.Element => {
                 setProgress(service.progress())
             }
             else {
-                console.log('inprogress calling ondone')
                 setProgress(100)
                 onDone()
             }
@@ -22,7 +21,7 @@ const content = ({ service, onDone }: StageProps): JSX.Element => {
         <svg id="svg-spinner" xmlns="http://www.w3.org/2000/svg" viewBox="-150 -150 300 300" style={{ width: "300", height: "300", gridColumn: 1, gridRow: 1 }}>
             {
                 [...Array(13).keys()].map(i =>
-                    <circle style={{ animationDelay: `${i * 1}s` }} className='progress-circle' cx={Math.sin(Math.PI * 2 / 12 * i) * 85} cy={Math.cos(Math.PI * 2 / 12 * i) * 85} r={5} fill="rgb(103,56,140)"
+                    <circle key={`circle-${i}`} style={{ animationDelay: `${i * 1}s` }} className='progress-circle' cx={Math.sin(Math.PI * 2 / 12 * i) * 85} cy={Math.cos(Math.PI * 2 / 12 * i) * 85} r={5} fill="rgb(103,56,140)"
 
                     >
                         <animate attributeName="r" from="5" to="5" begin={`${-i / 13.0 * 1}`} dur='1' values="8;14;8;8" keyTimes="0;0.2;0.4;1" repeatCount='indefinite' />
