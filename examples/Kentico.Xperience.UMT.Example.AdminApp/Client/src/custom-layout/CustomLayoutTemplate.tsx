@@ -1,284 +1,107 @@
-import React, { useState } from "react";
-import { ActionTile, Box, Button, ButtonSize, Callout, CalloutPlacementType, CalloutType, Cols, Column, Divider, DividerOrientation, DropDownActionMenu, FileInput, Headline, HeadlineSize, Input, MenuItem, NotificationBarAlert, ProgressBar, RadioButton, RadioGroup, RadioGroupSize, Row, Select, Shelf, Spacing, Stack, TreeNodeMenuAction, UploadTile, UploadTileSize } from "@kentico/xperience-admin-components";
+import React from 'react';
+import { useState } from "react";
+import { Box, Callout, CalloutPlacementType, CalloutType, Cols, Column, Headline, HeadlineSize, Row, Spacing, Stack } from "@kentico/xperience-admin-components";
+
+import '../styles/style.css'
+
+import { ImportBackgroundContainer } from "../components/import-background-container";
+import { TransitionState, transitionClass } from "./transition";
+import { Stage, StageId } from "../components/stages/common";
+
+import ImportService from "../services/backend-import-service"
+
+import prepareStage from "../components/stages/prepare-stage"
+import inProgressStage from "../components/stages/in-progress-stage"
+import doneStage from "../components/stages/done-stage"
 
 
-/*
-* This file demonstrates a custom UI page template.
-  The template supports a single page command that retrieves a string value from the backend.
+// This UI is composed of stages
+// To add a new stage, define it in components/stages, add a new StageId, and modify the following dictionaries
 
-  In this example, the command retrieves the server's DateTime.Now value and displays it in a label.
-  See ~\UIPages\CustomTemplate\CustomTemplate.cs for the backend definition of the page.
-*/
-
-interface CustomLayoutProps {
-  readonly label: string;
+const stageFromId = {
+    [StageId.Prepare]: prepareStage,
+    [StageId.InProgress]: inProgressStage,
+    [StageId.Done]: doneStage,
 }
 
-let canContinue = true;
-let toofast = false;
+const nextStageMap = {
+    [StageId.Prepare]: StageId.InProgress,
+    [StageId.InProgress]: StageId.Done,
+    [StageId.Done]: StageId.Prepare,
+}
+
+
+const importService = new ImportService()
+interface CustomLayoutProps {
+    readonly label: string;
+}
 
 export const CustomLayoutTemplate = ({ label }: CustomLayoutProps) => {
-  const [file, setFile] = useState<File | null>(null);
-  const [state, setState] = useState<string[]>([]);
-  const [currentFile, setCurrentFile] = useState({ current: 0, total: 0 });
-  const [stats, setStats] = useState<{ [statKey: string]: number } | null>(null);
+    const [curStageId, setCurStageId] = useState<StageId>(StageId.Prepare);
+    const [contentTransition, setContentTransition] = useState<TransitionState>(TransitionState.None);
+    const [backgroundTransition, setBackgroundTransition] = useState<TransitionState>(TransitionState.None);
+    
+    // Fades out current stage, then fades in new stage
+    const moveStage = (nextStageId: StageId) => {
+        const nextStage = stageFromId[nextStageId]
 
-  function parseFile(this: any, file: File, callback: (buffer: ArrayBuffer) => boolean, finishedCallback: () => void) {
-    var fileSize = file.size;
-    var chunkSize = 32 * 1024; // bytes
-    var offset = 0;
-    var self = this as unknown; // we need a reference to the current object
-    var chunkReaderBlock: null | ((_offset: number, length: number, _file: File) => void) = null;
+        setContentTransition(TransitionState.FadeOut)
+        if (currentStage.hasBackground != nextStage.hasBackground)
+            setBackgroundTransition(TransitionState.FadeOut)
 
-    var readEventHandler = function (evt: ProgressEvent<FileReader>) {
-      if (!canContinue) {
-        return;
-      }
-
-      if (evt.target == null) {
-        console.log('progress is null');
-        return;
-      }
-      if (evt.target.error == null && evt.target.result != null) {
-        // offset += (evt.target.result as any).length;
-        offset += chunkSize;
-        if (!callback(evt.target.result as ArrayBuffer)) // callback for handling read chunk
-        {
-          return;
-        }
-      } else {
-        finishedCallback();
-        console.log("Read error: " + evt.target.error);
-        return;
-      }
-      if (offset >= fileSize) {
-        finishedCallback();
-        console.log("Done reading file");
-        return;
-      }
-
-      // of to the next chunk
-      if (chunkReaderBlock != null && canContinue) {
-        // console.log('reading next block');
-        chunkReaderBlock(offset, chunkSize, file);
-      }
+        setTimeout(() => {
+            setCurStageId(nextStageId)
+            setContentTransition(TransitionState.FadeIn)
+            setBackgroundTransition(TransitionState.FadeIn)
+        }, 0.5 * 1000)
     }
 
-    chunkReaderBlock = function (_offset: number, length: number, _file: File) {
-      var r = new FileReader();
-      var blob = _file.slice(_offset, length + _offset);
-      r.onload = readEventHandler;
-      if (toofast) {
-        setTimeout(() => { r.readAsText(blob); }, 3000);
-        console.log('too fast => wait 3s');
-        toofast = false;
-      }
-      else {
-        r.readAsText(blob);
-      }
-    }
+    const stageContent = (stage: Stage) => <stage.content service={importService} onDone={() => moveStage(nextStageMap[curStageId]) }/>
 
-    // now let's start the read with the first block
-    chunkReaderBlock(offset, chunkSize, file);
-  }
+    const currentStage = stageFromId[curStageId]
+    
+    return <Box spacing={Spacing.M}>
+            <Headline size={HeadlineSize.L} spacingBottom={Spacing.M}>
+                {label}
+            </Headline>
+            <Row spacing={Spacing.XL}>
+                <Column
+                    cols={Cols.Col12}
+                    colsMd={Cols.Col10}
+                    colsLg={Cols.Col8}
+                    order={Cols.Col2}
+                    orderLg={Cols.Col1}
+                >
+                    <Stack spacing={Spacing.XL} fullHeight={true}>
+                        <Callout
+                            type={CalloutType.QuickTip}
+                            placement={CalloutPlacementType.OnPaper}
+                            headline="Basic usage"
+                            subheadline="Info"
+                        >
+                            Component <a target="_blank" href="https://github.com/Kentico/xperience-by-kentico-universal-migration-toolkit/blob/main/Docs/README.md">documentation</a> and <a target="_blank" href="https://github.com/Kentico/xperience-by-kentico-universal-migration-toolkit/tree/main/Docs/Samples">samples</a>
+                        </Callout>
 
-  const onUpload = () => {
-    setStats(null);
-    setState([]);
-    if (file != null) {
-      console.log(file);
-      let port = location.port != '' ? `:${location.port}` : '';
-      const socket = new WebSocket('ws://' + location.hostname + `${port}/umtsample/ws`);
-      socket.binaryType = 'blob';
-      socket.onerror = (e) => {
-        console.log('error occured', e);
-        canContinue = false;
-        console.log('closing socket => error');
-        socket.close();
-      }
-      socket.onmessage = (event) => {
-        var p = JSON.parse(event.data);
-        switch (p.type) {
-          case "stats": {
-            try {
-              setStats(JSON.parse(p.payload));
-            }
-            catch (e) {
-              console.error(e);
-            }
-            break;
-          }
-          case "headerConfirmed": {
-            console.log('header confirmed, starting import');
-            parseFile(file, (buffer) => {
-              // console.log('chunk');     
-              if (socket.readyState == socket.OPEN) {
-                socket.send(buffer);
-                return true;
-              }
-              else {
-                return false;
-              }
-            }, () => {
-              console.log('sending end sequence');
-              var endMessage = Uint8Array.of(0x2D, 0x2D, 0x2D, 0x2D, 0x2D);
-              socket.send(endMessage);
+                        <div className={transitionClass(backgroundTransition)}>
+                            {currentStage.hasBackground
 
-              setTimeout(() => {
-                // socket.send("---FINISHED---");
-                console.log('closing socket - timeout 60s');
-                socket.close();
-              }, 60000);
-            });
-            break;
-          }
-          case "toofast": {
-            toofast = true;
-            break;
-          }
-          case "msg": {
-            setState((prev) => [
-              ...prev,
-              p.payload
-            ])
-            break;
-          }
-          case "progress": {
-            const len = parseInt(p.payload);
-            setCurrentFile(prev => ({
-              total: prev.total,
-              current: prev.current + len
-            }))
-            break;
-          }
-          case "finished": {
-            console.log('closing socket');
-            canContinue = false;
-            if (socket.readyState < socket.CLOSING) {
-              socket.close();
-            }
-            break;
-          }
-        }
-      };
-      socket.onopen = function (event) {
-        canContinue = true;
-        setState((prev) => [
-          ...prev,
-          `Sending file of length: ${file.size}`
-        ])
-        console.log('connected');
-        setCurrentFile({
-          total: file.size,
-          current: 0
-        })
+                                ? <ImportBackgroundContainer>
+                                    <div className={`content-container ${transitionClass(contentTransition)}`} style={{
+                                        display: "grid", justifyContent: 'center',
+                                        alignItems: 'center', width: "300", height: "300"
+                                    }}>
+                                        {stageContent(currentStage)}
+                                    </div>
+                                </ImportBackgroundContainer>
 
-        socket.send(JSON.stringify({
-          type: 'header',
-          payload: {
-          }
-        }));
-      };
-    } else {
-      alert('no file selected');
-    }
-  };
+                                : <div className={transitionClass(backgroundTransition)}>
+                                    {!currentStage.hasBackground && stageContent(currentStage)}
+                                </div>
+                            }
+                        </div>
 
-  const newInterface = (
-    <Box spacing={Spacing.M}>
-      <Headline size={HeadlineSize.L} spacingBottom={Spacing.M}>
-        {label}
-      </Headline>
-      <Row spacing={Spacing.XL}>
-        <Column
-          cols={Cols.Col12}
-          colsMd={Cols.Col10}
-          colsLg={Cols.Col8}
-          order={Cols.Col2}
-          orderLg={Cols.Col1}
-        >
-          <Stack spacing={Spacing.XL} fullHeight={true}>
-            <Callout
-              type={CalloutType.QuickTip}
-              placement={CalloutPlacementType.OnPaper}
-              headline="Basic usage"
-              subheadline="Info"
-            >
-              Component <a target="_blank" href="https://github.com/Kentico/xperience-by-kentico-universal-migration-toolkit/blob/main/Docs/README.md">documentation</a> and <a target="_blank" href="https://github.com/Kentico/xperience-by-kentico-universal-migration-toolkit/tree/main/Docs/Samples">samples</a> 
-            </Callout>
-
-            <div style={{ display: 'inline-block' }}>
-              <ActionTile label={"Legacy Kentico"} icon={"xp-cb-check"}></ActionTile>&nbsp;
-              <ActionTile label={"Sitecore"} icon={"xp-cb-check"}></ActionTile>&nbsp;
-              <ActionTile label={"Sitefinity"} icon={"xp-cb-check"}></ActionTile>&nbsp;
-              <ActionTile label={"Umbraco"} icon={"xp-cb-check"}></ActionTile>
-            </div>
-
-            <UploadTile
-              acceptFiles=".json"
-              firstLineLabel="Drag&Drop .json here"
-              secondLineLabel="or"
-              buttonLabel="Browse"
-              size={UploadTileSize.Full}
-              onUpload={([f]) => {
-                if (f instanceof File) {
-                  setFile(f);
-                  setCurrentFile({ current: 0, total: f.size });
-                }
-              }}
-            />
-
-
-            {file !== null && (
-              <p style={{ color: 'var(--color-text-default-on-light)' }}>
-                File Selected: {file.name}
-              </p>
-            )}
-
-
-
-            {currentFile.total > 0 && (
-              <div>
-                <Headline size={HeadlineSize.S} spacingBottom={Spacing.M}>
-                  Upload Progress
-                </Headline>
-                <ProgressBar
-                  completed={Math.floor(
-                    (currentFile.current / currentFile.total) * 100,
-                  )}
-                />
-              </div>
-            )}
-
-            <Button
-              label="Import data"
-              size={ButtonSize.S}
-              onClick={onUpload}
-            />
-
-            <Divider orientation={DividerOrientation.Horizontal} />
-
-
-            <Shelf>
-              {stats && <Box spacing={Spacing.M}>
-                <Headline size={HeadlineSize.S}>Imported objects</Headline>
-                <pre style={{ color: 'var(--color-text-default-on-light)' }}>
-                  {JSON.stringify(stats, null, 4)}
-                </pre>
-              </Box>}
-              {state.length > 0 && (<Box spacing={Spacing.M}>
-                <Headline size={HeadlineSize.S}>Import Log</Headline>
-                <pre style={{ color: 'var(--color-text-default-on-light)' }}>
-                  {[...state].reverse().join('\r\n')}
-                </pre>
-              </Box>)}
-            </Shelf>
-
-          </Stack>
-        </Column>
-      </Row>
-    </Box>
-  );
-
-  return newInterface;
+                    </Stack>
+                </Column>
+            </Row>
+        </Box>;
 };

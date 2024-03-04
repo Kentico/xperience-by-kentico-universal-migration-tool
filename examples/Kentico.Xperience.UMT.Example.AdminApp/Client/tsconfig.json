@@ -1,4 +1,4 @@
-// Provides recommended TypeScript configuration 
+// Provides recommended TypeScript configuration
 {
   "compilerOptions": {
     "baseUrl": ".",
@@ -14,5 +14,8 @@
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": false,
     "noFallthroughCasesInSwitch": true
-  }
+  },
+  "include": [
+    "src"
+  ]
 }

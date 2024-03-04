@@ -16,6 +16,8 @@
 
         <VersionSuffix Condition="$(Configuration) == 'Debug'">$([System.DateTime]::Now.ToString('yyMMddHHmm'))</VersionSuffix>
         <PackageOutputDir Condition="$(Configuration) == 'Debug'">$(LOCAL_NUGET_REPO)\</PackageOutputDir>
+        <TargetFramework>net8.0</TargetFramework>
+        <PackageReadmeFile>README.md</PackageReadmeFile>
     </PropertyGroup>
 
     <ItemGroup>
@@ -29,15 +31,34 @@
     </ItemGroup>
     <ItemGroup>
         <Compile Remove="Client\node_modules\**" />
+        <Compile Remove="Test\**" />
         <EmbeddedResource Remove="Client\node_modules\**" />
         <None Remove="Client\node_modules\**" />
-        <None Remove="README.md" />
+        <None Remove="Test\**" />
+        <None Remove="Client\assets\img\admin\umt-web-admin\background.png" />
+        <None Remove="R:\dev\nittin\xperience-by-kentico-universal-migration-toolkit\\README.md" />
+    </ItemGroup>
+    <ItemGroup>
+      <Content Include="Client\assets\img\admin\umt-web-admin\background.png">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
     </ItemGroup>
     <ItemGroup>
         <FrameworkReference Include="Microsoft.AspNetCore.App" />
     </ItemGroup>
     <ItemGroup>
         <PackageReference Include="Kentico.Xperience.Admin" />
+    </ItemGroup>
+    <ItemGroup>
+      <Folder Include="Client\dist\" />
+      <Folder Include="Client\graphics\" />
+    </ItemGroup>
+    <ItemGroup>
+      <None Update="README.md">
+        <Pack>True</Pack>
+        <PackagePath>\</PackagePath>
+      </None>
     </ItemGroup>
 
 </Project>

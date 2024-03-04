@@ -1,5 +1,6 @@
 const webpackMerge = require("webpack-merge");
-
+const CopyPlugin = require("copy-webpack-plugin");
+const path = require('path')
 const baseWebpackConfig = require("@kentico/xperience-webpack-config");
 
 module.exports = (opts, argv) => {
@@ -21,16 +22,23 @@ module.exports = (opts, argv) => {
           test: /\.(js|ts)x?$/,
           exclude: [/node_modules/],
           loader: "babel-loader",
-        },
+            },
+            {
+                test: /\.css$/,
+                use: [
+                    'style-loader',
+                    'css-loader'
+                ]
+            }
       ],
     },
     output: {
-      clean: true
+        clean: true,
     },
     // Webpack server configuration. Required when running the boilerplate in 'Proxy' mode.
     devServer: {
       port: 3009,
-    },
+      }
   };
 
   return webpackMerge.merge(projectConfig, baseConfig(opts, argv));

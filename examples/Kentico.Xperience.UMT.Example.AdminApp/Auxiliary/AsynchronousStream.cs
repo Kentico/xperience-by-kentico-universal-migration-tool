@@ -38,8 +38,10 @@ internal sealed class AsynchronousStream: Stream
     {
     }
 
+    public event Action? ReadProgress;
 
     public long TotalBytesWritten { get; private set; }
+    public long TotalBytesRead { get; private set; }
 
     public int WriteCount { get; private set; }
 
@@ -75,15 +77,20 @@ internal sealed class AsynchronousStream: Stream
 
                 if (bytesRead == count)
                 {
-                    return bytesRead;
+                    break;
                 }
             }
 
             if (!blocks.TryTake(out currentBlock, Timeout.Infinite))
             {
-                return bytesRead;
+                break;
             }
         }
+
+        TotalBytesRead += bytesRead;
+        ReadProgress?.Invoke();
+
+        return bytesRead;
     }
 
     public override void Write(byte[] buffer, int offset, int count)
