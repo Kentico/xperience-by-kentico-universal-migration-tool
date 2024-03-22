@@ -53,10 +53,11 @@ public static class SampleProvider
             DataClassSamples.ArticleClassSample,
             DataClassSamples.ArticleAssignedToWebSiteChannel,
             DataClassSamples.FaqDataClass,
+            DataClassSamples.EventDataClass,
     
             ContentItemSamples.SampleContentItem,
-            ContentItemLanguageMetadataSamples.SampleContentItemLanguageMetadata,
             ContentItemLanguageMetadataSamples.SampleContentItemLanguageMetadataBasic,
+            ContentItemLanguageMetadataSamples.SampleContentItemLanguageMetadata,
     
             WebPageContentItemSamples.SampleWebPageItem,
 
