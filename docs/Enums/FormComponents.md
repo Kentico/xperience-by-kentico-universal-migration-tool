@@ -52,9 +52,10 @@
 |`CMS.ContentEngine.ContentItemAssetMetadata`|`Kentico.Administration.ContentItemAssetUploader`|`ContentItemAssetUploaderComponent`|`ContentItemAssetUploaderProperties`||
 |`AssetRelatedItem[]`|`Kentico.Administration.AssetSelector`|`AssetSelectorComponent`|`AssetSelectorProperties`||
 |`ContentItemReference[]`|`Kentico.Administration.ContentItemSelector`|`ContentItemSelectorComponent`|`ContentItemSelectorProperties`||
+|`ContentItemReference[]`||`ContentItemSelectorComponentBase`|`TProperties`|**abstract**|
 |`String[]`||`GeneralSelectorComponent`|`GeneralSelectorProperties`||
 |`TSingleItemValue[]`||`MultipleObjectSelectorBase`|`TProperties`|**abstract**|
-|`String[]`|`Kentico.Administration.ObjectCodeNameSelector`|`ObjectCodeNameSelectorComponent`|`ObjectSelectorProperties`||
+|`String[]`|`Kentico.Administration.ObjectCodeNameSelector`|`ObjectCodeNameSelectorComponent`|`ObjectCodenameSelectorProperties`||
 |`Guid[]`|`Kentico.Administration.ObjectGuidSelector`|`ObjectGuidSelectorComponent`|`ObjectSelectorProperties`||
 |`Int32[]`|`Kentico.Administration.ObjectIdSelector`|`ObjectIdSelectorComponent`|`ObjectSelectorProperties`||
 |`ObjectRelatedItem[]`||`ObjectSelectorComponent`|`ObjectSelectorProperties`||
@@ -95,6 +96,15 @@
 |----------|-----|----------|---------------|-----|
 |`EmailRelatedItem[]`|`Kentico.Administration.EmailSelector`|`EmailSelectorComponent`|`EmailSelectorProperties`||
 |`ObjectRelatedItem[]`||`FormSelectorComponent`|`ObjectSelectorProperties`||
+
+</div>
+<div name="generatedpart_Kentico.Xperience.Admin.Headless.dll">
+
+## Module `Kentico.Xperience.Admin.Headless.dll`
+
+|Value type|Identifier|Class|Properties type|notes|
+|----------|-----|----------|---------------|-----|
+|`ContentItemReference[]`|`Kentico.Administration.HeadlessItemSelector`|`HeadlessItemSelectorComponent`|`HeadlessItemSelectorProperties`||
 
 </div>
 <div name="generatedpart_Kentico.Xperience.Admin.Websites.dll">

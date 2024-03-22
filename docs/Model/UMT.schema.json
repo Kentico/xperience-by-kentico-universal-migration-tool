@@ -72,11 +72,13 @@
       "description": "Channel types enum.",
       "x-enumNames": [
         "Website",
-        "Email"
+        "Email",
+        "Headless"
       ],
       "enum": [
         0,
-        1
+        1,
+        2
       ]
     },
     "ContentItemCommonDataModel": {
@@ -421,6 +423,12 @@
               "type": "string",
               "description": "Class unique codename",
               "minLength": 1
+            },
+            "ClassShortName": {
+              "type": [
+                "null",
+                "string"
+              ]
             },
             "ClassTableName": {
               "type": [

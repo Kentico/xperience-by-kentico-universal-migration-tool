@@ -4,7 +4,7 @@ public static class SampleJson
 {
 #pragma warning disable S2479
     public const string FULL_SAMPLE = """
-                                     [
+                                      [
                                        {
                                          "$type": "UserInfo",
                                          "UserName": "sadmin",
@@ -78,6 +78,7 @@ public static class SampleJson
                                          "$type": "DataClass",
                                          "ClassDisplayName": "This is Article example",
                                          "ClassName": "UMT.Article",
+                                         "ClassShortName": "UMT.Article",
                                          "ClassTableName": "UMT_Article",
                                          "ClassShowTemplateSelection": null,
                                          "ClassLastModified": "2024-01-08T22:55:31.7853783\u002B01:00",
@@ -172,6 +173,7 @@ public static class SampleJson
                                          "$type": "DataClass",
                                          "ClassDisplayName": "Faq",
                                          "ClassName": "UMT.Faq",
+                                         "ClassShortName": "UMT.Faq",
                                          "ClassTableName": "UMT_Faq",
                                          "ClassShowTemplateSelection": null,
                                          "ClassLastModified": "2024-01-08T22:56:07.1472943Z",
@@ -220,6 +222,88 @@ public static class SampleJson
                                          ]
                                        },
                                        {
+                                         "$type": "DataClass",
+                                         "ClassDisplayName": "Event",
+                                         "ClassName": "UMT.Event",
+                                         "ClassShortName": "UMT.Event",
+                                         "ClassTableName": "UMT_Event",
+                                         "ClassShowTemplateSelection": null,
+                                         "ClassLastModified": "2024-01-08T22:56:12.2515785Z",
+                                         "ClassGUID": "4712c000-4d63-4333-8708-990603f73a1e",
+                                         "ClassContactMapping": null,
+                                         "ClassContactOverwriteEnabled": null,
+                                         "ClassConnectionString": null,
+                                         "ClassDefaultObjectType": null,
+                                         "ClassResourceGuid": "ff8285c1-9d1a-49b3-8c9d-7502e1e533f7",
+                                         "ClassCodeGenerationSettings": null,
+                                         "ClassHasUnmanagedDbSchema": false,
+                                         "ClassType": "Content",
+                                         "ClassContentTypeType": "Reusable",
+                                         "ClassWebPageHasUrl": null,
+                                         "Fields": [
+                                           {
+                                             "AllowEmpty": true,
+                                             "Column": "EventTitle",
+                                             "ColumnSize": 200,
+                                             "ColumnType": "text",
+                                             "Enabled": true,
+                                             "Guid": "0e1e63eb-918a-4135-a627-04393672d6f4",
+                                             "Visible": true,
+                                             "Properties": {
+                                               "FieldCaption": "Title"
+                                             },
+                                             "Settings": {
+                                               "ControlName": "Kentico.Administration.TextInput"
+                                             }
+                                           },
+                                           {
+                                             "AllowEmpty": true,
+                                             "Column": "EventText",
+                                             "ColumnSize": 0,
+                                             "ColumnType": "longtext",
+                                             "Enabled": true,
+                                             "Guid": "a54aef74-42b3-438e-92b2-2f5b4386fb57",
+                                             "Visible": true,
+                                             "Properties": {
+                                               "FieldCaption": "Text"
+                                             },
+                                             "Settings": {
+                                               "ControlName": "Kentico.Administration.TextArea"
+                                             }
+                                           },
+                                           {
+                                             "AllowEmpty": true,
+                                             "Column": "EventDate",
+                                             "ColumnSize": 0,
+                                             "ColumnType": "datetime",
+                                             "Enabled": true,
+                                             "Guid": "f3356f35-0a78-4a98-8696-a1becb725b0a",
+                                             "Visible": true,
+                                             "Properties": {
+                                               "FieldCaption": "Date"
+                                             },
+                                             "Settings": {
+                                               "ControlName": "Kentico.Administration.DateTimeInput"
+                                             }
+                                           },
+                                           {
+                                             "AllowEmpty": true,
+                                             "Column": "EventRecurrentYearly",
+                                             "ColumnSize": 0,
+                                             "ColumnType": "boolean",
+                                             "Enabled": true,
+                                             "Guid": "98d2cf95-5027-488a-b833-89510f4662c1",
+                                             "Visible": true,
+                                             "Properties": {
+                                               "FieldCaption": "Event occurs every year"
+                                             },
+                                             "Settings": {
+                                               "ControlName": "Kentico.Administration.Checkbox"
+                                             }
+                                           }
+                                         ]
+                                       },
+                                       {
                                          "$type": "ContentItem",
                                          "ContentItemGUID": "c354427d-3d02-4876-8ed4-4de817fae929",
                                          "ContentItemName": "NewsLetterExampleName",
@@ -230,27 +314,27 @@ public static class SampleJson
                                        },
                                        {
                                          "$type": "ContentItemLanguageMetadata",
-                                         "ContentItemLanguageMetadataGUID": "12191a4b-26d8-40bb-a214-73d9874920fd",
+                                         "ContentItemLanguageMetadataGUID": "65421553-5f92-44b7-a02f-2b9ca083e14a",
                                          "ContentItemLanguageMetadataContentItemGuid": "c354427d-3d02-4876-8ed4-4de817fae929",
-                                         "ContentItemLanguageMetadataDisplayName": "Language Metadata Example",
-                                         "ContentItemLanguageMetadataLatestVersionStatus": 0,
-                                         "ContentItemLanguageMetadataCreatedWhen": "2024-01-06T22:55:58.3208748Z",
-                                         "ContentItemLanguageMetadataCreatedByUserGuid": "95f42fd4-6a14-4e88-b214-4e136479f788",
-                                         "ContentItemLanguageMetadataModifiedWhen": "2024-01-08T22:56:01.1939486Z",
-                                         "ContentItemLanguageMetadataModifiedByUserGuid": "95f42fd4-6a14-4e88-b214-4e136479f788",
+                                         "ContentItemLanguageMetadataDisplayName": "Basic Language Metadata Example",
+                                         "ContentItemLanguageMetadataLatestVersionStatus": 1,
+                                         "ContentItemLanguageMetadataCreatedWhen": "2024-01-06T22:55:48.9503105Z",
+                                         "ContentItemLanguageMetadataCreatedByUserGuid": null,
+                                         "ContentItemLanguageMetadataModifiedWhen": "2024-01-08T22:55:52.0392925Z",
+                                         "ContentItemLanguageMetadataModifiedByUserGuid": null,
                                          "ContentItemLanguageMetadataHasImageAsset": false,
                                          "ContentItemLanguageMetadataContentLanguageGuid": "f454e93b-5fe9-42a9-b1af-b572234ed9c4"
                                        },
                                        {
                                          "$type": "ContentItemLanguageMetadata",
-                                         "ContentItemLanguageMetadataGUID": "65421553-5f92-44b7-a02f-2b9ca083e14a",
+                                         "ContentItemLanguageMetadataGUID": "12191a4b-26d8-40bb-a214-73d9874920fd",
                                          "ContentItemLanguageMetadataContentItemGuid": "c354427d-3d02-4876-8ed4-4de817fae929",
-                                         "ContentItemLanguageMetadataDisplayName": "Basic Language Metadata Example",
-                                         "ContentItemLanguageMetadataLatestVersionStatus": 0,
-                                         "ContentItemLanguageMetadataCreatedWhen": "2024-01-06T22:55:48.9503105Z",
-                                         "ContentItemLanguageMetadataCreatedByUserGuid": null,
-                                         "ContentItemLanguageMetadataModifiedWhen": "2024-01-08T22:55:52.0392925Z",
-                                         "ContentItemLanguageMetadataModifiedByUserGuid": null,
+                                         "ContentItemLanguageMetadataDisplayName": "Language Metadata Example",
+                                         "ContentItemLanguageMetadataLatestVersionStatus": 2,
+                                         "ContentItemLanguageMetadataCreatedWhen": "2024-01-06T22:55:58.3208748Z",
+                                         "ContentItemLanguageMetadataCreatedByUserGuid": "95f42fd4-6a14-4e88-b214-4e136479f788",
+                                         "ContentItemLanguageMetadataModifiedWhen": "2024-01-08T22:56:01.1939486Z",
+                                         "ContentItemLanguageMetadataModifiedByUserGuid": "95f42fd4-6a14-4e88-b214-4e136479f788",
                                          "ContentItemLanguageMetadataHasImageAsset": false,
                                          "ContentItemLanguageMetadataContentLanguageGuid": "f454e93b-5fe9-42a9-b1af-b572234ed9c4"
                                        },
