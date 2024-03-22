@@ -44,6 +44,16 @@ public class DataClassModel : UmtModel
     // public string?          ClassFormDefinition           { get; private set; }
     
     /// <summary>
+    /// Short name
+    /// </summary>
+    private string? _classShortName;
+    public string? ClassShortName
+    {
+        get => string.IsNullOrWhiteSpace(_classShortName) ? ClassName : _classShortName;
+        set => _classShortName = value;
+    }
+    
+    /// <summary>
     /// SQL Table name
     /// </summary>
     [Map]
