@@ -7,6 +7,7 @@ Model represents XbyK DataClassInfo
 |---|---|---|---|
 |ClassDisplayName\*|Friendly name for class|string?||
 |ClassName\*|Class unique codename|string?||
+|ClassShortName||string?||
 |ClassTableName|SQL Table name|string?||
 |ClassShowTemplateSelection||bool?||
 |ClassLastModified\*|last modification performed through API / UI|System.DateTime?||
@@ -33,6 +34,7 @@ This sample describes how to create class inside XbyK to hold Article data
   "$type": "DataClass",
   "ClassDisplayName": "This is Article example",
   "ClassName": "UMT.Article",
+  "ClassShortName": "UMT.Article",
   "ClassTableName": "UMT_Article",
   "ClassLastModified": "2024-01-08T22:55:31.7853783\u002B01:00",
   "ClassGUID": "06540294-3b56-4cf7-8773-088bb766ac23",
@@ -121,6 +123,7 @@ This sample describes how to create class inside XbyK to hold Article data
   "$type": "DataClass",
   "ClassDisplayName": "Event",
   "ClassName": "UMT.Event",
+  "ClassShortName": "UMT.Event",
   "ClassTableName": "UMT_Event",
   "ClassLastModified": "2024-01-08T22:56:12.2515785Z",
   "ClassGUID": "4712c000-4d63-4333-8708-990603f73a1e",
@@ -200,6 +203,7 @@ This sample describes how to create class inside XbyK to hold Article data
   "$type": "DataClass",
   "ClassDisplayName": "Faq",
   "ClassName": "UMT.Faq",
+  "ClassShortName": "UMT.Faq",
   "ClassTableName": "UMT_Faq",
   "ClassLastModified": "2024-01-08T22:56:07.1472943Z",
   "ClassGUID": "7ed6604e-613b-4ce0-8c21-acfb372c416a",
