@@ -1,15 +1,19 @@
 ﻿using Azure.Identity;
+using CMS.Base;
 using CMS.ContentEngine;
 using CMS.ContentEngine.Internal;
 using CMS.Core;
 using CMS.Core.Internal;
 using CMS.DataEngine;
 using CMS.DataEngine.Internal;
+using CMS.FormEngine;
 using CMS.Membership;
 using CMS.Websites;
 using CMS.Websites.Internal;
 using Kentico.Xperience.UMT.Model;
 using Kentico.Xperience.UMT.ProviderProxy;
+using Microsoft.Extensions.Logging;
+using Microsoft.Identity.Client.Extensibility;
 
 namespace Kentico.Xperience.UMT.InfoAdapter;
 
@@ -18,17 +22,19 @@ public class ContentItemSimplifiedAdapter : IInfoAdapter<ContentItemInfo, IUmtMo
     private readonly IProviderProxyFactory providerProxyFactory;
     private readonly IDateTimeNowService dateTimeNowService;
     private readonly AdapterFactory adapterFactory;
+    private readonly ILogger<ContentItemSimplifiedAdapter> logger;
     public IProviderProxy ProviderProxy { get; }
 
     internal ContentItemSimplifiedAdapter(IProviderProxy providerProxy,
         IProviderProxyFactory providerProxyFactory,
         IDateTimeNowService dateTimeNowService,
-        AdapterFactory adapterFactory
-    )
+        AdapterFactory adapterFactory,
+        ILogger<ContentItemSimplifiedAdapter> logger)
     {
         this.providerProxyFactory = providerProxyFactory;
         this.dateTimeNowService = dateTimeNowService;
         this.adapterFactory = adapterFactory;
+        this.logger = logger;
         ProviderProxy = providerProxy;
     }
 
@@ -84,6 +90,8 @@ public class ContentItemSimplifiedAdapter : IInfoAdapter<ContentItemInfo, IUmtMo
         
         foreach (var languageData in cim.LanguageData)
         {
+            var customData = languageData.ContentItemData?.ToDictionary() ?? [];
+            
             ArgumentException.ThrowIfNullOrWhiteSpace(languageData.LanguageName);
             var contentLanguageInfo = contentLanguageProxy.GetBaseInfoByCodeName(languageData.LanguageName, null!) as ContentLanguageInfo;
             ArgumentNullException.ThrowIfNull(contentLanguageInfo);
@@ -126,6 +134,23 @@ public class ContentItemSimplifiedAdapter : IInfoAdapter<ContentItemInfo, IUmtMo
                 ContentItemCommonDataPageTemplateConfiguration = null
             };
 
+            var fi = new FormInfo(dataClassInfo.ClassFormDefinition);
+            var commonFields = UnpackReusableFieldSchemas(fi.GetFields<FormSchemaInfo>());
+            foreach (var formFieldInfo in commonFields)
+            {
+                if (customData.TryGetValue(formFieldInfo.Name, out object? value))
+                {
+                    contentItemCommonDataModel.CustomProperties ??= [];
+                    logger.LogTrace("Reusable schema field '{FieldName}' from schema '{SchemaGuid}' populated", formFieldInfo.Name, formFieldInfo.Properties[ReusableFieldSchemaConstants.SCHEMA_IDENTIFIER_KEY]);
+                    contentItemCommonDataModel.CustomProperties[formFieldInfo.Name] = value;
+                    customData.Remove(formFieldInfo.Name);
+                }
+                else
+                {
+                    logger.LogTrace("Reusable schema field '{FieldName}' from schema '{SchemaGuid}' missing", formFieldInfo.Name, formFieldInfo.Properties[ReusableFieldSchemaConstants.SCHEMA_IDENTIFIER_KEY]);
+                }
+            }
+
             adapter = adapterFactory.CreateAdapter(contentItemCommonDataModel, new ProviderProxyContext());
             ArgumentNullException.ThrowIfNull(adapter);
             var commonDataInfo = (ContentItemCommonDataInfo)adapter.Adapt(contentItemCommonDataModel);
@@ -164,7 +189,7 @@ public class ContentItemSimplifiedAdapter : IInfoAdapter<ContentItemInfo, IUmtMo
             
             var contentItemDataModel = new ContentItemDataModel
             {
-                CustomProperties = languageData.ContentItemData ?? [],
+                CustomProperties = customData,
                 ContentItemDataGUID = contentItemDataGuid ?? Guid.NewGuid(),
                 ContentItemDataCommonDataGuid = commonDataInfo.ContentItemCommonDataGUID,
                 ContentItemContentTypeName = cim.ContentTypeName
@@ -261,6 +286,27 @@ public class ContentItemSimplifiedAdapter : IInfoAdapter<ContentItemInfo, IUmtMo
         return contentItemInfo;
     }
 
+    private static IEnumerable<FormFieldInfo> UnpackReusableFieldSchemas(IEnumerable<FormSchemaInfo> schemaInfos)
+    {
+        using var siEnum = schemaInfos.GetEnumerator();
+
+        if (siEnum.MoveNext() && FormHelper.GetFormInfo(ContentItemCommonDataInfo.TYPEINFO.ObjectClassName, true) is {} cfi)
+        {
+            do
+            {
+                var fsi = siEnum.Current;
+                var formFieldInfos = cfi
+                    .GetFields(true, true, true)
+                    .Where(f => string.Equals(f.Properties[ReusableFieldSchemaConstants.SCHEMA_IDENTIFIER_KEY] as string, fsi.Guid.ToString(),
+                        StringComparison.InvariantCultureIgnoreCase));
+                
+                foreach (var formFieldInfo in formFieldInfos)
+                {
+                    yield return formFieldInfo;
+                }
+            } while (siEnum.MoveNext());
+        }
+    }
 
     Guid? IInfoAdapter<IUmtModel>.GetUniqueIdOrNull(IUmtModel input) => throw new NotImplementedException();
 }
