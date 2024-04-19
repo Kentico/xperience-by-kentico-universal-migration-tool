@@ -3,7 +3,8 @@
 @using Kentico.Xperience.UMT.Model
 @using RazorLight
 @inherits TemplatePage<Kentico.Xperience.UMT.DocUtils.Templates.SampleJsonViewModel>
-@Raw(Model.ImportService.SerializeToJson(SampleProvider.GetFullSample().Cast<UmtModel>(), new JsonSerializerOptions
+@Raw(Model.ImportService.SerializeToJson(SampleProvider.GetFullSample().Cast<UmtModel>()
+    .Where(x=> (x is MediaFileModel mfm && mfm.FileGUID != new Guid("214E29AA-32D5-40D7-9FEA-896591439E74")) || x is not MediaFileModel), new JsonSerializerOptions
 {
     WriteIndented = true
 }))

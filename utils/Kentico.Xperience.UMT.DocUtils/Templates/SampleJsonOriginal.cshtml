@@ -1,0 +1,9 @@
+﻿@using System.Text.Json
+@using Kentico.Xperience.UMT.Examples
+@using Kentico.Xperience.UMT.Model
+@using RazorLight
+@inherits TemplatePage<Kentico.Xperience.UMT.DocUtils.Templates.SampleJsonViewModel>
+@Raw(Model.ImportService.SerializeToJson(SampleProvider.GetFullSample().Cast<UmtModel>(), new JsonSerializerOptions
+{
+    WriteIndented = true
+}))
