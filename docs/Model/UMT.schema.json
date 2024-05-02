@@ -303,6 +303,14 @@
               "format": "guid",
               "minLength": 1
             },
+            "ContentItemContentFolderGUID": {
+              "type": [
+                "null",
+                "string"
+              ],
+              "description": "reference to content folder",
+              "format": "guid"
+            },
             "ContentItemName": {
               "type": "string",
               "minLength": 1
@@ -382,6 +390,58 @@
               "format": "guid"
             },
             "ContentLanguageCultureFormat": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        }
+      ]
+    },
+    "ContentFolderModel": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/UmtModel"
+        },
+        {
+          "type": "object",
+          "description": "Model represents XbyK ContentFolderInfo, enables user to create content item folders with umt",
+          "additionalProperties": {
+            "oneOf": [
+              {},
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "required": [
+            "ContentFolderGUID",
+            "ContentFolderName",
+            "ContentFolderDisplayName",
+            "ContentFolderTreePath"
+          ],
+          "properties": {
+            "ContentFolderGUID": {
+              "type": "string",
+              "format": "guid",
+              "minLength": 1
+            },
+            "ContentFolderParentFolderGUID": {
+              "type": [
+                "null",
+                "string"
+              ],
+              "description": "parent folder guid. If null is specified, folder is created directly under root",
+              "format": "guid"
+            },
+            "ContentFolderName": {
+              "type": "string",
+              "minLength": 1
+            },
+            "ContentFolderDisplayName": {
+              "type": "string",
+              "minLength": 1
+            },
+            "ContentFolderTreePath": {
               "type": "string",
               "minLength": 1
             }

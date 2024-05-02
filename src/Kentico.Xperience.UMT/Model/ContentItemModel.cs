@@ -21,6 +21,12 @@ public class ContentItemModel : UmtModel
     [UniqueIdProperty]
     public Guid? ContentItemGUID { get; set; }
 
+    /// <summary>
+    /// reference to content folder
+    /// </summary>
+    [ReferenceProperty(typeof(ContentFolderInfo), "ContentItemContentFolderID", IsRequired = false)]
+    public Guid? ContentItemContentFolderGUID { get; set; }
+    
     [Map]
     [Required]
     public string? ContentItemName { get; set; }

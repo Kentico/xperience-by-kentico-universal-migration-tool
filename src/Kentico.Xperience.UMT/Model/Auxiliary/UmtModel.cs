@@ -19,6 +19,7 @@ public interface IUmtModel
 [KnownType(typeof(ContentItemLanguageMetadataModel))]
 [KnownType(typeof(ContentItemModel))]
 [KnownType(typeof(ContentLanguageModel))]
+[KnownType(typeof(ContentFolderModel))]
 [KnownType(typeof(DataClassModel))]
 [KnownType(typeof(ContentTypeChannelModel))]
 [KnownType(typeof(EmailChannelModel))]

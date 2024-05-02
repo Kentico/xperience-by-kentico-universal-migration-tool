@@ -17,6 +17,11 @@ public class ContentItemSimplifiedModel : UmtModel
     [Required]
     [UniqueIdProperty]
     public Guid? ContentItemGUID { get; set; }
+    
+    /// <summary>
+    /// Reference to content folder
+    /// </summary>
+    public Guid? ContentItemContentFolderGUID { get; set; }
 
     public bool? IsSecured { get; set; } = false;
 

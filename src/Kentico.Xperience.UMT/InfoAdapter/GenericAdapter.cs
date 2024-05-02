@@ -3,7 +3,7 @@ using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Text.Json;
 using CMS.DataEngine;
-using CMS.Membership;
+
 using Kentico.Xperience.UMT.Attributes;
 using Kentico.Xperience.UMT.Model;
 using Kentico.Xperience.UMT.ProviderProxy;
@@ -29,7 +29,7 @@ internal interface IInfoAdapter<out TInfo, in TModel> : IInfoAdapter<TModel> whe
     new Guid? GetUniqueIdOrNull(TModel input);
 }
 
-internal class GenericInfoAdapter<TTargetInfo> : IInfoAdapter<TTargetInfo, IUmtModel> where TTargetInfo : AbstractInfoBase<TTargetInfo>, new()
+public class GenericInfoAdapter<TTargetInfo> : IInfoAdapter<TTargetInfo, IUmtModel> where TTargetInfo : AbstractInfoBase<TTargetInfo>, new()
 {
     protected readonly ILogger<GenericInfoAdapter<TTargetInfo>> Logger;
     private readonly UmtModelService modelService;

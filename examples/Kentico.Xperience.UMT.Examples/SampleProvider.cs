@@ -112,8 +112,14 @@ public static class SampleProvider
             ContentItemSamples.SampleArticleWebPageUrlWithRelations
         });
         
+        // folder samples
+        sourceData.AddRange([
+            ContentFolderSamples.SampleContentFolder,
+            ContentFolderSamples.SampleContentSubFolder,
+        ]);
+        
         sourceData.Add(ContentItemSimplifiedSamples.SampleArticleContentItemSimplifiedModel);
-        sourceData.Add(ContentItemSimplifiedSamples.SampleFaqContentItemSimplifiedModel);
+        sourceData.Add(ContentItemSimplifiedSamples.SampleFaqContentItemSimplifiedModel); // references sample content subfolder
         
         return sourceData;
     }

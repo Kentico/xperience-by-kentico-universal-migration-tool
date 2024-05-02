@@ -1,11 +1,8 @@
-﻿using Azure.Identity;
-using CMS.Base;
-using CMS.ContentEngine;
+﻿using CMS.ContentEngine;
 using CMS.ContentEngine.Internal;
 using CMS.Core;
 using CMS.Core.Internal;
 using CMS.DataEngine;
-using CMS.DataEngine.Internal;
 using CMS.FormEngine;
 using CMS.Membership;
 using CMS.Websites;
@@ -13,7 +10,6 @@ using CMS.Websites.Internal;
 using Kentico.Xperience.UMT.Model;
 using Kentico.Xperience.UMT.ProviderProxy;
 using Microsoft.Extensions.Logging;
-using Microsoft.Identity.Client.Extensibility;
 
 namespace Kentico.Xperience.UMT.InfoAdapter;
 
@@ -55,7 +51,7 @@ public class ContentItemSimplifiedAdapter : IInfoAdapter<ContentItemInfo, IUmtMo
         var existingContentItem = ProviderProxy.GetBaseInfoByGuid(cim.ContentItemGUID.Value, cim) as ContentItemInfo;
 
         var createdWhen = dateTimeNowService.GetDateTimeNow();
-
+        
         var contentTypeProxy = providerProxyFactory.CreateProviderProxy<DataClassInfo>(new ProviderProxyContext());
         ArgumentException.ThrowIfNullOrWhiteSpace(cim.ContentTypeName);
         var dataClassInfo = contentTypeProxy.GetBaseInfoByCodeName(cim.ContentTypeName, null!) as DataClassInfo;
@@ -77,7 +73,8 @@ public class ContentItemSimplifiedAdapter : IInfoAdapter<ContentItemInfo, IUmtMo
             ContentItemIsReusable = cim.IsReusable,
             ContentItemIsSecured = cim.IsSecured ?? false,
             ContentItemDataClassGuid = dataClassInfo.ClassGUID,
-            ContentItemChannelGuid = channel?.ChannelGUID
+            ContentItemChannelGuid = channel?.ChannelGUID,
+            ContentItemContentFolderGUID = cim.ContentItemContentFolderGUID
         };
         
         var adapter = adapterFactory.CreateAdapter(contentItemModel, new ProviderProxyContext());
