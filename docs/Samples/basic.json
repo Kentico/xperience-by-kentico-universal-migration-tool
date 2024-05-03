@@ -300,6 +300,7 @@
   {
     "$type": "ContentItem",
     "ContentItemGUID": "c354427d-3d02-4876-8ed4-4de817fae929",
+    "ContentItemContentFolderGUID": null,
     "ContentItemName": "NewsLetterExampleName",
     "ContentItemIsReusable": true,
     "ContentItemIsSecured": true,
@@ -373,6 +374,7 @@
   {
     "$type": "ContentItem",
     "ContentItemGUID": "b64b3e3e-f5a9-4d02-8cdb-6d81805c0fee",
+    "ContentItemContentFolderGUID": null,
     "ContentItemName": "SampleReusableFaq",
     "ContentItemIsReusable": true,
     "ContentItemIsSecured": true,
@@ -444,6 +446,7 @@
   {
     "$type": "ContentItem",
     "ContentItemGUID": "df81215e-1414-4d87-befd-ae123f4e5653",
+    "ContentItemContentFolderGUID": null,
     "ContentItemName": "CreationOfUmtModel",
     "ContentItemIsReusable": false,
     "ContentItemIsSecured": false,
@@ -551,6 +554,7 @@
   {
     "$type": "ContentItem",
     "ContentItemGUID": "e09121ad-dd97-472f-b8f6-85fe5428ed6a",
+    "ContentItemContentFolderGUID": null,
     "ContentItemName": "Content-item-with-relations",
     "ContentItemIsReusable": false,
     "ContentItemIsSecured": true,
@@ -670,8 +674,25 @@
     "WebPageUrlPathIsDraft": false
   },
   {
+    "$type": "ContentFolder",
+    "ContentFolderGUID": "7665a8fc-53a2-4aff-86e8-99b009104ff2",
+    "ContentFolderParentFolderGUID": null,
+    "ContentFolderName": "articles",
+    "ContentFolderDisplayName": "Articles",
+    "ContentFolderTreePath": "/articles"
+  },
+  {
+    "$type": "ContentFolder",
+    "ContentFolderGUID": "ae29c1d1-217a-45da-8b30-585d1881387e",
+    "ContentFolderParentFolderGUID": "7665a8fc-53a2-4aff-86e8-99b009104ff2",
+    "ContentFolderName": "obsolete",
+    "ContentFolderDisplayName": "Obsolete",
+    "ContentFolderTreePath": "/articles/obsolete"
+  },
+  {
     "$type": "ContentItemSimplified",
     "ContentItemGUID": "37c3f5dd-6f2a-4eff-b46e-a36eddebf572",
+    "ContentItemContentFolderGUID": null,
     "IsSecured": false,
     "ContentTypeName": "UMT.Article",
     "Name": "SimplifiedModelSample",
@@ -724,6 +745,7 @@
   {
     "$type": "ContentItemSimplified",
     "ContentItemGUID": "f9cb9484-ce90-460f-a5c8-ad953e2b9286",
+    "ContentItemContentFolderGUID": "ae29c1d1-217a-45da-8b30-585d1881387e",
     "IsSecured": false,
     "ContentTypeName": "UMT.Faq",
     "Name": "SimplifiedModelSampleReusable",

@@ -60,6 +60,7 @@
 |`Int32[]`|`Kentico.Administration.ObjectIdSelector`|`ObjectIdSelectorComponent`|`ObjectSelectorProperties`||
 |`ObjectRelatedItem[]`||`ObjectSelectorComponent`|`ObjectSelectorProperties`||
 |`TagReference[]`|`Kentico.Administration.TagSelector`|`TagSelectorComponent`|`TagSelectorProperties`||
+|`int`|`Kentico.Administration.ContentFolderSelector`|`ContentFolderSelectorComponent`|`ContentFolderSelectorProperties`||
 |`int`|`Kentico.Administration.NumberWithLabel`|`NumberWithLabelComponent`|`FormComponentProperties`||
 |`System.DateTime?`|`Kentico.Administration.DateInput`|`DateInputComponent`|`FormComponentProperties`||
 |`System.DateTime?`|`Kentico.Administration.DateTimeInput`|`DateTimeInputComponent`|`FormComponentProperties`||

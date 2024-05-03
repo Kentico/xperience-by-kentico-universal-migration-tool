@@ -5,6 +5,7 @@ Model [discriminator](../UmtModel.md#discriminator): `ContentItem`
 |PropertyName|Summary|.NET Type|Notes|
 |---|---|---|---|
 |ContentItemGUID\*||System.Guid?|[UniqueId](../UmtModel.md#UniqueId)|
+|ContentItemContentFolderGUID|reference to content folder|System.Guid?|Reference to [ContentFolderInfo](../References.md#ContentFolderInfo) on property ContentItemContentFolderID|
 |ContentItemName\*||string?||
 |ContentItemIsReusable\*||bool?||
 |ContentItemIsSecured||bool?||

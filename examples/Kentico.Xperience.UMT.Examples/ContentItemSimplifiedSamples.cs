@@ -78,6 +78,7 @@ public static class ContentItemSimplifiedSamples
         IsSecured = false,
         ContentTypeName = DataClassSamples.FaqDataClass.ClassName,
         IsReusable = true,
+        ContentItemContentFolderGUID = ContentFolderSamples.SampleContentSubFolder.ContentFolderGUID,
         LanguageData =
         [
             new()
