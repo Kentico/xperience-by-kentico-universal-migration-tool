@@ -28,22 +28,19 @@ public class ContentFolderAdapter: GenericInfoAdapter<ContentFolderInfo>
         }
         info.ContentFolderModifiedWhen = dateTimeNowService.GetDateTimeNow();
 
-        if (input is ContentFolderModel cfm)
+        if (input is ContentFolderModel { ContentFolderParentFolderGUID: null })
         {
-            if (cfm.ContentFolderParentFolderGUID == null)
-            {
-                var root = ContentFolderInfoProvider.ProviderObject.Get()
-                    .WhereEquals(nameof(ContentFolderInfo.ContentFolderTreePath), "/")
-                    .FirstOrDefault();
+            var root = ContentFolderInfoProvider.ProviderObject.Get()
+                .WhereEquals(nameof(ContentFolderInfo.ContentFolderTreePath), "/")
+                .FirstOrDefault();
                 
-                if (root != null)
-                {
-                    info.ContentFolderParentFolderID = root.ContentFolderID;    
-                }
-                else
-                {
-                    Logger.LogError("Failed to located root content item folder");
-                }
+            if (root != null)
+            {
+                info.ContentFolderParentFolderID = root.ContentFolderID;    
+            }
+            else
+            {
+                Logger.LogError("Failed to located root content item folder");
             }
         }
 

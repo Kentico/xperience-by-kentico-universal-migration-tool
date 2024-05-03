@@ -2,7 +2,7 @@
 
 namespace Kentico.Xperience.UMT.Examples;
 
-public class ContentFolderSamples
+public static class ContentFolderSamples
 {
     [Sample("ContentFolderModel.Sample", "", "Content folder basic sample")]
     public static ContentFolderModel SampleContentFolder => new()
