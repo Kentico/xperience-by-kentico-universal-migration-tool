@@ -1,4 +1,4 @@
-# Xperience by Kentico Universal Migration Toolkit
+# Xperience by Kentico: Universal Migration Tool
 
 [![CI: Build and Test](https://github.com/Kentico/xperience-by-kentico-universal-migration-toolkit/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/Kentico/xperience-by-kentico-universal-migration-toolkit/actions/workflows/ci.yml)
 
