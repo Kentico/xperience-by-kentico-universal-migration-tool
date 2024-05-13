@@ -6,7 +6,7 @@
 
 ## About The Project
 
-The Universal Migration Toolkit (UMT) is an open-source set of software libraries, documentation, and samples distributed via NuGet packages to facilitate and automate data import from external systems (Legacy Kentico, etc...) into Xperience by Kentico.
+The Universal Migration Tool (UMT) is an open-source set of software libraries, documentation, and samples distributed via NuGet packages to facilitate and automate data import from external systems (Legacy Kentico, etc...) into Xperience by Kentico.
 
 ## Getting Started
 
