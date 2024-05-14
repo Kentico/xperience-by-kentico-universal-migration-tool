@@ -13,7 +13,7 @@ The Universal Migration Tool (UMT) is an open-source set of software libraries, 
 ### Prerequisites
 
 - [.NET 8+ SDK](https://dotnet.microsoft.com/en-us/download/dotnet/8.0)
-- Xperience by Kentico of version **28.4.1**
+- Xperience by Kentico of version **29.0.2**
 
 ### Installation
 
