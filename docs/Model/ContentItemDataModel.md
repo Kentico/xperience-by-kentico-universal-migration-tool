@@ -25,7 +25,8 @@ This sample describes how to create content item data inside XbyK
   "ArticleTitle": "en-US UMT model creation",
   "ArticleText": "This article is only example of creation UMT model for en-US language",
   "RelatedArticles": null,
-  "RelatedFaq": null
+  "RelatedFaq": null,
+  "CoffeaTaxonomy": "[{\u0022Identifier\u0022:\u0022ffe48372-2bac-4a14-ad8c-c86f3f54c7c5\u0022}]"
 }
 ```
 
@@ -40,7 +41,8 @@ This sample describes how to create content item data inside XbyK
   "ArticleTitle": "en-GB UMT model creation",
   "ArticleText": "This article is only example of creation UMT model for en-GB language",
   "RelatedArticles": null,
-  "RelatedFaq": null
+  "RelatedFaq": null,
+  "CoffeaTaxonomy": "[{\u0022Identifier\u0022:\u0022ffe48372-2bac-4a14-ad8c-c86f3f54c7c5\u0022}]"
 }
 ```
 

@@ -1,4 +1,6 @@
 ﻿using CMS.ContentEngine;
+using CMS.ContentEngine.Internal;
+
 using Kentico.Xperience.UMT.Model;
 
 namespace Kentico.Xperience.UMT.Examples;
@@ -50,7 +52,12 @@ public static class ContentItemSimplifiedSamples
                     ["ArticleTitle"] = "en-US UMT simplified model creation",
                     ["ArticleText"] = "This article is only example of creation UMT simplified model for en-US language",
                     ["RelatedArticles"] = null,
-                    ["RelatedFaq"] = null
+                    ["RelatedFaq"] = null,
+                    ["CoffeaTaxonomy"] = System.Text.Json.JsonSerializer.Serialize(new List<object>
+                    {
+                        new TagReference{ Identifier = TaxonomySamples.SampleTagCoffeaCanephoraGuid},
+                        new {Identifier = TaxonomySamples.SampleTagCoffeaRobustaGuid},
+                    })
                 }
             },
             new()
@@ -64,7 +71,12 @@ public static class ContentItemSimplifiedSamples
                     ["ArticleTitle"] = "en-GB UMT simplified model creation",
                     ["ArticleText"] = "This article is only example of creation UMT simplified model for en-GB language",
                     ["RelatedArticles"] = null,
-                    ["RelatedFaq"] = null
+                    ["RelatedFaq"] = null,
+                    ["CoffeaTaxonomy"] = System.Text.Json.JsonSerializer.Serialize(new List<object>
+                    {
+                        new TagReference{ Identifier = TaxonomySamples.SampleTagCoffeaCanephoraGuid},
+                        new {Identifier = TaxonomySamples.SampleTagCoffeaRobustaGuid},
+                    })
                 }
             }
         ],

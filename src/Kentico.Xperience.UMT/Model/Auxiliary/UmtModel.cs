@@ -29,6 +29,8 @@ public interface IUmtModel
 [KnownType(typeof(WebPageItemModel))]
 [KnownType(typeof(WebPageUrlPathModel))]
 [KnownType(typeof(WebsiteChannelModel))]
+[KnownType(typeof(TaxonomyModel))]
+[KnownType(typeof(TagModel))]
 public abstract class UmtModel: IUmtModel
 {
     public virtual string PrintMe()

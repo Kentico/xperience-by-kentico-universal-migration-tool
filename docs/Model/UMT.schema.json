@@ -1264,6 +1264,157 @@
           }
         }
       ]
+    },
+    "TaxonomyModel": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/UmtModel"
+        },
+        {
+          "type": "object",
+          "additionalProperties": {
+            "oneOf": [
+              {},
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "required": [
+            "TaxonomyName",
+            "TaxonomyGUID",
+            "TaxonomyTitle"
+          ],
+          "properties": {
+            "TaxonomyName": {
+              "type": "string",
+              "minLength": 1
+            },
+            "TaxonomyGUID": {
+              "type": "string",
+              "format": "guid",
+              "minLength": 1
+            },
+            "TaxonomyTitle": {
+              "type": "string",
+              "minLength": 1
+            },
+            "TaxonomyDescription": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "TaxonomyTranslations": {
+              "type": [
+                "null",
+                "object"
+              ],
+              "description": "Key of the dictionary is the ContentLanguageGUID.",
+              "additionalProperties": {
+                "$ref": "#/definitions/TaxonomyTranslationModel"
+              }
+            }
+          }
+        }
+      ]
+    },
+    "TaxonomyTranslationModel": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "Title": {
+          "type": "string"
+        }
+      }
+    },
+    "TagModel": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/UmtModel"
+        },
+        {
+          "type": "object",
+          "additionalProperties": {
+            "oneOf": [
+              {},
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "required": [
+            "TagName",
+            "TagGUID",
+            "TagTitle"
+          ],
+          "properties": {
+            "TagName": {
+              "type": "string",
+              "minLength": 1
+            },
+            "TagGUID": {
+              "type": "string",
+              "format": "guid",
+              "minLength": 1
+            },
+            "TagTaxonomyGUID": {
+              "type": [
+                "null",
+                "string"
+              ],
+              "description": "Guid of taxonomy where tag belongs",
+              "format": "guid"
+            },
+            "TagParentGUID": {
+              "type": [
+                "null",
+                "string"
+              ],
+              "format": "guid"
+            },
+            "TagOrder": {
+              "type": [
+                "integer",
+                "null"
+              ],
+              "format": "int32"
+            },
+            "TagTitle": {
+              "type": "string",
+              "minLength": 1
+            },
+            "TagDescription": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "TagTranslations": {
+              "type": [
+                "null",
+                "object"
+              ],
+              "description": "Key of the dictionary is the ContentLanguageGUID.",
+              "additionalProperties": {
+                "$ref": "#/definitions/TagTranslationModel"
+              }
+            }
+          }
+        }
+      ]
+    },
+    "TagTranslationModel": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "Title": {
+          "type": "string"
+        },
+        "Description": {
+          "type": "string"
+        }
+      }
     }
   }
 }
