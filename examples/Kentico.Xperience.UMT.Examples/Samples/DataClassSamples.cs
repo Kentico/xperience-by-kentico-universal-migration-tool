@@ -106,7 +106,33 @@ public static class DataClassSamples
                                                                """ }
                     } 
                 }
-            }
+            },
+            
+            new()
+            {
+                Column = "CoffeaTaxonomy",
+                ColumnType = "taxonomy",
+                AllowEmpty = true,
+                Visible = true,
+                Enabled = true,
+                Guid = new Guid("36295D61-7F85-4213-8E5C-06772ED67DFB"),
+                Properties = new FormFieldProperties
+                {
+                    FieldCaption = "Taxonomy coffee",
+                    CustomProperties =
+                    {
+                        {"explanationtextashtml", "False"},
+                        {"fielddescriptionashtml", "False"}
+                    }
+                },
+                Settings = new FormFieldSettings {
+                    ControlName = "Kentico.Administration.TagSelector",
+                    CustomProperties =
+                    {
+                        { "TaxonomyGroup", $"[\"{TaxonomySamples.SampleTaxonomyCoffeeGuid}\"]" },
+                    } 
+                }
+            },
         ]
     };
 

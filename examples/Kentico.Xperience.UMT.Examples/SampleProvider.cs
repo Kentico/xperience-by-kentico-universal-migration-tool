@@ -38,9 +38,19 @@ public static class SampleProvider
 
     public static List<IUmtModel> GetFullSample()
     {
+        var sourceData = new List<IUmtModel>();
+        
+        // taxonomy samples
+        sourceData.AddRange([
+            TaxonomySamples.SampleTaxonomyCoffee,
+            TaxonomySamples.SampleTagCoffeaCanephora,
+            TaxonomySamples.SampleTagCoffeaNganda,
+            TaxonomySamples.SampleTagCoffeaRobusta,
+            TaxonomySamples.SampleTagCoffeaArabica,
+        ]);
+        
         // sample data
-        var sourceData = new List<IUmtModel>
-        {
+        sourceData.AddRange([
             UserSamples.SampleAdministrator,
             ContentLanguageSamples.SampleContentLanguageEnUs,
             ContentLanguageSamples.SampleContentLanguageEnGb,
@@ -64,7 +74,7 @@ public static class SampleProvider
             AssetSamples.SampleMediaLibrary,
             AssetSamples.SampleMediaFile,
             AssetSamples.SampleMediaFileFromUri
-        };
+        ]);
         
         // sample reusable content item
         sourceData.AddRange(new IUmtModel[]
@@ -120,6 +130,8 @@ public static class SampleProvider
         
         sourceData.Add(ContentItemSimplifiedSamples.SampleArticleContentItemSimplifiedModel);
         sourceData.Add(ContentItemSimplifiedSamples.SampleFaqContentItemSimplifiedModel); // references sample content subfolder
+        
+       
         
         return sourceData;
     }

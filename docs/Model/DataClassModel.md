@@ -110,6 +110,24 @@ This sample describes how to create class inside XbyK to hold Article data
         "ControlName": "Kentico.Administration.ContentItemSelector",
         "AllowedContentItemTypeIdentifiers": "[\u00227ed6604e-613b-4ce0-8c21-acfb372c416a\u0022]"
       }
+    },
+    {
+      "AllowEmpty": true,
+      "Column": "CoffeaTaxonomy",
+      "ColumnSize": 0,
+      "ColumnType": "taxonomy",
+      "Enabled": true,
+      "Guid": "36295d61-7f85-4213-8e5c-06772ed67dfb",
+      "Visible": true,
+      "Properties": {
+        "FieldCaption": "Taxonomy coffee",
+        "explanationtextashtml": "False",
+        "fielddescriptionashtml": "False"
+      },
+      "Settings": {
+        "ControlName": "Kentico.Administration.TagSelector",
+        "TaxonomyGroup": "[\u0022bd88fd9b-8d36-4d02-a4a6-9a2b26c48488\u0022]"
+      }
     }
   ]
 }

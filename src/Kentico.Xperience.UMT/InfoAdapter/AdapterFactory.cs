@@ -48,6 +48,8 @@ internal class AdapterFactory
             ContentTypeChannelModel => new GenericInfoAdapter<ContentTypeChannelInfo>(loggerFactory.CreateLogger<GenericInfoAdapter<ContentTypeChannelInfo>>(), modelService, providerProxyFactory.CreateProviderProxy<ContentTypeChannelInfo>(providerProxyContext), providerProxyFactory),
             ContentItemReferenceModel => new GenericInfoAdapter<ContentItemReferenceInfo>(loggerFactory.CreateLogger<GenericInfoAdapter<ContentItemReferenceInfo>>(), modelService, providerProxyFactory.CreateProviderProxy<ContentItemReferenceInfo>(providerProxyContext), providerProxyFactory),
             ContentFolderModel => new ContentFolderAdapter(loggerFactory.CreateLogger<ContentFolderAdapter>(), modelService, providerProxyFactory.CreateProviderProxy<ContentFolderInfo>(providerProxyContext), providerProxyFactory),
+            TaxonomyModel => new TaxonomyAdapter(loggerFactory.CreateLogger<TaxonomyAdapter>(), modelService, providerProxyFactory.CreateProviderProxy<TaxonomyInfo>(providerProxyContext), providerProxyFactory),
+            TagModel => new TagAdapter(loggerFactory.CreateLogger<TagAdapter>(), modelService, providerProxyFactory.CreateProviderProxy<TagInfo>(providerProxyContext), providerProxyFactory),
             
             // macro models
             ContentItemSimplifiedModel => new ContentItemSimplifiedAdapter(providerProxyFactory.CreateProviderProxy<ContentItemInfo>(providerProxyContext), providerProxyFactory, Service.Resolve<IDateTimeNowService>(), this, loggerFactory.CreateLogger<ContentItemSimplifiedAdapter>()),

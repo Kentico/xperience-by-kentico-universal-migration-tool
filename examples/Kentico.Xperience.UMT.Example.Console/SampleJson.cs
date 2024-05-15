@@ -6,6 +6,101 @@ public static class SampleJson
     public const string FULL_SAMPLE = """
                                       [
                                        {
+                                         "$type": "Taxonomy",
+                                         "TaxonomyName": "CoffeaGenus",
+                                         "TaxonomyGUID": "bd88fd9b-8d36-4d02-a4a6-9a2b26c48488",
+                                         "TaxonomyTitle": "Coffea genus",
+                                         "TaxonomyDescription": "Coffea is a genus of flowering plants in the family Rubiaceae",
+                                         "TaxonomyTranslations": {
+                                           "f454e93b-5fe9-42a9-b1af-b572234ed9c4": {
+                                             "Title": "Coffea enUS"
+                                           },
+                                           "a6c0a558-8b33-47b6-87a8-491b437c9923": {
+                                             "Title": "Coffea enGB"
+                                           }
+                                         }
+                                       },
+                                       {
+                                         "$type": "Tag",
+                                         "TagName": "CoffeaCanephora",
+                                         "TagGUID": "a6e3cc11-95a8-482c-beb4-58bbef6e7bdd",
+                                         "TagTaxonomyGUID": "bd88fd9b-8d36-4d02-a4a6-9a2b26c48488",
+                                         "TagParentGUID": null,
+                                         "TagOrder": null,
+                                         "TagTitle": "Coffea canephora (Coffea robusta)",
+                                         "TagDescription": "Coffea canephora (especially C. canephora var. robusta, so predominantly cultivated that it is often simply termed Coffea robusta, or commonly robusta coffee)",
+                                         "TagTranslations": {
+                                           "f454e93b-5fe9-42a9-b1af-b572234ed9c4": {
+                                             "Title": "Coffea canephora enUS",
+                                             "Description": "ENUS Robusta is a species of flowering plant in the family Rubiaceae. Though widely known by the synonym Coffea robusta, the plant is currently scientifically identified as Coffea canephora, which has two main varieties, C. c. robusta and C. c. nganda.[2] The plant has a shallow root system and grows as a robust tree or shrub to about 10 metres (30 feet) tall. It flowers irregularly, taking about 10\u201411 months for the berries to ripen, producing oval-shaped beans."
+                                           },
+                                           "a6c0a558-8b33-47b6-87a8-491b437c9923": {
+                                             "Title": "Coffea canephora enGB",
+                                             "Description": "ENGB Robusta is a species of flowering plant in the family Rubiaceae. Though widely known by the synonym Coffea robusta, the plant is currently scientifically identified as Coffea canephora, which has two main varieties, C. c. robusta and C. c. nganda.[2] The plant has a shallow root system and grows as a robust tree or shrub to about 10 metres (30 feet) tall. It flowers irregularly, taking about 10\u201411 months for the berries to ripen, producing oval-shaped beans."
+                                           }
+                                         }
+                                       },
+                                       {
+                                         "$type": "Tag",
+                                         "TagName": "CoffeaNganda",
+                                         "TagGUID": "b351f88c-7e0c-4339-bcf8-ed86bb8a2804",
+                                         "TagTaxonomyGUID": "bd88fd9b-8d36-4d02-a4a6-9a2b26c48488",
+                                         "TagParentGUID": "a6e3cc11-95a8-482c-beb4-58bbef6e7bdd",
+                                         "TagOrder": null,
+                                         "TagTitle": "Coffea nganda",
+                                         "TagDescription": "Coffea nganda variety of coffea canephora",
+                                         "TagTranslations": {
+                                           "f454e93b-5fe9-42a9-b1af-b572234ed9c4": {
+                                             "Title": "Coffea nganda enUS",
+                                             "Description": "ENUS Coffea nganda variety of coffea canephora."
+                                           },
+                                           "a6c0a558-8b33-47b6-87a8-491b437c9923": {
+                                             "Title": "Coffea nganda enGB",
+                                             "Description": "ENGB Coffea nganda variety of coffea canephora."
+                                           }
+                                         }
+                                       },
+                                       {
+                                         "$type": "Tag",
+                                         "TagName": "CoffeaRobusta",
+                                         "TagGUID": "bb181050-79b0-4f42-9280-ef486a139623",
+                                         "TagTaxonomyGUID": "bd88fd9b-8d36-4d02-a4a6-9a2b26c48488",
+                                         "TagParentGUID": "a6e3cc11-95a8-482c-beb4-58bbef6e7bdd",
+                                         "TagOrder": null,
+                                         "TagTitle": "Coffea robusta",
+                                         "TagDescription": "Coffea robusta variety of coffea canephora",
+                                         "TagTranslations": {
+                                           "f454e93b-5fe9-42a9-b1af-b572234ed9c4": {
+                                             "Title": "Coffea robusta enUS",
+                                             "Description": "ENUS Coffea robusta variety of coffea canephora."
+                                           },
+                                           "a6c0a558-8b33-47b6-87a8-491b437c9923": {
+                                             "Title": "Coffea robusta enGB",
+                                             "Description": "ENGB Coffea robusta variety of coffea canephora."
+                                           }
+                                         }
+                                       },
+                                       {
+                                         "$type": "Tag",
+                                         "TagName": "CoffeaArabica",
+                                         "TagGUID": "ffe48372-2bac-4a14-ad8c-c86f3f54c7c5",
+                                         "TagTaxonomyGUID": "bd88fd9b-8d36-4d02-a4a6-9a2b26c48488",
+                                         "TagParentGUID": null,
+                                         "TagOrder": null,
+                                         "TagTitle": "Coffea arabica",
+                                         "TagDescription": "Coffea arabica (/\u0259\u02C8r\u00E6b\u026Ak\u0259/), also known as the Arabica coffee, is a species of flowering plant in the coffee and madder family Rubiaceae.",
+                                         "TagTranslations": {
+                                           "f454e93b-5fe9-42a9-b1af-b572234ed9c4": {
+                                             "Title": "Coffea arabica enUS",
+                                             "Description": "ENUS Wild plants grow between 9 and 12 m (30 and 39 ft) tall, and have an open branching system; the leaves are opposite, simple elliptic-ovate to oblong, 6\u201312 cm (2.5\u20134.5 in) long and 4\u20138 cm (1.5\u20133 in) broad, glossy dark green. The flowers are white, 10\u201315 mm in diameter, and grow in axillary clusters. The seeds are contained in a drupe (commonly called a \u0022cherry\u0022) 10\u201315 mm in diameter, maturing bright red to purple and typically containing two seeds, often called coffee beans."
+                                           },
+                                           "a6c0a558-8b33-47b6-87a8-491b437c9923": {
+                                             "Title": "Coffea arabica enGB",
+                                             "Description": "ENGB Wild plants grow between 9 and 12 m (30 and 39 ft) tall, and have an open branching system; the leaves are opposite, simple elliptic-ovate to oblong, 6\u201312 cm (2.5\u20134.5 in) long and 4\u20138 cm (1.5\u20133 in) broad, glossy dark green. The flowers are white, 10\u201315 mm in diameter, and grow in axillary clusters. The seeds are contained in a drupe (commonly called a \u0022cherry\u0022) 10\u201315 mm in diameter, maturing bright red to purple and typically containing two seeds, often called coffee beans."
+                                           }
+                                         }
+                                       },
+                                       {
                                          "$type": "UserInfo",
                                          "UserName": "sadmin",
                                          "FirstName": "Sample",
@@ -87,7 +182,7 @@ public static class SampleJson
                                          "ClassContactOverwriteEnabled": null,
                                          "ClassConnectionString": null,
                                          "ClassDefaultObjectType": null,
-                                         "ClassResourceGuid": "0e4beef1-989c-4687-80ca-ae21fec09734",
+                                         "ClassResourceGuid": null,
                                          "ClassCodeGenerationSettings": null,
                                          "ClassHasUnmanagedDbSchema": false,
                                          "ClassType": "Content",
@@ -160,6 +255,24 @@ public static class SampleJson
                                              "Settings": {
                                                "ControlName": "Kentico.Administration.ContentItemSelector",
                                                "AllowedContentItemTypeIdentifiers": "[\u00227ed6604e-613b-4ce0-8c21-acfb372c416a\u0022]"
+                                             }
+                                           },
+                                           {
+                                             "AllowEmpty": true,
+                                             "Column": "CoffeaTaxonomy",
+                                             "ColumnSize": 0,
+                                             "ColumnType": "taxonomy",
+                                             "Enabled": true,
+                                             "Guid": "36295d61-7f85-4213-8e5c-06772ed67dfb",
+                                             "Visible": true,
+                                             "Properties": {
+                                               "FieldCaption": "Taxonomy coffee",
+                                               "explanationtextashtml": "False",
+                                               "fielddescriptionashtml": "False"
+                                             },
+                                             "Settings": {
+                                               "ControlName": "Kentico.Administration.TagSelector",
+                                               "TaxonomyGroup": "[\u0022bd88fd9b-8d36-4d02-a4a6-9a2b26c48488\u0022]"
                                              }
                                            }
                                          ]
@@ -234,7 +347,7 @@ public static class SampleJson
                                          "ClassContactOverwriteEnabled": null,
                                          "ClassConnectionString": null,
                                          "ClassDefaultObjectType": null,
-                                         "ClassResourceGuid": "ff8285c1-9d1a-49b3-8c9d-7502e1e533f7",
+                                         "ClassResourceGuid": null,
                                          "ClassCodeGenerationSettings": null,
                                          "ClassHasUnmanagedDbSchema": false,
                                          "ClassType": "Content",
@@ -306,6 +419,7 @@ public static class SampleJson
                                        {
                                          "$type": "ContentItem",
                                          "ContentItemGUID": "c354427d-3d02-4876-8ed4-4de817fae929",
+                                         "ContentItemContentFolderGUID": null,
                                          "ContentItemName": "NewsLetterExampleName",
                                          "ContentItemIsReusable": true,
                                          "ContentItemIsSecured": true,
@@ -359,25 +473,6 @@ public static class SampleJson
                                        },
                                        {
                                          "$type": "Media_File",
-                                         "DataSourcePath": ".\\sample.png",
-                                         "DataSourceUrl": null,
-                                         "FileGUID": "214e29aa-32d5-40d7-9fea-896591439e74",
-                                         "FileLibraryGuid": "e3a9c50c-2b76-4ba8-ac19-2f0aa64c47d5",
-                                         "FileCreatedByUserGuid": "863f796e-823a-4f5e-bbdb-e4a6f15b349b",
-                                         "FileModifiedByUserGuid": null,
-                                         "FileName": "NewTestFile",
-                                         "FileTitle": "Title",
-                                         "FileDescription": null,
-                                         "FileExtension": ".png",
-                                         "FileMimeType": null,
-                                         "FilePath": "customdir/NewTestFile.png",
-                                         "FileImageWidth": null,
-                                         "FileImageHeight": null,
-                                         "FileCreatedWhen": null,
-                                         "FileModifiedWhen": null
-                                       },
-                                       {
-                                         "$type": "Media_File",
                                          "DataSourcePath": null,
                                          "DataSourceUrl": "https://devnet.kentico.com/DevNet/media/devnet/cms_screen.jpg",
                                          "FileGUID": "94df1156-c85d-4356-8e28-16d71c6ac899",
@@ -398,6 +493,7 @@ public static class SampleJson
                                        {
                                          "$type": "ContentItem",
                                          "ContentItemGUID": "b64b3e3e-f5a9-4d02-8cdb-6d81805c0fee",
+                                         "ContentItemContentFolderGUID": null,
                                          "ContentItemName": "SampleReusableFaq",
                                          "ContentItemIsReusable": true,
                                          "ContentItemIsSecured": true,
@@ -469,6 +565,7 @@ public static class SampleJson
                                        {
                                          "$type": "ContentItem",
                                          "ContentItemGUID": "df81215e-1414-4d87-befd-ae123f4e5653",
+                                         "ContentItemContentFolderGUID": null,
                                          "ContentItemName": "CreationOfUmtModel",
                                          "ContentItemIsReusable": false,
                                          "ContentItemIsSecured": false,
@@ -503,7 +600,8 @@ public static class SampleJson
                                          "ArticleTitle": "en-US UMT model creation",
                                          "ArticleText": "This article is only example of creation UMT model for en-US language",
                                          "RelatedArticles": null,
-                                         "RelatedFaq": null
+                                         "RelatedFaq": null,
+                                         "CoffeaTaxonomy": "[{\u0022Identifier\u0022:\u0022ffe48372-2bac-4a14-ad8c-c86f3f54c7c5\u0022}]"
                                        },
                                        {
                                          "$type": "ContentItemData",
@@ -513,7 +611,8 @@ public static class SampleJson
                                          "ArticleTitle": "en-GB UMT model creation",
                                          "ArticleText": "This article is only example of creation UMT model for en-GB language",
                                          "RelatedArticles": null,
-                                         "RelatedFaq": null
+                                         "RelatedFaq": null,
+                                         "CoffeaTaxonomy": "[{\u0022Identifier\u0022:\u0022ffe48372-2bac-4a14-ad8c-c86f3f54c7c5\u0022}]"
                                        },
                                        {
                                          "$type": "ContentItemLanguageMetadata",
@@ -576,6 +675,7 @@ public static class SampleJson
                                        {
                                          "$type": "ContentItem",
                                          "ContentItemGUID": "e09121ad-dd97-472f-b8f6-85fe5428ed6a",
+                                         "ContentItemContentFolderGUID": null,
                                          "ContentItemName": "Content-item-with-relations",
                                          "ContentItemIsReusable": false,
                                          "ContentItemIsSecured": true,
@@ -695,8 +795,25 @@ public static class SampleJson
                                          "WebPageUrlPathIsDraft": false
                                        },
                                        {
+                                         "$type": "ContentFolder",
+                                         "ContentFolderGUID": "7665a8fc-53a2-4aff-86e8-99b009104ff2",
+                                         "ContentFolderParentFolderGUID": null,
+                                         "ContentFolderName": "articles",
+                                         "ContentFolderDisplayName": "Articles",
+                                         "ContentFolderTreePath": "/articles"
+                                       },
+                                       {
+                                         "$type": "ContentFolder",
+                                         "ContentFolderGUID": "ae29c1d1-217a-45da-8b30-585d1881387e",
+                                         "ContentFolderParentFolderGUID": "7665a8fc-53a2-4aff-86e8-99b009104ff2",
+                                         "ContentFolderName": "obsolete",
+                                         "ContentFolderDisplayName": "Obsolete",
+                                         "ContentFolderTreePath": "/articles/obsolete"
+                                       },
+                                       {
                                          "$type": "ContentItemSimplified",
                                          "ContentItemGUID": "37c3f5dd-6f2a-4eff-b46e-a36eddebf572",
+                                         "ContentItemContentFolderGUID": null,
                                          "IsSecured": false,
                                          "ContentTypeName": "UMT.Article",
                                          "Name": "SimplifiedModelSample",
@@ -712,7 +829,8 @@ public static class SampleJson
                                                "ArticleTitle": "en-US UMT simplified model creation",
                                                "ArticleText": "This article is only example of creation UMT simplified model for en-US language",
                                                "RelatedArticles": null,
-                                               "RelatedFaq": null
+                                               "RelatedFaq": null,
+                                               "CoffeaTaxonomy": "[{\u0022Identifier\u0022:\u0022a6e3cc11-95a8-482c-beb4-58bbef6e7bdd\u0022},{\u0022Identifier\u0022:\u0022bb181050-79b0-4f42-9280-ef486a139623\u0022}]"
                                              }
                                            },
                                            {
@@ -724,7 +842,8 @@ public static class SampleJson
                                                "ArticleTitle": "en-GB UMT simplified model creation",
                                                "ArticleText": "This article is only example of creation UMT simplified model for en-GB language",
                                                "RelatedArticles": null,
-                                               "RelatedFaq": null
+                                               "RelatedFaq": null,
+                                               "CoffeaTaxonomy": "[{\u0022Identifier\u0022:\u0022a6e3cc11-95a8-482c-beb4-58bbef6e7bdd\u0022},{\u0022Identifier\u0022:\u0022bb181050-79b0-4f42-9280-ef486a139623\u0022}]"
                                              }
                                            }
                                          ],
@@ -749,6 +868,7 @@ public static class SampleJson
                                        {
                                          "$type": "ContentItemSimplified",
                                          "ContentItemGUID": "f9cb9484-ce90-460f-a5c8-ad953e2b9286",
+                                         "ContentItemContentFolderGUID": "ae29c1d1-217a-45da-8b30-585d1881387e",
                                          "IsSecured": false,
                                          "ContentTypeName": "UMT.Faq",
                                          "Name": "SimplifiedModelSampleReusable",

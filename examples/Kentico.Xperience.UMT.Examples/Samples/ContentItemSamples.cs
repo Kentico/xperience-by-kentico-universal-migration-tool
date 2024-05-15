@@ -62,7 +62,11 @@ public static class ContentItemSamples
             ["ArticleTitle"] = "en-US UMT model creation", 
             ["ArticleText"] = "This article is only example of creation UMT model for en-US language",
             ["RelatedArticles"] = null,
-            ["RelatedFaq"] = null
+            ["RelatedFaq"] = null,
+            ["CoffeaTaxonomy"] = System.Text.Json.JsonSerializer.Serialize(new List<object>
+            {
+                new {Identifier = TaxonomySamples.SampleTagCoffeaArabicaGuid},
+            })
         }
     };
 
@@ -121,7 +125,11 @@ public static class ContentItemSamples
             ["ArticleTitle"] = "en-GB UMT model creation", 
             ["ArticleText"] = "This article is only example of creation UMT model for en-GB language",
             ["RelatedArticles"] = null,
-            ["RelatedFaq"] = null
+            ["RelatedFaq"] = null,
+            ["CoffeaTaxonomy"] = System.Text.Json.JsonSerializer.Serialize(new List<object>
+            {
+                new {Identifier = TaxonomySamples.SampleTagCoffeaArabicaGuid},
+            })
         }
     };
 
