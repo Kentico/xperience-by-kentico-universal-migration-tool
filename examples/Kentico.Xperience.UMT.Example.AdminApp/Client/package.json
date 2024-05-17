@@ -11,8 +11,8 @@
     "@kentico/xperience-admin-base": "^28.0.3",
     "@kentico/xperience-admin-components": "^28.0.3",
     "copy-webpack-plugin": "^12.0.2",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
     "sse": "^0.0.8",
     "sse.js": "^2.2.0"
   },
