@@ -1,6 +1,4 @@
-﻿#define MOCK_IMPORT
-
-using System.Collections.Concurrent;
+﻿using System.Collections.Concurrent;
 using System.Net.Sockets;
 using System.Net.WebSockets;
 using System.Text;
@@ -119,25 +117,6 @@ public static class ServiceCollectionExtensions
             {
                 var data = importService.FromJsonStream(ms);
 
-#if MOCK_IMPORT
-                // Any data file works with this mock
-                int ctr = 0;
-                await foreach (var item in data)
-                {
-                    ctr++;
-                    if (ctr == 10)
-                    {
-                        ctr = 0;
-                        await Task.Delay(3);
-                    }
-                }
-                stats.SuccessfulImports["ContentItem"] = 10;
-                stats.SuccessfulImports["Language"] = 11;
-                stats.Errors.Add(new ObjectImportError(Guid.NewGuid(), ObjectImportErrorKind.ValidationError, "Name is too long. Max 60 characters"));
-                stats.Errors.Add(new ObjectImportError(Guid.NewGuid(), ObjectImportErrorKind.ValidationError, "Type cannot be empty"));
-                return;
-#endif
-
                 var observer = new ImportStateObserver();
 
                 observer = await importService.StartImportAsync(data!, observer);
@@ -210,9 +189,6 @@ public static class ServiceCollectionExtensions
 
                     int count = receiveResult.Count;
                     totalReceived += count;
-
-                    //byte[] response = Encoding.UTF8.GetBytes(JsonConvert.SerializeObject(new { type = "progress", payload = count }));
-                    //await webSocket.SendAsync(new ArraySegment<byte>(response, 0, response.Length), WebSocketMessageType.Text, true, CancellationToken.None);
 
                     if (ms.CachedBlocks > 3500)
                     {
