@@ -4,11 +4,11 @@
     "net8.0": {
       "Kentico.Xperience.ImageProcessing": {
         "type": "Direct",
-        "requested": "[29.0.2, )",
-        "resolved": "29.0.2",
-        "contentHash": "tgS9RVJtbDSYO37QVa2midNKmXSWSTH0q5KF5gni38W/Mq+JabtwRL8ZZgPRggkAZHHq3YVtrqjRE2bJEmOe+A==",
+        "requested": "[29.1.0, )",
+        "resolved": "29.1.0",
+        "contentHash": "3mL0vLuaeSUqTkebQMUuBmBmDAqCOnYTXy/MwLcMmKdAWmkb9Ab+cMsVrRefZZK+nRbuBJSjKy8GlN7np0DplQ==",
         "dependencies": {
-          "Kentico.Xperience.Core": "29.0.2",
+          "Kentico.Xperience.Core": "29.1.0",
           "SkiaSharp": "2.88.8",
           "SkiaSharp.NativeAssets.Linux.NoDependencies": "2.88.8"
         }
@@ -594,21 +594,21 @@
       "kentico.xperience.umt": {
         "type": "Project",
         "dependencies": {
-          "Kentico.Xperience.Core": "[29.0.2, )",
+          "Kentico.Xperience.Core": "[29.1.0, )",
           "Microsoft.Bcl.AsyncInterfaces": "[8.0.0, )"
         }
       },
       "kentico.xperience.umt.examples": {
         "type": "Project",
         "dependencies": {
-          "Kentico.Xperience.UMT": "[1.0.3, )"
+          "Kentico.Xperience.UMT": "[1.0.4, )"
         }
       },
       "Kentico.Xperience.Core": {
         "type": "CentralTransitive",
-        "requested": "[29.0.2, )",
-        "resolved": "29.0.2",
-        "contentHash": "HooffI6zYBY0JHlU4jzKowvmcedfwfgrnsqg0r6cuqbiMP0MKhLDFVLnoO5NqleplSLzx+MR4o+fTB2+sOecQw==",
+        "requested": "[29.1.0, )",
+        "resolved": "29.1.0",
+        "contentHash": "fjJBjuKVH+Sli0g0fb9+4si3r0+N7OW3ISCesq48FDOceAgU/oFy4Vsskm0dlOFA6jHKWX5E8t/ETaWXLMGZbQ==",
         "dependencies": {
           "AngleSharp": "0.17.1",
           "MailKit": "4.5.0",

@@ -15,15 +15,7 @@ export const ImportBackgroundContainer = (props: ImportSandboxProps) => {
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
-    }} >
-
-        {/*<div className="content-container" style={{*/}
-        {/*    display: "grid", justifyContent: 'center',*/}
-        {/*    alignItems: 'center', width: "300", height: "300"*/}
-        {/*}}>*/}
-            {props.children}
-        {/*</div>*/}
-
-
+    }} >        
+        {props.children}
     </div>
 };
