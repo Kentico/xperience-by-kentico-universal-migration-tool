@@ -305,5 +305,5 @@ public class ContentItemSimplifiedAdapter : IInfoAdapter<ContentItemInfo, IUmtMo
         }
     }
 
-    Guid? IInfoAdapter<IUmtModel>.GetUniqueIdOrNull(IUmtModel input) => throw new NotImplementedException();
+    Guid? IInfoAdapter<IUmtModel>.GetUniqueIdOrNull(IUmtModel input) => input is ContentItemSimplifiedModel sm ? sm.ContentItemGUID : null;
 }
