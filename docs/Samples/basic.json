@@ -196,7 +196,24 @@
         },
         "Settings": {
           "ControlName": "Kentico.Administration.TextInput"
-        }
+        },
+        "Precision": null
+      },
+      {
+        "AllowEmpty": true,
+        "Column": "ArticleDecimalNumberSample",
+        "ColumnSize": 15,
+        "ColumnType": "decimal",
+        "Enabled": true,
+        "Guid": "8e749651-773b-47b9-a888-c541c3c3e1b7",
+        "Visible": true,
+        "Properties": {
+          "FieldCaption": "Article decimal number sample"
+        },
+        "Settings": {
+          "ControlName": "Kentico.Administration.DecimalNumberInput"
+        },
+        "Precision": 5
       },
       {
         "AllowEmpty": true,
@@ -211,7 +228,8 @@
         },
         "Settings": {
           "ControlName": "Kentico.Administration.TextArea"
-        }
+        },
+        "Precision": null
       },
       {
         "AllowEmpty": true,
@@ -231,7 +249,8 @@
           "MaximumPages": 5,
           "Sortable": "False",
           "TreePath": "/Articles"
-        }
+        },
+        "Precision": null
       },
       {
         "AllowEmpty": true,
@@ -249,7 +268,8 @@
         "Settings": {
           "ControlName": "Kentico.Administration.ContentItemSelector",
           "AllowedContentItemTypeIdentifiers": "[\u00227ed6604e-613b-4ce0-8c21-acfb372c416a\u0022]"
-        }
+        },
+        "Precision": null
       },
       {
         "AllowEmpty": true,
@@ -267,7 +287,8 @@
         "Settings": {
           "ControlName": "Kentico.Administration.TagSelector",
           "TaxonomyGroup": "[\u0022bd88fd9b-8d36-4d02-a4a6-9a2b26c48488\u0022]"
-        }
+        },
+        "Precision": null
       }
     ]
   },
@@ -309,7 +330,8 @@
         },
         "Settings": {
           "ControlName": "Kentico.Administration.TextInput"
-        }
+        },
+        "Precision": null
       },
       {
         "AllowEmpty": false,
@@ -324,7 +346,8 @@
         },
         "Settings": {
           "ControlName": "Kentico.Administration.TextInput"
-        }
+        },
+        "Precision": null
       }
     ]
   },
@@ -361,7 +384,8 @@
         },
         "Settings": {
           "ControlName": "Kentico.Administration.TextInput"
-        }
+        },
+        "Precision": null
       },
       {
         "AllowEmpty": true,
@@ -376,7 +400,8 @@
         },
         "Settings": {
           "ControlName": "Kentico.Administration.TextArea"
-        }
+        },
+        "Precision": null
       },
       {
         "AllowEmpty": true,
@@ -391,7 +416,8 @@
         },
         "Settings": {
           "ControlName": "Kentico.Administration.DateTimeInput"
-        }
+        },
+        "Precision": null
       },
       {
         "AllowEmpty": true,
@@ -406,7 +432,8 @@
         },
         "Settings": {
           "ControlName": "Kentico.Administration.Checkbox"
-        }
+        },
+        "Precision": null
       }
     ]
   },
@@ -595,7 +622,8 @@
     "ArticleText": "This article is only example of creation UMT model for en-US language",
     "RelatedArticles": null,
     "RelatedFaq": null,
-    "CoffeaTaxonomy": "[{\u0022Identifier\u0022:\u0022ffe48372-2bac-4a14-ad8c-c86f3f54c7c5\u0022}]"
+    "CoffeaTaxonomy": "[{\u0022Identifier\u0022:\u0022ffe48372-2bac-4a14-ad8c-c86f3f54c7c5\u0022}]",
+    "ArticleDecimalNumberSample": 123456.12345
   },
   {
     "$type": "ContentItemData",
@@ -606,7 +634,8 @@
     "ArticleText": "This article is only example of creation UMT model for en-GB language",
     "RelatedArticles": null,
     "RelatedFaq": null,
-    "CoffeaTaxonomy": "[{\u0022Identifier\u0022:\u0022ffe48372-2bac-4a14-ad8c-c86f3f54c7c5\u0022}]"
+    "CoffeaTaxonomy": "[{\u0022Identifier\u0022:\u0022ffe48372-2bac-4a14-ad8c-c86f3f54c7c5\u0022}]",
+    "ArticleDecimalNumberSample": 123456.12345
   },
   {
     "$type": "ContentItemLanguageMetadata",
@@ -704,7 +733,8 @@
     "ArticleTitle": "en-US UMT model creation",
     "ArticleText": "This article is only example of creation UMT model for en-US language",
     "RelatedArticles": "[{\u0022WebPageGuid\u0022:\u00226e995319-77e7-475e-9ebb-607bdbf5af9a\u0022}]",
-    "RelatedFaq": "[{\u0022Identifier\u0022:\u0022b64b3e3e-f5a9-4d02-8cdb-6d81805c0fee\u0022}]"
+    "RelatedFaq": "[{\u0022Identifier\u0022:\u0022b64b3e3e-f5a9-4d02-8cdb-6d81805c0fee\u0022}]",
+    "ArticleDecimalNumberSample": 123456.12345
   },
   {
     "$type": "ContentItemReference",
@@ -721,7 +751,8 @@
     "ArticleTitle": "en-GB UMT model creation",
     "ArticleText": "This article is only example of creation UMT model for en-GB language",
     "RelatedArticles": "[{\u0022WebPageGuid\u0022:\u00226e995319-77e7-475e-9ebb-607bdbf5af9a\u0022}]",
-    "RelatedFaq": "[{\u0022Identifier\u0022:\u0022b64b3e3e-f5a9-4d02-8cdb-6d81805c0fee\u0022}]"
+    "RelatedFaq": "[{\u0022Identifier\u0022:\u0022b64b3e3e-f5a9-4d02-8cdb-6d81805c0fee\u0022}]",
+    "ArticleDecimalNumberSample": 123456.12345
   },
   {
     "$type": "ContentItemReference",

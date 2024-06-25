@@ -16,12 +16,6 @@
             "type": "null"
           }
         ]
-      },
-      "properties": {
-        "CustomProperties": {
-          "type": "object",
-          "additionalProperties": {}
-        }
       }
     },
     "ChannelModel": {
@@ -630,6 +624,14 @@
         },
         "Settings": {
           "$ref": "#/definitions/FormFieldSettings"
+        },
+        "Precision": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "description": "Specifies precision, relevant for fields with ColumnType \"decimal\" ",
+          "format": "int32"
         }
       }
     },
@@ -651,10 +653,6 @@
             "string"
           ],
           "description": "Friendly name displayed in form"
-        },
-        "CustomProperties": {
-          "type": "object",
-          "additionalProperties": {}
         }
       }
     },
@@ -676,10 +674,6 @@
             "string"
           ],
           "description": "Admin UI Component used for field data editing"
-        },
-        "CustomProperties": {
-          "type": "object",
-          "additionalProperties": {}
         }
       }
     },

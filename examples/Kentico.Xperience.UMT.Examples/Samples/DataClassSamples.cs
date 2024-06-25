@@ -39,6 +39,20 @@ public static class DataClassSamples
                 Properties = new FormFieldProperties { FieldCaption = "Article title", },
                 Settings = new FormFieldSettings { ControlName = "Kentico.Administration.TextInput" }
             },
+            
+            new()
+            {
+                Column = "ArticleDecimalNumberSample",
+                ColumnType = "decimal",
+                ColumnSize = 15,
+                Precision = 5,
+                AllowEmpty = true,
+                Visible = true,
+                Enabled = true,
+                Guid = new Guid("8E749651-773B-47B9-A888-C541C3C3E1B7"),
+                Properties = new FormFieldProperties { FieldCaption = "Article decimal number sample", },
+                Settings = new FormFieldSettings { ControlName = "Kentico.Administration.DecimalNumberInput" }
+            },
 
             new()
             {

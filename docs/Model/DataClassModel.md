@@ -60,6 +60,22 @@ This sample describes how to create class inside XbyK to hold Article data
     },
     {
       "AllowEmpty": true,
+      "Column": "ArticleDecimalNumberSample",
+      "ColumnSize": 15,
+      "ColumnType": "decimal",
+      "Enabled": true,
+      "Guid": "8e749651-773b-47b9-a888-c541c3c3e1b7",
+      "Visible": true,
+      "Properties": {
+        "FieldCaption": "Article decimal number sample"
+      },
+      "Settings": {
+        "ControlName": "Kentico.Administration.DecimalNumberInput"
+      },
+      "Precision": 5
+    },
+    {
+      "AllowEmpty": true,
       "Column": "ArticleText",
       "ColumnSize": 0,
       "ColumnType": "longtext",
@@ -275,6 +291,7 @@ Represents information about custom data field
 |Visible|Field visibility in administration form|bool||
 |Properties|[definition](#FormFieldProperties)|Kentico.Xperience.UMT.Model.FormFieldProperties||
 |Settings|[definition](#FormFieldSettings)|Kentico.Xperience.UMT.Model.FormFieldSettings||
+|Precision|Specifies precision, relevant for fields with ColumnType "decimal"|int?||
 
 <p>*) value is required</p>
 
