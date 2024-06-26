@@ -28,7 +28,8 @@ This sample describes how to create content item data inside XbyK
   "ArticleText": "This article is only example of creation UMT model for en-US language",
   "RelatedArticles": null,
   "RelatedFaq": null,
-  "CoffeaTaxonomy": "[{\u0022Identifier\u0022:\u0022ffe48372-2bac-4a14-ad8c-c86f3f54c7c5\u0022}]"
+  "CoffeaTaxonomy": "[{\u0022Identifier\u0022:\u0022ffe48372-2bac-4a14-ad8c-c86f3f54c7c5\u0022}]",
+  "ArticleDecimalNumberSample": 123456.12345
 }
 ```
 
@@ -44,7 +45,8 @@ This sample describes how to create content item data inside XbyK
   "ArticleText": "This article is only example of creation UMT model for en-GB language",
   "RelatedArticles": null,
   "RelatedFaq": null,
-  "CoffeaTaxonomy": "[{\u0022Identifier\u0022:\u0022ffe48372-2bac-4a14-ad8c-c86f3f54c7c5\u0022}]"
+  "CoffeaTaxonomy": "[{\u0022Identifier\u0022:\u0022ffe48372-2bac-4a14-ad8c-c86f3f54c7c5\u0022}]",
+  "ArticleDecimalNumberSample": 123456.12345
 }
 ```
 

@@ -85,7 +85,7 @@
 |`TFormComponentValue`||`ObjectSelectorBase`|`TProperties`|**abstract**|
 |`TFormComponentValue`||`SingleObjectSelectorBase`|`TProperties`|**abstract**|
 |`Kentico.Xperience.Admin.Base.Forms.TileSelectorItem`|`Kentico.Administration.TileSelector`|`TileSelectorComponent`|`TileSelectorProperties`||
-|`TValue`||`DateInputComponentBase`|`TProperties`|**abstract**|
+|`TValue`||`DateTimeInputComponentBase`|`TProperties`|**abstract**|
 |`TValue`||`FormComponent`|`FormComponentProperties`|**abstract**|
 |`TValue`||`FormComponentWithNestedComponents`|`TProperties`|**abstract**|
 

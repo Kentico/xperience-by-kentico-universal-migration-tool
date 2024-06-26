@@ -66,10 +66,10 @@ public static class ContentItemSamples
             ["CoffeaTaxonomy"] = System.Text.Json.JsonSerializer.Serialize(new List<object>
             {
                 new {Identifier = TaxonomySamples.SampleTagCoffeaArabicaGuid},
-            })
+            }),
+            ["ArticleDecimalNumberSample"] = 123456.12345M
         }
     };
-
 
     [Sample("contentitemlanguagemetadata.sample.article.enus", "This sample describes how to create class inside XbyK to hold Content Item Language Metadata", "ContentItemLanguageMetadata Sample")]
     public static ContentItemLanguageMetadataModel SampleArticleContentItemLanguageMetadataEnUs => new()
@@ -129,7 +129,8 @@ public static class ContentItemSamples
             ["CoffeaTaxonomy"] = System.Text.Json.JsonSerializer.Serialize(new List<object>
             {
                 new {Identifier = TaxonomySamples.SampleTagCoffeaArabicaGuid},
-            })
+            }),
+            ["ArticleDecimalNumberSample"] = 123456.12345M
         }
     };
 
@@ -221,7 +222,8 @@ public static class ContentItemSamples
             ["RelatedArticles"] = $$"""[{"WebPageGuid":"{{SampleArticleWebPageItem.WebPageItemGUID}}"}]""",
             ["RelatedFaq"] = $$"""
                              [{"Identifier":"{{SampleFaqContentItemGuid}}"}]
-                             """
+                             """,
+            ["ArticleDecimalNumberSample"] = 123456.12345M
         }
     };
 
@@ -291,7 +293,8 @@ public static class ContentItemSamples
             ["RelatedArticles"] = $$"""[{"WebPageGuid":"{{SampleArticleWebPageItem.WebPageItemGUID}}"}]""",
             ["RelatedFaq"] = $$"""
                                [{"Identifier":"{{SampleFaqContentItemGuid}}"}]
-                               """
+                               """,
+            ["ArticleDecimalNumberSample"] = 123456.12345M
         }
     };
     

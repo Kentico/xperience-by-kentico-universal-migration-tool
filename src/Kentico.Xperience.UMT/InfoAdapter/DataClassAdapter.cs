@@ -63,8 +63,12 @@ internal class DataClassAdapter : GenericInfoAdapter<DataClassInfo>
                         DataType = field.ColumnType,
                         Enabled = field.Enabled,
                         Visible = field.Visible,
-                        Size = field.ColumnSize
+                        Size = field.ColumnSize,
                     };
+                    if (field.Precision is { } precision)
+                    {
+                        nfi.Precision = precision;
+                    }
                     nfi.Caption = field.Properties.FieldCaption;
                     nfi.Settings[CONTROL_NAME] = field.Settings.ControlName;
                     

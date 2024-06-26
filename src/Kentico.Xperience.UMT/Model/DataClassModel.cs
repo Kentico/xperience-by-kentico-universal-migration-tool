@@ -164,6 +164,11 @@ public class FormField
     /// </summary>
     /// <docref header="FormFieldSettings">definition</docref>
     public FormFieldSettings Settings { get; set; } = new();
+
+    /// <summary>
+    /// Specifies precision, relevant for fields with ColumnType "decimal" 
+    /// </summary>
+    public int? Precision { get; set; }
 }
 
 /// <summary>

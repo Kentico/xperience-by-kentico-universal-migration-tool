@@ -26,7 +26,8 @@ This sample describes how to create content item data inside XbyK
   "ArticleText": "This article is only example of creation UMT model for en-US language",
   "RelatedArticles": null,
   "RelatedFaq": null,
-  "CoffeaTaxonomy": "[{\u0022Identifier\u0022:\u0022ffe48372-2bac-4a14-ad8c-c86f3f54c7c5\u0022}]"
+  "CoffeaTaxonomy": "[{\u0022Identifier\u0022:\u0022ffe48372-2bac-4a14-ad8c-c86f3f54c7c5\u0022}]",
+  "ArticleDecimalNumberSample": 123456.12345
 }
 ```
 
@@ -42,7 +43,8 @@ This sample describes how to create content item data inside XbyK
   "ArticleText": "This article is only example of creation UMT model for en-GB language",
   "RelatedArticles": null,
   "RelatedFaq": null,
-  "CoffeaTaxonomy": "[{\u0022Identifier\u0022:\u0022ffe48372-2bac-4a14-ad8c-c86f3f54c7c5\u0022}]"
+  "CoffeaTaxonomy": "[{\u0022Identifier\u0022:\u0022ffe48372-2bac-4a14-ad8c-c86f3f54c7c5\u0022}]",
+  "ArticleDecimalNumberSample": 123456.12345
 }
 ```
 
@@ -83,7 +85,8 @@ This sample describes how to create content item data inside XbyK
   "ArticleTitle": "en-US UMT model creation",
   "ArticleText": "This article is only example of creation UMT model for en-US language",
   "RelatedArticles": "[{\u0022WebPageGuid\u0022:\u00226e995319-77e7-475e-9ebb-607bdbf5af9a\u0022}]",
-  "RelatedFaq": "[{\u0022Identifier\u0022:\u0022b64b3e3e-f5a9-4d02-8cdb-6d81805c0fee\u0022}]"
+  "RelatedFaq": "[{\u0022Identifier\u0022:\u0022b64b3e3e-f5a9-4d02-8cdb-6d81805c0fee\u0022}]",
+  "ArticleDecimalNumberSample": 123456.12345
 }
 ```
 
@@ -98,6 +101,7 @@ This sample describes how to create content item data inside XbyK
   "ArticleTitle": "en-GB UMT model creation",
   "ArticleText": "This article is only example of creation UMT model for en-GB language",
   "RelatedArticles": "[{\u0022WebPageGuid\u0022:\u00226e995319-77e7-475e-9ebb-607bdbf5af9a\u0022}]",
-  "RelatedFaq": "[{\u0022Identifier\u0022:\u0022b64b3e3e-f5a9-4d02-8cdb-6d81805c0fee\u0022}]"
+  "RelatedFaq": "[{\u0022Identifier\u0022:\u0022b64b3e3e-f5a9-4d02-8cdb-6d81805c0fee\u0022}]",
+  "ArticleDecimalNumberSample": 123456.12345
 }
 ```
