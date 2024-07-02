@@ -137,17 +137,19 @@
     },
     "VersionStatus": {
       "type": "integer",
-      "description": "Specifies item version.",
+      "description": "Specifies the item version.",
       "x-enumNames": [
         "InitialDraft",
         "Draft",
         "Published",
+        "Unpublished",
         "Archived"
       ],
       "enum": [
         0,
         1,
         2,
+        3,
         3
       ]
     },

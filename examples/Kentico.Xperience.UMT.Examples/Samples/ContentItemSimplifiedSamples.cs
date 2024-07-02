@@ -28,13 +28,13 @@ public static class ContentItemSimplifiedSamples
                 new()
                 {
                     UrlPath = "en-us/simplified-sample",
-                    PathIsDraft = true,
+                    PathIsDraft = false,
                     LanguageName = ContentLanguageSamples.SampleContentLanguageEnUs.ContentLanguageName!
                 },
                 new()
                 {
                     UrlPath = "en-gb/simplified-sample",
-                    PathIsDraft = true,
+                    PathIsDraft = false,
                     LanguageName = ContentLanguageSamples.SampleContentLanguageEnGb.ContentLanguageName!
                 }
             ]

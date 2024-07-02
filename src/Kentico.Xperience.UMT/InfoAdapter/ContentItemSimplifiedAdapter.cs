@@ -84,12 +84,14 @@ public class ContentItemSimplifiedAdapter : IInfoAdapter<ContentItemInfo, IUmtMo
         
         var contentLanguageProxy = providerProxyFactory.CreateProviderProxy<ContentLanguageInfo>(new ProviderProxyContext());
         var userInfoProxy = providerProxyFactory.CreateProviderProxy<UserInfo>(new ProviderProxyContext());
-        
+
+        var languages = new List<string>();
         foreach (var languageData in cim.LanguageData)
         {
             var customData = languageData.ContentItemData?.ToDictionary() ?? [];
             
             ArgumentException.ThrowIfNullOrWhiteSpace(languageData.LanguageName);
+            languages.Add(languageData.LanguageName);
             var contentLanguageInfo = contentLanguageProxy.GetBaseInfoByCodeName(languageData.LanguageName, null!) as ContentLanguageInfo;
             ArgumentNullException.ThrowIfNull(contentLanguageInfo);
             
@@ -235,11 +237,28 @@ public class ContentItemSimplifiedAdapter : IInfoAdapter<ContentItemInfo, IUmtMo
 
                 var urls = pageData.PageUrls ?? [];
                 
-                foreach (var pu in urls)
+                foreach (string language in languages)
                 {
-                    ArgumentException.ThrowIfNullOrWhiteSpace(pu.LanguageName);
-                    var contentLanguageInfo = contentLanguageProxy.GetBaseInfoByCodeName(pu.LanguageName, null!) as ContentLanguageInfo;
+                    var contentLanguageInfo = contentLanguageProxy.GetBaseInfoByCodeName(language, null!) as ContentLanguageInfo;
                     ArgumentNullException.ThrowIfNull(contentLanguageInfo);
+                    
+                    var pu = urls.Find(u => u.LanguageName?.Equals(language, StringComparison.CurrentCultureIgnoreCase) ?? false);
+                    if (pu == null)
+                    {
+                        var orphaned = Provider<WebPageUrlPathInfo>.Instance.Get()
+                            .WhereEquals(nameof(WebPageUrlPathInfo.WebPageUrlPathWebPageItemID), webPageItemInfo.WebPageItemID)
+                            .WhereEquals(nameof(WebPageUrlPathInfo.WebPageUrlPathContentLanguageID), contentLanguageInfo.ContentLanguageID)
+                            .WhereEquals(nameof(WebPageUrlPathInfo.WebPageUrlPathWebsiteChannelID), webSiteChannel.WebsiteChannelID);
+
+                        foreach (var pageUrlPathInfo in orphaned)
+                        {
+                            pageUrlPathInfo.Delete();
+                        }
+
+                        continue;
+                    }
+
+                    ArgumentException.ThrowIfNullOrWhiteSpace(pu.LanguageName);
 
                     Guid? webPageUrlPathGuid = null;
                     if (existingContentItem != null)
