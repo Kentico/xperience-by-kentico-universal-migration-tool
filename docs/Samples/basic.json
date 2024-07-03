@@ -876,12 +876,12 @@
       "PageUrls": [
         {
           "UrlPath": "en-us/simplified-sample",
-          "PathIsDraft": true,
+          "PathIsDraft": false,
           "LanguageName": "en-US"
         },
         {
           "UrlPath": "en-gb/simplified-sample",
-          "PathIsDraft": true,
+          "PathIsDraft": false,
           "LanguageName": "en-GB"
         }
       ],
