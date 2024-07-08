@@ -2,11 +2,11 @@
 
 ## 🚀 Installation
 
-1. install nuget package
-2. Open file with dependency injection container configuration (`Program.cs` / `Startup.cs` / ...)
-3. import namespace `Kentico.Xperience.UMT`
-4. register Umt to service collection `IServiceCollection` using `AddUniversalMigrationToolkit()`
-5. inject `IImportService` where you want use migration toolkit
+1. Install the [Kentico.Xperience.UMT](https://www.nuget.org/packages/Kentico.Xperience.UMT) NuGet package.
+2. Open file with dependency injection container configuration. (`Program.cs` / `Startup.cs` / ...)
+3. Import the `Kentico.Xperience.UMT` namespace.
+4. Register Umt to service collection `IServiceCollection` using `AddUniversalMigrationToolkit()`
+5. inject `IImportService` where you want use this tool.
 
 Installation and usage samples:
 
@@ -15,19 +15,19 @@ Installation and usage samples:
 
 ## Usage
 
-1. inject [IImportService](Class/IImportService.md) as `importService`
-2. create new instace of [ImportStateObserver](Class/ImportStateObserver.md)
-3. bind events on [ImportStateObserver](Class/ImportStateObserver.md)
-   - [Imported info](Class/ImportStateObserver.md#importedinfo) tracking successful objects
-   - [Validation error](Class/ImportStateObserver.md#validationerror) UMT model with incorrect format
-   - [Exception](Class/ImportStateObserver.md#exception) when import of single model fails from eny reason
-4. call [StartImportAsync](Class/IImportService.md#startimportasync) to start import
-   1. (optional) deserialize from json stream using [FromJsonStream](Class/IImportService.md#fromjsonstream)
-5. await [importObserver.ImportCompletedTask](Class/ImportStateObserver.md#importcompletedtask)
+1. Inject [IImportService](Class/IImportService.md) as `importService`.
+2. Create new instace of [ImportStateObserver](Class/ImportStateObserver.md).
+3. Bind events on [ImportStateObserver](Class/ImportStateObserver.md)
+   - [Imported info](Class/ImportStateObserver.md#importedinfo) tracking successful objects.
+   - [Validation error](Class/ImportStateObserver.md#validationerror) UMT model with incorrect format.
+   - [Exception](Class/ImportStateObserver.md#exception) when import of single model fails from eny reason.
+4. Call [StartImportAsync](Class/IImportService.md#startimportasync) to start import.
+   - (_Optional_) deserialize from Json stream using [FromJsonStream](Class/IImportService.md#fromjsonstream).
+5. Await [importObserver.ImportCompletedTask](Class/ImportStateObserver.md#importcompletedtask).
 
 ## Model creation & design
 
-Following concepts are subject to this guide:
+The following concepts are subject to this guide:
 
 - Overview of UMT and concepts behind
 - [DataClass](./Model/DataClassModel.md) creation

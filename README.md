@@ -6,7 +6,7 @@
 
 ## About The Project
 
-The Universal Migration Tool (UMT) is an open-source set of software libraries, documentation, and samples distributed via NuGet packages to facilitate and automate data import from external systems (Legacy Kentico, etc...) into Xperience by Kentico.
+The Xperience by Kentico: Universal Migration Tool (UMT) is an open-source set of software libraries, documentation, and samples distributed via [NuGet packages](https://www.nuget.org/packages/Kentico.Xperience.UMT) to facilitate and automate data import from external systems (Legacy Kentico, etc...) into Xperience by Kentico.
 
 ## Getting Started
 
@@ -23,24 +23,24 @@ The Universal Migration Tool (UMT) is an open-source set of software libraries, 
    dotnet add package Kentico.Xperience.UMT
    ```
 
-2. Open file with dependency injection container configuration (`Program.cs` / `Startup.cs` / ...)
-3. Import namespace `Kentico.Xperience.UMT`
-4. Register Umt to service collection `IServiceCollection` using `AddUniversalMigrationToolkit()`
-5. Inject `IImportService` where you want use migration toolkit
+2. Open file with dependency injection container configuration. (`Program.cs` / `Startup.cs` / ...)
+3. Import namespace `Kentico.Xperience.UMT`.
+4. Register Umt to service collection `IServiceCollection` using `AddUniversalMigrationToolkit()`.
+5. Inject `IImportService` where you want use this tool.
 
 ## Usage
 
 ### Convert & Import samples
 
-Advanced usage is covered [in the extended documentation](./docs/README.md)
+Advanced usage is covered in the [extended documentation](./docs/README.md).
 
 #### Console sample
 
-[Console application](./examples/Kentico.Xperience.UMT.Example.Console/README.md) sample shows usage of toolkit in console application.
+The [console application](./examples/Kentico.Xperience.UMT.Example.Console/README.md) sample shows usage of this tool in a console application.
 
 #### Administration plug-in sample
 
-[Administration plugin](./examples/Kentico.Xperience.UMT.Example.AdminApp/README.md) sample shows deployment of toolkit as administration application that receives file with serialized data as JSON and performs import of data.
+The [administration plugin](./examples/Kentico.Xperience.UMT.Example.AdminApp/README.md) sample shows deployment of this tool as an administration application that receives file with serialized data as JSON and imports the data into the system.
 
 ## Contributing
 
