@@ -14,6 +14,8 @@ Model [discriminator](../UmtModel.md#discriminator): `ContentItemLanguageMetadat
 |ContentItemLanguageMetadataModifiedByUserGuid||System.Guid?|Reference to [UserInfo](../References.md#UserInfo) on property ContentItemLanguageMetadataModifiedByUserID|
 |ContentItemLanguageMetadataHasImageAsset\*||bool?||
 |ContentItemLanguageMetadataContentLanguageGuid\*||System.Guid?|Reference to [ContentLanguageInfo](../References.md#ContentLanguageInfo) on property ContentItemLanguageMetadataContentLanguageID **required**|
+|ContentItemLanguageMetadataScheduledPublishWhen|Date and time on which draft content item will be published, must be set in future|System.DateTime?||
+|ContentItemLanguageMetadataScheduledUnpublishWhen|Date and time on which published content item will be unpublished, must be set in future|System.DateTime?||
 |[customPropertyName]|custom property defined by created [DataClass](./DataClassModel.md)|.NET type defined by data class field||
 
 <p>*) value is required</p>
@@ -61,12 +63,13 @@ This sample describes how to create class inside XbyK to hold Content Item Langu
   "ContentItemLanguageMetadataGUID": "46353800-21b8-48f6-8681-b19966f4b6eb",
   "ContentItemLanguageMetadataContentItemGuid": "b64b3e3e-f5a9-4d02-8cdb-6d81805c0fee",
   "ContentItemLanguageMetadataDisplayName": "Sample reusable FAQ",
-  "ContentItemLanguageMetadataLatestVersionStatus": 2,
+  "ContentItemLanguageMetadataLatestVersionStatus": 0,
   "ContentItemLanguageMetadataCreatedWhen": "2023-12-10T00:00:00Z",
   "ContentItemLanguageMetadataCreatedByUserGuid": "dbfcc244-2cb9-4934-857f-9d75404c1553",
   "ContentItemLanguageMetadataModifiedByUserGuid": "dbfcc244-2cb9-4934-857f-9d75404c1553",
   "ContentItemLanguageMetadataHasImageAsset": false,
-  "ContentItemLanguageMetadataContentLanguageGuid": "f454e93b-5fe9-42a9-b1af-b572234ed9c4"
+  "ContentItemLanguageMetadataContentLanguageGuid": "f454e93b-5fe9-42a9-b1af-b572234ed9c4",
+  "ContentItemLanguageMetadataScheduledPublishWhen": "2045-01-01T00:00:00Z"
 }
 ```
 

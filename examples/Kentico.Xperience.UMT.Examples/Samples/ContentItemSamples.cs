@@ -407,7 +407,8 @@ public static class ContentItemSamples
         ContentItemLanguageMetadataHasImageAsset = false,
         ContentItemLanguageMetadataCreatedByUserGuid = UserSamples.SampleAdminGuid,
         ContentItemLanguageMetadataModifiedByUserGuid = UserSamples.SampleAdminGuid,
-        ContentItemLanguageMetadataLatestVersionStatus = VersionStatus.Published,
+        ContentItemLanguageMetadataLatestVersionStatus = VersionStatus.InitialDraft,
+        ContentItemLanguageMetadataScheduledPublishWhen = new DateTime(2045, 1, 1, 0,0,0,0,0, DateTimeKind.Utc)
     };
 
     #endregion
