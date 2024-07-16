@@ -1,5 +1,17 @@
 # UMT Guides
 
+## Convert & Import samples
+
+Advanced usage is covered in the [extended documentation](./docs/README.md).
+
+### Console sample
+
+The [console application](./examples/Kentico.Xperience.UMT.Example.Console/README.md) sample shows usage of this tool in a console application.
+
+### Administration plug-in sample
+
+The [administration plugin](./examples/Kentico.Xperience.UMT.Example.AdminApp/README.md) sample shows deployment of this tool as an administration application that receives file with serialized data as JSON and imports the data into the system.
+
 ## 🚀 Installation
 
 1. Install the [Kentico.Xperience.UMT](https://www.nuget.org/packages/Kentico.Xperience.UMT) NuGet package.
