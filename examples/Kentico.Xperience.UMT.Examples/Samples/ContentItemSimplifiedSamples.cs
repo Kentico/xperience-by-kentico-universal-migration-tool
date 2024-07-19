@@ -10,6 +10,10 @@ public static class ContentItemSimplifiedSamples
     public static readonly Guid SampleArticleContentItemGuid = new Guid("37C3F5DD-6F2A-4EFF-B46E-A36EDDEBF572");
     public static readonly Guid SampleFaqContentItemGuid = new Guid("F9CB9484-CE90-460F-A5C8-AD953E2B9286");
 
+    public static readonly Guid SampleArticleWebPageGuid = new Guid("4EA03DE4-977E-48AA-9340-BABF3D23BAFA");
+    
+    public static readonly Guid SampleArticleSubPageContentItemGuid = new Guid("9ED8DE86-859C-4F6C-94F2-CDD6BAED99FE");
+    
     [Sample("ContentItemSimplifiedModel.Sample.Article", "Simplified model for importing webpage content item", "Simplified model for webpage content item sample")]
     public static ContentItemSimplifiedModel SampleArticleContentItemSimplifiedModel => new()
     {
@@ -22,6 +26,7 @@ public static class ContentItemSimplifiedSamples
         ChannelName = ChannelSamples.SampleChannelForWebSiteChannel.ChannelName,
         // required when content item type is website content item
         PageData = new() {
+            PageGuid = SampleArticleWebPageGuid,
             ParentGuid = null,
             TreePath = "/simplified-sample",
             PageUrls = [
@@ -46,7 +51,7 @@ public static class ContentItemSimplifiedSamples
                 LanguageName = ContentLanguageSamples.SampleContentLanguageEnUs.ContentLanguageName!,
                 DisplayName = "Simplified model sample - en-us",
                 VersionStatus = VersionStatus.InitialDraft,
-                UserGuid = UserSamples.SampleAdminGuid,
+                UserGuid = null,
                 ContentItemData = new Dictionary<string, object?>
                 {
                     ["ArticleTitle"] = "en-US UMT simplified model creation",
@@ -66,7 +71,7 @@ public static class ContentItemSimplifiedSamples
                 LanguageName = ContentLanguageSamples.SampleContentLanguageEnGb.ContentLanguageName!,
                 DisplayName = "Simplified model sample - en-gb",
                 VersionStatus = VersionStatus.Published,
-                UserGuid = UserSamples.SampleAdminGuid,
+                UserGuid = null,
                 ContentItemData = new Dictionary<string, object?>
                 {
                     ["ArticleTitle"] = "en-GB UMT simplified model creation",
@@ -80,6 +85,68 @@ public static class ContentItemSimplifiedSamples
                     })
                 },
                 ScheduledUnpublishWhen = new DateTime(2045, 1, 1, 0,0,0,0,0, DateTimeKind.Utc)
+            }
+        ],
+    };
+    
+    [Sample("ContentItemSimplifiedModel.Sample.ArticleSubPage", "Simplified model for importing webpage content item with parent", "Simplified model for webpage content item sample with parent")]
+    public static ContentItemSimplifiedModel SampleArticleSubPageContentItemSimplifiedModel => new()
+    {
+        ContentItemGUID = SampleArticleSubPageContentItemGuid,
+        Name = "SimplifiedModelSampleAsSubPAge",
+        IsSecured = false,
+        ContentTypeName = DataClassSamples.ArticleClassSample.ClassName,
+        IsReusable = true,
+        // channel name is required only for web site content items
+        ChannelName = ChannelSamples.SampleChannelForWebSiteChannel.ChannelName,
+        // required when content item type is website content item
+        PageData = new() {
+            ParentGuid = SampleArticleWebPageGuid,
+            TreePath = "/simplified-sample/sub-page",
+            PageUrls = [
+                new()
+                {
+                    UrlPath = "en-us/simplified-sample/sub-page",
+                    PathIsDraft = false,
+                    LanguageName = ContentLanguageSamples.SampleContentLanguageEnUs.ContentLanguageName!
+                },
+                new()
+                {
+                    UrlPath = "en-gb/simplified-sample/sub-page",
+                    PathIsDraft = false,
+                    LanguageName = ContentLanguageSamples.SampleContentLanguageEnGb.ContentLanguageName!
+                }
+            ]
+        },
+        LanguageData =
+        [
+            new()
+            {
+                LanguageName = ContentLanguageSamples.SampleContentLanguageEnUs.ContentLanguageName!,
+                DisplayName = "Simplified model sample sub page - en-us",
+                VersionStatus = VersionStatus.InitialDraft,
+                UserGuid = UserSamples.SampleAdminGuid,
+                ContentItemData = new Dictionary<string, object?>
+                {
+                    ["ArticleTitle"] = "en-US UMT simplified model creation as sub page",
+                    ["ArticleText"] = "This article is only example of creation UMT simplified model for en-US language",
+                    ["RelatedArticles"] = null,
+                    ["RelatedFaq"] = null
+                }
+            },
+            new()
+            {
+                LanguageName = ContentLanguageSamples.SampleContentLanguageEnGb.ContentLanguageName!,
+                DisplayName = "Simplified model sample sub page - en-gb",
+                VersionStatus = VersionStatus.Published,
+                UserGuid = UserSamples.SampleAdminGuid,
+                ContentItemData = new Dictionary<string, object?>
+                {
+                    ["ArticleTitle"] = "en-GB UMT simplified model creation as sub page",
+                    ["ArticleText"] = "This article is only example of creation UMT simplified model for en-GB language",
+                    ["RelatedArticles"] = null,
+                    ["RelatedFaq"] = null
+                }
             }
         ],
     };

@@ -84,6 +84,10 @@ public class ContentItemLanguageData
 public class PageDataModel
 {
     public List<PageUrlModel>? PageUrls { get; set; }
+    /// <summary>
+    /// Required only if page needs to be referenced as a parent by any child page
+    /// </summary>
+    public Guid? PageGuid { get; set; }
     public Guid? ParentGuid { get; set; }
     public string? TreePath { get; set; }
     public int? ItemOrder { get; set; }
