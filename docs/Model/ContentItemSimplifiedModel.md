@@ -36,7 +36,7 @@ Model [discriminator](../UmtModel.md#discriminator): `ContentItemSimplified`
 |PropertyName|Summary|.NET Type|Notes|
 |---|---|---|---|
 |PageUrls||Kentico.Xperience.UMT.Model.PageUrlModel[]||
-|PageGuid|required only if page needs to be referenced as a parent ba any child page|System.Guid?||
+|PageGuid|Required only if page needs to be referenced as a parent by any child page|System.Guid?||
 |ParentGuid||System.Guid?||
 |TreePath||string?||
 |ItemOrder||int?||
