@@ -85,7 +85,7 @@ public class PageDataModel
 {
     public List<PageUrlModel>? PageUrls { get; set; }
     /// <summary>
-    /// required only if page needs to be referenced as a parent ba any child page
+    /// Required only if page needs to be referenced as a parent by any child page
     /// </summary>
     public Guid? PageGuid { get; set; }
     public Guid? ParentGuid { get; set; }
