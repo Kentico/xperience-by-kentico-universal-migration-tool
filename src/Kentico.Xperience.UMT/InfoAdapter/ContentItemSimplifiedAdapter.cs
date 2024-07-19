@@ -166,7 +166,9 @@ public class ContentItemSimplifiedAdapter : IInfoAdapter<ContentItemInfo, IUmtMo
                 ContentItemLanguageMetadataModifiedWhen = null,
                 ContentItemLanguageMetadataModifiedByUserGuid = languageData.UserGuid,
                 // ContentItemLanguageMetadataHasImageAsset = null,
-                ContentItemLanguageMetadataContentLanguageGuid = contentLanguageInfo.ContentLanguageGUID
+                ContentItemLanguageMetadataContentLanguageGuid = contentLanguageInfo.ContentLanguageGUID,
+                ContentItemLanguageMetadataScheduledPublishWhen = languageData.ScheduledPublishWhen,
+                ContentItemLanguageMetadataScheduledUnpublishWhen = languageData.ScheduledUnpublishWhen 
             };
 
             adapter = adapterFactory.CreateAdapter(contentItemLanguageMetadataModel, new ProviderProxyContext());

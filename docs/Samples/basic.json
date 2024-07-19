@@ -458,7 +458,9 @@
     "ContentItemLanguageMetadataModifiedWhen": "2024-01-08T22:55:52.0392925Z",
     "ContentItemLanguageMetadataModifiedByUserGuid": null,
     "ContentItemLanguageMetadataHasImageAsset": false,
-    "ContentItemLanguageMetadataContentLanguageGuid": "f454e93b-5fe9-42a9-b1af-b572234ed9c4"
+    "ContentItemLanguageMetadataContentLanguageGuid": "f454e93b-5fe9-42a9-b1af-b572234ed9c4",
+    "ContentItemLanguageMetadataScheduledPublishWhen": null,
+    "ContentItemLanguageMetadataScheduledUnpublishWhen": null
   },
   {
     "$type": "ContentItemLanguageMetadata",
@@ -471,7 +473,9 @@
     "ContentItemLanguageMetadataModifiedWhen": "2024-01-08T22:56:01.1939486Z",
     "ContentItemLanguageMetadataModifiedByUserGuid": "95f42fd4-6a14-4e88-b214-4e136479f788",
     "ContentItemLanguageMetadataHasImageAsset": false,
-    "ContentItemLanguageMetadataContentLanguageGuid": "f454e93b-5fe9-42a9-b1af-b572234ed9c4"
+    "ContentItemLanguageMetadataContentLanguageGuid": "f454e93b-5fe9-42a9-b1af-b572234ed9c4",
+    "ContentItemLanguageMetadataScheduledPublishWhen": null,
+    "ContentItemLanguageMetadataScheduledUnpublishWhen": "2045-01-01T00:00:00Z"
   },
   {
     "$type": "WebPageItem",
@@ -562,13 +566,15 @@
     "ContentItemLanguageMetadataGUID": "46353800-21b8-48f6-8681-b19966f4b6eb",
     "ContentItemLanguageMetadataContentItemGuid": "b64b3e3e-f5a9-4d02-8cdb-6d81805c0fee",
     "ContentItemLanguageMetadataDisplayName": "Sample reusable FAQ",
-    "ContentItemLanguageMetadataLatestVersionStatus": 2,
+    "ContentItemLanguageMetadataLatestVersionStatus": 0,
     "ContentItemLanguageMetadataCreatedWhen": "2023-12-10T00:00:00Z",
     "ContentItemLanguageMetadataCreatedByUserGuid": "dbfcc244-2cb9-4934-857f-9d75404c1553",
     "ContentItemLanguageMetadataModifiedWhen": null,
     "ContentItemLanguageMetadataModifiedByUserGuid": "dbfcc244-2cb9-4934-857f-9d75404c1553",
     "ContentItemLanguageMetadataHasImageAsset": false,
-    "ContentItemLanguageMetadataContentLanguageGuid": "f454e93b-5fe9-42a9-b1af-b572234ed9c4"
+    "ContentItemLanguageMetadataContentLanguageGuid": "f454e93b-5fe9-42a9-b1af-b572234ed9c4",
+    "ContentItemLanguageMetadataScheduledPublishWhen": "2045-01-01T00:00:00Z",
+    "ContentItemLanguageMetadataScheduledUnpublishWhen": null
   },
   {
     "$type": "ContentItemLanguageMetadata",
@@ -581,7 +587,9 @@
     "ContentItemLanguageMetadataModifiedWhen": null,
     "ContentItemLanguageMetadataModifiedByUserGuid": "dbfcc244-2cb9-4934-857f-9d75404c1553",
     "ContentItemLanguageMetadataHasImageAsset": false,
-    "ContentItemLanguageMetadataContentLanguageGuid": "a6c0a558-8b33-47b6-87a8-491b437c9923"
+    "ContentItemLanguageMetadataContentLanguageGuid": "a6c0a558-8b33-47b6-87a8-491b437c9923",
+    "ContentItemLanguageMetadataScheduledPublishWhen": null,
+    "ContentItemLanguageMetadataScheduledUnpublishWhen": null
   },
   {
     "$type": "ContentItem",
@@ -648,7 +656,9 @@
     "ContentItemLanguageMetadataModifiedWhen": null,
     "ContentItemLanguageMetadataModifiedByUserGuid": "dbfcc244-2cb9-4934-857f-9d75404c1553",
     "ContentItemLanguageMetadataHasImageAsset": false,
-    "ContentItemLanguageMetadataContentLanguageGuid": "f454e93b-5fe9-42a9-b1af-b572234ed9c4"
+    "ContentItemLanguageMetadataContentLanguageGuid": "f454e93b-5fe9-42a9-b1af-b572234ed9c4",
+    "ContentItemLanguageMetadataScheduledPublishWhen": null,
+    "ContentItemLanguageMetadataScheduledUnpublishWhen": null
   },
   {
     "$type": "ContentItemLanguageMetadata",
@@ -661,7 +671,9 @@
     "ContentItemLanguageMetadataModifiedWhen": null,
     "ContentItemLanguageMetadataModifiedByUserGuid": "dbfcc244-2cb9-4934-857f-9d75404c1553",
     "ContentItemLanguageMetadataHasImageAsset": false,
-    "ContentItemLanguageMetadataContentLanguageGuid": "a6c0a558-8b33-47b6-87a8-491b437c9923"
+    "ContentItemLanguageMetadataContentLanguageGuid": "a6c0a558-8b33-47b6-87a8-491b437c9923",
+    "ContentItemLanguageMetadataScheduledPublishWhen": null,
+    "ContentItemLanguageMetadataScheduledUnpublishWhen": null
   },
   {
     "$type": "WebPageUrlPath",
@@ -772,7 +784,9 @@
     "ContentItemLanguageMetadataModifiedWhen": null,
     "ContentItemLanguageMetadataModifiedByUserGuid": "dbfcc244-2cb9-4934-857f-9d75404c1553",
     "ContentItemLanguageMetadataHasImageAsset": false,
-    "ContentItemLanguageMetadataContentLanguageGuid": "f454e93b-5fe9-42a9-b1af-b572234ed9c4"
+    "ContentItemLanguageMetadataContentLanguageGuid": "f454e93b-5fe9-42a9-b1af-b572234ed9c4",
+    "ContentItemLanguageMetadataScheduledPublishWhen": null,
+    "ContentItemLanguageMetadataScheduledUnpublishWhen": null
   },
   {
     "$type": "ContentItemLanguageMetadata",
@@ -785,7 +799,9 @@
     "ContentItemLanguageMetadataModifiedWhen": null,
     "ContentItemLanguageMetadataModifiedByUserGuid": "dbfcc244-2cb9-4934-857f-9d75404c1553",
     "ContentItemLanguageMetadataHasImageAsset": false,
-    "ContentItemLanguageMetadataContentLanguageGuid": "a6c0a558-8b33-47b6-87a8-491b437c9923"
+    "ContentItemLanguageMetadataContentLanguageGuid": "a6c0a558-8b33-47b6-87a8-491b437c9923",
+    "ContentItemLanguageMetadataScheduledPublishWhen": null,
+    "ContentItemLanguageMetadataScheduledUnpublishWhen": null
   },
   {
     "$type": "WebPageItem",
@@ -850,6 +866,8 @@
         "DisplayName": "Simplified model sample - en-us",
         "VersionStatus": 0,
         "UserGuid": "dbfcc244-2cb9-4934-857f-9d75404c1553",
+        "ScheduledPublishWhen": "2045-01-01T00:00:00Z",
+        "ScheduledUnpublishWhen": null,
         "ContentItemData": {
           "ArticleTitle": "en-US UMT simplified model creation",
           "ArticleText": "This article is only example of creation UMT simplified model for en-US language",
@@ -863,6 +881,8 @@
         "DisplayName": "Simplified model sample - en-gb",
         "VersionStatus": 2,
         "UserGuid": "dbfcc244-2cb9-4934-857f-9d75404c1553",
+        "ScheduledPublishWhen": null,
+        "ScheduledUnpublishWhen": "2045-01-01T00:00:00Z",
         "ContentItemData": {
           "ArticleTitle": "en-GB UMT simplified model creation",
           "ArticleText": "This article is only example of creation UMT simplified model for en-GB language",
@@ -905,6 +925,8 @@
         "DisplayName": "FAQ: reusable simplified model sample - en-us",
         "VersionStatus": 0,
         "UserGuid": "dbfcc244-2cb9-4934-857f-9d75404c1553",
+        "ScheduledPublishWhen": null,
+        "ScheduledUnpublishWhen": null,
         "ContentItemData": {
           "FaqQuestion": "en-US FAQ question text (reusable)",
           "FaqAnswer": "en-US FAQ answer text (reusable)"
@@ -915,6 +937,8 @@
         "DisplayName": "FAQ: reusable simplified model sample - en-gb",
         "VersionStatus": 2,
         "UserGuid": "dbfcc244-2cb9-4934-857f-9d75404c1553",
+        "ScheduledPublishWhen": null,
+        "ScheduledUnpublishWhen": "2045-01-01T00:00:00Z",
         "ContentItemData": {
           "FaqQuestion": "en-US FAQ question text (reusable)",
           "FaqAnswer": "en-US FAQ answer text (reusable)"

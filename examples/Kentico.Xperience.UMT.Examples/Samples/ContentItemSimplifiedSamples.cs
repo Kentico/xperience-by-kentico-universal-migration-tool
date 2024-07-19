@@ -58,7 +58,8 @@ public static class ContentItemSimplifiedSamples
                         new TagReference{ Identifier = TaxonomySamples.SampleTagCoffeaCanephoraGuid},
                         new {Identifier = TaxonomySamples.SampleTagCoffeaRobustaGuid},
                     })
-                }
+                },
+                ScheduledPublishWhen = new DateTime(2045, 1, 1, 0,0,0,0,0, DateTimeKind.Utc)
             },
             new()
             {
@@ -77,7 +78,8 @@ public static class ContentItemSimplifiedSamples
                         new TagReference{ Identifier = TaxonomySamples.SampleTagCoffeaCanephoraGuid},
                         new {Identifier = TaxonomySamples.SampleTagCoffeaRobustaGuid},
                     })
-                }
+                },
+                ScheduledUnpublishWhen = new DateTime(2045, 1, 1, 0,0,0,0,0, DateTimeKind.Utc)
             }
         ],
     };
@@ -103,7 +105,7 @@ public static class ContentItemSimplifiedSamples
                 {
                     ["FaqQuestion"] = "en-US FAQ question text (reusable)",
                     ["FaqAnswer"] = "en-US FAQ answer text (reusable)"
-                }
+                },
             },
             new()
             {
@@ -115,7 +117,8 @@ public static class ContentItemSimplifiedSamples
                 {
                     ["FaqQuestion"] = "en-US FAQ question text (reusable)",
                     ["FaqAnswer"] = "en-US FAQ answer text (reusable)"
-                }
+                },
+                ScheduledUnpublishWhen = new DateTime(2045, 1, 1, 0,0,0,0,0, DateTimeKind.Utc)
             }
         ],
     };

@@ -68,6 +68,16 @@ public class ContentItemLanguageData
     [Required]
     public required Guid? UserGuid { get; set; }
     
+    /// <summary>
+    /// Date and time on which draft content item will be published, must be set in future
+    /// </summary>
+    public DateTime? ScheduledPublishWhen { get; set; }
+        
+    /// <summary>
+    /// Date and time on which published content item will be unpublished, must be set in future
+    /// </summary>
+    public DateTime? ScheduledUnpublishWhen { get; set; }
+    
     public Dictionary<string, object?>? ContentItemData { get; set; }
 }
 

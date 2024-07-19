@@ -59,5 +59,17 @@ public class ContentItemLanguageMetadataModel : UmtModel
     [ReferenceProperty(typeof(ContentLanguageInfo), "ContentItemLanguageMetadataContentLanguageID", IsRequired = true)]
     public Guid? ContentItemLanguageMetadataContentLanguageGuid { get; set; }
 
+    /// <summary>
+    /// Date and time on which draft content item will be published, must be set in future
+    /// </summary>
+    [Map]
+    public DateTime? ContentItemLanguageMetadataScheduledPublishWhen { get; set; }
+        
+    /// <summary>
+    /// Date and time on which published content item will be unpublished, must be set in future
+    /// </summary>
+    [Map]
+    public DateTime? ContentItemLanguageMetadataScheduledUnpublishWhen { get; set; }
+
     protected override (Guid? uniqueId, string? name, string? displayName) GetPrintArgs() => (ContentItemLanguageMetadataGUID, NOT_AVAILABLE, ContentItemLanguageMetadataDisplayName);
 }

@@ -25,6 +25,8 @@ Model [discriminator](../UmtModel.md#discriminator): `ContentItemSimplified`
 |DisplayName\*||string||
 |VersionStatus||CMS.ContentEngine.VersionStatus||
 |UserGuid\*||System.Guid?||
+|ScheduledPublishWhen|Date and time on which draft content item will be published, must be set in future|System.DateTime?||
+|ScheduledUnpublishWhen|Date and time on which published content item will be unpublished, must be set in future|System.DateTime?||
 |ContentItemData||System.Collections.Generic.Dictionary<string, object?>?||
 
 <p>*) value is required</p>

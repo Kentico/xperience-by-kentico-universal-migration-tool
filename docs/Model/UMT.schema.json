@@ -268,6 +268,22 @@
               "type": "string",
               "format": "guid",
               "minLength": 1
+            },
+            "ContentItemLanguageMetadataScheduledPublishWhen": {
+              "type": [
+                "null",
+                "string"
+              ],
+              "description": "Date and time on which draft content item will be published, must be set in future",
+              "format": "date-time"
+            },
+            "ContentItemLanguageMetadataScheduledUnpublishWhen": {
+              "type": [
+                "null",
+                "string"
+              ],
+              "description": "Date and time on which published content item will be unpublished, must be set in future",
+              "format": "date-time"
             }
           }
         }

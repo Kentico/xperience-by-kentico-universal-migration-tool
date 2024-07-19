@@ -202,7 +202,24 @@ public static class SampleJson
                                              },
                                              "Settings": {
                                                "ControlName": "Kentico.Administration.TextInput"
-                                             }
+                                             },
+                                             "Precision": null
+                                           },
+                                           {
+                                             "AllowEmpty": true,
+                                             "Column": "ArticleDecimalNumberSample",
+                                             "ColumnSize": 15,
+                                             "ColumnType": "decimal",
+                                             "Enabled": true,
+                                             "Guid": "8e749651-773b-47b9-a888-c541c3c3e1b7",
+                                             "Visible": true,
+                                             "Properties": {
+                                               "FieldCaption": "Article decimal number sample"
+                                             },
+                                             "Settings": {
+                                               "ControlName": "Kentico.Administration.DecimalNumberInput"
+                                             },
+                                             "Precision": 5
                                            },
                                            {
                                              "AllowEmpty": true,
@@ -217,7 +234,8 @@ public static class SampleJson
                                              },
                                              "Settings": {
                                                "ControlName": "Kentico.Administration.TextArea"
-                                             }
+                                             },
+                                             "Precision": null
                                            },
                                            {
                                              "AllowEmpty": true,
@@ -237,7 +255,8 @@ public static class SampleJson
                                                "MaximumPages": 5,
                                                "Sortable": "False",
                                                "TreePath": "/Articles"
-                                             }
+                                             },
+                                             "Precision": null
                                            },
                                            {
                                              "AllowEmpty": true,
@@ -255,7 +274,8 @@ public static class SampleJson
                                              "Settings": {
                                                "ControlName": "Kentico.Administration.ContentItemSelector",
                                                "AllowedContentItemTypeIdentifiers": "[\u00227ed6604e-613b-4ce0-8c21-acfb372c416a\u0022]"
-                                             }
+                                             },
+                                             "Precision": null
                                            },
                                            {
                                              "AllowEmpty": true,
@@ -273,7 +293,8 @@ public static class SampleJson
                                              "Settings": {
                                                "ControlName": "Kentico.Administration.TagSelector",
                                                "TaxonomyGroup": "[\u0022bd88fd9b-8d36-4d02-a4a6-9a2b26c48488\u0022]"
-                                             }
+                                             },
+                                             "Precision": null
                                            }
                                          ]
                                        },
@@ -315,7 +336,8 @@ public static class SampleJson
                                              },
                                              "Settings": {
                                                "ControlName": "Kentico.Administration.TextInput"
-                                             }
+                                             },
+                                             "Precision": null
                                            },
                                            {
                                              "AllowEmpty": false,
@@ -330,7 +352,8 @@ public static class SampleJson
                                              },
                                              "Settings": {
                                                "ControlName": "Kentico.Administration.TextInput"
-                                             }
+                                             },
+                                             "Precision": null
                                            }
                                          ]
                                        },
@@ -367,7 +390,8 @@ public static class SampleJson
                                              },
                                              "Settings": {
                                                "ControlName": "Kentico.Administration.TextInput"
-                                             }
+                                             },
+                                             "Precision": null
                                            },
                                            {
                                              "AllowEmpty": true,
@@ -382,7 +406,8 @@ public static class SampleJson
                                              },
                                              "Settings": {
                                                "ControlName": "Kentico.Administration.TextArea"
-                                             }
+                                             },
+                                             "Precision": null
                                            },
                                            {
                                              "AllowEmpty": true,
@@ -397,7 +422,8 @@ public static class SampleJson
                                              },
                                              "Settings": {
                                                "ControlName": "Kentico.Administration.DateTimeInput"
-                                             }
+                                             },
+                                             "Precision": null
                                            },
                                            {
                                              "AllowEmpty": true,
@@ -412,7 +438,8 @@ public static class SampleJson
                                              },
                                              "Settings": {
                                                "ControlName": "Kentico.Administration.Checkbox"
-                                             }
+                                             },
+                                             "Precision": null
                                            }
                                          ]
                                        },
@@ -437,7 +464,9 @@ public static class SampleJson
                                          "ContentItemLanguageMetadataModifiedWhen": "2024-01-08T22:55:52.0392925Z",
                                          "ContentItemLanguageMetadataModifiedByUserGuid": null,
                                          "ContentItemLanguageMetadataHasImageAsset": false,
-                                         "ContentItemLanguageMetadataContentLanguageGuid": "f454e93b-5fe9-42a9-b1af-b572234ed9c4"
+                                         "ContentItemLanguageMetadataContentLanguageGuid": "f454e93b-5fe9-42a9-b1af-b572234ed9c4",
+                                         "ContentItemLanguageMetadataScheduledPublishWhen": null,
+                                         "ContentItemLanguageMetadataScheduledUnpublishWhen": null
                                        },
                                        {
                                          "$type": "ContentItemLanguageMetadata",
@@ -450,7 +479,9 @@ public static class SampleJson
                                          "ContentItemLanguageMetadataModifiedWhen": "2024-01-08T22:56:01.1939486Z",
                                          "ContentItemLanguageMetadataModifiedByUserGuid": "95f42fd4-6a14-4e88-b214-4e136479f788",
                                          "ContentItemLanguageMetadataHasImageAsset": false,
-                                         "ContentItemLanguageMetadataContentLanguageGuid": "f454e93b-5fe9-42a9-b1af-b572234ed9c4"
+                                         "ContentItemLanguageMetadataContentLanguageGuid": "f454e93b-5fe9-42a9-b1af-b572234ed9c4",
+                                         "ContentItemLanguageMetadataScheduledPublishWhen": null,
+                                         "ContentItemLanguageMetadataScheduledUnpublishWhen": "2045-01-01T00:00:00Z"
                                        },
                                        {
                                          "$type": "WebPageItem",
@@ -541,13 +572,15 @@ public static class SampleJson
                                          "ContentItemLanguageMetadataGUID": "46353800-21b8-48f6-8681-b19966f4b6eb",
                                          "ContentItemLanguageMetadataContentItemGuid": "b64b3e3e-f5a9-4d02-8cdb-6d81805c0fee",
                                          "ContentItemLanguageMetadataDisplayName": "Sample reusable FAQ",
-                                         "ContentItemLanguageMetadataLatestVersionStatus": 2,
+                                         "ContentItemLanguageMetadataLatestVersionStatus": 0,
                                          "ContentItemLanguageMetadataCreatedWhen": "2023-12-10T00:00:00Z",
                                          "ContentItemLanguageMetadataCreatedByUserGuid": "dbfcc244-2cb9-4934-857f-9d75404c1553",
                                          "ContentItemLanguageMetadataModifiedWhen": null,
                                          "ContentItemLanguageMetadataModifiedByUserGuid": "dbfcc244-2cb9-4934-857f-9d75404c1553",
                                          "ContentItemLanguageMetadataHasImageAsset": false,
-                                         "ContentItemLanguageMetadataContentLanguageGuid": "f454e93b-5fe9-42a9-b1af-b572234ed9c4"
+                                         "ContentItemLanguageMetadataContentLanguageGuid": "f454e93b-5fe9-42a9-b1af-b572234ed9c4",
+                                         "ContentItemLanguageMetadataScheduledPublishWhen": "2045-01-01T00:00:00Z",
+                                         "ContentItemLanguageMetadataScheduledUnpublishWhen": null
                                        },
                                        {
                                          "$type": "ContentItemLanguageMetadata",
@@ -560,7 +593,9 @@ public static class SampleJson
                                          "ContentItemLanguageMetadataModifiedWhen": null,
                                          "ContentItemLanguageMetadataModifiedByUserGuid": "dbfcc244-2cb9-4934-857f-9d75404c1553",
                                          "ContentItemLanguageMetadataHasImageAsset": false,
-                                         "ContentItemLanguageMetadataContentLanguageGuid": "a6c0a558-8b33-47b6-87a8-491b437c9923"
+                                         "ContentItemLanguageMetadataContentLanguageGuid": "a6c0a558-8b33-47b6-87a8-491b437c9923",
+                                         "ContentItemLanguageMetadataScheduledPublishWhen": null,
+                                         "ContentItemLanguageMetadataScheduledUnpublishWhen": null
                                        },
                                        {
                                          "$type": "ContentItem",
@@ -601,7 +636,8 @@ public static class SampleJson
                                          "ArticleText": "This article is only example of creation UMT model for en-US language",
                                          "RelatedArticles": null,
                                          "RelatedFaq": null,
-                                         "CoffeaTaxonomy": "[{\u0022Identifier\u0022:\u0022ffe48372-2bac-4a14-ad8c-c86f3f54c7c5\u0022}]"
+                                         "CoffeaTaxonomy": "[{\u0022Identifier\u0022:\u0022ffe48372-2bac-4a14-ad8c-c86f3f54c7c5\u0022}]",
+                                         "ArticleDecimalNumberSample": 123456.12345
                                        },
                                        {
                                          "$type": "ContentItemData",
@@ -612,7 +648,8 @@ public static class SampleJson
                                          "ArticleText": "This article is only example of creation UMT model for en-GB language",
                                          "RelatedArticles": null,
                                          "RelatedFaq": null,
-                                         "CoffeaTaxonomy": "[{\u0022Identifier\u0022:\u0022ffe48372-2bac-4a14-ad8c-c86f3f54c7c5\u0022}]"
+                                         "CoffeaTaxonomy": "[{\u0022Identifier\u0022:\u0022ffe48372-2bac-4a14-ad8c-c86f3f54c7c5\u0022}]",
+                                         "ArticleDecimalNumberSample": 123456.12345
                                        },
                                        {
                                          "$type": "ContentItemLanguageMetadata",
@@ -625,7 +662,9 @@ public static class SampleJson
                                          "ContentItemLanguageMetadataModifiedWhen": null,
                                          "ContentItemLanguageMetadataModifiedByUserGuid": "dbfcc244-2cb9-4934-857f-9d75404c1553",
                                          "ContentItemLanguageMetadataHasImageAsset": false,
-                                         "ContentItemLanguageMetadataContentLanguageGuid": "f454e93b-5fe9-42a9-b1af-b572234ed9c4"
+                                         "ContentItemLanguageMetadataContentLanguageGuid": "f454e93b-5fe9-42a9-b1af-b572234ed9c4",
+                                         "ContentItemLanguageMetadataScheduledPublishWhen": null,
+                                         "ContentItemLanguageMetadataScheduledUnpublishWhen": null
                                        },
                                        {
                                          "$type": "ContentItemLanguageMetadata",
@@ -638,7 +677,9 @@ public static class SampleJson
                                          "ContentItemLanguageMetadataModifiedWhen": null,
                                          "ContentItemLanguageMetadataModifiedByUserGuid": "dbfcc244-2cb9-4934-857f-9d75404c1553",
                                          "ContentItemLanguageMetadataHasImageAsset": false,
-                                         "ContentItemLanguageMetadataContentLanguageGuid": "a6c0a558-8b33-47b6-87a8-491b437c9923"
+                                         "ContentItemLanguageMetadataContentLanguageGuid": "a6c0a558-8b33-47b6-87a8-491b437c9923",
+                                         "ContentItemLanguageMetadataScheduledPublishWhen": null,
+                                         "ContentItemLanguageMetadataScheduledUnpublishWhen": null
                                        },
                                        {
                                          "$type": "WebPageUrlPath",
@@ -710,7 +751,8 @@ public static class SampleJson
                                          "ArticleTitle": "en-US UMT model creation",
                                          "ArticleText": "This article is only example of creation UMT model for en-US language",
                                          "RelatedArticles": "[{\u0022WebPageGuid\u0022:\u00226e995319-77e7-475e-9ebb-607bdbf5af9a\u0022}]",
-                                         "RelatedFaq": "[{\u0022Identifier\u0022:\u0022b64b3e3e-f5a9-4d02-8cdb-6d81805c0fee\u0022}]"
+                                         "RelatedFaq": "[{\u0022Identifier\u0022:\u0022b64b3e3e-f5a9-4d02-8cdb-6d81805c0fee\u0022}]",
+                                         "ArticleDecimalNumberSample": 123456.12345
                                        },
                                        {
                                          "$type": "ContentItemReference",
@@ -727,7 +769,8 @@ public static class SampleJson
                                          "ArticleTitle": "en-GB UMT model creation",
                                          "ArticleText": "This article is only example of creation UMT model for en-GB language",
                                          "RelatedArticles": "[{\u0022WebPageGuid\u0022:\u00226e995319-77e7-475e-9ebb-607bdbf5af9a\u0022}]",
-                                         "RelatedFaq": "[{\u0022Identifier\u0022:\u0022b64b3e3e-f5a9-4d02-8cdb-6d81805c0fee\u0022}]"
+                                         "RelatedFaq": "[{\u0022Identifier\u0022:\u0022b64b3e3e-f5a9-4d02-8cdb-6d81805c0fee\u0022}]",
+                                         "ArticleDecimalNumberSample": 123456.12345
                                        },
                                        {
                                          "$type": "ContentItemReference",
@@ -747,7 +790,9 @@ public static class SampleJson
                                          "ContentItemLanguageMetadataModifiedWhen": null,
                                          "ContentItemLanguageMetadataModifiedByUserGuid": "dbfcc244-2cb9-4934-857f-9d75404c1553",
                                          "ContentItemLanguageMetadataHasImageAsset": false,
-                                         "ContentItemLanguageMetadataContentLanguageGuid": "f454e93b-5fe9-42a9-b1af-b572234ed9c4"
+                                         "ContentItemLanguageMetadataContentLanguageGuid": "f454e93b-5fe9-42a9-b1af-b572234ed9c4",
+                                         "ContentItemLanguageMetadataScheduledPublishWhen": null,
+                                         "ContentItemLanguageMetadataScheduledUnpublishWhen": null
                                        },
                                        {
                                          "$type": "ContentItemLanguageMetadata",
@@ -760,7 +805,9 @@ public static class SampleJson
                                          "ContentItemLanguageMetadataModifiedWhen": null,
                                          "ContentItemLanguageMetadataModifiedByUserGuid": "dbfcc244-2cb9-4934-857f-9d75404c1553",
                                          "ContentItemLanguageMetadataHasImageAsset": false,
-                                         "ContentItemLanguageMetadataContentLanguageGuid": "a6c0a558-8b33-47b6-87a8-491b437c9923"
+                                         "ContentItemLanguageMetadataContentLanguageGuid": "a6c0a558-8b33-47b6-87a8-491b437c9923",
+                                         "ContentItemLanguageMetadataScheduledPublishWhen": null,
+                                         "ContentItemLanguageMetadataScheduledUnpublishWhen": null
                                        },
                                        {
                                          "$type": "WebPageItem",
@@ -825,6 +872,8 @@ public static class SampleJson
                                              "DisplayName": "Simplified model sample - en-us",
                                              "VersionStatus": 0,
                                              "UserGuid": "dbfcc244-2cb9-4934-857f-9d75404c1553",
+                                             "ScheduledPublishWhen": null,
+                                             "ScheduledUnpublishWhen": "2045-01-01T00:00:00Z",
                                              "ContentItemData": {
                                                "ArticleTitle": "en-US UMT simplified model creation",
                                                "ArticleText": "This article is only example of creation UMT simplified model for en-US language",
@@ -838,6 +887,8 @@ public static class SampleJson
                                              "DisplayName": "Simplified model sample - en-gb",
                                              "VersionStatus": 2,
                                              "UserGuid": "dbfcc244-2cb9-4934-857f-9d75404c1553",
+                                             "ScheduledPublishWhen": null,
+                                             "ScheduledUnpublishWhen": "2045-01-01T00:00:00Z",
                                              "ContentItemData": {
                                                "ArticleTitle": "en-GB UMT simplified model creation",
                                                "ArticleText": "This article is only example of creation UMT simplified model for en-GB language",
@@ -851,12 +902,12 @@ public static class SampleJson
                                            "PageUrls": [
                                              {
                                                "UrlPath": "en-us/simplified-sample",
-                                               "PathIsDraft": true,
+                                               "PathIsDraft": false,
                                                "LanguageName": "en-US"
                                              },
                                              {
                                                "UrlPath": "en-gb/simplified-sample",
-                                               "PathIsDraft": true,
+                                               "PathIsDraft": false,
                                                "LanguageName": "en-GB"
                                              }
                                            ],
@@ -880,6 +931,8 @@ public static class SampleJson
                                              "DisplayName": "FAQ: reusable simplified model sample - en-us",
                                              "VersionStatus": 0,
                                              "UserGuid": "dbfcc244-2cb9-4934-857f-9d75404c1553",
+                                             "ScheduledPublishWhen": null,
+                                             "ScheduledUnpublishWhen": null,
                                              "ContentItemData": {
                                                "FaqQuestion": "en-US FAQ question text (reusable)",
                                                "FaqAnswer": "en-US FAQ answer text (reusable)"
@@ -890,6 +943,8 @@ public static class SampleJson
                                              "DisplayName": "FAQ: reusable simplified model sample - en-gb",
                                              "VersionStatus": 2,
                                              "UserGuid": "dbfcc244-2cb9-4934-857f-9d75404c1553",
+                                             "ScheduledPublishWhen": null,
+                                             "ScheduledUnpublishWhen": "2045-01-01T00:00:00Z",
                                              "ContentItemData": {
                                                "FaqQuestion": "en-US FAQ question text (reusable)",
                                                "FaqAnswer": "en-US FAQ answer text (reusable)"

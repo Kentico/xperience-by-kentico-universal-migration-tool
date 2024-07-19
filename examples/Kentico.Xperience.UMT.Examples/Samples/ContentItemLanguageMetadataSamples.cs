@@ -19,7 +19,7 @@ public static class ContentItemLanguageMetadataSamples
         ContentItemLanguageMetadataCreatedWhen = new DateTime(638403513489503105L, DateTimeKind.Utc).AddDays(-2),
         ContentItemLanguageMetadataModifiedWhen = new DateTime(638403513520392925L, DateTimeKind.Utc),
         ContentItemLanguageMetadataHasImageAsset = false,
-        ContentItemLanguageMetadataLatestVersionStatus = VersionStatus.Draft,
+        ContentItemLanguageMetadataLatestVersionStatus = VersionStatus.Draft
     };
 
     [Sample("contentitemlanguagemetadata.sample", "This sample describes how to create class inside XbyK to hold Content Item Language Metadata", "ContentItemLanguageMetadata Sample")]
@@ -35,5 +35,6 @@ public static class ContentItemLanguageMetadataSamples
         ContentItemLanguageMetadataCreatedByUserGuid = new Guid("95F42FD4-6A14-4E88-B214-4E136479F788"),
         ContentItemLanguageMetadataModifiedByUserGuid = new Guid("95F42FD4-6A14-4E88-B214-4E136479F788"),
         ContentItemLanguageMetadataLatestVersionStatus = VersionStatus.Published,
+        ContentItemLanguageMetadataScheduledUnpublishWhen = new DateTime(2045, 1, 1, 0,0,0,0,0, DateTimeKind.Utc)
     };
 }
