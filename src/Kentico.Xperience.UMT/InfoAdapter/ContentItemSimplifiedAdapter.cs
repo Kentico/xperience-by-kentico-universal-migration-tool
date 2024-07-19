@@ -94,10 +94,11 @@ public class ContentItemSimplifiedAdapter : IInfoAdapter<ContentItemInfo, IUmtMo
             languages.Add(languageData.LanguageName);
             var contentLanguageInfo = contentLanguageProxy.GetBaseInfoByCodeName(languageData.LanguageName, null!) as ContentLanguageInfo;
             ArgumentNullException.ThrowIfNull(contentLanguageInfo);
-            
-            ArgumentNullException.ThrowIfNull(languageData.UserGuid);
-            var userInfo = userInfoProxy.GetBaseInfoByGuid(languageData.UserGuid.Value, null!) as UserInfo;
-            ArgumentNullException.ThrowIfNull(userInfo);
+
+            if (languageData.UserGuid is { } userGuid && userInfoProxy.GetBaseInfoByGuid(userGuid, null!) is null)
+            {
+                throw new InvalidOperationException($"User with GUID '{userGuid}' not found");
+            }
 
             Guid? contentItemCommonDataInfoGuid = null;
             Guid? contentItemLanguageMetadataGuid = null;
@@ -211,8 +212,8 @@ public class ContentItemSimplifiedAdapter : IInfoAdapter<ContentItemInfo, IUmtMo
                 
                 ArgumentNullException.ThrowIfNull(webSiteChannel);
                 
-                Guid? webPageItemGuid = null;
-                if (existingContentItem != null)
+                var webPageItemGuid = pageData.PageGuid;
+                if (existingContentItem != null && webPageItemGuid == null)
                 {
                     webPageItemGuid = Provider<WebPageItemInfo>.Instance.Get()
                         .WhereEquals(nameof(WebPageItemInfo.WebPageItemContentItemID), contentItemInfo.ContentItemID)

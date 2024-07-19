@@ -129,9 +129,8 @@ public static class SampleProvider
         ]);
         
         sourceData.Add(ContentItemSimplifiedSamples.SampleArticleContentItemSimplifiedModel);
+        sourceData.Add(ContentItemSimplifiedSamples.SampleArticleSubPageContentItemSimplifiedModel);
         sourceData.Add(ContentItemSimplifiedSamples.SampleFaqContentItemSimplifiedModel); // references sample content subfolder
-        
-       
         
         return sourceData;
     }
