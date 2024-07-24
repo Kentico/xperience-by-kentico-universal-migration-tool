@@ -35,7 +35,7 @@ Model [discriminator](../UmtModel.md#discriminator): `ContentItemSimplified`
 
 |PropertyName|Summary|.NET Type|Notes|
 |---|---|---|---|
-|PageUrls||Kentico.Xperience.UMT.Model.PageUrlModel[]||
+|PageUrls|PageUrlModel item is required for each content language that exist in XbyK instance without regards to created LanguageData (urls are pre-created for non-existing language versions)|Kentico.Xperience.UMT.Model.PageUrlModel[]||
 |PageGuid|Required only if page needs to be referenced as a parent by any child page|System.Guid?||
 |ParentGuid||System.Guid?||
 |TreePath||string?||
@@ -44,11 +44,13 @@ Model [discriminator](../UmtModel.md#discriminator): `ContentItemSimplified`
 <p>*) value is required</p>
 
 ## PageUrlModel
+Defines url for web page item
+
 
 |PropertyName|Summary|.NET Type|Notes|
 |---|---|---|---|
 |UrlPath||string?||
-|PathIsDraft||bool?||
+|PathIsDraft|currently unused, until simplified model supports Draft content items (and not only Published or InitialDraft)|bool?||
 |LanguageName||string?||
 
 <p>*) value is required</p>

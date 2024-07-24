@@ -33,14 +33,17 @@ public static class ContentItemSimplifiedSamples
                 new()
                 {
                     UrlPath = "en-us/simplified-sample",
-                    PathIsDraft = false,
                     LanguageName = ContentLanguageSamples.SampleContentLanguageEnUs.ContentLanguageName!
                 },
                 new()
                 {
                     UrlPath = "en-gb/simplified-sample",
-                    PathIsDraft = false,
                     LanguageName = ContentLanguageSamples.SampleContentLanguageEnGb.ContentLanguageName!
+                },
+                new()
+                {
+                    UrlPath = "es/simplified-sample",
+                    LanguageName = ContentLanguageSamples.SampleContentLanguageEs.ContentLanguageName!
                 }
             ]
         },
@@ -107,14 +110,17 @@ public static class ContentItemSimplifiedSamples
                 new()
                 {
                     UrlPath = "en-us/simplified-sample/sub-page",
-                    PathIsDraft = false,
                     LanguageName = ContentLanguageSamples.SampleContentLanguageEnUs.ContentLanguageName!
                 },
                 new()
                 {
                     UrlPath = "en-gb/simplified-sample/sub-page",
-                    PathIsDraft = false,
                     LanguageName = ContentLanguageSamples.SampleContentLanguageEnGb.ContentLanguageName!
+                },
+                new()
+                {
+                    UrlPath = "es/simplified-sample/sub-page",
+                    LanguageName = ContentLanguageSamples.SampleContentLanguageEs.ContentLanguageName!
                 }
             ]
         },

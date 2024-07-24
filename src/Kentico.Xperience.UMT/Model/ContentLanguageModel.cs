@@ -9,6 +9,7 @@ namespace Kentico.Xperience.UMT.Model;
 /// </summary>
 /// <sample>contentlanguage.sample.en-us</sample>
 /// <sample>contentlanguage.sample.en-gb</sample>
+/// <sample>contentlanguage.sample.en-us</sample>
 [UmtModel(DISCRIMINATOR)]
 public class ContentLanguageModel : UmtModel
 {
