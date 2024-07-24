@@ -54,6 +54,7 @@ public static class SampleProvider
             UserSamples.SampleAdministrator,
             ContentLanguageSamples.SampleContentLanguageEnUs,
             ContentLanguageSamples.SampleContentLanguageEnGb,
+            ContentLanguageSamples.SampleContentLanguageEs,
 
             ChannelSamples.SampleChannelForEmailChannel,
             ChannelSamples.SampleChannelForWebSiteChannel,

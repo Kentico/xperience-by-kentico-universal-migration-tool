@@ -7,8 +7,10 @@ using CMS.FormEngine;
 using CMS.Membership;
 using CMS.Websites;
 using CMS.Websites.Internal;
+
 using Kentico.Xperience.UMT.Model;
 using Kentico.Xperience.UMT.ProviderProxy;
+
 using Microsoft.Extensions.Logging;
 
 namespace Kentico.Xperience.UMT.InfoAdapter;
@@ -51,12 +53,12 @@ public class ContentItemSimplifiedAdapter : IInfoAdapter<ContentItemInfo, IUmtMo
         var existingContentItem = ProviderProxy.GetBaseInfoByGuid(cim.ContentItemGUID.Value, cim) as ContentItemInfo;
 
         var createdWhen = dateTimeNowService.GetDateTimeNow();
-        
+
         var contentTypeProxy = providerProxyFactory.CreateProviderProxy<DataClassInfo>(new ProviderProxyContext());
         ArgumentException.ThrowIfNullOrWhiteSpace(cim.ContentTypeName);
         var dataClassInfo = contentTypeProxy.GetBaseInfoByCodeName(cim.ContentTypeName, null!) as DataClassInfo;
         ArgumentNullException.ThrowIfNull(dataClassInfo);
-        
+
         var channelProxy = providerProxyFactory.CreateProviderProxy<ChannelInfo>(new ProviderProxyContext());
         ChannelInfo? channel = null;
         if (dataClassInfo.ClassContentTypeType == ClassContentTypeType.WEBSITE)
@@ -76,22 +78,21 @@ public class ContentItemSimplifiedAdapter : IInfoAdapter<ContentItemInfo, IUmtMo
             ContentItemChannelGuid = channel?.ChannelGUID,
             ContentItemContentFolderGUID = cim.ContentItemContentFolderGUID
         };
-        
+
         var adapter = adapterFactory.CreateAdapter(contentItemModel, new ProviderProxyContext());
         ArgumentNullException.ThrowIfNull(adapter);
         var contentItemInfo = (ContentItemInfo)adapter.Adapt(contentItemModel);
         contentItemInfo = (ContentItemInfo)adapter.ProviderProxy.Save(contentItemInfo, contentItemModel);
-        
+
         var contentLanguageProxy = providerProxyFactory.CreateProviderProxy<ContentLanguageInfo>(new ProviderProxyContext());
         var userInfoProxy = providerProxyFactory.CreateProviderProxy<UserInfo>(new ProviderProxyContext());
 
-        var languages = new List<string>();
         foreach (var languageData in cim.LanguageData)
         {
             var customData = languageData.ContentItemData?.ToDictionary() ?? [];
-            
+
             ArgumentException.ThrowIfNullOrWhiteSpace(languageData.LanguageName);
-            languages.Add(languageData.LanguageName);
+
             var contentLanguageInfo = contentLanguageProxy.GetBaseInfoByCodeName(languageData.LanguageName, null!) as ContentLanguageInfo;
             ArgumentNullException.ThrowIfNull(contentLanguageInfo);
 
@@ -109,7 +110,7 @@ public class ContentItemSimplifiedAdapter : IInfoAdapter<ContentItemInfo, IUmtMo
                     .WhereEquals(nameof(ContentItemCommonDataInfo.ContentItemCommonDataContentLanguageID), contentLanguageInfo.ContentLanguageID)
                     .FirstOrDefault()
                     ?.ContentItemCommonDataGUID;
-                
+
                 contentItemLanguageMetadataGuid = Provider<ContentItemLanguageMetadataInfo>.Instance.Get()
                     .WhereEquals(nameof(ContentItemLanguageMetadataInfo.ContentItemLanguageMetadataContentItemID), contentItemInfo.ContentItemID)
                     .WhereEquals(nameof(ContentItemLanguageMetadataInfo.ContentItemLanguageMetadataContentLanguageID), contentLanguageInfo.ContentLanguageID)
@@ -169,7 +170,7 @@ public class ContentItemSimplifiedAdapter : IInfoAdapter<ContentItemInfo, IUmtMo
                 // ContentItemLanguageMetadataHasImageAsset = null,
                 ContentItemLanguageMetadataContentLanguageGuid = contentLanguageInfo.ContentLanguageGUID,
                 ContentItemLanguageMetadataScheduledPublishWhen = languageData.ScheduledPublishWhen,
-                ContentItemLanguageMetadataScheduledUnpublishWhen = languageData.ScheduledUnpublishWhen 
+                ContentItemLanguageMetadataScheduledUnpublishWhen = languageData.ScheduledUnpublishWhen
             };
 
             adapter = adapterFactory.CreateAdapter(contentItemLanguageMetadataModel, new ProviderProxyContext());
@@ -182,19 +183,16 @@ public class ContentItemSimplifiedAdapter : IInfoAdapter<ContentItemInfo, IUmtMo
             {
                 var dataProvider = Service.Resolve<IContentItemDataInfoProviderAccessor>()
                     .Get(dataClassInfo.ClassName);
-                
+
                 contentItemDataGuid = dataProvider.Get()
                     .WhereEquals(nameof(ContentItemDataInfo.ContentItemDataCommonDataID), commonDataInfo.ContentItemCommonDataID)
                     .FirstOrDefault()
                     ?.ContentItemDataGUID;
             }
-            
+
             var contentItemDataModel = new ContentItemDataModel
             {
-                CustomProperties = customData,
-                ContentItemDataGUID = contentItemDataGuid ?? Guid.NewGuid(),
-                ContentItemDataCommonDataGuid = commonDataInfo.ContentItemCommonDataGUID,
-                ContentItemContentTypeName = cim.ContentTypeName
+                CustomProperties = customData, ContentItemDataGUID = contentItemDataGuid ?? Guid.NewGuid(), ContentItemDataCommonDataGuid = commonDataInfo.ContentItemCommonDataGUID, ContentItemContentTypeName = cim.ContentTypeName
             };
             adapter = adapterFactory.CreateAdapter(contentItemDataModel, new ProviderProxyContext());
             ArgumentNullException.ThrowIfNull(adapter);
@@ -209,9 +207,9 @@ public class ContentItemSimplifiedAdapter : IInfoAdapter<ContentItemInfo, IUmtMo
                 var webSiteChannel = Provider<WebsiteChannelInfo>.Instance.Get()
                     .WhereEquals(nameof(WebsiteChannelInfo.WebsiteChannelChannelID), channel?.ChannelID)
                     ?.FirstOrDefault();
-                
+
                 ArgumentNullException.ThrowIfNull(webSiteChannel);
-                
+
                 var webPageItemGuid = pageData.PageGuid;
                 if (existingContentItem != null && webPageItemGuid == null)
                 {
@@ -221,7 +219,7 @@ public class ContentItemSimplifiedAdapter : IInfoAdapter<ContentItemInfo, IUmtMo
                         .FirstOrDefault()
                         ?.WebPageItemGUID;
                 }
-                
+
                 var webPageItemModel = new WebPageItemModel
                 {
                     WebPageItemGUID = webPageItemGuid ?? Guid.NewGuid(),
@@ -232,74 +230,72 @@ public class ContentItemSimplifiedAdapter : IInfoAdapter<ContentItemInfo, IUmtMo
                     WebPageItemContentItemGuid = contentItemModel.ContentItemGUID,
                     WebPageItemOrder = pageData.ItemOrder
                 };
-                
+
                 adapter = adapterFactory.CreateAdapter(webPageItemModel, new ProviderProxyContext());
                 ArgumentNullException.ThrowIfNull(adapter);
                 var webPageItemInfo = (WebPageItemInfo)adapter.Adapt(webPageItemModel);
                 adapter.ProviderProxy.Save(webPageItemInfo, webPageItemModel);
 
                 var urls = pageData.PageUrls ?? [];
-                
-                foreach (string language in languages)
+
+                foreach (var urlsByLang in urls.GroupBy(url => url.LanguageName))
                 {
-                    var contentLanguageInfo = contentLanguageProxy.GetBaseInfoByCodeName(language, null!) as ContentLanguageInfo;
+                    ArgumentException.ThrowIfNullOrWhiteSpace(urlsByLang.Key);
+
+                    var contentLanguageInfo = contentLanguageProxy.GetBaseInfoByCodeName(urlsByLang.Key, null!) as ContentLanguageInfo;
                     ArgumentNullException.ThrowIfNull(contentLanguageInfo);
                     
-                    var pu = urls.Find(u => u.LanguageName?.Equals(language, StringComparison.CurrentCultureIgnoreCase) ?? false);
-                    if (pu == null)
-                    {
-                        var orphaned = Provider<WebPageUrlPathInfo>.Instance.Get()
-                            .WhereEquals(nameof(WebPageUrlPathInfo.WebPageUrlPathWebPageItemID), webPageItemInfo.WebPageItemID)
-                            .WhereEquals(nameof(WebPageUrlPathInfo.WebPageUrlPathContentLanguageID), contentLanguageInfo.ContentLanguageID)
-                            .WhereEquals(nameof(WebPageUrlPathInfo.WebPageUrlPathWebsiteChannelID), webSiteChannel.WebsiteChannelID);
+                    var orphaned = Provider<WebPageUrlPathInfo>.Instance.Get()
+                        .WhereEquals(nameof(WebPageUrlPathInfo.WebPageUrlPathWebPageItemID), webPageItemInfo.WebPageItemID)
+                        .WhereEquals(nameof(WebPageUrlPathInfo.WebPageUrlPathContentLanguageID), contentLanguageInfo.ContentLanguageID)
+                        .WhereEquals(nameof(WebPageUrlPathInfo.WebPageUrlPathWebsiteChannelID), webSiteChannel.WebsiteChannelID);
 
-                        foreach (var pageUrlPathInfo in orphaned)
+                    foreach (var pageUrlPathInfo in orphaned)
+                    {
+                        pageUrlPathInfo.Delete();
+                    }
+                    
+                    foreach (var pageUrlModel in urlsByLang)
+                    {
+                        ArgumentException.ThrowIfNullOrWhiteSpace(pageUrlModel.LanguageName);
+
+                        Guid? webPageUrlPathGuid = null;
+                        if (existingContentItem != null)
                         {
-                            pageUrlPathInfo.Delete();
+                            // only single url is currently supported per language in this model
+                            webPageUrlPathGuid = Provider<WebPageUrlPathInfo>.Instance.Get()
+                                .WhereEquals(nameof(WebPageUrlPathInfo.WebPageUrlPathWebPageItemID), webPageItemInfo.WebPageItemID)
+                                .WhereEquals(nameof(WebPageUrlPathInfo.WebPageUrlPathContentLanguageID), contentLanguageInfo.ContentLanguageID)
+                                .WhereEquals(nameof(WebPageUrlPathInfo.WebPageUrlPathWebsiteChannelID), webSiteChannel.WebsiteChannelID)
+                                .FirstOrDefault()
+                                ?.WebPageUrlPathGUID;
                         }
 
-                        continue;
+                        var webPageUrlPathModel = new WebPageUrlPathModel
+                        {
+                            WebPageUrlPathGUID = webPageUrlPathGuid ?? Guid.NewGuid(),
+                            WebPageUrlPath = pageUrlModel.UrlPath,
+                            // WebPageUrlPathHash = null,
+                            WebPageUrlPathWebPageItemGuid = webPageItemModel.WebPageItemGUID,
+                            WebPageUrlPathWebsiteChannelGuid = webSiteChannel.WebsiteChannelGUID,
+                            WebPageUrlPathContentLanguageGuid = contentLanguageInfo.ContentLanguageGUID,
+                            WebPageUrlPathIsLatest = true, // when draft content item is supported, this needs to draft state take into account
+                            WebPageUrlPathIsDraft = false // when draft content item is supported, this needs to draft state take into account
+                        };
+
+                        adapter = adapterFactory.CreateAdapter(webPageUrlPathModel, new ProviderProxyContext());
+                        ArgumentNullException.ThrowIfNull(adapter);
+                        var webPageUrlPathInfo = (WebPageUrlPathInfo)adapter.Adapt(webPageUrlPathModel);
+                        adapter.ProviderProxy.Save(webPageUrlPathInfo, webPageUrlPathModel);
                     }
-
-                    ArgumentException.ThrowIfNullOrWhiteSpace(pu.LanguageName);
-
-                    Guid? webPageUrlPathGuid = null;
-                    if (existingContentItem != null)
-                    {
-                        // this will miss if url path is changed, it is up to user cleaning old urls (or we supply parameter to configure if old urls should be cleared)
-                        webPageUrlPathGuid = Provider<WebPageUrlPathInfo>.Instance.Get()
-                            .WhereEquals(nameof(WebPageUrlPathInfo.WebPageUrlPathWebPageItemID), webPageItemInfo.WebPageItemID)
-                            .WhereEquals(nameof(WebPageUrlPathInfo.WebPageUrlPathContentLanguageID), contentLanguageInfo.ContentLanguageID)
-                            .WhereEquals(nameof(WebPageUrlPathInfo.WebPageUrlPathWebsiteChannelID), webSiteChannel.WebsiteChannelID)
-                            .WhereEquals(nameof(WebPageUrlPathInfo.WebPageUrlPath), pu.UrlPath)
-                            .FirstOrDefault()
-                            ?.WebPageUrlPathGUID;
-                    }
-
-                    var webPageUrlPathModel = new WebPageUrlPathModel
-                    {
-                        WebPageUrlPathGUID = webPageUrlPathGuid ?? Guid.NewGuid(),
-                        WebPageUrlPath = pu.UrlPath,
-                        // WebPageUrlPathHash = null,
-                        WebPageUrlPathWebPageItemGuid = webPageItemModel.WebPageItemGUID,
-                        WebPageUrlPathWebsiteChannelGuid = webSiteChannel.WebsiteChannelGUID,
-                        WebPageUrlPathContentLanguageGuid = contentLanguageInfo.ContentLanguageGUID,
-                        WebPageUrlPathIsLatest = true,
-                        WebPageUrlPathIsDraft = pu.PathIsDraft ?? true
-                    };
-                    
-                    adapter = adapterFactory.CreateAdapter(webPageUrlPathModel, new ProviderProxyContext());
-                    ArgumentNullException.ThrowIfNull(adapter);
-                    var webPageUrlPathInfo = (WebPageUrlPathInfo)adapter.Adapt(webPageUrlPathModel);
-                    adapter.ProviderProxy.Save(webPageUrlPathInfo, webPageUrlPathModel);
                 }
             }
             else
             {
-                ArgumentNullException.ThrowIfNull(cim.PageData);    
+                ArgumentNullException.ThrowIfNull(cim.PageData);
             }
         }
-        
+
         scope.Commit();
 
         return contentItemInfo;
@@ -309,7 +305,7 @@ public class ContentItemSimplifiedAdapter : IInfoAdapter<ContentItemInfo, IUmtMo
     {
         using var siEnum = schemaInfos.GetEnumerator();
 
-        if (siEnum.MoveNext() && FormHelper.GetFormInfo(ContentItemCommonDataInfo.TYPEINFO.ObjectClassName, true) is {} cfi)
+        if (siEnum.MoveNext() && FormHelper.GetFormInfo(ContentItemCommonDataInfo.TYPEINFO.ObjectClassName, true) is { } cfi)
         {
             do
             {
@@ -318,7 +314,7 @@ public class ContentItemSimplifiedAdapter : IInfoAdapter<ContentItemInfo, IUmtMo
                     .GetFields(true, true, true)
                     .Where(f => string.Equals(f.Properties[ReusableFieldSchemaConstants.SCHEMA_IDENTIFIER_KEY] as string, fsi.Guid.ToString(),
                         StringComparison.InvariantCultureIgnoreCase));
-                
+
                 foreach (var formFieldInfo in formFieldInfos)
                 {
                     yield return formFieldInfo;

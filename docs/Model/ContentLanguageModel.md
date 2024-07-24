@@ -17,7 +17,7 @@ Model [discriminator](../UmtModel.md#discriminator): `ContentLanguage`
 <p>*) value is required</p>
 
 
-### ContentLanguage Sample
+### ContentLanguage Sample - English US
 This sample describes how to create content language for English (United States)
 ```json
 {
@@ -30,7 +30,7 @@ This sample describes how to create content language for English (United States)
 }
 ```
 
-### ContentLanguage Sample
+### ContentLanguage Sample - English UK
 This sample describes how to create content language for English (United Kingdom)
 ```json
 {
@@ -40,5 +40,18 @@ This sample describes how to create content language for English (United Kingdom
   "ContentLanguageName": "en-GB",
   "ContentLanguageIsDefault": false,
   "ContentLanguageCultureFormat": "en-GB"
+}
+```
+
+### ContentLanguage Sample - English US
+This sample describes how to create content language for English (United States)
+```json
+{
+  "$type": "ContentLanguage",
+  "ContentLanguageGUID": "f454e93b-5fe9-42a9-b1af-b572234ed9c4",
+  "ContentLanguageDisplayName": "English (United States)",
+  "ContentLanguageName": "en-US",
+  "ContentLanguageIsDefault": false,
+  "ContentLanguageCultureFormat": "en-US"
 }
 ```

@@ -83,6 +83,9 @@ public class ContentItemLanguageData
 
 public class PageDataModel
 {
+    /// <summary>
+    /// PageUrlModel item is required for each content language that exist in XbyK instance without regards to created LanguageData (urls are pre-created for non-existing language versions)
+    /// </summary>
     public List<PageUrlModel>? PageUrls { get; set; }
     /// <summary>
     /// Required only if page needs to be referenced as a parent by any child page
@@ -93,10 +96,15 @@ public class PageDataModel
     public int? ItemOrder { get; set; }
 }
 
-
+/// <summary>
+/// Defines url for web page item
+/// </summary>
 public class PageUrlModel
 {
     public string? UrlPath { get; set; }
+    /// <summary>
+    /// currently unused, until simplified model supports Draft content items (and not only Published or InitialDraft) 
+    /// </summary>
     public bool? PathIsDraft { get; set; }
     public string? LanguageName { get; set; }
 }

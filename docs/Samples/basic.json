@@ -132,6 +132,15 @@
     "ContentLanguageCultureFormat": "en-GB"
   },
   {
+    "$type": "ContentLanguage",
+    "ContentLanguageGUID": "4c80c6dd-a5c2-443d-873a-e9c328024b7c",
+    "ContentLanguageDisplayName": "Spanish",
+    "ContentLanguageName": "es",
+    "ContentLanguageIsDefault": false,
+    "ContentLanguageFallbackContentLanguageGuid": null,
+    "ContentLanguageCultureFormat": "es"
+  },
+  {
     "$type": "Channel",
     "ChannelDisplayName": "email Channel Example",
     "ChannelName": "emailChannelExampleBasic",
@@ -896,13 +905,18 @@
       "PageUrls": [
         {
           "UrlPath": "en-us/simplified-sample",
-          "PathIsDraft": false,
+          "PathIsDraft": null,
           "LanguageName": "en-US"
         },
         {
           "UrlPath": "en-gb/simplified-sample",
-          "PathIsDraft": false,
+          "PathIsDraft": null,
           "LanguageName": "en-GB"
+        },
+        {
+          "UrlPath": "es/simplified-sample",
+          "PathIsDraft": null,
+          "LanguageName": "es"
         }
       ],
       "PageGuid": "4ea03de4-977e-48aa-9340-babf3d23bafa",
@@ -954,13 +968,18 @@
       "PageUrls": [
         {
           "UrlPath": "en-us/simplified-sample/sub-page",
-          "PathIsDraft": false,
+          "PathIsDraft": null,
           "LanguageName": "en-US"
         },
         {
           "UrlPath": "en-gb/simplified-sample/sub-page",
-          "PathIsDraft": false,
+          "PathIsDraft": null,
           "LanguageName": "en-GB"
+        },
+        {
+          "UrlPath": "es/simplified-sample/sub-page",
+          "PathIsDraft": null,
+          "LanguageName": "es"
         }
       ],
       "PageGuid": null,
