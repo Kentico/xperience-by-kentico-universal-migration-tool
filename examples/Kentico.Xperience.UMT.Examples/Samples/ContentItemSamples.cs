@@ -160,6 +160,19 @@ public static class ContentItemSamples
         WebPageUrlPathIsLatest = true,
         WebPageUrlPathIsDraft = false
     };
+    
+    [Sample("webpageitem.urlpath.sample.article.es", "", "Page url path sample")]
+    public static WebPageUrlPathModel SampleArticleWebPathUrlPathModelEs => new()
+    {
+        WebPageUrlPathGUID = new Guid("F5824434-EC28-4AA6-95B4-CB995B9ACEF4"),
+        WebPageUrlPath = "es/creation-of-umt-model",
+        WebPageUrlPathHash = null,
+        WebPageUrlPathWebPageItemGuid = SampleArticleWebPageItem.WebPageItemGUID,
+        WebPageUrlPathWebsiteChannelGuid = WebSiteChannelSamples.WebsiteChannelGuid,
+        WebPageUrlPathContentLanguageGuid = ContentLanguageSamples.CONTENT_LANGUAGE_ES_SAMPLE_GUID,
+        WebPageUrlPathIsLatest = true,
+        WebPageUrlPathIsDraft = false
+    };
 
     #endregion
 
@@ -330,6 +343,19 @@ public static class ContentItemSamples
         WebPageUrlPathWebPageItemGuid = SampleArticleWebPageItemWithRelations.WebPageItemGUID,
         WebPageUrlPathWebsiteChannelGuid = WebSiteChannelSamples.WebsiteChannelGuid,
         WebPageUrlPathContentLanguageGuid = ContentLanguageSamples.CONTENT_LANGUAGE_ENGB_SAMPLE_GUID,
+        WebPageUrlPathIsLatest = true,
+        WebPageUrlPathIsDraft = false
+    };
+    
+    [Sample("webpageitem.urlpath.sample.article.es.WithRelations", "", "Page url path sample")]
+    public static WebPageUrlPathModel SampleArticleWebPageUrlWithRelationsEs => new()
+    {
+        WebPageUrlPathGUID = new Guid("54059C3D-754D-494E-8C3E-7E06D9B2B71D"),
+        WebPageUrlPath = "es/content-item-with-relations",
+        WebPageUrlPathHash = null,
+        WebPageUrlPathWebPageItemGuid = SampleArticleWebPageItemWithRelations.WebPageItemGUID,
+        WebPageUrlPathWebsiteChannelGuid = WebSiteChannelSamples.WebsiteChannelGuid,
+        WebPageUrlPathContentLanguageGuid = ContentLanguageSamples.CONTENT_LANGUAGE_ES_SAMPLE_GUID,
         WebPageUrlPathIsLatest = true,
         WebPageUrlPathIsDraft = false
     };
