@@ -21,7 +21,7 @@ public static class ContentItemSimplifiedSamples
         Name = "SimplifiedModelSample",
         IsSecured = false,
         ContentTypeName = DataClassSamples.ArticleClassSample.ClassName,
-        IsReusable = true,
+        IsReusable = false,
         // channel name is required only for web site content items
         ChannelName = ChannelSamples.SampleChannelForWebSiteChannel.ChannelName,
         // required when content item type is website content item
@@ -99,7 +99,7 @@ public static class ContentItemSimplifiedSamples
         Name = "SimplifiedModelSampleAsSubPAge",
         IsSecured = false,
         ContentTypeName = DataClassSamples.ArticleClassSample.ClassName,
-        IsReusable = true,
+        IsReusable = false,
         // channel name is required only for web site content items
         ChannelName = ChannelSamples.SampleChannelForWebSiteChannel.ChannelName,
         // required when content item type is website content item

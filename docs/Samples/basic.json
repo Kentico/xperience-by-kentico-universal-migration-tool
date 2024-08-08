@@ -889,7 +889,7 @@
     "IsSecured": false,
     "ContentTypeName": "UMT.Article",
     "Name": "SimplifiedModelSample",
-    "IsReusable": true,
+    "IsReusable": false,
     "ChannelName": "websitechannelExample",
     "LanguageData": [
       {
@@ -954,7 +954,7 @@
     "IsSecured": false,
     "ContentTypeName": "UMT.Article",
     "Name": "SimplifiedModelSampleAsSubPAge",
-    "IsReusable": true,
+    "IsReusable": false,
     "ChannelName": "websitechannelExample",
     "LanguageData": [
       {
