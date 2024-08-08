@@ -107,6 +107,7 @@ public static class SampleProvider
             ContentItemSamples.SampleArticleContentItemLanguageMetadataEnGb,
             ContentItemSamples.SampleArticleWebPathUrlPathModelEnUs,
             ContentItemSamples.SampleArticleWebPathUrlPathModelEnGb,
+            ContentItemSamples.SampleArticleWebPathUrlPathModelEs,
     
             ContentItemSamples.SampleArticleWebPageItem,
         });
@@ -120,7 +121,8 @@ public static class SampleProvider
             ContentItemSamples.SampleArticleContentItemLanguageMetadataEnUsWithRelations, ContentItemSamples.SampleArticleContentItemLanguageMetadataEnGbWithRelations,
             ContentItemSamples.SampleArticleWebPageItemWithRelations,
             ContentItemSamples.SampleArticleWebPageUrlWithRelationsEnUs,
-            ContentItemSamples.SampleArticleWebPageUrlWithRelations
+            ContentItemSamples.SampleArticleWebPageUrlWithRelations,
+            ContentItemSamples.SampleArticleWebPageUrlWithRelationsEs
         });
         
         // folder samples
