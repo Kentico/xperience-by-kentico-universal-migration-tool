@@ -238,10 +238,9 @@ public class ContentItemSimplifiedAdapter : IInfoAdapter<ContentItemInfo, IUmtMo
                 var webPageItemInfo = (WebPageItemInfo)adapter.Adapt(webPageItemModel);
                 webPageItemInfo = (WebPageItemInfo)adapter.ProviderProxy.Save(webPageItemInfo, webPageItemModel);
 
-                ArgumentNullException.ThrowIfNull(channel);
-                var webPageAclManager = webPageAclManagerFactory.Create(webSiteChannel.WebsiteChannelID);
-                webPageAclManager.RestoreInheritance(webPageItemInfo.WebPageItemID).GetAwaiter().GetResult();
-
+                var webPageAclMappingManager = Service.Resolve<IWebPageAclMappingManager>();
+                webPageAclMappingManager.CreateMapping(webPageItemInfo.WebPageItemID, webPageItemInfo.WebPageItemParentID, webPageItemInfo.WebPageItemWebsiteChannelID, CancellationToken.None).GetAwaiter().GetResult();
+                
                 var urls = pageData.PageUrls ?? [];
 
                 foreach (var urlsByLang in urls.GroupBy(url => url.LanguageName))
