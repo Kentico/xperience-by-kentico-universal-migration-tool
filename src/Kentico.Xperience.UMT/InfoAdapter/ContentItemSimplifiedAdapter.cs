@@ -21,6 +21,7 @@ public class ContentItemSimplifiedAdapter : IInfoAdapter<ContentItemInfo, IUmtMo
     private readonly IDateTimeNowService dateTimeNowService;
     private readonly AdapterFactory adapterFactory;
     private readonly ILogger<ContentItemSimplifiedAdapter> logger;
+    private readonly IWebPageAclManagerFactory webPageAclManagerFactory;
     public IProviderProxy ProviderProxy { get; }
 
     internal ContentItemSimplifiedAdapter(IProviderProxy providerProxy,
@@ -33,6 +34,7 @@ public class ContentItemSimplifiedAdapter : IInfoAdapter<ContentItemInfo, IUmtMo
         this.dateTimeNowService = dateTimeNowService;
         this.adapterFactory = adapterFactory;
         this.logger = logger;
+        webPageAclManagerFactory = Service.Resolve<IWebPageAclManagerFactory>();
         ProviderProxy = providerProxy;
     }
 
@@ -234,7 +236,11 @@ public class ContentItemSimplifiedAdapter : IInfoAdapter<ContentItemInfo, IUmtMo
                 adapter = adapterFactory.CreateAdapter(webPageItemModel, new ProviderProxyContext());
                 ArgumentNullException.ThrowIfNull(adapter);
                 var webPageItemInfo = (WebPageItemInfo)adapter.Adapt(webPageItemModel);
-                adapter.ProviderProxy.Save(webPageItemInfo, webPageItemModel);
+                webPageItemInfo = (WebPageItemInfo)adapter.ProviderProxy.Save(webPageItemInfo, webPageItemModel);
+
+                ArgumentNullException.ThrowIfNull(channel);
+                var webPageAclManager = webPageAclManagerFactory.Create(webSiteChannel.WebsiteChannelID);
+                webPageAclManager.RestoreInheritance(webPageItemInfo.WebPageItemID).GetAwaiter().GetResult();
 
                 var urls = pageData.PageUrls ?? [];
 

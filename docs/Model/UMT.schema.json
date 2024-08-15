@@ -1146,6 +1146,82 @@
         }
       ]
     },
+    "WebPageAclModel": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/UmtModel"
+        },
+        {
+          "type": "object",
+          "description": "Model represents XbyK WebPageAclInfo",
+          "additionalProperties": {
+            "oneOf": [
+              {},
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "required": [
+            "WebPageAclGUID",
+            "WebPageAclWebsiteChannelGUID",
+            "WebPageAclWebPageItemGUID"
+          ],
+          "properties": {
+            "WebPageAclGUID": {
+              "type": "string",
+              "format": "guid",
+              "minLength": 1
+            },
+            "WebPageAclWebsiteChannelGUID": {
+              "type": "string",
+              "format": "guid",
+              "minLength": 1
+            },
+            "WebPageAclWebPageItemGUID": {
+              "type": "string",
+              "format": "guid",
+              "minLength": 1
+            }
+          }
+        }
+      ]
+    },
+    "WebPageAclMappingModel": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/UmtModel"
+        },
+        {
+          "type": "object",
+          "description": "Model represents XbyK WebPageAclMappingInfo",
+          "additionalProperties": {
+            "oneOf": [
+              {},
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "required": [
+            "WebPageItemGuid",
+            "WebPageAclGuid"
+          ],
+          "properties": {
+            "WebPageItemGuid": {
+              "type": "string",
+              "format": "guid",
+              "minLength": 1
+            },
+            "WebPageAclGuid": {
+              "type": "string",
+              "format": "guid",
+              "minLength": 1
+            }
+          }
+        }
+      ]
+    },
     "WebPageUrlPathModel": {
       "allOf": [
         {
