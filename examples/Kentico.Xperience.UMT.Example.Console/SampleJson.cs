@@ -713,6 +713,17 @@ public static class SampleJson
                                           "WebPageUrlPathIsDraft": false
                                         },
                                         {
+                                          "$type": "WebPageUrlPath",
+                                          "WebPageUrlPathGUID": "f5824434-ec28-4aa6-95b4-cb995b9acef4",
+                                          "WebPageUrlPath": "es/creation-of-umt-model",
+                                          "WebPageUrlPathHash": null,
+                                          "WebPageUrlPathWebPageItemGuid": "6e995319-77e7-475e-9ebb-607bdbf5af9a",
+                                          "WebPageUrlPathWebsiteChannelGuid": "a6ba6fcb-9d05-4abe-afb4-74b153c90db7",
+                                          "WebPageUrlPathContentLanguageGuid": "4c80c6dd-a5c2-443d-873a-e9c328024b7c",
+                                          "WebPageUrlPathIsLatest": true,
+                                          "WebPageUrlPathIsDraft": false
+                                        },
+                                        {
                                           "$type": "WebPageItem",
                                           "WebPageItemGUID": "6e995319-77e7-475e-9ebb-607bdbf5af9a",
                                           "WebPageItemParentGuid": null,
@@ -721,6 +732,12 @@ public static class SampleJson
                                           "WebPageItemWebsiteChannelGuid": "a6ba6fcb-9d05-4abe-afb4-74b153c90db7",
                                           "WebPageItemContentItemGuid": "df81215e-1414-4d87-befd-ae123f4e5653",
                                           "WebPageItemOrder": 1
+                                        },
+                                        {
+                                          "$type": "WebPageAcl",
+                                          "WebPageAclGUID": "959408c5-d157-4c18-8ae0-a7d9cfb374f5",
+                                          "WebPageAclWebsiteChannelGUID": "a6ba6fcb-9d05-4abe-afb4-74b153c90db7",
+                                          "WebPageAclWebPageItemGUID": "6e995319-77e7-475e-9ebb-607bdbf5af9a"
                                         },
                                         {
                                           "$type": "ContentItem",
@@ -851,6 +868,17 @@ public static class SampleJson
                                           "WebPageUrlPathIsDraft": false
                                         },
                                         {
+                                          "$type": "WebPageUrlPath",
+                                          "WebPageUrlPathGUID": "54059c3d-754d-494e-8c3e-7e06d9b2b71d",
+                                          "WebPageUrlPath": "es/content-item-with-relations",
+                                          "WebPageUrlPathHash": null,
+                                          "WebPageUrlPathWebPageItemGuid": "14784bf0-69d0-40cf-8be6-e5a0d897774b",
+                                          "WebPageUrlPathWebsiteChannelGuid": "a6ba6fcb-9d05-4abe-afb4-74b153c90db7",
+                                          "WebPageUrlPathContentLanguageGuid": "4c80c6dd-a5c2-443d-873a-e9c328024b7c",
+                                          "WebPageUrlPathIsLatest": true,
+                                          "WebPageUrlPathIsDraft": false
+                                        },
+                                        {
                                           "$type": "ContentFolder",
                                           "ContentFolderGUID": "7665a8fc-53a2-4aff-86e8-99b009104ff2",
                                           "ContentFolderParentFolderGUID": null,
@@ -873,7 +901,7 @@ public static class SampleJson
                                           "IsSecured": false,
                                           "ContentTypeName": "UMT.Article",
                                           "Name": "SimplifiedModelSample",
-                                          "IsReusable": true,
+                                          "IsReusable": false,
                                           "ChannelName": "websitechannelExample",
                                           "LanguageData": [
                                             {
@@ -938,7 +966,7 @@ public static class SampleJson
                                           "IsSecured": false,
                                           "ContentTypeName": "UMT.Article",
                                           "Name": "SimplifiedModelSampleAsSubPAge",
-                                          "IsReusable": true,
+                                          "IsReusable": false,
                                           "ChannelName": "websitechannelExample",
                                           "LanguageData": [
                                             {
