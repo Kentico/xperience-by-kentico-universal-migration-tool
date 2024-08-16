@@ -21,7 +21,6 @@ public class ContentItemSimplifiedAdapter : IInfoAdapter<ContentItemInfo, IUmtMo
     private readonly IDateTimeNowService dateTimeNowService;
     private readonly AdapterFactory adapterFactory;
     private readonly ILogger<ContentItemSimplifiedAdapter> logger;
-    private readonly IWebPageAclManagerFactory webPageAclManagerFactory;
     public IProviderProxy ProviderProxy { get; }
 
     internal ContentItemSimplifiedAdapter(IProviderProxy providerProxy,
@@ -34,7 +33,6 @@ public class ContentItemSimplifiedAdapter : IInfoAdapter<ContentItemInfo, IUmtMo
         this.dateTimeNowService = dateTimeNowService;
         this.adapterFactory = adapterFactory;
         this.logger = logger;
-        webPageAclManagerFactory = Service.Resolve<IWebPageAclManagerFactory>();
         ProviderProxy = providerProxy;
     }
 
