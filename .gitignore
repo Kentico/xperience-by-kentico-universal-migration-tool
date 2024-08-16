@@ -108,3 +108,5 @@ $RECYCLE.BIN/
 node_modules
 
 .idea/
+
+utils/Kentico.Xperience.UMT.DocUtils/appsettings.local.json
