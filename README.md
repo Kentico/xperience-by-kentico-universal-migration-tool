@@ -51,9 +51,9 @@ View the [Docs](./docs/README.md) for more detailed instructions.
 | ----------------------------------------------- | ------------------------------------------------ |
 | src/Kentico.Xperience.UMT                       | Core migration tool                              |
 | utils/Kentico.Xperience.UMT.DocUtils            | Used to generate documentation in the repository |
-| examples/Kentico.Xperience.UMT.Example.AdminApp |                                                  |
-| examples/Kentico.Xperience.UMT.Example.Console  |                                                  |
-| examples/Kentico.Xperience.UMT.Example.Examples |                                                  |
+| examples/Kentico.Xperience.UMT.Example.AdminApp | simplified administration sample                 |
+| examples/Kentico.Xperience.UMT.Example.Console  | main example of how to use UMT                   |
+| examples/Kentico.Xperience.UMT.Example.Examples | centralized sample source                        |
 
 ## Contributing
 
