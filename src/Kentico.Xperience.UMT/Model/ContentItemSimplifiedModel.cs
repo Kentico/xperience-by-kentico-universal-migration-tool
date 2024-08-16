@@ -8,6 +8,8 @@ namespace Kentico.Xperience.UMT.Model;
 /// <summary>
 /// 
 /// </summary>
+/// <sample>ContentItemSimplifiedModel.Sample.ArticleSubPage</sample>
+/// <sample>ContentItemSimplifiedModel.Sample.Article</sample>
 [UmtModel(DISCRIMINATOR)]
 public class ContentItemSimplifiedModel : UmtModel
 {

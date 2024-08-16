@@ -17,6 +17,140 @@ Model [discriminator](../UmtModel.md#discriminator): `ContentItemSimplified`
 
 <p>*) value is required</p>
 
+
+### Simplified model for webpage content item sample with parent
+Simplified model for importing webpage content item with parent
+```json
+{
+  "$type": "ContentItemSimplified",
+  "ContentItemGUID": "9ed8de86-859c-4f6c-94f2-cdd6baed99fe",
+  "IsSecured": false,
+  "ContentTypeName": "UMT.Article",
+  "Name": "SimplifiedModelSampleAsSubPAge",
+  "IsReusable": false,
+  "ChannelName": "websitechannelExample",
+  "LanguageData": [
+    {
+      "LanguageName": "en-US",
+      "DisplayName": "Simplified model sample sub page - en-us",
+      "VersionStatus": 0,
+      "UserGuid": "dbfcc244-2cb9-4934-857f-9d75404c1553",
+      "ContentItemData": {
+        "ArticleTitle": "en-US UMT simplified model creation as sub page",
+        "ArticleTeaser": {
+          "$assetType": "AssetFile",
+          "FilePath": "##ASSETDIR##\\sample.png",
+          "ContentItemGuid": "9ed8de86-859c-4f6c-94f2-cdd6baed99fe",
+          "Identifier": "cb2b28bb-25bf-47d0-8553-6a1d85d5dc85",
+          "Name": "my superb asset.jpg",
+          "Extension": ".jpg"
+        },
+        "ArticleText": "This article is only example of creation UMT simplified model for en-US language",
+        "RelatedArticles": null,
+        "RelatedFaq": null
+      }
+    },
+    {
+      "LanguageName": "en-GB",
+      "DisplayName": "Simplified model sample sub page - en-gb",
+      "VersionStatus": 2,
+      "UserGuid": "dbfcc244-2cb9-4934-857f-9d75404c1553",
+      "ContentItemData": {
+        "ArticleTitle": "en-GB UMT simplified model creation as sub page",
+        "ArticleTeaser": {
+          "$assetType": "AssetUrl",
+          "Url": "https://devnet.kentico.com/DevNet/media/devnet/cms_screen.jpg",
+          "ContentItemGuid": "9ed8de86-859c-4f6c-94f2-cdd6baed99fe",
+          "Identifier": "8d6191f6-3b02-4bce-a48e-4282462549b6",
+          "Name": "cms screen.jpg",
+          "Extension": ".jpg"
+        },
+        "ArticleText": "This article is only example of creation UMT simplified model for en-GB language",
+        "RelatedArticles": null,
+        "RelatedFaq": null
+      }
+    }
+  ],
+  "PageData": {
+    "PageUrls": [
+      {
+        "UrlPath": "en-us/simplified-sample/sub-page",
+        "LanguageName": "en-US"
+      },
+      {
+        "UrlPath": "en-gb/simplified-sample/sub-page",
+        "LanguageName": "en-GB"
+      },
+      {
+        "UrlPath": "es/simplified-sample/sub-page",
+        "LanguageName": "es"
+      }
+    ],
+    "ParentGuid": "4ea03de4-977e-48aa-9340-babf3d23bafa",
+    "TreePath": "/simplified-sample/sub-page"
+  }
+}
+```
+
+### Simplified model for webpage content item sample
+Simplified model for importing webpage content item
+```json
+{
+  "$type": "ContentItemSimplified",
+  "ContentItemGUID": "37c3f5dd-6f2a-4eff-b46e-a36eddebf572",
+  "IsSecured": false,
+  "ContentTypeName": "UMT.Article",
+  "Name": "SimplifiedModelSample",
+  "IsReusable": false,
+  "ChannelName": "websitechannelExample",
+  "LanguageData": [
+    {
+      "LanguageName": "en-US",
+      "DisplayName": "Simplified model sample - en-us",
+      "VersionStatus": 0,
+      "ScheduledPublishWhen": "2045-01-01T00:00:00Z",
+      "ContentItemData": {
+        "ArticleTitle": "en-US UMT simplified model creation",
+        "ArticleText": "This article is only example of creation UMT simplified model for en-US language",
+        "RelatedArticles": null,
+        "RelatedFaq": null,
+        "CoffeaTaxonomy": "[{\u0022Identifier\u0022:\u0022a6e3cc11-95a8-482c-beb4-58bbef6e7bdd\u0022},{\u0022Identifier\u0022:\u0022bb181050-79b0-4f42-9280-ef486a139623\u0022}]"
+      }
+    },
+    {
+      "LanguageName": "en-GB",
+      "DisplayName": "Simplified model sample - en-gb",
+      "VersionStatus": 2,
+      "ScheduledUnpublishWhen": "2045-01-01T00:00:00Z",
+      "ContentItemData": {
+        "ArticleTitle": "en-GB UMT simplified model creation",
+        "ArticleText": "This article is only example of creation UMT simplified model for en-GB language",
+        "RelatedArticles": null,
+        "RelatedFaq": null,
+        "CoffeaTaxonomy": "[{\u0022Identifier\u0022:\u0022a6e3cc11-95a8-482c-beb4-58bbef6e7bdd\u0022},{\u0022Identifier\u0022:\u0022bb181050-79b0-4f42-9280-ef486a139623\u0022}]"
+      }
+    }
+  ],
+  "PageData": {
+    "PageUrls": [
+      {
+        "UrlPath": "en-us/simplified-sample",
+        "LanguageName": "en-US"
+      },
+      {
+        "UrlPath": "en-gb/simplified-sample",
+        "LanguageName": "en-GB"
+      },
+      {
+        "UrlPath": "es/simplified-sample",
+        "LanguageName": "es"
+      }
+    ],
+    "PageGuid": "4ea03de4-977e-48aa-9340-babf3d23bafa",
+    "TreePath": "/simplified-sample"
+  }
+}
+```
 ## ContentItemLanguageData
 
 |PropertyName|Summary|.NET Type|Notes|
