@@ -5,8 +5,8 @@ namespace Kentico.Xperience.UMT.Examples;
 
 public static class ContentItemSamples
 {
-    public static readonly Guid CONTENT_ITEM_GUID = new Guid("C354427D-3D02-4876-8ED4-4DE817FAE929");
-    public static readonly Guid CONTENT_ITEM_FAQ_SAMPLE_GUID = new Guid("B28A0F09-9102-4E48-B6FE-3C405FEEAFB5");
+    public static readonly Guid CONTENT_ITEM_GUID = new("C354427D-3D02-4876-8ED4-4DE817FAE929");
+    public static readonly Guid CONTENT_ITEM_FAQ_SAMPLE_GUID = new("B28A0F09-9102-4E48-B6FE-3C405FEEAFB5");
 
     [Sample("contentitem.sample", "This sample describes how to create class inside XbyK to hold Content Item data", "ContentItem basic Sample")]
     public static ContentItemModel SampleContentItem => new()
@@ -176,18 +176,35 @@ public static class ContentItemSamples
 
     #endregion
 
+    public static readonly Guid SAMPLE_ARTICLE_WEB_PAGE_GUID = new("6E995319-77E7-475E-9EBB-607BDBF5AF9A");
+    
     [Sample("webpageitem.sample.article", "This sample describes how to create class inside XbyK to hold WebPage Item data", "ContentItem Sample")]
     public static WebPageItemModel SampleArticleWebPageItem => new()
     {
-        WebPageItemGUID = new Guid("6E995319-77E7-475E-9EBB-607BDBF5AF9A"),
+        WebPageItemGUID = SAMPLE_ARTICLE_WEB_PAGE_GUID,
         WebPageItemContentItemGuid = SampleArticleContentItemGuid,
         WebPageItemName = "CreationOfUmtModelUs",
         WebPageItemOrder = 1,
         WebPageItemTreePath = "/creation-of-umt-model",
         WebPageItemWebsiteChannelGuid = WebSiteChannelSamples.WebsiteChannelGuid
     };
+
+    public static readonly Guid SAMPLE_ARTICLE_WEBPAGE_ACL_GUID = new("959408C5-D157-4C18-8AE0-A7D9CFB374F5");
     
-    
+    [Sample("webpageitem.sample.article.acl", "This sample describes how to set Web page ACL", "ContentItem ACL Sample")]
+    public static WebPageAclModel SampleArticleWebPageAcl => new()
+    {
+        WebPageAclGUID = SAMPLE_ARTICLE_WEBPAGE_ACL_GUID,
+        WebPageAclWebsiteChannelGUID = WebSiteChannelSamples.WebsiteChannelGuid,
+        WebPageAclWebPageItemGUID = SAMPLE_ARTICLE_WEB_PAGE_GUID
+    };
+
+    [Sample("webpageitem.sample.article.aclmapping", "This sample describes how to set Web page ACL mapping", "ContentItem ACL mapping Sample")]
+    public static WebPageAclMappingModel SampleArticleWebPageAclMappingModel => new()
+    {
+        WebPageItemGuid = SAMPLE_ARTICLE_WEB_PAGE_GUID,
+        WebPageAclGuid = SAMPLE_ARTICLE_WEBPAGE_ACL_GUID
+    };
 
     #endregion
     
@@ -361,18 +378,35 @@ public static class ContentItemSamples
     };
 
     #endregion
-    
 
-
+    public static Guid SAMPLE_ARTICLE_WR_WEB_PAGE_GUID = new("14784BF0-69D0-40CF-8BE6-E5A0D897774B");
+        
     [Sample("webpageitem.sample.article.WithRelations", "This sample describes how to create class inside XbyK to hold WebPage Item data with relations", "ContentItem Sample")]
     public static WebPageItemModel SampleArticleWebPageItemWithRelations => new()
     {
-        WebPageItemGUID = new Guid("14784BF0-69D0-40CF-8BE6-E5A0D897774B"),
+        WebPageItemGUID = SAMPLE_ARTICLE_WR_WEB_PAGE_GUID,
         WebPageItemContentItemGuid = SampleArticleContentItemGuidWithRelations,
         WebPageItemName = "ContentItemWithRelations",
         WebPageItemOrder = 1,
         WebPageItemTreePath = "/content-item-with-relations",
         WebPageItemWebsiteChannelGuid = WebSiteChannelSamples.WebsiteChannelGuid
+    };
+    
+    public static readonly Guid SAMPLE_ARTICLE_WR_WEBPAGE_ACL_GUID = new("105A117D-96B9-4E89-8C9E-D3D414D51F12");
+    
+    [Sample("webpageitem.sample.article.wr.acl", "This sample describes how to set Web page ACL", "ContentItem ACL Sample")]
+    public static WebPageAclModel SampleArticleWrWebPageAcl => new()
+    {
+        WebPageAclGUID = SAMPLE_ARTICLE_WR_WEBPAGE_ACL_GUID,
+        WebPageAclWebsiteChannelGUID = WebSiteChannelSamples.WebsiteChannelGuid,
+        WebPageAclWebPageItemGUID = SAMPLE_ARTICLE_WR_WEB_PAGE_GUID
+    };
+
+    [Sample("webpageitem.sample.article.wr.aclmapping", "This sample describes how to set Web page ACL mapping", "ContentItem ACL mapping Sample")]
+    public static WebPageAclMappingModel SampleArticleWrWebPageAclMappingModel => new()
+    {
+        WebPageItemGuid = SAMPLE_ARTICLE_WR_WEB_PAGE_GUID,
+        WebPageAclGuid = SAMPLE_ARTICLE_WR_WEBPAGE_ACL_GUID
     };
 
     #endregion

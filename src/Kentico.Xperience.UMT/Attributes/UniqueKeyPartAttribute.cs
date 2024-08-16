@@ -1,14 +1,8 @@
 ﻿namespace Kentico.Xperience.UMT.Attributes;
 
 [AttributeUsage(AttributeTargets.Property, AllowMultiple = false)]
-public class UniqueKeyPartAttribute: System.Attribute
+public class UniqueKeyPartAttribute(string? keyName = null, Type? referencedInfoType = null) : System.Attribute
 {
-    public string? KeyName { get; }
-    public Type? ReferencedInfoType { get; }
-
-    public UniqueKeyPartAttribute(string? keyName = null, Type? referencedInfoType = null)
-    {
-        KeyName = keyName;
-        ReferencedInfoType = referencedInfoType;
-    }
+    public string? KeyName { get; } = keyName;
+    public Type? ReferencedInfoType { get; } = referencedInfoType;
 }
