@@ -199,13 +199,6 @@ public static class ContentItemSamples
         WebPageAclWebPageItemGUID = SAMPLE_ARTICLE_WEB_PAGE_GUID
     };
 
-    [Sample("webpageitem.sample.article.aclmapping", "This sample describes how to set Web page ACL mapping", "ContentItem ACL mapping Sample")]
-    public static WebPageAclMappingModel SampleArticleWebPageAclMappingModel => new()
-    {
-        WebPageItemGuid = SAMPLE_ARTICLE_WEB_PAGE_GUID,
-        WebPageAclGuid = SAMPLE_ARTICLE_WEBPAGE_ACL_GUID
-    };
-
     #endregion
     
     #region "Sample article content item with relations to FAQ and first item"
@@ -390,23 +383,6 @@ public static class ContentItemSamples
         WebPageItemOrder = 1,
         WebPageItemTreePath = "/content-item-with-relations",
         WebPageItemWebsiteChannelGuid = WebSiteChannelSamples.WebsiteChannelGuid
-    };
-    
-    public static readonly Guid SAMPLE_ARTICLE_WR_WEBPAGE_ACL_GUID = new("105A117D-96B9-4E89-8C9E-D3D414D51F12");
-    
-    [Sample("webpageitem.sample.article.wr.acl", "This sample describes how to set Web page ACL", "ContentItem ACL Sample")]
-    public static WebPageAclModel SampleArticleWrWebPageAcl => new()
-    {
-        WebPageAclGUID = SAMPLE_ARTICLE_WR_WEBPAGE_ACL_GUID,
-        WebPageAclWebsiteChannelGUID = WebSiteChannelSamples.WebsiteChannelGuid,
-        WebPageAclWebPageItemGUID = SAMPLE_ARTICLE_WR_WEB_PAGE_GUID
-    };
-
-    [Sample("webpageitem.sample.article.wr.aclmapping", "This sample describes how to set Web page ACL mapping", "ContentItem ACL mapping Sample")]
-    public static WebPageAclMappingModel SampleArticleWrWebPageAclMappingModel => new()
-    {
-        WebPageItemGuid = SAMPLE_ARTICLE_WR_WEB_PAGE_GUID,
-        WebPageAclGuid = SAMPLE_ARTICLE_WR_WEBPAGE_ACL_GUID
     };
 
     #endregion

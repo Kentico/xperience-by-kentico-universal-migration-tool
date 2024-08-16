@@ -237,9 +237,6 @@ public class ContentItemSimplifiedAdapter : IInfoAdapter<ContentItemInfo, IUmtMo
                 ArgumentNullException.ThrowIfNull(adapter);
                 var webPageItemInfo = (WebPageItemInfo)adapter.Adapt(webPageItemModel);
                 webPageItemInfo = (WebPageItemInfo)adapter.ProviderProxy.Save(webPageItemInfo, webPageItemModel);
-
-                var webPageAclMappingManager = Service.Resolve<IWebPageAclMappingManager>();
-                webPageAclMappingManager.CreateMapping(webPageItemInfo.WebPageItemID, webPageItemInfo.WebPageItemParentID, webPageItemInfo.WebPageItemWebsiteChannelID, CancellationToken.None).GetAwaiter().GetResult();
                 
                 var urls = pageData.PageUrls ?? [];
 

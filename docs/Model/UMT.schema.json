@@ -1187,41 +1187,6 @@
         }
       ]
     },
-    "WebPageAclMappingModel": {
-      "allOf": [
-        {
-          "$ref": "#/definitions/UmtModel"
-        },
-        {
-          "type": "object",
-          "description": "Model represents XbyK WebPageAclMappingInfo",
-          "additionalProperties": {
-            "oneOf": [
-              {},
-              {
-                "type": "null"
-              }
-            ]
-          },
-          "required": [
-            "WebPageItemGuid",
-            "WebPageAclGuid"
-          ],
-          "properties": {
-            "WebPageItemGuid": {
-              "type": "string",
-              "format": "guid",
-              "minLength": 1
-            },
-            "WebPageAclGuid": {
-              "type": "string",
-              "format": "guid",
-              "minLength": 1
-            }
-          }
-        }
-      ]
-    },
     "WebPageUrlPathModel": {
       "allOf": [
         {
