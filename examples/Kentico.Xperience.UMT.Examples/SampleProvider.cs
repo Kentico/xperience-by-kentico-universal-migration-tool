@@ -110,8 +110,7 @@ public static class SampleProvider
             ContentItemSamples.SampleArticleWebPathUrlPathModelEs,
     
             ContentItemSamples.SampleArticleWebPageItem,
-            ContentItemSamples.SampleArticleWebPageAcl,
-            ContentItemSamples.SampleArticleWebPageAclMappingModel
+            ContentItemSamples.SampleArticleWebPageAcl
         });
         
         sourceData.AddRange(new IUmtModel[]
@@ -122,8 +121,6 @@ public static class SampleProvider
             ContentItemSamples.SampleArticleDataEnGbWithRelationsReference,
             ContentItemSamples.SampleArticleContentItemLanguageMetadataEnUsWithRelations, ContentItemSamples.SampleArticleContentItemLanguageMetadataEnGbWithRelations,
             ContentItemSamples.SampleArticleWebPageItemWithRelations,
-            ContentItemSamples.SampleArticleWrWebPageAcl,
-            ContentItemSamples.SampleArticleWrWebPageAclMappingModel,
             ContentItemSamples.SampleArticleWebPageUrlWithRelationsEnUs,
             ContentItemSamples.SampleArticleWebPageUrlWithRelations,
             ContentItemSamples.SampleArticleWebPageUrlWithRelationsEs

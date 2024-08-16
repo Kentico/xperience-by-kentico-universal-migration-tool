@@ -4,6 +4,8 @@ using CMS.Core;
 using CMS.DataEngine;
 using CMS.DataEngine.Internal;
 using CMS.Membership;
+using CMS.Websites.Internal;
+
 using Kentico.Xperience.UMT.Model;
 
 namespace Kentico.Xperience.UMT.ProviderProxy;
@@ -84,6 +86,8 @@ internal class ContentItemDataProxy(IProviderProxyContext context) : IProviderPr
 
 internal class ProviderProxy<TInfo> : IProviderProxy where TInfo : AbstractInfoBase<TInfo>, new()
 {
+    private static Type InfoType = typeof(TInfo);
+    
     public IProviderProxyContext Context { get; }
 
     protected readonly IInfoProvider<TInfo> ProviderInstance;
@@ -135,7 +139,32 @@ internal class ProviderProxy<TInfo> : IProviderProxy where TInfo : AbstractInfoB
     {
         if (info.GetType().IsAssignableTo(typeof(TInfo)))
         {
-            return Save((TInfo)info, model);
+            try
+            {
+                return Save((TInfo)info, model);
+            }
+            finally
+            {
+                if (InfoType.IsAssignableTo(typeof(WebPageItemInfo)) && info is WebPageItemInfo webPageItemInfo)
+                {    
+                    var webPageAclMappingManager = Service.Resolve<IWebPageAclMappingManager>();
+                    webPageAclMappingManager.CreateMapping(webPageItemInfo.WebPageItemID, webPageItemInfo.WebPageItemParentID, webPageItemInfo.WebPageItemWebsiteChannelID, CancellationToken.None).GetAwaiter().GetResult();
+                    
+                    var webPageAclMappingManagerFactory = Service.Resolve<IWebPageAclManagerFactory>();
+                    webPageAclMappingManagerFactory
+                        .Create(webPageItemInfo.WebPageItemWebsiteChannelID)
+                        .RestoreInheritance(webPageItemInfo.WebPageItemID)
+                        .GetAwaiter().GetResult();
+                }
+                if (InfoType.IsAssignableTo(typeof(WebPageAclInfo)) && info is WebPageAclInfo webPageAclInfo)
+                {
+                    var webPageAclMappingManagerFactory = Service.Resolve<IWebPageAclManagerFactory>();
+                    webPageAclMappingManagerFactory
+                        .Create(webPageAclInfo.WebPageAclWebsiteChannelID)
+                        .BreakInheritance(webPageAclInfo.WebPageAclWebPageItemID)
+                        .GetAwaiter().GetResult();
+                }
+            }
         }
 
         throw new InvalidOperationException($"Invalid proxy type, this proxy supports any object with '{typeof(TInfo).FullName}' as base type");

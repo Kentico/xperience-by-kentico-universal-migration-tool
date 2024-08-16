@@ -24,13 +24,3 @@ This sample describes how to set Web page ACL
   "WebPageAclWebPageItemGUID": "6e995319-77e7-475e-9ebb-607bdbf5af9a"
 }
 ```
-
-### ContentItem ACL mapping Sample
-This sample describes how to set Web page ACL mapping
-```json
-{
-  "$type": "WebPageAclMapping",
-  "WebPageItemGuid": "14784bf0-69d0-40cf-8be6-e5a0d897774b",
-  "WebPageAclGuid": "105a117d-96b9-4e89-8c9e-d3d414d51f12"
-}
-```
