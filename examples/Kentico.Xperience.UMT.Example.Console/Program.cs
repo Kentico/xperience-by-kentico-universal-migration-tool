@@ -2,11 +2,10 @@
 // See https://aka.ms/new-console-template for more information
 
 using System.Text.Json;
-using CMS.ContentEngine;
+
 using CMS.Core;
 using CMS.DataEngine;
 using Kentico.Xperience.UMT;
-using Kentico.Xperience.UMT.Example.Console;
 using Kentico.Xperience.UMT.Examples;
 using Kentico.Xperience.UMT.Model;
 using Kentico.Xperience.UMT.Services;
@@ -21,6 +20,8 @@ var root = new ConfigurationBuilder()
 
 Service.Use<IConfiguration>(root);
 CMS.Base.SystemContext.WebApplicationPhysicalPath = root.GetValue<string>("WebApplicationPhysicalPath");
+string workDir = Directory.GetCurrentDirectory();
+Directory.SetCurrentDirectory(root.GetValue<string>("WebApplicationPhysicalPath") ?? throw new InvalidOperationException("WebApplicationPhysicalPath must be set to valid directory path"));
 
 CMSApplication.Init();
 
@@ -34,17 +35,27 @@ var importService = serviceProvider.GetRequiredService<IImportService>();
 // sample data
 List<IUmtModel> sourceData = null!;
 
-bool useSerializedSample = false;
+bool useSerializedSample = true;
 if (useSerializedSample)
 {
-    sourceData = importService.FromJsonString(SampleJson.FULL_SAMPLE)?.ToList() ?? new List<IUmtModel>();
+    string path = Path.GetFullPath(Path.Combine(workDir, "../../../../../docs/Samples/basic.json"));
+    sourceData = importService.FromJsonString(await File.ReadAllTextAsync(path) ?? throw new InvalidOperationException("Failed to load sample"))?.ToList() ?? new List<IUmtModel>();
 }
 else
 {
     sourceData = SampleProvider.GetFullSample();
 }
 
-bool variantWithObserver = false;
+foreach (var umtModel in sourceData)
+{
+    // update path to media files
+    if (umtModel is MediaFileModel mediaFileModel)
+    {
+        mediaFileModel.DataSourcePath = mediaFileModel.DataSourcePath?.Replace("##ASSETDIR##", workDir);
+    }
+}
+
+bool variantWithObserver = true;
 if (variantWithObserver)
 {
     // simplified usage for streamlined import

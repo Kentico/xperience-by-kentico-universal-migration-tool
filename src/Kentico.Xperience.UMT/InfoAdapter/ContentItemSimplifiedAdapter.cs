@@ -48,7 +48,7 @@ public class ContentItemSimplifiedAdapter : IInfoAdapter<ContentItemInfo, IUmtMo
         }
 
         using var scope = new CMSTransactionScope();
-
+        
         ArgumentNullException.ThrowIfNull(cim.ContentItemGUID);
         var existingContentItem = ProviderProxy.GetBaseInfoByGuid(cim.ContentItemGUID.Value, cim) as ContentItemInfo;
 
@@ -141,6 +141,7 @@ public class ContentItemSimplifiedAdapter : IInfoAdapter<ContentItemInfo, IUmtMo
             {
                 if (customData.TryGetValue(formFieldInfo.Name, out object? value))
                 {
+                    // TODO tomas.krch: 2024-08-16 this needs to be converted to asset too
                     contentItemCommonDataModel.CustomProperties ??= [];
                     logger.LogTrace("Reusable schema field '{FieldName}' from schema '{SchemaGuid}' populated", formFieldInfo.Name, formFieldInfo.Properties[ReusableFieldSchemaConstants.SCHEMA_IDENTIFIER_KEY]);
                     contentItemCommonDataModel.CustomProperties[formFieldInfo.Name] = value;
@@ -196,6 +197,7 @@ public class ContentItemSimplifiedAdapter : IInfoAdapter<ContentItemInfo, IUmtMo
             };
             adapter = adapterFactory.CreateAdapter(contentItemDataModel, new ProviderProxyContext());
             ArgumentNullException.ThrowIfNull(adapter);
+            
             var contentItemDataInfo = (ContentItemDataInfo)adapter.Adapt(contentItemDataModel);
             adapter.ProviderProxy.Save(contentItemDataInfo, contentItemDataModel);
         }

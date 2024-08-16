@@ -87,6 +87,7 @@ internal class ImportService : IImportService
         var converter = new UmtModelStjConverter(umtModelService.GetAll());
         options ??= new JsonSerializerOptions();
         options.Converters.Add(converter);
+        // options.Converters.Add(new AssertSourceStjConverter());
         return JsonSerializer.Serialize(model, options);
     }
     
@@ -96,6 +97,7 @@ internal class ImportService : IImportService
         var converter = new UmtModelStjConverter(umtModelService.GetAll());
         options ??= new JsonSerializerOptions();
         options.Converters.Add(converter);
+        // options.Converters.Add(new AssertSourceStjConverter());
         return JsonSerializer.Serialize(model, options);
     }
 
@@ -105,7 +107,10 @@ internal class ImportService : IImportService
         var converter = new UmtModelStjConverter(umtModelService.GetAll());
         return JsonSerializer.DeserializeAsyncEnumerable<UmtModel?>(jsonStream, new JsonSerializerOptions
         {
-            Converters = { converter }
+            Converters = { 
+                converter, 
+                // new AssertSourceStjConverter() 
+            }
         });
     }
 
@@ -113,7 +118,11 @@ internal class ImportService : IImportService
     public IEnumerable<IUmtModel>? FromJsonString(string jsonString)
     {
         var converter = new UmtModelStjConverter(umtModelService.GetAll());
-        return JsonSerializer.Deserialize<UmtModel[]>(jsonString, new JsonSerializerOptions { Converters = { converter } })?.Cast<IUmtModel>();  
+        return JsonSerializer.Deserialize<UmtModel[]>(jsonString, new JsonSerializerOptions { Converters =
+        {
+            converter,
+            // new AssertSourceStjConverter()
+        } })?.Cast<IUmtModel>();  
     }
 
     /// <inheritdoc />

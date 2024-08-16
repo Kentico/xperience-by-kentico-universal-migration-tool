@@ -1,8 +1,6 @@
 ﻿namespace Kentico.Xperience.UMT.Attributes;
 
-public class UmtModelAttribute: Attribute
+public class UmtModelAttribute(string discriminator) : Attribute
 {
-    public string Discriminator { get; }
-
-    public UmtModelAttribute(string discriminator) => Discriminator = discriminator;
+    public string Discriminator { get; } = discriminator;
 }

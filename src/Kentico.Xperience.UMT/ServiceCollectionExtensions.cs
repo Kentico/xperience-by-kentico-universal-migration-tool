@@ -24,6 +24,7 @@ public static class ServiceCollectionExtensions
         services.AddTransient<IImporter, Importer>();
         services.AddSingleton<IProviderProxyFactory, ProviderProxyFactory>();
         services.AddSingleton<AdapterFactory>();
+        services.AddSingleton<AssetManager>();
         services.AddSingleton(_ => new UmtModelService(new[] { typeof(ServiceCollectionExtensions).Assembly }));
 
         return services;

@@ -10,7 +10,7 @@ namespace Kentico.Xperience.UMT.InfoAdapter;
 
 public class TaxonomyAdapter: GenericInfoAdapter<TaxonomyInfo>
 {
-    internal TaxonomyAdapter(ILogger<TaxonomyAdapter> logger, UmtModelService modelService, IProviderProxy providerProxy, IProviderProxyFactory providerProxyFactory) : base(logger, modelService, providerProxy, providerProxyFactory)
+    internal TaxonomyAdapter(ILogger<TaxonomyAdapter> logger, GenericInfoAdapterContext adapterContext) : base(logger, adapterContext)
     {
     }
 

@@ -2,12 +2,17 @@
 using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Text.Json;
+
+using CMS.ContentEngine;
+using CMS.ContentEngine.Internal;
+using CMS.Core;
 using CMS.DataEngine;
 
 using Kentico.Xperience.UMT.Attributes;
 using Kentico.Xperience.UMT.Model;
 using Kentico.Xperience.UMT.ProviderProxy;
 using Kentico.Xperience.UMT.Serialization;
+using Kentico.Xperience.UMT.Services;
 using Kentico.Xperience.UMT.Services.Model;
 using Microsoft.Extensions.Logging;
 
@@ -29,20 +34,24 @@ internal interface IInfoAdapter<out TInfo, in TModel> : IInfoAdapter<TModel> whe
     new Guid? GetUniqueIdOrNull(TModel input);
 }
 
+internal record GenericInfoAdapterContext(UmtModelService ModelService, IProviderProxyFactory ProviderProxyFactory, AssetManager AssetManager, IProviderProxyContext ProviderProxyContext);
+
 public class GenericInfoAdapter<TTargetInfo> : IInfoAdapter<TTargetInfo, IUmtModel> where TTargetInfo : AbstractInfoBase<TTargetInfo>, new()
 {
     protected readonly ILogger<GenericInfoAdapter<TTargetInfo>> Logger;
     private readonly UmtModelService modelService;
     private readonly IProviderProxyFactory providerProxyFactory;
+    private readonly AssetManager assetManager;
 
     public IProviderProxy ProviderProxy { get; }
 
-    internal GenericInfoAdapter(ILogger<GenericInfoAdapter<TTargetInfo>> logger, UmtModelService modelService, IProviderProxy providerProxy, IProviderProxyFactory providerProxyFactory)
+    internal GenericInfoAdapter(ILogger<GenericInfoAdapter<TTargetInfo>> logger, GenericInfoAdapterContext context)
     {
         Logger = logger;
-        this.modelService = modelService;
-        this.providerProxyFactory = providerProxyFactory;
-        ProviderProxy = providerProxy;
+        modelService = context.ModelService;
+        providerProxyFactory = context.ProviderProxyFactory;
+        assetManager = context.AssetManager;
+        ProviderProxy = context.ProviderProxyFactory.CreateProviderProxy<TTargetInfo>(context.ProviderProxyContext);
     }
 
     protected virtual TTargetInfo ObjectFactory(UmtModelInfo umtModelInfo, IUmtModel umtModel) => new();
@@ -112,8 +121,10 @@ public class GenericInfoAdapter<TTargetInfo> : IInfoAdapter<TTargetInfo, IUmtMod
 
         TTargetInfo? current;
 
+        Guid? infoGuid = null;
         if (model.ObjectGuidProperty is { } objectGuidProperty && objectGuidProperty.GetValue(input) is Guid objectGuid)
         {
+            infoGuid = objectGuid;
             var existing = ProviderProxy.GetBaseInfoByGuid(objectGuid, input);
 
             if (existing != null)
@@ -225,17 +236,38 @@ public class GenericInfoAdapter<TTargetInfo> : IInfoAdapter<TTargetInfo, IUmtMod
         {
             foreach (string customProperty in customProperties)
             {
-                if (customProperty == UmtModelStjConverter.DiscriminatorProperty)
+                if (customProperty == UmtModelStjConverter.DISCRIMINATOR_PROPERTY)
                 {
                     continue;
                 }
+                
                 if (current.ColumnNames.Contains(customProperty))
                 {
                     object? value = input.CustomProperties[customProperty];
-                    if (value is JsonElement jsonElement)
+                    
+                    AssetSource? asset = null;
+                    switch (value)
                     {
+                        case AssetSource assetSource:
+                            asset = assetSource;
+                            break;
+                        case JsonElement { ValueKind: JsonValueKind.Object } jsonElement when jsonElement.GetProperty(AssetSource.DISCRIMINATOR_PROPERTY).GetString() is { }:
+                            asset = jsonElement.Deserialize<AssetSource>() ?? throw new InvalidOperationException($"Failed to deserialize asse source: {jsonElement}");
+                            break;
+                        case JsonElement jsonElement:
+                            value = jsonElement.ToString();
+                            break;
+                    }
+
+                    if (asset != null)
+                    {
+                        ArgumentNullException.ThrowIfNull(asset.ContentItemGuid);
                         
-                        value = jsonElement.ToString();
+                        var metadataWithSource = assetManager
+                            .SetAsset(current.TypeInfo.ObjectClassName, asset, customProperty, asset.ContentItemGuid.Value, CancellationToken.None)
+                            .GetAwaiter().GetResult();
+
+                        value = metadataWithSource;
                     }
 
                     current.SetValue(customProperty, value);

@@ -13,7 +13,7 @@ namespace Kentico.Xperience.UMT.InfoAdapter;
 
 public class ContentFolderAdapter: GenericInfoAdapter<ContentFolderInfo>
 {
-    internal ContentFolderAdapter(ILogger<ContentFolderAdapter> logger, UmtModelService modelService, IProviderProxy providerProxy, IProviderProxyFactory providerProxyFactory) : base(logger, modelService, providerProxy, providerProxyFactory)
+    internal ContentFolderAdapter(ILogger<ContentFolderAdapter> logger, GenericInfoAdapterContext adapterContext) : base(logger, adapterContext)
     {
     }
 

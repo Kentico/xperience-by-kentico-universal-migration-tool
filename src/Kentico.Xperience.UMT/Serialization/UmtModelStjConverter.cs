@@ -7,13 +7,9 @@ namespace Kentico.Xperience.UMT.Serialization;
 /// <summary>
 /// UMT model convertor for System.Text.Json 
 /// </summary>
-public class UmtModelStjConverter : System.Text.Json.Serialization.JsonConverter<UmtModel>
+public class UmtModelStjConverter(IReadOnlyList<UmtModelInfo?> models) : System.Text.Json.Serialization.JsonConverter<UmtModel>
 {
-    private readonly IReadOnlyList<UmtModelInfo?> models;
-
-    public UmtModelStjConverter(IReadOnlyList<UmtModelInfo?> models) => this.models = models;
-
-    public const string DiscriminatorProperty = "$type";
+    public const string DISCRIMINATOR_PROPERTY = "$type";
 
     public override bool CanConvert(Type typeToConvert) => typeToConvert == typeof(UmtModel) || models.Any(m => m?.ModelType == typeToConvert);
 
@@ -33,7 +29,7 @@ public class UmtModelStjConverter : System.Text.Json.Serialization.JsonConverter
         }
 
         string? propertyName = readerClone.GetString();
-        if (propertyName != DiscriminatorProperty)
+        if (propertyName != DISCRIMINATOR_PROPERTY)
         {
             throw new JsonException();
         }
@@ -69,7 +65,7 @@ public class UmtModelStjConverter : System.Text.Json.Serialization.JsonConverter
         {
             throw new InvalidOperationException($"Invalid model");
         }
-        writer.WriteString(DiscriminatorProperty, modelInfo.ModelDiscriminator);
+        writer.WriteString(DISCRIMINATOR_PROPERTY, modelInfo.ModelDiscriminator);
         
         var clonedOptions = new JsonSerializerOptions(options);
         if (clonedOptions.Converters.FirstOrDefault(x => x is UmtModelStjConverter) is { } converter)

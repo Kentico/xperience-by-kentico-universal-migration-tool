@@ -7,13 +7,9 @@ using Microsoft.Extensions.Logging;
 
 namespace Kentico.Xperience.UMT.InfoAdapter;
 
-internal class MediaFileAdapter : GenericInfoAdapter<MediaFileInfo>
+internal class MediaFileAdapter(ILogger<MediaFileAdapter> logger, GenericInfoAdapterContext adapterContext) : GenericInfoAdapter<MediaFileInfo>(logger, adapterContext)
 {
     private static readonly Lazy<HttpClient> httpClient = new(() => new HttpClient());
-    
-    public MediaFileAdapter(ILogger<MediaFileAdapter> logger, UmtModelService modelService, IProviderProxy providerProxy, IProviderProxyFactory providerProxyFactory) : base(logger, modelService, providerProxy, providerProxyFactory)
-    {
-    }
 
     protected override MediaFileInfo ObjectFactory(UmtModelInfo umtModelInfo, IUmtModel umtModel)
     {

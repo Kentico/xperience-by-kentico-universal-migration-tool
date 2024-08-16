@@ -210,6 +210,23 @@
       },
       {
         "AllowEmpty": true,
+        "Column": "ArticleTeaser",
+        "ColumnSize": 0,
+        "ColumnType": "contentitemasset",
+        "Enabled": true,
+        "Guid": "89043112-996b-4771-96bb-2347ad6f3526",
+        "Visible": true,
+        "Properties": {
+          "FieldCaption": "Article teaser"
+        },
+        "Settings": {
+          "ControlName": "Kentico.Administration.ContentItemAssetUploader",
+          "AllowedExtensions": "_INHERITED_"
+        },
+        "Precision": null
+      },
+      {
+        "AllowEmpty": true,
         "Column": "ArticleDecimalNumberSample",
         "ColumnSize": 15,
         "ColumnType": "decimal",
@@ -972,6 +989,16 @@
         "ScheduledUnpublishWhen": null,
         "ContentItemData": {
           "ArticleTitle": "en-US UMT simplified model creation as sub page",
+          "ArticleTeaser": {
+            "$assetType": "AssetFile",
+            "FilePath": "C:\\Users\\TK-NITTIN\\Pictures\\84693449_B.jpg",
+            "ContentItemGuid": "9ed8de86-859c-4f6c-94f2-cdd6baed99fe",
+            "Identifier": "cb2b28bb-25bf-47d0-8553-6a1d85d5dc85",
+            "Name": "my superb asset.jpg",
+            "Extension": ".jpg",
+            "Size": null,
+            "LastModified": null
+          },
           "ArticleText": "This article is only example of creation UMT simplified model for en-US language",
           "RelatedArticles": null,
           "RelatedFaq": null
@@ -986,6 +1013,16 @@
         "ScheduledUnpublishWhen": null,
         "ContentItemData": {
           "ArticleTitle": "en-GB UMT simplified model creation as sub page",
+          "ArticleTeaser": {
+            "$assetType": "AssetUrl",
+            "Url": "https://devnet.kentico.com/DevNet/media/devnet/cms_screen.jpg",
+            "ContentItemGuid": "9ed8de86-859c-4f6c-94f2-cdd6baed99fe",
+            "Identifier": "8d6191f6-3b02-4bce-a48e-4282462549b6",
+            "Name": "cms screen.jpg",
+            "Extension": ".jpg",
+            "Size": null,
+            "LastModified": null
+          },
           "ArticleText": "This article is only example of creation UMT simplified model for en-GB language",
           "RelatedArticles": null,
           "RelatedFaq": null

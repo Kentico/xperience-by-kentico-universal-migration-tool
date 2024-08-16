@@ -42,6 +42,24 @@ public static class DataClassSamples
             
             new()
             {
+                Column = "ArticleTeaser",
+                ColumnType = "contentitemasset",
+                AllowEmpty = true,
+                Visible = true,
+                Enabled = true,
+                Guid = new Guid("89043112-996B-4771-96BB-2347AD6F3526"),
+                Properties = new FormFieldProperties { FieldCaption = "Article teaser", },
+                Settings = new FormFieldSettings
+                {
+                    CustomProperties = new Dictionary<string, object?>
+                    {
+                        { "AllowedExtensions", "_INHERITED_" }  
+                    },
+                    ControlName = "Kentico.Administration.ContentItemAssetUploader"
+                }
+            },
+            new()
+            {
                 Column = "ArticleDecimalNumberSample",
                 ColumnType = "decimal",
                 ColumnSize = 15,

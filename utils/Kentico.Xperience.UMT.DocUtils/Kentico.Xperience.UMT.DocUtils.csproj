@@ -29,6 +29,12 @@
     <EmbeddedResource Include="Templates\UMT.schema.json.cshtml" />
     <None Remove="Templates\ClassDocs.cshtml" />
     <EmbeddedResource Include="Templates\ClassDocs.cshtml" />
+    <None Update="appsettings.local.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="appsettings.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
 

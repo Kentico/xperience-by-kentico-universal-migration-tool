@@ -1,6 +1,10 @@
 ﻿// See https://aka.ms/new-console-template for more information
 
 using System.Collections.Concurrent;
+
+using CMS.Core;
+using CMS.DataEngine;
+
 using Kentico.Xperience.UMT.DocUtils;
 using Kentico.Xperience.UMT.DocUtils.Templates;
 using Kentico.Xperience.UMT.DocUtils.Walkers;
@@ -12,6 +16,7 @@ using Microsoft.CodeAnalysis.CSharp;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Microsoft.CodeAnalysis.FindSymbols;
 using Microsoft.CodeAnalysis.MSBuild;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using NJsonSchema;
 
@@ -44,6 +49,17 @@ switch (args)
         throw new InvalidOperationException($"Incorrect number of parameters. Specify solution path as first argument and target documentation directory as second");
     }
 }
+
+var root = new ConfigurationBuilder()
+    .AddJsonFile("appsettings.json", false)
+    .AddJsonFile("appsettings.local.json", true)
+    .Build();
+
+Service.Use<IConfiguration>(root);
+CMS.Base.SystemContext.WebApplicationPhysicalPath = root.GetValue<string>("WebApplicationPhysicalPath");
+Directory.SetCurrentDirectory(root.GetValue<string>("WebApplicationPhysicalPath") ?? throw new InvalidOperationException("WebApplicationPhysicalPath must be set to valid directory path"));
+
+CMSApplication.Init();
 
 MSBuildLocator.RegisterDefaults();
 if (MSBuildLocator.IsRegistered)

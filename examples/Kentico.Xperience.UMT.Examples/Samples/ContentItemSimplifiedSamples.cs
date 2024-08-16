@@ -135,6 +135,16 @@ public static class ContentItemSimplifiedSamples
                 ContentItemData = new Dictionary<string, object?>
                 {
                     ["ArticleTitle"] = "en-US UMT simplified model creation as sub page",
+                    ["ArticleTeaser"] = new AssetFileSource
+                    {
+                        ContentItemGuid = SampleArticleSubPageContentItemGuid,
+                        Identifier = new Guid("CB2B28BB-25BF-47D0-8553-6A1D85D5DC85"),
+                        Name = "my superb asset.jpg",
+                        Extension = ".jpg",
+                        Size = null,
+                        LastModified = null,
+                        FilePath = @"C:\Users\TK-NITTIN\Pictures\84693449_B.jpg"
+                    },
                     ["ArticleText"] = "This article is only example of creation UMT simplified model for en-US language",
                     ["RelatedArticles"] = null,
                     ["RelatedFaq"] = null
@@ -149,6 +159,16 @@ public static class ContentItemSimplifiedSamples
                 ContentItemData = new Dictionary<string, object?>
                 {
                     ["ArticleTitle"] = "en-GB UMT simplified model creation as sub page",
+                    ["ArticleTeaser"] = new AssetUrlSource
+                    {
+                        ContentItemGuid = SampleArticleSubPageContentItemGuid,
+                        Identifier = new Guid("8D6191F6-3B02-4BCE-A48E-4282462549B6"),
+                        Name = "cms screen.jpg",
+                        Extension = ".jpg",
+                        Size = null,
+                        LastModified = null,
+                        Url = "https://devnet.kentico.com/DevNet/media/devnet/cms_screen.jpg"
+                    },
                     ["ArticleText"] = "This article is only example of creation UMT simplified model for en-GB language",
                     ["RelatedArticles"] = null,
                     ["RelatedFaq"] = null
