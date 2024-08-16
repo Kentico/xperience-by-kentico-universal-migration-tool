@@ -2,8 +2,6 @@
 using System.Runtime.Serialization;
 using System.Text.Json.Serialization;
 
-using Kentico.Xperience.UMT.Serialization;
-
 namespace Kentico.Xperience.UMT.Model;
 
 [KnownType(typeof(AssetFileSource))]

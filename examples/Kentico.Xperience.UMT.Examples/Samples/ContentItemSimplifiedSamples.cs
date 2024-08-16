@@ -143,7 +143,7 @@ public static class ContentItemSimplifiedSamples
                         Extension = ".jpg",
                         Size = null,
                         LastModified = null,
-                        FilePath = @"C:\Users\TK-NITTIN\Pictures\84693449_B.jpg"
+                        FilePath = @"##ASSETDIR##\sample.png"
                     },
                     ["ArticleText"] = "This article is only example of creation UMT simplified model for en-US language",
                     ["RelatedArticles"] = null,

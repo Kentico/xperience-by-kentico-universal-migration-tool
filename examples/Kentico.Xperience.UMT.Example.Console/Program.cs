@@ -1,6 +1,7 @@
 ﻿#pragma warning disable S1135 // this is sample, todos are here for end user
 // See https://aka.ms/new-console-template for more information
 
+using System.Diagnostics;
 using System.Text.Json;
 
 using CMS.Core;
@@ -35,23 +36,60 @@ var importService = serviceProvider.GetRequiredService<IImportService>();
 // sample data
 List<IUmtModel> sourceData = null!;
 
-bool useSerializedSample = true;
+bool useSerializedSample = false;
 if (useSerializedSample)
 {
     string path = Path.GetFullPath(Path.Combine(workDir, "../../../../../docs/Samples/basic.json"));
-    sourceData = importService.FromJsonString(await File.ReadAllTextAsync(path) ?? throw new InvalidOperationException("Failed to load sample"))?.ToList() ?? new List<IUmtModel>();
+    string sampleText = (await File.ReadAllTextAsync(path) ?? throw new InvalidOperationException("Failed to load sample"))
+        .Replace("##ASSETDIR##", workDir.Replace(@"\", @"\\"));
+        
+    sourceData = importService.FromJsonString(sampleText)?.ToList() ?? new List<IUmtModel>();
 }
 else
 {
     sourceData = SampleProvider.GetFullSample();
-}
-
-foreach (var umtModel in sourceData)
-{
-    // update path to media files
-    if (umtModel is MediaFileModel mediaFileModel)
+    
+    foreach (var umtModel in sourceData)
     {
-        mediaFileModel.DataSourcePath = mediaFileModel.DataSourcePath?.Replace("##ASSETDIR##", workDir);
+        // update path to media files
+        if (umtModel is MediaFileModel mediaFileModel)
+        {
+            mediaFileModel.DataSourcePath = mediaFileModel.DataSourcePath?.Replace("##ASSETDIR##", workDir);
+        }
+
+        foreach ((string? key, object? value) in umtModel.CustomProperties)
+        {
+            switch (value)
+            {
+                case AssetFileSource assetSource:
+                {
+                    assetSource.FilePath = assetSource.FilePath?.Replace("##ASSETDIR##", workDir);
+                    umtModel.CustomProperties[key] = assetSource;
+                    break;
+                }
+            }
+        }
+
+        if (umtModel is ContentItemSimplifiedModel contentItemSimplifiedModel)
+        {
+            Debug.Assert(contentItemSimplifiedModel.LanguageData != null, "contentItemSimplifiedModel.LanguageData != null");
+            foreach (var contentItemLanguageData in contentItemSimplifiedModel.LanguageData)
+            {
+                Debug.Assert(contentItemLanguageData.ContentItemData != null, "contentItemLanguageData.ContentItemData != null");
+                foreach ((string? _, object? value) in contentItemLanguageData.ContentItemData)
+                {
+                    switch (value)
+                    {
+                        case AssetFileSource assetSource:
+                        {
+                            assetSource.FilePath = assetSource.FilePath?.Replace("##ASSETDIR##", workDir);
+                            // umtModel.CustomProperties[key] = assetSource;
+                            break;
+                        }
+                    }
+                }
+            }
+        }
     }
 }
 

@@ -9,14 +9,9 @@ using Kentico.Xperience.UMT.Example.AdminApp;
 
 namespace Kentico.Xperience.UMT.Example.AdminApp
 {
-    internal class UmtWebAdminModule : AdminModule
+    internal class UmtWebAdminModule() : AdminModule("Umt.Web.Admin")
     {
         public const string CustomCategory = "umt.web.admin.category";
-
-        public UmtWebAdminModule()
-            : base("Umt.Web.Admin")
-        {
-        }
 
         protected override void OnInit()
         {

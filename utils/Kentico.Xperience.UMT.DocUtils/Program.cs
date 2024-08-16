@@ -144,7 +144,7 @@ await MdHelper.RenderTemplateToFile("UMT.schema.json", jsonSchemaModel, jsonSche
 var classesToRenderAsDoc = new List<Type>
 {
     typeof(ImportStateObserver),
-    typeof(IImportService),
+    typeof(IImportService)
 };
 
 var umtProject = solution.Projects.FirstOrDefault(p => p.Name == "Kentico.Xperience.UMT");

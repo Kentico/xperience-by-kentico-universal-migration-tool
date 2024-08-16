@@ -59,7 +59,17 @@ public static class ContentItemSamples
         ContentItemContentTypeName = DataClassSamples.ARTICLE_SAMPLE_CLASS_NAME,
         CustomProperties = new Dictionary<string, object?>
         {
-            ["ArticleTitle"] = "en-US UMT model creation", 
+            ["ArticleTitle"] = "en-US UMT model creation",
+            ["ArticleTeaser"] = new AssetFileSource
+            {
+                ContentItemGuid = SampleArticleContentItemGuid,
+                Identifier = new Guid("36B967AB-3165-415A-BA30-ABA87888E72A"),
+                Name = "my superb asset.jpg",
+                Extension = ".jpg",
+                Size = null,
+                LastModified = null,
+                FilePath = @"##ASSETDIR##\sample.png"
+            }, 
             ["ArticleText"] = "This article is only example of creation UMT model for en-US language",
             ["RelatedArticles"] = null,
             ["RelatedFaq"] = null,
@@ -122,7 +132,17 @@ public static class ContentItemSamples
         ContentItemContentTypeName = DataClassSamples.ARTICLE_SAMPLE_CLASS_NAME,
         CustomProperties = new Dictionary<string, object?>
         {
-            ["ArticleTitle"] = "en-GB UMT model creation", 
+            ["ArticleTitle"] = "en-GB UMT model creation",
+            ["ArticleTeaser"] = new AssetFileSource
+            {
+                ContentItemGuid = SampleArticleContentItemGuid,
+                Identifier = new Guid("FEA24405-12EA-436E-81E0-B51CE742A844"),
+                Name = "my superb asset.jpg",
+                Extension = ".jpg",
+                Size = null,
+                LastModified = null,
+                FilePath = @"##ASSETDIR##\sample.png"
+            }, 
             ["ArticleText"] = "This article is only example of creation UMT model for en-GB language",
             ["RelatedArticles"] = null,
             ["RelatedFaq"] = null,

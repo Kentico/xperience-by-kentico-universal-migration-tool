@@ -106,6 +106,7 @@ internal class AssetManager(
                     throw new ArgumentOutOfRangeException(nameof(assetSource));
             }
 
+            await contentItemAssetFileService.Delete(source, contentItemGuid, assetField.Guid, false, cancellationToken);
             await contentItemAssetFileService.Save(source, contentItemGuid, assetField.Guid, false, cancellationToken);
 
             return source;

@@ -57,6 +57,9 @@ public abstract class UmtModel: IUmtModel
     /// <returns></returns>
     protected abstract (Guid? uniqueId, string? name, string? displayName) GetPrintArgs();
 
+    /// <summary>
+    /// any value that is consumable by standard XbyK api and <see cref="AssetSource"/>
+    /// </summary>
     [System.Text.Json.Serialization.JsonExtensionData]
     public Dictionary<string, object?> CustomProperties { get; set; } = new();
 }
