@@ -141,7 +141,6 @@ public class ContentItemSimplifiedAdapter : IInfoAdapter<ContentItemInfo, IUmtMo
             {
                 if (customData.TryGetValue(formFieldInfo.Name, out object? value))
                 {
-                    // TODO tomas.krch: 2024-08-16 this needs to be converted to asset too
                     contentItemCommonDataModel.CustomProperties ??= [];
                     logger.LogTrace("Reusable schema field '{FieldName}' from schema '{SchemaGuid}' populated", formFieldInfo.Name, formFieldInfo.Properties[ReusableFieldSchemaConstants.SCHEMA_IDENTIFIER_KEY]);
                     contentItemCommonDataModel.CustomProperties[formFieldInfo.Name] = value;

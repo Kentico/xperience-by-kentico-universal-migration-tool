@@ -121,10 +121,8 @@ public class GenericInfoAdapter<TTargetInfo> : IInfoAdapter<TTargetInfo, IUmtMod
 
         TTargetInfo? current;
 
-        Guid? infoGuid = null;
         if (model.ObjectGuidProperty is { } objectGuidProperty && objectGuidProperty.GetValue(input) is Guid objectGuid)
         {
-            infoGuid = objectGuid;
             var existing = ProviderProxy.GetBaseInfoByGuid(objectGuid, input);
 
             if (existing != null)

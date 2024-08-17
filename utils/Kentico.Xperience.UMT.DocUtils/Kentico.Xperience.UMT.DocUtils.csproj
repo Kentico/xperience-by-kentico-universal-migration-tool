@@ -4,6 +4,7 @@
     <OutputType>Exe</OutputType>
     <AssemblyName>Kentico.Xperience.UMT.DocUtils</AssemblyName>
     <PreserveCompilationContext>true</PreserveCompilationContext>
+    <SonarQubeExclude>true</SonarQubeExclude>
   </PropertyGroup>
 
   <ItemGroup>

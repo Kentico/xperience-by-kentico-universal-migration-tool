@@ -2,6 +2,7 @@
 
   <PropertyGroup>
     <AssemblyName>Kentico.Xperience.UMT.Examples</AssemblyName>
+    <SonarQubeExclude>true</SonarQubeExclude>
   </PropertyGroup>
 
   <ItemGroup>
