@@ -73,7 +73,9 @@ else
         if (umtModel is ContentItemSimplifiedModel contentItemSimplifiedModel)
         {
             Debug.Assert(contentItemSimplifiedModel.LanguageData != null, "contentItemSimplifiedModel.LanguageData != null");
+#pragma warning disable S3267
             foreach (var contentItemLanguageData in contentItemSimplifiedModel.LanguageData)
+#pragma warning restore S3267
             {
                 Debug.Assert(contentItemLanguageData.ContentItemData != null, "contentItemLanguageData.ContentItemData != null");
                 foreach ((string? _, object? value) in contentItemLanguageData.ContentItemData)
@@ -83,7 +85,6 @@ else
                         case AssetFileSource assetSource:
                         {
                             assetSource.FilePath = assetSource.FilePath?.Replace("##ASSETDIR##", workDir);
-                            // umtModel.CustomProperties[key] = assetSource;
                             break;
                         }
                     }
