@@ -37,7 +37,9 @@ var importService = serviceProvider.GetRequiredService<IImportService>();
 List<IUmtModel> sourceData = null!;
 
 bool useSerializedSample = false;
+#pragma warning disable S2583 // this is sample, sample user have to change value on demand
 if (useSerializedSample)
+#pragma warning restore S2583
 {
     string path = Path.GetFullPath(Path.Combine(workDir, "../../../../../docs/Samples/basic.json"));
     string sampleText = (await File.ReadAllTextAsync(path) ?? throw new InvalidOperationException("Failed to load sample"))
@@ -95,7 +97,9 @@ else
 }
 
 bool variantWithObserver = true;
+#pragma warning disable S2583 // this is sample, sample user have to change value on demand 
 if (variantWithObserver)
+#pragma warning restore S2583
 {
     // simplified usage for streamlined import
     

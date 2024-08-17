@@ -28,13 +28,12 @@ public class ProviderProxyContext: IProviderProxyContext;
 
 internal class ContentItemDataProxy(IProviderProxyContext context) : IProviderProxy
 {
-    private IInfoProvider<ContentItemDataInfo> GetProviderOrThrow(IUmtModel model)
+    private static IInfoProvider<ContentItemDataInfo> GetProviderOrThrow(IUmtModel model)
     {
         if (model is ContentItemDataModel contentItemDataModel)
         {
             return Service.Resolve<IContentItemDataInfoProviderAccessor>()
                 .Get(contentItemDataModel.ContentItemContentTypeName);
-            
         }
         else
         {

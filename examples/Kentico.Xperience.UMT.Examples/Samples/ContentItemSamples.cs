@@ -392,12 +392,12 @@ public static class ContentItemSamples
 
     #endregion
 
-    public static Guid SAMPLE_ARTICLE_WR_WEB_PAGE_GUID = new("14784BF0-69D0-40CF-8BE6-E5A0D897774B");
+    public static readonly Guid SampleArticleWithRelationsrWebPageGuid = new("14784BF0-69D0-40CF-8BE6-E5A0D897774B");
         
     [Sample("webpageitem.sample.article.WithRelations", "This sample describes how to create class inside XbyK to hold WebPage Item data with relations", "ContentItem Sample")]
     public static WebPageItemModel SampleArticleWebPageItemWithRelations => new()
     {
-        WebPageItemGUID = SAMPLE_ARTICLE_WR_WEB_PAGE_GUID,
+        WebPageItemGUID = SampleArticleWithRelationsrWebPageGuid,
         WebPageItemContentItemGuid = SampleArticleContentItemGuidWithRelations,
         WebPageItemName = "ContentItemWithRelations",
         WebPageItemOrder = 1,
