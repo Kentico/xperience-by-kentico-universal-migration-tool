@@ -6,11 +6,11 @@ namespace Kentico.Xperience.UMT.Model;
 
 [KnownType(typeof(AssetFileSource))]
 [KnownType(typeof(AssetUrlSource))]
-[KnownType(typeof(AssetByteSource))]
+[KnownType(typeof(AssetDataSource))]
 [JsonPolymorphic(TypeDiscriminatorPropertyName = DISCRIMINATOR_PROPERTY, UnknownDerivedTypeHandling = JsonUnknownDerivedTypeHandling.FailSerialization)]
 [JsonDerivedType(typeof(AssetFileSource), typeDiscriminator: "AssetFile")]
 [JsonDerivedType(typeof(AssetUrlSource), typeDiscriminator: "AssetUrl")]
-[JsonDerivedType(typeof(AssetByteSource), typeDiscriminator: "AssetBase64")]
+[JsonDerivedType(typeof(AssetDataSource), typeDiscriminator: "AssetData")]
 public class AssetSource
 {
     public const string DISCRIMINATOR_PROPERTY = "$assetType";
@@ -41,7 +41,7 @@ public class AssetUrlSource : AssetSource
     public string? Url { get; set; }
 }
 
-public class AssetByteSource : AssetSource
+public class AssetDataSource : AssetSource
 {
     [Required]
     public byte[]? Data { get; set; } 

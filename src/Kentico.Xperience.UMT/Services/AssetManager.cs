@@ -30,7 +30,7 @@ internal class AssetManager(
             ContentItemAssetMetadataWithSource source;
             switch (assetSource)
             {
-                case AssetByteSource byteSource:
+                case AssetDataSource byteSource:
                 {
                     ArgumentNullException.ThrowIfNull(byteSource.Data);
                     ArgumentNullException.ThrowIfNull(byteSource.Identifier);
