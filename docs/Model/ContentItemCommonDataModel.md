@@ -25,6 +25,14 @@ This sample describes how to create content item data inside XbyK
   "ContentItemDataCommonDataGuid": "8f070195-2f39-463e-b7eb-c180c05fd5e0",
   "ContentItemContentTypeName": "UMT.Article",
   "ArticleTitle": "en-US UMT model creation",
+  "ArticleTeaser": {
+    "$assetType": "AssetFile",
+    "FilePath": "##ASSETDIR##\\sample.png",
+    "ContentItemGuid": "df81215e-1414-4d87-befd-ae123f4e5653",
+    "Identifier": "36b967ab-3165-415a-ba30-aba87888e72a",
+    "Name": "my superb asset.jpg",
+    "Extension": ".jpg"
+  },
   "ArticleText": "This article is only example of creation UMT model for en-US language",
   "RelatedArticles": null,
   "RelatedFaq": null,
@@ -42,6 +50,14 @@ This sample describes how to create content item data inside XbyK
   "ContentItemDataCommonDataGuid": "49d2caf6-2011-42d7-961d-02614d1b43f4",
   "ContentItemContentTypeName": "UMT.Article",
   "ArticleTitle": "en-GB UMT model creation",
+  "ArticleTeaser": {
+    "$assetType": "AssetFile",
+    "FilePath": "##ASSETDIR##\\sample.png",
+    "ContentItemGuid": "df81215e-1414-4d87-befd-ae123f4e5653",
+    "Identifier": "fea24405-12ea-436e-81e0-b51ce742a844",
+    "Name": "my superb asset.jpg",
+    "Extension": ".jpg"
+  },
   "ArticleText": "This article is only example of creation UMT model for en-GB language",
   "RelatedArticles": null,
   "RelatedFaq": null,

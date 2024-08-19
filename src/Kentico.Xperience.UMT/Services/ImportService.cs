@@ -105,7 +105,9 @@ internal class ImportService : IImportService
         var converter = new UmtModelStjConverter(umtModelService.GetAll());
         return JsonSerializer.DeserializeAsyncEnumerable<UmtModel?>(jsonStream, new JsonSerializerOptions
         {
-            Converters = { converter }
+            Converters = { 
+                converter
+            }
         });
     }
 
@@ -113,7 +115,10 @@ internal class ImportService : IImportService
     public IEnumerable<IUmtModel>? FromJsonString(string jsonString)
     {
         var converter = new UmtModelStjConverter(umtModelService.GetAll());
-        return JsonSerializer.Deserialize<UmtModel[]>(jsonString, new JsonSerializerOptions { Converters = { converter } })?.Cast<IUmtModel>();  
+        return JsonSerializer.Deserialize<UmtModel[]>(jsonString, new JsonSerializerOptions { Converters =
+        {
+            converter
+        } })?.Cast<IUmtModel>();  
     }
 
     /// <inheritdoc />

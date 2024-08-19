@@ -8,17 +8,13 @@ namespace Kentico.Xperience.UMT.Serialization;
 /// <summary>
 /// UMT model convertor for Newtonsoft.Json
 /// </summary>
-public class UmtModelJsonConverter: JsonConverter
+public class UmtModelJsonConverter(IReadOnlyList<UmtModelInfo> models) : JsonConverter
 {
-    private readonly IReadOnlyList<UmtModelInfo> models;
-
-    public UmtModelJsonConverter(IReadOnlyList<UmtModelInfo> models) => this.models = models;
-
-    private const string DiscriminatorProperty = "$type";
+    private const string DISCRIMINATOR_PROPERTY = "$type";
     
     public override object? ReadJson(JsonReader reader, Type objectType, object? existingValue, JsonSerializer serializer) {
         var item = JObject.Load(reader);
-        string? modelDiscriminator = item[DiscriminatorProperty]?.Value<string>();
+        string? modelDiscriminator = item[DISCRIMINATOR_PROPERTY]?.Value<string>();
         var modelInfo = models.FirstOrDefault(m => m?.ModelDiscriminator == modelDiscriminator);
         if (modelInfo == null)
         {
@@ -39,7 +35,7 @@ public class UmtModelJsonConverter: JsonConverter
                 throw new InvalidOperationException($"Invalid model");
             }
         
-            o.AddFirst(new JProperty(DiscriminatorProperty, new JValue(modelInfo.ModelDiscriminator)));
+            o.AddFirst(new JProperty(DISCRIMINATOR_PROPERTY, new JValue(modelInfo.ModelDiscriminator)));
             o.WriteTo(writer);
         }
     }

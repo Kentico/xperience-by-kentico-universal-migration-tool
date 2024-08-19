@@ -1,15 +1,9 @@
 ﻿namespace Kentico.Xperience.UMT.Examples;
 
-public class SampleAttribute: Attribute
+[AttributeUsage(AttributeTargets.Property)]
+public class SampleAttribute(string sampleName, string description, string header) : Attribute
 {
-    public string SampleName { get; }
-    public string Description { get; }
-    public string Header { get; }
-
-    public SampleAttribute(string sampleName, string description, string header)
-    {
-        SampleName = sampleName;
-        Description = description;
-        Header = header;
-    }
+    public string SampleName { get; } = sampleName;
+    public string Description { get; } = description;
+    public string Header { get; } = header;
 }

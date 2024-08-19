@@ -10,7 +10,7 @@ namespace Kentico.Xperience.UMT.InfoAdapter;
 
 public class TagAdapter: GenericInfoAdapter<TagInfo>
 {
-    internal TagAdapter(ILogger<TagAdapter> logger, UmtModelService modelService, IProviderProxy providerProxy, IProviderProxyFactory providerProxyFactory) : base(logger, modelService, providerProxy, providerProxyFactory)
+    internal TagAdapter(ILogger<TagAdapter> logger, GenericInfoAdapterContext adapterContext) : base(logger, adapterContext)
     {
     }
 

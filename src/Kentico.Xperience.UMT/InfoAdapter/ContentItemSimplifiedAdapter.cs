@@ -48,7 +48,7 @@ public class ContentItemSimplifiedAdapter : IInfoAdapter<ContentItemInfo, IUmtMo
         }
 
         using var scope = new CMSTransactionScope();
-
+        
         ArgumentNullException.ThrowIfNull(cim.ContentItemGUID);
         var existingContentItem = ProviderProxy.GetBaseInfoByGuid(cim.ContentItemGUID.Value, cim) as ContentItemInfo;
 
@@ -196,6 +196,7 @@ public class ContentItemSimplifiedAdapter : IInfoAdapter<ContentItemInfo, IUmtMo
             };
             adapter = adapterFactory.CreateAdapter(contentItemDataModel, new ProviderProxyContext());
             ArgumentNullException.ThrowIfNull(adapter);
+            
             var contentItemDataInfo = (ContentItemDataInfo)adapter.Adapt(contentItemDataModel);
             adapter.ProviderProxy.Save(contentItemDataInfo, contentItemDataModel);
         }

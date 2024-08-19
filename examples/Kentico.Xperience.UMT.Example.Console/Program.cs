@@ -1,12 +1,12 @@
 ﻿#pragma warning disable S1135 // this is sample, todos are here for end user
 // See https://aka.ms/new-console-template for more information
 
+using System.Diagnostics;
 using System.Text.Json;
-using CMS.ContentEngine;
+
 using CMS.Core;
 using CMS.DataEngine;
 using Kentico.Xperience.UMT;
-using Kentico.Xperience.UMT.Example.Console;
 using Kentico.Xperience.UMT.Examples;
 using Kentico.Xperience.UMT.Model;
 using Kentico.Xperience.UMT.Services;
@@ -21,6 +21,8 @@ var root = new ConfigurationBuilder()
 
 Service.Use<IConfiguration>(root);
 CMS.Base.SystemContext.WebApplicationPhysicalPath = root.GetValue<string>("WebApplicationPhysicalPath");
+string workDir = Directory.GetCurrentDirectory();
+Directory.SetCurrentDirectory(root.GetValue<string>("WebApplicationPhysicalPath") ?? throw new InvalidOperationException("WebApplicationPhysicalPath must be set to valid directory path"));
 
 CMSApplication.Init();
 
@@ -35,17 +37,69 @@ var importService = serviceProvider.GetRequiredService<IImportService>();
 List<IUmtModel> sourceData = null!;
 
 bool useSerializedSample = false;
+#pragma warning disable S2583 // this is sample, sample user have to change value on demand
 if (useSerializedSample)
+#pragma warning restore S2583
 {
-    sourceData = importService.FromJsonString(SampleJson.FULL_SAMPLE)?.ToList() ?? new List<IUmtModel>();
+    string path = Path.GetFullPath(Path.Combine(workDir, "../../../../../docs/Samples/basic.json"));
+    string sampleText = (await File.ReadAllTextAsync(path) ?? throw new InvalidOperationException("Failed to load sample"))
+        .Replace("##ASSETDIR##", workDir.Replace(@"\", @"\\"));
+        
+    sourceData = importService.FromJsonString(sampleText)?.ToList() ?? new List<IUmtModel>();
 }
 else
 {
     sourceData = SampleProvider.GetFullSample();
+    
+    foreach (var umtModel in sourceData)
+    {
+        // update path to media files
+        if (umtModel is MediaFileModel mediaFileModel)
+        {
+            mediaFileModel.DataSourcePath = mediaFileModel.DataSourcePath?.Replace("##ASSETDIR##", workDir);
+        }
+
+        foreach ((string? key, object? value) in umtModel.CustomProperties)
+        {
+            switch (value)
+            {
+                case AssetFileSource assetSource:
+                {
+                    assetSource.FilePath = assetSource.FilePath?.Replace("##ASSETDIR##", workDir);
+                    umtModel.CustomProperties[key] = assetSource;
+                    break;
+                }
+            }
+        }
+
+        if (umtModel is ContentItemSimplifiedModel contentItemSimplifiedModel)
+        {
+            Debug.Assert(contentItemSimplifiedModel.LanguageData != null, "contentItemSimplifiedModel.LanguageData != null");
+#pragma warning disable S3267
+            foreach (var contentItemLanguageData in contentItemSimplifiedModel.LanguageData)
+#pragma warning restore S3267
+            {
+                Debug.Assert(contentItemLanguageData.ContentItemData != null, "contentItemLanguageData.ContentItemData != null");
+                foreach ((string? _, object? value) in contentItemLanguageData.ContentItemData)
+                {
+                    switch (value)
+                    {
+                        case AssetFileSource assetSource:
+                        {
+                            assetSource.FilePath = assetSource.FilePath?.Replace("##ASSETDIR##", workDir);
+                            break;
+                        }
+                    }
+                }
+            }
+        }
+    }
 }
 
-bool variantWithObserver = false;
+bool variantWithObserver = true;
+#pragma warning disable S2583 // this is sample, sample user have to change value on demand 
 if (variantWithObserver)
+#pragma warning restore S2583
 {
     // simplified usage for streamlined import
     

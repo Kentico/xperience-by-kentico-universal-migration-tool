@@ -10,7 +10,7 @@ namespace Kentico.Xperience.UMT.InfoAdapter;
 
 internal class WebPageUrlPathAdapter: GenericInfoAdapter<WebPageUrlPathInfo>
 {
-    internal WebPageUrlPathAdapter(ILogger<WebPageUrlPathAdapter> logger, UmtModelService modelService, IProviderProxy providerProxy, IProviderProxyFactory providerProxyFactory) : base(logger, modelService, providerProxy, providerProxyFactory)
+    internal WebPageUrlPathAdapter(ILogger<WebPageUrlPathAdapter> logger, GenericInfoAdapterContext adapterContext) : base(logger, adapterContext)
     {
     }
 

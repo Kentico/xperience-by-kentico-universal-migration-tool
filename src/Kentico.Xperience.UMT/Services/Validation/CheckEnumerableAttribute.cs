@@ -5,6 +5,7 @@ using System.Text;
 
 namespace Kentico.Xperience.UMT.Services.Validation;
 
+[AttributeUsage(AttributeTargets.Property)]
 public class CheckEnumerableAttribute: ValidationAttribute
 {
     private readonly ConcurrentDictionary<int, List<ValidationResult>> validationResults = new();

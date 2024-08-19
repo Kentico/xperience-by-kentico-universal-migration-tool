@@ -7,7 +7,7 @@ namespace Kentico.Xperience.UMT.InfoAdapter;
 
 internal class UserAdapter: GenericInfoAdapter<UserInfo>
 {
-    internal UserAdapter(ILogger<UserAdapter> logger, UmtModelService modelService, IProviderProxy providerProxy, IProviderProxyFactory providerProxyFactory) : base(logger, modelService, providerProxy, providerProxyFactory)
+    internal UserAdapter(ILogger<UserAdapter> logger, GenericInfoAdapterContext context) : base(logger, context)
     {
     }
 

@@ -1,8 +1,11 @@
 ﻿using System.Diagnostics;
+using System.Text.Json;
+
 using CMS.ContentEngine.Internal;
 using CMS.DataEngine;
 using Kentico.Xperience.UMT.Model;
 using Kentico.Xperience.UMT.ProviderProxy;
+using Kentico.Xperience.UMT.Serialization;
 using Kentico.Xperience.UMT.Services.Model;
 using Microsoft.Extensions.Logging;
 
@@ -10,7 +13,7 @@ namespace Kentico.Xperience.UMT.InfoAdapter;
 
 internal class ContentItemDataAdapter: GenericInfoAdapter<ContentItemDataInfo>
 {
-    internal ContentItemDataAdapter(ILogger<ContentItemDataAdapter> logger, UmtModelService modelService, IProviderProxy providerProxy, IProviderProxyFactory providerProxyFactory) : base(logger, modelService, providerProxy, providerProxyFactory)
+    internal ContentItemDataAdapter(ILogger<ContentItemDataAdapter> logger, GenericInfoAdapterContext adapterContext) : base(logger, adapterContext)
     {
     }
 

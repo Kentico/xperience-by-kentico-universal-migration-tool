@@ -60,6 +60,22 @@ This sample describes how to create class inside XbyK to hold Article data
     },
     {
       "AllowEmpty": true,
+      "Column": "ArticleTeaser",
+      "ColumnSize": 0,
+      "ColumnType": "contentitemasset",
+      "Enabled": true,
+      "Guid": "89043112-996b-4771-96bb-2347ad6f3526",
+      "Visible": true,
+      "Properties": {
+        "FieldCaption": "Article teaser"
+      },
+      "Settings": {
+        "ControlName": "Kentico.Administration.ContentItemAssetUploader",
+        "AllowedExtensions": "_INHERITED_"
+      }
+    },
+    {
+      "AllowEmpty": true,
       "Column": "ArticleDecimalNumberSample",
       "ColumnSize": 15,
       "ColumnType": "decimal",
