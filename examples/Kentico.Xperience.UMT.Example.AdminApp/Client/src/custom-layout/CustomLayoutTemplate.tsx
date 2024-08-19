@@ -79,7 +79,7 @@ export const CustomLayoutTemplate = ({ label }: CustomLayoutProps) => {
                             headline="Basic usage"
                             subheadline="Info"
                         >
-                            Component <a target="_blank" href="https://github.com/Kentico/xperience-by-kentico-universal-migration-toolkit/blob/main/docs/README.md">documentation</a> and <a target="_blank" href="https://github.com/Kentico/xperience-by-kentico-universal-migration-toolkit/tree/main/docs/Samples">samples</a>
+                            Component <a target="_blank" href="https://github.com/Kentico/xperience-by-kentico-universal-migration-tool/blob/main/docs/README.md">documentation</a> and <a target="_blank" href="https://github.com/Kentico/xperience-by-kentico-universal-migration-toolkit/tree/main/docs/Samples">samples</a>
                         </Callout>
 
                         <div className={transitionClass(backgroundTransition)}>
