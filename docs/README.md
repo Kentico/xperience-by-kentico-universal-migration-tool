@@ -1,9 +1,5 @@
 # UMT Guides
 
-## Convert & Import samples
-
-Advanced usage is covered in the [extended documentation](./docs/README.md).
-
 ### Console sample
 
 The [console application](../examples/Kentico.Xperience.UMT.Example.Console/README.md) sample shows usage of this tool in a console application.
