@@ -179,19 +179,19 @@
       },
       "Microsoft.Extensions.Localization": {
         "type": "Transitive",
-        "resolved": "6.0.32",
-        "contentHash": "oT9/Odho4th/5aY+HztJMfRhAVR+6rZ9FqYYjRrRFDU2e6C+pBCQLSujQIjdAjuHlsUu4pNmHXoaaiaE/82pow==",
+        "resolved": "6.0.33",
+        "contentHash": "o4I6H5vdDoILQvHJXvVdo33ts4zTb4FXcdc+Et1FYG0dao9GLrDQ3HXwgV8yU2M/JeEJJnsQvUwtaANJFDnjQQ==",
         "dependencies": {
           "Microsoft.Extensions.DependencyInjection.Abstractions": "6.0.0",
-          "Microsoft.Extensions.Localization.Abstractions": "6.0.32",
+          "Microsoft.Extensions.Localization.Abstractions": "6.0.33",
           "Microsoft.Extensions.Logging.Abstractions": "6.0.4",
           "Microsoft.Extensions.Options": "6.0.0"
         }
       },
       "Microsoft.Extensions.Localization.Abstractions": {
         "type": "Transitive",
-        "resolved": "6.0.32",
-        "contentHash": "ZG8q0/GHhkfXa4ciGp23ax6bJBjFBMYldw8vDg3JIzBp7vYMg5+hGSmNzFMtZThyAr9ktvEQAJS7TUpEEpDT0A=="
+        "resolved": "6.0.33",
+        "contentHash": "Hbq0a3DswFjen1K6hDljNENpy6bDbA/s2qsQ5M9kqa6fB3JVKWggAdqwx2GJG4+SGkZKOWkOZxQ1QVqavWaF5g=="
       },
       "Microsoft.Extensions.Options": {
         "type": "Transitive",
@@ -477,15 +477,15 @@
       "kentico.xperience.umt": {
         "type": "Project",
         "dependencies": {
-          "Kentico.Xperience.Core": "[29.3.3, )",
+          "Kentico.Xperience.Core": "[29.4.0, )",
           "Microsoft.Bcl.AsyncInterfaces": "[8.0.0, )"
         }
       },
       "Kentico.Xperience.Core": {
         "type": "CentralTransitive",
-        "requested": "[29.3.3, )",
-        "resolved": "29.3.3",
-        "contentHash": "Vr704hfDI9V737qULMy8nSEjz3xuyXxlLcUSxiMDf7c2fBKAySRn4YjYiLd6qp+6HnSm129nBuavyxWOsvzARg==",
+        "requested": "[29.4.0, )",
+        "resolved": "29.4.0",
+        "contentHash": "aOP+wqh6dW/4RwEX3pLLEKfRYg/jnxdJ8TBub7usRFq8Z3lZZV+iyo24s8WLDRazJzBUnIcmXENuDTTLDHvtJQ==",
         "dependencies": {
           "AngleSharp": "0.17.1",
           "MailKit": "4.7.1.1",
@@ -496,7 +496,7 @@
           "Microsoft.Extensions.DependencyInjection": "6.0.1",
           "Microsoft.Extensions.FileProviders.Physical": "6.0.0",
           "Microsoft.Extensions.Hosting.Abstractions": "6.0.0",
-          "Microsoft.Extensions.Localization": "6.0.32",
+          "Microsoft.Extensions.Localization": "6.0.33",
           "Microsoft.Extensions.Options.ConfigurationExtensions": "6.0.0",
           "Mono.Cecil": "0.11.5",
           "Newtonsoft.Json": "13.0.3",

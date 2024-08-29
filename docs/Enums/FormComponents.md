@@ -67,6 +67,7 @@
 |`decimal?`|`Kentico.Administration.DecimalNumberInput`|`DecimalNumberInputComponent`|`DecimalNumberInputProperties`||
 |`int?`|`Kentico.Administration.NumberInput`|`NumberInputComponent`|`NumberInputProperties`||
 |`int?`|`Kentico.Administration.SingleObjectIdSelector`|`SingleObjectIdSelectorComponent`|`SingleObjectSelectorProperties`||
+|`CMS.ContentEngine.SmartFolderReference`|`Kentico.Administration.SmartFolderSelector`|`SmartFolderSelectorComponent`|`SmartFolderSelectorProperties`||
 |`string`|`Kentico.Administration.CodeEditor`|`CodeEditorComponent`|`CodeEditorProperties`||
 |`string`|`Kentico.Administration.ConditionBuilder`|`ConditionBuilderComponent`|`ConditionBuilderProperties`||
 |`string`|`Kentico.Administration.DropDownSelector`|`DropDownComponent`|`DropDownProperties`||
