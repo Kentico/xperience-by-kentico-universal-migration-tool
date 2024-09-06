@@ -6,7 +6,7 @@
     <DisableImplicitNuGetFallbackFolder>true</DisableImplicitNuGetFallbackFolder>
   </PropertyGroup>
   <ItemGroup>
-    <PackageVersion Include="Kentico.Xperience.Core" Version="29.4.1" />
+    <PackageVersion Include="Kentico.Xperience.Core" Version="29.4.2" />
     <PackageVersion Include="Kentico.Xperience.Admin" Version="29.4.1" />
     <PackageVersion Include="Kentico.Xperience.ImageProcessing" Version="29.4.1" />
     <PackageVersion Include="Microsoft.Bcl.AsyncInterfaces" Version="8.0.0" />
