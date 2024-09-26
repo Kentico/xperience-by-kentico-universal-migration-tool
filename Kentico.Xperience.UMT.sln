@@ -1,18 +1,25 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kentico.Xperience.UMT", "src\Kentico.Xperience.UMT\Kentico.Xperience.UMT.csproj", "{F499DE79-C15E-4ABA-9E42-E0A243E0F598}"
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34728.123
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Kentico.Xperience.UMT", "src\Kentico.Xperience.UMT\Kentico.Xperience.UMT.csproj", "{F499DE79-C15E-4ABA-9E42-E0A243E0F598}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kentico.Xperience.UMT.Example.Console", "examples\Kentico.Xperience.UMT.Example.Console\Kentico.Xperience.UMT.Example.Console.csproj", "{B34D5B62-F958-48E4-84A3-35343529FCF7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Kentico.Xperience.UMT.Example.Console", "examples\Kentico.Xperience.UMT.Example.Console\Kentico.Xperience.UMT.Example.Console.csproj", "{B34D5B62-F958-48E4-84A3-35343529FCF7}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Examples", "Examples", "{A22B7345-BFCB-4BB2-85DA-A32BE7024061}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kentico.Xperience.UMT.Example.AdminApp", "examples\Kentico.Xperience.UMT.Example.AdminApp\Kentico.Xperience.UMT.Example.AdminApp.csproj", "{4ABF76B5-3ED7-44CF-9FFA-39F299BD947C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Kentico.Xperience.UMT.Example.AdminApp", "examples\Kentico.Xperience.UMT.Example.AdminApp\Kentico.Xperience.UMT.Example.AdminApp.csproj", "{4ABF76B5-3ED7-44CF-9FFA-39F299BD947C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kentico.Xperience.UMT.Examples", "examples\Kentico.Xperience.UMT.Examples\Kentico.Xperience.UMT.Examples.csproj", "{85138B06-9F3F-40A6-8465-479F591D2845}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Kentico.Xperience.UMT.Examples", "examples\Kentico.Xperience.UMT.Examples\Kentico.Xperience.UMT.Examples.csproj", "{85138B06-9F3F-40A6-8465-479F591D2845}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Utils", "Utils", "{66C1E923-BA9C-4674-8534-F456FE27592A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kentico.Xperience.UMT.DocUtils", "utils\Kentico.Xperience.UMT.DocUtils\Kentico.Xperience.UMT.DocUtils.csproj", "{71299533-CB05-4068-B5C3-9BCE76413E26}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Kentico.Xperience.UMT.DocUtils", "utils\Kentico.Xperience.UMT.DocUtils\Kentico.Xperience.UMT.DocUtils.csproj", "{71299533-CB05-4068-B5C3-9BCE76413E26}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{41F4E25E-E6DF-4D03-85C9-7428A317F207}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Kentico.Xperience.UMT.Tests", "tests\Kentico.Xperience.UMT.Tests\Kentico.Xperience.UMT.Tests.csproj", "{2601A1AE-938B-4C67-A859-655B14DAE69A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -40,11 +47,22 @@ Global
 		{71299533-CB05-4068-B5C3-9BCE76413E26}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{71299533-CB05-4068-B5C3-9BCE76413E26}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{71299533-CB05-4068-B5C3-9BCE76413E26}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2601A1AE-938B-4C67-A859-655B14DAE69A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2601A1AE-938B-4C67-A859-655B14DAE69A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2601A1AE-938B-4C67-A859-655B14DAE69A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2601A1AE-938B-4C67-A859-655B14DAE69A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{B34D5B62-F958-48E4-84A3-35343529FCF7} = {A22B7345-BFCB-4BB2-85DA-A32BE7024061}
 		{4ABF76B5-3ED7-44CF-9FFA-39F299BD947C} = {A22B7345-BFCB-4BB2-85DA-A32BE7024061}
 		{85138B06-9F3F-40A6-8465-479F591D2845} = {A22B7345-BFCB-4BB2-85DA-A32BE7024061}
 		{71299533-CB05-4068-B5C3-9BCE76413E26} = {66C1E923-BA9C-4674-8534-F456FE27592A}
+		{2601A1AE-938B-4C67-A859-655B14DAE69A} = {41F4E25E-E6DF-4D03-85C9-7428A317F207}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C0A71F59-A92C-4A54-A8AF-735C1DB21149}
 	EndGlobalSection
 EndGlobal
