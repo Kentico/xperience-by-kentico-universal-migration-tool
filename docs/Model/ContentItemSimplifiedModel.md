@@ -38,11 +38,11 @@ Simplified model for importing webpage content item with parent
       "ContentItemData": {
         "ArticleTitle": "en-US UMT simplified model creation as sub page",
         "ArticleTeaser": {
-          "$assetType": "AssetFile",
-          "FilePath": "##ASSETDIR##\\sample.png",
+          "$assetType": "AssetUrl",
+          "Url": "https://devnet.kentico.com/DevNet/media/devnet/cms_screen.jpg",
           "ContentItemGuid": "9ed8de86-859c-4f6c-94f2-cdd6baed99fe",
-          "Identifier": "cb2b28bb-25bf-47d0-8553-6a1d85d5dc85",
-          "Name": "fileSourceSample.jpg",
+          "Identifier": "e310dc1f-9f97-4d62-884b-632e65ffdb89",
+          "Name": "urlSourceSample.jpg",
           "Extension": ".jpg"
         },
         "ArticleText": "This article is only example of creation UMT simplified model for en-US language",
@@ -83,7 +83,7 @@ Simplified model for importing webpage content item with parent
       },
       {
         "UrlPath": "es/simplified-sample/sub-page",
-        "LanguageName": "es"
+        "LanguageName": "es-CU"
       }
     ],
     "ParentGuid": "4ea03de4-977e-48aa-9340-babf3d23bafa",
@@ -159,7 +159,7 @@ Simplified model for importing webpage content item
       },
       {
         "UrlPath": "es/simplified-sample",
-        "LanguageName": "es"
+        "LanguageName": "es-CU"
       }
     ],
     "PageGuid": "4ea03de4-977e-48aa-9340-babf3d23bafa",
