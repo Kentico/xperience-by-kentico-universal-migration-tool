@@ -155,15 +155,15 @@ public static class ContentItemSimplifiedSamples
                 ContentItemData = new Dictionary<string, object?>
                 {
                     ["ArticleTitle"] = "en-US UMT simplified model creation as sub page",
-                    ["ArticleTeaser"] = new AssetFileSource
+                    ["ArticleTeaser"] = new AssetUrlSource
                     {
                         ContentItemGuid = SampleArticleSubPageContentItemGuid,
-                        Identifier = new Guid("CB2B28BB-25BF-47D0-8553-6A1D85D5DC85"),
-                        Name = "fileSourceSample.jpg",
+                        Identifier = new Guid("E310DC1F-9F97-4D62-884B-632E65FFDB89"),
+                        Name = "urlSourceSample.jpg",
                         Extension = ".jpg",
                         Size = null,
                         LastModified = null,
-                        FilePath = @"##ASSETDIR##\sample.png"
+                        Url = "https://devnet.kentico.com/DevNet/media/devnet/cms_screen.jpg"
                     },
                     ["ArticleText"] = "This article is only example of creation UMT simplified model for en-US language",
                     ["RelatedArticles"] = null,

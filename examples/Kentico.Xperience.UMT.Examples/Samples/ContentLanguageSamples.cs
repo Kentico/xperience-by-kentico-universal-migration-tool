@@ -33,10 +33,10 @@ public static class ContentLanguageSamples
     [Sample("contentlanguage.sample.es", "This sample describes how to create content language for Spanish", "ContentLanguage Sample - Spanish")]
     public static ContentLanguageModel SampleContentLanguageEs => new()
     {
-        ContentLanguageCultureFormat = "es",
-        ContentLanguageDisplayName = "Spanish",
+        ContentLanguageCultureFormat = "es-CU",
+        ContentLanguageDisplayName = "Cuban Spanish",
         ContentLanguageGUID = CONTENT_LANGUAGE_ES_SAMPLE_GUID,
         ContentLanguageIsDefault = false,
-        ContentLanguageName = "es"
+        ContentLanguageName = "es-CU"
     };
 }
