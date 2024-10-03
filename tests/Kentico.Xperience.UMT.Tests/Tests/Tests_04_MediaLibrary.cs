@@ -1,30 +1,18 @@
 ﻿using Microsoft.Playwright;
-using System;
-using System.Collections.Generic;
-using System.Diagnostics.CodeAnalysis;
-using System.Linq;
-using System.Net.Http;
-using System.Reflection;
-using System.Text;
-using System.Text.RegularExpressions;
-using System.Threading.Tasks;
-using TestAfterMigration.Extensions;
-using TestAfterMigration.Helpers;
-using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace TestAfterMigration.Tests
 {
-    public class _04_MediaLibraryTests : AdminTestBase
+    public class Tests_04_MediaLibrary : AdminTestBase
     {
         [Test]
         public async Task Test00100_Expected_Library_Structure_Was_Created()
         {
             await OpenAdminApplication("Media libraries");
 
-            await page.GetByTestId("table-row").ClickAsync();     // also checks that an item exists
+            await Page.GetByTestId("table-row").ClickAsync();     // also checks that an item exists
             await Debounce();
 
-            var topFolder = page.GetByRole(AriaRole.Treeitem).Nth(0);
+            var topFolder = Page.GetByRole(AriaRole.Treeitem).Nth(0);
             await Assertions.Expect(topFolder).ToBeVisibleAsync();
 
             var childFolder = topFolder.GetByRole(AriaRole.Treeitem).Nth(0);
@@ -36,16 +24,16 @@ namespace TestAfterMigration.Tests
         {
             await OpenAdminApplication("Media libraries");
 
-            await page.GetByTestId("table-row").ClickAsync();     // also checks that an item exists
+            await Page.GetByTestId("table-row").ClickAsync();     // also checks that an item exists
             await Debounce();
 
-            var topFolder = page.GetByRole(AriaRole.Treeitem).Nth(0);
+            var topFolder = Page.GetByRole(AriaRole.Treeitem).Nth(0);
             var childFolder = topFolder.GetByRole(AriaRole.Treeitem).Nth(0);
 
             await childFolder.ClickAsync();
             await Debounce();
 
-            await Assertions.Expect(page.GetByTestId("asset-tile-preview")).ToHaveCountAsync(2);
+            await Assertions.Expect(Page.GetByTestId("asset-tile-preview")).ToHaveCountAsync(2);
         }
 
         [Test]
@@ -55,20 +43,20 @@ namespace TestAfterMigration.Tests
             {
                 await OpenAdminApplication("Media libraries");
 
-                await page.GetByTestId("table-row").ClickAsync();     // also checks that an item exists
+                await Page.GetByTestId("table-row").ClickAsync();     // also checks that an item exists
                 await Debounce();
 
-                var topFolder = page.GetByRole(AriaRole.Treeitem).Nth(0);
+                var topFolder = Page.GetByRole(AriaRole.Treeitem).Nth(0);
                 var childFolder = topFolder.GetByRole(AriaRole.Treeitem).Nth(0);
 
                 await childFolder.ClickAsync();
                 await Debounce();
 
-                await page.GetByTestId("asset-tile-preview").Nth(i).ClickAsync();
-                await Assertions.Expect(page.GetByTestId("FileName")).Not.ToBeEmptyAsync();
-                await Assertions.Expect(page.GetByTestId("FileTitle")).Not.ToBeEmptyAsync();
+                await Page.GetByTestId("asset-tile-preview").Nth(i).ClickAsync();
+                await Assertions.Expect(Page.GetByTestId("FileName")).Not.ToBeEmptyAsync();
+                await Assertions.Expect(Page.GetByTestId("FileTitle")).Not.ToBeEmptyAsync();
 
-                string imageURL = $"{BaseURL}{await page.GetByTestId("MediaFileURL").Locator("a").GetAttributeAsync("href")}";
+                string imageURL = $"{BaseURL}{await Page.GetByTestId("MediaFileURL").Locator("a").GetAttributeAsync("href")}";
                 var response = await new HttpClient().GetAsync(imageURL);
 
                 Assert.That(response.IsSuccessStatusCode && response.Content.Headers.ContentType!.MediaType!.StartsWith("image"));

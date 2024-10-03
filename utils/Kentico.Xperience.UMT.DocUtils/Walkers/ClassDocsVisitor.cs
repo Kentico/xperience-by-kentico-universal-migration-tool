@@ -2,7 +2,7 @@
 
 namespace Kentico.Xperience.UMT.DocUtils.Walkers;
 
-public class ClassDocsVisitor: SymbolVisitor
+public class ClassDocsVisitor : SymbolVisitor
 {
     public override void Visit(ISymbol? symbol)
     {

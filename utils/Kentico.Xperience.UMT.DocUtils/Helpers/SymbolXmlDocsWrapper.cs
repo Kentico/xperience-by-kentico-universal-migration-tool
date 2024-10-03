@@ -1,7 +1,9 @@
 ﻿using System.Text.RegularExpressions;
 using System.Xml.Linq;
 using System.Xml.XPath;
+
 using Kentico.Xperience.UMT.DocUtils.Walkers;
+
 using Microsoft.CodeAnalysis;
 
 namespace Kentico.Xperience.UMT.DocUtils.Helpers;
@@ -25,7 +27,7 @@ public class SymbolXmlDocsWrapper : ISymbolXmlDocsWrapper
         summary = DocsXml?.XPathSelectElement("//summary")?.Value?.Trim() ?? "";
         return string.IsNullOrWhiteSpace(summary);
     }
-    
+
     public string? GetSummaryOrEmpty() => DocsXml?.XPathSelectElement("//summary")?.Value?.Trim() ?? "";
 
     public string? GetReturnsOrEmpty() => DocsXml?.XPathSelectElement("//returns")?.Value?.Trim() ?? "";
@@ -34,7 +36,7 @@ public class SymbolXmlDocsWrapper : ISymbolXmlDocsWrapper
 }
 
 
-public class SymbolXmlDocsWrapperMarkdown:ISymbolXmlDocsWrapper
+public class SymbolXmlDocsWrapperMarkdown : ISymbolXmlDocsWrapper
 {
     private readonly ISymbolXmlDocsWrapper inner;
 
@@ -53,7 +55,7 @@ public class SymbolXmlDocsWrapperMarkdown:ISymbolXmlDocsWrapper
 
     public string? GetParamSummaryOrEmpty(IParameterSymbol symbol) => ApplyFormattingPipeline(inner.GetParamSummaryOrEmpty(symbol));
 
-    private string? ApplyFormattingPipeline(string? input) => HandleNewlines(input);
+    private static string? ApplyFormattingPipeline(string? input) => HandleNewlines(input);
 
-    private string? HandleNewlines(string? input) => input != null ? Regex.Replace(input, "([\r\n]{1,2})", "<br/>") : null;
+    private static string? HandleNewlines(string? input) => input != null ? Regex.Replace(input, "([\r\n]{1,2})", "<br/>") : null;
 }

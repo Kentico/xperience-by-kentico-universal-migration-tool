@@ -1,5 +1,6 @@
 ﻿using System.Collections.Concurrent;
 using System.Reflection;
+
 using RazorLight;
 
 namespace Kentico.Xperience.UMT.DocUtils;
@@ -8,18 +9,18 @@ public static class MdHelper
 {
     private static readonly ConcurrentDictionary<string, Task<ITemplatePage>> templates = new();
     public static RazorLightEngine Engine { get; }
-    
+
     static MdHelper()
     {
         var builder = new RazorLightEngineBuilder()
             .EnableDebugMode()
             .UseEmbeddedResourcesProject(typeof(MdHelper).Assembly, "Kentico.Xperience.UMT.DocUtils.Templates")
             .UseMemoryCachingProvider();
-    
+
         Engine = builder
             .Build();
     }
-    
+
     public static async Task<string> RenderTemplate<TModel>(string templateKey, TModel model)
     {
         try

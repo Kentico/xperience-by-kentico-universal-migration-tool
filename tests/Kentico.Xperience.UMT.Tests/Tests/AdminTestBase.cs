@@ -1,4 +1,6 @@
 
+using System.Diagnostics;
+
 using Microsoft.Playwright;
 using TestAfterMigration.Enums;
 using TestAfterMigration.Extensions;
@@ -8,45 +10,45 @@ namespace TestAfterMigration.Tests
 {
     public class AdminTestBase
     {
-        protected IPlaywright playwright = null!;
-        protected IBrowser browser = null!;
-        protected IPage page = null!;
-        protected string BaseURL => Environment.GetEnvironmentVariable("BASE_URL") ?? "";
-        protected string AdministratorUser => Environment.GetEnvironmentVariable("ADMINISTRATION_USER") ?? "";
-        protected string AdministratorPassword => Environment.GetEnvironmentVariable("ADMINISTRATION_PASSWORD") ?? "";
+        protected IPlaywright Playwright = null!;
+        protected IBrowser Browser = null!;
+        protected IPage Page = null!;
+        protected static string BaseURL => Environment.GetEnvironmentVariable("BASE_URL") ?? "";
+        protected static string AdministratorUser => Environment.GetEnvironmentVariable("ADMINISTRATION_USER") ?? "";
+        protected static string AdministratorPassword => Environment.GetEnvironmentVariable("ADMINISTRATION_PASSWORD") ?? "";
 
         [SetUp]
         public async Task Setup()
         {
-            playwright = await Playwright.CreateAsync();
-            playwright.Selectors.SetTestIdAttribute("data-testid");
+            Playwright = await Microsoft.Playwright.Playwright.CreateAsync();
+            Playwright.Selectors.SetTestIdAttribute("data-testid");
 
-            browser = await playwright.Chromium.LaunchAsync(new BrowserTypeLaunchOptions
+            Browser = await Playwright.Chromium.LaunchAsync(new BrowserTypeLaunchOptions
             {
                 Headless = false,
             });
 
-            page = await browser.NewPageAsync();
+            Page = await Browser.NewPageAsync();
             await LoginAdmin();
         }
 
         [TearDown]
         public async Task TearDown()
         {
-            await page.CloseAsync();
-            await browser.CloseAsync();
+            await Page.CloseAsync();
+            await Browser.CloseAsync();
         }
 
         protected async Task LoginAdmin()
         {
-            await page.GotoAsync($"{BaseURL}/admin");
+            await Page.GotoAsync($"{BaseURL}/admin");
             await Debounce();
 
-            if (await page.Locator("input[name='userName']").IsVisibleAsync())
+            if (await Page.Locator("input[name='userName']").IsVisibleAsync())
             {
-                await page.FillAsync("input[name='userName']", AdministratorUser);
-                await page.FillAsync("input[name='password']", AdministratorPassword);
-                await page.ClickAsync("button[type='submit']");
+                await Page.FillAsync("input[name='userName']", AdministratorUser);
+                await Page.FillAsync("input[name='password']", AdministratorPassword);
+                await Page.ClickAsync("button[type='submit']");
             }
             await Debounce();
         }
@@ -59,30 +61,33 @@ namespace TestAfterMigration.Tests
         protected async Task OpenAdminApplication(string applicationName)
         {
             await LoginAdmin();
-            await page.ClickAsync($"button[aria-label='{applicationName}']");
+            await Page.ClickAsync($"button[aria-label='{applicationName}']");
             await Debounce();
         }
 
-        protected async Task SelectInAdminFormDropDown(string dropdownTitle, string itemTestID)
+        protected async Task SelectInAdminFormDropDown(string inputTestID, string[] itemTestIDs)
         {
-            var dropdownArrow = page.Locator($":below(:text(\"{dropdownTitle}\"))[data-testid=\"xp-chevron-down\"]").First;
-            await dropdownArrow.ClickAsync();
-            var item = page.GetByTestId(itemTestID);
-            await item.ClickAsync();
+            await Page.GetByTestId(inputTestID).ClickAsync();
+            await Debounce();
+            foreach (string itemTestID in itemTestIDs)
+            {
+                var item = Page.GetByTestId(itemTestID);
+                await item.ClickAsync();
+            }
         }
 
         protected async Task<IReadOnlyList<ILocator>> GetTableRows()
         {
-            await page.WaitForLoadStateAsync(LoadState.NetworkIdle);
-            return await page.GetByRole(AriaRole.Row).AllAsync();
+            await Page.WaitForLoadStateAsync(LoadState.NetworkIdle);
+            return await Page.GetByRole(AriaRole.Row).AllAsync();
         }
 
-        protected Task WaitForPageTreeLoaded() => page.GetByRole(AriaRole.Treeitem).WaitForVisible();
+        protected Task WaitForPageTreeLoaded() => Page.GetByRole(AriaRole.Treeitem).WaitForVisible();
 
         protected async Task<IEnumerable<PageTreeItem>> GetPageTreeItems(bool rootOnly = false)
         {
             await WaitForPageTreeLoaded();
-            return await GetTreeNodeChildren(page.GetByRole(AriaRole.Treeitem).Nth(0), rootOnly, true);
+            return await GetTreeNodeChildren(Page.GetByRole(AriaRole.Treeitem).Nth(0), rootOnly, true);
         }
 
         private async Task<IEnumerable<PageTreeItem>> GetTreeNodeChildren(ILocator parentNode, bool rootOnly, bool isChannelRoot)
@@ -121,24 +126,28 @@ namespace TestAfterMigration.Tests
         /// <returns></returns>
         protected async Task Debounce(int pollDelayMs = 100, int stableDelayMs = 500)
         {
-            await page.WaitForLoadStateAsync(LoadState.NetworkIdle);
-            await page.WaitForLoadStateAsync(LoadState.DOMContentLoaded);
-            var markupPrevious = "";
-            var timerStart = DateTime.Now;
-            var isStable = false;
+            await Page.WaitForLoadStateAsync(LoadState.NetworkIdle);
+            await Page.WaitForLoadStateAsync(LoadState.DOMContentLoaded);
+            string markupPrevious = "";
+            var stopwatch = Stopwatch.StartNew();
+            bool isStable = false;
             while (!isStable)
             {
-                var markupCurrent = await page.ContentAsync();
+                string markupCurrent = await Page.ContentAsync();
                 if (markupCurrent == markupPrevious)
                 {
-                    var elapsed = (DateTime.Now - timerStart).TotalMilliseconds;
+                    double elapsed = stopwatch.ElapsedMilliseconds;
                     isStable = stableDelayMs <= elapsed;
                 }
                 else
                 {
                     markupPrevious = markupCurrent;
+                    stopwatch.Restart();
                 }
-                if (!isStable) await Task.Delay(pollDelayMs);
+                if (!isStable)
+                {
+                    await Task.Delay(pollDelayMs);
+                }
             }
         }
 
@@ -153,27 +162,31 @@ namespace TestAfterMigration.Tests
 
         private async Task<IReadOnlyList<ILocator>> GetEventLogRowsFirstPage(EventLogSeverity severity)
         {
-            if (await page.GetByText("There are no records to display").CountAsync() != 0)
+            if (await Page.GetByText("There are no records to display").CountAsync() != 0)
             {
                 return [];
             }
-            await page.GetByTestId("filter-button").ClickAsync();
-
-            var severityOptionTestID = severity switch { EventLogSeverity.Info => "info", EventLogSeverity.Warning => "warning", EventLogSeverity.Error => "error", _ => throw new NotImplementedException() };
-
-            await SelectInAdminFormDropDown("Type", severityOptionTestID);
-            await page.GetByTestId("submit-button").ClickAsync();
-
-            await Debounce();
+            await SetFilter("Type", severity switch { EventLogSeverity.Info => "info", EventLogSeverity.Warning => "warning", EventLogSeverity.Error => "error", _ => throw new NotImplementedException() });
 
             var rows = await GetTableRows();
             return rows;
         }
 
+        protected async Task SetFilter(string inputTestID, params string[] optionTestID)
+        {
+            await Page.GetByTestId("filter-button").ClickAsync();
+
+            await SelectInAdminFormDropDown(inputTestID, optionTestID);
+            await Page.GetByTestId("submit-button").ClickAsync();
+
+            await Debounce();
+        }
+
         protected async Task SelectTopDropdownLanguage(string languageTitle)
         {
-            await page.GetByTestId("LanguageSelector").ClickAsync();
-            await page.GetByTestId("LanguageSelector").GetByTestId("menu-item").Filter(new LocatorFilterOptions { HasText = languageTitle }).ClickAsync();
+            await Page.GetByTestId("LanguageSelector").ClickAsync();
+            await Page.GetByTestId("LanguageSelector").GetByTestId("menu-item").Filter(new LocatorFilterOptions { HasText = languageTitle }).ClickAsync();
+            await Debounce();
         }
     }
 }

@@ -1,15 +1,17 @@
 ﻿using System.Xml.Linq;
 using System.Xml.XPath;
+
 using Kentico.Xperience.UMT.Attributes;
 using Kentico.Xperience.UMT.DocUtils.Helpers;
 using Kentico.Xperience.UMT.DocUtils.Templates;
 using Kentico.Xperience.UMT.Examples;
 using Kentico.Xperience.UMT.Services;
+
 using Microsoft.CodeAnalysis;
 
 namespace Kentico.Xperience.UMT.DocUtils.Walkers;
 
-public class UmtModelVisitor: SymbolVisitor
+public class UmtModelVisitor : SymbolVisitor
 {
     private readonly IImportService importService;
 
@@ -27,13 +29,13 @@ public class UmtModelVisitor: SymbolVisitor
             var sampleInfo = SampleProvider.GetSerializedSample(sample.Value, importService);
             if (sampleInfo != null)
             {
-                sampleList.Add(sampleInfo);    
+                sampleList.Add(sampleInfo);
             }
         }
-        
+
         var docs = new SymbolXmlDocsWrapperMarkdown(new SymbolXmlDocsWrapper(symbol));
         ModelClasses.Add(new ModelClass(symbol, symbol.Name, docs.GetSummaryOrEmpty() ?? "", new List<ModelProperty>(), sampleList));
-        
+
         foreach (var member in symbol.GetMembers())
         {
             member.Accept(this);
@@ -48,14 +50,14 @@ public class UmtModelVisitor: SymbolVisitor
         {
             var modelClass = ModelClasses.Find(x => symbol.ContainingSymbol?.Equals(x.Symbol, SymbolEqualityComparer.IncludeNullability) == true)
                              ?? throw new InvalidOperationException("DISCRIMINATOR exists but class not found => this is possibly error in tool");
-        
+
             if (symbol.Name == "DISCRIMINATOR")
             {
                 ModelClasses[ModelClasses.IndexOf(modelClass)] = modelClass with
                 {
                     Discriminator = symbol.ConstantValue as string
                 };
-            }    
+            }
         }
 
         base.VisitField(symbol);
@@ -67,7 +69,7 @@ public class UmtModelVisitor: SymbolVisitor
 
         var docRefs = symbol.GetDocumentationXml()?
             .XPathSelectElements("//docref")
-            .Select(x=> new DocRef(x.Attribute("uri")?.Value, x.Attribute("header")?.Value, x.Value))
+            .Select(x => new DocRef(x.Attribute("uri")?.Value, x.Attribute("header")?.Value, x.Value))
             .ToArray() ?? Array.Empty<DocRef>();
 
         string? summary = docs.GetSummaryOrEmpty();
@@ -77,10 +79,10 @@ public class UmtModelVisitor: SymbolVisitor
             {
                 summary += " ";
             }
-            summary += $"{string.Join(", ", docRefs.Select(x => x.ToMarkdownLink()))}";    
+            summary += $"{string.Join(", ", docRefs.Select(x => x.ToMarkdownLink()))}";
         }
-        
-        
+
+
         bool isUniqueId = false;
         ModelPropertyReference? reference = null;
         var validationInfo = new ValidationInfo(false);
@@ -115,12 +117,12 @@ public class UmtModelVisitor: SymbolVisitor
                 typeArgument.Accept(this);
             }
         }
-        
+
         if (TestIfTypeBelongToUmt(symbol.Type))
         {
             symbol.Type.Accept(this);
         }
-        
+
         base.VisitProperty(symbol);
     }
 
@@ -185,5 +187,5 @@ public class UmtModelVisitor: SymbolVisitor
         );
     }
 
-    private bool TestIfTypeBelongToUmt(ITypeSymbol symbol) => symbol.ContainingNamespace.ToDisplayString().Contains("Kentico.Xperience.UMT");
+    private static bool TestIfTypeBelongToUmt(ITypeSymbol symbol) => symbol.ContainingNamespace.ToDisplayString().Contains("Kentico.Xperience.UMT");
 }

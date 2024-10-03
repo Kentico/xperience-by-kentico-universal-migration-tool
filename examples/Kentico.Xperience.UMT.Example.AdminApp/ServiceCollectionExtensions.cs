@@ -180,12 +180,12 @@ public static class ServiceCollectionExtensions
 
                     if (buffer[0] == 0x2D && buffer.Take(5).All(x => x.Equals(0X2D)))
                     {
-                        ms.Flush();
+                        await ms.FlushAsync();
                         break;
                     }
 
-                    ms.Write(data.Array!, data.Offset, receiveResult.Count);
-                    ms.Flush();
+                    await ms.WriteAsync(data.Array!, data.Offset, receiveResult.Count);
+                    await ms.FlushAsync();
 
                     int count = receiveResult.Count;
                     totalReceived += count;
@@ -236,6 +236,7 @@ public static class ServiceCollectionExtensions
             logService.LogException(SOURCE, "CONSUMER", e);
         }
 
+#pragma warning disable S2589
         if (socketAvailable)
         {
             await SendStats(stats);
@@ -259,8 +260,8 @@ public static class ServiceCollectionExtensions
             {
                 var data = new ArraySegment<byte>(buffer);
 
-                ms.Write(data.Array!, data.Offset, receiveResult.Count);
-                ms.Flush();
+                await ms.WriteAsync(data.Array!, data.Offset, receiveResult.Count);
+                await ms.FlushAsync();
             }
             else
             {
