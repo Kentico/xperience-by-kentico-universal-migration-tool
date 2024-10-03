@@ -4,12 +4,12 @@
     "net8.0": {
       "Kentico.Xperience.Admin": {
         "type": "Direct",
-        "requested": "[29.5.0, )",
-        "resolved": "29.5.0",
-        "contentHash": "B1vIV5IO5CdFCQeB1G1tO6We54hwZO1HJFwDs79uniA7sioqx+LOYHNkhprbvRibhDN1eDXMgeIWgG2l0BRoPA==",
+        "requested": "[29.5.2, )",
+        "resolved": "29.5.2",
+        "contentHash": "rczwL5pRC97PJQNXtMJ0doZOXNwXUqeOpySL+xWV1nMWgxEtng5qWv0bc8lrn/Khs6VCD3SAh0Rwn9embj+x+w==",
         "dependencies": {
           "Kentico.Aira.Client": "1.0.25",
-          "Kentico.Xperience.WebApp": "[29.5.0]",
+          "Kentico.Xperience.WebApp": "[29.5.2]",
           "Microsoft.AspNetCore.SpaServices.Extensions": "6.0.33",
           "Microsoft.Extensions.FileProviders.Embedded": "6.0.33"
         }
@@ -355,14 +355,14 @@
       },
       "Kentico.Xperience.WebApp": {
         "type": "Transitive",
-        "resolved": "29.5.0",
-        "contentHash": "3wGJZRGyyO4iDJTeeB8KSa+nZaFMPJhCxXhlxPHJ+0ukaJiJL09MhbJO5oDu1xCyZX59jv4te2IVbAmlvIKDDw==",
+        "resolved": "29.5.2",
+        "contentHash": "UYc13kAyMLCUF8eaUCA49ibBxZm3AbkeZliFZ3aJZjPIxmpr6/jjSWaZ0KXU7jtRPLnbpvnsQzJN2XOcXA1kHg==",
         "dependencies": {
           "CommandLineParser": "2.9.1",
           "HotChocolate.AspNetCore": "13.9.12",
           "HotChocolate.Data": "13.9.12",
           "HtmlSanitizer": "8.1.870",
-          "Kentico.Xperience.Core": "[29.5.0]",
+          "Kentico.Xperience.Core": "[29.5.2]",
           "Microsoft.Extensions.Caching.Memory": "6.0.1",
           "Microsoft.Extensions.FileProviders.Embedded": "6.0.33",
           "Microsoft.Extensions.Localization": "6.0.33"
@@ -823,15 +823,15 @@
       "kentico.xperience.umt": {
         "type": "Project",
         "dependencies": {
-          "Kentico.Xperience.Core": "[29.5.0, )",
+          "Kentico.Xperience.Core": "[29.5.2, )",
           "Microsoft.Bcl.AsyncInterfaces": "[9.0.0-rc.1.24431.7, )"
         }
       },
       "Kentico.Xperience.Core": {
         "type": "CentralTransitive",
-        "requested": "[29.5.0, )",
-        "resolved": "29.5.0",
-        "contentHash": "RfcGWuhZSVDfmuUwl26svb9DZ/FWnhlNTr4q120uC7tuj7v/o3PH2iCtWCsDxkosGuN8f6c4FfO7cTnEPgmgWg==",
+        "requested": "[29.5.2, )",
+        "resolved": "29.5.2",
+        "contentHash": "BBNcfI4aL9oWWfIurf0U7wgfFXYnV0ngZZO727Q9imfn2uHjD3Q3CrGcfIPaO3DLxMjlf0cEpn9bE+gH6MFTSw==",
         "dependencies": {
           "AngleSharp": "0.17.1",
           "MailKit": "4.7.1.1",

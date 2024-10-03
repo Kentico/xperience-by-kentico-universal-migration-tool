@@ -134,7 +134,7 @@
   {
     "$type": "ContentLanguage",
     "ContentLanguageGUID": "4c80c6dd-a5c2-443d-873a-e9c328024b7c",
-    "ContentLanguageDisplayName": "Spanish",
+    "ContentLanguageDisplayName": "Cuban Spanish",
     "ContentLanguageName": "es-CU",
     "ContentLanguageIsDefault": false,
     "ContentLanguageFallbackContentLanguageGuid": null,
