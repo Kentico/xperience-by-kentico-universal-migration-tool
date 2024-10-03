@@ -10,6 +10,7 @@ using Kentico.Xperience.UMT.DocUtils.Templates;
 using Kentico.Xperience.UMT.DocUtils.Walkers;
 using Kentico.Xperience.UMT.Model;
 using Kentico.Xperience.UMT.Services;
+
 using Microsoft.Build.Locator;
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp;
@@ -18,6 +19,7 @@ using Microsoft.CodeAnalysis.FindSymbols;
 using Microsoft.CodeAnalysis.MSBuild;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+
 using NJsonSchema;
 
 const string projectNameKenticoXperienceUmt = "Kentico.Xperience.UMT";
@@ -45,7 +47,7 @@ switch (args)
                 break;
             }
         }
-      
+
         throw new InvalidOperationException($"Incorrect number of parameters. Specify solution path as first argument and target documentation directory as second");
     }
 }
@@ -129,7 +131,7 @@ if (sampleApp != null)
             }
         }
     }
-    
+
     var fcModel = formComponents.Select(x => new FormComponentTemplateModel(x.Key, x.Value.ToArray())).ToArray();
     await MdHelper.RenderTemplateToFile("FormComponents", fcModel, markdownFilePath);
 }
@@ -170,7 +172,7 @@ if (umtProject != null && await umtProject.GetCompilationAsync() is { } umtCompi
 foreach (var solutionProject in solution.Projects)
 {
     Console.WriteLine($"Resolving project '{solutionProject.Name}'");
-    
+
     if (solutionProject.Name == projectNameKenticoXperienceUmt)
     {
         var compilation = await solutionProject.GetCompilationAsync();

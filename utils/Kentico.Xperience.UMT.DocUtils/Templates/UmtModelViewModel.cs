@@ -1,4 +1,5 @@
 ﻿using Kentico.Xperience.UMT.Examples;
+
 using Microsoft.CodeAnalysis;
 
 namespace Kentico.Xperience.UMT.DocUtils.Templates;

@@ -4,7 +4,7 @@ using Microsoft.CodeAnalysis.CSharp.Syntax;
 
 namespace Kentico.Xperience.UMT.DocUtils.Walkers;
 
-public class UmtModelWalker: CSharpSyntaxWalker
+public class UmtModelWalker : CSharpSyntaxWalker
 {
     private readonly List<SyntaxNode> umtModelClasses = new();
     public List<SyntaxNode> UmtModelClasses => umtModelClasses;

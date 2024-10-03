@@ -78,3 +78,10 @@ See [`SUPPORT.md`](https://github.com/Kentico/.github/blob/main/SUPPORT.md#full-
 ## Security
 
 For any security issues see [Kentico's `SECURITY.md`](https://github.com/Kentico/.github/blob/main/SECURITY.md).
+
+## Testing
+
+1. Migrate to blank template Kentico XbK project by Kentico.Xperience.UMT.Example.Console
+2. Configure $SolutionDir\test.runsettings per the project's settings
+3. Ensure test.runsettings file is used in Visual Studio: Top menu -> Test -> Configure Run Settings -> Select Solution Wide runsettings File
+4. Run tests from Test explorer

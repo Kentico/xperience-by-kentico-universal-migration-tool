@@ -1,4 +1,5 @@
 ﻿using System.Xml.Linq;
+
 using Microsoft.CodeAnalysis;
 
 namespace Kentico.Xperience.UMT.DocUtils.Walkers;
@@ -15,8 +16,8 @@ public static class Extensions
         return null;
     }
 
-    public delegate bool BaseTypePredicate(INamedTypeSymbol symbol); 
-        
+    public delegate bool BaseTypePredicate(INamedTypeSymbol symbol);
+
     public static INamedTypeSymbol? GetFirstBaseType(this INamedTypeSymbol symbol, BaseTypePredicate predicate)
     {
         var baseType = symbol.BaseType;
@@ -26,11 +27,11 @@ public static class Extensions
             {
                 return baseType;
             }
-            baseType = baseType?.BaseType;
+            baseType = baseType.BaseType;
         }
         return null;
     }
-    
+
     public static INamedTypeSymbol? GetFirstBaseTypeOrSelf(this INamedTypeSymbol symbol, BaseTypePredicate predicate) =>
         predicate(symbol)
             ? symbol
