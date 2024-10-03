@@ -60,9 +60,11 @@ jobs:
             --configuration Release `
             --no-restore
 
-      - name: Test Solution
-        run: |
-          dotnet test `
-            --configuration Release `
-            --no-build `
-            --no-restore
+####### The only tests present are now Playwright NUnit tests, 
+####### which aren't properly integrated into this pipeline
+#      - name: Test Solution
+#        run: |
+#          dotnet test `
+#            --configuration Release `
+#            --no-build `
+#            --no-restore
