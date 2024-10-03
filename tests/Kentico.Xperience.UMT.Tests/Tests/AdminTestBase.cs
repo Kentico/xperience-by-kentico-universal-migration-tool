@@ -166,7 +166,7 @@ namespace TestAfterMigration.Tests
             {
                 return [];
             }
-            await SetFilter("Type", severity switch { EventLogSeverity.Info => "info", EventLogSeverity.Warning => "warning", EventLogSeverity.Error => "error", _ => throw new NotImplementedException() });
+            await SetFilter("type", severity switch { EventLogSeverity.Info => "info", EventLogSeverity.Warning => "warning", EventLogSeverity.Error => "error", _ => throw new NotImplementedException() });
 
             var rows = await GetTableRows();
             return rows;
