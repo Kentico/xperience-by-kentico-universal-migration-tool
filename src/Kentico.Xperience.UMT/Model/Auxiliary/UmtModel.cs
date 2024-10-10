@@ -26,6 +26,7 @@ public interface IUmtModel
 [KnownType(typeof(MediaFileModel))]
 [KnownType(typeof(MediaLibraryModel))]
 [KnownType(typeof(UserInfoModel))]
+[KnownType(typeof(MemberInfoModel))]
 [KnownType(typeof(WebPageItemModel))]
 [KnownType(typeof(WebPageAclModel))]
 [KnownType(typeof(WebPageUrlPathModel))]

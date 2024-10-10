@@ -52,6 +52,10 @@ public static class SampleProvider
         // sample data
         sourceData.AddRange([
             UserSamples.SampleAdministrator,
+
+            MemberSamples.SampleMemberNoCustomFields,
+            //MemberSamples.SampleMemberWithCustomFields, // Intentionally not included, because the included custom fields are not by default present in boilerplate project
+
             ContentLanguageSamples.SampleContentLanguageEnUs,
             ContentLanguageSamples.SampleContentLanguageEnGb,
             ContentLanguageSamples.SampleContentLanguageEs,
