@@ -24,6 +24,7 @@ internal class AdapterFactory(ILoggerFactory loggerFactory, UmtModelService mode
         return umtModel switch
         {
             UserInfoModel => new UserAdapter(loggerFactory.CreateLogger<UserAdapter>(), adapterContext),
+            MemberInfoModel => new MemberAdapter(loggerFactory.CreateLogger<MemberAdapter>(), adapterContext),
             MediaFileModel => new MediaFileAdapter(loggerFactory.CreateLogger<MediaFileAdapter>(), adapterContext),
             MediaLibraryModel => new GenericInfoAdapter<MediaLibraryInfo>(loggerFactory.CreateLogger<GenericInfoAdapter<MediaLibraryInfo>>(), adapterContext),
             ContentItemLanguageMetadataModel => new GenericInfoAdapter<ContentItemLanguageMetadataInfo>(loggerFactory.CreateLogger<GenericInfoAdapter<ContentItemLanguageMetadataInfo>>(), adapterContext),

@@ -989,7 +989,7 @@
           "properties": {
             "UserName": {
               "type": "string",
-              "description": "user nane / login name - must be unique",
+              "description": "user name / login name - must be unique",
               "minLength": 1
             },
             "FirstName": {
@@ -1079,6 +1079,78 @@
             },
             "UserIsExternal": {
               "type": "boolean"
+            }
+          }
+        }
+      ]
+    },
+    "MemberInfoModel": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/UmtModel"
+        },
+        {
+          "type": "object",
+          "description": "Model represents XbyK MemberInfo",
+          "additionalProperties": {
+            "oneOf": [
+              {},
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "required": [
+            "MemberName",
+            "MemberEmail",
+            "MemberEnabled",
+            "MemberGUID",
+            "MemberIsExternal"
+          ],
+          "properties": {
+            "MemberName": {
+              "type": "string",
+              "description": "member name / login name - must be unique",
+              "minLength": 1
+            },
+            "MemberEmail": {
+              "type": "string",
+              "description": "valid email address according to XbyK API domain requirements (ValidationHelper.IsEmail()) or custom regex set through configuration \"CMSEmailValidationRegex\"",
+              "minLength": 1
+            },
+            "MemberPassword": {
+              "type": [
+                "null",
+                "string"
+              ],
+              "description": "hashed member password"
+            },
+            "MemberEnabled": {
+              "type": "boolean",
+              "description": "disable/enable member"
+            },
+            "MemberCreated": {
+              "type": [
+                "null",
+                "string"
+              ],
+              "description": "datetime of member creation, defaults to current server time ",
+              "format": "date-time"
+            },
+            "MemberGUID": {
+              "type": "string",
+              "description": "uniqueId of member used for reference in other models ",
+              "format": "guid",
+              "minLength": 1
+            },
+            "MemberIsExternal": {
+              "type": "boolean"
+            },
+            "MemberSecurityStamp": {
+              "type": [
+                "null",
+                "string"
+              ]
             }
           }
         }

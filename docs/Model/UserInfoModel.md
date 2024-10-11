@@ -6,7 +6,7 @@ Model [discriminator](../UmtModel.md#discriminator): `UserInfo`
 
 |PropertyName|Summary|.NET Type|Notes|
 |---|---|---|---|
-|UserName\*|user nane / login name - must be unique|string?||
+|UserName\*|user name / login name - must be unique|string?||
 |FirstName|First name of user|string?||
 |LastName|Last name of user|string?||
 |Email\*|valid email address according to XbyK API domain requirements (ValidationHelper.IsEmail()) or custom regex set through configuration "CMSEmailValidationRegex"|string?||

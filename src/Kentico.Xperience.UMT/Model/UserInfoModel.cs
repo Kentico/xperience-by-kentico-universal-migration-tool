@@ -23,7 +23,7 @@ public class UserInfoModel : UmtModel
 #pragma warning restore S125
 
     /// <summary>
-    /// user nane / login name - must be unique
+    /// user name / login name - must be unique
     /// </summary>
     [Map]
     [Required]
