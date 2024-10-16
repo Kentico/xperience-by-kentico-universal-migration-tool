@@ -83,10 +83,11 @@ public class ContentItemSimplifiedAdapter : IInfoAdapter<ContentItemInfo, IUmtMo
             ContentItemContentFolderGUID = cim.ContentItemContentFolderGUID
         };
 
-        var adapter = adapterFactory.CreateAdapter(contentItemModel, new ProviderProxyContext());
-        ArgumentNullException.ThrowIfNull(adapter);
-        var contentItemInfo = (ContentItemInfo)adapter.Adapt(contentItemModel);
-        contentItemInfo = (ContentItemInfo)adapter.ProviderProxy.Save(contentItemInfo, contentItemModel);
+        var contentItemAdapter = adapterFactory.CreateAdapter(contentItemModel, new ProviderProxyContext());
+        ArgumentNullException.ThrowIfNull(contentItemAdapter);
+
+        var contentItemInfo = (ContentItemInfo)contentItemAdapter.Adapt(contentItemModel);
+        contentItemInfo = (ContentItemInfo)contentItemAdapter.ProviderProxy.Save(contentItemInfo, contentItemModel);
 
         var contentLanguageProxy = providerProxyFactory.CreateProviderProxy<ContentLanguageInfo>(new ProviderProxyContext());
         var userInfoProxy = providerProxyFactory.CreateProviderProxy<UserInfo>(new ProviderProxyContext());
@@ -166,8 +167,13 @@ public class ContentItemSimplifiedAdapter : IInfoAdapter<ContentItemInfo, IUmtMo
                 ContentItemContentTypeName = cim.ContentTypeName
             };
 
+            var itemDataAdapter = adapterFactory.CreateAdapter(contentItemDataModelBase(), new ProviderProxyContext());
+            ArgumentNullException.ThrowIfNull(itemDataAdapter);
+            var commonItemDataAdapter = adapterFactory.CreateAdapter(contentItemCommonDataModelBase(), new ProviderProxyContext());
+            ArgumentNullException.ThrowIfNull(commonItemDataAdapter);
+
             // Create ContentItemCommonDataModel instances to be set. For each one a ContentItemDataModel will be automatically instantiated
-            commonDataModelsByLang[languageData.LanguageName] ??= [];
+            commonDataModelsByLang[languageData.LanguageName] = [];
 
             var createStrategy = GetCreateStrategy(latestContentItemCommonDataInfo?.ContentItemCommonDataVersionStatus, languageData.VersionStatus);
             if (createStrategy == CreateStrategy.CreateOrUpdate)
@@ -184,7 +190,7 @@ public class ContentItemSimplifiedAdapter : IInfoAdapter<ContentItemInfo, IUmtMo
             {
                 // Update published version -> not latest
                 latestContentItemCommonDataInfo!.ContentItemCommonDataIsLatest = false;
-                adapter.ProviderProxy.Save(latestContentItemCommonDataInfo, contentItemCommonDataModelBase());
+                commonItemDataAdapter.ProviderProxy.Save(latestContentItemCommonDataInfo, contentItemCommonDataModelBase());
 
                 // Insert new draft version
                 commonDataModelsByLang[languageData.LanguageName].Add(contentItemCommonDataModelBase().Apply(x =>
@@ -225,25 +231,19 @@ public class ContentItemSimplifiedAdapter : IInfoAdapter<ContentItemInfo, IUmtMo
                 throw new NotImplementedException($"Create strategy {createStrategy} not implemented");
             }
 
-
-            var itemDataAdapter = adapterFactory.CreateAdapter(contentItemDataModelBase(), new ProviderProxyContext());
-            ArgumentNullException.ThrowIfNull(adapter);
-            var commonItemDataAdapter = adapterFactory.CreateAdapter(contentItemCommonDataModelBase(), new ProviderProxyContext());
-            ArgumentNullException.ThrowIfNull(adapter);
-
             foreach (var commonDataModel in commonDataModelsByLang[languageData.LanguageName])
             {
-                var commonDataInfo = (ContentItemCommonDataInfo)adapter.Adapt(commonDataModel);
+                var commonDataInfo = (ContentItemCommonDataInfo)commonItemDataAdapter.Adapt(commonDataModel);
                 commonItemDataAdapter!.ProviderProxy.Save(commonDataInfo, commonDataModel);
 
                 var dataModel = contentItemDataModelBase().Apply(x =>
                 {
-                    var existingItemDataInfo = dataProvider.Get().WhereEquals(nameof(ContentItemDataInfo.ContentItemDataCommonDataID), latestContentItemCommonDataInfo!.ContentItemCommonDataID).FirstOrDefault();
+                    var existingItemDataInfo = dataProvider.Get().WhereEquals(nameof(ContentItemDataInfo.ContentItemDataCommonDataID), commonDataInfo.ContentItemCommonDataID).FirstOrDefault();
                     x.ContentItemDataGUID = (existingItemDataInfo != null) ? existingItemDataInfo!.ContentItemDataGUID : Guid.NewGuid();
                     x.ContentItemDataCommonDataGuid = commonDataModel.ContentItemCommonDataGUID;
                 });
                 
-                var dataInfo = (ContentItemDataInfo)adapter.Adapt(dataModel);
+                var dataInfo = (ContentItemDataInfo)itemDataAdapter.Adapt(dataModel);
                 itemDataAdapter!.ProviderProxy.Save(dataInfo, dataModel);
             }
 
@@ -266,10 +266,10 @@ public class ContentItemSimplifiedAdapter : IInfoAdapter<ContentItemInfo, IUmtMo
                 ContentItemLanguageMetadataScheduledUnpublishWhen = languageData.ScheduledUnpublishWhen
             };
 
-            adapter = adapterFactory.CreateAdapter(contentItemLanguageMetadataModel, new ProviderProxyContext());
-            ArgumentNullException.ThrowIfNull(adapter);
-            var contentItemLanguageMetadataInfo = (ContentItemLanguageMetadataInfo)adapter.Adapt(contentItemLanguageMetadataModel);
-            adapter.ProviderProxy.Save(contentItemLanguageMetadataInfo, contentItemLanguageMetadataModel);
+            var languageMetadataAdapter = adapterFactory.CreateAdapter(contentItemLanguageMetadataModel, new ProviderProxyContext());
+            ArgumentNullException.ThrowIfNull(languageMetadataAdapter);
+            var contentItemLanguageMetadataInfo = (ContentItemLanguageMetadataInfo)languageMetadataAdapter.Adapt(contentItemLanguageMetadataModel);
+            languageMetadataAdapter.ProviderProxy.Save(contentItemLanguageMetadataInfo, contentItemLanguageMetadataModel);
             #endregion
 
         }
@@ -305,10 +305,10 @@ public class ContentItemSimplifiedAdapter : IInfoAdapter<ContentItemInfo, IUmtMo
                     WebPageItemOrder = pageData.ItemOrder
                 };
 
-                adapter = adapterFactory.CreateAdapter(webPageItemModel, new ProviderProxyContext());
-                ArgumentNullException.ThrowIfNull(adapter);
-                var webPageItemInfo = (WebPageItemInfo)adapter.Adapt(webPageItemModel);
-                webPageItemInfo = (WebPageItemInfo)adapter.ProviderProxy.Save(webPageItemInfo, webPageItemModel);
+                var webPageItemAdapter = adapterFactory.CreateAdapter(webPageItemModel, new ProviderProxyContext());
+                ArgumentNullException.ThrowIfNull(webPageItemAdapter);
+                var webPageItemInfo = (WebPageItemInfo)webPageItemAdapter.Adapt(webPageItemModel);
+                webPageItemInfo = (WebPageItemInfo)webPageItemAdapter.ProviderProxy.Save(webPageItemInfo, webPageItemModel);
                 
                 var urls = pageData.PageUrls ?? [];
 
@@ -345,26 +345,45 @@ public class ContentItemSimplifiedAdapter : IInfoAdapter<ContentItemInfo, IUmtMo
                                 ?.WebPageUrlPathGUID;
                         }
 
-                        foreach (var commonDataModel in commonDataModelsByLang[pageUrlModel.LanguageName])
+                        var webPageUrlPathModelBase = () => new WebPageUrlPathModel
                         {
-                            var webPageUrlPathModel = new WebPageUrlPathModel
+                            WebPageUrlPathGUID = webPageUrlPathGuid ?? Guid.NewGuid(),
+                            WebPageUrlPath = pageUrlModel.UrlPath,
+                            // WebPageUrlPathHash = null,
+                            WebPageUrlPathWebPageItemGuid = webPageItemModel.WebPageItemGUID,
+                            WebPageUrlPathWebsiteChannelGuid = webSiteChannel.WebsiteChannelGUID,
+                            WebPageUrlPathContentLanguageGuid = contentLanguageInfo.ContentLanguageGUID,
+                        };
+
+                        var pagePathAdapter = adapterFactory.CreateAdapter(webPageUrlPathModelBase(), new ProviderProxyContext());
+                        ArgumentNullException.ThrowIfNull(pagePathAdapter);
+
+                        if (commonDataModelsByLang.ContainsKey(pageUrlModel.LanguageName))
+                        {
+                            foreach (var commonDataModel in commonDataModelsByLang[pageUrlModel.LanguageName])
                             {
-                                WebPageUrlPathGUID = webPageUrlPathGuid ?? Guid.NewGuid(),
-                                WebPageUrlPath = pageUrlModel.UrlPath,
-                                // WebPageUrlPathHash = null,
-                                WebPageUrlPathWebPageItemGuid = webPageItemModel.WebPageItemGUID,
-                                WebPageUrlPathWebsiteChannelGuid = webSiteChannel.WebsiteChannelGUID,
-                                WebPageUrlPathContentLanguageGuid = contentLanguageInfo.ContentLanguageGUID,
-                                WebPageUrlPathIsLatest = commonDataModel.ContentItemCommonDataIsLatest,
-                                WebPageUrlPathIsDraft = commonDataModel.ContentItemCommonDataVersionStatus == VersionStatus.Draft
-                            };
+                                var webPageUrlPathModel = webPageUrlPathModelBase().Apply(x =>
+                                {
+                                    x.WebPageUrlPathIsLatest = commonDataModel.ContentItemCommonDataIsLatest;
+                                    x.WebPageUrlPathIsDraft = commonDataModel.ContentItemCommonDataVersionStatus == VersionStatus.Draft;
+                                });
 
-                            adapter = adapterFactory.CreateAdapter(webPageUrlPathModel, new ProviderProxyContext());
-                            ArgumentNullException.ThrowIfNull(adapter);
-                            var webPageUrlPathInfo = (WebPageUrlPathInfo)adapter.Adapt(webPageUrlPathModel);
-                            adapter.ProviderProxy.Save(webPageUrlPathInfo, webPageUrlPathModel);
+                                var webPageUrlPathInfo = (WebPageUrlPathInfo)pagePathAdapter.Adapt(webPageUrlPathModel);
+                                pagePathAdapter.ProviderProxy.Save(webPageUrlPathInfo, webPageUrlPathModel);
 
-                            webPageUrlPathGuid = null;      // Existing WebPageUrlPath has been reused. For potential other entries, a new one has to be created
+                                webPageUrlPathGuid = null;      // Existing WebPageUrlPath has been reused. For potential other entries, a new one has to be created
+                            }
+                        }
+                        else
+                        {
+                            var webPageUrlPathModel = webPageUrlPathModelBase().Apply(x =>
+                            {
+                                x.WebPageUrlPathIsLatest = true;
+                                x.WebPageUrlPathIsDraft = false;
+                            });
+
+                            var webPageUrlPathInfo = (WebPageUrlPathInfo)pagePathAdapter.Adapt(webPageUrlPathModel);
+                            pagePathAdapter.ProviderProxy.Save(webPageUrlPathInfo, webPageUrlPathModel);
                         }
                     }
                 }
