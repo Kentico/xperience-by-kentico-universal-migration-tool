@@ -2,7 +2,7 @@ name: "CI: Build and Test"
 
 on:
   push:
-    branches: [main]
+    branches: [main, feat/github-actions-pipeline]
     paths:
       - "**.cs"
       - "**.cshtml"
@@ -60,7 +60,7 @@ jobs:
             --configuration Release `
             --no-restore
 
-####### The only tests present are now Playwright NUnit tests, 
+####### The only tests present are now Playwright NUnit tests,
 ####### which aren't properly integrated into this pipeline
 #      - name: Test Solution
 #        run: |
