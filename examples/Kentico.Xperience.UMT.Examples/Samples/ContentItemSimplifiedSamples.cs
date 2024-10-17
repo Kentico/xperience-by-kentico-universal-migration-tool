@@ -160,7 +160,7 @@ public static class ContentItemSimplifiedSamples
                     ["ArticleTeaser"] = new AssetUrlSource
                     {
                         ContentItemGuid = contentItemGuid,
-                        Identifier = Guid.NewGuid(),
+                        Identifier = new Guid("4E1137D4-0F85-419D-B426-2E94B9EC10C8"),
                         Name = "urlSourceSample.jpg",
                         Extension = ".jpg",
                         Size = null,
