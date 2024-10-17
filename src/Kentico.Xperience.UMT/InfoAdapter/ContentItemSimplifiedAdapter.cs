@@ -43,7 +43,7 @@ public class ContentItemSimplifiedAdapter : IInfoAdapter<ContentItemInfo, IUmtMo
 
     Guid? IInfoAdapter<ContentItemInfo, IUmtModel>.GetUniqueIdOrNull(IUmtModel input) => throw new NotImplementedException();
 
-    private enum CreateStrategy { Unspecified, CreateOrUpdate, CreateDraftFromPublished, CreatePublishedAndDraft, PublishFromDraft, PublishFromInitialDraft }
+    private enum CreateStrategy { Unspecified, CreateOrUpdate, CreateDraftFromPublished, PublishFromDraft, PublishFromInitialDraft }
 
     public ContentItemInfo Adapt(IUmtModel input)
     {
@@ -202,24 +202,6 @@ public class ContentItemSimplifiedAdapter : IInfoAdapter<ContentItemInfo, IUmtMo
                     x.ContentItemCommonDataVersionStatus = VersionStatus.Draft;
                 }));
             }
-            else if (createStrategy == CreateStrategy.CreatePublishedAndDraft)
-            {
-                // Insert one instance as published
-                commonDataModelsByLang[languageData.LanguageName].Add(contentItemCommonDataModelBase().Apply(x =>
-                {
-                    x.ContentItemCommonDataGUID = Guid.NewGuid();
-                    x.ContentItemCommonDataIsLatest = false;
-                    x.ContentItemCommonDataVersionStatus = VersionStatus.Published;
-                }));
-
-                // Insert one instance as draft
-                commonDataModelsByLang[languageData.LanguageName].Add(contentItemCommonDataModelBase().Apply(x =>
-                {
-                    x.ContentItemCommonDataGUID = Guid.NewGuid();
-                    x.ContentItemCommonDataIsLatest = true;
-                    x.ContentItemCommonDataVersionStatus = VersionStatus.Draft;
-                }));
-            }
             else if (createStrategy == CreateStrategy.PublishFromDraft)
             {
                 throw new NotImplementedException("Importing published content item while a draft item exists is not supported yet");
@@ -365,21 +347,6 @@ public class ContentItemSimplifiedAdapter : IInfoAdapter<ContentItemInfo, IUmtMo
                                 modelsToSet.Add(webPageUrlPathModel);
 
                             }
-                            else if (createStrategy == CreateStrategy.CreatePublishedAndDraft)
-                            {
-                                modelsToSet.Add(webPageUrlPathModelBase().Apply(x =>
-                                {
-                                    x.WebPageUrlPathGUID = Guid.NewGuid();
-                                    x.WebPageUrlPathIsLatest = false;
-                                    x.WebPageUrlPathIsDraft = false;
-                                }));
-                                modelsToSet.Add(webPageUrlPathModelBase().Apply(x =>
-                                {
-                                    x.WebPageUrlPathGUID = Guid.NewGuid();
-                                    x.WebPageUrlPathIsLatest = true;
-                                    x.WebPageUrlPathIsDraft = true;
-                                }));
-                            }
                             else if (createStrategy == CreateStrategy.CreateDraftFromPublished)
                             {
                                 var latestWebPageUrlPath = Provider<WebPageUrlPathInfo>.Instance.Get()
@@ -439,16 +406,14 @@ public class ContentItemSimplifiedAdapter : IInfoAdapter<ContentItemInfo, IUmtMo
             {
                 return currentVersion.Value switch
                 {
-                    VersionStatus.InitialDraft => throw new InvalidOperationException($"Content item imported version status \"{nameof(VersionStatus.Draft)}\" is not compatible with existing status \"{nameof(VersionStatus.InitialDraft)}\". Publish first, then reimport"),
                     VersionStatus.Draft => CreateStrategy.CreateOrUpdate,   // latest version will be updated
                     VersionStatus.Published => CreateStrategy.CreateDraftFromPublished,  // draft will be updated
-                    _ => throw new InvalidOperationException($"Content item imported version status \"{currentVersion}\" is not supported while the item already exists")
+                    _ => throw new InvalidOperationException($"Draft cannot be created from {currentVersion.Value}. Only creating from {nameof(VersionStatus.Published)} or updating existing draft is supported")
                 };
             }
             else
             {
-                // new publish version and then new draft version will be created
-                return CreateStrategy.CreatePublishedAndDraft;
+                throw new InvalidOperationException($"Draft cannot be created when the item doesn't exist. Create {nameof(VersionStatus.Published)} version first.");
             }
         }
         else if (importedVersion == VersionStatus.Published)
