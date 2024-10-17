@@ -26,7 +26,7 @@ Simplified model for importing webpage content item with parent
   "ContentItemGUID": "9ed8de86-859c-4f6c-94f2-cdd6baed99fe",
   "IsSecured": false,
   "ContentTypeName": "UMT.Article",
-  "Name": "SimplifiedModelSampleAsSubPAge",
+  "Name": "SimplifiedModelSampleAsSubPage",
   "IsReusable": false,
   "ChannelName": "websitechannelExample",
   "LanguageData": [
@@ -41,7 +41,7 @@ Simplified model for importing webpage content item with parent
           "$assetType": "AssetUrl",
           "Url": "https://devnet.kentico.com/DevNet/media/devnet/cms_screen.jpg",
           "ContentItemGuid": "9ed8de86-859c-4f6c-94f2-cdd6baed99fe",
-          "Identifier": "e310dc1f-9f97-4d62-884b-632e65ffdb89",
+          "Identifier": "57e26c3f-31b6-4b92-9c45-21723c06ad2e",
           "Name": "urlSourceSample.jpg",
           "Extension": ".jpg"
         },
@@ -61,7 +61,7 @@ Simplified model for importing webpage content item with parent
           "$assetType": "AssetUrl",
           "Url": "https://devnet.kentico.com/DevNet/media/devnet/cms_screen.jpg",
           "ContentItemGuid": "9ed8de86-859c-4f6c-94f2-cdd6baed99fe",
-          "Identifier": "8d6191f6-3b02-4bce-a48e-4282462549b6",
+          "Identifier": "57885cc8-3488-41b1-804f-e61445d6e07f",
           "Name": "urlSourceSample.jpg",
           "Extension": ".jpg"
         },
