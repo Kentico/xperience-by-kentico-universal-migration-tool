@@ -7,9 +7,9 @@
   </PropertyGroup>
   <ItemGroup>
     <PackageVersion Include="coverlet.collector" Version="6.0.2" />
-    <PackageVersion Include="Kentico.Xperience.Core" Version="29.5.2" />
-    <PackageVersion Include="Kentico.Xperience.Admin" Version="29.5.2" />
-    <PackageVersion Include="Kentico.Xperience.ImageProcessing" Version="29.5.2" />
+    <PackageVersion Include="Kentico.Xperience.Core" Version="29.6.0" />
+    <PackageVersion Include="Kentico.Xperience.Admin" Version="29.6.0" />
+    <PackageVersion Include="Kentico.Xperience.ImageProcessing" Version="29.6.0" />
     <PackageVersion Include="Microsoft.Bcl.AsyncInterfaces" Version="9.0.0-rc.1.24431.7" />
     <PackageVersion Include="Microsoft.Extensions.Logging.Console" Version="9.0.0-rc.1.24431.7" />
     <PackageVersion Include="Microsoft.Playwright" Version="1.47.0" />
