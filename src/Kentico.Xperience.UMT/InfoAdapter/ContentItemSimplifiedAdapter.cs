@@ -7,6 +7,7 @@ using CMS.FormEngine;
 using CMS.Membership;
 using CMS.Websites;
 using CMS.Websites.Internal;
+using CMS.Websites.Routing.Internal;
 
 using Kentico.Xperience.UMT.Model;
 using Kentico.Xperience.UMT.ProviderProxy;
@@ -93,6 +94,7 @@ public class ContentItemSimplifiedAdapter : IInfoAdapter<ContentItemInfo, IUmtMo
         var userInfoProxy = providerProxyFactory.CreateProviderProxy<UserInfo>(new ProviderProxyContext());
 
         var commonDataModelsByLang = new Dictionary<string, List<ContentItemCommonDataModel>>();
+        CreateStrategy createStrategy = CreateStrategy.Unspecified;
 
         foreach (var languageData in cim.LanguageData)
         {
@@ -175,7 +177,7 @@ public class ContentItemSimplifiedAdapter : IInfoAdapter<ContentItemInfo, IUmtMo
             // Create ContentItemCommonDataModel instances to be set. For each one a ContentItemDataModel will be automatically instantiated
             commonDataModelsByLang[languageData.LanguageName] = [];
 
-            var createStrategy = GetCreateStrategy(latestContentItemCommonDataInfo?.ContentItemCommonDataVersionStatus, languageData.VersionStatus);
+            createStrategy = GetCreateStrategy(latestContentItemCommonDataInfo?.ContentItemCommonDataVersionStatus, languageData.VersionStatus);
             if (createStrategy == CreateStrategy.CreateOrUpdate)
             {
                 // Create a new or update an existing entry
@@ -293,7 +295,7 @@ public class ContentItemSimplifiedAdapter : IInfoAdapter<ContentItemInfo, IUmtMo
                         .FirstOrDefault()
                         ?.WebPageItemGUID;
                 }
-
+                
                 var webPageItemModel = new WebPageItemModel
                 {
                     WebPageItemGUID = webPageItemGuid ?? Guid.NewGuid(),
@@ -319,37 +321,17 @@ public class ContentItemSimplifiedAdapter : IInfoAdapter<ContentItemInfo, IUmtMo
                     var contentLanguageInfo = contentLanguageProxy.GetBaseInfoByCodeName(urlsByLang.Key, null!) as ContentLanguageInfo;
                     ArgumentNullException.ThrowIfNull(contentLanguageInfo);
                     
-                    var orphaned = Provider<WebPageUrlPathInfo>.Instance.Get()
-                        .WhereEquals(nameof(WebPageUrlPathInfo.WebPageUrlPathWebPageItemID), webPageItemInfo.WebPageItemID)
-                        .WhereEquals(nameof(WebPageUrlPathInfo.WebPageUrlPathContentLanguageID), contentLanguageInfo.ContentLanguageID)
-                        .WhereEquals(nameof(WebPageUrlPathInfo.WebPageUrlPathWebsiteChannelID), webSiteChannel.WebsiteChannelID);
-
-                    foreach (var pageUrlPathInfo in orphaned)
-                    {
-                        pageUrlPathInfo.Delete();
-                    }
-                    
                     foreach (var pageUrlModel in urlsByLang)
                     {
                         ArgumentException.ThrowIfNullOrWhiteSpace(pageUrlModel.LanguageName);
 
-                        Guid? webPageUrlPathGuid = null;
-                        if (existingContentItem != null)
-                        {
-                            // only single url is currently supported per language in this model
-                            webPageUrlPathGuid = Provider<WebPageUrlPathInfo>.Instance.Get()
-                                .WhereEquals(nameof(WebPageUrlPathInfo.WebPageUrlPathWebPageItemID), webPageItemInfo.WebPageItemID)
-                                .WhereEquals(nameof(WebPageUrlPathInfo.WebPageUrlPathContentLanguageID), contentLanguageInfo.ContentLanguageID)
-                                .WhereEquals(nameof(WebPageUrlPathInfo.WebPageUrlPathWebsiteChannelID), webSiteChannel.WebsiteChannelID)
-                                .FirstOrDefault()
-                                ?.WebPageUrlPathGUID;
-                        }
-
                         var webPageUrlPathModelBase = () => new WebPageUrlPathModel
                         {
-                            WebPageUrlPathGUID = webPageUrlPathGuid ?? Guid.NewGuid(),
-                            WebPageUrlPath = pageUrlModel.UrlPath,
+                            // WebPageUrlPathGUID to be assigned later
+                            // WebPageUrlPathIsLatest to be assigned later
+                            // WebPageUrlPathIsDraft to be assigned later
                             // WebPageUrlPathHash = null,
+                            WebPageUrlPath = pageUrlModel.UrlPath,
                             WebPageUrlPathWebPageItemGuid = webPageItemModel.WebPageItemGUID,
                             WebPageUrlPathWebsiteChannelGuid = webSiteChannel.WebsiteChannelGUID,
                             WebPageUrlPathContentLanguageGuid = contentLanguageInfo.ContentLanguageGUID,
@@ -358,32 +340,82 @@ public class ContentItemSimplifiedAdapter : IInfoAdapter<ContentItemInfo, IUmtMo
                         var pagePathAdapter = adapterFactory.CreateAdapter(webPageUrlPathModelBase(), new ProviderProxyContext());
                         ArgumentNullException.ThrowIfNull(pagePathAdapter);
 
+                        var modelsToSet = new List<WebPageUrlPathModel>();
                         if (commonDataModelsByLang.ContainsKey(pageUrlModel.LanguageName))
                         {
-                            foreach (var commonDataModel in commonDataModelsByLang[pageUrlModel.LanguageName])
+                            if (createStrategy == CreateStrategy.CreateOrUpdate)
                             {
+                                WebPageUrlPathInfo? webPageUrlPath = null;
+                                if (existingContentItem != null)
+                                {
+                                    webPageUrlPath = Provider<WebPageUrlPathInfo>.Instance.Get()
+                                        .WhereEquals(nameof(WebPageUrlPathInfo.WebPageUrlPathWebPageItemID), webPageItemInfo.WebPageItemID)
+                                        .WhereEquals(nameof(WebPageUrlPathInfo.WebPageUrlPathContentLanguageID), contentLanguageInfo.ContentLanguageID)
+                                        .WhereEquals(nameof(WebPageUrlPathInfo.WebPageUrlPathWebsiteChannelID), webSiteChannel.WebsiteChannelID)
+                                        .FirstOrDefault();
+                                }
+
+                                var commonDataModel = commonDataModelsByLang[pageUrlModel.LanguageName][0];
                                 var webPageUrlPathModel = webPageUrlPathModelBase().Apply(x =>
                                 {
+                                    x.WebPageUrlPathGUID = webPageUrlPath?.WebPageUrlPathGUID ?? Guid.NewGuid();
                                     x.WebPageUrlPathIsLatest = commonDataModel.ContentItemCommonDataIsLatest;
                                     x.WebPageUrlPathIsDraft = commonDataModel.ContentItemCommonDataVersionStatus == VersionStatus.Draft;
                                 });
+                                modelsToSet.Add(webPageUrlPathModel);
 
-                                var webPageUrlPathInfo = (WebPageUrlPathInfo)pagePathAdapter.Adapt(webPageUrlPathModel);
-                                pagePathAdapter.ProviderProxy.Save(webPageUrlPathInfo, webPageUrlPathModel);
+                            }
+                            else if (createStrategy == CreateStrategy.CreatePublishedAndDraft)
+                            {
+                                modelsToSet.Add(webPageUrlPathModelBase().Apply(x =>
+                                {
+                                    x.WebPageUrlPathGUID = Guid.NewGuid();
+                                    x.WebPageUrlPathIsLatest = false;
+                                    x.WebPageUrlPathIsDraft = false;
+                                }));
+                                modelsToSet.Add(webPageUrlPathModelBase().Apply(x =>
+                                {
+                                    x.WebPageUrlPathGUID = Guid.NewGuid();
+                                    x.WebPageUrlPathIsLatest = true;
+                                    x.WebPageUrlPathIsDraft = true;
+                                }));
+                            }
+                            else if (createStrategy == CreateStrategy.CreateDraftFromPublished)
+                            {
+                                var latestWebPageUrlPath = Provider<WebPageUrlPathInfo>.Instance.Get()
+                                    .WhereEquals(nameof(WebPageUrlPathInfo.WebPageUrlPathWebPageItemID), webPageItemInfo.WebPageItemID)
+                                    .WhereEquals(nameof(WebPageUrlPathInfo.WebPageUrlPathContentLanguageID), contentLanguageInfo.ContentLanguageID)
+                                    .WhereEquals(nameof(WebPageUrlPathInfo.WebPageUrlPathWebsiteChannelID), webSiteChannel.WebsiteChannelID)
+                                    .First();
+                                latestWebPageUrlPath.WebPageUrlPathIsLatest = false;
+                                pagePathAdapter.ProviderProxy.Save(latestWebPageUrlPath, webPageUrlPathModelBase());
 
-                                webPageUrlPathGuid = null;      // Existing WebPageUrlPath has been reused. For potential other entries, a new one has to be created
+                                modelsToSet.Add(webPageUrlPathModelBase().Apply(x =>
+                                {
+                                    x.WebPageUrlPathGUID = Guid.NewGuid();
+                                    x.WebPageUrlPathIsLatest = true;
+                                    x.WebPageUrlPathIsDraft = true;
+                                }));
+                            }
+                            else
+                            {
+                                throw new NotImplementedException($"Create strategy {createStrategy} not supported");
                             }
                         }
                         else
                         {
-                            var webPageUrlPathModel = webPageUrlPathModelBase().Apply(x =>
+                            modelsToSet.Add(webPageUrlPathModelBase().Apply(x =>
                             {
+                                x.WebPageUrlPathGUID = Guid.NewGuid();
                                 x.WebPageUrlPathIsLatest = true;
                                 x.WebPageUrlPathIsDraft = false;
-                            });
+                            }));
+                        }
 
-                            var webPageUrlPathInfo = (WebPageUrlPathInfo)pagePathAdapter.Adapt(webPageUrlPathModel);
-                            pagePathAdapter.ProviderProxy.Save(webPageUrlPathInfo, webPageUrlPathModel);
+                        foreach (var model in modelsToSet)
+                        {
+                            var webPageUrlPathInfo = (WebPageUrlPathInfo)pagePathAdapter.Adapt(model);
+                            pagePathAdapter.ProviderProxy.Save(webPageUrlPathInfo, model);
                         }
                     }
                 }

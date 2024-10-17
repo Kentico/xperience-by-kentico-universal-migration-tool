@@ -1027,7 +1027,7 @@
     "ContentItemContentFolderGUID": null,
     "IsSecured": false,
     "ContentTypeName": "UMT.Article",
-    "Name": "SimplifiedModelSampleAsSubPAge",
+    "Name": "SimplifiedModelSampleAsSubPage",
     "IsReusable": false,
     "ChannelName": "websitechannelExample",
     "LanguageData": [
@@ -1044,7 +1044,7 @@
             "$assetType": "AssetUrl",
             "Url": "https://devnet.kentico.com/DevNet/media/devnet/cms_screen.jpg",
             "ContentItemGuid": "9ed8de86-859c-4f6c-94f2-cdd6baed99fe",
-            "Identifier": "e310dc1f-9f97-4d62-884b-632e65ffdb89",
+            "Identifier": "73bfb96d-9486-438c-889f-fd9bc7ebc90f",
             "Name": "urlSourceSample.jpg",
             "Extension": ".jpg",
             "Size": null,
@@ -1101,6 +1101,255 @@
       "PageGuid": null,
       "ParentGuid": "4ea03de4-977e-48aa-9340-babf3d23bafa",
       "TreePath": "/simplified-sample/sub-page",
+      "ItemOrder": null
+    }
+  },
+  {
+    "$type": "ContentItemSimplified",
+    "ContentItemGUID": "017edc1e-95c6-43e4-89d5-716c6ae594b2",
+    "ContentItemContentFolderGUID": null,
+    "IsSecured": false,
+    "ContentTypeName": "UMT.Article",
+    "Name": "SimplifiedModelSampleAsSubPage2_NoneToDraft",
+    "IsReusable": false,
+    "ChannelName": "websitechannelExample",
+    "LanguageData": [
+      {
+        "LanguageName": "en-US",
+        "DisplayName": "Simplified model sample sub page 2 [Draft] - en-us",
+        "VersionStatus": 1,
+        "UserGuid": "dbfcc244-2cb9-4934-857f-9d75404c1553",
+        "ScheduledPublishWhen": null,
+        "ScheduledUnpublishWhen": null,
+        "ContentItemData": {
+          "ArticleTitle": "en-US UMT simplified model creation as sub page 2 [Draft]",
+          "ArticleTeaser": {
+            "$assetType": "AssetUrl",
+            "Url": "https://devnet.kentico.com/DevNet/media/devnet/cms_screen.jpg",
+            "ContentItemGuid": "017edc1e-95c6-43e4-89d5-716c6ae594b2",
+            "Identifier": "2f816587-3e63-4459-a6dc-dfb2aaa0d922",
+            "Name": "urlSourceSample.jpg",
+            "Extension": ".jpg",
+            "Size": null,
+            "LastModified": null
+          },
+          "ArticleText": "This article is only example of creation UMT simplified model in Draft, while before import the item wasn\u0027t present for en-US language",
+          "RelatedArticles": null,
+          "RelatedFaq": null
+        }
+      },
+      {
+        "LanguageName": "en-GB",
+        "DisplayName": "Simplified model sample sub page 2 [Draft] - en-gb",
+        "VersionStatus": 1,
+        "UserGuid": "dbfcc244-2cb9-4934-857f-9d75404c1553",
+        "ScheduledPublishWhen": null,
+        "ScheduledUnpublishWhen": null,
+        "ContentItemData": {
+          "ArticleTitle": "en-GB UMT simplified model creation as sub page 2 [Draft]",
+          "ArticleTeaser": {
+            "$assetType": "AssetUrl",
+            "Url": "https://devnet.kentico.com/DevNet/media/devnet/cms_screen.jpg",
+            "ContentItemGuid": "017edc1e-95c6-43e4-89d5-716c6ae594b2",
+            "Identifier": "8d6191f6-3b02-4bce-a48e-4282462549b6",
+            "Name": "urlSourceSample.jpg",
+            "Extension": ".jpg",
+            "Size": null,
+            "LastModified": null
+          },
+          "ArticleText": "This article is only example of creation UMT simplified model in Draft, while before import the item wasn\u0027t present for en-GB language",
+          "RelatedArticles": null,
+          "RelatedFaq": null
+        }
+      }
+    ],
+    "PageData": {
+      "PageUrls": [
+        {
+          "UrlPath": "en-us/simplified-sample/sub-page-2",
+          "PathIsDraft": null,
+          "LanguageName": "en-US"
+        },
+        {
+          "UrlPath": "en-gb/simplified-sample/sub-page-2",
+          "PathIsDraft": null,
+          "LanguageName": "en-GB"
+        },
+        {
+          "UrlPath": "es/simplified-sample/sub-page-2",
+          "PathIsDraft": null,
+          "LanguageName": "es-CU"
+        }
+      ],
+      "PageGuid": null,
+      "ParentGuid": "4ea03de4-977e-48aa-9340-babf3d23bafa",
+      "TreePath": "/simplified-sample/sub-page-2",
+      "ItemOrder": null
+    }
+  },
+  {
+    "$type": "ContentItemSimplified",
+    "ContentItemGUID": "73298f71-0bb1-4083-a674-a876769e3dd9",
+    "ContentItemContentFolderGUID": null,
+    "IsSecured": false,
+    "ContentTypeName": "UMT.Article",
+    "Name": "SimplifiedModelSampleAsSubPage3_Published",
+    "IsReusable": false,
+    "ChannelName": "websitechannelExample",
+    "LanguageData": [
+      {
+        "LanguageName": "en-US",
+        "DisplayName": "Simplified model sample sub page 3 [Published] - en-us",
+        "VersionStatus": 2,
+        "UserGuid": "dbfcc244-2cb9-4934-857f-9d75404c1553",
+        "ScheduledPublishWhen": null,
+        "ScheduledUnpublishWhen": null,
+        "ContentItemData": {
+          "ArticleTitle": "en-US UMT simplified model creation as sub page 3 [Published]",
+          "ArticleTeaser": {
+            "$assetType": "AssetUrl",
+            "Url": "https://devnet.kentico.com/DevNet/media/devnet/cms_screen.jpg",
+            "ContentItemGuid": "73298f71-0bb1-4083-a674-a876769e3dd9",
+            "Identifier": "9ec08cab-8d66-4dc7-97b2-be7981a6eff7",
+            "Name": "urlSourceSample.jpg",
+            "Extension": ".jpg",
+            "Size": null,
+            "LastModified": null
+          },
+          "ArticleText": "Created by UMT simplified model in Published state, as a prerequisite for subsequent Draft import for en-US language",
+          "RelatedArticles": null,
+          "RelatedFaq": null
+        }
+      },
+      {
+        "LanguageName": "en-GB",
+        "DisplayName": "Simplified model sample sub page 3 [Published] - en-gb",
+        "VersionStatus": 2,
+        "UserGuid": "dbfcc244-2cb9-4934-857f-9d75404c1553",
+        "ScheduledPublishWhen": null,
+        "ScheduledUnpublishWhen": null,
+        "ContentItemData": {
+          "ArticleTitle": "en-GB UMT simplified model creation as sub page 3 [Published]",
+          "ArticleTeaser": {
+            "$assetType": "AssetUrl",
+            "Url": "https://devnet.kentico.com/DevNet/media/devnet/cms_screen.jpg",
+            "ContentItemGuid": "73298f71-0bb1-4083-a674-a876769e3dd9",
+            "Identifier": "8d6191f6-3b02-4bce-a48e-4282462549b6",
+            "Name": "urlSourceSample.jpg",
+            "Extension": ".jpg",
+            "Size": null,
+            "LastModified": null
+          },
+          "ArticleText": "Created by UMT simplified model in Published state, as a prerequisite for subsequent Draft import for en-GB language",
+          "RelatedArticles": null,
+          "RelatedFaq": null
+        }
+      }
+    ],
+    "PageData": {
+      "PageUrls": [
+        {
+          "UrlPath": "en-us/simplified-sample/sub-page-3",
+          "PathIsDraft": null,
+          "LanguageName": "en-US"
+        },
+        {
+          "UrlPath": "en-gb/simplified-sample/sub-page-3",
+          "PathIsDraft": null,
+          "LanguageName": "en-GB"
+        },
+        {
+          "UrlPath": "es/simplified-sample/sub-page-3",
+          "PathIsDraft": null,
+          "LanguageName": "es-CU"
+        }
+      ],
+      "PageGuid": null,
+      "ParentGuid": "4ea03de4-977e-48aa-9340-babf3d23bafa",
+      "TreePath": "/simplified-sample/sub-page-3",
+      "ItemOrder": null
+    }
+  },
+  {
+    "$type": "ContentItemSimplified",
+    "ContentItemGUID": "73298f71-0bb1-4083-a674-a876769e3dd9",
+    "ContentItemContentFolderGUID": null,
+    "IsSecured": false,
+    "ContentTypeName": "UMT.Article",
+    "Name": "SimplifiedModelSampleAsSubPage3_PublishedToDraft",
+    "IsReusable": false,
+    "ChannelName": "websitechannelExample",
+    "LanguageData": [
+      {
+        "LanguageName": "en-US",
+        "DisplayName": "Simplified model sample sub page 3 [Published-\u003EDraft] - en-us",
+        "VersionStatus": 1,
+        "UserGuid": "dbfcc244-2cb9-4934-857f-9d75404c1553",
+        "ScheduledPublishWhen": null,
+        "ScheduledUnpublishWhen": null,
+        "ContentItemData": {
+          "ArticleTitle": "en-US UMT simplified model creation as sub page 3 [Published-\u003EDraft]",
+          "ArticleTeaser": {
+            "$assetType": "AssetUrl",
+            "Url": "https://devnet.kentico.com/DevNet/media/devnet/cms_screen.jpg",
+            "ContentItemGuid": "73298f71-0bb1-4083-a674-a876769e3dd9",
+            "Identifier": "d72b08a3-4008-412c-aea5-8b4781847d32",
+            "Name": "urlSourceSample.jpg",
+            "Extension": ".jpg",
+            "Size": null,
+            "LastModified": null
+          },
+          "ArticleText": "Created by UMT simplified model in Published state, as a prerequisite for subsequent Draft import for en-US language",
+          "RelatedArticles": null,
+          "RelatedFaq": null
+        }
+      },
+      {
+        "LanguageName": "en-GB",
+        "DisplayName": "Simplified model sample sub page 3 [Published-\u003EDraft] - en-gb",
+        "VersionStatus": 1,
+        "UserGuid": "dbfcc244-2cb9-4934-857f-9d75404c1553",
+        "ScheduledPublishWhen": null,
+        "ScheduledUnpublishWhen": null,
+        "ContentItemData": {
+          "ArticleTitle": "en-GB UMT simplified model creation as sub page 3 [Published-\u003EDraft]",
+          "ArticleTeaser": {
+            "$assetType": "AssetUrl",
+            "Url": "https://devnet.kentico.com/DevNet/media/devnet/cms_screen.jpg",
+            "ContentItemGuid": "73298f71-0bb1-4083-a674-a876769e3dd9",
+            "Identifier": "8d6191f6-3b02-4bce-a48e-4282462549b6",
+            "Name": "urlSourceSample.jpg",
+            "Extension": ".jpg",
+            "Size": null,
+            "LastModified": null
+          },
+          "ArticleText": "Created by UMT simplified model in Published state, as a prerequisite for subsequent Draft import for en-GB language",
+          "RelatedArticles": null,
+          "RelatedFaq": null
+        }
+      }
+    ],
+    "PageData": {
+      "PageUrls": [
+        {
+          "UrlPath": "en-us/simplified-sample/sub-page-3-new-path",
+          "PathIsDraft": null,
+          "LanguageName": "en-US"
+        },
+        {
+          "UrlPath": "en-gb/simplified-sample/sub-page-3-new-path",
+          "PathIsDraft": null,
+          "LanguageName": "en-GB"
+        },
+        {
+          "UrlPath": "es/simplified-sample/sub-page-3-new-path",
+          "PathIsDraft": null,
+          "LanguageName": "es-CU"
+        }
+      ],
+      "PageGuid": null,
+      "ParentGuid": "4ea03de4-977e-48aa-9340-babf3d23bafa",
+      "TreePath": "/simplified-sample/sub-page-3-new-path",
       "ItemOrder": null
     }
   },

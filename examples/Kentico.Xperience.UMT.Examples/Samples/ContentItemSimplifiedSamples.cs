@@ -13,7 +13,9 @@ public static class ContentItemSimplifiedSamples
     public static readonly Guid SampleArticleWebPageGuid = new Guid("4EA03DE4-977E-48AA-9340-BABF3D23BAFA");
     
     public static readonly Guid SampleArticleSubPageContentItemGuid = new Guid("9ED8DE86-859C-4F6C-94F2-CDD6BAED99FE");
-    
+    public static readonly Guid SampleArticleSubPage2ContentItemGuid = new Guid("017EDC1E-95C6-43E4-89D5-716C6AE594B2");
+    public static readonly Guid SampleArticleSubPage3ContentItemGuid = new Guid("73298F71-0BB1-4083-A674-A876769E3DD9");
+
     [Sample("ContentItemSimplifiedModel.Sample.Article", "Simplified model for importing webpage content item", "Simplified model for webpage content item sample")]
     public static ContentItemSimplifiedModel SampleArticleContentItemSimplifiedModel => new()
     {
@@ -111,35 +113,35 @@ public static class ContentItemSimplifiedSamples
             }
         ],
     };
-    
-    [Sample("ContentItemSimplifiedModel.Sample.ArticleSubPage", "Simplified model for importing webpage content item with parent", "Simplified model for webpage content item sample with parent")]
-    public static ContentItemSimplifiedModel SampleArticleSubPageContentItemSimplifiedModel => new()
+
+    public static ContentItemSimplifiedModel SampleArticleSubPageContentItemSimplifiedModelBase(Guid contentItemGuid, string name, string displayName, string treePath, string title, string articleText, Dictionary<string, VersionStatus> languageVersionStatus) => new()
     {
-        ContentItemGUID = SampleArticleSubPageContentItemGuid,
-        Name = "SimplifiedModelSampleAsSubPAge",
+        ContentItemGUID = contentItemGuid,
+        Name = name,
         IsSecured = false,
         ContentTypeName = DataClassSamples.ArticleClassSample.ClassName,
         IsReusable = false,
         // channel name is required only for web site content items
         ChannelName = ChannelSamples.SampleChannelForWebSiteChannel.ChannelName,
         // required when content item type is website content item
-        PageData = new() {
+        PageData = new()
+        {
             ParentGuid = SampleArticleWebPageGuid,
-            TreePath = "/simplified-sample/sub-page",
+            TreePath = treePath,
             PageUrls = [
                 new()
                 {
-                    UrlPath = "en-us/simplified-sample/sub-page",
+                    UrlPath = $"en-us{treePath}",
                     LanguageName = ContentLanguageSamples.SampleContentLanguageEnUs.ContentLanguageName!
                 },
                 new()
                 {
-                    UrlPath = "en-gb/simplified-sample/sub-page",
+                    UrlPath = $"en-gb{treePath}",
                     LanguageName = ContentLanguageSamples.SampleContentLanguageEnGb.ContentLanguageName!
                 },
                 new()
                 {
-                    UrlPath = "es/simplified-sample/sub-page",
+                    UrlPath = $"es{treePath}",
                     LanguageName = ContentLanguageSamples.SampleContentLanguageEs.ContentLanguageName!
                 }
             ]
@@ -149,23 +151,23 @@ public static class ContentItemSimplifiedSamples
             new()
             {
                 LanguageName = ContentLanguageSamples.SampleContentLanguageEnUs.ContentLanguageName!,
-                DisplayName = "Simplified model sample sub page - en-us",
-                VersionStatus = VersionStatus.InitialDraft,
+                DisplayName = $"{displayName} - en-us",
+                VersionStatus = languageVersionStatus[ContentLanguageSamples.SampleContentLanguageEnUs.ContentLanguageName!],
                 UserGuid = UserSamples.SampleAdminGuid,
                 ContentItemData = new Dictionary<string, object?>
                 {
-                    ["ArticleTitle"] = "en-US UMT simplified model creation as sub page",
+                    ["ArticleTitle"] = $"en-US {title}",
                     ["ArticleTeaser"] = new AssetUrlSource
                     {
-                        ContentItemGuid = SampleArticleSubPageContentItemGuid,
-                        Identifier = new Guid("E310DC1F-9F97-4D62-884B-632E65FFDB89"),
+                        ContentItemGuid = contentItemGuid,
+                        Identifier = Guid.NewGuid(),
                         Name = "urlSourceSample.jpg",
                         Extension = ".jpg",
                         Size = null,
                         LastModified = null,
                         Url = "https://devnet.kentico.com/DevNet/media/devnet/cms_screen.jpg"
                     },
-                    ["ArticleText"] = "This article is only example of creation UMT simplified model for en-US language",
+                    ["ArticleText"] = $"{articleText} for en-US language",
                     ["RelatedArticles"] = null,
                     ["RelatedFaq"] = null
                 }
@@ -173,15 +175,15 @@ public static class ContentItemSimplifiedSamples
             new()
             {
                 LanguageName = ContentLanguageSamples.SampleContentLanguageEnGb.ContentLanguageName!,
-                DisplayName = "Simplified model sample sub page - en-gb",
-                VersionStatus = VersionStatus.Published,
+                DisplayName = $"{displayName} - en-gb",
+                VersionStatus = languageVersionStatus[ContentLanguageSamples.SampleContentLanguageEnGb.ContentLanguageName!],
                 UserGuid = UserSamples.SampleAdminGuid,
                 ContentItemData = new Dictionary<string, object?>
                 {
-                    ["ArticleTitle"] = "en-GB UMT simplified model creation as sub page",
+                    ["ArticleTitle"] = $"en-GB {title}",
                     ["ArticleTeaser"] = new AssetUrlSource
                     {
-                        ContentItemGuid = SampleArticleSubPageContentItemGuid,
+                        ContentItemGuid = contentItemGuid,
                         Identifier = new Guid("8D6191F6-3B02-4BCE-A48E-4282462549B6"),
                         Name = "urlSourceSample.jpg",
                         Extension = ".jpg",
@@ -189,14 +191,78 @@ public static class ContentItemSimplifiedSamples
                         LastModified = null,
                         Url = "https://devnet.kentico.com/DevNet/media/devnet/cms_screen.jpg"
                     },
-                    ["ArticleText"] = "This article is only example of creation UMT simplified model for en-GB language",
+                    ["ArticleText"] = $"{articleText} for en-GB language",
                     ["RelatedArticles"] = null,
                     ["RelatedFaq"] = null
                 }
-            }
+            },
         ],
     };
-    
+
+    [Sample("ContentItemSimplifiedModel.Sample.ArticleSubPage", "Simplified model for importing webpage content item with parent", "Simplified model for webpage content item sample with parent")]
+    public static ContentItemSimplifiedModel SampleArticleSubPageContentItemSimplifiedModel =>
+        SampleArticleSubPageContentItemSimplifiedModelBase(
+            contentItemGuid: SampleArticleSubPageContentItemGuid,
+            name: "SimplifiedModelSampleAsSubPage",
+            displayName: "Simplified model sample sub page",
+            treePath: "/simplified-sample/sub-page",
+            title: "UMT simplified model creation as sub page",
+            articleText: "This article is only example of creation UMT simplified model",
+            new()
+            {
+                [ContentLanguageSamples.SampleContentLanguageEnUs.ContentLanguageName!] = VersionStatus.InitialDraft,
+                [ContentLanguageSamples.SampleContentLanguageEnGb.ContentLanguageName!] = VersionStatus.Published,
+            }
+        );
+
+    [Sample("ContentItemSimplifiedModel.Sample.ArticleSubPage2_NoneToDraft", "Simplified model for importing webpage content item with parent, in Draft state while the item wasn't present before import", "Simplified model for webpage content item sample with parent [None->Draft]")]
+    public static ContentItemSimplifiedModel SampleArticleSubPage2ContentItemSimplifiedModel_NoneToDraft =>
+        SampleArticleSubPageContentItemSimplifiedModelBase(
+            contentItemGuid: SampleArticleSubPage2ContentItemGuid,
+            name: "SimplifiedModelSampleAsSubPage2_NoneToDraft",
+            displayName: "Simplified model sample sub page 2 [Draft]",
+            treePath: "/simplified-sample/sub-page-2",
+            title: "UMT simplified model creation as sub page 2 [Draft]",
+            articleText: "This article is only example of creation UMT simplified model in Draft, while before import the item wasn't present",
+            new()
+            {
+                [ContentLanguageSamples.SampleContentLanguageEnUs.ContentLanguageName!] = VersionStatus.Draft,
+                [ContentLanguageSamples.SampleContentLanguageEnGb.ContentLanguageName!] = VersionStatus.Draft,
+            }
+        );
+
+    [Sample("ContentItemSimplifiedModel.Sample.ArticleSubPage3_Published", "Simplified model for importing webpage content item with parent, in Published state, as a prerequisite for ContentItemSimplifiedModel.Sample.ArticleSubPage3_PublishedToDraft", "Simplified model for webpage content item sample with parent [Published]")]
+    public static ContentItemSimplifiedModel SampleArticleSubPage3ContentItemSimplifiedModel_Published =>
+        SampleArticleSubPageContentItemSimplifiedModelBase(
+            contentItemGuid: SampleArticleSubPage3ContentItemGuid,
+            name: "SimplifiedModelSampleAsSubPage3_Published",
+            displayName: "Simplified model sample sub page 3 [Published]",
+            treePath: "/simplified-sample/sub-page-3",
+            title: "UMT simplified model creation as sub page 3 [Published]",
+            articleText: "Created by UMT simplified model in Published state, as a prerequisite for subsequent Draft import",
+            new()
+            {
+                [ContentLanguageSamples.SampleContentLanguageEnUs.ContentLanguageName!] = VersionStatus.Published,
+                [ContentLanguageSamples.SampleContentLanguageEnGb.ContentLanguageName!] = VersionStatus.Published,
+            }
+        );
+
+    [Sample("ContentItemSimplifiedModel.Sample.ArticleSubPage3_PublishedToDraft", "Simplified model for importing webpage content item with parent, in Draft state, while the item was already present and Published", "Simplified model for webpage content item sample with parent [Published->Draft]")]
+    public static ContentItemSimplifiedModel SampleArticleSubPage3ContentItemSimplifiedModel_PublishedToDraft =>
+        SampleArticleSubPageContentItemSimplifiedModelBase(
+            contentItemGuid: SampleArticleSubPage3ContentItemGuid,
+            name: "SimplifiedModelSampleAsSubPage3_PublishedToDraft",
+            displayName: "Simplified model sample sub page 3 [Published->Draft]",
+            treePath: "/simplified-sample/sub-page-3-new-path",
+            title: "UMT simplified model creation as sub page 3 [Published->Draft]",
+            articleText: "Created by UMT simplified model in Published state, as a prerequisite for subsequent Draft import",
+            new()
+            {
+                [ContentLanguageSamples.SampleContentLanguageEnUs.ContentLanguageName!] = VersionStatus.Draft,
+                [ContentLanguageSamples.SampleContentLanguageEnGb.ContentLanguageName!] = VersionStatus.Draft,
+            }
+        );
+
     [Sample("ContentItemSimplifiedModel.Sample.Faq", "This sample describes how to create content item data inside XbyK", "Simplified model for reusable content item sample")]
     public static ContentItemSimplifiedModel SampleFaqContentItemSimplifiedModel => new()
     {
