@@ -26,23 +26,42 @@ on:
       - "**.props"
       - "**.targets"
       - "**.sln"
-
 jobs:
-  build_and_test:
-    name: Build and Test
+  build:
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        shell: pwsh
 
-    env:
-      ASPNETCORE_ENVIRONMENT: CI
-      DOTNET_CLI_TELEMETRY_OPTOUT: 1
-      DOTNET_SKIP_FIRST_TIME_EXPERIENCE: 1
-      DOTNET_NOLOGO: 1
+    services:
+      sqlserver:
+        image: mcr.microsoft.com/mssql/server:2019-latest
+        env:
+          SA_PASSWORD: "Your_password123"
+          ACCEPT_EULA: "Y"
+        ports:
+          - 1433:1433
+        options: >-
+          --health-cmd "exit 0" 
+          --health-interval 10s 
+          --health-timeout 5s 
+          --health-retries 5
 
     steps:
-      - uses: actions/checkout@v3
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Wait for SQL Server to be ready
+        run: |
+          for i in {1..30}; do
+            if /opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P $SA_PASSWORD -Q "SELECT 1" &> /dev/null; then
+              echo "SQL Server is up and running"
+              break
+            fi
+            echo "Waiting for SQL Server to be ready..."
+            sleep 2
+          done
+
+      - name: Print SQL Server name
+        run: |
+          /opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P $SA_PASSWORD -Q "SELECT @@SERVERNAME"
 
       - name: Setup .NET
         uses: actions/setup-dotnet@v3
@@ -60,7 +79,29 @@ jobs:
             --configuration Release `
             --no-restore
 
-####### The only tests present are now Playwright NUnit tests, 
+      - name: Get kentico template
+        run: |
+          dotnet new -i Kentico.Xperience.Templates
+
+      - name: Create Kentico Xperience project
+        run: |
+          dotnet new kentico-boilerplate -n kentico-boilerplate
+
+      - name: Tool restore
+        run: |
+          dotnet tool restore
+
+      - name: Create Kentico database
+        run: |
+          dotnet kentico-xperience-dbmanager -- -s "localhost" -d "pwtest" -u sa -p $SA_PASSWORD -a "admin" --hash-string-salt "<hash_string_salt>" --license-file "<license_file_path>"
+
+      - name: Run Kentico Xperience project
+        run: |
+          dotnet run
+
+# TODO how to get licence file
+
+####### The only tests present are now Playwright NUnit tests,
 ####### which aren't properly integrated into this pipeline
 #      - name: Test Solution
 #        run: |
