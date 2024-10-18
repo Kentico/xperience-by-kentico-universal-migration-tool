@@ -77,14 +77,37 @@ jobs:
 
       - name: Install dependencies
         run: |
-          dotnet restore `
-            --locked-mode
+          dotnet restore --locked-mode
 
       - name: Build Solution
         run: |
-          dotnet build `
-            --configuration Release `
-            --no-restore
+          dotnet build --configuration Release --no-restore
+
+      - name: Get kentico template
+        run: |
+          dotnet new -i Kentico.Xperience.Templates
+
+      - name: Create Kentico Xperience project
+        run: |
+          mkdir xbk
+          cd xbk
+          dotnet new kentico-boilerplate -n kentico-boilerplate
+
+      - name: Tool restore
+        run: |
+          dotnet tool restore
+
+      - name: Create Kentico database
+        run: |
+          cd xbk
+          dotnet kentico-xperience-dbmanager -- -s "localhost" -d "pwtest" -u sa -p $SA_PASSWORD -a "admin" --hash-string-salt "<hash_string_salt>" --license-file "<license_file_path>"
+
+      - name: Run Kentico Xperience project
+        run: |
+          cd xbk
+          dotnet run
+
+# TODO how to get licence file
 
 ####### The only tests present are now Playwright NUnit tests,
 ####### which aren't properly integrated into this pipeline
