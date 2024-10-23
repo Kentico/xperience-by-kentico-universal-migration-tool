@@ -99,17 +99,24 @@ jobs:
         run: |
           dotnet tool restore
 
+      - name: Create license file
+        run: |
+          echo ${{ secrets.XPERIENCE_BY_KENTICO_LICENSE }} > xbk/license.lic
+
       - name: Create Kentico database
+
         run: |
           cd xbk
-          dotnet kentico-xperience-dbmanager -- -s "localhost" -d "pwtest" -u "sa" -p "$SA_PASSWORD" -a "admin" --recreate-existing-database --hash-string-salt "<hash_string_salt>" --license-file "<license_file_path>"
+          dotnet kentico-xperience-dbmanager -- -s "localhost" -d "pwtest" -u "sa" -p "$SA_PASSWORD" -a "admin" --recreate-existing-database --hash-string-salt "<hash_string_salt>" --license-file "license.lic"
 
       - name: Run Kentico Xperience project
         run: |
           cd xbk
           dotnet run
 
-# TODO how to get licence file
+      - name: Remove license file
+        run: |
+          rm xbk/license.lic
 
 ####### The only tests present are now Playwright NUnit tests,
 ####### which aren't properly integrated into this pipeline
