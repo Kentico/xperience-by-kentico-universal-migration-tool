@@ -47,28 +47,7 @@ jobs:
           --health-retries 5
 
     steps:
-      # - name: Install sqlcmd
-      #   run: |
-      #     sudo apt-get update
-      #     sudo ACCEPT_EULA=y apt-get install -y mssql-tools unixodbc-dev
-      #     echo 'export PATH="$PATH:/opt/mssql-tools/bin"' >> ~/.bashrc
-      #     source ~/.bashrc
-
-      # - name: Wait for SQL Server to be ready
-      #   run: |
-      #     for i in {1..30}; do
-      #       if /opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P $SA_PASSWORD -Q "SELECT 1" &> /dev/null; then
-      #         echo "SQL Server is up and running"
-      #         break
-      #       fi
-      #       echo "Waiting for SQL Server to be ready..."
-      #       sleep 2
-      #     done
-
-      # - name: Print SQL Server name
-      #   run: |
-      #     /opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P $SA_PASSWORD -Q "SELECT @@SERVERNAME"
-
+      # UMT setup
       # - name: Checkout code
       #   uses: actions/checkout@v3
 
@@ -85,6 +64,7 @@ jobs:
       #   run: |
       #     dotnet build --configuration Release --no-restore
 
+      # Xperience by Kentico setup
       - name: Get kentico template
         run: |
           dotnet new -i Kentico.Xperience.Templates
@@ -94,29 +74,21 @@ jobs:
           mkdir xbk
           cd xbk
           echo "y" | dotnet new kentico-xperience-mvc -n kentico-boilerplate
-
-      - name: Tool restore
-        run: |
           dotnet tool restore
-
-      - name: Create license file
-        run: |
-          echo ${{ secrets.XPERIENCE_BY_KENTICO_LICENSE }} > xbk/license.lic
-
-      - name: Create Kentico database
-
-        run: |
-          cd xbk
+          echo ${{ secrets.XPERIENCE_BY_KENTICO_LICENSE }} > license.lic
           dotnet kentico-xperience-dbmanager -- -s "localhost" -d "pwtest" -u "sa" -p "$SA_PASSWORD" -a "admin" --recreate-existing-database --hash-string-salt "<hash_string_salt>" --license-file "license.lic"
+          rm license.lic
 
-      - name: Run Kentico Xperience project
+      # Test
+      - name: Run Kentico Xperience project in background
         run: |
           cd xbk
-          dotnet run
+          nohup dotnet run &
+          sleep 30
 
-      - name: Remove license file
+      - name: Stop XbK
         run: |
-          rm xbk/license.lic
+          pkill -f "dotnet run"
 
 ####### The only tests present are now Playwright NUnit tests,
 ####### which aren't properly integrated into this pipeline
@@ -126,3 +98,27 @@ jobs:
 #            --configuration Release `
 #            --no-build `
 #            --no-restore
+
+# SQL Server wait
+
+# - name: Install sqlcmd
+#   run: |
+#     sudo apt-get update
+#     sudo ACCEPT_EULA=y apt-get install -y mssql-tools unixodbc-dev
+#     echo 'export PATH="$PATH:/opt/mssql-tools/bin"' >> ~/.bashrc
+#     source ~/.bashrc
+
+# - name: Wait for SQL Server to be ready
+#   run: |
+#     for i in {1..30}; do
+#       if /opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P $SA_PASSWORD -Q "SELECT 1" &> /dev/null; then
+#         echo "SQL Server is up and running"
+#         break
+#       fi
+#       echo "Waiting for SQL Server to be ready..."
+#       sleep 2
+#     done
+
+# - name: Print SQL Server name
+#   run: |
+#     /opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P $SA_PASSWORD -Q "SELECT @@SERVERNAME"
