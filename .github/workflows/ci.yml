@@ -26,24 +26,28 @@ on:
       - "**.props"
       - "**.targets"
       - "**.sln"
+
+env:
+  XBK_DIR: ${{ github.workspace }}/../xbk
+  SA_PASSWORD: "Your_password123"
+  XBK_ADMIN_PASSWORD: "administrator"
+  LICENCE_FILE: "licence.txt"
+
 jobs:
   build:
     runs-on: ubuntu-latest
-    env:
-      SA_PASSWORD: "Your_password123"
-      ACCEPT_EULA: "Y"
     services:
       sqlserver:
         image: mcr.microsoft.com/mssql/server:2019-latest
         env:
-          SA_PASSWORD: "Your_password123"
+          SA_PASSWORD: ${{ env.SA_PASSWORD }}
           ACCEPT_EULA: "Y"
         ports:
           - 1433:1433
         options: >-
-          --health-cmd "exit 0" 
-          --health-interval 10s 
-          --health-timeout 5s 
+          --health-cmd "exit 0"
+          --health-interval 10s
+          --health-timeout 5s
           --health-retries 5
 
     steps:
@@ -52,7 +56,7 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Setup .NET
-        uses: actions/setup-dotnet@v3
+        uses: actions/setup-dotnet@v4
         with:
           global-json-file: global.json
 
@@ -65,45 +69,50 @@ jobs:
           dotnet build --configuration Release --no-restore
 
       # Xperience by Kentico setup
-      - name: Get kentico template
+      - name: <XbK> Install kentico templates
         run: |
-          dotnet new -i Kentico.Xperience.Templates
+          mkdir $XBK_DIR
+          cd $DIR
+          dotnet new install Kentico.Xperience.Templates
 
-      - name: Create Kentico Xperience project
+      - name: <XbK> Create Kentico Xperience project
+        working-directory: ${{ env.XBK_DIR }}
         run: |
-          mkdir xbk
-          cd xbk
           echo "y" | dotnet new kentico-xperience-mvc -n kentico-boilerplate
-          dotnet tool restore
-          echo ${{ secrets.XPERIENCE_BY_KENTICO_LICENSE }} > license.lic
-          dotnet kentico-xperience-dbmanager -- -s "localhost" -d "pwtest" -u "sa" -p "$SA_PASSWORD" -a "admin" --recreate-existing-database --hash-string-salt "<hash_string_salt>" --license-file "license.lic"
-          rm license.lic
 
-      # Test
-      - name: Run Kentico Xperience project in background
+      - name: <XbK> Run kentico dbmanager with license
+        working-directory: ${{ env.XBK_DIR }}
         run: |
-          cd xbk
-          nohup dotnet run &
+          echo ${{ secrets.XPERIENCE_BY_KENTICO_LICENSE }} > $LICENCE_FILE
+          dotnet kentico-xperience-dbmanager -- -s "localhost" -d "pwtest" -u "sa" -p "$SA_PASSWORD" -a "$XBK_ADMIN_PASSWORD" --recreate-existing-database --hash-string-salt "<hash_string_salt>" --license-file "$LICENCE_FILE"
+          rm $LICENCE_FILE
 
-      - name: Wait for Kentico Xperience project to be ready
+      - name: <XbK> Run kentico boilerplate
+        working-directory: ${{ env.XBK_DIR }}
         run: |
-          cd xbk
-          echo $(cat Properties/launchSettings.json | jq -r '.profiles.xbk'.applicationUrl)
-          for i in {1..10}; do
-            if curl -s $(cat Properties/launchSettings.json | jq -r '.profiles.xbk'.applicationUrl); then
-              echo "Kentico Xperience project is up and running"
-              break
-            fi
-            echo "Waiting for Kentico Xperience project to be ready..."
-            sleep 2
-          done
+          nohup dotnet run &> nohup.out &
+
+      # Playwright
+      - name: Install Playwright
+        working-directory: ${{ github.workspace }}/tests/Kentico.Xperience.UMT.Tests
+        run: |
+          dotnet build
+          pwsh bin/Debug/net8.0/playwright.ps1 install --with-deps
+
+      - name: Replace BASE_URL in test.runsettings
+        run: |
+          cat $XBK_DIR/Properties/launchSettings.json
+          export BASE_URL=$(cat $XBK_DIR/Properties/launchSettings.json | jq -r '.profiles.kentico_boilerplate.applicationUrl')
+          sed -i -e "s|http://localhost:53798|$BASE_URL|g" test.runsettings # TODO: Replace with regex
+
+      - name: Print xbk output
+        run: |
+          cat $XBK_DIR/nohup.out
 
       - name: run tests
         run: |
-          #cd xbk
-          #export BASE_URL=$(cat Properties/launchSettings.json | jq -r '.profiles.xbk'.applicationUrl)
-          dotnet test -c Release --no-build --no-restore
+          xvfb-run dotnet test --settings:test.runsettings
 
       - name: Stop XbK
         run: |
-          pkill -f "dotnet run"
+          pkill -f "dotnet"

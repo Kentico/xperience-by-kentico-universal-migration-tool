@@ -1,6 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <!-- File name extension must be .runsettings -->
 <RunSettings>
+  <Playwright>
+    <BrowserName>chrome</BrowserName>
+    <LaunchOptions>
+      <Headless>true</Headless>
+    </LaunchOptions>
+  </Playwright>
   <RunConfiguration>
     <EnvironmentVariables>
       <BASE_URL>http://localhost:53798</BASE_URL>
