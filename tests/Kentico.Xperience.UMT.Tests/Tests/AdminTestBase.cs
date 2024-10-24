@@ -90,6 +90,8 @@ namespace TestAfterMigration.Tests
             return await GetTreeNodeChildren(Page.GetByRole(AriaRole.Treeitem).Nth(0), rootOnly, true);
         }
 
+        protected async Task<IEnumerable<PageTreeItem>> GetPageTreeItemsFlat(bool rootOnly = false) => (await GetPageTreeItems(rootOnly)).SelectMany(x => new PageTreeItem[] { x }.Concat(x.Children));
+
         private async Task<IEnumerable<PageTreeItem>> GetTreeNodeChildren(ILocator parentNode, bool rootOnly, bool isChannelRoot)
         {
             var children = new List<PageTreeItem>();

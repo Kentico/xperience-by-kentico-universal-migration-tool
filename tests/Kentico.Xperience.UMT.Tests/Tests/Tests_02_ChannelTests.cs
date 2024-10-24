@@ -164,5 +164,48 @@ namespace TestAfterMigration.Tests
                 await Assertions.Expect(Page.GetByText("This page does not exist in the current language")).ToHaveCountAsync(1);
             }
         }
+
+        [Test]
+        public async Task Test00800_Draft_Can_Be_Published()
+        {
+            await OpenAdminApplication("website Channel Example");
+            await SelectTopDropdownLanguage("English (United States)");
+            var treeItems = await GetPageTreeItemsFlat();
+            
+            var item = treeItems.First(x => string.Equals(x.Title, "Simplified model sample sub page 2 [Published->Draft] - en-us"));
+            await item.ClickAsync();
+            await Debounce();
+
+            await Page.GetByTestId("page-menu-actions").GetByTestId("content-item-menu-split-button-publish").ClickAsync();
+            await Page.GetByTestId("submit-form-button").ClickAsync();
+            await Debounce();
+            string? status = await Page.GetByTestId("breadcrumbs-status").TextContentAsync();
+
+            Assert.That("Published" == status);
+            await Assertions.Expect(Page.GetByTestId("ArticleText")).ToHaveTextAsync("Created by UMT simplified model in Draft state from previously published state for en-US language");
+            await AssertNoEventlogErrors();
+        }
+
+        [Test]
+        public async Task Test00900_Draft_Can_Be_Reverted()
+        {
+            await OpenAdminApplication("website Channel Example");
+            await SelectTopDropdownLanguage("English (United States)");
+            var treeItems = await GetPageTreeItemsFlat();
+
+            var item = treeItems.First(x => string.Equals(x.Title, "Simplified model sample sub page 3 [Published->Draft] - en-us"));
+            await item.ClickAsync();
+            await Debounce();
+
+            await Page.GetByTestId("page-menu-actions").GetByTestId("expand-split-button").ClickAsync();
+            await Page.GetByTestId("content-item-action-menu-item-discard").ClickAsync();
+            await Page.GetByTestId("confirm-action").ClickAsync();
+            await Debounce();
+            string? status = await Page.GetByTestId("breadcrumbs-status").TextContentAsync();
+
+            Assert.That("Published" == status);
+            await Assertions.Expect(Page.GetByTestId("ArticleText")).ToHaveTextAsync("Created by UMT simplified model in Published state, as a prerequisite for subsequent Draft import for en-US language");
+            await AssertNoEventlogErrors();
+        }
     }
 }
