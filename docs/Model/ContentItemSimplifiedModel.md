@@ -41,7 +41,7 @@ Simplified model for importing webpage content item with parent
           "$assetType": "AssetUrl",
           "Url": "https://devnet.kentico.com/DevNet/media/devnet/cms_screen.jpg",
           "ContentItemGuid": "9ed8de86-859c-4f6c-94f2-cdd6baed99fe",
-          "Identifier": "57e26c3f-31b6-4b92-9c45-21723c06ad2e",
+          "Identifier": "28337e24-59ef-4f93-b345-f4998cbbd72b",
           "Name": "urlSourceSample.jpg",
           "Extension": ".jpg"
         },
@@ -61,7 +61,7 @@ Simplified model for importing webpage content item with parent
           "$assetType": "AssetUrl",
           "Url": "https://devnet.kentico.com/DevNet/media/devnet/cms_screen.jpg",
           "ContentItemGuid": "9ed8de86-859c-4f6c-94f2-cdd6baed99fe",
-          "Identifier": "57885cc8-3488-41b1-804f-e61445d6e07f",
+          "Identifier": "28337e24-59ef-4f93-b345-f4998cbbd72b",
           "Name": "urlSourceSample.jpg",
           "Extension": ".jpg"
         },
