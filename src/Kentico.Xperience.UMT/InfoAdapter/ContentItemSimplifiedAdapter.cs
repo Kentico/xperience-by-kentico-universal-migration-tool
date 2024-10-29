@@ -323,60 +323,47 @@ public class ContentItemSimplifiedAdapter : IInfoAdapter<ContentItemInfo, IUmtMo
                         ArgumentNullException.ThrowIfNull(pagePathAdapter);
 
                         var modelsToSet = new List<WebPageUrlPathModel>();
-                        if (commonDataModelsByLang.ContainsKey(pageUrlModel.LanguageName))
+                        if (createStrategy == CreateStrategy.CreateOrUpdate)
                         {
-                            if (createStrategy == CreateStrategy.CreateOrUpdate)
+                            WebPageUrlPathInfo? webPageUrlPath = null;
+                            if (existingContentItem != null)
                             {
-                                WebPageUrlPathInfo? webPageUrlPath = null;
-                                if (existingContentItem != null)
-                                {
-                                    webPageUrlPath = Provider<WebPageUrlPathInfo>.Instance.Get()
-                                        .WhereEquals(nameof(WebPageUrlPathInfo.WebPageUrlPathWebPageItemID), webPageItemInfo.WebPageItemID)
-                                        .WhereEquals(nameof(WebPageUrlPathInfo.WebPageUrlPathContentLanguageID), contentLanguageInfo.ContentLanguageID)
-                                        .WhereEquals(nameof(WebPageUrlPathInfo.WebPageUrlPathWebsiteChannelID), webSiteChannel.WebsiteChannelID)
-                                        .FirstOrDefault();
-                                }
-
-                                var commonDataModel = commonDataModelsByLang[pageUrlModel.LanguageName][0];
-                                var webPageUrlPathModel = webPageUrlPathModelBase().Apply(x =>
-                                {
-                                    x.WebPageUrlPathGUID = webPageUrlPath?.WebPageUrlPathGUID ?? Guid.NewGuid();
-                                    x.WebPageUrlPathIsLatest = commonDataModel.ContentItemCommonDataIsLatest;
-                                    x.WebPageUrlPathIsDraft = commonDataModel.ContentItemCommonDataVersionStatus == VersionStatus.Draft;
-                                });
-                                modelsToSet.Add(webPageUrlPathModel);
-
-                            }
-                            else if (createStrategy == CreateStrategy.CreateDraftFromPublished)
-                            {
-                                var latestWebPageUrlPath = Provider<WebPageUrlPathInfo>.Instance.Get()
+                                webPageUrlPath = Provider<WebPageUrlPathInfo>.Instance.Get()
                                     .WhereEquals(nameof(WebPageUrlPathInfo.WebPageUrlPathWebPageItemID), webPageItemInfo.WebPageItemID)
                                     .WhereEquals(nameof(WebPageUrlPathInfo.WebPageUrlPathContentLanguageID), contentLanguageInfo.ContentLanguageID)
                                     .WhereEquals(nameof(WebPageUrlPathInfo.WebPageUrlPathWebsiteChannelID), webSiteChannel.WebsiteChannelID)
-                                    .First();
-                                latestWebPageUrlPath.WebPageUrlPathIsLatest = false;
-                                pagePathAdapter.ProviderProxy.Save(latestWebPageUrlPath, webPageUrlPathModelBase());
+                                    .FirstOrDefault();
+                            }
 
-                                modelsToSet.Add(webPageUrlPathModelBase().Apply(x =>
-                                {
-                                    x.WebPageUrlPathGUID = Guid.NewGuid();
-                                    x.WebPageUrlPathIsLatest = true;
-                                    x.WebPageUrlPathIsDraft = true;
-                                }));
-                            }
-                            else
+                            var commonDataModel = commonDataModelsByLang.GetValueOrDefault(pageUrlModel.LanguageName)?[0];
+                            var webPageUrlPathModel = webPageUrlPathModelBase().Apply(x =>
                             {
-                                throw new NotImplementedException($"Create strategy {createStrategy} not supported");
-                            }
+                                x.WebPageUrlPathGUID = webPageUrlPath?.WebPageUrlPathGUID ?? Guid.NewGuid();
+                                x.WebPageUrlPathIsLatest = commonDataModel?.ContentItemCommonDataIsLatest ?? true;
+                                x.WebPageUrlPathIsDraft = commonDataModel is not null && (commonDataModel.ContentItemCommonDataVersionStatus == VersionStatus.Draft);
+                            });
+                            modelsToSet.Add(webPageUrlPathModel);
                         }
-                        else
+                        else if (createStrategy == CreateStrategy.CreateDraftFromPublished)
                         {
+                            var latestWebPageUrlPath = Provider<WebPageUrlPathInfo>.Instance.Get()
+                                .WhereEquals(nameof(WebPageUrlPathInfo.WebPageUrlPathWebPageItemID), webPageItemInfo.WebPageItemID)
+                                .WhereEquals(nameof(WebPageUrlPathInfo.WebPageUrlPathContentLanguageID), contentLanguageInfo.ContentLanguageID)
+                                .WhereEquals(nameof(WebPageUrlPathInfo.WebPageUrlPathWebsiteChannelID), webSiteChannel.WebsiteChannelID)
+                                .First();
+                            latestWebPageUrlPath.WebPageUrlPathIsLatest = false;
+                            pagePathAdapter.ProviderProxy.Save(latestWebPageUrlPath, webPageUrlPathModelBase());
+
                             modelsToSet.Add(webPageUrlPathModelBase().Apply(x =>
                             {
                                 x.WebPageUrlPathGUID = Guid.NewGuid();
                                 x.WebPageUrlPathIsLatest = true;
-                                x.WebPageUrlPathIsDraft = false;
+                                x.WebPageUrlPathIsDraft = true;
                             }));
+                        }
+                        else
+                        {
+                            throw new NotImplementedException($"Create strategy {createStrategy} not supported");
                         }
 
                         foreach (var model in modelsToSet)
