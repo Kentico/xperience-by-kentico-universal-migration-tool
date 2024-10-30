@@ -92,6 +92,20 @@ jobs:
         run: |
           nohup dotnet run &> nohup.out &
 
+      # Run example migration
+      - name: Prepare appsettings.json
+        run: |
+          EXAMPLE_APPSETTINS="examples/Kentico.Xperience.UMT.Example.Console/appsettings.json"
+          CMS_CONNECTION_STRING=$(jq -r '.ConnectionStrings.CMSConnectionString' $XBK_DIR/appsettings.json)
+          jq ".ConnectionStrings.CMSConnectionString = \"$CMS_CONNECTION_STRING\" | .WebApplicationPhysicalPath = \"$XBK_DIR\"" $EXAMPLE_APPSETTINS > appsettings.json.tmp
+          mv appsettings.json.tmp $EXAMPLE_APPSETTINS
+          cat $EXAMPLE_APPSETTINS
+
+      - name: Run example migration
+        working-directory: ${{ github.workspace }}/examples/Kentico.Xperience.UMT.Example.Console
+        run: |
+          dotnet run
+
       # Playwright
       - name: Install Playwright
         working-directory: ${{ github.workspace }}/tests/Kentico.Xperience.UMT.Tests
