@@ -71,11 +71,12 @@ jobs:
       # Xperience by Kentico setup
       - name: <XbK> Install kentico templates
         run: |
+          XBK_CORE_VERSION=$(grep -oP '(?<=<PackageVersion Include="Kentico.Xperience.Core" Version=")[^"]*' Directory.Packages.props)
+          echo "Kentico.Xperience.Core version: $XBK_CORE_VERSION"
+
           mkdir $XBK_DIR
           cd $DIR
-          XBK_CORE_VERSION=$(xmllint --xpath "//*[local-name()='PackageReference' and @Include='Kentico.Xperience.Core']/@Version" Directory.Packages.props | sed 's/Version=//g' | tr -d '"')
-          echo "Kentico.Xperience.Core version: $XBK_CORE_VERSION"
-          dotnet new install Kentico.Xperience.Templates::29.6.0
+          dotnet new install Kentico.Xperience.Templates::$XBK_CORE_VERSION
 
       - name: <XbK> Create Kentico Xperience project
         working-directory: ${{ env.XBK_DIR }}
