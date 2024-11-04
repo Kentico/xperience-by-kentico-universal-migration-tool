@@ -10,6 +10,7 @@ namespace Kentico.Xperience.UMT.Model;
 /// </summary>
 /// <sample>ContentItemSimplifiedModel.Sample.ArticleSubPage</sample>
 /// <sample>ContentItemSimplifiedModel.Sample.Article</sample>
+/// <sample>ContentItemSimplifiedModel.Sample.Event2024</sample>
 [UmtModel(DISCRIMINATOR)]
 public class ContentItemSimplifiedModel : UmtModel
 {
