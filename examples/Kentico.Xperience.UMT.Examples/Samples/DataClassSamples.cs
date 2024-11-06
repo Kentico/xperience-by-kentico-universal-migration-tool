@@ -39,25 +39,6 @@ public static class DataClassSamples
                 Properties = new FormFieldProperties { FieldCaption = "Article title", },
                 Settings = new FormFieldSettings { ControlName = "Kentico.Administration.TextInput" }
             },
-            
-            new()
-            {
-                Column = "ArticleTeaser",
-                ColumnType = "contentitemasset",
-                AllowEmpty = true,
-                Visible = true,
-                Enabled = true,
-                Guid = new Guid("89043112-996B-4771-96BB-2347AD6F3526"),
-                Properties = new FormFieldProperties { FieldCaption = "Article teaser", },
-                Settings = new FormFieldSettings
-                {
-                    CustomProperties = new Dictionary<string, object?>
-                    {
-                        { "AllowedExtensions", "_INHERITED_" }  
-                    },
-                    ControlName = "Kentico.Administration.ContentItemAssetUploader"
-                }
-            },
             new()
             {
                 Column = "ArticleDecimalNumberSample",
@@ -311,7 +292,25 @@ public static class DataClassSamples
                 {
                     ControlName = "Kentico.Administration.Checkbox"
                 }
-            }
+            },
+            new()
+            {
+                Column = "EventTeaser",
+                ColumnType = "contentitemasset",
+                AllowEmpty = true,
+                Visible = true,
+                Enabled = true,
+                Guid = new Guid("89043112-996B-4771-96BB-2347AD6F3526"),
+                Properties = new FormFieldProperties { FieldCaption = "Event teaser", },
+                Settings = new FormFieldSettings
+                {
+                    CustomProperties = new Dictionary<string, object?>
+                    {
+                        { "AllowedExtensions", "_INHERITED_" }  
+                    },
+                    ControlName = "Kentico.Administration.ContentItemAssetUploader"
+                }
+            },
         }
     };
 }

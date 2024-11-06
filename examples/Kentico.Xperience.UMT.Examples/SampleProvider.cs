@@ -143,6 +143,7 @@ public static class SampleProvider
         sourceData.Add(ContentItemSimplifiedSamples.SampleArticleSubPage3ContentItemSimplifiedModel_Published);
         sourceData.Add(ContentItemSimplifiedSamples.SampleArticleSubPage3ContentItemSimplifiedModel_PublishedToDraft);
         sourceData.Add(ContentItemSimplifiedSamples.SampleFaqContentItemSimplifiedModel); // references sample content subfolder
+        sourceData.Add(ContentItemSimplifiedSamples.SampleEventContentItemWithAsset);
         
         return sourceData;
     }
