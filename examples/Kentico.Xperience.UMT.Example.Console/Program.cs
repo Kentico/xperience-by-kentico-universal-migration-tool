@@ -22,6 +22,7 @@ var root = new ConfigurationBuilder()
 Service.Use<IConfiguration>(root);
 CMS.Base.SystemContext.WebApplicationPhysicalPath = root.GetValue<string>("WebApplicationPhysicalPath");
 string workDir = Directory.GetCurrentDirectory();
+// note - this is currently required for asset import when UMT is used in other place then Kentico Xperience itself 
 Directory.SetCurrentDirectory(root.GetValue<string>("WebApplicationPhysicalPath") ?? throw new InvalidOperationException("WebApplicationPhysicalPath must be set to valid directory path"));
 
 CMSApplication.Init();
@@ -36,7 +37,7 @@ var importService = serviceProvider.GetRequiredService<IImportService>();
 // sample data
 List<IUmtModel> sourceData = null!;
 
-bool useSerializedSample = false;
+bool useSerializedSample = true;
 #pragma warning disable S2583 // this is sample, sample user have to change value on demand
 if (useSerializedSample)
 #pragma warning restore S2583
