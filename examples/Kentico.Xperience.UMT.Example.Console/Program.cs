@@ -6,10 +6,12 @@ using System.Text.Json;
 
 using CMS.Core;
 using CMS.DataEngine;
+
 using Kentico.Xperience.UMT;
 using Kentico.Xperience.UMT.Examples;
 using Kentico.Xperience.UMT.Model;
 using Kentico.Xperience.UMT.Services;
+
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
@@ -37,7 +39,7 @@ var importService = serviceProvider.GetRequiredService<IImportService>();
 // sample data
 List<IUmtModel> sourceData = null!;
 
-bool useSerializedSample = true;
+bool useSerializedSample = false;
 #pragma warning disable S2583 // this is sample, sample user have to change value on demand
 if (useSerializedSample)
 #pragma warning restore S2583
@@ -45,13 +47,13 @@ if (useSerializedSample)
     string path = Path.GetFullPath(Path.Combine(workDir, "../../../../../docs/Samples/basic.json"));
     string sampleText = (await File.ReadAllTextAsync(path) ?? throw new InvalidOperationException("Failed to load sample"))
         .Replace("##ASSETDIR##", workDir.Replace(@"\", @"\\"));
-        
+
     sourceData = importService.FromJsonString(sampleText)?.ToList() ?? new List<IUmtModel>();
 }
 else
 {
     sourceData = SampleProvider.GetFullSample();
-    
+
     foreach (var umtModel in sourceData)
     {
         // update path to media files
@@ -103,7 +105,7 @@ if (variantWithObserver)
 #pragma warning restore S2583
 {
     // simplified usage for streamlined import
-    
+
     // create observer to track import state
     var importObserver = new ImportStateObserver();
 
@@ -141,7 +143,7 @@ else
         switch (result)
         {
             // OK
-            case { Success: true, Imported: {} }:
+            case { Success: true, Imported: { } }:
             {
                 Console.WriteLine($"{umtModel.PrintMe()} imported");
                 break;

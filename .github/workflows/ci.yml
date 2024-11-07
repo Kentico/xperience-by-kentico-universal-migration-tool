@@ -31,8 +31,8 @@ env:
   XBK_DIR: "${{ github.workspace }}\\..\\xbk"
   DB_USER: "kentico"
   DB_PASSWORD: "Asdfg12345!@#$%"
-  XBK_ADMIN_PASSWORD: "Asdfg12345!@#$%"
-  LICENCE_FILE: "licence.txt"
+  XBK_ADMIN_PASSWORD: "admin"
+  LICENCE_FILE: "${{ github.workspace }}\\licence.txt"
   XBK_URL: ""
   SQLSERVER_NAME: ".\\SQLEXPRESS"
 
@@ -80,6 +80,10 @@ jobs:
           Write-Output "SQL Server: Forcing Restart of Instance."
           Restart-Service -Force 'MSSQL$SQLEXPRESS'
 
+      - name: <DB> Create database with collation Latin1_General_CI_AS
+        run: |
+          sqlcmd -S "${{ env.SQLSERVER_NAME}}" -U '${{ env.DB_USER}}' -P '${{ env.DB_PASSWORD }}' -Q "CREATE DATABASE pwtest COLLATE Latin1_General_CI_AS;"
+
       - name: <DB> Test SQL Server login as admin
         run: |
           sqlcmd -S "${{ env.SQLSERVER_NAME}}" -U '${{ env.DB_USER}}' -P '${{ env.DB_PASSWORD }}' -Q "SELECT 'Login successful' AS Message"
@@ -103,8 +107,7 @@ jobs:
           echo ${{ secrets.XPERIENCE_BY_KENTICO_LICENSE }} > ${{ env.LICENCE_FILE }}
 
           Write-Output "SQL_SERVER_CONNECTION_STRING: $env:SQL_SERVER_CONNECTION_STRING"
-          dotnet kentico-xperience-dbmanager -- -s "${{ env.SQLSERVER_NAME}}" -d "pwtest" -u "${{ env.DB_USER }}" -p "${{ env.DB_PASSWORD }}" -a "${{ env.XBK_ADMIN_PASSWORD }}" --recreate-existing-database --hash-string-salt "<hash_string_salt>" --license-file "$LICENCE_FILE"
-          rm ${{ env.LICENCE_FILE }}
+          dotnet kentico-xperience-dbmanager -- -s "${{ env.SQLSERVER_NAME}}" -d "pwtest" -u "${{ env.DB_USER }}" -p "${{ env.DB_PASSWORD }}" -a "${{ env.XBK_ADMIN_PASSWORD }}" --license-file "${{ env.LICENCE_FILE }}" --use-existing-database --hash-string-salt "<hash_string_salt>" 
 
           sqlcmd -S "${{ env.SQLSERVER_NAME}}" -U 'kentico' -P '${{ env.DB_PASSWORD }}' -d "pwtest" -Q "SELECT * FROM CMS_User"
 
@@ -120,9 +123,9 @@ jobs:
           Get-Content $EXAMPLE_APPSETTINGS
 
       - name: <UMT> Run example migration
-        working-directory: ${{ github.workspace }}/examples/Kentico.Xperience.UMT.Example.Console
+        working-directory: ${{ env.XBK_DIR }}
         run: |
-          dotnet run
+          dotnet run --project  ${{ github.workspace }}/examples/Kentico.Xperience.UMT.Example.Console/Kentico.Xperience.UMT.Example.Console.csproj
 
       - name: Install Playwright
         working-directory: ${{ github.workspace }}/tests/Kentico.Xperience.UMT.Tests
@@ -139,13 +142,12 @@ jobs:
           Write-Output "Setting XbK URL for tests: $url"
           (Get-Content test.runsettings) -replace "<BASE_URL>([^<]*)</BASE_URL>", "<BASE_URL>$url</BASE_URL>" | Set-Content test.runsettings
           (Get-Content test.runsettings) -replace "<ADMINISTRATION_PASSWORD>([^<]*)</ADMINISTRATION_PASSWORD>", "<ADMINISTRATION_PASSWORD>${{ env.XBK_ADMIN_PASSWORD}}</ADMINISTRATION_PASSWORD>" | Set-Content test.runsettings
+          (Get-Content test.runsettings) -replace "<REPORT_PATH>([^<]*)</REPORT_PATH>", "<REPORT_PATH>${{ github.workspace}}\\reports</REPORT_PATH>" | Set-Content test.runsettings
           Get-Content test.runsettings
 
       - name: Start xbk and run tests
         run: |
           cd ${{ env.XBK_DIR }}
-          sqlcmd -S "${{ env.SQLSERVER_NAME}}" -U 'kentico' -P '${{ env.DB_PASSWORD }}' -d "pwtest" -Q "UPDATE CMS_User SET UserPassword = 'AQAAAAIAAYagAAAAEEC1xqxKpE5RmSEcB26+PzSCNxU3mnpjlTxXSMh3/NZp02gp7/JqeEDei3z/vlBkwA==' WHERE UserName = 'administrator'"
-
           Start-Job -ScriptBlock { dotnet run --project "${{ env.XBK_DIR }}\kentico-boilerplate.csproj" } -Name "XbK"
           Write-Output "XbK starting..."
 
@@ -173,11 +175,12 @@ jobs:
 
           cd ${{ github.workspace }}
           Write-Output "Running tests..."
-          dotnet test --settings:test.runsettings
+          mkdir reports
+          dotnet test --settings:test.runsettings --logger:"html;LogFileName=${{ github.workspace }}\reports\logFile.html"
 
       - uses: actions/upload-artifact@v4
         if: ${{ !cancelled() }}
         with:
           name: playwright-report
-          path: playwright-report/
+          path: ${{ github.workspace }}\reports\
           retention-days: 10
