@@ -34,6 +34,7 @@ env:
   XBK_ADMIN_PASSWORD: "Asdfg12345!@#$%"
   LICENCE_FILE: "licence.txt"
   XBK_URL: ""
+  SQLSERVER_NAME: ".\\SQLEXPRESS"
 
 jobs:
   build:
@@ -81,7 +82,7 @@ jobs:
 
       - name: <DB> Test SQL Server login as admin
         run: |
-          sqlcmd -S ".\SQLEXPRESS" -U '${{ env.DB_USER}}' -P '${{ env.DB_PASSWORD }}' -Q "SELECT 'Login successful' AS Message"
+          sqlcmd -S "${{ env.SQLSERVER_NAME}}" -U '${{ env.DB_USER}}' -P '${{ env.DB_PASSWORD }}' -Q "SELECT 'Login successful' AS Message"
 
       - name: <XbK> Install kentico templates
         run: |
@@ -102,10 +103,10 @@ jobs:
           echo ${{ secrets.XPERIENCE_BY_KENTICO_LICENSE }} > ${{ env.LICENCE_FILE }}
 
           Write-Output "SQL_SERVER_CONNECTION_STRING: $env:SQL_SERVER_CONNECTION_STRING"
-          dotnet kentico-xperience-dbmanager -- -s ".\SQLEXPRESS" -d "pwtest" -u "${{ env.DB_USER }}" -p "${{ env.DB_PASSWORD }}" -a "${{ env.XBK_ADMIN_PASSWORD }}" --recreate-existing-database --hash-string-salt "<hash_string_salt>" --license-file "$LICENCE_FILE"
+          dotnet kentico-xperience-dbmanager -- -s "${{ env.SQLSERVER_NAME}}" -d "pwtest" -u "${{ env.DB_USER }}" -p "${{ env.DB_PASSWORD }}" -a "${{ env.XBK_ADMIN_PASSWORD }}" --recreate-existing-database --hash-string-salt "<hash_string_salt>" --license-file "$LICENCE_FILE"
           rm ${{ env.LICENCE_FILE }}
 
-          sqlcmd -S ".\SQLEXPRESS" -U 'kentico' -P '${{ env.DB_PASSWORD }}' -d "pwtest" -Q "SELECT * FROM CMS_User"
+          sqlcmd -S "${{ env.SQLSERVER_NAME}}" -U 'kentico' -P '${{ env.DB_PASSWORD }}' -d "pwtest" -Q "SELECT * FROM CMS_User"
 
       - name: <UMT> Prepare appsettings.json for migration
         run: |
@@ -143,6 +144,8 @@ jobs:
       - name: Start xbk and run tests
         run: |
           cd ${{ env.XBK_DIR }}
+          sqlcmd -S "${{ env.SQLSERVER_NAME}}" -U 'kentico' -P '${{ env.DB_PASSWORD }}' -d "pwtest" -Q "UPDATE CMS_User SET UserPassword = 'AQAAAAIAAYagAAAAEEC1xqxKpE5RmSEcB26+PzSCNxU3mnpjlTxXSMh3/NZp02gp7/JqeEDei3z/vlBkwA==' WHERE UserName = 'administrator'"
+
           Start-Job -ScriptBlock { dotnet run --project "${{ env.XBK_DIR }}\kentico-boilerplate.csproj" } -Name "XbK"
           Write-Output "XbK starting..."
 
