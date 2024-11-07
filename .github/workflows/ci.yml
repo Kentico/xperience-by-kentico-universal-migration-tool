@@ -29,6 +29,7 @@ on:
 
 env:
   XBK_DIR: "${{ github.workspace }}\\..\\xbk"
+  DB_USER: "kentico"
   DB_PASSWORD: "Asdfg12345!@#$%"
   XBK_ADMIN_PASSWORD: "Asdfg12345!@#$%"
   LICENCE_FILE: "licence.txt"
@@ -60,15 +61,13 @@ jobs:
 
       - name: <DB> Create Kentico DB user
         run: |
-          sqlcmd -Q "CREATE LOGIN kentico WITH PASSWORD = '${{ env.DB_PASSWORD }}'; 
+          sqlcmd -Q "CREATE LOGIN ${{ env.DB_USER}} WITH PASSWORD = '${{ env.DB_PASSWORD }}'; 
           CREATE USER kentico FOR LOGIN kentico;
-          ALTER LOGIN sa WITH PASSWORD = '${{ env.XBK_ADMIN_PASSWORD }}';
-          ALTER LOGIN sa ENABLE;
           GO"
 
       - name: <DB> Add kentico user to sysadmin role
         run: |
-          sqlcmd -Q "sp_addsrvrolemember 'kentico', 'sysadmin';
+          sqlcmd -Q "sp_addsrvrolemember '${{ env.DB_USER}}', 'sysadmin';
           GO"
 
       # TODO remove kentico user after fix
@@ -82,7 +81,7 @@ jobs:
 
       - name: <DB> Test SQL Server login as admin
         run: |
-          sqlcmd -S ".\SQLEXPRESS" -U 'sa' -P '${{ env.DB_PASSWORD }}' -Q "SELECT 'Login successful' AS Message"
+          sqlcmd -S ".\SQLEXPRESS" -U '${{ env.DB_USER}}' -P '${{ env.DB_PASSWORD }}' -Q "SELECT 'Login successful' AS Message"
 
       - name: <XbK> Install kentico templates
         run: |
@@ -103,7 +102,7 @@ jobs:
           echo ${{ secrets.XPERIENCE_BY_KENTICO_LICENSE }} > ${{ env.LICENCE_FILE }}
 
           Write-Output "SQL_SERVER_CONNECTION_STRING: $env:SQL_SERVER_CONNECTION_STRING"
-          dotnet kentico-xperience-dbmanager -- -s ".\SQLEXPRESS" -d "pwtest" -u "sa" -p "${{ env.DB_PASSWORD }}" -a "${{ env.XBK_ADMIN_PASSWORD }}" --recreate-existing-database --hash-string-salt "<hash_string_salt>" --license-file "$LICENCE_FILE"
+          dotnet kentico-xperience-dbmanager -- -s ".\SQLEXPRESS" -d "pwtest" -u "${{ env.DB_USER }}" -p "${{ env.DB_PASSWORD }}" -a "${{ env.XBK_ADMIN_PASSWORD }}" --recreate-existing-database --hash-string-salt "<hash_string_salt>" --license-file "$LICENCE_FILE"
           rm ${{ env.LICENCE_FILE }}
 
           sqlcmd -S ".\SQLEXPRESS" -U 'kentico' -P '${{ env.DB_PASSWORD }}' -d "pwtest" -Q "SELECT * FROM CMS_User"
@@ -172,3 +171,10 @@ jobs:
           cd ${{ github.workspace }}
           Write-Output "Running tests..."
           dotnet test --settings:test.runsettings
+
+      - uses: actions/upload-artifact@v4
+        if: ${{ !cancelled() }}
+        with:
+          name: playwright-report
+          path: playwright-report/
+          retention-days: 10
