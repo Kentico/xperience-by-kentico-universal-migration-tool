@@ -123,20 +123,21 @@ jobs:
           Get-Content $EXAMPLE_APPSETTINGS
 
       - name: <UMT> Run example migration
-        working-directory: ${{ env.XBK_DIR }}
+        # working-directory: ${{ env.XBK_DIR }}
         run: |
-          dotnet run --project  ${{ github.workspace }}/examples/Kentico.Xperience.UMT.Example.Console/Kentico.Xperience.UMT.Example.Console.csproj
+          pwd
+          dotnet run --project  ${{ github.workspace }}\examples\Kentico.Xperience.UMT.Example.Console\Kentico.Xperience.UMT.Example.Console.csproj ${{ github.workspace }}\examples\Kentico.Xperience.UMT.Example.Console
 
       - name: Install Playwright
-        working-directory: ${{ github.workspace }}/tests/Kentico.Xperience.UMT.Tests
+        working-directory: ${{ github.workspace }}\tests\Kentico.Xperience.UMT.Tests
         run: |
           dotnet build
-          bin/Debug/net8.0/playwright.ps1 install --with-deps
+          bin\Debug\net8.0\playwright.ps1 install --with-deps
 
       - name: Prepare test.runsettings
         run: |
-          Get-Content "${{ env.XBK_DIR }}/Properties/launchSettings.json"
-          $url = (Get-Content "${{ env.XBK_DIR }}/Properties/launchSettings.json" | ConvertFrom-Json).profiles.kentico_boilerplate.applicationUrl
+          Get-Content "${{ env.XBK_DIR }}\Properties\launchSettings.json"
+          $url = (Get-Content "${{ env.XBK_DIR }}\Properties\launchSettings.json" | ConvertFrom-Json).profiles.kentico_boilerplate.applicationUrl
           echo "XBK_URL=$url" | Out-File -FilePath ${{ github.env }} -Encoding utf8 -Append
 
           Write-Output "Setting XbK URL for tests: $url"
