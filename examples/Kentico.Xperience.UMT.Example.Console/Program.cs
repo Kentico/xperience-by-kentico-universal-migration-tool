@@ -24,6 +24,12 @@ var root = new ConfigurationBuilder()
 Service.Use<IConfiguration>(root);
 CMS.Base.SystemContext.WebApplicationPhysicalPath = root.GetValue<string>("WebApplicationPhysicalPath");
 string workDir = Directory.GetCurrentDirectory();
+string assetSearchPath = workDir;
+if (args.Length > 0)
+{
+    assetSearchPath = args[0];
+}
+
 // note - this is currently required for asset import when UMT is used in other place then Kentico Xperience itself 
 Directory.SetCurrentDirectory(root.GetValue<string>("WebApplicationPhysicalPath") ?? throw new InvalidOperationException("WebApplicationPhysicalPath must be set to valid directory path"));
 
@@ -46,7 +52,7 @@ if (useSerializedSample)
 {
     string path = Path.GetFullPath(Path.Combine(workDir, "../../../../../docs/Samples/basic.json"));
     string sampleText = (await File.ReadAllTextAsync(path) ?? throw new InvalidOperationException("Failed to load sample"))
-        .Replace("##ASSETDIR##", workDir.Replace(@"\", @"\\"));
+        .Replace("##ASSETDIR##", assetSearchPath.Replace(@"\", @"\\"));
 
     sourceData = importService.FromJsonString(sampleText)?.ToList() ?? new List<IUmtModel>();
 }
@@ -59,7 +65,7 @@ else
         // update path to media files
         if (umtModel is MediaFileModel mediaFileModel)
         {
-            mediaFileModel.DataSourcePath = mediaFileModel.DataSourcePath?.Replace("##ASSETDIR##", workDir);
+            mediaFileModel.DataSourcePath = mediaFileModel.DataSourcePath?.Replace("##ASSETDIR##", assetSearchPath);
         }
 
         foreach ((string? key, object? value) in umtModel.CustomProperties)
@@ -68,7 +74,7 @@ else
             {
                 case AssetFileSource assetSource:
                 {
-                    assetSource.FilePath = assetSource.FilePath?.Replace("##ASSETDIR##", workDir);
+                    assetSource.FilePath = assetSource.FilePath?.Replace("##ASSETDIR##", assetSearchPath);
                     umtModel.CustomProperties[key] = assetSource;
                     break;
                 }
@@ -89,7 +95,7 @@ else
                     {
                         case AssetFileSource assetSource:
                         {
-                            assetSource.FilePath = assetSource.FilePath?.Replace("##ASSETDIR##", workDir);
+                            assetSource.FilePath = assetSource.FilePath?.Replace("##ASSETDIR##", assetSearchPath);
                             break;
                         }
                     }
