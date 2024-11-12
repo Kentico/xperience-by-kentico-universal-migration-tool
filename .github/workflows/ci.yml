@@ -123,7 +123,7 @@ jobs:
           Get-Content $EXAMPLE_APPSETTINGS
 
       - name: <UMT> Run example migration
-        # working-directory: ${{ env.XBK_DIR }}
+        working-directory: ${{ env.XBK_DIR }}
         run: |
           pwd
           dotnet run --project  ${{ github.workspace }}\examples\Kentico.Xperience.UMT.Example.Console\Kentico.Xperience.UMT.Example.Console.csproj ${{ github.workspace }}\examples\Kentico.Xperience.UMT.Example.Console
