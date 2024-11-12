@@ -6,6 +6,9 @@ using System.Text.Json;
 
 using CMS.Core;
 using CMS.DataEngine;
+using CMS.IO;
+using CMS.MediaLibrary;
+
 using Kentico.Xperience.UMT;
 using Kentico.Xperience.UMT.Examples;
 using Kentico.Xperience.UMT.Model;
@@ -21,7 +24,7 @@ var root = new ConfigurationBuilder()
 
 Service.Use<IConfiguration>(root);
 CMS.Base.SystemContext.WebApplicationPhysicalPath = root.GetValue<string>("WebApplicationPhysicalPath");
-string workDir = Directory.GetCurrentDirectory();
+string workDir = System.IO.Directory.GetCurrentDirectory();
 string assetSearchPath = workDir; 
 if (args.Length > 0)
 {
@@ -29,7 +32,7 @@ if (args.Length > 0)
 }
 
 // note - this is currently required for asset import when UMT is used in other place then Kentico Xperience itself 
-Directory.SetCurrentDirectory(root.GetValue<string>("WebApplicationPhysicalPath") ?? throw new InvalidOperationException("WebApplicationPhysicalPath must be set to valid directory path"));
+System.IO.Directory.SetCurrentDirectory(root.GetValue<string>("WebApplicationPhysicalPath") ?? throw new InvalidOperationException("WebApplicationPhysicalPath must be set to valid directory path"));
 
 CMSApplication.Init();
 
@@ -48,8 +51,8 @@ bool useSerializedSample = true;
 if (useSerializedSample)
 #pragma warning restore S2583
 {
-    string path = Path.GetFullPath(Path.Combine(workDir, "../../../../../docs/Samples/basic.json"));
-    string sampleText = (await File.ReadAllTextAsync(path) ?? throw new InvalidOperationException("Failed to load sample"))
+    string path = System.IO.Path.GetFullPath(System.IO.Path.Combine(workDir, "../../../../../docs/Samples/basic.json"));
+    string sampleText = (await System.IO.File.ReadAllTextAsync(path) ?? throw new InvalidOperationException("Failed to load sample"))
         .Replace("##ASSETDIR##", assetSearchPath.Replace(@"\", @"\\"));
         
     sourceData = importService.FromJsonString(sampleText)?.ToList() ?? new List<IUmtModel>();
@@ -172,6 +175,23 @@ else
         }
     }
 }
+
+foreach (var mediaLibraryInfo in MediaLibraryInfoProvider.ProviderObject.Get())
+{
+    try
+    {
+        string libraryFolderPath = MediaLibraryInfoProvider.GetMediaLibraryFolderPath(mediaLibraryInfo.LibraryFolder);
+        Console.WriteLine($"{mediaLibraryInfo.LibraryName}: {libraryFolderPath}");
+    }
+    catch (Exception ex)
+    {
+        Console.WriteLine($"{mediaLibraryInfo.LibraryName}: {mediaLibraryInfo.LibraryFolder} Error: {ex}");
+    }
+}
+
+Console.WriteLine($"WorkDir-Current: {System.IO.Directory.GetCurrentDirectory()}");
+Console.WriteLine($"WorkDir-Prev   : {workDir}");
+Console.WriteLine($"WebAppPath     : {CMS.Base.SystemContext.WebApplicationPhysicalPath}");
 
 Console.WriteLine("Finished!");
 
