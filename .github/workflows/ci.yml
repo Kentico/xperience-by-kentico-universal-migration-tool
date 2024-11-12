@@ -28,11 +28,13 @@ on:
       - "**.sln"
 
 env:
-  XBK_DIR: "${{ github.workspace }}\\..\\xbk"
+  XBK_DIR: "${{ github.workspace }}\\xbk"
+  UMT_DIR: "${{ github.workspace }}\\umt"
   DB_USER: "kentico"
   DB_PASSWORD: "Asdfg12345!@#$%"
+  DB_DATABASE: "pwtest"
   XBK_ADMIN_PASSWORD: "admin"
-  LICENCE_FILE: "${{ github.workspace }}\\licence.txt"
+  LICENSE_FILE: "${{ github.workspace }}\\license.txt"
   XBK_URL: ""
   SQLSERVER_NAME: ".\\SQLEXPRESS"
 
@@ -43,13 +45,16 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
+        with:
+          path: ${{ env.UMT_DIR }}
 
       - name: Setup .NET
         uses: actions/setup-dotnet@v4
         with:
-          global-json-file: global.json
+          global-json-file: "${{ env.UMT_DIR}}\\global.json"
 
       - name: Install dependencies and build
+        working-directory: ${{ env.UMT_DIR }}
         run: |
           dotnet restore --locked-mode
           dotnet tool restore
@@ -71,27 +76,25 @@ jobs:
           sqlcmd -Q "sp_addsrvrolemember '${{ env.DB_USER}}', 'sysadmin';
           GO"
 
-      # TODO remove kentico user after fix
       - name: <DB> Enable SQL authentication
         run: |
           Write-Output "SQL Server: Setting Mixed Mode Authentication."
           New-ItemProperty 'HKLM:\Software\Microsoft\Microsoft SQL Server\MSSQL16.SQLEXPRESS\MSSQLServer\' -Name 'LoginMode' -Value 2 -Force
-
           Write-Output "SQL Server: Forcing Restart of Instance."
           Restart-Service -Force 'MSSQL$SQLEXPRESS'
 
       - name: <DB> Create database with collation Latin1_General_CI_AS
         run: |
-          sqlcmd -S "${{ env.SQLSERVER_NAME}}" -U '${{ env.DB_USER}}' -P '${{ env.DB_PASSWORD }}' -Q "CREATE DATABASE pwtest COLLATE Latin1_General_CI_AS;"
+          sqlcmd -S "${{ env.SQLSERVER_NAME}}" -U '${{ env.DB_USER}}' -P '${{ env.DB_PASSWORD }}' -Q "CREATE DATABASE ${{ env.DB_DATABASE}} COLLATE Latin1_General_CI_AS;"
 
       - name: <DB> Test SQL Server login as admin
         run: |
           sqlcmd -S "${{ env.SQLSERVER_NAME}}" -U '${{ env.DB_USER}}' -P '${{ env.DB_PASSWORD }}' -Q "SELECT 'Login successful' AS Message"
 
       - name: <XbK> Install kentico templates
+        working-directory: ${{ env.UMT_DIR }}
         run: |
           $XBK_CORE_VERSION = Select-String -Path "Directory.Packages.props" -Pattern '<PackageVersion Include="Kentico.Xperience.Core" Version="([^"]*)"' | ForEach-Object { $_.Matches.Groups[1].Value }
-
           mkdir ${{ env.XBK_DIR }}
           cd ${{ env.XBK_DIR }}
           dotnet new install Kentico.Xperience.Templates::$XBK_CORE_VERSION
@@ -104,37 +107,40 @@ jobs:
       - name: <XbK> Run kentico dbmanager with license
         working-directory: ${{ env.XBK_DIR }}
         run: |
-          echo ${{ secrets.XPERIENCE_BY_KENTICO_LICENSE }} > ${{ env.LICENCE_FILE }}
-
+          echo ${{ secrets.XPERIENCE_BY_KENTICO_LICENSE }} > ${{ env.LICENSE_FILE }}
           Write-Output "SQL_SERVER_CONNECTION_STRING: $env:SQL_SERVER_CONNECTION_STRING"
-          dotnet kentico-xperience-dbmanager -- -s "${{ env.SQLSERVER_NAME}}" -d "pwtest" -u "${{ env.DB_USER }}" -p "${{ env.DB_PASSWORD }}" -a "${{ env.XBK_ADMIN_PASSWORD }}" --license-file "${{ env.LICENCE_FILE }}" --use-existing-database --hash-string-salt "<hash_string_salt>" 
-
-          sqlcmd -S "${{ env.SQLSERVER_NAME}}" -U 'kentico' -P '${{ env.DB_PASSWORD }}' -d "pwtest" -Q "SELECT * FROM CMS_User"
+          dotnet kentico-xperience-dbmanager -- -s "${{ env.SQLSERVER_NAME}}" -d "${{ env.DB_DATABASE }}" -u "${{ env.DB_USER }}" -p "${{ env.DB_PASSWORD }}" -a "${{ env.XBK_ADMIN_PASSWORD }}" --license-file "${{ env.LICENSE_FILE }}" --use-existing-database --hash-string-salt "<hash_string_salt>" 
+          sqlcmd -S "${{ env.SQLSERVER_NAME}}" -U 'kentico' -P '${{ env.DB_PASSWORD }}' -d "${{ env.DB_DATABASE }}" -Q "SELECT * FROM CMS_User"
 
       - name: <UMT> Prepare appsettings.json for migration
+        working-directory: ${{ env.UMT_DIR }}
         run: |
           $EXAMPLE_APPSETTINGS = "examples/Kentico.Xperience.UMT.Example.Console/appsettings.json"
           $CMS_CONNECTION_STRING = (Get-Content "${{ env.XBK_DIR }}/appsettings.json" | ConvertFrom-Json).ConnectionStrings.CMSConnectionString
-
           $appsettings = Get-Content $EXAMPLE_APPSETTINGS | ConvertFrom-Json
           $appsettings.ConnectionStrings.CMSConnectionString = $CMS_CONNECTION_STRING
-          $appsettings.WebApplicationPhysicalPath = "${{ env.XBK_DIR }}"
+
+          $appsettings.WebApplicationPhysicalPath = "${{ env.UMT_DIR }}"
           $appsettings | ConvertTo-Json -Compress | Set-Content $EXAMPLE_APPSETTINGS
           Get-Content $EXAMPLE_APPSETTINGS
 
       - name: <UMT> Run example migration
         working-directory: ${{ env.XBK_DIR }}
         run: |
-          pwd
-          dotnet run --project  ${{ github.workspace }}\examples\Kentico.Xperience.UMT.Example.Console\Kentico.Xperience.UMT.Example.Console.csproj ${{ github.workspace }}\examples\Kentico.Xperience.UMT.Example.Console
+          dotnet run --project  ${{ env.UMT_DIR }}\examples\Kentico.Xperience.UMT.Example.Console\Kentico.Xperience.UMT.Example.Console.csproj ${{ env.UMT_DIR }}\examples\Kentico.Xperience.UMT.Example.Console
 
       - name: Install Playwright
-        working-directory: ${{ github.workspace }}\tests\Kentico.Xperience.UMT.Tests
+        working-directory: ${{ env.UMT_DIR }}\tests\Kentico.Xperience.UMT.Tests
         run: |
           dotnet build
           bin\Debug\net8.0\playwright.ps1 install --with-deps
 
+      - name: Print event log
+        run: |
+          sqlcmd -S "${{ env.SQLSERVER_NAME}}" -U '${{ env.DB_USER}}' -P '${{ env.DB_PASSWORD }}' -d "${{ env.DB_DATABASE }}" -Q "SELECT * FROM CMS_EventLog"
+
       - name: Prepare test.runsettings
+        working-directory: ${{ env.UMT_DIR }}
         run: |
           Get-Content "${{ env.XBK_DIR }}\Properties\launchSettings.json"
           $url = (Get-Content "${{ env.XBK_DIR }}\Properties\launchSettings.json" | ConvertFrom-Json).profiles.kentico_boilerplate.applicationUrl
@@ -143,7 +149,6 @@ jobs:
           Write-Output "Setting XbK URL for tests: $url"
           (Get-Content test.runsettings) -replace "<BASE_URL>([^<]*)</BASE_URL>", "<BASE_URL>$url</BASE_URL>" | Set-Content test.runsettings
           (Get-Content test.runsettings) -replace "<ADMINISTRATION_PASSWORD>([^<]*)</ADMINISTRATION_PASSWORD>", "<ADMINISTRATION_PASSWORD>${{ env.XBK_ADMIN_PASSWORD}}</ADMINISTRATION_PASSWORD>" | Set-Content test.runsettings
-          (Get-Content test.runsettings) -replace "<REPORT_PATH>([^<]*)</REPORT_PATH>", "<REPORT_PATH>${{ github.workspace}}\\reports</REPORT_PATH>" | Set-Content test.runsettings
           Get-Content test.runsettings
 
       - name: Start xbk and run tests
@@ -151,12 +156,10 @@ jobs:
           cd ${{ env.XBK_DIR }}
           Start-Job -ScriptBlock { dotnet run --project "${{ env.XBK_DIR }}\kentico-boilerplate.csproj" } -Name "XbK"
           Write-Output "XbK starting..."
-
           $timeout = 100
           $elapsed = 0
           $url = (Get-Content "${{ env.XBK_DIR }}/Properties/launchSettings.json" | ConvertFrom-Json).profiles.kentico_boilerplate.applicationUrl
           $url = $url + "/admin"
-
           while ($elapsed -lt $timeout) {
             try {
               $response = Invoke-WebRequest -Uri $url -UseBasicParsing
@@ -173,15 +176,14 @@ jobs:
             Start-Sleep -Seconds 5
             $elapsed += 5
           }
-
-          cd ${{ github.workspace }}
+          cd ${{ env.UMT_DIR }}
           Write-Output "Running tests..."
           mkdir reports
-          dotnet test --settings:test.runsettings --logger:"html;LogFileName=${{ github.workspace }}\reports\logFile.html"
+          dotnet test --settings:test.runsettings --logger:"html;LogFileName=${{ env.UMT_DIR }}\reports\logFile.html"
 
       - uses: actions/upload-artifact@v4
         if: ${{ !cancelled() }}
         with:
           name: playwright-report
-          path: ${{ github.workspace }}\reports\
+          path: ${{ env.UMT_DIR }}\reports\
           retention-days: 10
