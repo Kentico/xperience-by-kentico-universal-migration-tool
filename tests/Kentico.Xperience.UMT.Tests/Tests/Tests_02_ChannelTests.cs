@@ -77,8 +77,6 @@ namespace TestAfterMigration.Tests
 
             await Page.GetByTestId("ArticleText").FillAsync("Text on\nmultiple\nlines".Replace("\n", Environment.NewLine));
 
-            await Page.GetByTestId("file-input-upload").SetInputFilesAsync(Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location)!, "Resources", "kentico_brand.png"));
-
             await Page.GetByTestId("button-select-web-page").ClickAsync();
             await Page.GetByTestId("table-row").Nth(1).ClickAsync();
             await Page.GetByTestId("confirm-action").ClickAsync();
