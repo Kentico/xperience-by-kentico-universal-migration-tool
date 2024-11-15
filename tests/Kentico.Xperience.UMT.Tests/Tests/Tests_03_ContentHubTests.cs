@@ -44,8 +44,8 @@ namespace TestAfterMigration.Tests
             await Page.GetByLabel("All content items").ClickAsync();
             await Debounce();
 
-            await Assertions.Expect(Page.GetByTestId("table-row").Filter(new LocatorFilterOptions { HasText = "Draft (Initial)" })).ToBeVisibleAsync();
-            await Assertions.Expect(Page.GetByTestId("table-row").Filter(new LocatorFilterOptions { HasText = "Scheduled" })).ToBeVisibleAsync();
+            await Assertions.Expect(Page.GetByTestId("table-row").Filter(new LocatorFilterOptions { HasText = "Draft (Initial)" })).Not.ToHaveCountAsync(0);
+            await Assertions.Expect(Page.GetByTestId("table-row").Filter(new LocatorFilterOptions { HasText = "Scheduled" })).Not.ToHaveCountAsync(0);
         }
 
         [Test]
