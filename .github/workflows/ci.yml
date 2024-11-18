@@ -135,10 +135,6 @@ jobs:
           dotnet build
           bin\Debug\net8.0\playwright.ps1 install --with-deps
 
-      - name: Print event log
-        run: |
-          sqlcmd -S "${{ env.SQLSERVER_NAME}}" -U '${{ env.DB_USER}}' -P '${{ env.DB_PASSWORD }}' -d "${{ env.DB_DATABASE }}" -Q "SELECT * FROM CMS_EventLog"
-
       - name: Prepare test.runsettings
         working-directory: ${{ env.UMT_DIR }}
         run: |
@@ -180,6 +176,11 @@ jobs:
           Write-Output "Running tests..."
           mkdir reports
           dotnet test --settings:test.runsettings --logger:"html;LogFileName=${{ env.UMT_DIR }}\reports\logFile.html"
+
+      - name: Print event log
+        if: always()
+        run: |
+          sqlcmd -S "${{ env.SQLSERVER_NAME}}" -U '${{ env.DB_USER}}' -P '${{ env.DB_PASSWORD }}' -d "${{ env.DB_DATABASE }}" -Q "SELECT * FROM CMS_EventLog"
 
       - uses: actions/upload-artifact@v4
         if: ${{ !cancelled() }}
