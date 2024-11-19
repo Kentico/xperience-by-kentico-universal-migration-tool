@@ -37,7 +37,7 @@ internal class AssetManager(
 
                     var assetMetadata = new ContentItemAssetMetadata
                     {
-                        Extension = byteSource.Extension,
+                        Extension = assetSource.InferExtension(),
                         Identifier = byteSource.Identifier.Value,
                         LastModified = byteSource.LastModified ?? dateTimeNowService.GetDateTimeNow(),
                         Name = byteSource.Name,
@@ -58,7 +58,7 @@ internal class AssetManager(
                     var file = CMS.IO.FileInfo.New(fileSource.FilePath);
                     var assetMetadata = new ContentItemAssetMetadata
                     {
-                        Extension = fileSource.Extension ?? file.Extension,
+                        Extension = assetSource.InferExtension(),
                         Identifier = fileSource.Identifier.Value,
                         LastModified = fileSource.LastModified ?? dateTimeNowService.GetDateTimeNow(),
                         Name = fileSource.Name ?? file.Name,
@@ -77,7 +77,7 @@ internal class AssetManager(
 
                     var assetMetadata = new ContentItemAssetMetadata
                     {
-                        Extension = urlSource.Extension,
+                        Extension = assetSource.InferExtension(),
                         Identifier = urlSource.Identifier.Value,
                         LastModified = urlSource.LastModified ?? dateTimeNowService.GetDateTimeNow(),
                         Name = urlSource.Name,
