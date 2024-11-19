@@ -14,10 +14,8 @@ namespace Kentico.Xperience.UMT.Model;
 public class AssetSource
 {
     public const string DISCRIMINATOR_PROPERTY = "$assetType";
-    
     [Required]
     public Guid? ContentItemGuid { get; set; }
-    
     [Required]
     public Guid? Identifier { get; set; }
     [Required]
@@ -26,6 +24,8 @@ public class AssetSource
     public string? Extension { get; set; }
     public long? Size { get; set; }
     public DateTime? LastModified { get; set; }
+
+    public virtual string InferExtension() => Extension ?? throw new InvalidOperationException($"{nameof(AssetFileSource)} has unknown extension. Specify explicitly by {nameof(Extension)} property");
 }
 
 
@@ -33,6 +33,8 @@ public class AssetFileSource : AssetSource
 {
     [Required]
     public string? FilePath { get; set; }
+
+    public override string InferExtension() => Extension ?? CMS.IO.FileInfo.New(FilePath).Extension ?? throw new InvalidOperationException($"{nameof(AssetFileSource)} has unknown extension. Specify explicitly by {nameof(Extension)} property");
 }
 
 public class AssetUrlSource : AssetSource
@@ -44,5 +46,5 @@ public class AssetUrlSource : AssetSource
 public class AssetDataSource : AssetSource
 {
     [Required]
-    public byte[]? Data { get; set; } 
+    public byte[]? Data { get; set; }
 }

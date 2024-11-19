@@ -1,9 +1,12 @@
-﻿using CMS.ContentEngine;
+﻿using System.Text.Json;
+
+using CMS.ContentEngine;
 using CMS.ContentEngine.Internal;
 using CMS.Core;
 using CMS.Core.Internal;
 using CMS.DataEngine;
 using CMS.FormEngine;
+using CMS.Helpers;
 using CMS.Membership;
 using CMS.Websites;
 using CMS.Websites.Internal;
@@ -244,7 +247,7 @@ public class ContentItemSimplifiedAdapter : IInfoAdapter<ContentItemInfo, IUmtMo
                 ContentItemLanguageMetadataCreatedByUserGuid = languageData.UserGuid,
                 ContentItemLanguageMetadataModifiedWhen = null,
                 ContentItemLanguageMetadataModifiedByUserGuid = languageData.UserGuid,
-                // ContentItemLanguageMetadataHasImageAsset = null,
+                ContentItemLanguageMetadataHasImageAsset = languageData.ContentItemData?.Values.Any(IsImageAsset) ?? false,
                 ContentItemLanguageMetadataContentLanguageGuid = contentLanguageInfo.ContentLanguageGUID,
                 ContentItemLanguageMetadataScheduledPublishWhen = languageData.ScheduledPublishWhen,
                 ContentItemLanguageMetadataScheduledUnpublishWhen = languageData.ScheduledUnpublishWhen
@@ -454,4 +457,24 @@ public class ContentItemSimplifiedAdapter : IInfoAdapter<ContentItemInfo, IUmtMo
     }
 
     Guid? IInfoAdapter<IUmtModel>.GetUniqueIdOrNull(IUmtModel input) => input is ContentItemSimplifiedModel sm ? sm.ContentItemGUID : null;
+
+    private static bool IsImageAsset(object? value)
+    {
+        if (value is JsonElement { ValueKind: JsonValueKind.Object } element && element.GetProperty(AssetSource.DISCRIMINATOR_PROPERTY).GetString() is { })
+        {
+            var assetSource = element.Deserialize<AssetSource>();
+            if (assetSource is not null)
+            {
+                return ImageHelper.IsImage(assetSource.InferExtension());
+            }
+            else
+            {
+                throw new InvalidOperationException($"JSON object with property {AssetSource.DISCRIMINATOR_PROPERTY} cannot be deserialized");
+            }
+        }
+        else
+        {
+            return false;
+        }
+    }
 }
