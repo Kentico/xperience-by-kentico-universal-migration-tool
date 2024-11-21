@@ -127,6 +127,7 @@ jobs:
       - name: <UMT> Run example migration
         working-directory: ${{ env.XBK_DIR }}
         run: |
+          mkdir ${{ env.XBK_DIR}}\assets\media\
           dotnet run --project  ${{ env.UMT_DIR }}\examples\Kentico.Xperience.UMT.Example.Console\Kentico.Xperience.UMT.Example.Console.csproj ${{ env.UMT_DIR }}\examples\Kentico.Xperience.UMT.Example.Console
 
       - name: Install Playwright
