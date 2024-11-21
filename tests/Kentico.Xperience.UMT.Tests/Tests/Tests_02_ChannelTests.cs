@@ -1,5 +1,7 @@
 ﻿using Microsoft.Playwright;
+
 using System.Reflection;
+
 using TestAfterMigration.Extensions;
 using TestAfterMigration.Helpers;
 
@@ -169,7 +171,7 @@ namespace TestAfterMigration.Tests
             await OpenAdminApplication("website Channel Example");
             await SelectTopDropdownLanguage("English (United States)");
             var treeItems = await GetPageTreeItemsFlat();
-            
+
             var item = treeItems.First(x => string.Equals(x.Title, "Simplified model sample sub page 2 [Published->Draft] - en-us"));
             await item.ClickAsync();
             await Debounce();

@@ -2,6 +2,7 @@
 using System.Diagnostics;
 
 using Microsoft.Playwright;
+
 using TestAfterMigration.Enums;
 using TestAfterMigration.Extensions;
 using TestAfterMigration.Helpers;
@@ -16,6 +17,7 @@ namespace TestAfterMigration.Tests
         protected static string BaseURL => Environment.GetEnvironmentVariable("BASE_URL") ?? "";
         protected static string AdministratorUser => Environment.GetEnvironmentVariable("ADMINISTRATION_USER") ?? "";
         protected static string AdministratorPassword => Environment.GetEnvironmentVariable("ADMINISTRATION_PASSWORD") ?? "";
+        protected static string ReportPath => Environment.GetEnvironmentVariable("REPORT_PATH") ?? "";
 
         [SetUp]
         public async Task Setup()

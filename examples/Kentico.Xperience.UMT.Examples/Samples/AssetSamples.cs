@@ -16,7 +16,7 @@ namespace Kentico.Xperience.UMT.Examples
             FileName = "NewTestFile",
             FileExtension = ".png",
             FileTitle = "Title",
-            FilePath = "customdir/NewTestFile.png"
+            FilePath = "NewTestFile.png"
         };
         
         [Sample("mediafile.sample.fromurl", "", "Sample of media file downloaded from url")]
@@ -29,7 +29,7 @@ namespace Kentico.Xperience.UMT.Examples
             FileName = "NewTestFileFromUri",
             FileExtension = ".jpg",
             FileTitle = "Old devnet screen",
-            FilePath = "customdir/NewTestFileFromUri.jpg"
+            FilePath = "NewTestFileFromUri.jpg"
         };
         
         // https://res-5.cloudinary.com/xperience-io/image/upload/c_lfill,dpr_1,w_768/f_auto,q_auto/v1/homepage/k-02-your-real-needs-at-its-core-1600x1200px_ihqknl
