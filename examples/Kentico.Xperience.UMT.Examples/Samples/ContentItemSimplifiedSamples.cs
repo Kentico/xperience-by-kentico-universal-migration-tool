@@ -303,7 +303,7 @@ public static class ContentItemSimplifiedSamples
                     ["EventText"] = "en-US Event sample 2024 (reusable)",
                     ["EventDate"] = new DateTime(2024,1,1,0,0,0,0, DateTimeKind.Utc),
                     ["EventRecurrentYearly"] = true,
-                    ["EventTeaser"] =  new AssetDataSource
+                    ["EventTeaser"] = new AssetDataSource
                     {
                         ContentItemGuid = SampleEvent2024ContentItemGuid,
                         Identifier = new Guid("2A645BAB-F2DC-4B94-A226-FD680B9DF901"),
