@@ -460,21 +460,21 @@ public class ContentItemSimplifiedAdapter : IInfoAdapter<ContentItemInfo, IUmtMo
 
     private static bool IsImageAsset(object? value)
     {
-        if (value is JsonElement { ValueKind: JsonValueKind.Object } element && element.GetProperty(AssetSource.DISCRIMINATOR_PROPERTY).GetString() is { })
+        switch (value)
         {
-            var assetSource = element.Deserialize<AssetSource>();
-            if (assetSource is not null)
+            case AssetSource assetSource:
             {
                 return ImageHelper.IsImage(assetSource.InferExtension());
             }
-            else
+            case JsonElement { ValueKind: JsonValueKind.Object } jsonElement when jsonElement.GetProperty(AssetSource.DISCRIMINATOR_PROPERTY).GetString() is { }:
             {
-                throw new InvalidOperationException($"JSON object with property {AssetSource.DISCRIMINATOR_PROPERTY} cannot be deserialized");
+                var asset = jsonElement.Deserialize<AssetSource>() ?? throw new InvalidOperationException($"JSON object with property {AssetSource.DISCRIMINATOR_PROPERTY} cannot be deserialized");
+                return ImageHelper.IsImage(asset.InferExtension());
             }
-        }
-        else
-        {
-            return false;
+            default:
+            {
+                return false;
+            }
         }
     }
 }
