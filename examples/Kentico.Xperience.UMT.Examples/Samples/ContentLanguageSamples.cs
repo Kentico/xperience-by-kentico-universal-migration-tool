@@ -8,6 +8,8 @@ public static class ContentLanguageSamples
     public static readonly Guid CONTENT_LANGUAGE_ENGB_SAMPLE_GUID = new Guid("A6C0A558-8B33-47B6-87A8-491B437C9923");
     public static readonly Guid CONTENT_LANGUAGE_ES_SAMPLE_GUID = new Guid("4C80C6DD-A5C2-443D-873A-E9C328024B7C");
 
+    public static ContentLanguageModel[] Languages => [SampleContentLanguageEnUs, SampleContentLanguageEnGb, SampleContentLanguageEs];
+
     [Sample("contentlanguage.sample.en-us", "This sample describes how to create content language for English (United States)", "ContentLanguage Sample - English US")]
     public static ContentLanguageModel SampleContentLanguageEnUs => new()
     {
