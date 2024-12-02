@@ -930,6 +930,7 @@
         "LanguageName": "en-US",
         "DisplayName": "Simplified model sample - en-us",
         "VersionStatus": 0,
+        "IsLatest": true,
         "UserGuid": null,
         "ScheduledPublishWhen": "2045-01-01T00:00:00Z",
         "ScheduledUnpublishWhen": null,
@@ -945,6 +946,7 @@
         "LanguageName": "en-GB",
         "DisplayName": "Simplified model sample - en-gb",
         "VersionStatus": 2,
+        "IsLatest": true,
         "UserGuid": null,
         "ScheduledPublishWhen": null,
         "ScheduledUnpublishWhen": "2045-01-01T00:00:00Z",
@@ -961,17 +963,20 @@
       "PageUrls": [
         {
           "UrlPath": "en-us/simplified-sample",
-          "PathIsDraft": null,
+          "PathIsDraft": false,
+          "PathIsLatest": true,
           "LanguageName": "en-US"
         },
         {
           "UrlPath": "en-gb/simplified-sample",
-          "PathIsDraft": null,
+          "PathIsDraft": false,
+          "PathIsLatest": true,
           "LanguageName": "en-GB"
         },
         {
           "UrlPath": "es/simplified-sample",
-          "PathIsDraft": null,
+          "PathIsDraft": false,
+          "PathIsLatest": true,
           "LanguageName": "es-CU"
         }
       ],
@@ -993,8 +998,9 @@
     "LanguageData": [
       {
         "LanguageName": "en-US",
-        "DisplayName": "Simplified model sample sub page - en-us",
+        "DisplayName": "Simplified model sample sub page - en-US",
         "VersionStatus": 0,
+        "IsLatest": true,
         "UserGuid": "dbfcc244-2cb9-4934-857f-9d75404c1553",
         "ScheduledPublishWhen": null,
         "ScheduledUnpublishWhen": null,
@@ -1007,8 +1013,9 @@
       },
       {
         "LanguageName": "en-GB",
-        "DisplayName": "Simplified model sample sub page - en-gb",
+        "DisplayName": "Simplified model sample sub page - en-GB",
         "VersionStatus": 2,
+        "IsLatest": true,
         "UserGuid": "dbfcc244-2cb9-4934-857f-9d75404c1553",
         "ScheduledPublishWhen": null,
         "ScheduledUnpublishWhen": null,
@@ -1024,17 +1031,20 @@
       "PageUrls": [
         {
           "UrlPath": "en-us/simplified-sample/sub-page",
-          "PathIsDraft": null,
+          "PathIsDraft": false,
+          "PathIsLatest": true,
           "LanguageName": "en-US"
         },
         {
           "UrlPath": "en-gb/simplified-sample/sub-page",
-          "PathIsDraft": null,
+          "PathIsDraft": false,
+          "PathIsLatest": true,
           "LanguageName": "en-GB"
         },
         {
-          "UrlPath": "es/simplified-sample/sub-page",
-          "PathIsDraft": null,
+          "UrlPath": "es-cu/simplified-sample/sub-page",
+          "PathIsDraft": false,
+          "PathIsLatest": true,
           "LanguageName": "es-CU"
         }
       ],
@@ -1050,34 +1060,66 @@
     "ContentItemContentFolderGUID": null,
     "IsSecured": false,
     "ContentTypeName": "UMT.Article",
-    "Name": "SimplifiedModelSampleAsSubPage2_Published",
+    "Name": "SimplifiedModelSampleAsSubPage2_Draft",
     "IsReusable": false,
     "ChannelName": "websitechannelExample",
     "LanguageData": [
       {
         "LanguageName": "en-US",
-        "DisplayName": "Simplified model sample sub page 2 [Published] - en-us",
+        "DisplayName": "Simplified model sample sub page 2 [Draft] - en-US",
         "VersionStatus": 2,
+        "IsLatest": false,
         "UserGuid": "dbfcc244-2cb9-4934-857f-9d75404c1553",
         "ScheduledPublishWhen": null,
         "ScheduledUnpublishWhen": null,
         "ContentItemData": {
-          "ArticleTitle": "en-US UMT simplified model creation as sub page 2 [Published]",
-          "ArticleText": "Created by UMT simplified model in Published state, as a prerequisite for subsequent Draft import for en-US language",
+          "ArticleTitle": "en-US UMT simplified model creation as sub page 2 [Draft]",
+          "ArticleText": "Created by UMT simplified model in Draft state for en-US language",
+          "RelatedArticles": null,
+          "RelatedFaq": null
+        }
+      },
+      {
+        "LanguageName": "en-US",
+        "DisplayName": "Simplified model sample sub page 2 [Draft] - en-US",
+        "VersionStatus": 1,
+        "IsLatest": true,
+        "UserGuid": "dbfcc244-2cb9-4934-857f-9d75404c1553",
+        "ScheduledPublishWhen": null,
+        "ScheduledUnpublishWhen": null,
+        "ContentItemData": {
+          "ArticleTitle": "en-US UMT simplified model creation as sub page 2 [Draft]...new draft",
+          "ArticleText": "Created by UMT simplified model in Draft state for en-US language ...new draft",
           "RelatedArticles": null,
           "RelatedFaq": null
         }
       },
       {
         "LanguageName": "en-GB",
-        "DisplayName": "Simplified model sample sub page 2 [Published] - en-gb",
+        "DisplayName": "Simplified model sample sub page 2 [Draft] - en-GB",
         "VersionStatus": 2,
+        "IsLatest": false,
         "UserGuid": "dbfcc244-2cb9-4934-857f-9d75404c1553",
         "ScheduledPublishWhen": null,
         "ScheduledUnpublishWhen": null,
         "ContentItemData": {
-          "ArticleTitle": "en-GB UMT simplified model creation as sub page 2 [Published]",
-          "ArticleText": "Created by UMT simplified model in Published state, as a prerequisite for subsequent Draft import for en-GB language",
+          "ArticleTitle": "en-GB UMT simplified model creation as sub page 2 [Draft]",
+          "ArticleText": "Created by UMT simplified model in Draft state for en-GB language",
+          "RelatedArticles": null,
+          "RelatedFaq": null
+        }
+      },
+      {
+        "LanguageName": "en-GB",
+        "DisplayName": "Simplified model sample sub page 2 [Draft] - en-GB",
+        "VersionStatus": 1,
+        "IsLatest": true,
+        "UserGuid": "dbfcc244-2cb9-4934-857f-9d75404c1553",
+        "ScheduledPublishWhen": null,
+        "ScheduledUnpublishWhen": null,
+        "ContentItemData": {
+          "ArticleTitle": "en-GB UMT simplified model creation as sub page 2 [Draft]...new draft",
+          "ArticleText": "Created by UMT simplified model in Draft state for en-GB language ...new draft",
           "RelatedArticles": null,
           "RelatedFaq": null
         }
@@ -1087,17 +1129,32 @@
       "PageUrls": [
         {
           "UrlPath": "en-us/simplified-sample/sub-page-2",
-          "PathIsDraft": null,
+          "PathIsDraft": false,
+          "PathIsLatest": false,
+          "LanguageName": "en-US"
+        },
+        {
+          "UrlPath": "en-us/simplified-sample/sub-page-2-new-draft",
+          "PathIsDraft": true,
+          "PathIsLatest": true,
           "LanguageName": "en-US"
         },
         {
           "UrlPath": "en-gb/simplified-sample/sub-page-2",
-          "PathIsDraft": null,
+          "PathIsDraft": false,
+          "PathIsLatest": false,
           "LanguageName": "en-GB"
         },
         {
-          "UrlPath": "es/simplified-sample/sub-page-2",
-          "PathIsDraft": null,
+          "UrlPath": "en-gb/simplified-sample/sub-page-2-new-draft",
+          "PathIsDraft": true,
+          "PathIsLatest": true,
+          "LanguageName": "en-GB"
+        },
+        {
+          "UrlPath": "es-cu/simplified-sample/sub-page-2",
+          "PathIsDraft": false,
+          "PathIsLatest": true,
           "LanguageName": "es-CU"
         }
       ],
@@ -1109,101 +1166,70 @@
   },
   {
     "$type": "ContentItemSimplified",
-    "ContentItemGUID": "017edc1e-95c6-43e4-89d5-716c6ae594b2",
-    "ContentItemContentFolderGUID": null,
-    "IsSecured": false,
-    "ContentTypeName": "UMT.Article",
-    "Name": "SimplifiedModelSampleAsSubPage2_PublishedToDraft",
-    "IsReusable": false,
-    "ChannelName": "websitechannelExample",
-    "LanguageData": [
-      {
-        "LanguageName": "en-US",
-        "DisplayName": "Simplified model sample sub page 2 [Published-\u003EDraft] - en-us",
-        "VersionStatus": 1,
-        "UserGuid": "dbfcc244-2cb9-4934-857f-9d75404c1553",
-        "ScheduledPublishWhen": null,
-        "ScheduledUnpublishWhen": null,
-        "ContentItemData": {
-          "ArticleTitle": "en-US UMT simplified model creation as sub page 2 [Published-\u003EDraft]",
-          "ArticleText": "Created by UMT simplified model in Draft state from previously published state for en-US language",
-          "RelatedArticles": null,
-          "RelatedFaq": null
-        }
-      },
-      {
-        "LanguageName": "en-GB",
-        "DisplayName": "Simplified model sample sub page 2 [Published-\u003EDraft] - en-gb",
-        "VersionStatus": 1,
-        "UserGuid": "dbfcc244-2cb9-4934-857f-9d75404c1553",
-        "ScheduledPublishWhen": null,
-        "ScheduledUnpublishWhen": null,
-        "ContentItemData": {
-          "ArticleTitle": "en-GB UMT simplified model creation as sub page 2 [Published-\u003EDraft]",
-          "ArticleText": "Created by UMT simplified model in Draft state from previously published state for en-GB language",
-          "RelatedArticles": null,
-          "RelatedFaq": null
-        }
-      }
-    ],
-    "PageData": {
-      "PageUrls": [
-        {
-          "UrlPath": "en-us/simplified-sample/sub-page-2-new-path",
-          "PathIsDraft": null,
-          "LanguageName": "en-US"
-        },
-        {
-          "UrlPath": "en-gb/simplified-sample/sub-page-2-new-path",
-          "PathIsDraft": null,
-          "LanguageName": "en-GB"
-        },
-        {
-          "UrlPath": "es/simplified-sample/sub-page-2-new-path",
-          "PathIsDraft": null,
-          "LanguageName": "es-CU"
-        }
-      ],
-      "PageGuid": null,
-      "ParentGuid": "4ea03de4-977e-48aa-9340-babf3d23bafa",
-      "TreePath": "/simplified-sample/sub-page-2-new-path",
-      "ItemOrder": null
-    }
-  },
-  {
-    "$type": "ContentItemSimplified",
     "ContentItemGUID": "73298f71-0bb1-4083-a674-a876769e3dd9",
     "ContentItemContentFolderGUID": null,
     "IsSecured": false,
     "ContentTypeName": "UMT.Article",
-    "Name": "SimplifiedModelSampleAsSubPage3_Published",
+    "Name": "SimplifiedModelSampleAsSubPage3_Draft",
     "IsReusable": false,
     "ChannelName": "websitechannelExample",
     "LanguageData": [
       {
         "LanguageName": "en-US",
-        "DisplayName": "Simplified model sample sub page 3 [Published] - en-us",
+        "DisplayName": "Simplified model sample sub page 3 [Draft] - en-US",
         "VersionStatus": 2,
+        "IsLatest": false,
         "UserGuid": "dbfcc244-2cb9-4934-857f-9d75404c1553",
         "ScheduledPublishWhen": null,
         "ScheduledUnpublishWhen": null,
         "ContentItemData": {
-          "ArticleTitle": "en-US UMT simplified model creation as sub page 3 [Published]",
-          "ArticleText": "Created by UMT simplified model in Published state, as a prerequisite for subsequent Draft import for en-US language",
+          "ArticleTitle": "en-US UMT simplified model creation as sub page 3 [Draft]",
+          "ArticleText": "Created by UMT simplified model in Draft state for en-US language",
+          "RelatedArticles": null,
+          "RelatedFaq": null
+        }
+      },
+      {
+        "LanguageName": "en-US",
+        "DisplayName": "Simplified model sample sub page 3 [Draft] - en-US",
+        "VersionStatus": 1,
+        "IsLatest": true,
+        "UserGuid": "dbfcc244-2cb9-4934-857f-9d75404c1553",
+        "ScheduledPublishWhen": null,
+        "ScheduledUnpublishWhen": null,
+        "ContentItemData": {
+          "ArticleTitle": "en-US UMT simplified model creation as sub page 3 [Draft]...new draft",
+          "ArticleText": "Created by UMT simplified model in Draft state for en-US language ...new draft",
           "RelatedArticles": null,
           "RelatedFaq": null
         }
       },
       {
         "LanguageName": "en-GB",
-        "DisplayName": "Simplified model sample sub page 3 [Published] - en-gb",
+        "DisplayName": "Simplified model sample sub page 3 [Draft] - en-GB",
         "VersionStatus": 2,
+        "IsLatest": false,
         "UserGuid": "dbfcc244-2cb9-4934-857f-9d75404c1553",
         "ScheduledPublishWhen": null,
         "ScheduledUnpublishWhen": null,
         "ContentItemData": {
-          "ArticleTitle": "en-GB UMT simplified model creation as sub page 3 [Published]",
-          "ArticleText": "Created by UMT simplified model in Published state, as a prerequisite for subsequent Draft import for en-GB language",
+          "ArticleTitle": "en-GB UMT simplified model creation as sub page 3 [Draft]",
+          "ArticleText": "Created by UMT simplified model in Draft state for en-GB language",
+          "RelatedArticles": null,
+          "RelatedFaq": null
+        }
+      },
+      {
+        "LanguageName": "en-GB",
+        "DisplayName": "Simplified model sample sub page 3 [Draft] - en-GB",
+        "VersionStatus": 1,
+        "IsLatest": true,
+        "UserGuid": "dbfcc244-2cb9-4934-857f-9d75404c1553",
+        "ScheduledPublishWhen": null,
+        "ScheduledUnpublishWhen": null,
+        "ContentItemData": {
+          "ArticleTitle": "en-GB UMT simplified model creation as sub page 3 [Draft]...new draft",
+          "ArticleText": "Created by UMT simplified model in Draft state for en-GB language ...new draft",
           "RelatedArticles": null,
           "RelatedFaq": null
         }
@@ -1213,86 +1239,38 @@
       "PageUrls": [
         {
           "UrlPath": "en-us/simplified-sample/sub-page-3",
-          "PathIsDraft": null,
+          "PathIsDraft": false,
+          "PathIsLatest": false,
+          "LanguageName": "en-US"
+        },
+        {
+          "UrlPath": "en-us/simplified-sample/sub-page-3-new-draft",
+          "PathIsDraft": true,
+          "PathIsLatest": true,
           "LanguageName": "en-US"
         },
         {
           "UrlPath": "en-gb/simplified-sample/sub-page-3",
-          "PathIsDraft": null,
+          "PathIsDraft": false,
+          "PathIsLatest": false,
           "LanguageName": "en-GB"
         },
         {
-          "UrlPath": "es/simplified-sample/sub-page-3",
-          "PathIsDraft": null,
+          "UrlPath": "en-gb/simplified-sample/sub-page-3-new-draft",
+          "PathIsDraft": true,
+          "PathIsLatest": true,
+          "LanguageName": "en-GB"
+        },
+        {
+          "UrlPath": "es-cu/simplified-sample/sub-page-3",
+          "PathIsDraft": false,
+          "PathIsLatest": true,
           "LanguageName": "es-CU"
         }
       ],
       "PageGuid": null,
       "ParentGuid": "4ea03de4-977e-48aa-9340-babf3d23bafa",
       "TreePath": "/simplified-sample/sub-page-3",
-      "ItemOrder": null
-    }
-  },
-  {
-    "$type": "ContentItemSimplified",
-    "ContentItemGUID": "73298f71-0bb1-4083-a674-a876769e3dd9",
-    "ContentItemContentFolderGUID": null,
-    "IsSecured": false,
-    "ContentTypeName": "UMT.Article",
-    "Name": "SimplifiedModelSampleAsSubPage3_PublishedToDraft",
-    "IsReusable": false,
-    "ChannelName": "websitechannelExample",
-    "LanguageData": [
-      {
-        "LanguageName": "en-US",
-        "DisplayName": "Simplified model sample sub page 3 [Published-\u003EDraft] - en-us",
-        "VersionStatus": 1,
-        "UserGuid": "dbfcc244-2cb9-4934-857f-9d75404c1553",
-        "ScheduledPublishWhen": null,
-        "ScheduledUnpublishWhen": null,
-        "ContentItemData": {
-          "ArticleTitle": "en-US UMT simplified model creation as sub page 3 [Published-\u003EDraft]",
-          "ArticleText": "Created by UMT simplified model in Draft state from previously published state for en-US language",
-          "RelatedArticles": null,
-          "RelatedFaq": null
-        }
-      },
-      {
-        "LanguageName": "en-GB",
-        "DisplayName": "Simplified model sample sub page 3 [Published-\u003EDraft] - en-gb",
-        "VersionStatus": 1,
-        "UserGuid": "dbfcc244-2cb9-4934-857f-9d75404c1553",
-        "ScheduledPublishWhen": null,
-        "ScheduledUnpublishWhen": null,
-        "ContentItemData": {
-          "ArticleTitle": "en-GB UMT simplified model creation as sub page 3 [Published-\u003EDraft]",
-          "ArticleText": "Created by UMT simplified model in Draft state from previously published state for en-GB language",
-          "RelatedArticles": null,
-          "RelatedFaq": null
-        }
-      }
-    ],
-    "PageData": {
-      "PageUrls": [
-        {
-          "UrlPath": "en-us/simplified-sample/sub-page-3-new-path",
-          "PathIsDraft": null,
-          "LanguageName": "en-US"
-        },
-        {
-          "UrlPath": "en-gb/simplified-sample/sub-page-3-new-path",
-          "PathIsDraft": null,
-          "LanguageName": "en-GB"
-        },
-        {
-          "UrlPath": "es/simplified-sample/sub-page-3-new-path",
-          "PathIsDraft": null,
-          "LanguageName": "es-CU"
-        }
-      ],
-      "PageGuid": null,
-      "ParentGuid": "4ea03de4-977e-48aa-9340-babf3d23bafa",
-      "TreePath": "/simplified-sample/sub-page-3-new-path",
       "ItemOrder": null
     }
   },
@@ -1310,6 +1288,7 @@
         "LanguageName": "en-US",
         "DisplayName": "FAQ: reusable simplified model sample - en-us",
         "VersionStatus": 0,
+        "IsLatest": true,
         "UserGuid": "dbfcc244-2cb9-4934-857f-9d75404c1553",
         "ScheduledPublishWhen": null,
         "ScheduledUnpublishWhen": null,
@@ -1322,12 +1301,13 @@
         "LanguageName": "en-GB",
         "DisplayName": "FAQ: reusable simplified model sample - en-gb",
         "VersionStatus": 2,
+        "IsLatest": true,
         "UserGuid": "dbfcc244-2cb9-4934-857f-9d75404c1553",
         "ScheduledPublishWhen": null,
         "ScheduledUnpublishWhen": "2045-01-01T00:00:00Z",
         "ContentItemData": {
-          "FaqQuestion": "en-US FAQ question text (reusable)",
-          "FaqAnswer": "en-US FAQ answer text (reusable)"
+          "FaqQuestion": "en-GB FAQ question text (reusable)",
+          "FaqAnswer": "en-GB FAQ answer text (reusable)"
         }
       }
     ],
@@ -1347,6 +1327,7 @@
         "LanguageName": "en-US",
         "DisplayName": "Event sample 2024 - en-US",
         "VersionStatus": 0,
+        "IsLatest": true,
         "UserGuid": "dbfcc244-2cb9-4934-857f-9d75404c1553",
         "ScheduledPublishWhen": null,
         "ScheduledUnpublishWhen": null,
@@ -1371,6 +1352,7 @@
         "LanguageName": "en-GB",
         "DisplayName": "Event sample 2024 - en-GB",
         "VersionStatus": 2,
+        "IsLatest": true,
         "UserGuid": "dbfcc244-2cb9-4934-857f-9d75404c1553",
         "ScheduledPublishWhen": null,
         "ScheduledUnpublishWhen": "2045-01-01T00:00:00Z",

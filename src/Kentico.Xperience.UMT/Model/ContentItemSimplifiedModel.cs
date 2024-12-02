@@ -66,8 +66,9 @@ public class ContentItemLanguageData
     [Required]
     public required string DisplayName { get; set; }
     
-    public VersionStatus VersionStatus { get; set; } = VersionStatus.InitialDraft;
-    
+    public VersionStatus VersionStatus { get; set; } = VersionStatus.Published;
+    public bool IsLatest { get; set; } = true;
+
     [Required]
     public required Guid? UserGuid { get; set; }
     
@@ -108,6 +109,7 @@ public class PageUrlModel
     /// <summary>
     /// currently unused, until simplified model supports Draft content items (and not only Published or InitialDraft) 
     /// </summary>
-    public bool? PathIsDraft { get; set; }
+    public bool? PathIsDraft { get; set; } = false;
+    public bool? PathIsLatest { get; set; } = true;
     public string? LanguageName { get; set; }
 }

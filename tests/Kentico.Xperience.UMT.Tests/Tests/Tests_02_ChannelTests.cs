@@ -169,8 +169,8 @@ namespace TestAfterMigration.Tests
             await OpenAdminApplication("website Channel Example");
             await SelectTopDropdownLanguage("English (United States)");
             var treeItems = await GetPageTreeItemsFlat();
-            
-            var item = treeItems.First(x => string.Equals(x.Title, "Simplified model sample sub page 2 [Published->Draft] - en-us"));
+
+            var item = treeItems.First(x => string.Equals(x.Title, "Simplified model sample sub page 2 [Draft] - en-US"));
             await item.ClickAsync();
             await Debounce();
 
@@ -180,7 +180,9 @@ namespace TestAfterMigration.Tests
             string? status = await Page.GetByTestId("breadcrumbs-status").TextContentAsync();
 
             Assert.That("Published" == status);
-            await Assertions.Expect(Page.GetByTestId("ArticleText")).ToHaveTextAsync("Created by UMT simplified model in Draft state from previously published state for en-US language");
+            await Page.Locator($"button[aria-label=\"Content\"]").ClickAsync();
+            await Debounce();
+            await Assertions.Expect(Page.GetByTestId("ArticleText")).ToHaveTextAsync("Created by UMT simplified model in Draft state for en-US language ...new draft");
             await AssertNoEventlogErrors();
         }
 
@@ -191,7 +193,7 @@ namespace TestAfterMigration.Tests
             await SelectTopDropdownLanguage("English (United States)");
             var treeItems = await GetPageTreeItemsFlat();
 
-            var item = treeItems.First(x => string.Equals(x.Title, "Simplified model sample sub page 3 [Published->Draft] - en-us"));
+            var item = treeItems.First(x => string.Equals(x.Title, "Simplified model sample sub page 3 [Draft] - en-US"));
             await item.ClickAsync();
             await Debounce();
 
@@ -202,7 +204,7 @@ namespace TestAfterMigration.Tests
             string? status = await Page.GetByTestId("breadcrumbs-status").TextContentAsync();
 
             Assert.That("Published" == status);
-            await Assertions.Expect(Page.GetByTestId("ArticleText")).ToHaveTextAsync("Created by UMT simplified model in Published state, as a prerequisite for subsequent Draft import for en-US language");
+            await Assertions.Expect(Page.GetByTestId("ArticleText")).ToHaveTextAsync("Created by UMT simplified model in Draft state for en-US language");
             await AssertNoEventlogErrors();
         }
     }

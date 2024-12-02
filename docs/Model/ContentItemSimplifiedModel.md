@@ -32,8 +32,9 @@ Simplified model for importing webpage content item with parent
   "LanguageData": [
     {
       "LanguageName": "en-US",
-      "DisplayName": "Simplified model sample sub page - en-us",
+      "DisplayName": "Simplified model sample sub page - en-US",
       "VersionStatus": 0,
+      "IsLatest": true,
       "UserGuid": "dbfcc244-2cb9-4934-857f-9d75404c1553",
       "ContentItemData": {
         "ArticleTitle": "en-US UMT simplified model creation as sub page",
@@ -44,8 +45,9 @@ Simplified model for importing webpage content item with parent
     },
     {
       "LanguageName": "en-GB",
-      "DisplayName": "Simplified model sample sub page - en-gb",
+      "DisplayName": "Simplified model sample sub page - en-GB",
       "VersionStatus": 2,
+      "IsLatest": true,
       "UserGuid": "dbfcc244-2cb9-4934-857f-9d75404c1553",
       "ContentItemData": {
         "ArticleTitle": "en-GB UMT simplified model creation as sub page",
@@ -59,14 +61,20 @@ Simplified model for importing webpage content item with parent
     "PageUrls": [
       {
         "UrlPath": "en-us/simplified-sample/sub-page",
+        "PathIsDraft": false,
+        "PathIsLatest": true,
         "LanguageName": "en-US"
       },
       {
         "UrlPath": "en-gb/simplified-sample/sub-page",
+        "PathIsDraft": false,
+        "PathIsLatest": true,
         "LanguageName": "en-GB"
       },
       {
-        "UrlPath": "es/simplified-sample/sub-page",
+        "UrlPath": "es-cu/simplified-sample/sub-page",
+        "PathIsDraft": false,
+        "PathIsLatest": true,
         "LanguageName": "es-CU"
       }
     ],
@@ -92,6 +100,7 @@ Simplified model for importing webpage content item
       "LanguageName": "en-US",
       "DisplayName": "Simplified model sample - en-us",
       "VersionStatus": 0,
+      "IsLatest": true,
       "ScheduledPublishWhen": "2045-01-01T00:00:00Z",
       "ContentItemData": {
         "ArticleTitle": "en-US UMT simplified model creation",
@@ -105,6 +114,7 @@ Simplified model for importing webpage content item
       "LanguageName": "en-GB",
       "DisplayName": "Simplified model sample - en-gb",
       "VersionStatus": 2,
+      "IsLatest": true,
       "ScheduledUnpublishWhen": "2045-01-01T00:00:00Z",
       "ContentItemData": {
         "ArticleTitle": "en-GB UMT simplified model creation",
@@ -119,14 +129,20 @@ Simplified model for importing webpage content item
     "PageUrls": [
       {
         "UrlPath": "en-us/simplified-sample",
+        "PathIsDraft": false,
+        "PathIsLatest": true,
         "LanguageName": "en-US"
       },
       {
         "UrlPath": "en-gb/simplified-sample",
+        "PathIsDraft": false,
+        "PathIsLatest": true,
         "LanguageName": "en-GB"
       },
       {
         "UrlPath": "es/simplified-sample",
+        "PathIsDraft": false,
+        "PathIsLatest": true,
         "LanguageName": "es-CU"
       }
     ],
@@ -151,6 +167,7 @@ This sample describes how to import reusable content item with asset into XbyK
       "LanguageName": "en-US",
       "DisplayName": "Event sample 2024 - en-US",
       "VersionStatus": 0,
+      "IsLatest": true,
       "UserGuid": "dbfcc244-2cb9-4934-857f-9d75404c1553",
       "ContentItemData": {
         "EventTitle": "en-US Event sample 2024",
@@ -171,6 +188,7 @@ This sample describes how to import reusable content item with asset into XbyK
       "LanguageName": "en-GB",
       "DisplayName": "Event sample 2024 - en-GB",
       "VersionStatus": 2,
+      "IsLatest": true,
       "UserGuid": "dbfcc244-2cb9-4934-857f-9d75404c1553",
       "ScheduledUnpublishWhen": "2045-01-01T00:00:00Z",
       "ContentItemData": {
@@ -198,6 +216,7 @@ This sample describes how to import reusable content item with asset into XbyK
 |LanguageName\*||string||
 |DisplayName\*||string||
 |VersionStatus||CMS.ContentEngine.VersionStatus||
+|IsLatest||bool||
 |UserGuid\*||System.Guid?||
 |ScheduledPublishWhen|Date and time on which draft content item will be published, must be set in future|System.DateTime?||
 |ScheduledUnpublishWhen|Date and time on which published content item will be unpublished, must be set in future|System.DateTime?||
@@ -225,6 +244,7 @@ Defines url for web page item
 |---|---|---|---|
 |UrlPath||string?||
 |PathIsDraft|currently unused, until simplified model supports Draft content items (and not only Published or InitialDraft)|bool?||
+|PathIsLatest||bool?||
 |LanguageName||string?||
 
 <p>*) value is required</p>

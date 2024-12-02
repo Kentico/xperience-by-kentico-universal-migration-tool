@@ -37,7 +37,7 @@ var importService = serviceProvider.GetRequiredService<IImportService>();
 // sample data
 List<IUmtModel> sourceData = null!;
 
-bool useSerializedSample = true;
+bool useSerializedSample = false;
 #pragma warning disable S2583 // this is sample, sample user have to change value on demand
 if (useSerializedSample)
 #pragma warning restore S2583
