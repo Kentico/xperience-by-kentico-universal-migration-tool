@@ -1,5 +1,7 @@
-﻿using Microsoft.Playwright;
-using System.Reflection;
+﻿using System.Globalization;
+
+using Microsoft.Playwright;
+
 using TestAfterMigration.Extensions;
 using TestAfterMigration.Helpers;
 
@@ -205,6 +207,134 @@ namespace TestAfterMigration.Tests
 
             Assert.That("Published" == status);
             await Assertions.Expect(Page.GetByTestId("ArticleText")).ToHaveTextAsync("Created by UMT simplified model in Draft state for en-US language");
+            await AssertNoEventlogErrors();
+        }
+
+        [Test]
+        public async Task Test01000_Edit_And_Publish_Scheduled_Page()
+        {
+            await OpenAdminApplication("website Channel Example");
+            await SelectTopDropdownLanguage("English (United States)");
+            var treeItems = await GetPageTreeItemsFlat();
+
+            var item = treeItems.First(x => string.Equals(x.Title, "Simplified model sample sub page 4 - en-US", StringComparison.OrdinalIgnoreCase));
+            await item.ClickAsync();
+            await Debounce();
+            await item.WaitBreadcrumbsLoaded();
+            string? status = await Page.GetByTestId("breadcrumbs-status").TextContentAsync();
+            Assert.That("Scheduled" == status);
+
+            await Page.GetByTestId("content-item-menu-split-button-cancelscheduledpublishandedit").ClickAsync();
+            await Page.GetByTestId("confirm-action").ClickAsync();
+            await Debounce();
+            await Page.GetByTestId("ArticleTitle").FillAsync("New published value");
+            await Page.GetByTestId("content-item-menu-split-button-publish").ClickAsync();
+            await Page.GetByTestId("submit-form-button").ClickAsync();
+            await Debounce();
+
+            await item.WaitBreadcrumbsLoaded();
+            status = await Page.GetByTestId("breadcrumbs-status").TextContentAsync();
+            Assert.That("Published" == status);
+
+            await Assertions.Expect(Page.GetByTestId("ArticleTitle")).ToHaveAttributeAsync("value", "New published value");
+
+            await AssertNoEventlogErrors();
+        }
+
+        [Test]
+        public async Task Test01100_Edit_And_Reschedule_Scheduled_Page()
+        {
+            await OpenAdminApplication("website Channel Example");
+            await SelectTopDropdownLanguage("English (United States)");
+            var treeItems = await GetPageTreeItemsFlat();
+
+            var item = treeItems.First(x => string.Equals(x.Title, "Simplified model sample sub page 5 - en-US", StringComparison.OrdinalIgnoreCase));
+            await item.ClickAsync();
+            await Debounce();
+            await item.WaitBreadcrumbsLoaded();
+            string? status = await Page.GetByTestId("breadcrumbs-status").TextContentAsync();
+            Assert.That("Scheduled" == status);
+
+            await Page.GetByTestId("content-item-menu-split-button-cancelscheduledpublishandedit").ClickAsync();
+            await Page.GetByTestId("confirm-action").ClickAsync();
+            await Debounce();
+            await Page.GetByTestId("ArticleTitle").FillAsync("New scheduled value");
+            await Page.GetByTestId("content-item-menu-split-button-publish").ClickAsync();
+            await Page.GetByTestId("schedule-publish").ClickAsync();
+            await Debounce();
+            await Page.GetByTestId("ScheduledTime").FillAsync(DateTime.Now.AddDays(365).ToString("MM/dd/yyyy hh:mm tt", CultureInfo.GetCultureInfo("en-US")));
+
+            // Make UI recognize the new date input
+            await Page.WaitForTimeoutAsync(3000);
+            await Page.GetByTestId("schedule-publish").ClickAsync();
+            await Debounce();
+
+            await Page.GetByTestId("submit-form-button").ClickAsync();
+            await Debounce();
+
+            await item.WaitBreadcrumbsLoaded();
+            status = await Page.GetByTestId("breadcrumbs-status").TextContentAsync();
+            Assert.That("Scheduled" == status);
+
+            await Assertions.Expect(Page.GetByTestId("ArticleTitle")).ToHaveAttributeAsync("value", "New scheduled value");
+
+            await AssertNoEventlogErrors();
+        }
+
+        [Test]
+        public async Task Test01200_Publish_Initial_Draft()
+        {
+            await OpenAdminApplication("website Channel Example");
+            await SelectTopDropdownLanguage("English (United States)");
+            var treeItems = await GetPageTreeItemsFlat();
+
+            var item = treeItems.First(x => string.Equals(x.Title, "Simplified model sample sub page 6 - en-US", StringComparison.OrdinalIgnoreCase));
+            await item.ClickAsync();
+            await Debounce();
+            await item.WaitBreadcrumbsLoaded();
+            string? status = await Page.GetByTestId("breadcrumbs-status").TextContentAsync();
+            Assert.That("Draft (Initial)" == status);
+
+            await Page.GetByTestId("content-item-menu-split-button-publish").ClickAsync();
+            await Debounce();
+            await Page.GetByTestId("submit-form-button").ClickAsync();
+            await Debounce();
+
+            await item.WaitBreadcrumbsLoaded();
+            status = await Page.GetByTestId("breadcrumbs-status").TextContentAsync();
+            Assert.That("Published" == status);
+
+            await Assertions.Expect(Page.GetByTestId("ArticleTitle")).ToHaveAttributeAsync("value", "en-US UMT simplified model creation as sub page 6");
+
+            await AssertNoEventlogErrors();
+        }
+
+        [Test]
+        public async Task Test01300_Cancel_Scheduled_Publish()
+        {
+            await OpenAdminApplication("website Channel Example");
+            await SelectTopDropdownLanguage("English (United States)");
+            var treeItems = await GetPageTreeItemsFlat();
+
+            var item = treeItems.First(x => string.Equals(x.Title, "Simplified model sample sub page 7 - en-US", StringComparison.OrdinalIgnoreCase));
+            await item.ClickAsync();
+            await Debounce();
+            await item.WaitBreadcrumbsLoaded();
+            string? status = await Page.GetByTestId("breadcrumbs-status").TextContentAsync();
+            Assert.That("Scheduled" == status);
+
+            await Page.GetByTestId("page-menu-actions").GetByTestId("expand-split-button").ClickAsync();
+            await Page.GetByTestId("content-item-action-menu-item-cancelscheduledpublish").ClickAsync();
+            await Debounce();
+            await Page.GetByTestId("confirm-action").ClickAsync();
+            await Debounce();
+
+            await item.WaitBreadcrumbsLoaded();
+            status = await Page.GetByTestId("breadcrumbs-status").TextContentAsync();
+            Assert.That("Draft (Initial)" == status);
+
+            await Assertions.Expect(Page.GetByTestId("ArticleTitle")).ToHaveAttributeAsync("value", "en-US UMT simplified model creation as sub page 7");
+
             await AssertNoEventlogErrors();
         }
     }

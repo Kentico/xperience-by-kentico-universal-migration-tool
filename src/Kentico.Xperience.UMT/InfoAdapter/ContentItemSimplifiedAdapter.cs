@@ -1,5 +1,4 @@
-﻿using System.Text;
-using System.Text.Json;
+﻿using System.Text.Json;
 
 using CMS.ContentEngine;
 using CMS.ContentEngine.Internal;
@@ -11,14 +10,11 @@ using CMS.Helpers;
 using CMS.Membership;
 using CMS.Websites;
 using CMS.Websites.Internal;
-using CMS.Websites.Routing.Internal;
 
 using Kentico.Xperience.UMT.Model;
 using Kentico.Xperience.UMT.ProviderProxy;
-using Kentico.Xperience.UMT.Utils;
 
 using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Logging.Abstractions;
 
 namespace Kentico.Xperience.UMT.InfoAdapter;
 
@@ -55,7 +51,7 @@ public class ContentItemSimplifiedAdapter : IInfoAdapter<ContentItemInfo, IUmtMo
         }
 
         using var scope = new CMSTransactionScope();
-        
+
         ArgumentNullException.ThrowIfNull(cim.ContentItemGUID);
         var existingContentItem = ProviderProxy.GetBaseInfoByGuid(cim.ContentItemGUID.Value, cim) as ContentItemInfo;
 
@@ -94,8 +90,6 @@ public class ContentItemSimplifiedAdapter : IInfoAdapter<ContentItemInfo, IUmtMo
 
         var contentLanguageProxy = providerProxyFactory.CreateProviderProxy<ContentLanguageInfo>(new ProviderProxyContext());
         var userInfoProxy = providerProxyFactory.CreateProviderProxy<UserInfo>(new ProviderProxyContext());
-
-        var commonDataModelsByLang = new Dictionary<string, List<ContentItemCommonDataModel>>();
 
         foreach (var languageData in cim.LanguageData)
         {
