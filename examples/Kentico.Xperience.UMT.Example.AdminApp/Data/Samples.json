@@ -1276,6 +1276,218 @@
   },
   {
     "$type": "ContentItemSimplified",
+    "ContentItemGUID": "8e957ecc-083b-4c86-b761-8db516c13737",
+    "ContentItemContentFolderGUID": null,
+    "IsSecured": false,
+    "ContentTypeName": "UMT.Article",
+    "Name": "SimplifiedModelSampleAsSubPage4",
+    "IsReusable": false,
+    "ChannelName": "websitechannelExample",
+    "LanguageData": [
+      {
+        "LanguageName": "en-US",
+        "DisplayName": "Simplified model sample sub page 4 - en-US",
+        "VersionStatus": 0,
+        "IsLatest": true,
+        "UserGuid": "dbfcc244-2cb9-4934-857f-9d75404c1553",
+        "ScheduledPublishWhen": "2045-01-01T00:00:00Z",
+        "ScheduledUnpublishWhen": null,
+        "ContentItemData": {
+          "ArticleTitle": "en-US UMT simplified model creation as sub page 4",
+          "ArticleText": "This article is only example of creation UMT simplified model for en-US language",
+          "RelatedArticles": null,
+          "RelatedFaq": null
+        }
+      }
+    ],
+    "PageData": {
+      "PageUrls": [
+        {
+          "UrlPath": "en-us/simplified-sample/sub-page-4",
+          "PathIsDraft": false,
+          "PathIsLatest": true,
+          "LanguageName": "en-US"
+        },
+        {
+          "UrlPath": "en-gb/simplified-sample/sub-page-4",
+          "PathIsDraft": false,
+          "PathIsLatest": true,
+          "LanguageName": "en-GB"
+        },
+        {
+          "UrlPath": "es-cu/simplified-sample/sub-page-4",
+          "PathIsDraft": false,
+          "PathIsLatest": true,
+          "LanguageName": "es-CU"
+        }
+      ],
+      "PageGuid": null,
+      "ParentGuid": "4ea03de4-977e-48aa-9340-babf3d23bafa",
+      "TreePath": "/simplified-sample/sub-page-4",
+      "ItemOrder": null
+    }
+  },
+  {
+    "$type": "ContentItemSimplified",
+    "ContentItemGUID": "bb5c0eb4-e688-4a97-99c7-fa97cad8f1d5",
+    "ContentItemContentFolderGUID": null,
+    "IsSecured": false,
+    "ContentTypeName": "UMT.Article",
+    "Name": "SimplifiedModelSampleAsSubPage5",
+    "IsReusable": false,
+    "ChannelName": "websitechannelExample",
+    "LanguageData": [
+      {
+        "LanguageName": "en-US",
+        "DisplayName": "Simplified model sample sub page 5 - en-US",
+        "VersionStatus": 0,
+        "IsLatest": true,
+        "UserGuid": "dbfcc244-2cb9-4934-857f-9d75404c1553",
+        "ScheduledPublishWhen": "2045-01-01T00:00:00Z",
+        "ScheduledUnpublishWhen": null,
+        "ContentItemData": {
+          "ArticleTitle": "en-US UMT simplified model creation as sub page 5",
+          "ArticleText": "This article is only example of creation UMT simplified model for en-US language",
+          "RelatedArticles": null,
+          "RelatedFaq": null
+        }
+      }
+    ],
+    "PageData": {
+      "PageUrls": [
+        {
+          "UrlPath": "en-us/simplified-sample/sub-page-5",
+          "PathIsDraft": false,
+          "PathIsLatest": true,
+          "LanguageName": "en-US"
+        },
+        {
+          "UrlPath": "en-gb/simplified-sample/sub-page-5",
+          "PathIsDraft": false,
+          "PathIsLatest": true,
+          "LanguageName": "en-GB"
+        },
+        {
+          "UrlPath": "es-cu/simplified-sample/sub-page-5",
+          "PathIsDraft": false,
+          "PathIsLatest": true,
+          "LanguageName": "es-CU"
+        }
+      ],
+      "PageGuid": null,
+      "ParentGuid": "4ea03de4-977e-48aa-9340-babf3d23bafa",
+      "TreePath": "/simplified-sample/sub-page-5",
+      "ItemOrder": null
+    }
+  },
+  {
+    "$type": "ContentItemSimplified",
+    "ContentItemGUID": "1d542076-dd88-4c13-a8aa-0ffecdabba69",
+    "ContentItemContentFolderGUID": null,
+    "IsSecured": false,
+    "ContentTypeName": "UMT.Article",
+    "Name": "SimplifiedModelSampleAsSubPage6",
+    "IsReusable": false,
+    "ChannelName": "websitechannelExample",
+    "LanguageData": [
+      {
+        "LanguageName": "en-US",
+        "DisplayName": "Simplified model sample sub page 6 - en-US",
+        "VersionStatus": 0,
+        "IsLatest": true,
+        "UserGuid": "dbfcc244-2cb9-4934-857f-9d75404c1553",
+        "ScheduledPublishWhen": null,
+        "ScheduledUnpublishWhen": null,
+        "ContentItemData": {
+          "ArticleTitle": "en-US UMT simplified model creation as sub page 6",
+          "ArticleText": "This article is only example of creation UMT simplified model for en-US language",
+          "RelatedArticles": null,
+          "RelatedFaq": null
+        }
+      }
+    ],
+    "PageData": {
+      "PageUrls": [
+        {
+          "UrlPath": "en-us/simplified-sample/sub-page-6",
+          "PathIsDraft": false,
+          "PathIsLatest": true,
+          "LanguageName": "en-US"
+        },
+        {
+          "UrlPath": "en-gb/simplified-sample/sub-page-6",
+          "PathIsDraft": false,
+          "PathIsLatest": true,
+          "LanguageName": "en-GB"
+        },
+        {
+          "UrlPath": "es-cu/simplified-sample/sub-page-6",
+          "PathIsDraft": false,
+          "PathIsLatest": true,
+          "LanguageName": "es-CU"
+        }
+      ],
+      "PageGuid": null,
+      "ParentGuid": "4ea03de4-977e-48aa-9340-babf3d23bafa",
+      "TreePath": "/simplified-sample/sub-page-6",
+      "ItemOrder": null
+    }
+  },
+  {
+    "$type": "ContentItemSimplified",
+    "ContentItemGUID": "fb66242f-4186-4f71-b0b8-fc68b51d52c1",
+    "ContentItemContentFolderGUID": null,
+    "IsSecured": false,
+    "ContentTypeName": "UMT.Article",
+    "Name": "SimplifiedModelSampleAsSubPage7",
+    "IsReusable": false,
+    "ChannelName": "websitechannelExample",
+    "LanguageData": [
+      {
+        "LanguageName": "en-US",
+        "DisplayName": "Simplified model sample sub page 7 - en-US",
+        "VersionStatus": 0,
+        "IsLatest": true,
+        "UserGuid": "dbfcc244-2cb9-4934-857f-9d75404c1553",
+        "ScheduledPublishWhen": "2045-01-01T00:00:00Z",
+        "ScheduledUnpublishWhen": null,
+        "ContentItemData": {
+          "ArticleTitle": "en-US UMT simplified model creation as sub page 7",
+          "ArticleText": "This article is only example of creation UMT simplified model for en-US language",
+          "RelatedArticles": null,
+          "RelatedFaq": null
+        }
+      }
+    ],
+    "PageData": {
+      "PageUrls": [
+        {
+          "UrlPath": "en-us/simplified-sample/sub-page-7",
+          "PathIsDraft": false,
+          "PathIsLatest": true,
+          "LanguageName": "en-US"
+        },
+        {
+          "UrlPath": "en-gb/simplified-sample/sub-page-7",
+          "PathIsDraft": false,
+          "PathIsLatest": true,
+          "LanguageName": "en-GB"
+        },
+        {
+          "UrlPath": "es-cu/simplified-sample/sub-page-7",
+          "PathIsDraft": false,
+          "PathIsLatest": true,
+          "LanguageName": "es-CU"
+        }
+      ],
+      "PageGuid": null,
+      "ParentGuid": "4ea03de4-977e-48aa-9340-babf3d23bafa",
+      "TreePath": "/simplified-sample/sub-page-7",
+      "ItemOrder": null
+    }
+  },
+  {
+    "$type": "ContentItemSimplified",
     "ContentItemGUID": "f9cb9484-ce90-460f-a5c8-ad953e2b9286",
     "ContentItemContentFolderGUID": "ae29c1d1-217a-45da-8b30-585d1881387e",
     "IsSecured": false,

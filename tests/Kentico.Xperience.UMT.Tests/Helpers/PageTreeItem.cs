@@ -1,4 +1,5 @@
 ﻿using Microsoft.Playwright;
+
 using TestAfterMigration.Extensions;
 
 namespace TestAfterMigration.Helpers
@@ -12,10 +13,18 @@ namespace TestAfterMigration.Helpers
         public IEnumerable<PageTreeItem> Children { get; set; } = [];
         public ILocator TitleElement => Locator.GetByTestId("tree-item-title").Nth(0);
         public Task ClickAsync() => TitleElement.ClickAsync();
+
+        /// <summary>
+        /// Beware this method doesn't work when name is too long, 
+        /// because ellipsis is rendered instead of full page name, 
+        /// which this method requires
+        /// </summary>
+        /// <returns></returns>
         public async Task WaitBreadcrumbsLoaded()
         {
-            string pageTitle = (await Locator.GetByTestId("tree-item-title").Nth(0).TextContentAsync())!;
-            await Locator.Page.GetByTestId("breadcrumbs").GetByText(pageTitle).WaitForVisible();
+            await page.Debounce();
+            await Locator.Page.GetByTestId("breadcrumbs").WaitForVisible();
+            await page.Debounce();
         }
     }
 }

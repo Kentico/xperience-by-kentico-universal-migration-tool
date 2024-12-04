@@ -1,21 +1,25 @@
 ﻿using CMS.ContentEngine;
-using CMS.ContentEngine.Internal;
 
 using Kentico.Xperience.UMT.Model;
+using Kentico.Xperience.UMT.Utils;
 
 namespace Kentico.Xperience.UMT.Examples;
 
 public static class ContentItemSimplifiedSamples
 {
-    public static readonly Guid SampleArticleContentItemGuid = new Guid("37C3F5DD-6F2A-4EFF-B46E-A36EDDEBF572");
-    public static readonly Guid SampleFaqContentItemGuid = new Guid("F9CB9484-CE90-460F-A5C8-AD953E2B9286");
-    public static readonly Guid SampleEvent2024ContentItemGuid = new Guid("C82CDC96-65EC-4F4C-AEC2-3D657E6D5CE1");
+    public static readonly Guid SampleArticleContentItemGuid = new("37C3F5DD-6F2A-4EFF-B46E-A36EDDEBF572");
+    public static readonly Guid SampleFaqContentItemGuid = new("F9CB9484-CE90-460F-A5C8-AD953E2B9286");
+    public static readonly Guid SampleEvent2024ContentItemGuid = new("C82CDC96-65EC-4F4C-AEC2-3D657E6D5CE1");
 
-    public static readonly Guid SampleArticleWebPageGuid = new Guid("4EA03DE4-977E-48AA-9340-BABF3D23BAFA");
+    public static readonly Guid SampleArticleWebPageGuid = new("4EA03DE4-977E-48AA-9340-BABF3D23BAFA");
 
-    public static readonly Guid SampleArticleSubPageContentItemGuid = new Guid("9ED8DE86-859C-4F6C-94F2-CDD6BAED99FE");
-    public static readonly Guid SampleArticleSubPage2ContentItemGuid = new Guid("017EDC1E-95C6-43E4-89D5-716C6AE594B2");
-    public static readonly Guid SampleArticleSubPage3ContentItemGuid = new Guid("73298F71-0BB1-4083-A674-A876769E3DD9");
+    public static readonly Guid SampleArticleSubPageContentItemGuid = new("9ED8DE86-859C-4F6C-94F2-CDD6BAED99FE");
+    public static readonly Guid SampleArticleSubPage2ContentItemGuid = new("017EDC1E-95C6-43E4-89D5-716C6AE594B2");
+    public static readonly Guid SampleArticleSubPage3ContentItemGuid = new("73298F71-0BB1-4083-A674-A876769E3DD9");
+    public static readonly Guid SampleArticleSubPage4ContentItemGuid = new("8E957ECC-083B-4C86-B761-8DB516C13737");
+    public static readonly Guid SampleArticleSubPage5ContentItemGuid = new("BB5C0EB4-E688-4A97-99C7-FA97CAD8F1D5");
+    public static readonly Guid SampleArticleSubPage6ContentItemGuid = new("1D542076-DD88-4C13-A8AA-0FFECDABBA69");
+    public static readonly Guid SampleArticleSubPage7ContentItemGuid = new("FB66242F-4186-4F71-B0B8-FC68B51D52C1");
 
     [Sample("ContentItemSimplifiedModel.Sample.Article", "Simplified model for importing webpage content item", "Simplified model for webpage content item sample")]
     public static ContentItemSimplifiedModel SampleArticleContentItemSimplifiedModel => new()
@@ -71,7 +75,7 @@ public static class ContentItemSimplifiedSamples
                         new {Identifier = TaxonomySamples.SampleTagCoffeaRobustaGuid},
                     })
                 },
-                ScheduledPublishWhen = new DateTime(2045, 1, 1, 0,0,0,0,0, DateTimeKind.Utc)
+                ScheduledPublishWhen = new DateTime(2045, 1, 1, 0, 0, 0, 0, 0, DateTimeKind.Utc)
             },
             new()
             {
@@ -91,7 +95,7 @@ public static class ContentItemSimplifiedSamples
                         new {Identifier = TaxonomySamples.SampleTagCoffeaRobustaGuid},
                     })
                 },
-                ScheduledUnpublishWhen = new DateTime(2045, 1, 1, 0,0,0,0,0, DateTimeKind.Utc)
+                ScheduledUnpublishWhen = new DateTime(2045, 1, 1, 0, 0, 0, 0, 0, DateTimeKind.Utc)
             }
         ],
     };
@@ -112,7 +116,7 @@ public static class ContentItemSimplifiedSamples
                 ParentGuid = SampleArticleWebPageGuid,
                 TreePath = treePath,
                 PageUrls = [
-                    ..languageData.Select(languageVersion => new PageUrlModel
+                    .. languageData.Select(languageVersion => new PageUrlModel
                     {
                         LanguageName = languageVersion.Language,
                         UrlPath = $"{languageVersion.Language.ToLower()}{treePath}{(languageVersion.Status == VersionStatus.Draft ? "-new-draft" : string.Empty)}",
@@ -120,8 +124,9 @@ public static class ContentItemSimplifiedSamples
                         PathIsLatest = languageVersion.IsLatest
                     }),
                     // Reserved URLs for language mutations not yet created
-                    ..ContentLanguageSamples.Languages.Select(x => x.ContentLanguageName).Except(languageData.Select(x => x.Language))
-                        .Select(language => new PageUrlModel {
+                    .. ContentLanguageSamples.Languages.Select(x => x.ContentLanguageName).Except(languageData.Select(x => x.Language))
+                        .Select(language => new PageUrlModel
+                        {
                             LanguageName = language,
                             PathIsDraft = false,
                             PathIsLatest = true,
@@ -197,6 +202,63 @@ public static class ContentItemSimplifiedSamples
             ]
         );
 
+    [Sample("ContentItemSimplifiedModel.Sample.ArticleSubPage4", "Simplified model for importing webpage content item with parent", "Simplified model for webpage content item sample with parent")]
+    public static ContentItemSimplifiedModel SampleArticleSubPage4ContentItemSimplifiedModel_Scheduled =>
+        CreateSampleContentItemSimplifiedModel(
+            contentItemGuid: SampleArticleSubPage4ContentItemGuid,
+            name: "SimplifiedModelSampleAsSubPage4",
+            displayName: "Simplified model sample sub page 4",
+            treePath: "/simplified-sample/sub-page-4",
+            title: "UMT simplified model creation as sub page 4",
+            articleText: "This article is only example of creation UMT simplified model",
+            [
+                (ContentLanguageSamples.SampleContentLanguageEnUs.ContentLanguageName!, VersionStatus.InitialDraft, true, new Guid("6DFB0834-B61A-4E79-8E12-09E40019FD1D")),
+            ]
+        ).Apply(x => x.LanguageData.ForEach(ld => ld.ScheduledPublishWhen = new DateTime(2045, 1, 1, 0, 0, 0, 0, 0, DateTimeKind.Utc)));
+
+    [Sample("ContentItemSimplifiedModel.Sample.ArticleSubPage5", "Simplified model for importing webpage content item with parent", "Simplified model for webpage content item sample with parent")]
+    public static ContentItemSimplifiedModel SampleArticleSubPage5ContentItemSimplifiedModel_Scheduled =>
+        CreateSampleContentItemSimplifiedModel(
+            contentItemGuid: SampleArticleSubPage5ContentItemGuid,
+            name: "SimplifiedModelSampleAsSubPage5",
+            displayName: "Simplified model sample sub page 5",
+            treePath: "/simplified-sample/sub-page-5",
+            title: "UMT simplified model creation as sub page 5",
+            articleText: "This article is only example of creation UMT simplified model",
+            [
+                (ContentLanguageSamples.SampleContentLanguageEnUs.ContentLanguageName!, VersionStatus.InitialDraft, true, new Guid("BD7C71FF-7953-45B4-B43D-F2926D022157")),
+            ]
+        ).Apply(x => x.LanguageData.ForEach(ld => ld.ScheduledPublishWhen = new DateTime(2045, 1, 1, 0, 0, 0, 0, 0, DateTimeKind.Utc)));
+
+    [Sample("ContentItemSimplifiedModel.Sample.ArticleSubPage6", "Simplified model for importing webpage content item with parent, in Initial Draft", "Simplified model for webpage content item sample with parent")]
+    public static ContentItemSimplifiedModel SampleArticleSubPage6ContentItemSimplifiedModel_InitialDraft =>
+        CreateSampleContentItemSimplifiedModel(
+            contentItemGuid: SampleArticleSubPage6ContentItemGuid,
+            name: "SimplifiedModelSampleAsSubPage6",
+            displayName: "Simplified model sample sub page 6",
+            treePath: "/simplified-sample/sub-page-6",
+            title: "UMT simplified model creation as sub page 6",
+            articleText: "This article is only example of creation UMT simplified model",
+            [
+                (ContentLanguageSamples.SampleContentLanguageEnUs.ContentLanguageName!, VersionStatus.InitialDraft, true, new Guid("22DDD031-C3EF-4079-8E91-6AF58EDA291F")),
+            ]
+        );
+
+    [Sample("ContentItemSimplifiedModel.Sample.ArticleSubPage7", "Simplified model for importing webpage content item with parent", "Simplified model for webpage content item sample with parent")]
+    public static ContentItemSimplifiedModel SampleArticleSubPage7ContentItemSimplifiedModel_Scheduled =>
+        CreateSampleContentItemSimplifiedModel(
+            contentItemGuid: SampleArticleSubPage7ContentItemGuid,
+            name: "SimplifiedModelSampleAsSubPage7",
+            displayName: "Simplified model sample sub page 7",
+            treePath: "/simplified-sample/sub-page-7",
+            title: "UMT simplified model creation as sub page 7",
+            articleText: "This article is only example of creation UMT simplified model",
+            [
+                (ContentLanguageSamples.SampleContentLanguageEnUs.ContentLanguageName!, VersionStatus.InitialDraft, true, new Guid("6AE7CB81-D03F-43AF-9F3F-EA3DBD9983B5")),
+            ]
+        ).Apply(x => x.LanguageData.ForEach(ld => ld.ScheduledPublishWhen = new DateTime(2045, 1, 1, 0, 0, 0, 0, 0, DateTimeKind.Utc)));
+
+
     [Sample("ContentItemSimplifiedModel.Sample.Faq", "This sample describes how to create content item data inside XbyK", "Simplified model for reusable content item sample")]
     public static ContentItemSimplifiedModel SampleFaqContentItemSimplifiedModel => new()
     {
@@ -231,7 +293,7 @@ public static class ContentItemSimplifiedSamples
                     ["FaqQuestion"] = "en-GB FAQ question text (reusable)",
                     ["FaqAnswer"] = "en-GB FAQ answer text (reusable)"
                 },
-                ScheduledUnpublishWhen = new DateTime(2045, 1, 1, 0,0,0,0,0, DateTimeKind.Utc)
+                ScheduledUnpublishWhen = new DateTime(2045, 1, 1, 0, 0, 0, 0, 0, DateTimeKind.Utc)
             }
         ],
     };
@@ -257,7 +319,7 @@ public static class ContentItemSimplifiedSamples
                 {
                     ["EventTitle"] = "en-US Event sample 2024",
                     ["EventText"] = "en-US Event sample 2024 (reusable)",
-                    ["EventDate"] = new DateTime(2024,1,1,0,0,0,0, DateTimeKind.Utc),
+                    ["EventDate"] = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc),
                     ["EventRecurrentYearly"] = true,
                     ["EventTeaser"] = new AssetDataSource
                     {
@@ -281,7 +343,7 @@ public static class ContentItemSimplifiedSamples
                 {
                     ["EventTitle"] = "en-GB Event sample 2024",
                     ["EventText"] = "en-GB Event sample 2024 (reusable)",
-                    ["EventDate"] = new DateTime(2024,1,1,0,0,0,0, DateTimeKind.Utc),
+                    ["EventDate"] = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc),
                     ["EventRecurrentYearly"] = true,
                     ["EventTeaser"] = new AssetUrlSource
                     {
@@ -294,7 +356,7 @@ public static class ContentItemSimplifiedSamples
                         Url = "https://devnet.kentico.com/DevNet/media/devnet/cms_screen.jpg"
                     },
                 },
-                ScheduledUnpublishWhen = new DateTime(2045, 1, 1, 0,0,0,0,0, DateTimeKind.Utc)
+                ScheduledUnpublishWhen = new DateTime(2045, 1, 1, 0, 0, 0, 0, 0, DateTimeKind.Utc)
             }
         ],
     };
