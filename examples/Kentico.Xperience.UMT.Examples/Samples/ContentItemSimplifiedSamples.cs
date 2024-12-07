@@ -1,5 +1,6 @@
 ﻿using CMS.ContentEngine;
 
+using Kentico.Xperience.UMT.Examples.Utils;
 using Kentico.Xperience.UMT.Model;
 using Kentico.Xperience.UMT.Utils;
 
