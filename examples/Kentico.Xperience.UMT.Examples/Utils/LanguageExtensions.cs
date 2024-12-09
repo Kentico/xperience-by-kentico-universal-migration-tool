@@ -1,4 +1,4 @@
-﻿namespace Kentico.Xperience.UMT.Utils
+﻿namespace Kentico.Xperience.UMT.Examples.Utils
 {
     internal static class LanguageExtensions
     {
