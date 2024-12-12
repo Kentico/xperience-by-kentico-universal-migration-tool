@@ -120,7 +120,7 @@ jobs:
           $appsettings = Get-Content $EXAMPLE_APPSETTINGS | ConvertFrom-Json
           $appsettings.ConnectionStrings.CMSConnectionString = $CMS_CONNECTION_STRING
 
-          $appsettings.WebApplicationPhysicalPath = "${{ env.UMT_DIR }}"
+          $appsettings.WebApplicationPhysicalPath = "${{ env.XBK_DIR }}"
           $appsettings | ConvertTo-Json -Compress | Set-Content $EXAMPLE_APPSETTINGS
           Get-Content $EXAMPLE_APPSETTINGS
 
