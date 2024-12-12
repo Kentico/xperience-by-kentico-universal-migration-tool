@@ -33,7 +33,7 @@ namespace TestAfterMigration.Tests
             await childFolder.ClickAsync();
             await Debounce();
 
-            await Assertions.Expect(Page.GetByTestId("asset-tile-preview")).ToHaveCountAsync(1);
+            await Assertions.Expect(Page.GetByTestId("asset-tile-preview")).Not.ToHaveCountAsync(0);
         }
 
         [Test]

@@ -1,6 +1,3 @@
-
-using System.Diagnostics;
-
 using Microsoft.Playwright;
 
 using TestAfterMigration.Enums;
@@ -106,7 +103,7 @@ namespace TestAfterMigration.Tests
                 await parentNode.GetByRole(AriaRole.Treeitem).WaitForVisible();
             }
 
-            foreach (var childLocator in (await parentNode.GetByRole(AriaRole.Treeitem).AllAsync()))
+            foreach (var childLocator in await parentNode.GetByRole(AriaRole.Treeitem).AllAsync())
             {
                 var item = new PageTreeItem(parentNode.Page, (await childLocator.GetAttributeAsync("data-testid-nodeid"))!);
                 await item.LoadInfo();
@@ -128,32 +125,7 @@ namespace TestAfterMigration.Tests
         /// <param name="pollDelayMs"></param>
         /// <param name="stableDelayMs"></param>
         /// <returns></returns>
-        protected async Task Debounce(int pollDelayMs = 100, int stableDelayMs = 500)
-        {
-            await Page.WaitForLoadStateAsync(LoadState.NetworkIdle);
-            await Page.WaitForLoadStateAsync(LoadState.DOMContentLoaded);
-            string markupPrevious = "";
-            var stopwatch = Stopwatch.StartNew();
-            bool isStable = false;
-            while (!isStable)
-            {
-                string markupCurrent = await Page.ContentAsync();
-                if (markupCurrent == markupPrevious)
-                {
-                    double elapsed = stopwatch.ElapsedMilliseconds;
-                    isStable = stableDelayMs <= elapsed;
-                }
-                else
-                {
-                    markupPrevious = markupCurrent;
-                    stopwatch.Restart();
-                }
-                if (!isStable)
-                {
-                    await Task.Delay(pollDelayMs);
-                }
-            }
-        }
+        protected Task Debounce(int pollDelayMs = 100, int stableDelayMs = 500) => Page.Debounce(pollDelayMs, stableDelayMs);
 
         protected async Task AssertNoEventlogErrors()
         {
