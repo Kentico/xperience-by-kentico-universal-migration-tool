@@ -178,6 +178,10 @@ jobs:
           mkdir reports
           dotnet test --settings:test.runsettings --logger:"html;LogFileName=${{ env.UMT_DIR }}\reports\logFile.html"
 
+      - name: Print media tree
+        if: always()
+        run: tree ${{ env.XBK_DIR}}\assets\ /f
+
       - name: Print event log
         if: always()
         run: |
