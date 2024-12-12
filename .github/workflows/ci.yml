@@ -125,10 +125,9 @@ jobs:
           Get-Content $EXAMPLE_APPSETTINGS
 
       - name: <UMT> Run example migration
-        working-directory: ${{ env.XBK_DIR }}
+        working-directory: ${{ env.UMT_DIR }}\examples\Kentico.Xperience.UMT.Example.Console\
         run: |
-          mkdir ${{ env.XBK_DIR}}\assets\media\
-          dotnet run --project  ${{ env.UMT_DIR }}\examples\Kentico.Xperience.UMT.Example.Console\Kentico.Xperience.UMT.Example.Console.csproj ${{ env.UMT_DIR }}\examples\Kentico.Xperience.UMT.Example.Console
+          dotnet run
 
       - name: Install Playwright
         working-directory: ${{ env.UMT_DIR }}\tests\Kentico.Xperience.UMT.Tests
@@ -182,7 +181,22 @@ jobs:
         if: always()
         run: tree ${{ env.XBK_DIR}}\assets\ /f
 
-      - name: Print event log
+      - name: Print content items table
+        if: always()
+        run: |
+          sqlcmd -S "${{ env.SQLSERVER_NAME}}" -U '${{ env.DB_USER}}' -P '${{ env.DB_PASSWORD }}' -d "${{ env.DB_DATABASE }}" -Q "SELECT * FROM CMS_ContentItem"
+
+      - name: Print media file table
+        if: always()
+        run: |
+          sqlcmd -S "${{ env.SQLSERVER_NAME}}" -U '${{ env.DB_USER}}' -P '${{ env.DB_PASSWORD }}' -d "${{ env.DB_DATABASE }}" -Q "SELECT * FROM Media_File"
+
+      - name: Print media lib table
+        if: always()
+        run: |
+          sqlcmd -S "${{ env.SQLSERVER_NAME}}" -U '${{ env.DB_USER}}' -P '${{ env.DB_PASSWORD }}' -d "${{ env.DB_DATABASE }}" -Q "SELECT * FROM Media_Library"
+
+      - name: Print event log table
         if: always()
         run: |
           sqlcmd -S "${{ env.SQLSERVER_NAME}}" -U '${{ env.DB_USER}}' -P '${{ env.DB_PASSWORD }}' -d "${{ env.DB_DATABASE }}" -Q "SELECT * FROM CMS_EventLog"
