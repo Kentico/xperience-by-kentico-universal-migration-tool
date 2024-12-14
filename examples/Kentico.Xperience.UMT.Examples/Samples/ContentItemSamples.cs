@@ -47,8 +47,8 @@ public static class ContentItemSamples
         ContentItemCommonDataContentLanguageGuid = ContentLanguageSamples.CONTENT_LANGUAGE_ENUS_SAMPLE_GUID,
         ContentItemCommonDataVersionStatus = VersionStatus.Published,
         ContentItemCommonDataIsLatest = true,
-        ContentItemCommonDataPageBuilderWidgets = null,
-        ContentItemCommonDataPageTemplateConfiguration = null
+        ContentItemCommonDataVisualBuilderWidgets = null,
+        ContentItemCommonDataVisualBuilderTemplateConfiguration = null
     };
 
     [Sample("ContentItemDataModel.Sample.Article.enUS", "This sample describes how to create content item data inside XbyK", "ContentItemData article sample (en-US)")]
@@ -110,8 +110,8 @@ public static class ContentItemSamples
         ContentItemCommonDataContentLanguageGuid = ContentLanguageSamples.CONTENT_LANGUAGE_ENGB_SAMPLE_GUID,
         ContentItemCommonDataVersionStatus = VersionStatus.Published,
         ContentItemCommonDataIsLatest = true,
-        ContentItemCommonDataPageBuilderWidgets = null,
-        ContentItemCommonDataPageTemplateConfiguration = null
+        ContentItemCommonDataVisualBuilderWidgets = null,
+        ContentItemCommonDataVisualBuilderTemplateConfiguration = null
     };
 
     [Sample("ContentItemDataModel.Sample.Article.enGB", "This sample describes how to create content item data inside XbyK", "ContentItemData article sample (en-GB)")]
@@ -228,8 +228,8 @@ public static class ContentItemSamples
         ContentItemCommonDataContentLanguageGuid = ContentLanguageSamples.CONTENT_LANGUAGE_ENUS_SAMPLE_GUID,
         ContentItemCommonDataVersionStatus = VersionStatus.InitialDraft,
         ContentItemCommonDataIsLatest = true,
-        ContentItemCommonDataPageBuilderWidgets = null,
-        ContentItemCommonDataPageTemplateConfiguration = null
+        ContentItemCommonDataVisualBuilderWidgets = null,
+        ContentItemCommonDataVisualBuilderTemplateConfiguration = null
     };
 
     [Sample("ContentItemDataModel.Sample.Article.enUS.WithRelations", "This sample describes how to create content item data inside XbyK", "ContentItemData article sample (en-US)")]
@@ -299,8 +299,8 @@ public static class ContentItemSamples
         ContentItemCommonDataContentLanguageGuid = ContentLanguageSamples.CONTENT_LANGUAGE_ENGB_SAMPLE_GUID,
         ContentItemCommonDataVersionStatus = VersionStatus.Published,
         ContentItemCommonDataIsLatest = true,
-        ContentItemCommonDataPageBuilderWidgets = null,
-        ContentItemCommonDataPageTemplateConfiguration = null
+        ContentItemCommonDataVisualBuilderWidgets = null,
+        ContentItemCommonDataVisualBuilderTemplateConfiguration = null
     };
 
     [Sample("ContentItemDataModel.Sample.Article.enGB.WithRelations", "This sample describes how to create content item data inside XbyK", "ContentItemData article sample (en-GB)")]
@@ -414,8 +414,8 @@ public static class ContentItemSamples
         ContentItemCommonDataContentLanguageGuid = ContentLanguageSamples.CONTENT_LANGUAGE_ENUS_SAMPLE_GUID,
         ContentItemCommonDataVersionStatus = VersionStatus.Published,
         ContentItemCommonDataIsLatest = true,
-        ContentItemCommonDataPageBuilderWidgets = null,
-        ContentItemCommonDataPageTemplateConfiguration = null
+        ContentItemCommonDataVisualBuilderWidgets = null,
+        ContentItemCommonDataVisualBuilderTemplateConfiguration = null
     };
 
     [Sample("ContentItemDataModel.Sample.Faq.enUS", "This sample describes how to reusable create content item data inside XbyK", "Reusable ContentItemData faq (en-US)")]
@@ -459,8 +459,8 @@ public static class ContentItemSamples
         ContentItemCommonDataContentLanguageGuid = ContentLanguageSamples.CONTENT_LANGUAGE_ENGB_SAMPLE_GUID,
         ContentItemCommonDataVersionStatus = VersionStatus.Published,
         ContentItemCommonDataIsLatest = true,
-        ContentItemCommonDataPageBuilderWidgets = null,
-        ContentItemCommonDataPageTemplateConfiguration = null
+        ContentItemCommonDataVisualBuilderWidgets = null,
+        ContentItemCommonDataVisualBuilderTemplateConfiguration = null
     };
 
     [Sample("ContentItemDataModel.Sample.Faq.enGB", "This sample describes how to create content item data inside XbyK", "Reusable ContentItemData faq sample (en-GB)")]

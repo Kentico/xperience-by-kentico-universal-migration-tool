@@ -478,6 +478,7 @@
     "$type": "ContentItem",
     "ContentItemGUID": "c354427d-3d02-4876-8ed4-4de817fae929",
     "ContentItemContentFolderGUID": null,
+    "ContentItemWorkspaceGUID": null,
     "ContentItemName": "NewsLetterExampleName",
     "ContentItemIsReusable": true,
     "ContentItemIsSecured": true,
@@ -556,6 +557,7 @@
     "$type": "ContentItem",
     "ContentItemGUID": "b64b3e3e-f5a9-4d02-8cdb-6d81805c0fee",
     "ContentItemContentFolderGUID": null,
+    "ContentItemWorkspaceGUID": null,
     "ContentItemName": "SampleReusableFaq",
     "ContentItemIsReusable": true,
     "ContentItemIsSecured": true,
@@ -569,8 +571,8 @@
     "ContentItemCommonDataContentLanguageGuid": "f454e93b-5fe9-42a9-b1af-b572234ed9c4",
     "ContentItemCommonDataVersionStatus": 2,
     "ContentItemCommonDataIsLatest": true,
-    "ContentItemCommonDataPageBuilderWidgets": null,
-    "ContentItemCommonDataPageTemplateConfiguration": null
+    "ContentItemCommonDataVisualBuilderWidgets": null,
+    "ContentItemCommonDataVisualBuilderTemplateConfiguration": null
   },
   {
     "$type": "ContentItemCommonData",
@@ -579,8 +581,8 @@
     "ContentItemCommonDataContentLanguageGuid": "a6c0a558-8b33-47b6-87a8-491b437c9923",
     "ContentItemCommonDataVersionStatus": 2,
     "ContentItemCommonDataIsLatest": true,
-    "ContentItemCommonDataPageBuilderWidgets": null,
-    "ContentItemCommonDataPageTemplateConfiguration": null
+    "ContentItemCommonDataVisualBuilderWidgets": null,
+    "ContentItemCommonDataVisualBuilderTemplateConfiguration": null
   },
   {
     "$type": "ContentItemData",
@@ -632,6 +634,7 @@
     "$type": "ContentItem",
     "ContentItemGUID": "df81215e-1414-4d87-befd-ae123f4e5653",
     "ContentItemContentFolderGUID": null,
+    "ContentItemWorkspaceGUID": null,
     "ContentItemName": "CreationOfUmtModel",
     "ContentItemIsReusable": false,
     "ContentItemIsSecured": false,
@@ -645,8 +648,8 @@
     "ContentItemCommonDataContentLanguageGuid": "f454e93b-5fe9-42a9-b1af-b572234ed9c4",
     "ContentItemCommonDataVersionStatus": 2,
     "ContentItemCommonDataIsLatest": true,
-    "ContentItemCommonDataPageBuilderWidgets": null,
-    "ContentItemCommonDataPageTemplateConfiguration": null
+    "ContentItemCommonDataVisualBuilderWidgets": null,
+    "ContentItemCommonDataVisualBuilderTemplateConfiguration": null
   },
   {
     "$type": "ContentItemCommonData",
@@ -655,8 +658,8 @@
     "ContentItemCommonDataContentLanguageGuid": "a6c0a558-8b33-47b6-87a8-491b437c9923",
     "ContentItemCommonDataVersionStatus": 2,
     "ContentItemCommonDataIsLatest": true,
-    "ContentItemCommonDataPageBuilderWidgets": null,
-    "ContentItemCommonDataPageTemplateConfiguration": null
+    "ContentItemCommonDataVisualBuilderWidgets": null,
+    "ContentItemCommonDataVisualBuilderTemplateConfiguration": null
   },
   {
     "$type": "ContentItemData",
@@ -765,6 +768,7 @@
     "$type": "ContentItem",
     "ContentItemGUID": "e09121ad-dd97-472f-b8f6-85fe5428ed6a",
     "ContentItemContentFolderGUID": null,
+    "ContentItemWorkspaceGUID": null,
     "ContentItemName": "Content-item-with-relations",
     "ContentItemIsReusable": false,
     "ContentItemIsSecured": true,
@@ -778,8 +782,8 @@
     "ContentItemCommonDataContentLanguageGuid": "f454e93b-5fe9-42a9-b1af-b572234ed9c4",
     "ContentItemCommonDataVersionStatus": 0,
     "ContentItemCommonDataIsLatest": true,
-    "ContentItemCommonDataPageBuilderWidgets": null,
-    "ContentItemCommonDataPageTemplateConfiguration": null
+    "ContentItemCommonDataVisualBuilderWidgets": null,
+    "ContentItemCommonDataVisualBuilderTemplateConfiguration": null
   },
   {
     "$type": "ContentItemCommonData",
@@ -788,8 +792,8 @@
     "ContentItemCommonDataContentLanguageGuid": "a6c0a558-8b33-47b6-87a8-491b437c9923",
     "ContentItemCommonDataVersionStatus": 2,
     "ContentItemCommonDataIsLatest": true,
-    "ContentItemCommonDataPageBuilderWidgets": null,
-    "ContentItemCommonDataPageTemplateConfiguration": null
+    "ContentItemCommonDataVisualBuilderWidgets": null,
+    "ContentItemCommonDataVisualBuilderTemplateConfiguration": null
   },
   {
     "$type": "ContentItemData",
@@ -904,6 +908,7 @@
     "$type": "ContentFolder",
     "ContentFolderGUID": "7665a8fc-53a2-4aff-86e8-99b009104ff2",
     "ContentFolderParentFolderGUID": null,
+    "ContentFolderWorkspaceGUID": null,
     "ContentFolderName": "articles",
     "ContentFolderDisplayName": "Articles",
     "ContentFolderTreePath": "/articles"
@@ -912,6 +917,7 @@
     "$type": "ContentFolder",
     "ContentFolderGUID": "ae29c1d1-217a-45da-8b30-585d1881387e",
     "ContentFolderParentFolderGUID": "7665a8fc-53a2-4aff-86e8-99b009104ff2",
+    "ContentFolderWorkspaceGUID": null,
     "ContentFolderName": "obsolete",
     "ContentFolderDisplayName": "Obsolete",
     "ContentFolderTreePath": "/articles/obsolete"
@@ -920,6 +926,7 @@
     "$type": "ContentItemSimplified",
     "ContentItemGUID": "37c3f5dd-6f2a-4eff-b46e-a36eddebf572",
     "ContentItemContentFolderGUID": null,
+    "ContentItemWorkspaceGUID": null,
     "IsSecured": false,
     "ContentTypeName": "UMT.Article",
     "Name": "SimplifiedModelSample",
@@ -990,6 +997,7 @@
     "$type": "ContentItemSimplified",
     "ContentItemGUID": "9ed8de86-859c-4f6c-94f2-cdd6baed99fe",
     "ContentItemContentFolderGUID": null,
+    "ContentItemWorkspaceGUID": null,
     "IsSecured": false,
     "ContentTypeName": "UMT.Article",
     "Name": "SimplifiedModelSampleAsSubPage",
@@ -1058,6 +1066,7 @@
     "$type": "ContentItemSimplified",
     "ContentItemGUID": "017edc1e-95c6-43e4-89d5-716c6ae594b2",
     "ContentItemContentFolderGUID": null,
+    "ContentItemWorkspaceGUID": null,
     "IsSecured": false,
     "ContentTypeName": "UMT.Article",
     "Name": "SimplifiedModelSampleAsSubPage2_Draft",
@@ -1168,6 +1177,7 @@
     "$type": "ContentItemSimplified",
     "ContentItemGUID": "73298f71-0bb1-4083-a674-a876769e3dd9",
     "ContentItemContentFolderGUID": null,
+    "ContentItemWorkspaceGUID": null,
     "IsSecured": false,
     "ContentTypeName": "UMT.Article",
     "Name": "SimplifiedModelSampleAsSubPage3_Draft",
@@ -1278,6 +1288,7 @@
     "$type": "ContentItemSimplified",
     "ContentItemGUID": "8e957ecc-083b-4c86-b761-8db516c13737",
     "ContentItemContentFolderGUID": null,
+    "ContentItemWorkspaceGUID": null,
     "IsSecured": false,
     "ContentTypeName": "UMT.Article",
     "Name": "SimplifiedModelSampleAsSubPage4",
@@ -1331,6 +1342,7 @@
     "$type": "ContentItemSimplified",
     "ContentItemGUID": "bb5c0eb4-e688-4a97-99c7-fa97cad8f1d5",
     "ContentItemContentFolderGUID": null,
+    "ContentItemWorkspaceGUID": null,
     "IsSecured": false,
     "ContentTypeName": "UMT.Article",
     "Name": "SimplifiedModelSampleAsSubPage5",
@@ -1384,6 +1396,7 @@
     "$type": "ContentItemSimplified",
     "ContentItemGUID": "1d542076-dd88-4c13-a8aa-0ffecdabba69",
     "ContentItemContentFolderGUID": null,
+    "ContentItemWorkspaceGUID": null,
     "IsSecured": false,
     "ContentTypeName": "UMT.Article",
     "Name": "SimplifiedModelSampleAsSubPage6",
@@ -1437,6 +1450,7 @@
     "$type": "ContentItemSimplified",
     "ContentItemGUID": "fb66242f-4186-4f71-b0b8-fc68b51d52c1",
     "ContentItemContentFolderGUID": null,
+    "ContentItemWorkspaceGUID": null,
     "IsSecured": false,
     "ContentTypeName": "UMT.Article",
     "Name": "SimplifiedModelSampleAsSubPage7",
@@ -1490,6 +1504,7 @@
     "$type": "ContentItemSimplified",
     "ContentItemGUID": "f9cb9484-ce90-460f-a5c8-ad953e2b9286",
     "ContentItemContentFolderGUID": "ae29c1d1-217a-45da-8b30-585d1881387e",
+    "ContentItemWorkspaceGUID": null,
     "IsSecured": false,
     "ContentTypeName": "UMT.Faq",
     "Name": "SimplifiedModelSampleReusable",
@@ -1529,6 +1544,7 @@
     "$type": "ContentItemSimplified",
     "ContentItemGUID": "c82cdc96-65ec-4f4c-aec2-3d657e6d5ce1",
     "ContentItemContentFolderGUID": null,
+    "ContentItemWorkspaceGUID": null,
     "IsSecured": false,
     "ContentTypeName": "UMT.Event",
     "Name": "SimplifiedModelSampleEventWithAssets",
@@ -1556,7 +1572,9 @@
             "Name": "byteArraySample.jpg",
             "Extension": ".jpg",
             "Size": null,
-            "LastModified": null
+            "LastModified": null,
+            "ImageWidth": null,
+            "ImageHeight": null
           }
         }
       },
@@ -1581,7 +1599,9 @@
             "Name": "urlSourceSample.jpg",
             "Extension": ".jpg",
             "Size": null,
-            "LastModified": null
+            "LastModified": null,
+            "ImageWidth": null,
+            "ImageHeight": null
           }
         }
       }

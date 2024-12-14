@@ -119,13 +119,13 @@
             "ContentItemCommonDataIsLatest": {
               "type": "boolean"
             },
-            "ContentItemCommonDataPageBuilderWidgets": {
+            "ContentItemCommonDataVisualBuilderWidgets": {
               "type": [
                 "null",
                 "string"
               ]
             },
-            "ContentItemCommonDataPageTemplateConfiguration": {
+            "ContentItemCommonDataVisualBuilderTemplateConfiguration": {
               "type": [
                 "null",
                 "string"
@@ -323,6 +323,14 @@
               "description": "reference to content folder",
               "format": "guid"
             },
+            "ContentItemWorkspaceGUID": {
+              "type": [
+                "null",
+                "string"
+              ],
+              "description": "reference to workspace",
+              "format": "guid"
+            },
             "ContentItemName": {
               "type": "string",
               "minLength": 1
@@ -443,6 +451,14 @@
                 "string"
               ],
               "description": "parent folder guid. If null is specified, folder is created directly under root",
+              "format": "guid"
+            },
+            "ContentFolderWorkspaceGUID": {
+              "type": [
+                "null",
+                "string"
+              ],
+              "description": "workspace guid. If null is specified, default workspace is used",
               "format": "guid"
             },
             "ContentFolderName": {

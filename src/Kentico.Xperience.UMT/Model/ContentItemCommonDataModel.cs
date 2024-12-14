@@ -41,10 +41,10 @@ public class ContentItemCommonDataModel: UmtModel
     public bool? ContentItemCommonDataIsLatest { get; set; } = true;
 
     [Map]
-    public string? ContentItemCommonDataPageBuilderWidgets { get; set; } = null;
+    public string? ContentItemCommonDataVisualBuilderWidgets { get; set; } = null;
 
     [Map]
-    public string? ContentItemCommonDataPageTemplateConfiguration { get; set; } = null;
+    public string? ContentItemCommonDataVisualBuilderTemplateConfiguration { get; set; } = null;
 
 
     protected override (Guid? uniqueId, string? name, string? displayName) GetPrintArgs() => (ContentItemCommonDataGUID, NOT_AVAILABLE, NOT_AVAILABLE);

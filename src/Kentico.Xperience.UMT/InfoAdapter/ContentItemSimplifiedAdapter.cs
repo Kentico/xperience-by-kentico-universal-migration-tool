@@ -1,5 +1,7 @@
 ﻿using System.Text.Json;
 
+using AngleSharp.Dom;
+
 using CMS.ContentEngine;
 using CMS.ContentEngine.Internal;
 using CMS.Core;
@@ -10,6 +12,7 @@ using CMS.Helpers;
 using CMS.Membership;
 using CMS.Websites;
 using CMS.Websites.Internal;
+using CMS.Workspaces;
 
 using Kentico.Xperience.UMT.Model;
 using Kentico.Xperience.UMT.ProviderProxy;
@@ -24,24 +27,32 @@ public class ContentItemSimplifiedAdapter : IInfoAdapter<ContentItemInfo, IUmtMo
     private readonly IDateTimeNowService dateTimeNowService;
     private readonly AdapterFactory adapterFactory;
     private readonly ILogger<ContentItemSimplifiedAdapter> logger;
+
     public IProviderProxy ProviderProxy { get; }
 
     internal ContentItemSimplifiedAdapter(IProviderProxy providerProxy,
         IProviderProxyFactory providerProxyFactory,
         IDateTimeNowService dateTimeNowService,
         AdapterFactory adapterFactory,
-        ILogger<ContentItemSimplifiedAdapter> logger)
+        ILogger<ContentItemSimplifiedAdapter> logger,
+        IInfoProvider<ContentFolderInfo> contentFolderInfoProvider,
+        IInfoProvider<WorkspaceInfo> workspaceInfoProvider)
     {
         this.providerProxyFactory = providerProxyFactory;
         this.dateTimeNowService = dateTimeNowService;
         this.adapterFactory = adapterFactory;
         this.logger = logger;
+        rootContentFolderGUID = contentFolderInfoProvider.Get().Where(x => x.WhereEquals(nameof(ContentFolderInfo.ContentFolderTreePath), "/")).FirstOrDefault()?.ContentFolderGUID;
+        defaultWorkspaceGUID = workspaceInfoProvider.Get().Where(x => x.WhereEquals(nameof(WorkspaceInfo.WorkspaceName), "KenticoDefault")).FirstOrDefault()?.WorkspaceGUID;
         ProviderProxy = providerProxy;
     }
 
     BaseInfo IInfoAdapter<IUmtModel>.Adapt(IUmtModel input) => Adapt(input);
 
     Guid? IInfoAdapter<ContentItemInfo, IUmtModel>.GetUniqueIdOrNull(IUmtModel input) => throw new NotImplementedException();
+
+    private readonly Guid? rootContentFolderGUID;
+    private readonly Guid? defaultWorkspaceGUID;
 
     public ContentItemInfo Adapt(IUmtModel input)
     {
@@ -79,7 +90,8 @@ public class ContentItemSimplifiedAdapter : IInfoAdapter<ContentItemInfo, IUmtMo
             ContentItemIsSecured = cim.IsSecured ?? false,
             ContentItemDataClassGuid = dataClassInfo.ClassGUID,
             ContentItemChannelGuid = channel?.ChannelGUID,
-            ContentItemContentFolderGUID = cim.ContentItemContentFolderGUID
+            ContentItemContentFolderGUID = cim.ContentItemContentFolderGUID ?? rootContentFolderGUID,
+            ContentItemWorkspaceGUID = cim.ContentItemWorkspaceGUID ?? defaultWorkspaceGUID,
         };
 
         var contentItemAdapter = adapterFactory.CreateAdapter(contentItemModel, new ProviderProxyContext());
@@ -138,8 +150,8 @@ public class ContentItemSimplifiedAdapter : IInfoAdapter<ContentItemInfo, IUmtMo
                 ContentItemCommonDataContentItemGuid = contentItemInfo.ContentItemGUID,
                 ContentItemCommonDataContentLanguageGuid = contentLanguageInfo.ContentLanguageGUID,
                 CustomProperties = customProperties,
-                ContentItemCommonDataPageBuilderWidgets = null,
-                ContentItemCommonDataPageTemplateConfiguration = null,
+                ContentItemCommonDataVisualBuilderWidgets = null,
+                ContentItemCommonDataVisualBuilderTemplateConfiguration = null,
                 ContentItemCommonDataVersionStatus = languageData.VersionStatus,
                 ContentItemCommonDataIsLatest = languageData.IsLatest,
             };

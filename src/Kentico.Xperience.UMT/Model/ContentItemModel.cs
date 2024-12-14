@@ -1,6 +1,8 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using CMS.ContentEngine;
 using CMS.DataEngine;
+using CMS.Workspaces;
+
 using Kentico.Xperience.UMT.Attributes;
 
 namespace Kentico.Xperience.UMT.Model;
@@ -26,7 +28,13 @@ public class ContentItemModel : UmtModel
     /// </summary>
     [ReferenceProperty(typeof(ContentFolderInfo), "ContentItemContentFolderID", IsRequired = false)]
     public Guid? ContentItemContentFolderGUID { get; set; }
-    
+
+    /// <summary>
+    /// reference to workspace
+    /// </summary>
+    [ReferenceProperty(typeof(WorkspaceInfo), "ContentItemWorkspaceID", IsRequired = false)]
+    public Guid? ContentItemWorkspaceGUID { get; set; }
+
     [Map]
     [Required]
     public string? ContentItemName { get; set; }
