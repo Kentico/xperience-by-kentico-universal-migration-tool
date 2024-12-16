@@ -6,11 +6,34 @@ namespace TestAfterMigration.Tests
 {
     public class Tests_03_ContentHubTests : AdminTestBase
     {
-        [Test]
-        public async Task Test00100_Folder_With_Subfolder_Exists()
+        private async Task OpenContentHub(string workspace = "Default")
         {
             await OpenAdminApplication("Content hub");
             await SelectTopDropdownLanguage("English (United States)");
+            await SelectTopDropdownWorkspace(workspace);
+        }
+
+        private async Task SelectTopDropdownWorkspace(string workspaceTitle)
+        {
+            if (!(await Page.GetByTestId("WorkspaceSelector").TextContentAsync())?.Contains(workspaceTitle, StringComparison.OrdinalIgnoreCase) ?? false)
+            {
+                await Page.GetByTestId("WorkspaceSelector").Locator("div[class^=\"select_\"]").Nth(0).ClickAsync();
+                await Page.GetByTestId("WorkspaceSelector").GetByTestId("action-menu").GetByTestId("menu-item").Filter(new LocatorFilterOptions { HasText = workspaceTitle }).ClickAsync();
+                await Debounce();
+            }
+        }
+
+        public new async Task SelectTopDropdownLanguage(string languageTitle)
+        {
+            await Page.GetByTestId("WorkspaceSelector").Locator("div[class^=\"select_\"]").Nth(1).ClickAsync();
+            await Page.GetByTestId("WorkspaceSelector").GetByTestId("action-menu").GetByTestId("menu-item").Filter(new LocatorFilterOptions { HasText = languageTitle }).ClickAsync();
+            await Debounce();
+        }
+
+        [Test]
+        public async Task Test00100_Folder_With_Subfolder_Exists()
+        {
+            await OpenContentHub();
 
             var folderDiv = Page.Locator("div[class*=\"folder-view\"]");
             var parentFolder = folderDiv.GetByRole(AriaRole.Treeitem);
@@ -23,8 +46,7 @@ namespace TestAfterMigration.Tests
         [Test]
         public async Task Test00200_Child_Folder_Contains_Item()
         {
-            await OpenAdminApplication("Content hub");
-            await SelectTopDropdownLanguage("English (United States)");
+            await OpenContentHub();
 
             var folderDiv = Page.Locator("div[class*=\"folder-view\"]");
             var parentFolder = folderDiv.GetByRole(AriaRole.Treeitem);
@@ -39,8 +61,7 @@ namespace TestAfterMigration.Tests
         [Test]
         public async Task Test00300_Draft_And_Scheduled_Items_Present()
         {
-            await OpenAdminApplication("Content hub");
-            await SelectTopDropdownLanguage("English (United States)");
+            await OpenContentHub();
 
             await Page.GetByLabel("All content items").ClickAsync();
             await Debounce();
@@ -52,8 +73,7 @@ namespace TestAfterMigration.Tests
         [Test]
         public async Task Test00400_No_Errors_When_Viewing_Tabs()
         {
-            await OpenAdminApplication("Content hub");
-            await SelectTopDropdownLanguage("English (United States)");
+            await OpenContentHub();
 
             await Page.GetByLabel("All content items").ClickAsync();
             await Debounce();
@@ -78,6 +98,17 @@ namespace TestAfterMigration.Tests
             }
 
             await AssertNoEventlogErrors();
+        }
+
+        [Test]
+        public async Task Test00500_Published_Item_Exists_In_Sample_Workspace()
+        {
+            await OpenContentHub("Sample Workspace");
+
+            await Page.GetByLabel("All content items").ClickAsync();
+            await Debounce();
+
+            await Assertions.Expect(Page.GetByTestId("table-row").Filter(new LocatorFilterOptions { HasText = "Published" })).Not.ToHaveCountAsync(0);
         }
 
     }

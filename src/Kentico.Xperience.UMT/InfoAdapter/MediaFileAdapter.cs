@@ -63,8 +63,6 @@ internal class MediaFileAdapter(ILogger<MediaFileAdapter> logger, GenericInfoAda
 
         var mediaLibrary = MediaLibraryInfoProvider.ProviderObject.Get(model.FileLibraryGuid!.Value);
         MediaLibraryInfoProvider.CreateMediaLibraryFolder(mediaLibrary.LibraryID, Path.GetDirectoryName(model.FilePath));
-        Console.WriteLine("Path.getdir : " + Path.GetDirectoryName(model.FilePath));
-        Console.WriteLine("model.filepath: " + model.FilePath);
 
         mediaFileInfo = new MediaFileInfo(uploadedFile, 0);
         mediaFileInfo.SaveFileToDisk(true);

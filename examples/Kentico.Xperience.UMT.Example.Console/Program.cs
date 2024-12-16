@@ -6,14 +6,10 @@ using System.Text.Json;
 
 using CMS.Core;
 using CMS.DataEngine;
-using CMS.IO;
-using CMS.MediaLibrary;
-
 using Kentico.Xperience.UMT;
 using Kentico.Xperience.UMT.Examples;
 using Kentico.Xperience.UMT.Model;
 using Kentico.Xperience.UMT.Services;
-
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
@@ -25,15 +21,9 @@ var root = new ConfigurationBuilder()
 
 Service.Use<IConfiguration>(root);
 CMS.Base.SystemContext.WebApplicationPhysicalPath = root.GetValue<string>("WebApplicationPhysicalPath");
-string workDir = System.IO.Directory.GetCurrentDirectory();
-string assetSearchPath = workDir;
-if (args.Length > 0)
-{
-    assetSearchPath = args[0];
-}
-
+string workDir = Directory.GetCurrentDirectory();
 // note - this is currently required for asset import when UMT is used in other place then Kentico Xperience itself 
-System.IO.Directory.SetCurrentDirectory(root.GetValue<string>("WebApplicationPhysicalPath") ?? throw new InvalidOperationException("WebApplicationPhysicalPath must be set to valid directory path"));
+Directory.SetCurrentDirectory(root.GetValue<string>("WebApplicationPhysicalPath") ?? throw new InvalidOperationException("WebApplicationPhysicalPath must be set to valid directory path"));
 
 CMSApplication.Init();
 
@@ -52,22 +42,22 @@ bool useSerializedSample = false;
 if (useSerializedSample)
 #pragma warning restore S2583
 {
-    string path = System.IO.Path.GetFullPath(System.IO.Path.Combine(workDir, "../../../../../docs/Samples/basic.json"));
-    string sampleText = (await System.IO.File.ReadAllTextAsync(path) ?? throw new InvalidOperationException("Failed to load sample"))
-        .Replace("##ASSETDIR##", assetSearchPath.Replace(@"\", @"\\"));
-
+    string path = Path.GetFullPath(Path.Combine(workDir, "../../../../../docs/Samples/basic.json"));
+    string sampleText = (await File.ReadAllTextAsync(path) ?? throw new InvalidOperationException("Failed to load sample"))
+        .Replace("##ASSETDIR##", workDir.Replace(@"\", @"\\"));
+        
     sourceData = importService.FromJsonString(sampleText)?.ToList() ?? new List<IUmtModel>();
 }
 else
 {
     sourceData = SampleProvider.GetFullSample();
-
+    
     foreach (var umtModel in sourceData)
     {
         // update path to media files
         if (umtModel is MediaFileModel mediaFileModel)
         {
-            mediaFileModel.DataSourcePath = mediaFileModel.DataSourcePath?.Replace("##ASSETDIR##", assetSearchPath);
+            mediaFileModel.DataSourcePath = mediaFileModel.DataSourcePath?.Replace("##ASSETDIR##", workDir);
         }
 
         foreach ((string? key, object? value) in umtModel.CustomProperties)
@@ -76,7 +66,7 @@ else
             {
                 case AssetFileSource assetSource:
                 {
-                    assetSource.FilePath = assetSource.FilePath?.Replace("##ASSETDIR##", assetSearchPath);
+                    assetSource.FilePath = assetSource.FilePath?.Replace("##ASSETDIR##", workDir);
                     umtModel.CustomProperties[key] = assetSource;
                     break;
                 }
@@ -97,7 +87,7 @@ else
                     {
                         case AssetFileSource assetSource:
                         {
-                            assetSource.FilePath = assetSource.FilePath?.Replace("##ASSETDIR##", assetSearchPath);
+                            assetSource.FilePath = assetSource.FilePath?.Replace("##ASSETDIR##", workDir);
                             break;
                         }
                     }
@@ -113,7 +103,7 @@ if (variantWithObserver)
 #pragma warning restore S2583
 {
     // simplified usage for streamlined import
-
+    
     // create observer to track import state
     var importObserver = new ImportStateObserver();
 
@@ -151,7 +141,7 @@ else
         switch (result)
         {
             // OK
-            case { Success: true, Imported: { } }:
+            case { Success: true, Imported: {} }:
             {
                 Console.WriteLine($"{umtModel.PrintMe()} imported");
                 break;
@@ -176,23 +166,6 @@ else
         }
     }
 }
-
-foreach (var mediaLibraryInfo in MediaLibraryInfoProvider.ProviderObject.Get())
-{
-    try
-    {
-        string libraryFolderPath = MediaLibraryInfoProvider.GetMediaLibraryFolderPath(mediaLibraryInfo.LibraryFolder);
-        Console.WriteLine($"{mediaLibraryInfo.LibraryName}: {libraryFolderPath}");
-    }
-    catch (Exception ex)
-    {
-        Console.WriteLine($"{mediaLibraryInfo.LibraryName}: {mediaLibraryInfo.LibraryFolder} Error: {ex}");
-    }
-}
-
-Console.WriteLine($"WorkDir-Current: {System.IO.Directory.GetCurrentDirectory()}");
-Console.WriteLine($"WorkDir-Prev   : {workDir}");
-Console.WriteLine($"WebAppPath     : {CMS.Base.SystemContext.WebApplicationPhysicalPath}");
 
 Console.WriteLine("Finished!");
 
