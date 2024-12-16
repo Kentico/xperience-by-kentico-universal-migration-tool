@@ -71,9 +71,9 @@
 |`string`|`Kentico.Administration.CodeEditor`|`CodeEditorComponent`|`CodeEditorProperties`||
 |`string`|`Kentico.Administration.ConditionBuilder`|`ConditionBuilderComponent`|`ConditionBuilderProperties`||
 |`string`|`Kentico.Administration.DropDownSelector`|`DropDownComponent`|`DropDownProperties`||
+|`string`||`DropDownComponentBase`|`TProperties`|**abstract**|
 |`string`|`Kentico.Administration.ExtensionSelector`|`ExtensionSelectorComponent`|`ExtensionSelectorProperties`||
-|`string`|`Kentico.Administration.IconSelector`|`IconSelectorComponent`|`IconSelectorClientProperties`||
-|`string`|`Kentico.Administration.IconSelector`|`IconSelectorComponent`|`IconSelectorClientProperties`||
+|`string`|`Kentico.Administration.IconSelector`|`IconSelectorComponent`|`IconSelectorProperties`||
 |`string`|`Kentico.Administration.Link`|`LinkComponent`|`LinkProperties`||
 |`string`|`Kentico.Administration.Password`|`PasswordComponent`|`PasswordProperties`||
 |`string`|`Kentico.Administration.RadioGroup`|`RadioGroupComponent`|`RadioGroupProperties`||

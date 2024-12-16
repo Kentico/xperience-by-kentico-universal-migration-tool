@@ -9,8 +9,8 @@ Model [discriminator](../UmtModel.md#discriminator): `ContentItemCommonData`
 |ContentItemCommonDataContentLanguageGuid\*||System.Guid?|Reference to [ContentLanguageInfo](../References.md#ContentLanguageInfo) on property ContentItemCommonDataContentLanguageID **required**|
 |ContentItemCommonDataVersionStatus\*||CMS.ContentEngine.VersionStatus?||
 |ContentItemCommonDataIsLatest\*||bool?||
-|ContentItemCommonDataPageBuilderWidgets||string?||
-|ContentItemCommonDataPageTemplateConfiguration||string?||
+|ContentItemCommonDataVisualBuilderWidgets||string?||
+|ContentItemCommonDataVisualBuilderTemplateConfiguration||string?||
 |[customPropertyName]|custom property defined by created [DataClass](./DataClassModel.md)|.NET type defined by data class field||
 
 <p>*) value is required</p>

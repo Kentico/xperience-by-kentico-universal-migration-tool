@@ -261,11 +261,9 @@ public class GenericInfoAdapter<TTargetInfo> : IInfoAdapter<TTargetInfo, IUmtMod
                     {
                         ArgumentNullException.ThrowIfNull(asset.ContentItemGuid);
                         
-                        var metadataWithSource = assetManager
+                        value = assetManager
                             .SetAsset(current.TypeInfo.ObjectClassName, asset, customProperty, asset.ContentItemGuid.Value, CancellationToken.None)
                             .GetAwaiter().GetResult();
-
-                        value = metadataWithSource;
                     }
 
                     current.SetValue(customProperty, value);

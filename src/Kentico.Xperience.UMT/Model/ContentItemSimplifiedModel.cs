@@ -20,11 +20,16 @@ public class ContentItemSimplifiedModel : UmtModel
     [Required]
     [UniqueIdProperty]
     public Guid? ContentItemGUID { get; set; }
-    
+
     /// <summary>
     /// Reference to content folder
     /// </summary>
     public Guid? ContentItemContentFolderGUID { get; set; }
+
+    /// <summary>
+    /// Reference to workspace
+    /// </summary>
+    public Guid? ContentItemWorkspaceGUID { get; set; }
 
     public bool? IsSecured { get; set; } = false;
 
@@ -38,7 +43,7 @@ public class ContentItemSimplifiedModel : UmtModel
     /// <summary>Code name of the content item.</summary>
     [Required]
     public string? Name { get; set; }
-    
+
     /// <summary>
     /// Indicates if content item is reusable. By default, item will be created as reusable.
     /// </summary>

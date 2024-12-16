@@ -26,7 +26,13 @@ public sealed class ContentFolderModel: UmtModel
     /// </summary>
     [ReferenceProperty(typeof(ContentFolderInfo), "ContentFolderParentFolderID", IsRequired = false)]
     public Guid? ContentFolderParentFolderGUID { get; set; }
-    
+
+    /// <summary>
+    /// workspace guid. If null is specified, default workspace is used
+    /// </summary>
+    [ReferenceProperty(typeof(ContentFolderInfo), "ContentFolderWorkspaceID", IsRequired = false)]
+    public Guid? ContentFolderWorkspaceGUID { get; set; }
+
     [Map]
     [Required]
     public string? ContentFolderName { get; set; }

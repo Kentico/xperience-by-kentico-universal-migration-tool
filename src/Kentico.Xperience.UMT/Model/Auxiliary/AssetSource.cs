@@ -24,6 +24,8 @@ public class AssetSource
     public string? Extension { get; set; }
     public long? Size { get; set; }
     public DateTime? LastModified { get; set; }
+    public int? ImageWidth { get; set; }
+    public int? ImageHeight { get; set; }
 
     public virtual string InferExtension() => Extension ?? throw new InvalidOperationException($"{nameof(AssetFileSource)} has unknown extension. Specify explicitly by {nameof(Extension)} property");
 }

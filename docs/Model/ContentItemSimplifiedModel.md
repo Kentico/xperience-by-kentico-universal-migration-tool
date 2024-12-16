@@ -6,6 +6,7 @@ Model [discriminator](../UmtModel.md#discriminator): `ContentItemSimplified`
 |---|---|---|---|
 |ContentItemGUID\*||System.Guid?|[UniqueId](../UmtModel.md#UniqueId)|
 |ContentItemContentFolderGUID|Reference to content folder|System.Guid?||
+|ContentItemWorkspaceGUID|Reference to workspace|System.Guid?||
 |IsSecured||bool?||
 |ContentTypeName\*|Content item type name.|string?||
 |Name\*|Code name of the content item.|string?||

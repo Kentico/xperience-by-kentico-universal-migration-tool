@@ -6,6 +6,7 @@ Model [discriminator](../UmtModel.md#discriminator): `ContentItem`
 |---|---|---|---|
 |ContentItemGUID\*||System.Guid?|[UniqueId](../UmtModel.md#UniqueId)|
 |ContentItemContentFolderGUID|reference to content folder|System.Guid?|Reference to [ContentFolderInfo](../References.md#ContentFolderInfo) on property ContentItemContentFolderID|
+|ContentItemWorkspaceGUID|reference to workspace|System.Guid?|Reference to [WorkspaceInfo](../References.md#WorkspaceInfo) on property ContentItemWorkspaceID|
 |ContentItemName\*||string?||
 |ContentItemIsReusable\*||bool?||
 |ContentItemIsSecured||bool?||
