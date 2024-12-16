@@ -9,7 +9,7 @@ namespace TestAfterMigration.Tests
         {
             await OpenAdminApplication("Languages");
 
-            string[] expectedLanguages = new[] { "English - (default)", "English (United Kingdom)", "English (United States)", "Spanish" };
+            string[] expectedLanguages = new[] { "English", "English (United Kingdom)", "English (United States)", "Spanish" };
 
             foreach (string lang in expectedLanguages)
             {

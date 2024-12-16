@@ -8,6 +8,8 @@ using CMS.MediaLibrary;
 using CMS.Membership;
 using CMS.Websites;
 using CMS.Websites.Internal;
+using CMS.Workspaces;
+
 using Kentico.Xperience.UMT.Model;
 using Kentico.Xperience.UMT.ProviderProxy;
 using Kentico.Xperience.UMT.Services;
@@ -34,20 +36,20 @@ internal class AdapterFactory(ILoggerFactory loggerFactory, UmtModelService mode
             EmailChannelModel => new GenericInfoAdapter<EmailChannelInfo>(loggerFactory.CreateLogger<GenericInfoAdapter<EmailChannelInfo>>(), adapterContext),
             ChannelModel => new GenericInfoAdapter<ChannelInfo>(loggerFactory.CreateLogger<GenericInfoAdapter<ChannelInfo>>(), adapterContext),
             ContentLanguageModel => new GenericInfoAdapter<ContentLanguageInfo>(loggerFactory.CreateLogger<GenericInfoAdapter<ContentLanguageInfo>>(), adapterContext),
-            ContentItemModel => new GenericInfoAdapter<ContentItemInfo>(loggerFactory.CreateLogger<GenericInfoAdapter<ContentItemInfo>>(), adapterContext),
+            ContentItemModel => new ContentItemAdapter(loggerFactory.CreateLogger<ContentItemAdapter>(), Service.Resolve<IInfoProvider<ContentFolderInfo>>(), Service.Resolve<IInfoProvider<WorkspaceInfo>>(), adapterContext),
             WebPageItemModel => new GenericInfoAdapter<WebPageItemInfo>(loggerFactory.CreateLogger<GenericInfoAdapter<WebPageItemInfo>>(), adapterContext),
             WebPageAclModel => new GenericInfoAdapter<WebPageAclInfo>(loggerFactory.CreateLogger<GenericInfoAdapter<WebPageAclInfo>>(), adapterContext),
             WebPageUrlPathModel => new WebPageUrlPathAdapter(loggerFactory.CreateLogger<WebPageUrlPathAdapter>(), adapterContext),
             DataClassModel => new DataClassAdapter(loggerFactory.CreateLogger<DataClassAdapter>(), adapterContext),
             ContentTypeChannelModel => new GenericInfoAdapter<ContentTypeChannelInfo>(loggerFactory.CreateLogger<GenericInfoAdapter<ContentTypeChannelInfo>>(), adapterContext),
             ContentItemReferenceModel => new GenericInfoAdapter<ContentItemReferenceInfo>(loggerFactory.CreateLogger<GenericInfoAdapter<ContentItemReferenceInfo>>(), adapterContext),
-            ContentFolderModel => new ContentFolderAdapter(loggerFactory.CreateLogger<ContentFolderAdapter>(), adapterContext),
+            ContentFolderModel => new ContentFolderAdapter(loggerFactory.CreateLogger<ContentFolderAdapter>(), Service.Resolve<IInfoProvider<ContentFolderInfo>>(), Service.Resolve<IInfoProvider<WorkspaceInfo>>(), adapterContext),
             TaxonomyModel => new TaxonomyAdapter(loggerFactory.CreateLogger<TaxonomyAdapter>(), adapterContext),
             TagModel => new TagAdapter(loggerFactory.CreateLogger<TagAdapter>(), adapterContext),
 
             // macro models
             ContentItemSimplifiedModel => new ContentItemSimplifiedAdapter(providerProxyFactory.CreateProviderProxy<ContentItemInfo>(providerProxyContext), providerProxyFactory, Service.Resolve<IDateTimeNowService>(), this,
-                loggerFactory.CreateLogger<ContentItemSimplifiedAdapter>()),
+                loggerFactory.CreateLogger<ContentItemSimplifiedAdapter>(), Service.Resolve<IInfoProvider<ContentFolderInfo>>(), Service.Resolve<IInfoProvider<WorkspaceInfo>>()),
             _ => null,
         };
     }
