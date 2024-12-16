@@ -179,7 +179,7 @@ jobs:
 
       - name: Print media tree
         if: always()
-        run: tree ${{ env.XBK_DIR}}\assets\ /f
+        run: tree ${{ env.XBK_DIR}} /f
 
       - name: Print content items table
         if: always()
