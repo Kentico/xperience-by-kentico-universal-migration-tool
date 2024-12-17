@@ -83,9 +83,9 @@ jobs:
           Write-Output "SQL Server: Forcing Restart of Instance."
           Restart-Service -Force 'MSSQL$SQLEXPRESS'
 
-      # - name: <DB> Create database with collation Latin1_General_CI_AS
-      #   run: |
-      #     sqlcmd -S "${{ env.SQLSERVER_NAME}}" -U '${{ env.DB_USER}}' -P '${{ env.DB_PASSWORD }}' -Q "CREATE DATABASE ${{ env.DB_DATABASE}} COLLATE Latin1_General_CI_AS;"
+      - name: <DB> Create database with collation Latin1_General_CI_AS
+        run: |
+          sqlcmd -S "${{ env.SQLSERVER_NAME}}" -U '${{ env.DB_USER}}' -P '${{ env.DB_PASSWORD }}' -Q "CREATE DATABASE ${{ env.DB_DATABASE}} COLLATE Latin1_General_CI_AS;"
 
       - name: <DB> Test SQL Server login as admin
         run: |
@@ -154,11 +154,10 @@ jobs:
           Write-Output "XbK starting..."
           $timeout = 100
           $elapsed = 0
-          $url = (Get-Content "${{ env.XBK_DIR }}/Properties/launchSettings.json" | ConvertFrom-Json).profiles.kentico_boilerplate.applicationUrl
-          $url = $url + "/admin"
+          $adminUrl = $env:XBK_URL + "/admin"
           while ($elapsed -lt $timeout) {
             try {
-              $response = Invoke-WebRequest -Uri $url -UseBasicParsing
+              $response = Invoke-WebRequest -Uri $adminUrl -UseBasicParsing
               if ($response.StatusCode -eq 200) {
                 Write-Output "XbK is accessible"
                 break
@@ -176,30 +175,6 @@ jobs:
           Write-Output "Running tests..."
           mkdir reports
           dotnet test --settings:test.runsettings --logger:"html;LogFileName=${{ env.UMT_DIR }}\reports\logFile.html"
-
-      # - name: Print media tree
-      #   if: always()
-      #   run: tree ${{ github.workspace }} /f
-
-      # - name: Print content items table
-      #   if: always()
-      #   run: |
-      #     sqlcmd -S "${{ env.SQLSERVER_NAME}}" -U '${{ env.DB_USER}}' -P '${{ env.DB_PASSWORD }}' -d "${{ env.DB_DATABASE }}" -Q "SELECT * FROM CMS_ContentItem"
-
-      # - name: Print media file table
-      #   if: always()
-      #   run: |
-      #     sqlcmd -S "${{ env.SQLSERVER_NAME}}" -U '${{ env.DB_USER}}' -P '${{ env.DB_PASSWORD }}' -d "${{ env.DB_DATABASE }}" -Q "SELECT * FROM Media_File"
-
-      # - name: Print media lib table
-      #   if: always()
-      #   run: |
-      #     sqlcmd -S "${{ env.SQLSERVER_NAME}}" -U '${{ env.DB_USER}}' -P '${{ env.DB_PASSWORD }}' -d "${{ env.DB_DATABASE }}" -Q "SELECT * FROM Media_Library"
-
-      # - name: Print event log table
-      #   if: always()
-      #   run: |
-      #     sqlcmd -S "${{ env.SQLSERVER_NAME}}" -U '${{ env.DB_USER}}' -P '${{ env.DB_PASSWORD }}' -d "${{ env.DB_DATABASE }}" -Q "SELECT * FROM CMS_EventLog"
 
       - uses: actions/upload-artifact@v4
         if: ${{ !cancelled() }}
