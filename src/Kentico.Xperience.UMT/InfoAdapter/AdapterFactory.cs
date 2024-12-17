@@ -46,6 +46,7 @@ internal class AdapterFactory(ILoggerFactory loggerFactory, UmtModelService mode
             ContentFolderModel => new ContentFolderAdapter(loggerFactory.CreateLogger<ContentFolderAdapter>(), Service.Resolve<IInfoProvider<ContentFolderInfo>>(), Service.Resolve<IInfoProvider<WorkspaceInfo>>(), adapterContext),
             TaxonomyModel => new TaxonomyAdapter(loggerFactory.CreateLogger<TaxonomyAdapter>(), adapterContext),
             TagModel => new TagAdapter(loggerFactory.CreateLogger<TagAdapter>(), adapterContext),
+            WorkspaceModel => new GenericInfoAdapter<WorkspaceInfo>(loggerFactory.CreateLogger<GenericInfoAdapter<WorkspaceInfo>>(), adapterContext),
 
             // macro models
             ContentItemSimplifiedModel => new ContentItemSimplifiedAdapter(providerProxyFactory.CreateProviderProxy<ContentItemInfo>(providerProxyContext), providerProxyFactory, Service.Resolve<IDateTimeNowService>(), this,
