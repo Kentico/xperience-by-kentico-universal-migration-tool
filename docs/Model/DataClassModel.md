@@ -239,6 +239,26 @@ This sample describes how to create class inside XbyK to hold Article data
         "ControlName": "Kentico.Administration.ContentItemAssetUploader",
         "AllowedExtensions": "_INHERITED_"
       }
+    },
+    {
+      "AllowEmpty": true,
+      "Column": "EventTeaserOptimized",
+      "ColumnSize": 0,
+      "ColumnType": "contentitemasset",
+      "Enabled": true,
+      "Guid": "4ba81bfd-cd14-4100-8ace-080c25d8ab98",
+      "Visible": true,
+      "Properties": {
+        "FieldCaption": "Event teaser auto-optimized"
+      },
+      "Settings": {
+        "ControlName": "Kentico.Administration.ContentItemAssetUploader",
+        "AllowedExtensions": "_INHERITED_",
+        "IsFormatConversionEnabled": true,
+        "InputImageExtensions": "[\u0022jpg\u0022,\u0022png\u0022]",
+        "OutputImageExtension": "jpg",
+        "OutputQuality": "50"
+      }
     }
   ]
 }
