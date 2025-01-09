@@ -1,4 +1,6 @@
-﻿using CMS.DataEngine;
+﻿using System.Text.Json;
+
+using CMS.DataEngine;
 using Kentico.Xperience.UMT.Model;
 
 namespace Kentico.Xperience.UMT.Examples;
@@ -307,6 +309,28 @@ public static class DataClassSamples
                     CustomProperties = new Dictionary<string, object?>
                     {
                         { "AllowedExtensions", "_INHERITED_" }  
+                    },
+                    ControlName = "Kentico.Administration.ContentItemAssetUploader"
+                }
+            },
+            new()
+            {
+                Column = "EventTeaserOptimized",
+                ColumnType = "contentitemasset",
+                AllowEmpty = true,
+                Visible = true,
+                Enabled = true,
+                Guid = new Guid("4BA81BFD-CD14-4100-8ACE-080C25D8AB98"),
+                Properties = new FormFieldProperties { FieldCaption = "Event teaser auto-optimized", },
+                Settings = new FormFieldSettings
+                {
+                    CustomProperties = new Dictionary<string, object?>
+                    {
+                        { "AllowedExtensions", "_INHERITED_" },
+                        { "IsFormatConversionEnabled", true },
+                        { "InputImageExtensions", JsonSerializer.Serialize<IEnumerable<string>>(["jpg", "png"]) },
+                        { "OutputImageExtension", "jpg" },
+                        { "OutputQuality", "50" },
                     },
                     ControlName = "Kentico.Administration.ContentItemAssetUploader"
                 }

@@ -111,5 +111,15 @@ namespace TestAfterMigration.Tests
             await Assertions.Expect(Page.GetByTestId("table-row").Filter(new LocatorFilterOptions { HasText = "Published" })).Not.ToHaveCountAsync(0);
         }
 
+        [Test]
+        public async Task Test00600_Event_Sample_Optimized_Image_Is_Uploaded()
+        {
+            await OpenContentHub();
+
+            await Page.GetByRole(AriaRole.Row).Filter(new LocatorFilterOptions { HasText = "Event Sample 2024" }).ClickAsync();
+
+            await Assertions.Expect(Page.GetByTestId("EventTeaserOptimized").GetByTestId("asset-tile-preview")).ToHaveCountAsync(1);
+        }
+
     }
 }
