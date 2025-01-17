@@ -5,7 +5,7 @@ namespace Kentico.Xperience.UMT.Examples
     public static class AssetSamples
     {
         public static readonly Guid MEDIA_LIBRARY_SAMPLE_GUID = new("E3A9C50C-2B76-4BA8-AC19-2F0AA64C47D5");
-        
+
         [Sample("mediafile.sample.fromdisk", "", "Sample of media file loaded from disk")]
         public static MediaFileModel SampleMediaFile => new()
         {
@@ -18,7 +18,7 @@ namespace Kentico.Xperience.UMT.Examples
             FileTitle = "Title",
             FilePath = "customdir/NewTestFile.png"
         };
-        
+
         [Sample("mediafile.sample.fromurl", "", "Sample of media file downloaded from url")]
         public static MediaFileModel SampleMediaFileFromUri => new()
         {
@@ -31,7 +31,7 @@ namespace Kentico.Xperience.UMT.Examples
             FileTitle = "Old devnet screen",
             FilePath = "customdir/NewTestFileFromUri.jpg"
         };
-        
+
         // https://res-5.cloudinary.com/xperience-io/image/upload/c_lfill,dpr_1,w_768/f_auto,q_auto/v1/homepage/k-02-your-real-needs-at-its-core-1600x1200px_ihqknl
 
         [Sample("medialibrary.sample", "", "Sample of media library")]
