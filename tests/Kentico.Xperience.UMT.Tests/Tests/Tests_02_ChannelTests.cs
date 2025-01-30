@@ -176,7 +176,7 @@ namespace TestAfterMigration.Tests
             await item.ClickAsync();
             await Debounce();
 
-            await Page.GetByTestId("page-menu-actions").GetByTestId("xp-chevron-down").GetByTestId("content-item-action-menu-publish").ClickAsync();
+            await Page.GetByTestId("page-menu-actions").GetByTestId("content-item-menu-split-button-publish").ClickAsync();
             await Page.GetByTestId("submit-form-button").ClickAsync();
             await Debounce();
             string? status = await Page.GetByTestId("breadcrumbs-status").TextContentAsync();
