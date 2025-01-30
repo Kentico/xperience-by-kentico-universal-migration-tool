@@ -97,6 +97,17 @@ public static class ContentItemSamples
         WebPageUrlPathIsLatest = true,
         WebPageUrlPathIsDraft = false
     };
+
+    [Sample("webpageitem.formerurlpath.sample.article.enus", "", "Page former url path sample")]
+    public static WebPageFormerUrlPathModel SampleArticleWebPathFormerUrlPathModelEnUs => new()
+    {
+        WebPageFormerUrlPathGUID = new Guid("66a1e738-b89c-4763-97a7-2090bd83f547"),
+        WebPageFormerUrlPath = "former-url/sample-article",
+        WebPageFormerUrlPathHash = null,
+        WebPageFormerUrlPathWebPageItemGuid = SampleArticleWebPageItem.WebPageItemGUID,
+        WebPageFormerUrlPathWebsiteChannelGuid = WebSiteChannelSamples.WebsiteChannelGuid,
+        WebPageFormerUrlPathContentLanguageGuid = ContentLanguageSamples.CONTENT_LANGUAGE_ENUS_SAMPLE_GUID,
+    };
     
     #endregion
 

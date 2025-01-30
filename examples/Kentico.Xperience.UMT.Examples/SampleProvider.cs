@@ -112,6 +112,7 @@ public static class SampleProvider
             ContentItemSamples.SampleArticleContentItemLanguageMetadataEnUs,
             ContentItemSamples.SampleArticleContentItemLanguageMetadataEnGb,
             ContentItemSamples.SampleArticleWebPathUrlPathModelEnUs,
+            ContentItemSamples.SampleArticleWebPathFormerUrlPathModelEnUs,
             ContentItemSamples.SampleArticleWebPathUrlPathModelEnGb,
             ContentItemSamples.SampleArticleWebPathUrlPathModelEs,
 
