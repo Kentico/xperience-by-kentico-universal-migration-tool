@@ -136,16 +136,18 @@ public static class SampleProvider
         {
             ContentItemSamples.SampleArticleContentItemWithFormerUrl,
             ContentItemSamples.SampleArticleContentItemCommonDataEnUsWithFormerUrl,
+            ContentItemSamples.SampleArticleContentItemCommonDataEnGbWithFormerUrl,
             ContentItemSamples.SampleArticleDataEnUsWithFormerUrl,
+            ContentItemSamples.SampleArticleDataEnGbWithFormerUrl,
+
             ContentItemSamples.SampleArticleContentItemLanguageMetadataEnUsWithFormerUrl,
+            ContentItemSamples.SampleArticleContentItemLanguageMetadataEnGbWithFormerUrl,
+
+            ContentItemSamples.SampleArticleWebPageItemWithFormerUrl,
             ContentItemSamples.SampleArticleWebPageUrlWithFormerUrlEnUs,
             ContentItemSamples.SampleArticleWebFormerUrlPathEnUs,
-            ContentItemSamples.SampleArticleContentItemCommonDataEnGbWithFormerUrl,
-            ContentItemSamples.SampleArticleDataEnGbWithFormerUrl,
-            ContentItemSamples.SampleArticleContentItemLanguageMetadataEnGbWithFormerUrl,
             ContentItemSamples.SampleArticleWebPageUrlWithFormerUrlEnGb,
-            ContentItemSamples.SampleArticleWebFormerUrlPathEnGb,
-            ContentItemSamples.SampleArticleWebPageItemWithFormerUrl
+            ContentItemSamples.SampleArticleWebFormerUrlPathEnGb
         });
 
         // folder samples

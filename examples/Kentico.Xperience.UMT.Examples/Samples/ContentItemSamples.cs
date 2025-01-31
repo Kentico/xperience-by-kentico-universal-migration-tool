@@ -499,6 +499,7 @@ public static class ContentItemSamples
     public static readonly Guid SampleArticleContentItemGuidWithFormerUrl = new("41f5d6c0-3a5b-4f34-84f5-dbb61ba76e12");
     public static readonly Guid SampleArticleCommonDataGuidEnUsWithFormerUrl = new("bfd89a64-76c1-4630-8177-3045a0223c7c");
     public static readonly Guid SampleArticleCommonDataGuidEnGbWithFormerUrl = new("98ec260b-70dd-4c32-8ce9-366856509266");
+    public static readonly Guid SampleArticleWebPageFromerUrlGuid = new("5079be5a-106b-4222-9c27-79062a6693f8");
 
     [Sample("ContentItemModel.Sample.Article.WithFormerUrl", "This sample describes how to create content item with former URL", "ContentItem with former URL sample")]
     public static ContentItemModel SampleArticleContentItemWithFormerUrl => new()
@@ -519,7 +520,7 @@ public static class ContentItemSamples
         ContentItemCommonDataGUID = SampleArticleCommonDataGuidEnUsWithFormerUrl,
         ContentItemCommonDataContentItemGuid = SampleArticleContentItemGuidWithFormerUrl,
         ContentItemCommonDataContentLanguageGuid = ContentLanguageSamples.CONTENT_LANGUAGE_ENUS_SAMPLE_GUID,
-        ContentItemCommonDataVersionStatus = VersionStatus.InitialDraft,
+        ContentItemCommonDataVersionStatus = VersionStatus.Published,
         ContentItemCommonDataIsLatest = true,
         ContentItemCommonDataVisualBuilderWidgets = null,
         ContentItemCommonDataVisualBuilderTemplateConfiguration = null
@@ -545,7 +546,7 @@ public static class ContentItemSamples
     public static ContentItemLanguageMetadataModel SampleArticleContentItemLanguageMetadataEnUsWithFormerUrl => new()
     {
         ContentItemLanguageMetadataGUID = new Guid("6b6ecd20-9fe0-4bc9-8894-faa086643a57"),
-        ContentItemLanguageMetadataContentItemGuid = SampleArticleCommonDataGuidEnUsWithFormerUrl,
+        ContentItemLanguageMetadataContentItemGuid = SampleArticleContentItemGuidWithFormerUrl,
         ContentItemLanguageMetadataContentLanguageGuid = ContentLanguageSamples.CONTENT_LANGUAGE_ENUS_SAMPLE_GUID,
         ContentItemLanguageMetadataDisplayName = "Content item with former Url",
         ContentItemLanguageMetadataCreatedWhen = new DateTime(2023, 12, 10, 0, 0, 0, 0, DateTimeKind.Utc),
@@ -574,7 +575,7 @@ public static class ContentItemSamples
         WebPageFormerUrlPathGUID = new("72a4ec78-5c19-4415-b512-e0a74d5face1"),
         WebPageFormerUrlPath = "/enus-former-url-path",
         WebPageFormerUrlPathHash = null,
-        WebPageFormerUrlPathWebPageItemGuid = SAMPLE_ARTICLE_WEB_PAGE_FORMER_URL_GUID,
+        WebPageFormerUrlPathWebPageItemGuid = SampleArticleWebPageFromerUrlGuid,
         WebPageFormerUrlPathWebsiteChannelGuid = WebSiteChannelSamples.WebsiteChannelGuid,
         WebPageFormerUrlPathContentLanguageGuid = ContentLanguageSamples.CONTENT_LANGUAGE_ENUS_SAMPLE_GUID,
         WebPageFormerUrlPathSourceWebPageItemID = null,
@@ -592,7 +593,7 @@ public static class ContentItemSamples
         ContentItemCommonDataGUID = SampleArticleCommonDataGuidEnGbWithFormerUrl,
         ContentItemCommonDataContentItemGuid = SampleArticleContentItemGuidWithFormerUrl,
         ContentItemCommonDataContentLanguageGuid = ContentLanguageSamples.CONTENT_LANGUAGE_ENGB_SAMPLE_GUID,
-        ContentItemCommonDataVersionStatus = VersionStatus.InitialDraft,
+        ContentItemCommonDataVersionStatus = VersionStatus.Published,
         ContentItemCommonDataIsLatest = true,
         ContentItemCommonDataVisualBuilderWidgets = null,
         ContentItemCommonDataVisualBuilderTemplateConfiguration = null
@@ -617,8 +618,8 @@ public static class ContentItemSamples
     [Sample("contentitemlanguagemetadata.sample.article.engb.WithFormerUrl", "This sample describes how to create class inside XbyK to hold Content Item Language Metadata", "ContentItemLanguageMetadata Sample")]
     public static ContentItemLanguageMetadataModel SampleArticleContentItemLanguageMetadataEnGbWithFormerUrl => new()
     {
-        ContentItemLanguageMetadataGUID = new Guid("6b6ecd20-9fe0-4bc9-8894-faa086643a57"),
-        ContentItemLanguageMetadataContentItemGuid = SampleArticleCommonDataGuidEnGbWithFormerUrl,
+        ContentItemLanguageMetadataGUID = new Guid("bb14bce1-f17a-4d54-88bb-26f109174e8f"),
+        ContentItemLanguageMetadataContentItemGuid = SampleArticleContentItemGuidWithFormerUrl,
         ContentItemLanguageMetadataContentLanguageGuid = ContentLanguageSamples.CONTENT_LANGUAGE_ENGB_SAMPLE_GUID,
         ContentItemLanguageMetadataDisplayName = "Content item with former Url",
         ContentItemLanguageMetadataCreatedWhen = new DateTime(2023, 12, 10, 0, 0, 0, 0, DateTimeKind.Utc),
@@ -628,26 +629,26 @@ public static class ContentItemSamples
         ContentItemLanguageMetadataLatestVersionStatus = VersionStatus.Published,
     };
 
-    [Sample("webpageitem.urlpath.sample.article.WithRelations.engb", "", "Page url path sample")]
+    [Sample("webpageitem.urlpath.sample.article.WithFormerUrlPath.engb", "", "Page url path sample")]
     public static WebPageUrlPathModel SampleArticleWebPageUrlWithFormerUrlEnGb => new()
     {
-        WebPageUrlPathGUID = new Guid("a561ffd1-d387-4e9c-9589-537c4f6a6b1d"),
+        WebPageUrlPathGUID = new Guid("0e95df32-8595-4d55-82b8-0b9b99dcd9bd"),
         WebPageUrlPath = "en-GB/content-item-with-former-url",
         WebPageUrlPathHash = null,
         WebPageUrlPathWebPageItemGuid = SampleArticleWebPageItemWithFormerUrl.WebPageItemGUID,
         WebPageUrlPathWebsiteChannelGuid = WebSiteChannelSamples.WebsiteChannelGuid,
-        WebPageUrlPathContentLanguageGuid = ContentLanguageSamples.CONTENT_LANGUAGE_ENUS_SAMPLE_GUID,
+        WebPageUrlPathContentLanguageGuid = ContentLanguageSamples.CONTENT_LANGUAGE_ENGB_SAMPLE_GUID,
         WebPageUrlPathIsLatest = true,
         WebPageUrlPathIsDraft = false
     };
 
-    [Sample("webpageitem.formerurlpath.sample.article.WithFormerUrlPath.enus", "", "Page former url path sample")]
+    [Sample("webpageitem.formerurlpath.sample.article.WithFormerUrlPath.engb", "", "Page former url path sample")]
     public static WebPageFormerUrlPathModel SampleArticleWebFormerUrlPathEnGb => new()
     {
         WebPageFormerUrlPathGUID = new("f9b9cdd0-2202-4609-980f-5b136c8beb2a"),
         WebPageFormerUrlPath = "/engb-former-url-path",
         WebPageFormerUrlPathHash = null,
-        WebPageFormerUrlPathWebPageItemGuid = SAMPLE_ARTICLE_WEB_PAGE_FORMER_URL_GUID,
+        WebPageFormerUrlPathWebPageItemGuid = SampleArticleWebPageFromerUrlGuid,
         WebPageFormerUrlPathWebsiteChannelGuid = WebSiteChannelSamples.WebsiteChannelGuid,
         WebPageFormerUrlPathContentLanguageGuid = ContentLanguageSamples.CONTENT_LANGUAGE_ENGB_SAMPLE_GUID,
         WebPageFormerUrlPathSourceWebPageItemID = null,
@@ -657,13 +658,11 @@ public static class ContentItemSamples
 
     #endregion 
 
-    public static readonly Guid SAMPLE_ARTICLE_WEB_PAGE_FORMER_URL_GUID = new("5079be5a-106b-4222-9c27-79062a6693f8");
-
     [Sample("webpageitem.sample.article.formerurl", "This sample describes how to create class inside XbyK to hold WebPage Item data with former URL", "ContentItem Former URL Sample")]
 
     public static WebPageItemModel SampleArticleWebPageItemWithFormerUrl => new()
     {
-        WebPageItemGUID = SAMPLE_ARTICLE_WEB_PAGE_FORMER_URL_GUID,
+        WebPageItemGUID = SampleArticleWebPageFromerUrlGuid,
         WebPageItemContentItemGuid = SampleArticleContentItemGuidWithFormerUrl,
         WebPageItemName = "ContentItemWithFormerUrl",
         WebPageItemOrder = 1,

@@ -297,11 +297,12 @@ public class ContentItemSimplifiedAdapter : IInfoAdapter<ContentItemInfo, IUmtMo
                                     .WhereEquals(nameof(WebPageFormerUrlPathInfo.WebPageFormerUrlPathWebsiteChannelID), webSiteChannel.WebsiteChannelID)
                                     .FirstOrDefault();
 
-                        if (existingPathInfo != null)
+                        if (existingPathInfo == null)
                         {
                             var formerPathModel = new WebPageFormerUrlPathModel
                             {
                                 WebPageFormerUrlPathGUID = Guid.NewGuid(),
+                                WebPageFormerUrlPathWebPageItemGuid = webPageItemModel.WebPageItemGUID,
                                 WebPageFormerUrlPath = pageFormerUrlModel.FormerUrlPath,
                                 WebPageFormerUrlPathWebsiteChannelGuid = webSiteChannel.WebsiteChannelGUID,
                                 WebPageFormerUrlPathContentLanguageGuid = contentLanguageInfo.ContentLanguageGUID,
