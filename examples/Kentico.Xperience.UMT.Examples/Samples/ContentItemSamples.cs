@@ -22,9 +22,9 @@ public static class ContentItemSamples
 
     #region "Sample article content item"
 
-    public static readonly Guid SampleArticleContentItemGuid = new Guid("DF81215E-1414-4D87-BEFD-AE123F4E5653");
-    public static readonly Guid SampleArticleCommonDataGuidEnUs = new Guid("8F070195-2F39-463E-B7EB-C180C05FD5E0");
-    public static readonly Guid SampleArticleCommonDataGuidEnGb = new Guid("49D2CAF6-2011-42D7-961D-02614D1B43F4");
+    public static readonly Guid SampleArticleContentItemGuid = new("DF81215E-1414-4D87-BEFD-AE123F4E5653");
+    public static readonly Guid SampleArticleCommonDataGuidEnUs = new("8F070195-2F39-463E-B7EB-C180C05FD5E0");
+    public static readonly Guid SampleArticleCommonDataGuidEnGb = new("49D2CAF6-2011-42D7-961D-02614D1B43F4");
 
     [Sample("ContentItemModel.Sample.Article", "This sample describes how to create content item data inside XbyK", "ContentItem basic Sample")]
     public static ContentItemModel SampleArticleContentItem => new()
@@ -98,17 +98,6 @@ public static class ContentItemSamples
         WebPageUrlPathIsDraft = false
     };
 
-    [Sample("webpageitem.formerurlpath.sample.article.enus", "", "Page former url path sample")]
-    public static WebPageFormerUrlPathModel SampleArticleWebPathFormerUrlPathModelEnUs => new()
-    {
-        WebPageFormerUrlPathGUID = new Guid("66a1e738-b89c-4763-97a7-2090bd83f547"),
-        WebPageFormerUrlPath = "former-url/sample-article",
-        WebPageFormerUrlPathHash = null,
-        WebPageFormerUrlPathWebPageItemGuid = SampleArticleWebPageItem.WebPageItemGUID,
-        WebPageFormerUrlPathWebsiteChannelGuid = WebSiteChannelSamples.WebsiteChannelGuid,
-        WebPageFormerUrlPathContentLanguageGuid = ContentLanguageSamples.CONTENT_LANGUAGE_ENUS_SAMPLE_GUID,
-    };
-    
     #endregion
 
     #region "EnGb version"
@@ -188,7 +177,7 @@ public static class ContentItemSamples
     #endregion
 
     public static readonly Guid SAMPLE_ARTICLE_WEB_PAGE_GUID = new("6E995319-77E7-475E-9EBB-607BDBF5AF9A");
-    
+
     [Sample("webpageitem.sample.article", "This sample describes how to create class inside XbyK to hold WebPage Item data", "ContentItem Sample")]
     public static WebPageItemModel SampleArticleWebPageItem => new()
     {
@@ -201,7 +190,7 @@ public static class ContentItemSamples
     };
 
     public static readonly Guid SAMPLE_ARTICLE_WEBPAGE_ACL_GUID = new("959408C5-D157-4C18-8AE0-A7D9CFB374F5");
-    
+
     [Sample("webpageitem.sample.article.acl", "This sample describes how to set Web page ACL", "ContentItem ACL Sample")]
     public static WebPageAclModel SampleArticleWebPageAcl => new()
     {
@@ -211,7 +200,7 @@ public static class ContentItemSamples
     };
 
     #endregion
-    
+
     #region "Sample article content item with relations to FAQ and first item"
 
     public static readonly Guid SampleArticleContentItemGuidWithRelations = new Guid("E09121AD-DD97-472F-B8F6-85FE5428ED6A");
@@ -331,7 +320,7 @@ public static class ContentItemSamples
             ["ArticleDecimalNumberSample"] = 123456.12345M
         }
     };
-    
+
     [Sample("ContentItemReferenceModel.Sample.Article.enGB.WithRelations", "Sample of relation between 2 content items inside XbyK", "ContentItemReference article sample (en-GB)")]
     public static ContentItemReferenceModel SampleArticleDataEnGbWithRelationsReference => new()
     {
@@ -354,7 +343,7 @@ public static class ContentItemSamples
         ContentItemLanguageMetadataModifiedByUserGuid = UserSamples.SampleAdminGuid,
         ContentItemLanguageMetadataLatestVersionStatus = VersionStatus.Published,
     };
-    
+
     [Sample("webpageitem.urlpath.sample.article.WithRelations", "", "Page url path sample")]
     public static WebPageUrlPathModel SampleArticleWebPageUrlWithRelations => new()
     {
@@ -367,7 +356,7 @@ public static class ContentItemSamples
         WebPageUrlPathIsLatest = true,
         WebPageUrlPathIsDraft = false
     };
-    
+
     [Sample("webpageitem.urlpath.sample.article.es.WithRelations", "", "Page url path sample")]
     public static WebPageUrlPathModel SampleArticleWebPageUrlWithRelationsEs => new()
     {
@@ -384,7 +373,7 @@ public static class ContentItemSamples
     #endregion
 
     public static readonly Guid SampleArticleWithRelationsrWebPageGuid = new("14784BF0-69D0-40CF-8BE6-E5A0D897774B");
-        
+
     [Sample("webpageitem.sample.article.WithRelations", "This sample describes how to create class inside XbyK to hold WebPage Item data with relations", "ContentItem Sample")]
     public static WebPageItemModel SampleArticleWebPageItemWithRelations => new()
     {
@@ -502,6 +491,185 @@ public static class ContentItemSamples
     };
 
     #endregion
+
+    #endregion
+
+    #region "Sample article content item with former URL" 
+
+    public static readonly Guid SampleArticleContentItemGuidWithFormerUrl = new("41f5d6c0-3a5b-4f34-84f5-dbb61ba76e12");
+    public static readonly Guid SampleArticleCommonDataGuidEnUsWithFormerUrl = new("bfd89a64-76c1-4630-8177-3045a0223c7c");
+    public static readonly Guid SampleArticleCommonDataGuidEnGbWithFormerUrl = new("98ec260b-70dd-4c32-8ce9-366856509266");
+
+    [Sample("ContentItemModel.Sample.Article.WithFormerUrl", "This sample describes how to create content item with former URL", "ContentItem with former URL sample")]
+    public static ContentItemModel SampleArticleContentItemWithFormerUrl => new()
+    {
+        ContentItemGUID = SampleArticleContentItemGuidWithFormerUrl,
+        ContentItemChannelGuid = ChannelSamples.WEBSITE_CHANNEL_SAMPLE_GUID,
+        ContentItemDataClassGuid = DataClassSamples.ARTICLE_SAMPLE_GUID,
+        ContentItemIsSecured = true,
+        ContentItemIsReusable = false,
+        ContentItemName = "Content-item-with-former-url"
+    };
+
+    #region "EnUs version"
+
+    [Sample("ContentItemCommonDataModel.Sample.Article.enUS.WithFormerURL", "This sample describes how to create content item common data with former URL inside XbyK", "ContentItemCommonData with former URL")]
+    public static ContentItemCommonDataModel SampleArticleContentItemCommonDataEnUsWithFormerUrl => new()
+    {
+        ContentItemCommonDataGUID = SampleArticleCommonDataGuidEnUsWithFormerUrl,
+        ContentItemCommonDataContentItemGuid = SampleArticleContentItemGuidWithFormerUrl,
+        ContentItemCommonDataContentLanguageGuid = ContentLanguageSamples.CONTENT_LANGUAGE_ENUS_SAMPLE_GUID,
+        ContentItemCommonDataVersionStatus = VersionStatus.InitialDraft,
+        ContentItemCommonDataIsLatest = true,
+        ContentItemCommonDataVisualBuilderWidgets = null,
+        ContentItemCommonDataVisualBuilderTemplateConfiguration = null
+    };
+
+    [Sample("ContentItemDataModel.Sample.Article.enUS.WithFormerURL", "This sample describes how to create content item data inside XbyK", "ContentItemData article sample (en-US)")]
+    public static ContentItemDataModel SampleArticleDataEnUsWithFormerUrl => new()
+    {
+        ContentItemDataGUID = new Guid("42904979-2e28-479b-816c-c1fb0aa724b0"),
+        ContentItemDataCommonDataGuid = SampleArticleCommonDataGuidEnUsWithFormerUrl,
+        ContentItemContentTypeName = DataClassSamples.ARTICLE_SAMPLE_CLASS_NAME,
+        CustomProperties = new Dictionary<string, object?>
+        {
+            ["ArticleTitle"] = "en-US UMT model creation",
+            ["ArticleText"] = "This article is only example of creation UMT model for en-US language",
+            ["RelatedArticles"] = null,
+            ["RelatedFaq"] = null,
+            ["ArticleDecimalNumberSample"] = 123456.12345M
+        }
+    };
+
+    [Sample("contentitemlanguagemetadata.sample.article.enus.WithFormerUrl", "This sample describes how to create class inside XbyK to hold Content Item Language Metadata", "ContentItemLanguageMetadata Sample")]
+    public static ContentItemLanguageMetadataModel SampleArticleContentItemLanguageMetadataEnUsWithFormerUrl => new()
+    {
+        ContentItemLanguageMetadataGUID = new Guid("6b6ecd20-9fe0-4bc9-8894-faa086643a57"),
+        ContentItemLanguageMetadataContentItemGuid = SampleArticleCommonDataGuidEnUsWithFormerUrl,
+        ContentItemLanguageMetadataContentLanguageGuid = ContentLanguageSamples.CONTENT_LANGUAGE_ENUS_SAMPLE_GUID,
+        ContentItemLanguageMetadataDisplayName = "Content item with former Url",
+        ContentItemLanguageMetadataCreatedWhen = new DateTime(2023, 12, 10, 0, 0, 0, 0, DateTimeKind.Utc),
+        ContentItemLanguageMetadataHasImageAsset = false,
+        ContentItemLanguageMetadataCreatedByUserGuid = UserSamples.SampleAdminGuid,
+        ContentItemLanguageMetadataModifiedByUserGuid = UserSamples.SampleAdminGuid,
+        ContentItemLanguageMetadataLatestVersionStatus = VersionStatus.Published,
+    };
+
+    [Sample("webpageitem.urlpath.sample.article.WithRelations.enus", "", "Page url path sample")]
+    public static WebPageUrlPathModel SampleArticleWebPageUrlWithFormerUrlEnUs => new()
+    {
+        WebPageUrlPathGUID = new Guid("a561ffd1-d387-4e9c-9589-537c4f6a6b1d"),
+        WebPageUrlPath = "en-US/content-item-with-former-url",
+        WebPageUrlPathHash = null,
+        WebPageUrlPathWebPageItemGuid = SampleArticleWebPageItemWithFormerUrl.WebPageItemGUID,
+        WebPageUrlPathWebsiteChannelGuid = WebSiteChannelSamples.WebsiteChannelGuid,
+        WebPageUrlPathContentLanguageGuid = ContentLanguageSamples.CONTENT_LANGUAGE_ENUS_SAMPLE_GUID,
+        WebPageUrlPathIsLatest = true,
+        WebPageUrlPathIsDraft = false
+    };
+
+    [Sample("webpageitem.formerurlpath.sample.article.WithFormerUrlPath.enus", "", "Page former url path sample")]
+    public static WebPageFormerUrlPathModel SampleArticleWebFormerUrlPathEnUs => new()
+    {
+        WebPageFormerUrlPathGUID = new("72a4ec78-5c19-4415-b512-e0a74d5face1"),
+        WebPageFormerUrlPath = "/enus-former-url-path",
+        WebPageFormerUrlPathHash = null,
+        WebPageFormerUrlPathWebPageItemGuid = SAMPLE_ARTICLE_WEB_PAGE_FORMER_URL_GUID,
+        WebPageFormerUrlPathWebsiteChannelGuid = WebSiteChannelSamples.WebsiteChannelGuid,
+        WebPageFormerUrlPathContentLanguageGuid = ContentLanguageSamples.CONTENT_LANGUAGE_ENUS_SAMPLE_GUID,
+        WebPageFormerUrlPathSourceWebPageItemID = null,
+        WebPageFormerUrlPathIsRedirect = false,
+        WebPageFormerUrlPathIsRedirectScheduled = false
+    };
+
+    #endregion
+
+    #region "EnGb version"
+
+    [Sample("ContentItemCommonDataModel.Sample.Article.enGB.WithFormerURL", "This sample describes how to create content item common data with former URL inside XbyK", "ContentItemCommonData with former URL")]
+    public static ContentItemCommonDataModel SampleArticleContentItemCommonDataEnGbWithFormerUrl => new()
+    {
+        ContentItemCommonDataGUID = SampleArticleCommonDataGuidEnGbWithFormerUrl,
+        ContentItemCommonDataContentItemGuid = SampleArticleContentItemGuidWithFormerUrl,
+        ContentItemCommonDataContentLanguageGuid = ContentLanguageSamples.CONTENT_LANGUAGE_ENGB_SAMPLE_GUID,
+        ContentItemCommonDataVersionStatus = VersionStatus.InitialDraft,
+        ContentItemCommonDataIsLatest = true,
+        ContentItemCommonDataVisualBuilderWidgets = null,
+        ContentItemCommonDataVisualBuilderTemplateConfiguration = null
+    };
+
+    [Sample("ContentItemDataModel.Sample.Article.enGB.WithFormerURL", "This sample describes how to create content item data inside XbyK", "ContentItemData article sample (en-GB)")]
+    public static ContentItemDataModel SampleArticleDataEnGbWithFormerUrl => new()
+    {
+        ContentItemDataGUID = new Guid("4216f13c-c8ee-410d-b79a-752757459751"),
+        ContentItemDataCommonDataGuid = SampleArticleCommonDataGuidEnGbWithFormerUrl,
+        ContentItemContentTypeName = DataClassSamples.ARTICLE_SAMPLE_CLASS_NAME,
+        CustomProperties = new Dictionary<string, object?>
+        {
+            ["ArticleTitle"] = "en-GB UMT model creation",
+            ["ArticleText"] = "This article is only example of creation UMT model for en-GB language",
+            ["RelatedArticles"] = null,
+            ["RelatedFaq"] = null,
+            ["ArticleDecimalNumberSample"] = 123456.12345M
+        }
+    };
+
+    [Sample("contentitemlanguagemetadata.sample.article.engb.WithFormerUrl", "This sample describes how to create class inside XbyK to hold Content Item Language Metadata", "ContentItemLanguageMetadata Sample")]
+    public static ContentItemLanguageMetadataModel SampleArticleContentItemLanguageMetadataEnGbWithFormerUrl => new()
+    {
+        ContentItemLanguageMetadataGUID = new Guid("6b6ecd20-9fe0-4bc9-8894-faa086643a57"),
+        ContentItemLanguageMetadataContentItemGuid = SampleArticleCommonDataGuidEnGbWithFormerUrl,
+        ContentItemLanguageMetadataContentLanguageGuid = ContentLanguageSamples.CONTENT_LANGUAGE_ENGB_SAMPLE_GUID,
+        ContentItemLanguageMetadataDisplayName = "Content item with former Url",
+        ContentItemLanguageMetadataCreatedWhen = new DateTime(2023, 12, 10, 0, 0, 0, 0, DateTimeKind.Utc),
+        ContentItemLanguageMetadataHasImageAsset = false,
+        ContentItemLanguageMetadataCreatedByUserGuid = UserSamples.SampleAdminGuid,
+        ContentItemLanguageMetadataModifiedByUserGuid = UserSamples.SampleAdminGuid,
+        ContentItemLanguageMetadataLatestVersionStatus = VersionStatus.Published,
+    };
+
+    [Sample("webpageitem.urlpath.sample.article.WithRelations.engb", "", "Page url path sample")]
+    public static WebPageUrlPathModel SampleArticleWebPageUrlWithFormerUrlEnGb => new()
+    {
+        WebPageUrlPathGUID = new Guid("a561ffd1-d387-4e9c-9589-537c4f6a6b1d"),
+        WebPageUrlPath = "en-GB/content-item-with-former-url",
+        WebPageUrlPathHash = null,
+        WebPageUrlPathWebPageItemGuid = SampleArticleWebPageItemWithFormerUrl.WebPageItemGUID,
+        WebPageUrlPathWebsiteChannelGuid = WebSiteChannelSamples.WebsiteChannelGuid,
+        WebPageUrlPathContentLanguageGuid = ContentLanguageSamples.CONTENT_LANGUAGE_ENUS_SAMPLE_GUID,
+        WebPageUrlPathIsLatest = true,
+        WebPageUrlPathIsDraft = false
+    };
+
+    [Sample("webpageitem.formerurlpath.sample.article.WithFormerUrlPath.enus", "", "Page former url path sample")]
+    public static WebPageFormerUrlPathModel SampleArticleWebFormerUrlPathEnGb => new()
+    {
+        WebPageFormerUrlPathGUID = new("f9b9cdd0-2202-4609-980f-5b136c8beb2a"),
+        WebPageFormerUrlPath = "/engb-former-url-path",
+        WebPageFormerUrlPathHash = null,
+        WebPageFormerUrlPathWebPageItemGuid = SAMPLE_ARTICLE_WEB_PAGE_FORMER_URL_GUID,
+        WebPageFormerUrlPathWebsiteChannelGuid = WebSiteChannelSamples.WebsiteChannelGuid,
+        WebPageFormerUrlPathContentLanguageGuid = ContentLanguageSamples.CONTENT_LANGUAGE_ENGB_SAMPLE_GUID,
+        WebPageFormerUrlPathSourceWebPageItemID = null,
+        WebPageFormerUrlPathIsRedirect = false,
+        WebPageFormerUrlPathIsRedirectScheduled = false
+    };
+
+    #endregion 
+
+    public static readonly Guid SAMPLE_ARTICLE_WEB_PAGE_FORMER_URL_GUID = new("5079be5a-106b-4222-9c27-79062a6693f8");
+
+    [Sample("webpageitem.sample.article.formerurl", "This sample describes how to create class inside XbyK to hold WebPage Item data with former URL", "ContentItem Former URL Sample")]
+
+    public static WebPageItemModel SampleArticleWebPageItemWithFormerUrl => new()
+    {
+        WebPageItemGUID = SAMPLE_ARTICLE_WEB_PAGE_FORMER_URL_GUID,
+        WebPageItemContentItemGuid = SampleArticleContentItemGuidWithFormerUrl,
+        WebPageItemName = "ContentItemWithFormerUrl",
+        WebPageItemOrder = 1,
+        WebPageItemTreePath = "/content-item-with-former-url",
+        WebPageItemWebsiteChannelGuid = WebSiteChannelSamples.WebsiteChannelGuid
+    };
 
     #endregion
 }

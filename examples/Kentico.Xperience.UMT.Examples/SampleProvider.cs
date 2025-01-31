@@ -112,7 +112,6 @@ public static class SampleProvider
             ContentItemSamples.SampleArticleContentItemLanguageMetadataEnUs,
             ContentItemSamples.SampleArticleContentItemLanguageMetadataEnGb,
             ContentItemSamples.SampleArticleWebPathUrlPathModelEnUs,
-            ContentItemSamples.SampleArticleWebPathFormerUrlPathModelEnUs,
             ContentItemSamples.SampleArticleWebPathUrlPathModelEnGb,
             ContentItemSamples.SampleArticleWebPathUrlPathModelEs,
 
@@ -133,6 +132,22 @@ public static class SampleProvider
             ContentItemSamples.SampleArticleWebPageUrlWithRelationsEs
         });
 
+        sourceData.AddRange(new IUmtModel[]
+        {
+            ContentItemSamples.SampleArticleContentItemWithFormerUrl,
+            ContentItemSamples.SampleArticleContentItemCommonDataEnUsWithFormerUrl,
+            ContentItemSamples.SampleArticleDataEnUsWithFormerUrl,
+            ContentItemSamples.SampleArticleContentItemLanguageMetadataEnUsWithFormerUrl,
+            ContentItemSamples.SampleArticleWebPageUrlWithFormerUrlEnUs,
+            ContentItemSamples.SampleArticleWebFormerUrlPathEnUs,
+            ContentItemSamples.SampleArticleContentItemCommonDataEnGbWithFormerUrl,
+            ContentItemSamples.SampleArticleDataEnGbWithFormerUrl,
+            ContentItemSamples.SampleArticleContentItemLanguageMetadataEnGbWithFormerUrl,
+            ContentItemSamples.SampleArticleWebPageUrlWithFormerUrlEnGb,
+            ContentItemSamples.SampleArticleWebFormerUrlPathEnGb,
+            ContentItemSamples.SampleArticleWebPageItemWithFormerUrl
+        });
+
         // folder samples
         sourceData.AddRange([
             ContentFolderSamples.SampleContentFolder,
@@ -147,6 +162,7 @@ public static class SampleProvider
         sourceData.Add(ContentItemSimplifiedSamples.SampleArticleSubPage5ContentItemSimplifiedModel_Scheduled);
         sourceData.Add(ContentItemSimplifiedSamples.SampleArticleSubPage6ContentItemSimplifiedModel_InitialDraft);
         sourceData.Add(ContentItemSimplifiedSamples.SampleArticleSubPage7ContentItemSimplifiedModel_Scheduled);
+        sourceData.Add(ContentItemSimplifiedSamples.SampleArticleSubPage8ContentItemSimplifiedModel_Published);
         sourceData.Add(ContentItemSimplifiedSamples.SampleFaqContentItemSimplifiedModel); // references sample content subfolder
         sourceData.Add(ContentItemSimplifiedSamples.SampleEventContentItemWithAsset);
 

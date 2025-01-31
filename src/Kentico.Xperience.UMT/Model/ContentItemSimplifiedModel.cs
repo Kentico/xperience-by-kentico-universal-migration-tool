@@ -96,6 +96,12 @@ public class PageDataModel
     /// PageUrlModel item is required for each content language that exist in XbyK instance without regards to created LanguageData (urls are pre-created for non-existing language versions)
     /// </summary>
     public List<PageUrlModel>? PageUrls { get; set; }
+
+    /// <summary>
+    /// PageFormerModel item is optional for each content language that exist in XbyK instance for correct redirection of former urls
+    /// </summary>
+    public List<PageFormerUrlModel>? PageFormerUrls { get; set; }
+
     /// <summary>
     /// Required only if page needs to be referenced as a parent by any child page
     /// </summary>
@@ -116,5 +122,14 @@ public class PageUrlModel
     /// </summary>
     public bool? PathIsDraft { get; set; } = false;
     public bool? PathIsLatest { get; set; } = true;
+    public string? LanguageName { get; set; }
+}
+
+/// <summary>
+/// Defines former url for web page item
+/// </summary>
+public class PageFormerUrlModel
+{
+    public string? FormerUrlPath { get; set; }
     public string? LanguageName { get; set; }
 }

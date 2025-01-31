@@ -34,6 +34,17 @@ namespace Kentico.Xperience.UMT.Model
         [ReferenceProperty(typeof(ContentLanguageInfo), "WebPageFormerUrlPathContentLanguageID", IsRequired = true)]
         public Guid? WebPageFormerUrlPathContentLanguageGuid { get; set; }
 
+        [ReferenceProperty(typeof(WebPageItemInfo), "WebPageFormerUrlPathSourceWebPageItemID", IsRequired = false)]
+        public Guid? WebPageFormerUrlPathSourceWebPageItemID { get; set; }
+
+        [Map]
+        [Required]
+        public bool? WebPageFormerUrlPathIsRedirect { get; set; }
+
+        [Map]
+        [Required]
+        public bool? WebPageFormerUrlPathIsRedirectScheduled { get;set; }
+
         protected override (Guid? uniqueId, string? name, string? displayName) GetPrintArgs() => (WebPageFormerUrlPathGUID, WebPageFormerUrlPath, NOT_AVAILABLE);
     }
 }
