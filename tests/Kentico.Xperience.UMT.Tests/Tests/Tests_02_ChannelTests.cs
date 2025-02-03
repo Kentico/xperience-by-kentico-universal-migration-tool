@@ -85,10 +85,12 @@ namespace TestAfterMigration.Tests
             await Page.GetByTestId("confirm-action").ClickAsync();
 
             await Page.GetByTestId("button-select-existing-content-item").ClickAsync();
+            await Debounce();
             await Page.GetByTestId("table-row").Nth(0).ClickAsync();
             await Page.GetByTestId("confirm-action").ClickAsync();
 
             await Page.GetByTestId("button-select-tag").ClickAsync();
+            await Debounce();
             await Page.GetByTestId("CoffeaTaxonomy.Select").GetByRole(AriaRole.Treeitem).Nth(0).ClickAsync();
             await Page.GetByTestId("confirm-action").ClickAsync();
 
