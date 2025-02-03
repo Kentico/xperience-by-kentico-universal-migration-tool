@@ -1,4 +1,5 @@
 ﻿using System.Text.Json;
+using System.Text.Json.Nodes;
 
 using AngleSharp.Dom;
 
@@ -53,6 +54,7 @@ public class ContentItemSimplifiedAdapter : IInfoAdapter<ContentItemInfo, IUmtMo
 
     private readonly Guid? rootContentFolderGUID;
     private readonly Guid? defaultWorkspaceGUID;
+    private const string contentItemReferenceDataTypeName = "contentitemreference";
 
     public ContentItemInfo Adapt(IUmtModel input)
     {
@@ -121,6 +123,7 @@ public class ContentItemSimplifiedAdapter : IInfoAdapter<ContentItemInfo, IUmtMo
                         .Get(dataClassInfo.ClassName);
 
             var fi = new FormInfo(dataClassInfo.ClassFormDefinition);
+
             var commonFields = UnpackReusableFieldSchemas(fi.GetFields<FormSchemaInfo>());
             var customProperties = new Dictionary<string, object?>();
             foreach (var formFieldInfo in commonFields)
@@ -160,7 +163,6 @@ public class ContentItemSimplifiedAdapter : IInfoAdapter<ContentItemInfo, IUmtMo
             var commonDataInfo = (ContentItemCommonDataInfo)commonItemDataAdapter.Adapt(commonDataModel);
             commonItemDataAdapter.ProviderProxy.Save(commonDataInfo, commonDataModel);
 
-
             var itemDataModel = new ContentItemDataModel
             {
                 ContentItemDataGUID = existingItemDataInfo?.ContentItemDataGUID ?? Guid.NewGuid(),
@@ -173,6 +175,39 @@ public class ContentItemSimplifiedAdapter : IInfoAdapter<ContentItemInfo, IUmtMo
             var itemDataInfo = (ContentItemDataInfo)itemDataAdapter.Adapt(itemDataModel);
             itemDataAdapter.ProviderProxy.Save(itemDataInfo, itemDataModel);
 
+            var contentItemReferenceFormFieldInfos = fi.GetFields(true, true).Where(x => x.DataType == contentItemReferenceDataTypeName);
+
+            if (customData is not null && contentItemReferenceFormFieldInfos is not null)
+            {
+                var contentItemReferenceModels =
+                    CreateContentItemReferenceModels(contentItemReferenceFormFieldInfos, customData, commonDataModel);
+
+                if (contentItemReferenceModels is not null)
+                {
+                    foreach (var referenceModel in contentItemReferenceModels)
+                    {
+                        var targetItem = Provider<ContentItemInfo>.Instance.Get()
+                            .WhereEquals(nameof(ContentItemInfo.ContentItemGUID), referenceModel.ContentItemReferenceTargetItemGuid)
+                            .FirstOrDefault();
+
+                        ArgumentNullException.ThrowIfNull(targetItem);
+
+                        bool contentItemReferenceExists = Provider<ContentItemReferenceInfo>.Instance.Get()
+                            .WhereEquals(nameof(ContentItemReferenceInfo.ContentItemReferenceGroupGUID), referenceModel.ContentItemReferenceGroupGUID)
+                            .WhereEquals(nameof(ContentItemReferenceInfo.ContentItemReferenceSourceCommonDataID), commonDataInfo.ContentItemCommonDataID)
+                            .WhereEquals(nameof(ContentItemReferenceInfo.ContentItemReferenceTargetItemID), targetItem.ContentItemID)
+                            .Any();
+
+                        if (!contentItemReferenceExists)
+                        {
+                            var referenceAdapter = adapterFactory.CreateAdapter(referenceModel, new ProviderProxyContext());
+                            ArgumentNullException.ThrowIfNull(referenceAdapter);
+                            var referenceInfo = (ContentItemReferenceInfo)referenceAdapter.Adapt(referenceModel);
+                            referenceAdapter.ProviderProxy.Save(referenceInfo, referenceModel);
+                        }
+                    }
+                }
+            }
 
             var existingLanguageMetadataInfo = Provider<ContentItemLanguageMetadataInfo>.Instance.Get()
                     .WhereEquals(nameof(ContentItemLanguageMetadataInfo.ContentItemLanguageMetadataContentItemID), contentItemInfo.ContentItemID)
@@ -288,6 +323,43 @@ public class ContentItemSimplifiedAdapter : IInfoAdapter<ContentItemInfo, IUmtMo
         scope.Commit();
 
         return contentItemInfo;
+    }
+
+    private static IEnumerable<ContentItemReferenceModel> CreateContentItemReferenceModels(
+        IEnumerable<FormFieldInfo> referenceFormFieldInfos,
+        Dictionary<string, object?> customData,
+        ContentItemCommonDataModel commonDataModel
+    )
+    {
+        foreach (var field in referenceFormFieldInfos)
+        {
+            var groupGuid = field.Guid;
+
+            if (!customData.TryGetValue(field.Name, out object? contentItemReferenceFieldValue))
+            {
+                continue;
+            }
+
+            if (contentItemReferenceFieldValue is not string fieldSerialized)
+            {
+                continue;
+            }
+
+            var fieldValue = JsonSerializer.Deserialize<IEnumerable<ContentItemReference>>(fieldSerialized);
+
+            if (fieldValue is not null)
+            {
+                foreach (var contentItemReference in fieldValue)
+                {
+                    yield return new()
+                    {
+                        ContentItemReferenceGroupGUID = groupGuid,
+                        ContentItemReferenceSourceCommonDataGuid = commonDataModel.ContentItemCommonDataGUID,
+                        ContentItemReferenceTargetItemGuid = contentItemReference.Identifier,
+                    };
+                }
+            }
+        }
     }
 
     private static IEnumerable<FormFieldInfo> UnpackReusableFieldSchemas(IEnumerable<FormSchemaInfo> schemaInfos)

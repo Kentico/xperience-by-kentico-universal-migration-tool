@@ -9,11 +9,13 @@ namespace Kentico.Xperience.UMT.Examples;
 public static class ContentItemSimplifiedSamples
 {
     public static readonly Guid SampleArticleContentItemGuid = new("37C3F5DD-6F2A-4EFF-B46E-A36EDDEBF572");
+    public static readonly Guid SampleArticleContentItemWithLinkedItemsGuid = new("04DF81E3-666B-4EC5-970F-3221BBB399CD");
     public static readonly Guid SampleFaqContentItemGuid = new("F9CB9484-CE90-460F-A5C8-AD953E2B9286");
     public static readonly Guid SampleEvent2024ContentItemGuid = new("C82CDC96-65EC-4F4C-AEC2-3D657E6D5CE1");
     public static readonly Guid EventInSampleWorkspaceGuid = new("2867F7B2-2DB4-429A-B1B7-7596A502B089");
 
     public static readonly Guid SampleArticleWebPageGuid = new("4EA03DE4-977E-48AA-9340-BABF3D23BAFA");
+    public static readonly Guid SampleArticleWebPageWithLinkedItemsGuid = new("56B168A9-2154-40EF-8683-415D71E49822");
 
     public static readonly Guid SampleArticleSubPageContentItemGuid = new("9ED8DE86-859C-4F6C-94F2-CDD6BAED99FE");
     public static readonly Guid SampleArticleSubPage2ContentItemGuid = new("017EDC1E-95C6-43E4-89D5-716C6AE594B2");
@@ -418,6 +420,58 @@ public static class ContentItemSimplifiedSamples
                     }
                 },
             },
+        ],
+    };
+
+    [Sample("ContentItemSimplifiedModel.Sample.Article.WithLinkedItems", "Simplified model for importing webpage content item with linked items", "Simplified model for webpage content item sample with linked items")]
+    public static ContentItemSimplifiedModel SampleArticleContentItemSimplifiedModelWithLinkedItems => new()
+    {
+        ContentItemGUID = SampleArticleContentItemWithLinkedItemsGuid,
+        Name = "SimplifiedModelSampleWithLinkedItems",
+        IsSecured = false,
+        ContentTypeName = DataClassSamples.ArticleClassSample.ClassName,
+        IsReusable = false,
+        // channel name is required only for web site content items
+        ChannelName = ChannelSamples.SampleChannelForWebSiteChannel.ChannelName,
+        // required when content item type is website content item
+        PageData = new()
+        {
+            PageGuid = SampleArticleWebPageWithLinkedItemsGuid,
+            ParentGuid = null,
+            TreePath = "/simplified-linked-sample",
+            PageUrls = [
+                new()
+                {
+                    UrlPath = "en-us/simplified-linked-sample",
+                    LanguageName = ContentLanguageSamples.SampleContentLanguageEnUs.ContentLanguageName!
+                }
+            ]
+        },
+        LanguageData =
+        [
+            new()
+            {
+                LanguageName = ContentLanguageSamples.SampleContentLanguageEnUs.ContentLanguageName!,
+                DisplayName = "Simplified model sample with linked items - en-us",
+                VersionStatus = VersionStatus.InitialDraft,
+                UserGuid = null,
+                ContentItemData = new Dictionary<string, object?>
+                {
+                    ["ArticleTitle"] = "en-US UMT simplified model with linked items creation",
+                    ["ArticleText"] = "This article is only example of creation UMT simplified model for en-US language with linked items",
+                    ["RelatedArticles"] = $$"""[{"WebPageGuid":"{{SampleArticleWebPageGuid}}"}]""",
+                    ["RelatedFaq"] = System.Text.Json.JsonSerializer.Serialize(new List<object>
+                    {
+                        new ContentItemReference { Identifier = SampleFaqContentItemGuid }
+                    }),
+                    ["CoffeaTaxonomy"] = System.Text.Json.JsonSerializer.Serialize(new List<object>
+                    {
+                        new TagReference{ Identifier = TaxonomySamples.SampleTagCoffeaCanephoraGuid},
+                        new {Identifier = TaxonomySamples.SampleTagCoffeaRobustaGuid},
+                    })
+                },
+                ScheduledPublishWhen = new DateTime(2045, 1, 1, 0, 0, 0, 0, 0, DateTimeKind.Utc)
+            }
         ],
     };
 }
