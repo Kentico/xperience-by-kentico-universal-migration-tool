@@ -80,6 +80,7 @@ namespace TestAfterMigration.Tests
             await Page.GetByTestId("ArticleText").FillAsync("Text on\nmultiple\nlines".Replace("\n", Environment.NewLine));
 
             await Page.GetByTestId("button-select-web-page").ClickAsync();
+            await Debounce();
             await Page.GetByTestId("table-row").Nth(1).ClickAsync();
             await Page.GetByTestId("confirm-action").ClickAsync();
 
