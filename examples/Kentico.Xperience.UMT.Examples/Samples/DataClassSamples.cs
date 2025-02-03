@@ -90,7 +90,7 @@ public static class DataClassSamples
                     {
                         { "MaximumPages", 5 }, 
                         { "Sortable", "False" }, 
-                        { "TreePath", "/Articles" },
+                        { "TreePath", "/simplified-sample" },
                     } 
                 }
             },

@@ -80,14 +80,17 @@ namespace TestAfterMigration.Tests
             await Page.GetByTestId("ArticleText").FillAsync("Text on\nmultiple\nlines".Replace("\n", Environment.NewLine));
 
             await Page.GetByTestId("button-select-web-page").ClickAsync();
+            await Debounce();
             await Page.GetByTestId("table-row").Nth(1).ClickAsync();
             await Page.GetByTestId("confirm-action").ClickAsync();
 
             await Page.GetByTestId("button-select-existing-content-item").ClickAsync();
+            await Debounce();
             await Page.GetByTestId("table-row").Nth(0).ClickAsync();
             await Page.GetByTestId("confirm-action").ClickAsync();
 
             await Page.GetByTestId("button-select-tag").ClickAsync();
+            await Debounce();
             await Page.GetByTestId("CoffeaTaxonomy.Select").GetByRole(AriaRole.Treeitem).Nth(0).ClickAsync();
             await Page.GetByTestId("confirm-action").ClickAsync();
 
