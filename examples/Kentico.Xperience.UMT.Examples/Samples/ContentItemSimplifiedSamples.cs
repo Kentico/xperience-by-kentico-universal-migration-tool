@@ -444,6 +444,11 @@ public static class ContentItemSimplifiedSamples
                 {
                     UrlPath = "en-us/simplified-linked-sample",
                     LanguageName = ContentLanguageSamples.SampleContentLanguageEnUs.ContentLanguageName!
+                },
+                new()
+                {
+                    UrlPath = "en-gb/simplified-linked-sample",
+                    LanguageName = ContentLanguageSamples.SampleContentLanguageEnGb.ContentLanguageName!
                 }
             ]
         },
@@ -460,6 +465,23 @@ public static class ContentItemSimplifiedSamples
                 {
                     ["ArticleTitle"] = "en-US UMT simplified model with linked items creation",
                     ["ArticleText"] = "This article is only example of creation UMT simplified model for en-US language with linked items",
+                    ["RelatedFaq"] = System.Text.Json.JsonSerializer.Serialize(new List<object>
+                    {
+                        new ContentItemReference { Identifier = SampleFaqContentItemGuid }
+                    })
+                }
+            },
+            new()
+            {
+                LanguageName = ContentLanguageSamples.SampleContentLanguageEnGb.ContentLanguageName!,
+                IsLatest = true,
+                DisplayName = "Simplified model sample with linked items - en-gb",
+                VersionStatus = VersionStatus.Published,
+                UserGuid = UserSamples.SampleAdminGuid,
+                ContentItemData = new Dictionary<string, object?>
+                {
+                    ["ArticleTitle"] = "en-GB UMT simplified model with linked items creation",
+                    ["ArticleText"] = "This article is only example of creation UMT simplified model for en-GB language with linked items",
                     ["RelatedFaq"] = System.Text.Json.JsonSerializer.Serialize(new List<object>
                     {
                         new ContentItemReference { Identifier = SampleFaqContentItemGuid }
