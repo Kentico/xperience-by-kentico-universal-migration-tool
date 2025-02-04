@@ -55,7 +55,7 @@ namespace TestAfterMigration.Tests
             var childFolder = parentFolder.GetByRole(AriaRole.Treeitem);
             await childFolder.GetByTestId("tree-item-title").ClickAsync();
             await Debounce();
-            await Assertions.Expect(Page.GetByTestId("table-row")).ToBeVisibleAsync();
+            await Assertions.Expect(Page.GetByTestId("table-row").First).ToBeVisibleAsync();
         }
 
         [Test]
