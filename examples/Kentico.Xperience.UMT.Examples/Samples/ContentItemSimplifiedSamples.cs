@@ -452,25 +452,19 @@ public static class ContentItemSimplifiedSamples
             new()
             {
                 LanguageName = ContentLanguageSamples.SampleContentLanguageEnUs.ContentLanguageName!,
+                IsLatest = true,
                 DisplayName = "Simplified model sample with linked items - en-us",
-                VersionStatus = VersionStatus.InitialDraft,
-                UserGuid = null,
+                VersionStatus = VersionStatus.Published,
+                UserGuid = UserSamples.SampleAdminGuid,
                 ContentItemData = new Dictionary<string, object?>
                 {
                     ["ArticleTitle"] = "en-US UMT simplified model with linked items creation",
                     ["ArticleText"] = "This article is only example of creation UMT simplified model for en-US language with linked items",
-                    ["RelatedArticles"] = $$"""[{"WebPageGuid":"{{SampleArticleWebPageGuid}}"}]""",
                     ["RelatedFaq"] = System.Text.Json.JsonSerializer.Serialize(new List<object>
                     {
                         new ContentItemReference { Identifier = SampleFaqContentItemGuid }
-                    }),
-                    ["CoffeaTaxonomy"] = System.Text.Json.JsonSerializer.Serialize(new List<object>
-                    {
-                        new TagReference{ Identifier = TaxonomySamples.SampleTagCoffeaCanephoraGuid},
-                        new {Identifier = TaxonomySamples.SampleTagCoffeaRobustaGuid},
                     })
-                },
-                ScheduledPublishWhen = new DateTime(2045, 1, 1, 0, 0, 0, 0, 0, DateTimeKind.Utc)
+                }
             }
         ],
     };
