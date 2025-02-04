@@ -121,5 +121,36 @@ namespace TestAfterMigration.Tests
             await Assertions.Expect(Page.GetByTestId("EventTeaserOptimized").GetByTestId("asset-tile-preview")).ToHaveCountAsync(1);
         }
 
+        [Test]
+        public async Task Test00700_Reusable_Item_Usage_When_Linked_From_Content_Item()
+        {
+            await OpenContentHub();
+            await Page.GetByLabel("All content items").ClickAsync();
+            await Debounce();
+
+            var search = Page.GetByTestId("search-input");
+            await search.FillAsync("FAQ: reusable simplified model sample - en-us");
+
+            await Page.Keyboard.PressAsync("Enter");
+            await Debounce();
+
+            await Page.GetByTestId("table-row").ClickAsync();
+            await Debounce();
+
+            await Page.GetByText("Usage").ClickAsync();
+            await Debounce();
+
+            var usageInChannelsButton = Page.GetByText("In channels");
+            await Assertions.Expect(usageInChannelsButton).ToBeEnabledAsync();
+
+            await usageInChannelsButton.ClickAsync();
+            await Debounce();
+
+            search = Page.GetByTestId("search-input");
+            await search.FillAsync("Simplified model sample with linked items - en-us");
+            await Page.Keyboard.PressAsync("Enter");
+
+            await Assertions.Expect(Page.GetByTestId("table-row")).Not.ToHaveCountAsync(0);
+        }
     }
 }
