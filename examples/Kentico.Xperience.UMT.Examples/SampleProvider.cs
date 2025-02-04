@@ -152,6 +152,7 @@ public static class SampleProvider
         sourceData.Add(WorkspaceSamples.SampleWorkspace);
         sourceData.Add(ContentItemSimplifiedSamples.EventInSampleWorkspace);
 
+        sourceData.Add(ContentItemSimplifiedSamples.SampleFaqContentItemSimplifiedLinkedByArticle);
         sourceData.Add(ContentItemSimplifiedSamples.SampleArticleContentItemSimplifiedModelWithLinkedItems);
 
         return sourceData;

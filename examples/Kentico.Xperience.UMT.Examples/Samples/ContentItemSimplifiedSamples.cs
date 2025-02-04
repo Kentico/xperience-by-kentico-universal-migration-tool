@@ -11,6 +11,7 @@ public static class ContentItemSimplifiedSamples
     public static readonly Guid SampleArticleContentItemGuid = new("37C3F5DD-6F2A-4EFF-B46E-A36EDDEBF572");
     public static readonly Guid SampleArticleContentItemWithLinkedItemsGuid = new("04DF81E3-666B-4EC5-970F-3221BBB399CD");
     public static readonly Guid SampleFaqContentItemGuid = new("F9CB9484-CE90-460F-A5C8-AD953E2B9286");
+    public static readonly Guid SampleFaqContentItemLinkedByArticle = new("1B8E6C4C-49B6-4777-9474-C0D3A97DD832");
     public static readonly Guid SampleEvent2024ContentItemGuid = new("C82CDC96-65EC-4F4C-AEC2-3D657E6D5CE1");
     public static readonly Guid EventInSampleWorkspaceGuid = new("2867F7B2-2DB4-429A-B1B7-7596A502B089");
 
@@ -302,6 +303,43 @@ public static class ContentItemSimplifiedSamples
         ],
     };
 
+    public static ContentItemSimplifiedModel SampleFaqContentItemSimplifiedLinkedByArticle => new()
+    {
+        ContentItemGUID = SampleFaqContentItemLinkedByArticle,
+        Name = "SimplifiedModelSampleLinkedyByArticle",
+        IsSecured = false,
+        ContentTypeName = DataClassSamples.FaqDataClass.ClassName,
+        IsReusable = true,
+        ContentItemContentFolderGUID = ContentFolderSamples.SampleContentSubFolder.ContentFolderGUID,
+        LanguageData =
+        [
+            new()
+            {
+                LanguageName = ContentLanguageSamples.SampleContentLanguageEnUs.ContentLanguageName!,
+                DisplayName = "FAQ: reusable simplified model sample linked by an article - en-us",
+                VersionStatus = VersionStatus.Published,
+                UserGuid = UserSamples.SampleAdminGuid,
+                ContentItemData = new Dictionary<string, object?>
+                {
+                    ["FaqQuestion"] = "en-us FAQ question text (reusable) linked",
+                    ["FaqAnswer"] = "en-us FAQ answer text (reusable) linked"
+                }
+            },
+            new()
+            {
+                LanguageName = ContentLanguageSamples.SampleContentLanguageEnGb.ContentLanguageName!,
+                DisplayName = "FAQ: reusable simplified model sample linked by an article - en-gb",
+                VersionStatus = VersionStatus.Published,
+                UserGuid = UserSamples.SampleAdminGuid,
+                ContentItemData = new Dictionary<string, object?>
+                {
+                    ["FaqQuestion"] = "en-GB FAQ question text (reusable) linked",
+                    ["FaqAnswer"] = "en-GB FAQ answer text (reusable) linked"
+                }
+            }
+        ],
+    };
+
 
     [Sample("ContentItemSimplifiedModel.Sample.Event2024", "This sample describes how to import reusable content item with asset into XbyK", "Reusable content item sample with assets")]
     public static ContentItemSimplifiedModel SampleEventContentItemWithAsset => new()
@@ -467,7 +505,7 @@ public static class ContentItemSimplifiedSamples
                     ["ArticleText"] = "This article is only example of creation UMT simplified model for en-US language with linked items",
                     ["RelatedFaq"] = System.Text.Json.JsonSerializer.Serialize(new List<object>
                     {
-                        new ContentItemReference { Identifier = SampleFaqContentItemGuid }
+                        new ContentItemReference { Identifier = SampleFaqContentItemLinkedByArticle }
                     })
                 }
             },
@@ -484,7 +522,7 @@ public static class ContentItemSimplifiedSamples
                     ["ArticleText"] = "This article is only example of creation UMT simplified model for en-GB language with linked items",
                     ["RelatedFaq"] = System.Text.Json.JsonSerializer.Serialize(new List<object>
                     {
-                        new ContentItemReference { Identifier = SampleFaqContentItemGuid }
+                        new ContentItemReference { Identifier = SampleFaqContentItemLinkedByArticle }
                     })
                 }
             }

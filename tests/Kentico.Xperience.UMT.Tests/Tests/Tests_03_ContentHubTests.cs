@@ -129,7 +129,7 @@ namespace TestAfterMigration.Tests
             await Debounce();
 
             var search = Page.GetByTestId("search-input");
-            await search.FillAsync("FAQ: reusable simplified model sample - en-us");
+            await search.FillAsync("FAQ: reusable simplified model sample linked by an article - en-us");
 
             await Page.Keyboard.PressAsync("Enter");
             await Debounce();
