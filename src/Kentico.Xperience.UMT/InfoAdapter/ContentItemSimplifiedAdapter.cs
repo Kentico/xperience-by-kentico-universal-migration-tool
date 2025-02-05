@@ -171,9 +171,7 @@ public class ContentItemSimplifiedAdapter : IInfoAdapter<ContentItemInfo, IUmtMo
             {
                 var targetItem = Provider<ContentItemInfo>.Instance.Get()
                     .WhereEquals(nameof(ContentItemInfo.ContentItemGUID), referenceModel.ContentItemReferenceTargetItemGuid)
-                    .FirstOrDefault();
-
-                ArgumentNullException.ThrowIfNull(targetItem);
+                    .FirstOrDefault() ?? throw new ArgumentNullException($"The linked content item with GUID '{referenceModel.ContentItemReferenceTargetItemGuid}' referenced by a content item with GUID '{contentItemModel.ContentItemGUID}' does not exist or could not be found.");
 
                 bool contentItemReferenceExists = Provider<ContentItemReferenceInfo>.Instance.Get()
                     .WhereEquals(nameof(ContentItemReferenceInfo.ContentItemReferenceGroupGUID), referenceModel.ContentItemReferenceGroupGUID)
