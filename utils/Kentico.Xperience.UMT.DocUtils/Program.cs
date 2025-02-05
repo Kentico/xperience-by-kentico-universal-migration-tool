@@ -111,7 +111,7 @@ if (sampleApp != null)
             foreach (var symbol in foundSymbols)
             {
                 Console.WriteLine($"FormComponent: {symbol.ToDisplayString()}");
-                var list = formComponents.GetOrAdd(symbol.ContainingModule, _ => new List<FormComponent>());
+                var list = formComponents.GetOrAdd(symbol.ContainingModule, _ => []);
                 if (symbol.GetFirstBaseType(bt => bt is { Name: "FormComponent", TypeArguments.Length: >= 2 and <= 3 }) is { TypeArguments: { Length: <= 3 and >= 2 } typeArguments })
                 {
                     var propertiesType = typeArguments.FirstOrDefault();

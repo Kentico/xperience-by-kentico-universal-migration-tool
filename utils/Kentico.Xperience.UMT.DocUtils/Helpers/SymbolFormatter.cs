@@ -24,6 +24,9 @@ public class SymbolFormatter
                     {
                         return $"{new SymbolFormatter(namedTypeSymbol.TypeArguments[0]).ToNiceDisplayName()}[]";
                     }
+
+                    default:
+                        break;
                 }
 
                 return namedTypeSymbol.ToDisplayString();

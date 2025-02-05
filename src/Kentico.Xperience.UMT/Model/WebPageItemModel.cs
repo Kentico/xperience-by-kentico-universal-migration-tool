@@ -1,7 +1,9 @@
 ﻿using System.ComponentModel.DataAnnotations;
+
 using CMS.ContentEngine.Internal;
 using CMS.Websites;
 using CMS.Websites.Internal;
+
 using Kentico.Xperience.UMT.Attributes;
 // ReSharper disable InconsistentNaming
 

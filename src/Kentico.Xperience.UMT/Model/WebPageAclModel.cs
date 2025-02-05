@@ -14,22 +14,22 @@ namespace Kentico.Xperience.UMT.Model;
 /// <sample>webpageitem.sample.article.acl</sample>
 /// <sample>webpageitem.sample.article.wr.aclmapping</sample>
 [UmtModel(DISCRIMINATOR)]
-public class WebPageAclModel: UmtModel
+public class WebPageAclModel : UmtModel
 {
     /// <summary>
     /// Discriminator used in serialized structures to identify model 
     /// </summary>
     public const string DISCRIMINATOR = "WebPageAcl";
-    
+
     [Map]
     [Required]
     [UniqueIdProperty]
     public Guid? WebPageAclGUID { get; set; }
-    
+
     [Required]
     [ReferenceProperty(typeof(WebsiteChannelInfo), "WebPageAclWebsiteChannelID", IsRequired = true)]
     public Guid? WebPageAclWebsiteChannelGUID { get; set; }
-    
+
     [Required]
     [ReferenceProperty(typeof(WebPageItemInfo), "WebPageAclWebPageItemID", IsRequired = true)]
     public Guid? WebPageAclWebPageItemGUID { get; set; }

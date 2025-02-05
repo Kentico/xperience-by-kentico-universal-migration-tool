@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+
 using Kentico.Xperience.UMT.Attributes;
 
 namespace Kentico.Xperience.UMT.Model;
@@ -19,7 +20,7 @@ public class MediaLibraryModel : UmtModel
 
     [Map]
     public string? LibraryDescription { get; set; }
-    
+
     [Map]
     [Required]
     public string? LibraryFolder { get; set; }

@@ -1,6 +1,8 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.Diagnostics.CodeAnalysis;
+
 using CMS.Modules;
+
 using Kentico.Xperience.UMT.Attributes;
 using Kentico.Xperience.UMT.Services.Validation;
 // ReSharper disable InconsistentNaming
@@ -24,25 +26,25 @@ public class DataClassModel : UmtModel
 
     // managed internally
     // public int?             ClassID                       { get; private set; }
-    
+
     /// <summary>
     /// Friendly name for class
     /// </summary>
     [Map]
     [Required]
-    public string?          ClassDisplayName              { get; set; }
+    public string? ClassDisplayName { get; set; }
     /// <summary>
     /// Class unique codename
     /// </summary>
     [Map]
     [Required]
-    public string?          ClassName                     { get; set; } = null!;
+    public string? ClassName { get; set; } = null!;
 
     // set internally, replace by Fields property 
     // public string?          ClassXmlSchema                { get; private set; }
     // set internally, replace by Fields property
     // public string?          ClassFormDefinition           { get; private set; }
-    
+
     /// <summary>
     /// Short name
     /// </summary>
@@ -52,54 +54,54 @@ public class DataClassModel : UmtModel
         get => string.IsNullOrWhiteSpace(_classShortName) ? ClassName : _classShortName;
         set => _classShortName = value;
     }
-    
+
     /// <summary>
     /// SQL Table name
     /// </summary>
     [Map]
-    public string?          ClassTableName                { get; set; }
-    
+    public string? ClassTableName { get; set; }
+
     [Map]
-    public bool?            ClassShowTemplateSelection    { get; set; }
+    public bool? ClassShowTemplateSelection { get; set; }
 
     /// <summary>
     /// last modification performed through API / UI
     /// </summary>
     [Map]
     [Required]
-    public DateTime?        ClassLastModified             { get; set; }
+    public DateTime? ClassLastModified { get; set; }
     /// <summary>
     /// UniqueId of DataClass
     /// </summary>
     [Map]
     [Required]
     [UniqueIdProperty]
-    public Guid?             ClassGUID                     { get; set; }
-    
+    public Guid? ClassGUID { get; set; }
+
     [Map]
-    public string?          ClassContactMapping           { get; set; }
+    public string? ClassContactMapping { get; set; }
     [Map]
-    public bool?            ClassContactOverwriteEnabled  { get; set; }
+    public bool? ClassContactOverwriteEnabled { get; set; }
     [Map]
-    public string?          ClassConnectionString         { get; set; }
+    public string? ClassConnectionString { get; set; }
     [Map]
-    public string?          ClassDefaultObjectType        { get; set; }
+    public string? ClassDefaultObjectType { get; set; }
 
     /// <summary>
     /// Relation to CMS Resource (Custom module), set if dataclass is part custom module  
     /// </summary>
     [ReferenceProperty(typeof(ResourceInfo), "ClassResourceID", IsRequired = false)]
-    public Guid?            ClassResourceGuid             { get; set; }
-    
+    public Guid? ClassResourceGuid { get; set; }
+
     [Map]
-    public string?          ClassCodeGenerationSettings   { get; set; } = null;
+    public string? ClassCodeGenerationSettings { get; set; } = null;
 
     /// <summary>
     /// only if consumer wishes to manage SQL table manually
     /// </summary>
     [Map]
     [Required]
-    public bool?            ClassHasUnmanagedDbSchema     { get; set; }
+    public bool? ClassHasUnmanagedDbSchema { get; set; }
 
     [Map]
     [Required]
@@ -110,12 +112,12 @@ public class DataClassModel : UmtModel
 
     [Map]
     public bool? ClassWebPageHasUrl { get; set; }
-    
+
     /// <summary>
     /// custom data fields for DataClass
     /// </summary>
     [CheckEnumerable]
-    public List<FormField> Fields { get; set; } = new();
+    public List<FormField> Fields { get; set; } = [];
 
     protected override (Guid? uniqueId, string? name, string? displayName) GetPrintArgs() => (ClassGUID, ClassName, ClassDisplayName);
 }
@@ -142,7 +144,7 @@ public class FormField
     [Required]
     // [RegularExpression("^(boolean)|(integer)|(longinteger)|(double)|(datetime)|(longtext)|(binary)|(guid)|(decimal)|(timespan)|(binary)|(text)|(date)|(xml)|(pages)|(contentitems)|(contentitemasset)|(assets)|(bizformfile)|(objectcodenames)|(objectguids)|(objectids)$")]
     public string? ColumnType { get; set; }
-    
+
     public bool Enabled { get; set; }
     /// <summary>
     /// Unique identification of field
@@ -180,9 +182,9 @@ public class FormFieldProperties
     /// Friendly name displayed in form
     /// </summary>
     public string? FieldCaption { get; set; }
-    
+
     [System.Text.Json.Serialization.JsonExtensionData]
-    public Dictionary<string, object?> CustomProperties { get; set; } = new();
+    public Dictionary<string, object?> CustomProperties { get; set; } = [];
 }
 
 /// <summary>
@@ -195,7 +197,7 @@ public class FormFieldSettings
     /// </summary>
     /// <docref uri="../Enums/FormComponents.md#module-kenticoxperienceadminbasedll">(for pages use enumeration here)</docref>
     public string? ControlName { get; set; }
-    
+
     [System.Text.Json.Serialization.JsonExtensionData]
-    public Dictionary<string, object?> CustomProperties { get; set; } = new();
+    public Dictionary<string, object?> CustomProperties { get; set; } = [];
 }

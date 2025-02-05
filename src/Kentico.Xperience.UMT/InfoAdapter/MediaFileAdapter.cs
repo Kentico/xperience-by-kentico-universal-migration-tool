@@ -1,8 +1,9 @@
 ﻿using CMS.Base;
 using CMS.MediaLibrary;
+
 using Kentico.Xperience.UMT.Model;
-using Kentico.Xperience.UMT.ProviderProxy;
 using Kentico.Xperience.UMT.Services.Model;
+
 using Microsoft.Extensions.Logging;
 
 namespace Kentico.Xperience.UMT.InfoAdapter;
@@ -16,7 +17,7 @@ internal class MediaFileAdapter(ILogger<MediaFileAdapter> logger, GenericInfoAda
         MediaFileInfo mediaFileInfo;
 
         var model = (MediaFileModel)umtModel;
-        
+
         if (!File.Exists(model.DataSourcePath) && model.DataSourceUrl == null)
         {
 #pragma warning disable S125 // temporarily unsupported, support for media file import without binary information will be unlocked if there is demand 
@@ -29,7 +30,7 @@ internal class MediaFileAdapter(ILogger<MediaFileAdapter> logger, GenericInfoAda
 
         string? fileNameWext = Path.GetFileNameWithoutExtension(model.FileName);
         string? fileExt = model.FileExtension ?? Path.GetExtension(model.FileName);
-        
+
         IUploadedFile? uploadedFile = null;
         if (!string.IsNullOrWhiteSpace(model.DataSourcePath))
         {
@@ -40,7 +41,7 @@ internal class MediaFileAdapter(ILogger<MediaFileAdapter> logger, GenericInfoAda
 
             memoryStream.Position = 0;
 
-            uploadedFile = UploadedFile.FromStream(memoryStream, memoryStream.Length, $"{fileNameWext}.{fileExt?.Trim('.')}");    
+            uploadedFile = UploadedFile.FromStream(memoryStream, memoryStream.Length, $"{fileNameWext}.{fileExt?.Trim('.')}");
         }
 
         if (!string.IsNullOrWhiteSpace(model.DataSourceUrl))
@@ -51,7 +52,7 @@ internal class MediaFileAdapter(ILogger<MediaFileAdapter> logger, GenericInfoAda
             stream.Dispose();
 
             memoryStream.Position = 0;
-            uploadedFile = UploadedFile.FromStream(memoryStream, memoryStream.Length, $"{fileNameWext}.{fileExt?.Trim('.')}");    
+            uploadedFile = UploadedFile.FromStream(memoryStream, memoryStream.Length, $"{fileNameWext}.{fileExt?.Trim('.')}");
         }
 
         if (uploadedFile == null)
@@ -61,7 +62,7 @@ internal class MediaFileAdapter(ILogger<MediaFileAdapter> logger, GenericInfoAda
 
         var mediaLibrary = MediaLibraryInfoProvider.ProviderObject.Get(model.FileLibraryGuid!.Value);
         MediaLibraryInfoProvider.CreateMediaLibraryFolder(mediaLibrary.LibraryID, Path.GetDirectoryName(model.FilePath));
-        
+
         mediaFileInfo = new MediaFileInfo(uploadedFile, 0);
         mediaFileInfo.SaveFileToDisk(true);
         return mediaFileInfo;
@@ -70,7 +71,7 @@ internal class MediaFileAdapter(ILogger<MediaFileAdapter> logger, GenericInfoAda
     protected override MediaFileInfo MapProperties(IUmtModel umtModel, MediaFileInfo current)
     {
         var mediaModel = (MediaFileModel)umtModel;
-        
+
         var model = new MediaFileModel()
         {
             FileGUID = mediaModel.FileGUID,

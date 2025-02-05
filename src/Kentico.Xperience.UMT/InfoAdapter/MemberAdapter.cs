@@ -1,4 +1,5 @@
 ﻿using CMS.Membership;
+
 using Microsoft.Extensions.Logging;
 
 namespace Kentico.Xperience.UMT.InfoAdapter;

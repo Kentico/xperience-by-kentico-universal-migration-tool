@@ -1,6 +1,6 @@
-﻿using Microsoft.Playwright;
+﻿using System.Text.RegularExpressions;
 
-using System.Text.RegularExpressions;
+using Microsoft.Playwright;
 
 namespace TestAfterMigration.Tests
 {
@@ -151,6 +151,8 @@ namespace TestAfterMigration.Tests
             await Page.Keyboard.PressAsync("Enter");
 
             await Assertions.Expect(Page.GetByTestId("table-row")).Not.ToHaveCountAsync(0);
+
+            await Debounce();
         }
     }
 }

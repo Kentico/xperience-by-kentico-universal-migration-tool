@@ -1,5 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
+
 using CMS.ContentEngine;
+
 using Kentico.Xperience.UMT.Attributes;
 
 namespace Kentico.Xperience.UMT.Model;

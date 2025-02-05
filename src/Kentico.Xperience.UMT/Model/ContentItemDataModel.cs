@@ -1,5 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
+
 using CMS.ContentEngine.Internal;
+
 using Kentico.Xperience.UMT.Attributes;
 // ReSharper disable InconsistentNaming
 
@@ -15,7 +17,7 @@ namespace Kentico.Xperience.UMT.Model;
 /// <sample>ContentItemDataModel.Sample.Article.enUS.WithRelations</sample>
 /// <sample>ContentItemDataModel.Sample.Article.enGB.WithRelations</sample>
 [UmtModel(DISCRIMINATOR)]
-public class ContentItemDataModel: UmtModel
+public class ContentItemDataModel : UmtModel
 {
     public const string DISCRIMINATOR = "ContentItemData";
 

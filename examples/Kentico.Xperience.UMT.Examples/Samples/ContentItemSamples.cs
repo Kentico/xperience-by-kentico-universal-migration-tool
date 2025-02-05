@@ -1,4 +1,5 @@
 ﻿using CMS.ContentEngine;
+
 using Kentico.Xperience.UMT.Model;
 
 namespace Kentico.Xperience.UMT.Examples;
@@ -22,9 +23,9 @@ public static class ContentItemSamples
 
     #region "Sample article content item"
 
-    public static readonly Guid SampleArticleContentItemGuid = new Guid("DF81215E-1414-4D87-BEFD-AE123F4E5653");
-    public static readonly Guid SampleArticleCommonDataGuidEnUs = new Guid("8F070195-2F39-463E-B7EB-C180C05FD5E0");
-    public static readonly Guid SampleArticleCommonDataGuidEnGb = new Guid("49D2CAF6-2011-42D7-961D-02614D1B43F4");
+    public static readonly Guid SampleArticleContentItemGuid = new("DF81215E-1414-4D87-BEFD-AE123F4E5653");
+    public static readonly Guid SampleArticleCommonDataGuidEnUs = new("8F070195-2F39-463E-B7EB-C180C05FD5E0");
+    public static readonly Guid SampleArticleCommonDataGuidEnGb = new("49D2CAF6-2011-42D7-961D-02614D1B43F4");
 
     [Sample("ContentItemModel.Sample.Article", "This sample describes how to create content item data inside XbyK", "ContentItem basic Sample")]
     public static ContentItemModel SampleArticleContentItem => new()
@@ -78,7 +79,7 @@ public static class ContentItemSamples
         ContentItemLanguageMetadataContentItemGuid = SampleArticleContentItemGuid,
         ContentItemLanguageMetadataContentLanguageGuid = ContentLanguageSamples.CONTENT_LANGUAGE_ENUS_SAMPLE_GUID,
         ContentItemLanguageMetadataDisplayName = "Creation of UMT model",
-        ContentItemLanguageMetadataCreatedWhen = new DateTime(2023, 12, 10, 0,0,0,0, DateTimeKind.Utc),
+        ContentItemLanguageMetadataCreatedWhen = new DateTime(2023, 12, 10, 0, 0, 0, 0, DateTimeKind.Utc),
         ContentItemLanguageMetadataHasImageAsset = false,
         ContentItemLanguageMetadataCreatedByUserGuid = UserSamples.SampleAdminGuid,
         ContentItemLanguageMetadataModifiedByUserGuid = UserSamples.SampleAdminGuid,
@@ -97,7 +98,7 @@ public static class ContentItemSamples
         WebPageUrlPathIsLatest = true,
         WebPageUrlPathIsDraft = false
     };
-    
+
     #endregion
 
     #region "EnGb version"
@@ -141,13 +142,13 @@ public static class ContentItemSamples
         ContentItemLanguageMetadataContentItemGuid = SampleArticleContentItemGuid,
         ContentItemLanguageMetadataContentLanguageGuid = ContentLanguageSamples.CONTENT_LANGUAGE_ENGB_SAMPLE_GUID,
         ContentItemLanguageMetadataDisplayName = "Creation of UMT model GB",
-        ContentItemLanguageMetadataCreatedWhen = new DateTime(2023, 12, 10, 0,0,0,0, DateTimeKind.Utc),
+        ContentItemLanguageMetadataCreatedWhen = new DateTime(2023, 12, 10, 0, 0, 0, 0, DateTimeKind.Utc),
         ContentItemLanguageMetadataHasImageAsset = false,
         ContentItemLanguageMetadataCreatedByUserGuid = UserSamples.SampleAdminGuid,
         ContentItemLanguageMetadataModifiedByUserGuid = UserSamples.SampleAdminGuid,
         ContentItemLanguageMetadataLatestVersionStatus = VersionStatus.Published,
     };
-    
+
     [Sample("webpageitem.urlpath.sample.article.engb", "", "Page url path sample")]
     public static WebPageUrlPathModel SampleArticleWebPathUrlPathModelEnGb => new()
     {
@@ -160,7 +161,7 @@ public static class ContentItemSamples
         WebPageUrlPathIsLatest = true,
         WebPageUrlPathIsDraft = false
     };
-    
+
     [Sample("webpageitem.urlpath.sample.article.es", "", "Page url path sample")]
     public static WebPageUrlPathModel SampleArticleWebPathUrlPathModelEs => new()
     {
@@ -177,7 +178,7 @@ public static class ContentItemSamples
     #endregion
 
     public static readonly Guid SAMPLE_ARTICLE_WEB_PAGE_GUID = new("6E995319-77E7-475E-9EBB-607BDBF5AF9A");
-    
+
     [Sample("webpageitem.sample.article", "This sample describes how to create class inside XbyK to hold WebPage Item data", "ContentItem Sample")]
     public static WebPageItemModel SampleArticleWebPageItem => new()
     {
@@ -190,7 +191,7 @@ public static class ContentItemSamples
     };
 
     public static readonly Guid SAMPLE_ARTICLE_WEBPAGE_ACL_GUID = new("959408C5-D157-4C18-8AE0-A7D9CFB374F5");
-    
+
     [Sample("webpageitem.sample.article.acl", "This sample describes how to set Web page ACL", "ContentItem ACL Sample")]
     public static WebPageAclModel SampleArticleWebPageAcl => new()
     {
@@ -200,12 +201,12 @@ public static class ContentItemSamples
     };
 
     #endregion
-    
+
     #region "Sample article content item with relations to FAQ and first item"
 
-    public static readonly Guid SampleArticleContentItemGuidWithRelations = new Guid("E09121AD-DD97-472F-B8F6-85FE5428ED6A");
-    public static readonly Guid SampleArticleCommonDataGuidEnUsWithRelations = new Guid("56F0E676-8FCC-4A5D-8B69-F6ECA372B998");
-    public static readonly Guid SampleArticleCommonDataGuidEnGbWithRelations = new Guid("A790B2D4-5AC1-4FB0-812C-2AD2171C61C9");
+    public static readonly Guid SampleArticleContentItemGuidWithRelations = new("E09121AD-DD97-472F-B8F6-85FE5428ED6A");
+    public static readonly Guid SampleArticleCommonDataGuidEnUsWithRelations = new("56F0E676-8FCC-4A5D-8B69-F6ECA372B998");
+    public static readonly Guid SampleArticleCommonDataGuidEnGbWithRelations = new("A790B2D4-5AC1-4FB0-812C-2AD2171C61C9");
 
     [Sample("ContentItemModel.Sample.Article.WithRelations", "This sample describes how to create content item with relations to other content items", "ContentItem with relations sample")]
     public static ContentItemModel SampleArticleContentItemWithRelations => new()
@@ -240,7 +241,7 @@ public static class ContentItemSamples
         ContentItemContentTypeName = DataClassSamples.ARTICLE_SAMPLE_CLASS_NAME,
         CustomProperties = new Dictionary<string, object?>
         {
-            ["ArticleTitle"] = "en-US UMT model creation", 
+            ["ArticleTitle"] = "en-US UMT model creation",
             ["ArticleText"] = "This article is only example of creation UMT model for en-US language",
             ["RelatedArticles"] = $$"""[{"WebPageGuid":"{{SampleArticleWebPageItem.WebPageItemGUID}}"}]""",
             ["RelatedFaq"] = $$"""
@@ -267,13 +268,13 @@ public static class ContentItemSamples
         ContentItemLanguageMetadataContentItemGuid = SampleArticleContentItemGuidWithRelations,
         ContentItemLanguageMetadataContentLanguageGuid = ContentLanguageSamples.CONTENT_LANGUAGE_ENUS_SAMPLE_GUID,
         ContentItemLanguageMetadataDisplayName = "Content item with relations",
-        ContentItemLanguageMetadataCreatedWhen = new DateTime(2023, 12, 10, 0,0,0,0, DateTimeKind.Utc),
+        ContentItemLanguageMetadataCreatedWhen = new DateTime(2023, 12, 10, 0, 0, 0, 0, DateTimeKind.Utc),
         ContentItemLanguageMetadataHasImageAsset = false,
         ContentItemLanguageMetadataCreatedByUserGuid = UserSamples.SampleAdminGuid,
         ContentItemLanguageMetadataModifiedByUserGuid = UserSamples.SampleAdminGuid,
         ContentItemLanguageMetadataLatestVersionStatus = VersionStatus.InitialDraft,
     };
-    
+
     [Sample("webpageitem.urlpath.sample.article.WithRelations.enus", "", "Page url path sample")]
     public static WebPageUrlPathModel SampleArticleWebPageUrlWithRelationsEnUs => new()
     {
@@ -311,7 +312,7 @@ public static class ContentItemSamples
         ContentItemContentTypeName = DataClassSamples.ARTICLE_SAMPLE_CLASS_NAME,
         CustomProperties = new Dictionary<string, object?>
         {
-            ["ArticleTitle"] = "en-GB UMT model creation", 
+            ["ArticleTitle"] = "en-GB UMT model creation",
             ["ArticleText"] = "This article is only example of creation UMT model for en-GB language",
             ["RelatedArticles"] = $$"""[{"WebPageGuid":"{{SampleArticleWebPageItem.WebPageItemGUID}}"}]""",
             ["RelatedFaq"] = $$"""
@@ -320,7 +321,7 @@ public static class ContentItemSamples
             ["ArticleDecimalNumberSample"] = 123456.12345M
         }
     };
-    
+
     [Sample("ContentItemReferenceModel.Sample.Article.enGB.WithRelations", "Sample of relation between 2 content items inside XbyK", "ContentItemReference article sample (en-GB)")]
     public static ContentItemReferenceModel SampleArticleDataEnGbWithRelationsReference => new()
     {
@@ -337,13 +338,13 @@ public static class ContentItemSamples
         ContentItemLanguageMetadataContentItemGuid = SampleArticleContentItemGuidWithRelations,
         ContentItemLanguageMetadataContentLanguageGuid = ContentLanguageSamples.CONTENT_LANGUAGE_ENGB_SAMPLE_GUID,
         ContentItemLanguageMetadataDisplayName = "Content item with relations en-GB",
-        ContentItemLanguageMetadataCreatedWhen = new DateTime(2023, 12, 10, 0,0,0,0, DateTimeKind.Utc),
+        ContentItemLanguageMetadataCreatedWhen = new DateTime(2023, 12, 10, 0, 0, 0, 0, DateTimeKind.Utc),
         ContentItemLanguageMetadataHasImageAsset = false,
         ContentItemLanguageMetadataCreatedByUserGuid = UserSamples.SampleAdminGuid,
         ContentItemLanguageMetadataModifiedByUserGuid = UserSamples.SampleAdminGuid,
         ContentItemLanguageMetadataLatestVersionStatus = VersionStatus.Published,
     };
-    
+
     [Sample("webpageitem.urlpath.sample.article.WithRelations", "", "Page url path sample")]
     public static WebPageUrlPathModel SampleArticleWebPageUrlWithRelations => new()
     {
@@ -356,7 +357,7 @@ public static class ContentItemSamples
         WebPageUrlPathIsLatest = true,
         WebPageUrlPathIsDraft = false
     };
-    
+
     [Sample("webpageitem.urlpath.sample.article.es.WithRelations", "", "Page url path sample")]
     public static WebPageUrlPathModel SampleArticleWebPageUrlWithRelationsEs => new()
     {
@@ -373,7 +374,7 @@ public static class ContentItemSamples
     #endregion
 
     public static readonly Guid SampleArticleWithRelationsrWebPageGuid = new("14784BF0-69D0-40CF-8BE6-E5A0D897774B");
-        
+
     [Sample("webpageitem.sample.article.WithRelations", "This sample describes how to create class inside XbyK to hold WebPage Item data with relations", "ContentItem Sample")]
     public static WebPageItemModel SampleArticleWebPageItemWithRelations => new()
     {
@@ -389,9 +390,9 @@ public static class ContentItemSamples
 
     #region "Sample faq content item"
 
-    public static readonly Guid SampleFaqContentItemGuid = new Guid("B64B3E3E-F5A9-4D02-8CDB-6D81805C0FEE");
-    public static readonly Guid SampleFaqCommonDataGuidEnUs = new Guid("2B1987BF-680B-48C0-85CE-47FF9FDE24C7");
-    public static readonly Guid SampleFaqCommonDataGuidEnGb = new Guid("96016B05-B3D3-42F9-B5AA-71E2F816EB8F");
+    public static readonly Guid SampleFaqContentItemGuid = new("B64B3E3E-F5A9-4D02-8CDB-6D81805C0FEE");
+    public static readonly Guid SampleFaqCommonDataGuidEnUs = new("2B1987BF-680B-48C0-85CE-47FF9FDE24C7");
+    public static readonly Guid SampleFaqCommonDataGuidEnGb = new("96016B05-B3D3-42F9-B5AA-71E2F816EB8F");
 
     [Sample("ContentItemModel.Sample.Faq", "This sample describes how to create reusable content item data inside XbyK", "Reusable ContentItem Faq")]
     public static ContentItemModel SampleFaqContentItem => new()
@@ -439,12 +440,12 @@ public static class ContentItemSamples
         ContentItemLanguageMetadataContentItemGuid = SampleFaqContentItemGuid,
         ContentItemLanguageMetadataContentLanguageGuid = ContentLanguageSamples.CONTENT_LANGUAGE_ENUS_SAMPLE_GUID,
         ContentItemLanguageMetadataDisplayName = "Sample reusable FAQ",
-        ContentItemLanguageMetadataCreatedWhen = new DateTime(2023, 12, 10, 0,0,0,0, DateTimeKind.Utc),
+        ContentItemLanguageMetadataCreatedWhen = new DateTime(2023, 12, 10, 0, 0, 0, 0, DateTimeKind.Utc),
         ContentItemLanguageMetadataHasImageAsset = false,
         ContentItemLanguageMetadataCreatedByUserGuid = UserSamples.SampleAdminGuid,
         ContentItemLanguageMetadataModifiedByUserGuid = UserSamples.SampleAdminGuid,
         ContentItemLanguageMetadataLatestVersionStatus = VersionStatus.InitialDraft,
-        ContentItemLanguageMetadataScheduledPublishWhen = new DateTime(2045, 1, 1, 0,0,0,0,0, DateTimeKind.Utc)
+        ContentItemLanguageMetadataScheduledPublishWhen = new DateTime(2045, 1, 1, 0, 0, 0, 0, 0, DateTimeKind.Utc)
     };
 
     #endregion
@@ -483,7 +484,7 @@ public static class ContentItemSamples
         ContentItemLanguageMetadataContentItemGuid = SampleFaqContentItemGuid,
         ContentItemLanguageMetadataContentLanguageGuid = ContentLanguageSamples.CONTENT_LANGUAGE_ENGB_SAMPLE_GUID,
         ContentItemLanguageMetadataDisplayName = "Sample reusable FAQ",
-        ContentItemLanguageMetadataCreatedWhen = new DateTime(2023, 12, 10, 0,0,0,0, DateTimeKind.Utc),
+        ContentItemLanguageMetadataCreatedWhen = new DateTime(2023, 12, 10, 0, 0, 0, 0, DateTimeKind.Utc),
         ContentItemLanguageMetadataHasImageAsset = false,
         ContentItemLanguageMetadataCreatedByUserGuid = UserSamples.SampleAdminGuid,
         ContentItemLanguageMetadataModifiedByUserGuid = UserSamples.SampleAdminGuid,

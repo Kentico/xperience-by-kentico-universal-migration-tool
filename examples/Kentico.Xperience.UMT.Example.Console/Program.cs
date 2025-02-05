@@ -6,10 +6,12 @@ using System.Text.Json;
 
 using CMS.Core;
 using CMS.DataEngine;
+
 using Kentico.Xperience.UMT;
 using Kentico.Xperience.UMT.Examples;
 using Kentico.Xperience.UMT.Model;
 using Kentico.Xperience.UMT.Services;
+
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
@@ -45,13 +47,13 @@ if (useSerializedSample)
     string path = Path.GetFullPath(Path.Combine(workDir, "../../../../../docs/Samples/basic.json"));
     string sampleText = (await File.ReadAllTextAsync(path) ?? throw new InvalidOperationException("Failed to load sample"))
         .Replace("##ASSETDIR##", workDir.Replace(@"\", @"\\"));
-        
-    sourceData = importService.FromJsonString(sampleText)?.ToList() ?? new List<IUmtModel>();
+
+    sourceData = importService.FromJsonString(sampleText)?.ToList() ?? [];
 }
 else
 {
     sourceData = SampleProvider.GetFullSample();
-    
+
     foreach (var umtModel in sourceData)
     {
         // update path to media files
@@ -70,6 +72,9 @@ else
                     umtModel.CustomProperties[key] = assetSource;
                     break;
                 }
+
+                default:
+                    break;
             }
         }
 
@@ -90,6 +95,9 @@ else
                             assetSource.FilePath = assetSource.FilePath?.Replace("##ASSETDIR##", workDir);
                             break;
                         }
+
+                        default:
+                            break;
                     }
                 }
             }
@@ -103,27 +111,18 @@ if (variantWithObserver)
 #pragma warning restore S2583
 {
     // simplified usage for streamlined import
-    
+
     // create observer to track import state
     var importObserver = new ImportStateObserver();
 
     // listen to validation errors
-    importObserver.ValidationError += (model, uniqueId, errors) =>
-    {
-        Console.WriteLine($"Validation error in model '{model.PrintMe()}': {JsonSerializer.Serialize(errors)}");
-    };
+    importObserver.ValidationError += (model, uniqueId, errors) => Console.WriteLine($"Validation error in model '{model.PrintMe()}': {JsonSerializer.Serialize(errors)}");
 
     // listen to successfully adapted and persisted objects
-    importObserver.ImportedInfo += (model, info) =>
-    {
-        Console.WriteLine($"{model.PrintMe()} imported");
-    };
+    importObserver.ImportedInfo += (model, info) => Console.WriteLine($"{model.PrintMe()} imported");
 
     // listen for exception occurence
-    importObserver.Exception += (model, uniqueId, exception) =>
-    {
-        Console.WriteLine($"Error in model {model.PrintMe()}: '{uniqueId}': {exception}");
-    };
+    importObserver.Exception += (model, uniqueId, exception) => Console.WriteLine($"Error in model {model.PrintMe()}: '{uniqueId}': {exception}");
 
     // initiate import
     var observer = importService.StartImport(sourceData, importObserver);
@@ -141,7 +140,7 @@ else
         switch (result)
         {
             // OK
-            case { Success: true, Imported: {} }:
+            case { Success: true, Imported: { } }:
             {
                 Console.WriteLine($"{umtModel.PrintMe()} imported");
                 break;

@@ -3,8 +3,6 @@ using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Text.Json;
 
-using CMS.ContentEngine;
-using CMS.ContentEngine.Internal;
 using CMS.Core;
 using CMS.DataEngine;
 
@@ -14,6 +12,7 @@ using Kentico.Xperience.UMT.ProviderProxy;
 using Kentico.Xperience.UMT.Serialization;
 using Kentico.Xperience.UMT.Services;
 using Kentico.Xperience.UMT.Services.Model;
+
 using Microsoft.Extensions.Logging;
 
 [assembly: InternalsVisibleTo("Kentico.Xperience.UMT.Tests.X")]
@@ -23,7 +22,7 @@ namespace Kentico.Xperience.UMT.InfoAdapter;
 internal interface IInfoAdapter<in TModel> where TModel : IUmtModel
 {
     BaseInfo Adapt(TModel input);
-    
+
     IProviderProxy ProviderProxy { get; }
     Guid? GetUniqueIdOrNull(TModel input);
 }
@@ -144,7 +143,7 @@ public class GenericInfoAdapter<TTargetInfo> : IInfoAdapter<TTargetInfo, IUmtMod
                 current.SetValue(GetGuidColumnName(current), objectGuid);
                 Logger.LogTrace("Info {Guid} created", objectGuid);
             }
-        } 
+        }
         else if (model.UniqueKeyParts is { Count: > 0 } keyParts)
         {
             var filters = new List<(string columnName, object? value)>();
@@ -164,7 +163,7 @@ public class GenericInfoAdapter<TTargetInfo> : IInfoAdapter<TTargetInfo, IUmtMod
                     Logger.LogError("Property {Property} of type {Type} is required", propertyInfo.Name, propertyInfo.DeclaringType?.FullName);
                     throw new InvalidOperationException($"Property {propertyInfo.Name} of type {propertyInfo.DeclaringType?.FullName} is required");
                 }
-                
+
                 filters.Add((keyName, value));
             }
 
@@ -238,11 +237,11 @@ public class GenericInfoAdapter<TTargetInfo> : IInfoAdapter<TTargetInfo, IUmtMod
                 {
                     continue;
                 }
-                
+
                 if (current.ColumnNames.Contains(customProperty))
                 {
                     object? value = input.CustomProperties[customProperty];
-                    
+
                     AssetSource? asset = null;
                     switch (value)
                     {
@@ -255,12 +254,14 @@ public class GenericInfoAdapter<TTargetInfo> : IInfoAdapter<TTargetInfo, IUmtMod
                         case JsonElement jsonElement:
                             value = jsonElement.ToString();
                             break;
+                        default:
+                            break;
                     }
 
                     if (asset != null)
                     {
                         ArgumentNullException.ThrowIfNull(asset.ContentItemGuid);
-                        
+
                         value = assetManager
                             .SetAsset(current.TypeInfo.ObjectClassName, asset, customProperty, asset.ContentItemGuid.Value, CancellationToken.None)
                             .GetAwaiter().GetResult();

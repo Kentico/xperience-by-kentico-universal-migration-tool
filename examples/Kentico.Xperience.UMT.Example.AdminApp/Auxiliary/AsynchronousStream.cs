@@ -5,7 +5,7 @@ namespace Kentico.Xperience.UMT.Example.AdminApp.Auxiliary;
 /// <summary>
 /// single purpose stream - consumer (read) waits for promised data, implementation of stream abstract class is not complete and is not needed (internal class) 
 /// </summary>
-internal sealed class AsynchronousStream: Stream
+internal sealed class AsynchronousStream : Stream
 {
     private readonly BlockingCollection<byte[]> blocks;
     private byte[]? currentBlock;

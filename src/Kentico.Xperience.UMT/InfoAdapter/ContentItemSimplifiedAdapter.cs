@@ -1,7 +1,4 @@
 ﻿using System.Text.Json;
-using System.Text.Json.Nodes;
-
-using AngleSharp.Dom;
 
 using CMS.ContentEngine;
 using CMS.ContentEngine.Internal;
@@ -54,7 +51,7 @@ public class ContentItemSimplifiedAdapter : IInfoAdapter<ContentItemInfo, IUmtMo
 
     private readonly Guid? rootContentFolderGUID;
     private readonly Guid? defaultWorkspaceGUID;
-    private const string contentItemReferenceDataTypeName = "contentitemreference";
+    private const string CONTENT_ITEM_REFERENCE_DATA_TYPE_NAME = "contentitemreference";
 
     public ContentItemInfo Adapt(IUmtModel input)
     {
@@ -109,6 +106,12 @@ public class ContentItemSimplifiedAdapter : IInfoAdapter<ContentItemInfo, IUmtMo
         {
             var customData = languageData.ContentItemData?.ToDictionary() ?? [];
 
+            var fi = new FormInfo(dataClassInfo.ClassFormDefinition);
+
+            var contentItemReferenceFormFieldInfos = fi.GetFields(true, true).Where(x => x.DataType == CONTENT_ITEM_REFERENCE_DATA_TYPE_NAME);
+
+            customData = SerializeCustomContentItemReferences(customData, contentItemReferenceFormFieldInfos);
+
             ArgumentException.ThrowIfNullOrWhiteSpace(languageData.LanguageName);
 
             var contentLanguageInfo = contentLanguageProxy.GetBaseInfoByCodeName(languageData.LanguageName, null!) as ContentLanguageInfo;
@@ -121,8 +124,6 @@ public class ContentItemSimplifiedAdapter : IInfoAdapter<ContentItemInfo, IUmtMo
 
             var dataProvider = Service.Resolve<IContentItemDataInfoProviderAccessor>()
                         .Get(dataClassInfo.ClassName);
-
-            var fi = new FormInfo(dataClassInfo.ClassFormDefinition);
 
             var commonFields = UnpackReusableFieldSchemas(fi.GetFields<FormSchemaInfo>());
             var customProperties = new Dictionary<string, object?>();
@@ -163,6 +164,32 @@ public class ContentItemSimplifiedAdapter : IInfoAdapter<ContentItemInfo, IUmtMo
             var commonDataInfo = (ContentItemCommonDataInfo)commonItemDataAdapter.Adapt(commonDataModel);
             commonItemDataAdapter.ProviderProxy.Save(commonDataInfo, commonDataModel);
 
+            var contentItemReferenceModels =
+                CreateContentItemReferenceModels(contentItemReferenceFormFieldInfos, customData, commonDataModel);
+
+            foreach (var referenceModel in contentItemReferenceModels)
+            {
+                var targetItem = Provider<ContentItemInfo>.Instance.Get()
+                    .WhereEquals(nameof(ContentItemInfo.ContentItemGUID), referenceModel.ContentItemReferenceTargetItemGuid)
+                    .FirstOrDefault();
+
+                ArgumentNullException.ThrowIfNull(targetItem);
+
+                bool contentItemReferenceExists = Provider<ContentItemReferenceInfo>.Instance.Get()
+                    .WhereEquals(nameof(ContentItemReferenceInfo.ContentItemReferenceGroupGUID), referenceModel.ContentItemReferenceGroupGUID)
+                    .WhereEquals(nameof(ContentItemReferenceInfo.ContentItemReferenceSourceCommonDataID), commonDataInfo.ContentItemCommonDataID)
+                    .WhereEquals(nameof(ContentItemReferenceInfo.ContentItemReferenceTargetItemID), targetItem.ContentItemID)
+                    .Any();
+
+                if (!contentItemReferenceExists)
+                {
+                    var referenceAdapter = adapterFactory.CreateAdapter(referenceModel, new ProviderProxyContext());
+                    ArgumentNullException.ThrowIfNull(referenceAdapter);
+                    var referenceInfo = (ContentItemReferenceInfo)referenceAdapter.Adapt(referenceModel);
+                    referenceAdapter.ProviderProxy.Save(referenceInfo, referenceModel);
+                }
+            }
+
             var itemDataModel = new ContentItemDataModel
             {
                 ContentItemDataGUID = existingItemDataInfo?.ContentItemDataGUID ?? Guid.NewGuid(),
@@ -174,40 +201,6 @@ public class ContentItemSimplifiedAdapter : IInfoAdapter<ContentItemInfo, IUmtMo
             ArgumentNullException.ThrowIfNull(itemDataAdapter);
             var itemDataInfo = (ContentItemDataInfo)itemDataAdapter.Adapt(itemDataModel);
             itemDataAdapter.ProviderProxy.Save(itemDataInfo, itemDataModel);
-
-            var contentItemReferenceFormFieldInfos = fi.GetFields(true, true).Where(x => x.DataType == contentItemReferenceDataTypeName);
-
-            if (customData is not null && contentItemReferenceFormFieldInfos is not null)
-            {
-                var contentItemReferenceModels =
-                    CreateContentItemReferenceModels(contentItemReferenceFormFieldInfos, customData, commonDataModel);
-
-                if (contentItemReferenceModels is not null)
-                {
-                    foreach (var referenceModel in contentItemReferenceModels)
-                    {
-                        var targetItem = Provider<ContentItemInfo>.Instance.Get()
-                            .WhereEquals(nameof(ContentItemInfo.ContentItemGUID), referenceModel.ContentItemReferenceTargetItemGuid)
-                            .FirstOrDefault();
-
-                        ArgumentNullException.ThrowIfNull(targetItem);
-
-                        bool contentItemReferenceExists = Provider<ContentItemReferenceInfo>.Instance.Get()
-                            .WhereEquals(nameof(ContentItemReferenceInfo.ContentItemReferenceGroupGUID), referenceModel.ContentItemReferenceGroupGUID)
-                            .WhereEquals(nameof(ContentItemReferenceInfo.ContentItemReferenceSourceCommonDataID), commonDataInfo.ContentItemCommonDataID)
-                            .WhereEquals(nameof(ContentItemReferenceInfo.ContentItemReferenceTargetItemID), targetItem.ContentItemID)
-                            .Any();
-
-                        if (!contentItemReferenceExists)
-                        {
-                            var referenceAdapter = adapterFactory.CreateAdapter(referenceModel, new ProviderProxyContext());
-                            ArgumentNullException.ThrowIfNull(referenceAdapter);
-                            var referenceInfo = (ContentItemReferenceInfo)referenceAdapter.Adapt(referenceModel);
-                            referenceAdapter.ProviderProxy.Save(referenceInfo, referenceModel);
-                        }
-                    }
-                }
-            }
 
             var existingLanguageMetadataInfo = Provider<ContentItemLanguageMetadataInfo>.Instance.Get()
                     .WhereEquals(nameof(ContentItemLanguageMetadataInfo.ContentItemLanguageMetadataContentItemID), contentItemInfo.ContentItemID)
@@ -340,12 +333,12 @@ public class ContentItemSimplifiedAdapter : IInfoAdapter<ContentItemInfo, IUmtMo
                 continue;
             }
 
-            if (contentItemReferenceFieldValue is not string fieldSerialized)
+            if (contentItemReferenceFieldValue is not string fieldValueSerialized)
             {
                 continue;
             }
 
-            var fieldValue = JsonSerializer.Deserialize<IEnumerable<ContentItemReference>>(fieldSerialized);
+            var fieldValue = JsonSerializer.Deserialize<IEnumerable<ContentItemReference>>(fieldValueSerialized);
 
             if (fieldValue is not null)
             {
@@ -360,6 +353,22 @@ public class ContentItemSimplifiedAdapter : IInfoAdapter<ContentItemInfo, IUmtMo
                 }
             }
         }
+    }
+
+    private static Dictionary<string, object?> SerializeCustomContentItemReferences(
+        Dictionary<string, object?> customData,
+        IEnumerable<FormFieldInfo> referenceFormFieldInfos
+    )
+    {
+        foreach (var fieldName in referenceFormFieldInfos.Select(field => field.Name))
+        {
+            if (customData.TryGetValue(fieldName, out object? contentItemReferenceFieldValue) && contentItemReferenceFieldValue is not null)
+            {
+                customData[fieldName] = JsonSerializer.Serialize(contentItemReferenceFieldValue);
+            }
+        }
+
+        return customData;
     }
 
     private static IEnumerable<FormFieldInfo> UnpackReusableFieldSchemas(IEnumerable<FormSchemaInfo> schemaInfos)

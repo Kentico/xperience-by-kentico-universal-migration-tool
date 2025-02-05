@@ -1,4 +1,5 @@
 ﻿using System.Text.Json;
+
 using Kentico.Xperience.UMT.Model;
 
 namespace Kentico.Xperience.UMT.Services;
@@ -22,7 +23,7 @@ public interface IImportService
     /// <param name="model"></param>
     /// <param name="options"></param>
     string SerializeToJson(IEnumerable<UmtModel> model, JsonSerializerOptions? options = null);
-    
+
     /// <summary>
     /// Reads json from stream and returns enumerable of UmtModel
     /// </summary>

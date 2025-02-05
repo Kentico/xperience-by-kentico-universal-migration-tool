@@ -6,21 +6,14 @@ public class ClassDocsVisitor : SymbolVisitor
 {
     public override void Visit(ISymbol? symbol)
     {
-        if (symbol is INamedTypeSymbol type)
-        {
-            Class = type;
-        }
-        else
-        {
-            throw new InvalidOperationException("Visitor supports only NamedTypeSymbol");
-        }
+        Class = symbol is INamedTypeSymbol type ? type : throw new InvalidOperationException("Visitor supports only NamedTypeSymbol");
         base.Visit(symbol);
     }
 
-    public List<IPropertySymbol> Properties { get; } = new List<IPropertySymbol>();
-    public List<IMethodSymbol> Methods { get; } = new List<IMethodSymbol>();
-    public List<INamedTypeSymbol> Delegates { get; } = new List<INamedTypeSymbol>();
-    public List<IEventSymbol> Events { get; } = new List<IEventSymbol>();
+    public List<IPropertySymbol> Properties { get; } = [];
+    public List<IMethodSymbol> Methods { get; } = [];
+    public List<INamedTypeSymbol> Delegates { get; } = [];
+    public List<IEventSymbol> Events { get; } = [];
     public INamedTypeSymbol Class { get; private set; } = null!;
 
     public override void VisitNamedType(INamedTypeSymbol symbol)

@@ -1,4 +1,5 @@
 ﻿using System.Text.Json;
+
 using Kentico.Xperience.UMT.Model;
 using Kentico.Xperience.UMT.Services.Model;
 
@@ -41,32 +42,24 @@ public class UmtModelStjConverter(IReadOnlyList<UmtModelInfo?> models) : System.
         }
 
         string? discriminator = readerClone.GetString();
-        var modelInfo = models.FirstOrDefault(m => m?.ModelDiscriminator == discriminator);
-        if (modelInfo == null)
-        {
-            throw new InvalidOperationException($"Invalid model");
-        }
- 
+        var modelInfo = models.FirstOrDefault(m => m?.ModelDiscriminator == discriminator) ?? throw new InvalidOperationException($"Invalid model");
+
         var clonedOptions = new JsonSerializerOptions(options);
         if (clonedOptions.Converters.FirstOrDefault(x => x is UmtModelStjConverter) is { } converter)
         {
             clonedOptions.Converters.Remove(converter);
         }
-        
+
         return JsonSerializer.Deserialize(ref reader, modelInfo.ModelType, clonedOptions)! as UmtModel;
     }
 
     public override void Write(Utf8JsonWriter writer, UmtModel value, JsonSerializerOptions options)
     {
         writer.WriteStartObject();
-        
-        var modelInfo = models.FirstOrDefault(m => m?.ModelType == value.GetType());
-        if (modelInfo == null)
-        {
-            throw new InvalidOperationException($"Invalid model");
-        }
+
+        var modelInfo = models.FirstOrDefault(m => m?.ModelType == value.GetType()) ?? throw new InvalidOperationException($"Invalid model");
         writer.WriteString(DISCRIMINATOR_PROPERTY, modelInfo.ModelDiscriminator);
-        
+
         var clonedOptions = new JsonSerializerOptions(options);
         if (clonedOptions.Converters.FirstOrDefault(x => x is UmtModelStjConverter) is { } converter)
         {
@@ -78,7 +71,7 @@ public class UmtModelStjConverter(IReadOnlyList<UmtModelInfo?> models) : System.
         {
             jsonProperty.WriteTo(writer);
         }
-       
+
         writer.WriteEndObject();
     }
 }

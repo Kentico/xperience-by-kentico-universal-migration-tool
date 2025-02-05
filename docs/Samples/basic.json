@@ -268,7 +268,7 @@
           "ControlName": "Kentico.Administration.WebPageSelector",
           "MaximumPages": 5,
           "Sortable": "False",
-          "TreePath": "/Articles"
+          "TreePath": "/simplified-sample"
         },
         "Precision": null
       },
@@ -1697,5 +1697,114 @@
       }
     ],
     "PageData": null
+  },
+  {
+    "$type": "ContentItemSimplified",
+    "ContentItemGUID": "1b8e6c4c-49b6-4777-9474-c0d3a97dd832",
+    "ContentItemContentFolderGUID": "ae29c1d1-217a-45da-8b30-585d1881387e",
+    "ContentItemWorkspaceGUID": null,
+    "IsSecured": false,
+    "ContentTypeName": "UMT.Faq",
+    "Name": "SimplifiedModelSampleLinkedyByArticle",
+    "IsReusable": true,
+    "ChannelName": null,
+    "LanguageData": [
+      {
+        "LanguageName": "en-US",
+        "DisplayName": "FAQ: reusable simplified model sample linked by an article - en-us",
+        "VersionStatus": 2,
+        "IsLatest": true,
+        "UserGuid": "dbfcc244-2cb9-4934-857f-9d75404c1553",
+        "ScheduledPublishWhen": null,
+        "ScheduledUnpublishWhen": null,
+        "ContentItemData": {
+          "FaqQuestion": "en-us FAQ question text (reusable) linked",
+          "FaqAnswer": "en-us FAQ answer text (reusable) linked"
+        }
+      },
+      {
+        "LanguageName": "en-GB",
+        "DisplayName": "FAQ: reusable simplified model sample linked by an article - en-gb",
+        "VersionStatus": 2,
+        "IsLatest": true,
+        "UserGuid": "dbfcc244-2cb9-4934-857f-9d75404c1553",
+        "ScheduledPublishWhen": null,
+        "ScheduledUnpublishWhen": null,
+        "ContentItemData": {
+          "FaqQuestion": "en-GB FAQ question text (reusable) linked",
+          "FaqAnswer": "en-GB FAQ answer text (reusable) linked"
+        }
+      }
+    ],
+    "PageData": null
+  },
+  {
+    "$type": "ContentItemSimplified",
+    "ContentItemGUID": "04df81e3-666b-4ec5-970f-3221bbb399cd",
+    "ContentItemContentFolderGUID": null,
+    "ContentItemWorkspaceGUID": null,
+    "IsSecured": false,
+    "ContentTypeName": "UMT.Article",
+    "Name": "SimplifiedModelSampleWithLinkedItems",
+    "IsReusable": false,
+    "ChannelName": "websitechannelExample",
+    "LanguageData": [
+      {
+        "LanguageName": "en-US",
+        "DisplayName": "Simplified model sample with linked items - en-us",
+        "VersionStatus": 2,
+        "IsLatest": true,
+        "UserGuid": "dbfcc244-2cb9-4934-857f-9d75404c1553",
+        "ScheduledPublishWhen": null,
+        "ScheduledUnpublishWhen": null,
+        "ContentItemData": {
+          "ArticleTitle": "en-US UMT simplified model with linked items creation",
+          "ArticleText": "This article is only example of creation UMT simplified model for en-US language with linked items",
+          "RelatedFaq": [
+            {
+              "Identifier": "1b8e6c4c-49b6-4777-9474-c0d3a97dd832"
+            }
+          ]
+        }
+      },
+      {
+        "LanguageName": "en-GB",
+        "DisplayName": "Simplified model sample with linked items - en-gb",
+        "VersionStatus": 2,
+        "IsLatest": true,
+        "UserGuid": "dbfcc244-2cb9-4934-857f-9d75404c1553",
+        "ScheduledPublishWhen": null,
+        "ScheduledUnpublishWhen": null,
+        "ContentItemData": {
+          "ArticleTitle": "en-GB UMT simplified model with linked items creation",
+          "ArticleText": "This article is only example of creation UMT simplified model for en-GB language with linked items",
+          "RelatedFaq": [
+            {
+              "Identifier": "1b8e6c4c-49b6-4777-9474-c0d3a97dd832"
+            }
+          ]
+        }
+      }
+    ],
+    "PageData": {
+      "PageUrls": [
+        {
+          "UrlPath": "en-us/simplified-linked-sample",
+          "PathIsDraft": false,
+          "PathIsLatest": true,
+          "LanguageName": "en-US"
+        },
+        {
+          "UrlPath": "en-gb/simplified-linked-sample",
+          "PathIsDraft": false,
+          "PathIsLatest": true,
+          "LanguageName": "en-GB"
+        }
+      ],
+      "PageGuid": "56b168a9-2154-40ef-8683-415d71e49822",
+      "ParentGuid": null,
+      "TreePath": "/simplified-linked-sample",
+      "ItemOrder": null
+    }
   }
 ]

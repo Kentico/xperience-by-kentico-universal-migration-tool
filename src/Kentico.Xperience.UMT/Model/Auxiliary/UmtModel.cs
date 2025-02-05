@@ -9,7 +9,7 @@ namespace Kentico.Xperience.UMT.Model;
 public interface IUmtModel
 {
     string PrintMe();
-    
+
     public Dictionary<string, object?> CustomProperties { get; }
 }
 
@@ -33,7 +33,7 @@ public interface IUmtModel
 [KnownType(typeof(WebsiteChannelModel))]
 [KnownType(typeof(TaxonomyModel))]
 [KnownType(typeof(TagModel))]
-public abstract class UmtModel: IUmtModel
+public abstract class UmtModel : IUmtModel
 {
     public virtual string PrintMe()
     {
@@ -43,7 +43,7 @@ public abstract class UmtModel: IUmtModel
         sb.Append($" UID={uniqueId.ToString() ?? "<not specified>"}");
         if (name != NOT_AVAILABLE)
         {
-            sb.Append($" N='{name ?? "<not specified>"}'");    
+            sb.Append($" N='{name ?? "<not specified>"}'");
         }
         if (displayName != NOT_AVAILABLE)
         {
@@ -62,5 +62,5 @@ public abstract class UmtModel: IUmtModel
     /// any value that is consumable by standard XbyK api and <see cref="AssetSource"/>
     /// </summary>
     [System.Text.Json.Serialization.JsonExtensionData]
-    public Dictionary<string, object?> CustomProperties { get; set; } = new();
+    public Dictionary<string, object?> CustomProperties { get; set; } = [];
 }

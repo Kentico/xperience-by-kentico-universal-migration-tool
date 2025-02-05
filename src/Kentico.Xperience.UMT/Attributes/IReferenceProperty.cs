@@ -4,5 +4,5 @@
 public interface IReferenceProperty
 {
     Type InfoType { get; }
-    string ReferencedPropertyName { get; } 
+    string ReferencedPropertyName { get; }
 }

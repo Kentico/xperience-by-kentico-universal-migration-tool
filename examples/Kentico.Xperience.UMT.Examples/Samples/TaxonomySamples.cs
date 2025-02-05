@@ -5,7 +5,7 @@ namespace Kentico.Xperience.UMT.Examples;
 public static class TaxonomySamples
 {
     public static readonly Guid SampleTaxonomyCoffeeGuid = new("BD88FD9B-8D36-4D02-A4A6-9A2B26C48488");
-    
+
     [Sample("taxonomyinfo.coffeesample", "Sample demonstrates how to create taxonomy", "Instance of dataclass TaxonomyInfo - Sample taxonomy")]
     public static TaxonomyModel SampleTaxonomyCoffee => new()
     {
@@ -19,7 +19,7 @@ public static class TaxonomySamples
             [ContentLanguageSamples.CONTENT_LANGUAGE_ENGB_SAMPLE_GUID] = new("Coffea enGB")
         }
     };
-    
+
     public static readonly Guid SampleTagCoffeaCanephoraGuid = new("A6E3CC11-95A8-482C-BEB4-58BBEF6E7BDD");
     [Sample("taginfo.canephorasample", "Sample demonstrates how to create taxonomy tag", "Instance of dataclass TagInfo - Sample tag canephora")]
     public static TagModel SampleTagCoffeaCanephora => new()
@@ -37,7 +37,7 @@ public static class TaxonomySamples
             [ContentLanguageSamples.CONTENT_LANGUAGE_ENGB_SAMPLE_GUID] = new("Coffea canephora enGB", "ENGB Robusta is a species of flowering plant in the family Rubiaceae. Though widely known by the synonym Coffea robusta, the plant is currently scientifically identified as Coffea canephora, which has two main varieties, C. c. robusta and C. c. nganda.[2] The plant has a shallow root system and grows as a robust tree or shrub to about 10 metres (30 feet) tall. It flowers irregularly, taking about 10—11 months for the berries to ripen, producing oval-shaped beans.")
         }
     };
-    
+
     public static readonly Guid SampleTagCoffeaNgandaGuid = new("B351F88C-7E0C-4339-BCF8-ED86BB8A2804");
     [Sample("taginfo.ngandasample", "Sample demonstrates how to create taxonomy tag", "Instance of dataclass TagInfo - Sample tag nganda")]
     public static TagModel SampleTagCoffeaNganda => new()
@@ -73,7 +73,7 @@ public static class TaxonomySamples
             [ContentLanguageSamples.CONTENT_LANGUAGE_ENGB_SAMPLE_GUID] = new("Coffea robusta enGB", "ENGB Coffea robusta variety of coffea canephora.")
         }
     };
-    
+
     public static readonly Guid SampleTagCoffeaArabicaGuid = new("FFE48372-2BAC-4A14-AD8C-C86F3F54C7C5");
     [Sample("taginfo.arabicasample", "Sample demonstrates how to create taxonomy tag", "Instance of dataclass TagInfo - Sample tag arabica")]
     public static TagModel SampleTagCoffeaArabica => new()

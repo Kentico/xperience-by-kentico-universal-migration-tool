@@ -6,14 +6,13 @@ namespace Kentico.Xperience.UMT.DocUtils.Walkers;
 
 public class UmtModelWalker : CSharpSyntaxWalker
 {
-    private readonly List<SyntaxNode> umtModelClasses = new();
-    public List<SyntaxNode> UmtModelClasses => umtModelClasses;
+    public List<SyntaxNode> UmtModelClasses { get; } = [];
 
     public override void VisitClassDeclaration(ClassDeclarationSyntax node)
     {
         if (node.AttributeLists.Any(attributeListSyntax => attributeListSyntax.Attributes.Any(attributeSyntax => attributeSyntax.Name.ToString() == "UmtModel")))
         {
-            umtModelClasses.Add(node);
+            UmtModelClasses.Add(node);
             return;
         }
 

@@ -1,6 +1,8 @@
 ﻿using System.ComponentModel.DataAnnotations;
+
 using CMS.MediaLibrary;
 using CMS.Membership;
+
 using Kentico.Xperience.UMT.Attributes;
 // ReSharper disable InconsistentNaming
 

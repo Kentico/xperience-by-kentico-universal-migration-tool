@@ -29,6 +29,6 @@ public class ReferencePropertyAttribute : Attribute, IReferenceProperty
     public bool IsRequired { get; set; }
 
     public string? SearchedField { get; set; }
-    
+
     public string? ValueField { get; init; }
 }

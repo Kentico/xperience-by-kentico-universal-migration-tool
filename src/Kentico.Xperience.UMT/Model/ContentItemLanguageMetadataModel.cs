@@ -1,7 +1,9 @@
 ﻿using System.ComponentModel.DataAnnotations;
+
 using CMS.ContentEngine;
 using CMS.ContentEngine.Internal;
 using CMS.Membership;
+
 using Kentico.Xperience.UMT.Attributes;
 
 namespace Kentico.Xperience.UMT.Model;
@@ -64,7 +66,7 @@ public class ContentItemLanguageMetadataModel : UmtModel
     /// </summary>
     [Map]
     public DateTime? ContentItemLanguageMetadataScheduledPublishWhen { get; set; }
-        
+
     /// <summary>
     /// Date and time on which published content item will be unpublished, must be set in future
     /// </summary>
