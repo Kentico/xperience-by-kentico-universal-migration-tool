@@ -116,7 +116,10 @@ public static class SampleProvider
             ContentItemSamples.SampleArticleWebPathUrlPathModelEs,
 
             ContentItemSamples.SampleArticleWebPageItem,
-            ContentItemSamples.SampleArticleWebPageAcl
+            ContentItemSamples.SampleArticleWebPageAcl,
+
+            ContentItemSamples.SampleArticleWebPathFormerUrlPathEnUs,
+            ContentItemSamples.SampleArticleWebPathFormerUrlPathEnGb
         });
 
         sourceData.AddRange(new IUmtModel[]
@@ -146,6 +149,7 @@ public static class SampleProvider
         sourceData.Add(ContentItemSimplifiedSamples.SampleArticleSubPage5ContentItemSimplifiedModel_Scheduled);
         sourceData.Add(ContentItemSimplifiedSamples.SampleArticleSubPage6ContentItemSimplifiedModel_InitialDraft);
         sourceData.Add(ContentItemSimplifiedSamples.SampleArticleSubPage7ContentItemSimplifiedModel_Scheduled);
+        sourceData.Add(ContentItemSimplifiedSamples.SampleArticleSubPage8ContentItemSimplifiedModel_Published);
         sourceData.Add(ContentItemSimplifiedSamples.SampleFaqContentItemSimplifiedModel); // references sample content subfolder
         sourceData.Add(ContentItemSimplifiedSamples.SampleEventContentItemWithAsset);
 

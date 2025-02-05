@@ -99,6 +99,20 @@ public static class ContentItemSamples
         WebPageUrlPathIsDraft = false
     };
 
+    [Sample("webpageitem.formerurlpath.sample.article.enus", "", "Page former url path sample")]
+    public static WebPageFormerUrlPathModel SampleArticleWebPathFormerUrlPathEnUs => new()
+    {
+        WebPageFormerUrlPathGUID = new("72A4EC78-5C19-4415-B512-E0A74D5FACE1"),
+        WebPageFormerUrlPath = "/enus-former-url-path",
+        WebPageFormerUrlPathHash = null,
+        WebPageFormerUrlPathWebPageItemGuid = SAMPLE_ARTICLE_WEB_PAGE_GUID,
+        WebPageFormerUrlPathWebsiteChannelGuid = WebSiteChannelSamples.WebsiteChannelGuid,
+        WebPageFormerUrlPathContentLanguageGuid = ContentLanguageSamples.CONTENT_LANGUAGE_ENUS_SAMPLE_GUID,
+        WebPageFormerUrlPathSourceWebPageItemGuid = null,
+        WebPageFormerUrlPathIsRedirect = false,
+        WebPageFormerUrlPathIsRedirectScheduled = false
+    };
+
     #endregion
 
     #region "EnGb version"
@@ -161,6 +175,24 @@ public static class ContentItemSamples
         WebPageUrlPathIsLatest = true,
         WebPageUrlPathIsDraft = false
     };
+
+    [Sample("webpageitem.formerurlPath.sample.articl.engb", "", "Page former url path sample")]
+    public static WebPageFormerUrlPathModel SampleArticleWebPathFormerUrlPathEnGb => new()
+    {
+        WebPageFormerUrlPathGUID = new("F9B9CDD0-2202-4609-980F-5B136C8BEB2A"),
+        WebPageFormerUrlPath = "/engb-former-url-path",
+        WebPageFormerUrlPathHash = null,
+        WebPageFormerUrlPathWebPageItemGuid = SAMPLE_ARTICLE_WEB_PAGE_GUID,
+        WebPageFormerUrlPathWebsiteChannelGuid = WebSiteChannelSamples.WebsiteChannelGuid,
+        WebPageFormerUrlPathContentLanguageGuid = ContentLanguageSamples.CONTENT_LANGUAGE_ENGB_SAMPLE_GUID,
+        WebPageFormerUrlPathSourceWebPageItemGuid = null,
+        WebPageFormerUrlPathIsRedirect = false,
+        WebPageFormerUrlPathIsRedirectScheduled = false
+    };
+
+    #endregion
+
+    #region "ES version"
 
     [Sample("webpageitem.urlpath.sample.article.es", "", "Page url path sample")]
     public static WebPageUrlPathModel SampleArticleWebPathUrlPathModelEs => new()
@@ -494,4 +526,6 @@ public static class ContentItemSamples
     #endregion
 
     #endregion
+
+
 }

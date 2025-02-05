@@ -25,6 +25,7 @@ public static class ContentItemSimplifiedSamples
     public static readonly Guid SampleArticleSubPage5ContentItemGuid = new("BB5C0EB4-E688-4A97-99C7-FA97CAD8F1D5");
     public static readonly Guid SampleArticleSubPage6ContentItemGuid = new("1D542076-DD88-4C13-A8AA-0FFECDABBA69");
     public static readonly Guid SampleArticleSubPage7ContentItemGuid = new("FB66242F-4186-4F71-B0B8-FC68B51D52C1");
+    public static readonly Guid SampleArticleSubPage8ContentItemGuid = new("C8940315-2329-46B8-AC15-032BD2Bf621C");
 
     [Sample("ContentItemSimplifiedModel.Sample.Article", "Simplified model for importing webpage content item", "Simplified model for webpage content item sample")]
     public static ContentItemSimplifiedModel SampleArticleContentItemSimplifiedModel => new()
@@ -106,7 +107,7 @@ public static class ContentItemSimplifiedSamples
     };
 
     public static ContentItemSimplifiedModel CreateSampleContentItemSimplifiedModel(Guid contentItemGuid, string name, string displayName,
-        string treePath, string title, string articleText, List<(string Language, VersionStatus Status, bool IsLatest, Guid TeaserGuid)> languageData) => new()
+        string treePath, string title, string articleText, List<PageFormerUrlModel>? pageFormerUrls, List<(string Language, VersionStatus Status, bool IsLatest, Guid TeaserGuid)> languageData) => new()
         {
             ContentItemGUID = contentItemGuid,
             Name = name,
@@ -137,7 +138,8 @@ public static class ContentItemSimplifiedSamples
                             PathIsLatest = true,
                             UrlPath = $"{language!.ToLower()}{treePath}"
                         })
-                ]
+                ],
+                PageFormerUrls = pageFormerUrls
             },
             LanguageData = languageData.Select(languageVersion =>
             new ContentItemLanguageData
@@ -166,6 +168,7 @@ public static class ContentItemSimplifiedSamples
             treePath: "/simplified-sample/sub-page",
             title: "UMT simplified model creation as sub page",
             articleText: "This article is only example of creation UMT simplified model",
+            pageFormerUrls: null,
             [
                 (ContentLanguageSamples.SampleContentLanguageEnUs.ContentLanguageName!, VersionStatus.InitialDraft, true, new Guid("57E26C3F-31B6-4B92-9C45-21723C06AD2E")),
                 (ContentLanguageSamples.SampleContentLanguageEnGb.ContentLanguageName!, VersionStatus.Published, true, new Guid("57885CC8-3488-41B1-804F-E61445D6E07F")),
@@ -182,6 +185,7 @@ public static class ContentItemSimplifiedSamples
             treePath: "/simplified-sample/sub-page-2",
             title: "UMT simplified model creation as sub page 2 [Draft]",
             articleText: "Created by UMT simplified model in Draft state",
+            pageFormerUrls: null,
             [
                 (ContentLanguageSamples.SampleContentLanguageEnUs.ContentLanguageName!, VersionStatus.Published, false, new Guid("26605C72-B6EC-4F0C-9071-FB55602DCF50")),
                 (ContentLanguageSamples.SampleContentLanguageEnUs.ContentLanguageName!, VersionStatus.Draft, true, new Guid("AA7EB6C9-D5C2-4CBC-B0BF-D3A29CDB82C4")),
@@ -199,6 +203,7 @@ public static class ContentItemSimplifiedSamples
             treePath: "/simplified-sample/sub-page-3",
             title: "UMT simplified model creation as sub page 3 [Draft]",
             articleText: "Created by UMT simplified model in Draft state",
+            pageFormerUrls: null,
             [
                 (ContentLanguageSamples.SampleContentLanguageEnUs.ContentLanguageName!, VersionStatus.Published, false, new Guid("22B80F00-F0A0-43F0-A31E-CDBA144547DC")),
                 (ContentLanguageSamples.SampleContentLanguageEnUs.ContentLanguageName!, VersionStatus.Draft, true, new Guid("51E7B6AC-B571-4688-8210-3F506A84E184")),
@@ -216,6 +221,7 @@ public static class ContentItemSimplifiedSamples
             treePath: "/simplified-sample/sub-page-4",
             title: "UMT simplified model creation as sub page 4",
             articleText: "This article is only example of creation UMT simplified model",
+            pageFormerUrls: null,
             [
                 (ContentLanguageSamples.SampleContentLanguageEnUs.ContentLanguageName!, VersionStatus.InitialDraft, true, new Guid("6DFB0834-B61A-4E79-8E12-09E40019FD1D")),
             ]
@@ -230,6 +236,7 @@ public static class ContentItemSimplifiedSamples
             treePath: "/simplified-sample/sub-page-5",
             title: "UMT simplified model creation as sub page 5",
             articleText: "This article is only example of creation UMT simplified model",
+            pageFormerUrls: null,
             [
                 (ContentLanguageSamples.SampleContentLanguageEnUs.ContentLanguageName!, VersionStatus.InitialDraft, true, new Guid("BD7C71FF-7953-45B4-B43D-F2926D022157")),
             ]
@@ -244,6 +251,7 @@ public static class ContentItemSimplifiedSamples
             treePath: "/simplified-sample/sub-page-6",
             title: "UMT simplified model creation as sub page 6",
             articleText: "This article is only example of creation UMT simplified model",
+            pageFormerUrls: null,
             [
                 (ContentLanguageSamples.SampleContentLanguageEnUs.ContentLanguageName!, VersionStatus.InitialDraft, true, new Guid("22DDD031-C3EF-4079-8E91-6AF58EDA291F")),
             ]
@@ -258,11 +266,32 @@ public static class ContentItemSimplifiedSamples
             treePath: "/simplified-sample/sub-page-7",
             title: "UMT simplified model creation as sub page 7",
             articleText: "This article is only example of creation UMT simplified model",
+            pageFormerUrls: null,
             [
                 (ContentLanguageSamples.SampleContentLanguageEnUs.ContentLanguageName!, VersionStatus.InitialDraft, true, new Guid("6AE7CB81-D03F-43AF-9F3F-EA3DBD9983B5")),
             ]
         ).Apply(x => x.LanguageData.ForEach(ld => ld.ScheduledPublishWhen = new DateTime(2045, 1, 1, 0, 0, 0, 0, 0, DateTimeKind.Utc)));
 
+    [Sample("ContentItemSimplifiedModel.Sample.ArticleSubPage8", "Simplified model for importing webpage content with former URLs", "Simplified model for webpage content item sample with former URLs")]
+    public static ContentItemSimplifiedModel SampleArticleSubPage8ContentItemSimplifiedModel_Published =>
+        CreateSampleContentItemSimplifiedModel(
+            contentItemGuid: SampleArticleSubPage8ContentItemGuid,
+            name: "SimplifiedModelSampleAsSubPage8",
+            displayName: "Simplified model sample sub page 8",
+            treePath: "/simplified-sample/sub-page-8",
+            title: "UMT simplified model creation as sub page 8",
+            articleText: "This article is only example of creation UMT simplified model",
+            pageFormerUrls:
+            [
+                new() {
+                    FormerUrlPath = "/simplified-sample/enus-former-url",
+                    LanguageName = ContentLanguageSamples.SampleContentLanguageEnUs.ContentLanguageName!,
+                }
+            ],
+            [
+                (ContentLanguageSamples.SampleContentLanguageEnUs.ContentLanguageName!, VersionStatus.Published, false, new Guid("311D1188-A419-4A4B-A26C-D658525C9DC5")),
+                (ContentLanguageSamples.SampleContentLanguageEnUs.ContentLanguageName!, VersionStatus.Draft, true, new Guid("822231A1-EEA1-4008-B073-F1F76738Cf5C")),
+            ]).Apply(x => x.LanguageData.ForEach(ld => ld.ScheduledPublishWhen = new DateTime(2045, 1, 1, 0, 0, 0, 0, 0, DateTimeKind.Utc)));
 
     [Sample("ContentItemSimplifiedModel.Sample.Faq", "This sample describes how to create content item data inside XbyK", "Simplified model for reusable content item sample")]
     public static ContentItemSimplifiedModel SampleFaqContentItemSimplifiedModel => new()

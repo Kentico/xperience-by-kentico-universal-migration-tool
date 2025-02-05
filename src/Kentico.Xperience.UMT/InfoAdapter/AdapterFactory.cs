@@ -40,6 +40,7 @@ internal class AdapterFactory(ILoggerFactory loggerFactory, UmtModelService mode
             WebPageItemModel => new GenericInfoAdapter<WebPageItemInfo>(loggerFactory.CreateLogger<GenericInfoAdapter<WebPageItemInfo>>(), adapterContext),
             WebPageAclModel => new GenericInfoAdapter<WebPageAclInfo>(loggerFactory.CreateLogger<GenericInfoAdapter<WebPageAclInfo>>(), adapterContext),
             WebPageUrlPathModel => new WebPageUrlPathAdapter(loggerFactory.CreateLogger<WebPageUrlPathAdapter>(), adapterContext),
+            WebPageFormerUrlPathModel => new WebPageFormerUrlPathAdapter(loggerFactory.CreateLogger<WebPageFormerUrlPathAdapter>(), adapterContext),
             DataClassModel => new DataClassAdapter(loggerFactory.CreateLogger<DataClassAdapter>(), adapterContext),
             ContentTypeChannelModel => new GenericInfoAdapter<ContentTypeChannelInfo>(loggerFactory.CreateLogger<GenericInfoAdapter<ContentTypeChannelInfo>>(), adapterContext),
             ContentItemReferenceModel => new GenericInfoAdapter<ContentItemReferenceInfo>(loggerFactory.CreateLogger<GenericInfoAdapter<ContentItemReferenceInfo>>(), adapterContext),

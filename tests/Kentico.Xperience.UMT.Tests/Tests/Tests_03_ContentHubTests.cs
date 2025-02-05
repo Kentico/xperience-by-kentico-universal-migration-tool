@@ -154,5 +154,14 @@ namespace TestAfterMigration.Tests
 
             await Debounce();
         }
+
+        [Test]
+        public async Task Test00800_Former_URLs_Exists()
+        {
+            await OpenAdminApplication("Former URLs");
+
+            await Assertions.Expect(Page.GetByTestId("table-cell-WebPageFormerUrlPath")).Not.ToHaveCountAsync(0);
+        }
+
     }
 }
