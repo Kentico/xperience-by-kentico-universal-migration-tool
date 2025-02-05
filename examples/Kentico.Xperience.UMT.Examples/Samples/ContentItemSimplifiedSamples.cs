@@ -22,7 +22,7 @@ public static class ContentItemSimplifiedSamples
     public static readonly Guid SampleArticleSubPage5ContentItemGuid = new("BB5C0EB4-E688-4A97-99C7-FA97CAD8F1D5");
     public static readonly Guid SampleArticleSubPage6ContentItemGuid = new("1D542076-DD88-4C13-A8AA-0FFECDABBA69");
     public static readonly Guid SampleArticleSubPage7ContentItemGuid = new("FB66242F-4186-4F71-B0B8-FC68B51D52C1");
-    public static readonly Guid SampleArticleSubPage8ContentItemGuid = new("c8940315-2329-46b8-ac15-032bd2bf621c");
+    public static readonly Guid SampleArticleSubPage8ContentItemGuid = new("C8940315-2329-46B8-AC15-032BD2Bf621C");
 
     [Sample("ContentItemSimplifiedModel.Sample.Article", "Simplified model for importing webpage content item", "Simplified model for webpage content item sample")]
     public static ContentItemSimplifiedModel SampleArticleContentItemSimplifiedModel => new()
@@ -276,7 +276,7 @@ public static class ContentItemSimplifiedSamples
             name: "SimplifiedModelSampleAsSubPage8",
             displayName: "Simplified model sample sub page 8",
             treePath: "/simplified-sample/sub-page-8",
-            title: "UMT simplified model creation as sbu page 8",
+            title: "UMT simplified model creation as sub page 8",
             articleText: "This article is only example of creation UMT simplified model",
             pageFormerUrls:
             [
@@ -286,8 +286,8 @@ public static class ContentItemSimplifiedSamples
                 }
             ],
             [
-                (ContentLanguageSamples.SampleContentLanguageEnUs.ContentLanguageName!, VersionStatus.Published, false, new Guid("311d1188-a419-4a4b-a26c-d658525c9dc5")),
-                (ContentLanguageSamples.SampleContentLanguageEnUs.ContentLanguageName!, VersionStatus.Draft, true, new Guid("822231a1-eea1-4008-b073-f1f76738cf5c")),
+                (ContentLanguageSamples.SampleContentLanguageEnUs.ContentLanguageName!, VersionStatus.Published, false, new Guid("311D1188-A419-4A4B-A26C-D658525C9DC5")),
+                (ContentLanguageSamples.SampleContentLanguageEnUs.ContentLanguageName!, VersionStatus.Draft, true, new Guid("822231A1-EEA1-4008-B073-F1F76738Cf5C")),
             ]).Apply(x => x.LanguageData.ForEach(ld => ld.ScheduledPublishWhen = new DateTime(2045, 1, 1, 0, 0, 0, 0, 0, DateTimeKind.Utc)));
 
     [Sample("ContentItemSimplifiedModel.Sample.Faq", "This sample describes how to create content item data inside XbyK", "Simplified model for reusable content item sample")]

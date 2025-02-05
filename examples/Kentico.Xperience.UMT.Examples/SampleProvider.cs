@@ -116,7 +116,10 @@ public static class SampleProvider
             ContentItemSamples.SampleArticleWebPathUrlPathModelEs,
 
             ContentItemSamples.SampleArticleWebPageItem,
-            ContentItemSamples.SampleArticleWebPageAcl
+            ContentItemSamples.SampleArticleWebPageAcl,
+
+            ContentItemSamples.SampleArticleWebPathFormerUrlPathEnUs,
+            ContentItemSamples.SampleArticleWebPathFormerUrlPathEnGb
         });
 
         sourceData.AddRange(new IUmtModel[]
@@ -130,24 +133,6 @@ public static class SampleProvider
             ContentItemSamples.SampleArticleWebPageUrlWithRelationsEnUs,
             ContentItemSamples.SampleArticleWebPageUrlWithRelations,
             ContentItemSamples.SampleArticleWebPageUrlWithRelationsEs
-        });
-
-        sourceData.AddRange(new IUmtModel[]
-        {
-            ContentItemSamples.SampleArticleContentItemWithFormerUrl,
-            ContentItemSamples.SampleArticleContentItemCommonDataEnUsWithFormerUrl,
-            ContentItemSamples.SampleArticleContentItemCommonDataEnGbWithFormerUrl,
-            ContentItemSamples.SampleArticleDataEnUsWithFormerUrl,
-            ContentItemSamples.SampleArticleDataEnGbWithFormerUrl,
-
-            ContentItemSamples.SampleArticleContentItemLanguageMetadataEnUsWithFormerUrl,
-            ContentItemSamples.SampleArticleContentItemLanguageMetadataEnGbWithFormerUrl,
-
-            ContentItemSamples.SampleArticleWebPageItemWithFormerUrl,
-            ContentItemSamples.SampleArticleWebPageUrlWithFormerUrlEnUs,
-            ContentItemSamples.SampleArticleWebFormerUrlPathEnUs,
-            ContentItemSamples.SampleArticleWebPageUrlWithFormerUrlEnGb,
-            ContentItemSamples.SampleArticleWebFormerUrlPathEnGb
         });
 
         // folder samples

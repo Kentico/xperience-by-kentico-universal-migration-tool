@@ -35,7 +35,7 @@ namespace Kentico.Xperience.UMT.Model
         public Guid? WebPageFormerUrlPathContentLanguageGuid { get; set; }
 
         [ReferenceProperty(typeof(WebPageItemInfo), "WebPageFormerUrlPathSourceWebPageItemID", IsRequired = false)]
-        public Guid? WebPageFormerUrlPathSourceWebPageItemID { get; set; }
+        public Guid? WebPageFormerUrlPathSourceWebPageItemGuid { get; set; }
 
         [Map]
         [Required]
