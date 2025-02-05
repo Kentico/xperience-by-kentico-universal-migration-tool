@@ -121,5 +121,13 @@ namespace TestAfterMigration.Tests
             await Assertions.Expect(Page.GetByTestId("EventTeaserOptimized").GetByTestId("asset-tile-preview")).ToHaveCountAsync(1);
         }
 
+        [Test]
+        public async Task Test00700_Former_URLs_Exists()
+        {
+            await OpenAdminApplication("Former URLs");
+
+            await Assertions.Expect(Page.GetByTestId("table-cell-WebPageFormerUrlPath")).Not.ToHaveCountAsync(0);
+        }
+
     }
 }

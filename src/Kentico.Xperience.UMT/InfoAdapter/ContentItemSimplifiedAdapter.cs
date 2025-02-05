@@ -1,7 +1,5 @@
 ﻿using System.Text.Json;
 
-using AngleSharp.Dom;
-
 using CMS.ContentEngine;
 using CMS.ContentEngine.Internal;
 using CMS.Core;
@@ -276,6 +274,47 @@ public class ContentItemSimplifiedAdapter : IInfoAdapter<ContentItemInfo, IUmtMo
                         ArgumentNullException.ThrowIfNull(pathAdapter);
                         var pathInfo = (WebPageUrlPathInfo)pathAdapter.Adapt(pathModel);
                         pathAdapter.ProviderProxy.Save(pathInfo, pathModel);
+                    }
+                }
+
+                var formerUrls = pageData.PageFormerUrls ?? [];
+
+                foreach (var urlsByLang in formerUrls.GroupBy(url => url.LanguageName))
+                {
+                    ArgumentException.ThrowIfNullOrWhiteSpace(urlsByLang.Key);
+
+                    var contentLanguageInfo = contentLanguageProxy.GetBaseInfoByCodeName(urlsByLang.Key, null!) as ContentLanguageInfo;
+                    ArgumentNullException.ThrowIfNull(contentLanguageInfo);
+
+                    foreach (var pageFormerUrlModel in urlsByLang)
+                    {
+                        ArgumentException.ThrowIfNullOrWhiteSpace(pageFormerUrlModel.LanguageName);
+
+                        var existingPathInfo = Provider<WebPageFormerUrlPathInfo>.Instance.Get()
+                                    .WhereEquals(nameof(WebPageFormerUrlPathInfo.WebPageFormerUrlPath), pageFormerUrlModel.FormerUrlPath)
+                                    .WhereEquals(nameof(WebPageFormerUrlPathInfo.WebPageFormerUrlPathWebPageItemID), webPageItemInfo.WebPageItemID)
+                                    .WhereEquals(nameof(WebPageFormerUrlPathInfo.WebPageFormerUrlPathContentLanguageID), contentLanguageInfo.ContentLanguageID)
+                                    .WhereEquals(nameof(WebPageFormerUrlPathInfo.WebPageFormerUrlPathWebsiteChannelID), webSiteChannel.WebsiteChannelID)
+                                    .FirstOrDefault();
+
+                        if (existingPathInfo == null)
+                        {
+                            var formerPathModel = new WebPageFormerUrlPathModel
+                            {
+                                WebPageFormerUrlPathGUID = Guid.NewGuid(),
+                                WebPageFormerUrlPathWebPageItemGuid = webPageItemModel.WebPageItemGUID,
+                                WebPageFormerUrlPath = pageFormerUrlModel.FormerUrlPath,
+                                WebPageFormerUrlPathWebsiteChannelGuid = webSiteChannel.WebsiteChannelGUID,
+                                WebPageFormerUrlPathContentLanguageGuid = contentLanguageInfo.ContentLanguageGUID,
+                                WebPageFormerUrlPathIsRedirectScheduled = false,
+                                WebPageFormerUrlPathIsRedirect = false
+                            };
+
+                            var formerPathAdapter = adapterFactory.CreateAdapter(formerPathModel, new ProviderProxyContext());
+                            ArgumentNullException.ThrowIfNull(formerPathAdapter);
+                            var formerPathInfo = (WebPageFormerUrlPathInfo)formerPathAdapter.Adapt(formerPathModel);
+                            formerPathAdapter.ProviderProxy.Save(formerPathInfo, formerPathModel);
+                        }
                     }
                 }
             }
