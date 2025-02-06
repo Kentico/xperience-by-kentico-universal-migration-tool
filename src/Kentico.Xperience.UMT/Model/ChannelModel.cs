@@ -1,7 +1,9 @@
 ﻿
 
 using System.ComponentModel.DataAnnotations;
+
 using CMS.ContentEngine;
+
 using Kentico.Xperience.UMT.Attributes;
 
 namespace Kentico.Xperience.UMT.Model;
@@ -31,6 +33,6 @@ public class ChannelModel : UmtModel
     [Map]
     [Required]
     public ChannelType? ChannelType { get; set; }
-    
+
     protected override (Guid? uniqueId, string? name, string? displayName) GetPrintArgs() => (ChannelGUID, ChannelName, ChannelDisplayName);
 }

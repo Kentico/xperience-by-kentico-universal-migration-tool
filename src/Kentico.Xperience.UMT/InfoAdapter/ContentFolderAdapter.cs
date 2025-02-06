@@ -6,14 +6,12 @@ using CMS.Helpers;
 using CMS.Workspaces;
 
 using Kentico.Xperience.UMT.Model;
-using Kentico.Xperience.UMT.ProviderProxy;
-using Kentico.Xperience.UMT.Services.Model;
 
 using Microsoft.Extensions.Logging;
 
 namespace Kentico.Xperience.UMT.InfoAdapter;
 
-public class ContentFolderAdapter: GenericInfoAdapter<ContentFolderInfo>
+public class ContentFolderAdapter : GenericInfoAdapter<ContentFolderInfo>
 {
     private readonly IInfoProvider<ContentFolderInfo> contentFolderInfoProvider;
     private readonly IInfoProvider<WorkspaceInfo> workspaceInfoProvider;
@@ -27,7 +25,7 @@ public class ContentFolderAdapter: GenericInfoAdapter<ContentFolderInfo>
     public override ContentFolderInfo Adapt(IUmtModel input)
     {
         var info = base.Adapt(input);
-        
+
         var dateTimeNowService = Service.Resolve<IDateTimeNowService>();
         if (info.ContentFolderCreatedWhen == DateTimeHelper.ZERO_TIME)
         {
@@ -40,7 +38,7 @@ public class ContentFolderAdapter: GenericInfoAdapter<ContentFolderInfo>
             var root = contentFolderInfoProvider.Get()
                 .WhereEquals(nameof(ContentFolderInfo.ContentFolderTreePath), "/")
                 .FirstOrDefault();
-                
+
             if (root != null)
             {
                 info.ContentFolderParentFolderID = root.ContentFolderID;
@@ -50,7 +48,7 @@ public class ContentFolderAdapter: GenericInfoAdapter<ContentFolderInfo>
                 Logger.LogError("Failed to locate root content item folder");
             }
         }
-        
+
         if (input is ContentFolderModel { ContentFolderWorkspaceGUID: null })
         {
             var defaultWorkspace = workspaceInfoProvider.Get()

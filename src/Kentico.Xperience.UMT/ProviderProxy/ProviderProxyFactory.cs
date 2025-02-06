@@ -21,8 +21,8 @@ internal class ProviderProxyFactory : IProviderProxyFactory
         {
             return new ContentItemDataProxy(context);
         }
-        
-        return (IProviderProxy)(Activator.CreateInstance(typeof(ProviderProxy<>).MakeGenericType(infoType), context) ?? 
+
+        return (IProviderProxy)(Activator.CreateInstance(typeof(ProviderProxy<>).MakeGenericType(infoType), context) ??
                                 throw new InvalidOperationException($"Cannot create proxy for type '{infoType.FullName}'"));
     }
 }

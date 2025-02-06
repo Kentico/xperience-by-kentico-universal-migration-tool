@@ -106,7 +106,7 @@ This sample describes how to create class inside XbyK to hold Article data
         "ControlName": "Kentico.Administration.WebPageSelector",
         "MaximumPages": 5,
         "Sortable": "False",
-        "TreePath": "/Articles"
+        "TreePath": "/simplified-sample"
       }
     },
     {

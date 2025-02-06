@@ -47,6 +47,7 @@ public static class Extensions
             Accessibility.Protected => true,
             Accessibility.ProtectedOrInternal => true,
             Accessibility.Public => true,
+            Accessibility.NotApplicable => throw new NotImplementedException(),
             _ => true, //Here should be some reasonable default
         };
 }

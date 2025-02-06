@@ -1,15 +1,10 @@
-﻿using System.Diagnostics;
-using System.Text.Json;
-
-using CMS.ContentEngine;
+﻿using CMS.ContentEngine;
 using CMS.ContentEngine.Internal;
 using CMS.DataEngine;
 using CMS.Workspaces;
 
 using Kentico.Xperience.UMT.Model;
-using Kentico.Xperience.UMT.ProviderProxy;
-using Kentico.Xperience.UMT.Serialization;
-using Kentico.Xperience.UMT.Services.Model;
+
 using Microsoft.Extensions.Logging;
 
 namespace Kentico.Xperience.UMT.InfoAdapter;

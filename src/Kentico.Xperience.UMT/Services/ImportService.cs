@@ -1,12 +1,15 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.Text.Json;
+
 using CMS.DataEngine;
+
 using Kentico.Xperience.UMT.InfoAdapter;
 using Kentico.Xperience.UMT.Model;
 using Kentico.Xperience.UMT.ProviderProxy;
 using Kentico.Xperience.UMT.Serialization;
 using Kentico.Xperience.UMT.Services.Model;
 using Kentico.Xperience.UMT.Services.Validation;
+
 using Microsoft.Extensions.Logging;
 
 namespace Kentico.Xperience.UMT.Services;
@@ -26,7 +29,7 @@ public sealed class ImportStateObserver
     /// Delegate specifies callback method for event ImportedInfo
     /// </summary>
     public delegate void ImportedInfoDelegate(IUmtModel model, BaseInfo info);
-    
+
     /// <summary>
     /// Invoked when Kentico API Info object is successfully created
     /// </summary>
@@ -40,8 +43,8 @@ public sealed class ImportStateObserver
     /// Invoked when format of model is incorrect
     /// </summary>
     public event ModelValidationError? ValidationError;
-    
-    
+
+
     /// <summary>
     /// Delegate specifies callback method for event Exception
     /// </summary>
@@ -50,7 +53,7 @@ public sealed class ImportStateObserver
     /// Invoked when exception related to one model instance
     /// </summary>
     public event RaisedException? Exception;
-    
+
 
     internal void OnImportedInfo(IUmtModel model, BaseInfo info) => ImportedInfo?.Invoke(model, info);
 
@@ -89,7 +92,7 @@ internal class ImportService : IImportService
         options.Converters.Add(converter);
         return JsonSerializer.Serialize(model, options);
     }
-    
+
     /// <inheritdoc />
     public string SerializeToJson(IEnumerable<UmtModel> model, JsonSerializerOptions? options = null)
     {
@@ -105,7 +108,7 @@ internal class ImportService : IImportService
         var converter = new UmtModelStjConverter(umtModelService.GetAll());
         return JsonSerializer.DeserializeAsyncEnumerable<UmtModel?>(jsonStream, new JsonSerializerOptions
         {
-            Converters = { 
+            Converters = {
                 converter
             }
         });
@@ -115,10 +118,13 @@ internal class ImportService : IImportService
     public IEnumerable<IUmtModel>? FromJsonString(string jsonString)
     {
         var converter = new UmtModelStjConverter(umtModelService.GetAll());
-        return JsonSerializer.Deserialize<UmtModel[]>(jsonString, new JsonSerializerOptions { Converters =
+        return JsonSerializer.Deserialize<UmtModel[]>(jsonString, new JsonSerializerOptions
+        {
+            Converters =
         {
             converter
-        } })?.Cast<IUmtModel>();  
+        }
+        })?.Cast<IUmtModel>();
     }
 
     /// <inheritdoc />
@@ -173,7 +179,7 @@ internal class ImportService : IImportService
             logger.LogError("Unable to find import object adapter for type '{Type}'", model.GetType());
             return;
         }
-        
+
         var modelValidationResults = new List<ValidationResult>();
         var uniqueId = adapter.GetUniqueIdOrNull(model);
         if (!ValidationService.Instance.TryValidateModel(model, ref modelValidationResults))
@@ -204,7 +210,7 @@ internal class ImportService : IImportService
             observer.OnException(model, uniqueId, ex);
             return;
         }
-        
+
         observer.OnImportedInfo(model, adapted);
     }
 }

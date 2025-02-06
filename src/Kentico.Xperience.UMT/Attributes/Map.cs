@@ -1,9 +1,9 @@
 ﻿namespace Kentico.Xperience.UMT.Attributes;
 
 [AttributeUsage(AttributeTargets.Property)]
-public class MapAttribute: Attribute
+public class MapAttribute : Attribute
 {
-    
+
 }
 
 [AttributeUsage(AttributeTargets.Property)]

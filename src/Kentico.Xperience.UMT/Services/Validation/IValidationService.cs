@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+
 using Kentico.Xperience.UMT.Model;
 
 namespace Kentico.Xperience.UMT.Services.Validation;
@@ -7,7 +8,7 @@ namespace Kentico.Xperience.UMT.Services.Validation;
 /// UMT Model validation / correct format checking
 /// </summary>
 public interface IValidationService
-{ 
+{
     /// <summary>
     /// Validates UMT model
     /// </summary>

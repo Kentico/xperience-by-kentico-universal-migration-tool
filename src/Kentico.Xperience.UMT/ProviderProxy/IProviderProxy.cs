@@ -16,15 +16,15 @@ public interface IProviderProxy
     BaseInfo? GetBaseInfoByGuid(Guid guid, IUmtModel model);
     BaseInfo? GetBaseInfoBy(Guid guid, string searchedField, IUmtModel model);
     BaseInfo? GetBaseInfoByCodeName(string codeName, IUmtModel model);
-    
+
     BaseInfo Save(BaseInfo info, IUmtModel model);
-    
+
     IProviderProxyContext Context { get; }
 }
 
 public interface IProviderProxyContext;
 
-public class ProviderProxyContext: IProviderProxyContext;
+public class ProviderProxyContext : IProviderProxyContext;
 
 internal class ContentItemDataProxy(IProviderProxyContext context) : IProviderProxy
 {
@@ -85,8 +85,8 @@ internal class ContentItemDataProxy(IProviderProxyContext context) : IProviderPr
 
 internal class ProviderProxy<TInfo> : IProviderProxy where TInfo : AbstractInfoBase<TInfo>, new()
 {
-    private static Type InfoType = typeof(TInfo);
-    
+    private static readonly Type InfoType = typeof(TInfo);
+
     public IProviderProxyContext Context { get; }
 
     protected readonly IInfoProvider<TInfo> ProviderInstance;
@@ -102,7 +102,7 @@ internal class ProviderProxy<TInfo> : IProviderProxy where TInfo : AbstractInfoB
 
         ProviderInstance = Provider<TInfo>.Instance;
     }
-    
+
     public List<BaseInfo> GetInfoByKeys(IUmtModel model, List<(string columnName, object? value)> filters)
     {
         var query = ProviderInstance.Get();
@@ -145,10 +145,10 @@ internal class ProviderProxy<TInfo> : IProviderProxy where TInfo : AbstractInfoB
             finally
             {
                 if (InfoType.IsAssignableTo(typeof(WebPageItemInfo)) && info is WebPageItemInfo webPageItemInfo)
-                {    
+                {
                     var webPageAclMappingManager = Service.Resolve<IWebPageAclMappingManager>();
                     webPageAclMappingManager.CreateMapping(webPageItemInfo.WebPageItemID, webPageItemInfo.WebPageItemParentID, webPageItemInfo.WebPageItemWebsiteChannelID, CancellationToken.None).GetAwaiter().GetResult();
-                    
+
                     var webPageAclMappingManagerFactory = Service.Resolve<IWebPageAclManagerFactory>();
                     webPageAclMappingManagerFactory
                         .Create(webPageItemInfo.WebPageItemWebsiteChannelID)

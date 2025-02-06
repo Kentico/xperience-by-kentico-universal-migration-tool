@@ -1,6 +1,8 @@
-﻿using CMS.ContentEngine;
+﻿using System.ComponentModel.DataAnnotations;
+
+using CMS.ContentEngine;
+
 using Kentico.Xperience.UMT.Attributes;
-using System.ComponentModel.DataAnnotations;
 
 namespace Kentico.Xperience.UMT.Model;
 
@@ -22,7 +24,7 @@ public class EmailChannelModel : UmtModel
     [Map]
     [Required]
     public string? EmailChannelSendingDomain { get; set; }
-    
+
     [Required]
     [ReferenceProperty(typeof(ContentLanguageInfo), "EmailChannelPrimaryContentLanguageID", IsRequired = true)]
     public Guid? EmailChannelPrimaryContentLanguageGUID { get; set; }

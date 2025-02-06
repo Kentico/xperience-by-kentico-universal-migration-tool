@@ -1,5 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
+
 using CMS.ContentEngine;
+
 using Kentico.Xperience.UMT.Attributes;
 // ReSharper disable InconsistentNaming
 
@@ -15,7 +17,7 @@ namespace Kentico.Xperience.UMT.Model;
 public class ContentItemSimplifiedModel : UmtModel
 {
     public const string DISCRIMINATOR = "ContentItemSimplified";
-    
+
     [Map]
     [Required]
     [UniqueIdProperty]
@@ -55,11 +57,11 @@ public class ContentItemSimplifiedModel : UmtModel
     public string? ChannelName { get; set; }
 
     public List<ContentItemLanguageData> LanguageData { get; set; } = [];
-    
+
     public PageDataModel? PageData { get; set; }
-    
+
     #endregion
-    
+
     protected override (Guid? uniqueId, string? name, string? displayName) GetPrintArgs() => (ContentItemGUID, Name, null);
 }
 
@@ -67,26 +69,26 @@ public class ContentItemLanguageData
 {
     [Required]
     public required string LanguageName { get; set; }
-    
+
     [Required]
     public required string DisplayName { get; set; }
-    
+
     public VersionStatus VersionStatus { get; set; } = VersionStatus.Published;
     public bool IsLatest { get; set; } = true;
 
     [Required]
     public required Guid? UserGuid { get; set; }
-    
+
     /// <summary>
     /// Date and time on which draft content item will be published, must be set in future
     /// </summary>
     public DateTime? ScheduledPublishWhen { get; set; }
-        
+
     /// <summary>
     /// Date and time on which published content item will be unpublished, must be set in future
     /// </summary>
     public DateTime? ScheduledUnpublishWhen { get; set; }
-    
+
     public Dictionary<string, object?>? ContentItemData { get; set; }
 }
 

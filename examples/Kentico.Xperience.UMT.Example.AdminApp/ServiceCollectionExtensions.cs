@@ -1,16 +1,16 @@
-﻿using System.Collections.Concurrent;
-using System.Net.Sockets;
+﻿using System.Net.Sockets;
 using System.Net.WebSockets;
 using System.Text;
-using Azure;
+
 using CMS.Core;
-using CMS.DataEngine;
+
 using Kentico.Xperience.UMT.Example.AdminApp.Auxiliary;
 using Kentico.Xperience.UMT.Services;
+
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.Extensions.DependencyInjection;
+
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
@@ -104,7 +104,7 @@ public static class ServiceCollectionExtensions
 
         // indicates import start
         var header = (await ReceiveHeader(webSocket)).ToObject<Message>()!.Payload;
-        
+
         await SendConfirmHeader();
 
         bool consumerIsRunning = true;

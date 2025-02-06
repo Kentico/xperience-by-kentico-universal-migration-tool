@@ -1,15 +1,18 @@
 ﻿using System.ComponentModel.DataAnnotations;
+
 using CMS.DataEngine;
+
 using Kentico.Xperience.UMT.InfoAdapter;
 using Kentico.Xperience.UMT.Model;
 using Kentico.Xperience.UMT.ProviderProxy;
 using Kentico.Xperience.UMT.Services.Validation;
+
 using Microsoft.Extensions.Logging;
 
 namespace Kentico.Xperience.UMT.Services;
 
 public class ImportResult : IImportResult
-{ 
+{
     public bool Success { get; set; }
     public int PrimaryKey { get; set; }
     public BaseInfo? Imported { get; set; }
@@ -22,7 +25,7 @@ internal class Importer(ILogger<Importer> logger, AdapterFactory factory) : IImp
     public async Task<IImportResult> ImportAsync(IUmtModel model)
     {
         var providerProxyContext = new ProviderProxyContext();
-        
+
         try
         {
             var importResult = await ImportObject(model, providerProxyContext);
@@ -70,7 +73,7 @@ internal class Importer(ILogger<Importer> logger, AdapterFactory factory) : IImp
         {
             adapted = adapter.Adapt(model);
         }
-        catch(Exception ex)
+        catch (Exception ex)
         {
             logger.LogError(ex, "Model adaptation to InfoObject failed");
             return Task.FromResult(new ImportResult

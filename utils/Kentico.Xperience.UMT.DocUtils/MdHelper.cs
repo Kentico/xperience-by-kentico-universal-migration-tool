@@ -44,7 +44,7 @@ public static class MdHelper
 
     public static async Task RenderTemplateToFile<TModel>(string templateKey, TModel model, string filePath)
     {
-        string renderResult = await MdHelper.RenderTemplate(
+        string renderResult = await RenderTemplate(
             templateKey,
             model
         );

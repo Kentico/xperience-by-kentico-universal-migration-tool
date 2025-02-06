@@ -1,6 +1,6 @@
-﻿using Microsoft.Playwright;
+﻿using System.Text.RegularExpressions;
 
-using System.Text.RegularExpressions;
+using Microsoft.Playwright;
 
 namespace TestAfterMigration.Tests
 {
@@ -55,7 +55,7 @@ namespace TestAfterMigration.Tests
             var childFolder = parentFolder.GetByRole(AriaRole.Treeitem);
             await childFolder.GetByTestId("tree-item-title").ClickAsync();
             await Debounce();
-            await Assertions.Expect(Page.GetByTestId("table-row")).ToBeVisibleAsync();
+            await Assertions.Expect(Page.GetByTestId("table-row").First).ToBeVisibleAsync();
         }
 
         [Test]
@@ -122,7 +122,41 @@ namespace TestAfterMigration.Tests
         }
 
         [Test]
-        public async Task Test00700_Former_URLs_Exists()
+        public async Task Test00700_Reusable_Item_Usage_When_Linked_From_Content_Item()
+        {
+            await OpenContentHub();
+            await Page.GetByLabel("All content items").ClickAsync();
+            await Debounce();
+
+            var search = Page.GetByTestId("search-input");
+            await search.FillAsync("FAQ: reusable simplified model sample linked by an article - en-us");
+
+            await Page.Keyboard.PressAsync("Enter");
+            await Debounce();
+
+            await Page.GetByTestId("table-row").ClickAsync();
+            await Debounce();
+
+            await Page.GetByText("Usage").ClickAsync();
+            await Debounce();
+
+            var usageInChannelsButton = Page.GetByText("In channels");
+            await Assertions.Expect(usageInChannelsButton).ToBeEnabledAsync();
+
+            await usageInChannelsButton.ClickAsync();
+            await Debounce();
+
+            search = Page.GetByTestId("search-input");
+            await search.FillAsync("Simplified model sample with linked items - en-us");
+            await Page.Keyboard.PressAsync("Enter");
+
+            await Assertions.Expect(Page.GetByTestId("table-row")).Not.ToHaveCountAsync(0);
+
+            await Debounce();
+        }
+
+        [Test]
+        public async Task Test00800_Former_URLs_Exists()
         {
             await OpenAdminApplication("Former URLs");
 

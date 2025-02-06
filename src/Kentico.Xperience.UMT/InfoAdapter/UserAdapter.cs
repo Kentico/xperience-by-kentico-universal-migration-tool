@@ -1,11 +1,10 @@
 ﻿using CMS.Membership;
-using Kentico.Xperience.UMT.ProviderProxy;
-using Kentico.Xperience.UMT.Services.Model;
+
 using Microsoft.Extensions.Logging;
 
 namespace Kentico.Xperience.UMT.InfoAdapter;
 
-internal class UserAdapter: GenericInfoAdapter<UserInfo>
+internal class UserAdapter : GenericInfoAdapter<UserInfo>
 {
     internal UserAdapter(ILogger<UserAdapter> logger, GenericInfoAdapterContext context) : base(logger, context)
     {
@@ -19,7 +18,7 @@ internal class UserAdapter: GenericInfoAdapter<UserInfo>
         }
         else
         {
-            base.SetValue(current, propertyName, value);    
+            base.SetValue(current, propertyName, value);
         }
     }
 }

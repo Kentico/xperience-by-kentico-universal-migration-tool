@@ -17,7 +17,7 @@ public class UmtModelVisitor : SymbolVisitor
 
     public UmtModelVisitor(IImportService importService) => this.importService = importService;
 
-    public List<ModelClass> ModelClasses { get; private set; } = new();
+    public List<ModelClass> ModelClasses { get; private set; } = [];
 
     public override void VisitNamedType(INamedTypeSymbol symbol)
     {
@@ -34,7 +34,7 @@ public class UmtModelVisitor : SymbolVisitor
         }
 
         var docs = new SymbolXmlDocsWrapperMarkdown(new SymbolXmlDocsWrapper(symbol));
-        ModelClasses.Add(new ModelClass(symbol, symbol.Name, docs.GetSummaryOrEmpty() ?? "", new List<ModelProperty>(), sampleList));
+        ModelClasses.Add(new ModelClass(symbol, symbol.Name, docs.GetSummaryOrEmpty() ?? "", [], sampleList));
 
         foreach (var member in symbol.GetMembers())
         {
@@ -147,6 +147,9 @@ public class UmtModelVisitor : SymbolVisitor
                     referencedPropertyName = rpn;
                     break;
                 }
+
+                default:
+                    break;
             }
 
             Console.WriteLine($"        {param?.Name}:{value.Value}");
@@ -174,6 +177,9 @@ public class UmtModelVisitor : SymbolVisitor
                     valueField = s;
                     break;
                 }
+
+                default:
+                    break;
             }
             Console.WriteLine($"        {key}:{value.Value}");
         }

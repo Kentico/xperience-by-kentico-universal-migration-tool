@@ -59,7 +59,7 @@ internal class Reflect
             var publicProperties = propertyInfos.ToImmutableHashSet();
             var propertyGetters = propertyInfos.ToImmutableDictionary(x => x.Name, x => x.GetMethod);
             var propertySetters = propertyInfos.ToImmutableDictionary(x => x.Name, x => x.SetMethod);
-            
+
             return new Reflect(current: c, publicProperties: publicProperties, propertyGetters: propertyGetters, propertySetters: propertySetters);
         });
 

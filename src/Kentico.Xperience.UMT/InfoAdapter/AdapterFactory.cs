@@ -5,7 +5,6 @@ using CMS.Core.Internal;
 using CMS.DataEngine;
 using CMS.EmailLibrary;
 using CMS.MediaLibrary;
-using CMS.Membership;
 using CMS.Websites;
 using CMS.Websites.Internal;
 using CMS.Workspaces;
@@ -14,6 +13,7 @@ using Kentico.Xperience.UMT.Model;
 using Kentico.Xperience.UMT.ProviderProxy;
 using Kentico.Xperience.UMT.Services;
 using Kentico.Xperience.UMT.Services.Model;
+
 using Microsoft.Extensions.Logging;
 
 namespace Kentico.Xperience.UMT.InfoAdapter;
@@ -56,4 +56,3 @@ internal class AdapterFactory(ILoggerFactory loggerFactory, UmtModelService mode
         };
     }
 }
-

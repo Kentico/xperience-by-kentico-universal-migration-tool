@@ -2,6 +2,7 @@
 using Kentico.Xperience.UMT.ProviderProxy;
 using Kentico.Xperience.UMT.Services;
 using Kentico.Xperience.UMT.Services.Model;
+
 using Microsoft.Extensions.DependencyInjection;
 
 namespace Kentico.Xperience.UMT;

@@ -6,7 +6,7 @@ using System.Text;
 namespace Kentico.Xperience.UMT.Services.Validation;
 
 [AttributeUsage(AttributeTargets.Property)]
-public class CheckEnumerableAttribute: ValidationAttribute
+public class CheckEnumerableAttribute : ValidationAttribute
 {
     private readonly ConcurrentDictionary<int, List<ValidationResult>> validationResults = new();
 
@@ -14,19 +14,19 @@ public class CheckEnumerableAttribute: ValidationAttribute
     public override bool IsValid(object? value)
     {
         bool isValid = true;
-        
+
         if (value is IEnumerable list)
         {
             int idx = 0;
             foreach (object? item in list)
             {
                 var validationContext = new ValidationContext(item);
-                bool isItemValid = Validator.TryValidateObject(item, validationContext, validationResults.GetOrAdd(idx, i => new List<ValidationResult>()), true);
+                bool isItemValid = Validator.TryValidateObject(item, validationContext, validationResults.GetOrAdd(idx, i => []), true);
                 isValid &= isItemValid;
                 idx += 1;
             }
         }
-        
+
         return isValid;
     }
 
@@ -38,7 +38,7 @@ public class CheckEnumerableAttribute: ValidationAttribute
         {
             if (value is { Count: > 0 })
             {
-                sb.AppendLine($"item[{index}]:{string.Join(", ", value.Select(x=> x.ErrorMessage))}");    
+                sb.AppendLine($"item[{index}]:{string.Join(", ", value.Select(x => x.ErrorMessage))}");
             }
         }
 

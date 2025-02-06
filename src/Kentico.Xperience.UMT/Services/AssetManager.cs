@@ -1,6 +1,4 @@
-﻿using System.Threading;
-
-using CMS.Base;
+﻿using CMS.Base;
 using CMS.ContentEngine;
 using CMS.ContentEngine.Internal;
 using CMS.Core;
@@ -10,11 +8,8 @@ using CMS.FormEngine;
 using CMS.Helpers;
 
 using Kentico.Xperience.UMT.Model;
-using Kentico.Xperience.UMT.ProviderProxy;
 
 using Microsoft.Extensions.Logging;
-
-using Newtonsoft.Json.Linq;
 
 namespace Kentico.Xperience.UMT.Services;
 

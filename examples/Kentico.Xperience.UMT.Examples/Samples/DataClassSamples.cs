@@ -1,17 +1,18 @@
 ﻿using System.Text.Json;
 
 using CMS.DataEngine;
+
 using Kentico.Xperience.UMT.Model;
 
 namespace Kentico.Xperience.UMT.Examples;
 
 public static class DataClassSamples
 {
-    public static readonly Guid FAQ_SAMPLE_GUID = new Guid("7ED6604E-613B-4CE0-8C21-ACFB372C416A");
-    public static readonly Guid ARTICLE_SAMPLE_GUID = new Guid("06540294-3B56-4CF7-8773-088BB766AC23");
+    public static readonly Guid FAQ_SAMPLE_GUID = new("7ED6604E-613B-4CE0-8C21-ACFB372C416A");
+    public static readonly Guid ARTICLE_SAMPLE_GUID = new("06540294-3B56-4CF7-8773-088BB766AC23");
     public const string ARTICLE_SAMPLE_CLASS_NAME = "UMT.Article";
     public const string FAQ_SAMPLE_CLASS_NAME = "UMT.Faq";
-    public static readonly Guid RelatedFaqFieldGuid = new Guid("fc1fde10-11bf-4174-bd64-d1f114e4b421");
+    public static readonly Guid RelatedFaqFieldGuid = new("fc1fde10-11bf-4174-bd64-d1f114e4b421");
 
     [Sample("dataclass.article", "This sample describes how to create class inside XbyK to hold Article data", "Article sample")]
     // ReSharper disable once UnusedMember.Global #used implicitly by xml doc <sample>
@@ -88,10 +89,10 @@ public static class DataClassSamples
                     ControlName = "Kentico.Administration.WebPageSelector",
                     CustomProperties =
                     {
-                        { "MaximumPages", 5 }, 
-                        { "Sortable", "False" }, 
+                        { "MaximumPages", 5 },
+                        { "Sortable", "False" },
                         { "TreePath", "/simplified-sample" },
-                    } 
+                    }
                 }
             },
 
@@ -119,10 +120,10 @@ public static class DataClassSamples
                         { "AllowedContentItemTypeIdentifiers", """
                                                                ["7ed6604e-613b-4ce0-8c21-acfb372c416a"]
                                                                """ }
-                    } 
+                    }
                 }
             },
-            
+
             new()
             {
                 Column = "CoffeaTaxonomy",
@@ -145,19 +146,19 @@ public static class DataClassSamples
                     CustomProperties =
                     {
                         { "TaxonomyGroup", $"[\"{TaxonomySamples.SampleTaxonomyCoffeeGuid}\"]" },
-                    } 
+                    }
                 }
             },
         ]
     };
 
     [Sample("contenttypechannel.article", "", "Sample of content type assignment to channel")]
-    public static ContentTypeChannelModel ArticleAssignedToWebSiteChannel => new ContentTypeChannelModel
+    public static ContentTypeChannelModel ArticleAssignedToWebSiteChannel => new()
     {
         ContentTypeChannelChannelGuid = ChannelSamples.WEBSITE_CHANNEL_SAMPLE_GUID,
-        ContentTypeChannelContentTypeGuid = DataClassSamples.ARTICLE_SAMPLE_GUID
+        ContentTypeChannelContentTypeGuid = ARTICLE_SAMPLE_GUID
     };
-    
+
 
     [Sample("dataclass.faq", "", "Faq sample")]
     public static DataClassModel FaqDataClass => new()
@@ -170,10 +171,10 @@ public static class DataClassSamples
         ClassDisplayName = "Faq",
         ClassTableName = "UMT_Faq",
         ClassHasUnmanagedDbSchema = false,
-        Fields = new List<FormField>
-        { 
+        Fields =
+        [
             new()
-            { 
+            {
                 Column = "FaqQuestion",
                 ColumnType = "text",
                 ColumnSize = 200,
@@ -208,7 +209,7 @@ public static class DataClassSamples
                     ControlName = "Kentico.Administration.TextInput"
                 }
             }
-        }
+        ]
     };
 
     [Sample("dataclass.event", "", "Event sample")]
@@ -224,8 +225,8 @@ public static class DataClassSamples
         ClassDisplayName = "Event",
         ClassTableName = "UMT_Event",
         ClassHasUnmanagedDbSchema = false,
-        Fields = new List<FormField>
-        {
+        Fields =
+        [
             new()
             {
                 Column = "EventTitle",
@@ -308,7 +309,7 @@ public static class DataClassSamples
                 {
                     CustomProperties = new Dictionary<string, object?>
                     {
-                        { "AllowedExtensions", "_INHERITED_" }  
+                        { "AllowedExtensions", "_INHERITED_" }
                     },
                     ControlName = "Kentico.Administration.ContentItemAssetUploader"
                 }
@@ -335,6 +336,6 @@ public static class DataClassSamples
                     ControlName = "Kentico.Administration.ContentItemAssetUploader"
                 }
             },
-        }
+        ]
     };
 }

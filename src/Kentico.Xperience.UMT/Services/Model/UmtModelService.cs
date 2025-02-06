@@ -1,5 +1,6 @@
 ﻿using System.Collections.Immutable;
 using System.Reflection;
+
 using Kentico.Xperience.UMT.Attributes;
 
 namespace Kentico.Xperience.UMT.Services.Model;
@@ -59,12 +60,12 @@ public class UmtModelService
         this.discoveredAssemblies = discoveredAssemblies;
         modelInfos = InitModelInfo().ToImmutableDictionary(x => x.ModelType, x => x);
     }
-    
+
     public IEnumerable<UmtModelInfo> InitModelInfo()
     {
         foreach (var discoveredAssembly in discoveredAssemblies)
         {
-            foreach (var umtModelType in discoveredAssembly.GetTypes().Where(x=> x.GetCustomAttribute<UmtModelAttribute>() != null))
+            foreach (var umtModelType in discoveredAssembly.GetTypes().Where(x => x.GetCustomAttribute<UmtModelAttribute>() != null))
             {
                 var umtModelAttribute = umtModelType.GetCustomAttribute<UmtModelAttribute>();
 
@@ -99,14 +100,14 @@ public class UmtModelService
                     if (uniqueKeyPartProperty != null)
                     {
                         keyParts.Add(new UniqueKeyPartInfo(uniqueKeyPartProperty.KeyName ?? propertyInfo.Name, propertyInfo, uniqueKeyPartProperty.ReferencedInfoType));
-                    }   
+                    }
                 }
 
                 if (keyParts is { Count: 0 } && objectGuidProperty == null)
                 {
                     throw new InvalidOperationException("Object guid is required for object model");
                 }
-                
+
                 var modelInfo = new UmtModelInfo(referenceProperties, objectGuidProperty, umtModelType, keyParts)
                 {
                     ModelType = umtModelType,
@@ -121,4 +122,4 @@ public class UmtModelService
     public bool TryGetModelInfo(Type modelType, out UmtModelInfo? info) => modelInfos.TryGetValue(modelType, out info);
 
     public ImmutableList<UmtModelInfo> GetAll() => modelInfos.Values.ToImmutableList();
-} 
+}

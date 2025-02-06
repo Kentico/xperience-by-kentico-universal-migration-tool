@@ -2,9 +2,9 @@
 using CMS.Core;
 using CMS.DataEngine;
 using CMS.FormEngine;
+
 using Kentico.Xperience.UMT.Model;
-using Kentico.Xperience.UMT.ProviderProxy;
-using Kentico.Xperience.UMT.Services.Model;
+
 using Microsoft.Extensions.Logging;
 
 namespace Kentico.Xperience.UMT.InfoAdapter;
@@ -71,7 +71,7 @@ internal class DataClassAdapter : GenericInfoAdapter<DataClassInfo>
                     }
                     nfi.Caption = field.Properties.FieldCaption;
                     nfi.Settings[CONTROL_NAME] = field.Settings.ControlName;
-                    
+
                     foreach ((string? key, object? value) in field.Properties.CustomProperties)
                     {
                         nfi.Properties[key] = value;

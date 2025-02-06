@@ -13,7 +13,7 @@ public static class ContentFolderSamples
         ContentFolderTreePath = "/articles",
         ContentFolderParentFolderGUID = null
     };
-    
+
     [Sample("ContentFolderModel.SubFolderSample", "", "Content folder basic sample")]
     public static ContentFolderModel SampleContentSubFolder => new()
     {

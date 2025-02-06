@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+
 using Kentico.Xperience.UMT.Model;
 
 namespace Kentico.Xperience.UMT.Services.Validation;
@@ -10,7 +11,7 @@ public class ValidationService : IValidationService
     /// Return instance of validation service
     /// </summary>
     public static IValidationService Instance => new ValidationService();
-    
+
     /// <summary>
     /// Validates UMT model
     /// </summary>

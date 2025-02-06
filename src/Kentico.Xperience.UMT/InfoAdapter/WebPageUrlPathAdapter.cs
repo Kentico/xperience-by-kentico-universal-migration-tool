@@ -1,14 +1,14 @@
 ﻿using CMS.DataEngine;
 using CMS.Websites.Internal;
+
 using Kentico.Xperience.UMT.Model;
-using Kentico.Xperience.UMT.ProviderProxy;
-using Kentico.Xperience.UMT.Services.Model;
+
 using Microsoft.Data.SqlClient;
 using Microsoft.Extensions.Logging;
 
 namespace Kentico.Xperience.UMT.InfoAdapter;
 
-internal class WebPageUrlPathAdapter: GenericInfoAdapter<WebPageUrlPathInfo>
+internal class WebPageUrlPathAdapter : GenericInfoAdapter<WebPageUrlPathInfo>
 {
     internal WebPageUrlPathAdapter(ILogger<WebPageUrlPathAdapter> logger, GenericInfoAdapterContext adapterContext) : base(logger, adapterContext)
     {

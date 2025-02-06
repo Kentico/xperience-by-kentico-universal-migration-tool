@@ -1,13 +1,13 @@
-﻿using CMS.Base;
-using CMS.ContentEngine;
+﻿using CMS.ContentEngine;
+
 using Kentico.Xperience.UMT.Model;
 
 namespace Kentico.Xperience.UMT.Examples;
 
 public static class ContentItemLanguageMetadataSamples
 {
-    public static readonly Guid CONTENT_ITEM_LANGUAGE_METADATA_GUID_SAMPLE_BASIC = new Guid("65421553-5F92-44B7-A02F-2B9CA083E14A");
-    public static readonly Guid CONTENT_ITEM_LANGUAGE_METADATA_GUID_SAMPLE = new Guid("12191A4B-26D8-40BB-A214-73D9874920FD");
+    public static readonly Guid CONTENT_ITEM_LANGUAGE_METADATA_GUID_SAMPLE_BASIC = new("65421553-5F92-44B7-A02F-2B9CA083E14A");
+    public static readonly Guid CONTENT_ITEM_LANGUAGE_METADATA_GUID_SAMPLE = new("12191A4B-26D8-40BB-A214-73D9874920FD");
 
     [Sample("contentitemlanguagemetadatabasic.sample", "This sample describes how to create class inside XbyK to hold Content Item Language Metadata", "ContentItemLanguageMetadata basic Sample")]
     public static ContentItemLanguageMetadataModel SampleContentItemLanguageMetadataBasic => new()
@@ -35,6 +35,6 @@ public static class ContentItemLanguageMetadataSamples
         ContentItemLanguageMetadataCreatedByUserGuid = new Guid("95F42FD4-6A14-4E88-B214-4E136479F788"),
         ContentItemLanguageMetadataModifiedByUserGuid = new Guid("95F42FD4-6A14-4E88-B214-4E136479F788"),
         ContentItemLanguageMetadataLatestVersionStatus = VersionStatus.Published,
-        ContentItemLanguageMetadataScheduledUnpublishWhen = new DateTime(2045, 1, 1, 0,0,0,0,0, DateTimeKind.Utc)
+        ContentItemLanguageMetadataScheduledUnpublishWhen = new DateTime(2045, 1, 1, 0, 0, 0, 0, 0, DateTimeKind.Utc)
     };
 }
