@@ -786,6 +786,30 @@
     "WebPageAclWebPageItemGUID": "6e995319-77e7-475e-9ebb-607bdbf5af9a"
   },
   {
+    "$type": "WebPageFormerUrlPath",
+    "WebPageFormerUrlPathGUID": "72a4ec78-5c19-4415-b512-e0a74d5face1",
+    "WebPageFormerUrlPath": "/enus-former-url-path",
+    "WebPageFormerUrlPathHash": null,
+    "WebPageFormerUrlPathWebPageItemGuid": "6e995319-77e7-475e-9ebb-607bdbf5af9a",
+    "WebPageFormerUrlPathWebsiteChannelGuid": "a6ba6fcb-9d05-4abe-afb4-74b153c90db7",
+    "WebPageFormerUrlPathContentLanguageGuid": "f454e93b-5fe9-42a9-b1af-b572234ed9c4",
+    "WebPageFormerUrlPathSourceWebPageItemGuid": null,
+    "WebPageFormerUrlPathIsRedirect": false,
+    "WebPageFormerUrlPathIsRedirectScheduled": false
+  },
+  {
+    "$type": "WebPageFormerUrlPath",
+    "WebPageFormerUrlPathGUID": "f9b9cdd0-2202-4609-980f-5b136c8beb2a",
+    "WebPageFormerUrlPath": "/engb-former-url-path",
+    "WebPageFormerUrlPathHash": null,
+    "WebPageFormerUrlPathWebPageItemGuid": "6e995319-77e7-475e-9ebb-607bdbf5af9a",
+    "WebPageFormerUrlPathWebsiteChannelGuid": "a6ba6fcb-9d05-4abe-afb4-74b153c90db7",
+    "WebPageFormerUrlPathContentLanguageGuid": "a6c0a558-8b33-47b6-87a8-491b437c9923",
+    "WebPageFormerUrlPathSourceWebPageItemGuid": null,
+    "WebPageFormerUrlPathIsRedirect": false,
+    "WebPageFormerUrlPathIsRedirectScheduled": false
+  },
+  {
     "$type": "ContentItem",
     "ContentItemGUID": "e09121ad-dd97-472f-b8f6-85fe5428ed6a",
     "ContentItemContentFolderGUID": null,
@@ -1008,6 +1032,7 @@
           "LanguageName": "es-CU"
         }
       ],
+      "PageFormerUrls": null,
       "PageGuid": "4ea03de4-977e-48aa-9340-babf3d23bafa",
       "ParentGuid": null,
       "TreePath": "/simplified-sample",
@@ -1077,6 +1102,7 @@
           "LanguageName": "es-CU"
         }
       ],
+      "PageFormerUrls": null,
       "PageGuid": null,
       "ParentGuid": "4ea03de4-977e-48aa-9340-babf3d23bafa",
       "TreePath": "/simplified-sample/sub-page",
@@ -1188,6 +1214,7 @@
           "LanguageName": "es-CU"
         }
       ],
+      "PageFormerUrls": null,
       "PageGuid": null,
       "ParentGuid": "4ea03de4-977e-48aa-9340-babf3d23bafa",
       "TreePath": "/simplified-sample/sub-page-2",
@@ -1299,6 +1326,7 @@
           "LanguageName": "es-CU"
         }
       ],
+      "PageFormerUrls": null,
       "PageGuid": null,
       "ParentGuid": "4ea03de4-977e-48aa-9340-babf3d23bafa",
       "TreePath": "/simplified-sample/sub-page-3",
@@ -1353,6 +1381,7 @@
           "LanguageName": "es-CU"
         }
       ],
+      "PageFormerUrls": null,
       "PageGuid": null,
       "ParentGuid": "4ea03de4-977e-48aa-9340-babf3d23bafa",
       "TreePath": "/simplified-sample/sub-page-4",
@@ -1407,6 +1436,7 @@
           "LanguageName": "es-CU"
         }
       ],
+      "PageFormerUrls": null,
       "PageGuid": null,
       "ParentGuid": "4ea03de4-977e-48aa-9340-babf3d23bafa",
       "TreePath": "/simplified-sample/sub-page-5",
@@ -1461,6 +1491,7 @@
           "LanguageName": "es-CU"
         }
       ],
+      "PageFormerUrls": null,
       "PageGuid": null,
       "ParentGuid": "4ea03de4-977e-48aa-9340-babf3d23bafa",
       "TreePath": "/simplified-sample/sub-page-6",
@@ -1515,9 +1546,91 @@
           "LanguageName": "es-CU"
         }
       ],
+      "PageFormerUrls": null,
       "PageGuid": null,
       "ParentGuid": "4ea03de4-977e-48aa-9340-babf3d23bafa",
       "TreePath": "/simplified-sample/sub-page-7",
+      "ItemOrder": null
+    }
+  },
+  {
+    "$type": "ContentItemSimplified",
+    "ContentItemGUID": "c8940315-2329-46b8-ac15-032bd2bf621c",
+    "ContentItemContentFolderGUID": null,
+    "ContentItemWorkspaceGUID": null,
+    "IsSecured": false,
+    "ContentTypeName": "UMT.Article",
+    "Name": "SimplifiedModelSampleAsSubPage8",
+    "IsReusable": false,
+    "ChannelName": "websitechannelExample",
+    "LanguageData": [
+      {
+        "LanguageName": "en-US",
+        "DisplayName": "Simplified model sample sub page 8 - en-US",
+        "VersionStatus": 2,
+        "IsLatest": false,
+        "UserGuid": "dbfcc244-2cb9-4934-857f-9d75404c1553",
+        "ScheduledPublishWhen": "2045-01-01T00:00:00Z",
+        "ScheduledUnpublishWhen": null,
+        "ContentItemData": {
+          "ArticleTitle": "en-US UMT simplified model creation as sub page 8",
+          "ArticleText": "This article is only example of creation UMT simplified model for en-US language",
+          "RelatedArticles": null,
+          "RelatedFaq": null
+        }
+      },
+      {
+        "LanguageName": "en-US",
+        "DisplayName": "Simplified model sample sub page 8 - en-US",
+        "VersionStatus": 1,
+        "IsLatest": true,
+        "UserGuid": "dbfcc244-2cb9-4934-857f-9d75404c1553",
+        "ScheduledPublishWhen": "2045-01-01T00:00:00Z",
+        "ScheduledUnpublishWhen": null,
+        "ContentItemData": {
+          "ArticleTitle": "en-US UMT simplified model creation as sub page 8...new draft",
+          "ArticleText": "This article is only example of creation UMT simplified model for en-US language ...new draft",
+          "RelatedArticles": null,
+          "RelatedFaq": null
+        }
+      }
+    ],
+    "PageData": {
+      "PageUrls": [
+        {
+          "UrlPath": "en-us/simplified-sample/sub-page-8",
+          "PathIsDraft": false,
+          "PathIsLatest": false,
+          "LanguageName": "en-US"
+        },
+        {
+          "UrlPath": "en-us/simplified-sample/sub-page-8-new-draft",
+          "PathIsDraft": true,
+          "PathIsLatest": true,
+          "LanguageName": "en-US"
+        },
+        {
+          "UrlPath": "en-gb/simplified-sample/sub-page-8",
+          "PathIsDraft": false,
+          "PathIsLatest": true,
+          "LanguageName": "en-GB"
+        },
+        {
+          "UrlPath": "es-cu/simplified-sample/sub-page-8",
+          "PathIsDraft": false,
+          "PathIsLatest": true,
+          "LanguageName": "es-CU"
+        }
+      ],
+      "PageFormerUrls": [
+        {
+          "FormerUrlPath": "/simplified-sample/enus-former-url",
+          "LanguageName": "en-US"
+        }
+      ],
+      "PageGuid": null,
+      "ParentGuid": "4ea03de4-977e-48aa-9340-babf3d23bafa",
+      "TreePath": "/simplified-sample/sub-page-8",
       "ItemOrder": null
     }
   },
@@ -1801,6 +1914,7 @@
           "LanguageName": "en-GB"
         }
       ],
+      "PageFormerUrls": null,
       "PageGuid": "56b168a9-2154-40ef-8683-415d71e49822",
       "ParentGuid": null,
       "TreePath": "/simplified-linked-sample",

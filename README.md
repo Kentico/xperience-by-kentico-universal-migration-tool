@@ -42,9 +42,10 @@ dotnet add package Kentico.Xperience.UMT
 ## Quick Start
 
 1. Open file with dependency injection container configuration. (`Program.cs` / `Startup.cs` / ...)
-1. Import namespace `Kentico.Xperience.UMT`.
-1. Register Umt to service collection `IServiceCollection` using `AddUniversalMigrationToolkit()`.
-1. Inject `IImportService` where you want use this tool.
+2. Import namespace `Kentico.Xperience.UMT`.
+3. Register Umt to service collection `IServiceCollection` using `AddUniversalMigrationToolkit()`.
+4. Inject `IImportService` where you want use this tool.
+5. When importing asset files, the working dir of the application must be set to the root folder of the XbyK project (i.e. the folder, which contains XbyK project's .csproj file)
 
 ## Full Instructions
 

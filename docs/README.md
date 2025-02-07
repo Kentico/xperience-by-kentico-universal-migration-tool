@@ -8,7 +8,7 @@ The [console application](../examples/Kentico.Xperience.UMT.Example.Console/READ
 
 The [administration plugin](../examples/Kentico.Xperience.UMT.Example.AdminApp/README.md) sample shows deployment of this tool as an administration application that receives file with serialized data as JSON and imports the data into the system.
 
-## 🚀 Installation
+## Installation
 
 1. Install the [Kentico.Xperience.UMT](https://www.nuget.org/packages/Kentico.Xperience.UMT) NuGet package.
 2. Open file with dependency injection container configuration. (`Program.cs` / `Startup.cs` / ...)
@@ -20,6 +20,9 @@ Installation and usage samples:
 
 - [Console application](../examples/Kentico.Xperience.UMT.Example.Console/)
 - [Administration plugin](../examples/Kentico.Xperience.UMT.Example.AdminApp/)
+
+## 🚀 Launch configuration
+When importing asset files, the working dir of the application must be set to the root folder of the XbyK project (i.e. the folder, which contains XbyK project's .csproj file)
 
 ## Usage
 
