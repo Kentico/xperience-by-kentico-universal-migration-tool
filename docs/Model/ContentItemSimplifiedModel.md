@@ -244,6 +244,7 @@ This sample describes how to import reusable content item with asset into XbyK
 |PropertyName|Summary|.NET Type|Notes|
 |---|---|---|---|
 |PageUrls|PageUrlModel item is required for each content language that exist in XbyK instance without regards to created LanguageData (urls are pre-created for non-existing language versions)|Kentico.Xperience.UMT.Model.PageUrlModel[]||
+|PageFormerUrls|PageFormerModel item is optional for each content language that exist in XbyK instance for correct redirection of former urls|Kentico.Xperience.UMT.Model.PageFormerUrlModel[]||
 |PageGuid|Required only if page needs to be referenced as a parent by any child page|System.Guid?||
 |ParentGuid||System.Guid?||
 |TreePath||string?||
@@ -260,6 +261,17 @@ Defines url for web page item
 |UrlPath||string?||
 |PathIsDraft|currently unused, until simplified model supports Draft content items (and not only Published or InitialDraft)|bool?||
 |PathIsLatest||bool?||
+|LanguageName||string?||
+
+<p>*) value is required</p>
+
+## PageFormerUrlModel
+Defines former url for web page item
+
+
+|PropertyName|Summary|.NET Type|Notes|
+|---|---|---|---|
+|FormerUrlPath||string?||
 |LanguageName||string?||
 
 <p>*) value is required</p>
