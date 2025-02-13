@@ -75,6 +75,11 @@ internal class AssetManager(
                     ArgumentNullException.ThrowIfNull(fileSource.Identifier);
 
                     var file = CMS.IO.FileInfo.New(fileSource.FilePath);
+                    if (!file.Exists)
+                    {
+                        logger.LogError("File {FilePath} does not exist", fileSource.FilePath);
+                        throw new InvalidOperationException("Unable to create asset");
+                    }
                     if ((dimensions.imageWidth is null || dimensions.imageHeight is null) && !imageInfoRetrieverService.TryGetImageDimensions(fileSource.FilePath, out dimensions))
                     {
                         logger.LogError("Unable to get image dimensions");
