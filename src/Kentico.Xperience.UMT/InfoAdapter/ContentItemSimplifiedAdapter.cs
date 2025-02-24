@@ -453,4 +453,6 @@ public class ContentItemSimplifiedAdapter : IInfoAdapter<ContentItemInfo, IUmtMo
             }
         }
     }
+
+    public void Postprocess(IUmtModel input, BaseInfo baseInfo) { }
 }

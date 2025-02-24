@@ -8,7 +8,7 @@ Model [discriminator](../UmtModel.md#discriminator): `ContentFolder`
 |---|---|---|---|
 |ContentFolderGUID\*||System.Guid?|[UniqueId](../UmtModel.md#UniqueId)|
 |ContentFolderParentFolderGUID|parent folder guid. If null is specified, folder is created directly under root|System.Guid?|Reference to [ContentFolderInfo](../References.md#ContentFolderInfo) on property ContentFolderParentFolderID|
-|ContentFolderWorkspaceGUID|workspace guid. If null is specified, default workspace is used|System.Guid?|Reference to [ContentFolderInfo](../References.md#ContentFolderInfo) on property ContentFolderWorkspaceID|
+|ContentFolderWorkspaceGUID|workspace guid. If null is specified, default workspace is used|System.Guid?|Reference to [WorkspaceInfo](../References.md#WorkspaceInfo) on property ContentFolderWorkspaceID|
 |ContentFolderName\*||string?||
 |ContentFolderDisplayName\*||string?||
 |ContentFolderTreePath\*||string?||

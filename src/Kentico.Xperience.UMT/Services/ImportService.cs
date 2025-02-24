@@ -211,6 +211,17 @@ internal class ImportService : IImportService
             return;
         }
 
+        try
+        {
+            adapter.Postprocess(model, adapted);
+        }
+        catch (Exception ex)
+        {
+            logger.LogError(ex, "Model postprocessing failed");
+            observer.OnException(model, uniqueId, ex);
+            return;
+        }
+
         observer.OnImportedInfo(model, adapted);
     }
 }

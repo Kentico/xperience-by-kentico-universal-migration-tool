@@ -1,6 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
 using CMS.ContentEngine;
+using CMS.Workspaces;
 
 using Kentico.Xperience.UMT.Attributes;
 // ReSharper disable InconsistentNaming
@@ -30,7 +31,7 @@ public sealed class ContentFolderModel : UmtModel
     /// <summary>
     /// workspace guid. If null is specified, default workspace is used
     /// </summary>
-    [ReferenceProperty(typeof(ContentFolderInfo), "ContentFolderWorkspaceID", IsRequired = false)]
+    [ReferenceProperty(typeof(WorkspaceInfo), "ContentFolderWorkspaceID", IsRequired = false)]
     public Guid? ContentFolderWorkspaceGUID { get; set; }
 
     [Map]
