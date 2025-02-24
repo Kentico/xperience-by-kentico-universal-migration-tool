@@ -117,7 +117,7 @@ namespace TestAfterMigration.Tests
             await SelectTopDropdownLanguage("English (United States)");
 
             var treeItems = await GetPageTreeItems();
-            foreach (var item in treeItems.SelectMany(x => x.Family()))
+            foreach (var item in treeItems)
             {
                 await ValidatePageTreePageTabs(item);
             }
