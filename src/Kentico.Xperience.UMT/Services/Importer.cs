@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.ComponentModel.DataAnnotations;
 
 using CMS.DataEngine;
 
@@ -87,12 +88,6 @@ internal class Importer(ILogger<Importer> logger, AdapterFactory factory) : IImp
         try
         {
             adapter.ProviderProxy.Save(adapted, model);
-            return Task.FromResult(new ImportResult
-            {
-                Success = true,
-                Imported = adapted,
-                PrimaryKey = adapted.GetIntegerValue(adapted.TypeInfo.IDColumn, 0)
-            });
         }
         catch (Exception ex)
         {
@@ -103,5 +98,27 @@ internal class Importer(ILogger<Importer> logger, AdapterFactory factory) : IImp
                 Success = false
             });
         }
+
+
+        try
+        {
+            adapter.Postprocess(model, adapted);
+            return Task.FromResult(new ImportResult
+            {
+                Success = true,
+                Imported = adapted,
+                PrimaryKey = adapted.GetIntegerValue(adapted.TypeInfo.IDColumn, 0)
+            });
+        }
+        catch (Exception ex)
+        {
+            logger.LogError(ex, "Model postprocessing failed");
+            return Task.FromResult(new ImportResult
+            {
+                Exception = ex,
+                Success = false
+            });
+        }
+
     }
 }
