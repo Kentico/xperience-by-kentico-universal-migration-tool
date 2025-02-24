@@ -32,7 +32,7 @@ internal class AdapterFactory(ILoggerFactory loggerFactory, UmtModelService mode
             ContentItemLanguageMetadataModel => new GenericInfoAdapter<ContentItemLanguageMetadataInfo>(loggerFactory.CreateLogger<GenericInfoAdapter<ContentItemLanguageMetadataInfo>>(), adapterContext),
             ContentItemCommonDataModel => new GenericInfoAdapter<ContentItemCommonDataInfo>(loggerFactory.CreateLogger<GenericInfoAdapter<ContentItemCommonDataInfo>>(), adapterContext),
             ContentItemDataModel => new ContentItemDataAdapter(loggerFactory.CreateLogger<ContentItemDataAdapter>(), adapterContext),
-            WebsiteChannelModel => new GenericInfoAdapter<WebsiteChannelInfo>(loggerFactory.CreateLogger<GenericInfoAdapter<WebsiteChannelInfo>>(), adapterContext),
+            WebsiteChannelModel => new WebsiteChannelAdapter(Service.Resolve<IInfoProvider<WebPageScopeInfo>>(), loggerFactory.CreateLogger<WebsiteChannelAdapter>(), adapterContext),
             EmailChannelModel => new GenericInfoAdapter<EmailChannelInfo>(loggerFactory.CreateLogger<GenericInfoAdapter<EmailChannelInfo>>(), adapterContext),
             ChannelModel => new GenericInfoAdapter<ChannelInfo>(loggerFactory.CreateLogger<GenericInfoAdapter<ChannelInfo>>(), adapterContext),
             ContentLanguageModel => new GenericInfoAdapter<ContentLanguageInfo>(loggerFactory.CreateLogger<GenericInfoAdapter<ContentLanguageInfo>>(), adapterContext),
@@ -48,6 +48,9 @@ internal class AdapterFactory(ILoggerFactory loggerFactory, UmtModelService mode
             TaxonomyModel => new TaxonomyAdapter(loggerFactory.CreateLogger<TaxonomyAdapter>(), adapterContext),
             TagModel => new TagAdapter(loggerFactory.CreateLogger<TagAdapter>(), adapterContext),
             WorkspaceModel => new GenericInfoAdapter<WorkspaceInfo>(loggerFactory.CreateLogger<GenericInfoAdapter<WorkspaceInfo>>(), adapterContext),
+            WebPageScopeModel => new GenericInfoAdapter<WebPageScopeInfo>(loggerFactory.CreateLogger<GenericInfoAdapter<WebPageScopeInfo>>(), adapterContext),
+            WebPageScopeContentTypeModel => new GenericInfoAdapter<WebPageScopeContentTypeInfo>(loggerFactory.CreateLogger<GenericInfoAdapter<WebPageScopeContentTypeInfo>>(), adapterContext),
+            AllowedChildContentTypeModel => new GenericInfoAdapter<AllowedChildContentTypeInfo>(loggerFactory.CreateLogger<GenericInfoAdapter<AllowedChildContentTypeInfo>>(), adapterContext),
 
             // macro models
             ContentItemSimplifiedModel => new ContentItemSimplifiedAdapter(providerProxyFactory.CreateProviderProxy<ContentItemInfo>(providerProxyContext), providerProxyFactory, Service.Resolve<IDateTimeNowService>(), this,

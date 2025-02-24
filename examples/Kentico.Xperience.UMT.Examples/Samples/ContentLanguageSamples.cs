@@ -17,7 +17,7 @@ public static class ContentLanguageSamples
         ContentLanguageDisplayName = "English (United States)",
         // ContentLanguageFallbackContentLanguageGuid = new Guid("FD0A0727-FC68-4936-B868-119DF0F0AD7A"),
         ContentLanguageGUID = CONTENT_LANGUAGE_ENUS_SAMPLE_GUID,
-        ContentLanguageIsDefault = false,
+        ContentLanguageIsDefault = true,
         ContentLanguageName = "en-US"
     };
 

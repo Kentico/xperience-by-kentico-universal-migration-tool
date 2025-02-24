@@ -129,7 +129,7 @@
     "ContentLanguageGUID": "f454e93b-5fe9-42a9-b1af-b572234ed9c4",
     "ContentLanguageDisplayName": "English (United States)",
     "ContentLanguageName": "en-US",
-    "ContentLanguageIsDefault": false,
+    "ContentLanguageIsDefault": true,
     "ContentLanguageFallbackContentLanguageGuid": null,
     "ContentLanguageCultureFormat": "en-US"
   },
@@ -316,6 +316,11 @@
     "$type": "ContentTypeChannel",
     "ContentTypeChannelChannelGuid": "5322a379-5b5f-4220-9383-8e3115e66cd3",
     "ContentTypeChannelContentTypeGuid": "06540294-3b56-4cf7-8773-088bb766ac23"
+  },
+  {
+    "$type": "AllowedChildContentType",
+    "AllowedChildContentTypeParentGuid": "06540294-3b56-4cf7-8773-088bb766ac23",
+    "AllowedChildContentTypeChildGuid": "06540294-3b56-4cf7-8773-088bb766ac23"
   },
   {
     "$type": "DataClass",
@@ -1103,7 +1108,7 @@
         }
       ],
       "PageFormerUrls": null,
-      "PageGuid": null,
+      "PageGuid": "008a482c-0b4c-48ff-a87a-0abd0b0fcc40",
       "ParentGuid": "4ea03de4-977e-48aa-9340-babf3d23bafa",
       "TreePath": "/simplified-sample/sub-page",
       "ItemOrder": null
@@ -1215,7 +1220,7 @@
         }
       ],
       "PageFormerUrls": null,
-      "PageGuid": null,
+      "PageGuid": "f86278cf-9d2a-44eb-b288-6a2f1e128a79",
       "ParentGuid": "4ea03de4-977e-48aa-9340-babf3d23bafa",
       "TreePath": "/simplified-sample/sub-page-2",
       "ItemOrder": null
@@ -1327,7 +1332,7 @@
         }
       ],
       "PageFormerUrls": null,
-      "PageGuid": null,
+      "PageGuid": "95ef0983-bc5b-4928-aa26-4d6da7f0d0bb",
       "ParentGuid": "4ea03de4-977e-48aa-9340-babf3d23bafa",
       "TreePath": "/simplified-sample/sub-page-3",
       "ItemOrder": null
@@ -1382,7 +1387,7 @@
         }
       ],
       "PageFormerUrls": null,
-      "PageGuid": null,
+      "PageGuid": "e45538c5-e3dd-4bbf-9019-e84ea3e4dc32",
       "ParentGuid": "4ea03de4-977e-48aa-9340-babf3d23bafa",
       "TreePath": "/simplified-sample/sub-page-4",
       "ItemOrder": null
@@ -1437,7 +1442,7 @@
         }
       ],
       "PageFormerUrls": null,
-      "PageGuid": null,
+      "PageGuid": "57b808c0-cdf9-4feb-9c7c-0a0169ffc0f5",
       "ParentGuid": "4ea03de4-977e-48aa-9340-babf3d23bafa",
       "TreePath": "/simplified-sample/sub-page-5",
       "ItemOrder": null
@@ -1492,7 +1497,7 @@
         }
       ],
       "PageFormerUrls": null,
-      "PageGuid": null,
+      "PageGuid": "49a345d6-c2d3-43fc-b259-52ac53223c3e",
       "ParentGuid": "4ea03de4-977e-48aa-9340-babf3d23bafa",
       "TreePath": "/simplified-sample/sub-page-6",
       "ItemOrder": null
@@ -1547,7 +1552,7 @@
         }
       ],
       "PageFormerUrls": null,
-      "PageGuid": null,
+      "PageGuid": "1a8e7a4e-b5e6-4b3a-82b8-00305fb6786f",
       "ParentGuid": "4ea03de4-977e-48aa-9340-babf3d23bafa",
       "TreePath": "/simplified-sample/sub-page-7",
       "ItemOrder": null
@@ -1628,7 +1633,7 @@
           "LanguageName": "en-US"
         }
       ],
-      "PageGuid": null,
+      "PageGuid": "01aa71d6-0c14-41f0-b762-5f436a0b0b4f",
       "ParentGuid": "4ea03de4-977e-48aa-9340-babf3d23bafa",
       "TreePath": "/simplified-sample/sub-page-8",
       "ItemOrder": null
@@ -1920,5 +1925,24 @@
       "TreePath": "/simplified-linked-sample",
       "ItemOrder": null
     }
+  },
+  {
+    "$type": "WebPageScope",
+    "WebPageScopeGUID": "86f11122-d4f3-4886-a0e6-1c31ca1dc21b",
+    "WebPageScopeWebsiteChannelGuid": "a6ba6fcb-9d05-4abe-afb4-74b153c90db7",
+    "WebPageScopeWebPageItemGuid": "e45538c5-e3dd-4bbf-9019-e84ea3e4dc32",
+    "WebPageScopeIncludeChildren": true
+  },
+  {
+    "$type": "WebPageScope",
+    "WebPageScopeGUID": "b8944002-1792-46fb-b14b-d185ce904085",
+    "WebPageScopeWebsiteChannelGuid": "a6ba6fcb-9d05-4abe-afb4-74b153c90db7",
+    "WebPageScopeWebPageItemGuid": "57b808c0-cdf9-4feb-9c7c-0a0169ffc0f5",
+    "WebPageScopeIncludeChildren": true
+  },
+  {
+    "$type": "WebPageScopeContentType",
+    "WebPageScopeContentTypeWebPageScopeGuid": "b8944002-1792-46fb-b14b-d185ce904085",
+    "WebPageScopeContentTypeContentTypeGuid": "06540294-3b56-4cf7-8773-088bb766ac23"
   }
 ]

@@ -117,7 +117,7 @@ namespace TestAfterMigration.Tests
             await SelectTopDropdownLanguage("English (United States)");
 
             var treeItems = await GetPageTreeItems();
-            foreach (var item in treeItems.SelectMany(x => x.Family()))
+            foreach (var item in treeItems)
             {
                 await ValidatePageTreePageTabs(item);
             }
@@ -339,6 +339,37 @@ namespace TestAfterMigration.Tests
             await Assertions.Expect(Page.GetByTestId("ArticleTitle")).ToHaveAttributeAsync("value", "en-US UMT simplified model creation as sub page 7");
 
             await AssertNoEventlogErrors();
+        }
+
+        [Test]
+        public async Task Test01400_Page_Children_Limitation_Works()
+        {
+            await OpenAdminApplication("website Channel Example");
+            await SelectTopDropdownLanguage("English (United States)");
+
+            var treeItems = await GetPageTreeItemsFlat();
+
+            async Task ExpectChildrenAllowed(string pageTitleSubstring, bool allowed)
+            {
+                var subpage4 = treeItems.First(x => x.Title?.Contains(pageTitleSubstring, StringComparison.OrdinalIgnoreCase) == true);
+                await subpage4.ClickAsync();
+                await Debounce();
+                await Page.GetByTestId("create-page-button").ClickAsync();
+                var typeSelectorTile = Page.GetByTestId("item-tile-this-is-article-example").Nth(0);
+
+                if (allowed)
+                {
+                    await Assertions.Expect(typeSelectorTile).ToBeVisibleAsync();
+                }
+                else
+                {
+                    await Assertions.Expect(typeSelectorTile).Not.ToBeVisibleAsync();
+                }
+            }
+
+            await ExpectChildrenAllowed("Simplified model sample sub page 4", false);
+            await ExpectChildrenAllowed("Simplified model sample sub page 5", true);
+            await ExpectChildrenAllowed("Simplified model sample sub page 6", true);
         }
     }
 }

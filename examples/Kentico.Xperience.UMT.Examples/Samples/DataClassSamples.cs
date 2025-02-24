@@ -159,6 +159,13 @@ public static class DataClassSamples
         ContentTypeChannelContentTypeGuid = ARTICLE_SAMPLE_GUID
     };
 
+    [Sample("allowedchildcontenttype.article", "", "Sample of allowed child content type assignment to another content type")]
+    public static AllowedChildContentTypeModel ArticleAllowedAsChildOfArticle => new()
+    {
+        AllowedChildContentTypeParentGuid = ARTICLE_SAMPLE_GUID,
+        AllowedChildContentTypeChildGuid = ARTICLE_SAMPLE_GUID
+    };
+
 
     [Sample("dataclass.faq", "", "Faq sample")]
     public static DataClassModel FaqDataClass => new()

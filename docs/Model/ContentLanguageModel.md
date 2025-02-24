@@ -25,7 +25,7 @@ This sample describes how to create content language for English (United States)
   "ContentLanguageGUID": "f454e93b-5fe9-42a9-b1af-b572234ed9c4",
   "ContentLanguageDisplayName": "English (United States)",
   "ContentLanguageName": "en-US",
-  "ContentLanguageIsDefault": false,
+  "ContentLanguageIsDefault": true,
   "ContentLanguageCultureFormat": "en-US"
 }
 ```
@@ -51,7 +51,7 @@ This sample describes how to create content language for English (United States)
   "ContentLanguageGUID": "f454e93b-5fe9-42a9-b1af-b572234ed9c4",
   "ContentLanguageDisplayName": "English (United States)",
   "ContentLanguageName": "en-US",
-  "ContentLanguageIsDefault": false,
+  "ContentLanguageIsDefault": true,
   "ContentLanguageCultureFormat": "en-US"
 }
 ```

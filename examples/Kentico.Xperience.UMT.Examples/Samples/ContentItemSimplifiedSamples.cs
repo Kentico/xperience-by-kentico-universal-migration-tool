@@ -19,13 +19,28 @@ public static class ContentItemSimplifiedSamples
     public static readonly Guid SampleArticleWebPageWithLinkedItemsGuid = new("56B168A9-2154-40EF-8683-415D71E49822");
 
     public static readonly Guid SampleArticleSubPageContentItemGuid = new("9ED8DE86-859C-4F6C-94F2-CDD6BAED99FE");
+    public static readonly Guid SampleArticleSubPageWebPageItemGuid = new("008A482C-0B4C-48FF-A87A-0ABD0B0FCC40");
+
     public static readonly Guid SampleArticleSubPage2ContentItemGuid = new("017EDC1E-95C6-43E4-89D5-716C6AE594B2");
+    public static readonly Guid SampleArticleSubPage2WebPageItemGuid = new("F86278CF-9D2A-44EB-B288-6A2F1E128A79");
+
     public static readonly Guid SampleArticleSubPage3ContentItemGuid = new("73298F71-0BB1-4083-A674-A876769E3DD9");
+    public static readonly Guid SampleArticleSubPage3WebPageItemGuid = new("95EF0983-BC5B-4928-AA26-4D6DA7F0D0BB");
+    
     public static readonly Guid SampleArticleSubPage4ContentItemGuid = new("8E957ECC-083B-4C86-B761-8DB516C13737");
+    public static readonly Guid SampleArticleSubPage4WebPageItemGuid = new("E45538C5-E3DD-4BBF-9019-E84EA3E4DC32");
+    
     public static readonly Guid SampleArticleSubPage5ContentItemGuid = new("BB5C0EB4-E688-4A97-99C7-FA97CAD8F1D5");
+    public static readonly Guid SampleArticleSubPage5WebPageItemGuid = new("57B808C0-CDF9-4FEB-9C7C-0A0169FFC0F5");
+    
     public static readonly Guid SampleArticleSubPage6ContentItemGuid = new("1D542076-DD88-4C13-A8AA-0FFECDABBA69");
+    public static readonly Guid SampleArticleSubPage6WebPageItemGuid = new("49A345D6-C2D3-43FC-B259-52AC53223C3E");
+    
     public static readonly Guid SampleArticleSubPage7ContentItemGuid = new("FB66242F-4186-4F71-B0B8-FC68B51D52C1");
+    public static readonly Guid SampleArticleSubPage7WebPageItemGuid = new("1A8E7A4E-B5E6-4B3A-82B8-00305FB6786F");
+
     public static readonly Guid SampleArticleSubPage8ContentItemGuid = new("C8940315-2329-46B8-AC15-032BD2Bf621C");
+    public static readonly Guid SampleArticleSubPage8WebPageItemGuid = new("01AA71D6-0C14-41F0-B762-5F436A0B0B4F");
 
     [Sample("ContentItemSimplifiedModel.Sample.Article", "Simplified model for importing webpage content item", "Simplified model for webpage content item sample")]
     public static ContentItemSimplifiedModel SampleArticleContentItemSimplifiedModel => new()
@@ -106,7 +121,7 @@ public static class ContentItemSimplifiedSamples
         ],
     };
 
-    public static ContentItemSimplifiedModel CreateSampleContentItemSimplifiedModel(Guid contentItemGuid, string name, string displayName,
+    public static ContentItemSimplifiedModel CreateSampleContentItemSimplifiedModel(Guid contentItemGuid, Guid pageGuid, string name, string displayName,
         string treePath, string title, string articleText, List<PageFormerUrlModel>? pageFormerUrls, List<(string Language, VersionStatus Status, bool IsLatest, Guid TeaserGuid)> languageData) => new()
         {
             ContentItemGUID = contentItemGuid,
@@ -119,6 +134,7 @@ public static class ContentItemSimplifiedSamples
             // required when content item type is website content item
             PageData = new()
             {
+                PageGuid = pageGuid,
                 ParentGuid = SampleArticleWebPageGuid,
                 TreePath = treePath,
                 PageUrls = [
@@ -139,7 +155,7 @@ public static class ContentItemSimplifiedSamples
                             UrlPath = $"{language!.ToLower()}{treePath}"
                         })
                 ],
-                PageFormerUrls = pageFormerUrls
+                PageFormerUrls = pageFormerUrls,
             },
             LanguageData = languageData.Select(languageVersion =>
             new ContentItemLanguageData
@@ -163,6 +179,7 @@ public static class ContentItemSimplifiedSamples
     public static ContentItemSimplifiedModel SampleArticleSubPageContentItemSimplifiedModel =>
         CreateSampleContentItemSimplifiedModel(
             contentItemGuid: SampleArticleSubPageContentItemGuid,
+            pageGuid: SampleArticleSubPageWebPageItemGuid,
             name: "SimplifiedModelSampleAsSubPage",
             displayName: "Simplified model sample sub page",
             treePath: "/simplified-sample/sub-page",
@@ -180,6 +197,7 @@ public static class ContentItemSimplifiedSamples
     public static ContentItemSimplifiedModel SampleArticleSubPage2ContentItemSimplifiedModel_Draft =>
         CreateSampleContentItemSimplifiedModel(
             contentItemGuid: SampleArticleSubPage2ContentItemGuid,
+            pageGuid: SampleArticleSubPage2WebPageItemGuid,
             name: "SimplifiedModelSampleAsSubPage2_Draft",
             displayName: "Simplified model sample sub page 2 [Draft]",
             treePath: "/simplified-sample/sub-page-2",
@@ -198,6 +216,7 @@ public static class ContentItemSimplifiedSamples
     public static ContentItemSimplifiedModel SampleArticleSubPage3ContentItemSimplifiedModel_Draft =>
         CreateSampleContentItemSimplifiedModel(
             contentItemGuid: SampleArticleSubPage3ContentItemGuid,
+            pageGuid: SampleArticleSubPage3WebPageItemGuid,
             name: "SimplifiedModelSampleAsSubPage3_Draft",
             displayName: "Simplified model sample sub page 3 [Draft]",
             treePath: "/simplified-sample/sub-page-3",
@@ -216,6 +235,7 @@ public static class ContentItemSimplifiedSamples
     public static ContentItemSimplifiedModel SampleArticleSubPage4ContentItemSimplifiedModel_Scheduled =>
         CreateSampleContentItemSimplifiedModel(
             contentItemGuid: SampleArticleSubPage4ContentItemGuid,
+            pageGuid: SampleArticleSubPage4WebPageItemGuid,
             name: "SimplifiedModelSampleAsSubPage4",
             displayName: "Simplified model sample sub page 4",
             treePath: "/simplified-sample/sub-page-4",
@@ -231,6 +251,7 @@ public static class ContentItemSimplifiedSamples
     public static ContentItemSimplifiedModel SampleArticleSubPage5ContentItemSimplifiedModel_Scheduled =>
         CreateSampleContentItemSimplifiedModel(
             contentItemGuid: SampleArticleSubPage5ContentItemGuid,
+            pageGuid: SampleArticleSubPage5WebPageItemGuid,
             name: "SimplifiedModelSampleAsSubPage5",
             displayName: "Simplified model sample sub page 5",
             treePath: "/simplified-sample/sub-page-5",
@@ -246,6 +267,7 @@ public static class ContentItemSimplifiedSamples
     public static ContentItemSimplifiedModel SampleArticleSubPage6ContentItemSimplifiedModel_InitialDraft =>
         CreateSampleContentItemSimplifiedModel(
             contentItemGuid: SampleArticleSubPage6ContentItemGuid,
+            pageGuid: SampleArticleSubPage6WebPageItemGuid,
             name: "SimplifiedModelSampleAsSubPage6",
             displayName: "Simplified model sample sub page 6",
             treePath: "/simplified-sample/sub-page-6",
@@ -261,6 +283,7 @@ public static class ContentItemSimplifiedSamples
     public static ContentItemSimplifiedModel SampleArticleSubPage7ContentItemSimplifiedModel_Scheduled =>
         CreateSampleContentItemSimplifiedModel(
             contentItemGuid: SampleArticleSubPage7ContentItemGuid,
+            pageGuid: SampleArticleSubPage7WebPageItemGuid,
             name: "SimplifiedModelSampleAsSubPage7",
             displayName: "Simplified model sample sub page 7",
             treePath: "/simplified-sample/sub-page-7",
@@ -276,6 +299,7 @@ public static class ContentItemSimplifiedSamples
     public static ContentItemSimplifiedModel SampleArticleSubPage8ContentItemSimplifiedModel_Published =>
         CreateSampleContentItemSimplifiedModel(
             contentItemGuid: SampleArticleSubPage8ContentItemGuid,
+            pageGuid: SampleArticleSubPage8WebPageItemGuid,
             name: "SimplifiedModelSampleAsSubPage8",
             displayName: "Simplified model sample sub page 8",
             treePath: "/simplified-sample/sub-page-8",

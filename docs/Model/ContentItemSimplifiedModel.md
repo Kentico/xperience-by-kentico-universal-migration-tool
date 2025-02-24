@@ -79,6 +79,7 @@ Simplified model for importing webpage content item with parent
         "LanguageName": "es-CU"
       }
     ],
+    "PageGuid": "008a482c-0b4c-48ff-a87a-0abd0b0fcc40",
     "ParentGuid": "4ea03de4-977e-48aa-9340-babf3d23bafa",
     "TreePath": "/simplified-sample/sub-page"
   }

@@ -19,8 +19,6 @@ namespace TestAfterMigration.Extensions
         /// <returns></returns>
         public static async Task Debounce(this IPage page, int pollDelayMs = 100, int stableDelayMs = 500)
         {
-            await page.WaitForLoadStateAsync(LoadState.NetworkIdle);
-            await page.WaitForLoadStateAsync(LoadState.DOMContentLoaded);
             string markupPrevious = "";
             var stopwatch = Stopwatch.StartNew();
             bool isStable = false;

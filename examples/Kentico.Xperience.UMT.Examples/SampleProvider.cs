@@ -69,6 +69,7 @@ public static class SampleProvider
 
             DataClassSamples.ArticleClassSample,
             DataClassSamples.ArticleAssignedToWebSiteChannel,
+            DataClassSamples.ArticleAllowedAsChildOfArticle,
             DataClassSamples.FaqDataClass,
             DataClassSamples.EventDataClass,
 
@@ -158,6 +159,13 @@ public static class SampleProvider
 
         sourceData.Add(ContentItemSimplifiedSamples.SampleFaqContentItemSimplifiedLinkedByArticle);
         sourceData.Add(ContentItemSimplifiedSamples.SampleArticleContentItemSimplifiedModelWithLinkedItems);
+
+        // webpage scope samples
+        sourceData.AddRange([
+            WebPageScopeSamples.SampleEmptyWebPageScope,
+            WebPageScopeSamples.SamplePopulatedWebPageScope,
+            WebPageScopeSamples.SampleWebPageScopeContentType,
+        ]);
 
         return sourceData;
     }

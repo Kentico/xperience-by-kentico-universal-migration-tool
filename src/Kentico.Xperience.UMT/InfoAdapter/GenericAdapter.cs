@@ -22,6 +22,7 @@ namespace Kentico.Xperience.UMT.InfoAdapter;
 internal interface IInfoAdapter<in TModel> where TModel : IUmtModel
 {
     BaseInfo Adapt(TModel input);
+    void Postprocess(TModel input, BaseInfo baseInfo);
 
     IProviderProxy ProviderProxy { get; }
     Guid? GetUniqueIdOrNull(TModel input);
@@ -280,6 +281,8 @@ public class GenericInfoAdapter<TTargetInfo> : IInfoAdapter<TTargetInfo, IUmtMod
 
         return current;
     }
+
+    public virtual void Postprocess(IUmtModel model, BaseInfo baseInfo) { }
 
     public Guid? GetUniqueIdOrNull(IUmtModel? input)
     {
