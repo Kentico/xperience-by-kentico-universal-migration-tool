@@ -38,6 +38,7 @@ internal class AssetManager(
             ContentItemAssetMetadata assetMetadata;
 
             (int? imageWidth, int? imageHeight) dimensions = (assetSource.ImageWidth, assetSource.ImageHeight);
+            bool isImage = ImageHelper.IsImage(assetSource.InferExtension());
 
             switch (assetSource)
             {
@@ -46,7 +47,7 @@ internal class AssetManager(
                     ArgumentNullException.ThrowIfNull(byteSource.Data);
                     ArgumentNullException.ThrowIfNull(byteSource.Identifier);
 
-                    if ((dimensions.imageWidth is null || dimensions.imageHeight is null) && !imageInfoRetrieverService.TryGetImageDimensions(byteSource.Data, out dimensions))
+                    if (isImage && (dimensions.imageWidth is null || dimensions.imageHeight is null) && !imageInfoRetrieverService.TryGetImageDimensions(byteSource.Data, out dimensions))
                     {
                         logger.LogError("Unable to get image dimensions");
                         throw new InvalidOperationException("Unable to create asset");
@@ -80,7 +81,7 @@ internal class AssetManager(
                         logger.LogError("File {FilePath} does not exist", fileSource.FilePath);
                         throw new InvalidOperationException("Unable to create asset");
                     }
-                    if ((dimensions.imageWidth is null || dimensions.imageHeight is null) && !imageInfoRetrieverService.TryGetImageDimensions(fileSource.FilePath, out dimensions))
+                    if (isImage && (dimensions.imageWidth is null || dimensions.imageHeight is null) && !imageInfoRetrieverService.TryGetImageDimensions(fileSource.FilePath, out dimensions))
                     {
                         logger.LogError("Unable to get image dimensions");
                         throw new InvalidOperationException("Unable to create asset");
@@ -92,7 +93,9 @@ internal class AssetManager(
                         Identifier = fileSource.Identifier.Value,
                         LastModified = fileSource.LastModified ?? dateTimeNowService.GetDateTimeNow(),
                         Name = fileSource.Name ?? file.Name,
-                        Size = fileSource.Size ?? file.Length
+                        Size = fileSource.Size ?? file.Length,
+                        Width = dimensions.imageWidth,
+                        Height = dimensions.imageHeight,
                     };
                     source = new ContentItemAssetMetadataWithSource(
                         new ContentItemAssetFileSource(file.FullName, false),
@@ -111,7 +114,7 @@ internal class AssetManager(
                     await response.Content.LoadIntoBufferAsync();
                     byte[] data = await response.Content.ReadAsByteArrayAsync();
 
-                    if ((dimensions.imageWidth is null || dimensions.imageHeight is null) && !imageInfoRetrieverService.TryGetImageDimensions(data, out dimensions))
+                    if (isImage && (dimensions.imageWidth is null || dimensions.imageHeight is null) && !imageInfoRetrieverService.TryGetImageDimensions(data, out dimensions))
                     {
                         logger.LogError("Unable to get image dimensions");
                         throw new InvalidOperationException("Unable to create asset");
