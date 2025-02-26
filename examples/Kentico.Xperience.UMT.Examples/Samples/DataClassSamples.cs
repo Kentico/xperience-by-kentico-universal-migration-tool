@@ -85,7 +85,8 @@ public static class DataClassSamples
                         {"fielddescriptionashtml", "False"}
                     }
                 },
-                Settings = new FormFieldSettings {
+                Settings = new FormFieldSettings
+                {
                     ControlName = "Kentico.Administration.WebPageSelector",
                     CustomProperties =
                     {
@@ -113,7 +114,8 @@ public static class DataClassSamples
                         {"fielddescriptionashtml", "False"}
                     }
                 },
-                Settings = new FormFieldSettings {
+                Settings = new FormFieldSettings
+                {
                     ControlName = "Kentico.Administration.ContentItemSelector",
                     CustomProperties =
                     {
@@ -141,7 +143,8 @@ public static class DataClassSamples
                         {"fielddescriptionashtml", "False"}
                     }
                 },
-                Settings = new FormFieldSettings {
+                Settings = new FormFieldSettings
+                {
                     ControlName = "Kentico.Administration.TagSelector",
                     CustomProperties =
                     {

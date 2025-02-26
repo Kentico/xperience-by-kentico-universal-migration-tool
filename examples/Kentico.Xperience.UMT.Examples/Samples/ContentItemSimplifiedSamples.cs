@@ -26,16 +26,16 @@ public static class ContentItemSimplifiedSamples
 
     public static readonly Guid SampleArticleSubPage3ContentItemGuid = new("73298F71-0BB1-4083-A674-A876769E3DD9");
     public static readonly Guid SampleArticleSubPage3WebPageItemGuid = new("95EF0983-BC5B-4928-AA26-4D6DA7F0D0BB");
-    
+
     public static readonly Guid SampleArticleSubPage4ContentItemGuid = new("8E957ECC-083B-4C86-B761-8DB516C13737");
     public static readonly Guid SampleArticleSubPage4WebPageItemGuid = new("E45538C5-E3DD-4BBF-9019-E84EA3E4DC32");
-    
+
     public static readonly Guid SampleArticleSubPage5ContentItemGuid = new("BB5C0EB4-E688-4A97-99C7-FA97CAD8F1D5");
     public static readonly Guid SampleArticleSubPage5WebPageItemGuid = new("57B808C0-CDF9-4FEB-9C7C-0A0169FFC0F5");
-    
+
     public static readonly Guid SampleArticleSubPage6ContentItemGuid = new("1D542076-DD88-4C13-A8AA-0FFECDABBA69");
     public static readonly Guid SampleArticleSubPage6WebPageItemGuid = new("49A345D6-C2D3-43FC-B259-52AC53223C3E");
-    
+
     public static readonly Guid SampleArticleSubPage7ContentItemGuid = new("FB66242F-4186-4F71-B0B8-FC68B51D52C1");
     public static readonly Guid SampleArticleSubPage7WebPageItemGuid = new("1A8E7A4E-B5E6-4B3A-82B8-00305FB6786F");
 
@@ -307,7 +307,8 @@ public static class ContentItemSimplifiedSamples
             articleText: "This article is only example of creation UMT simplified model",
             pageFormerUrls:
             [
-                new() {
+                new()
+                {
                     FormerUrlPath = "/simplified-sample/enus-former-url",
                     LanguageName = ContentLanguageSamples.SampleContentLanguageEnUs.ContentLanguageName!,
                 }

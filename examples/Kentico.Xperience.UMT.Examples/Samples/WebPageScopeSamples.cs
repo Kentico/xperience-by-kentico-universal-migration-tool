@@ -1,6 +1,4 @@
-﻿using CMS.Websites;
-
-using Kentico.Xperience.UMT.Model;
+﻿using Kentico.Xperience.UMT.Model;
 
 namespace Kentico.Xperience.UMT.Examples;
 
