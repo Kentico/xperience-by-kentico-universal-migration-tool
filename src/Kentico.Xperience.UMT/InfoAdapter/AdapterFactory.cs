@@ -18,7 +18,7 @@ using Microsoft.Extensions.Logging;
 
 namespace Kentico.Xperience.UMT.InfoAdapter;
 
-internal class AdapterFactory(ILoggerFactory loggerFactory, UmtModelService modelService, IProviderProxyFactory providerProxyFactory, AssetManager assetManager)
+internal class AdapterFactory(ILoggerFactory loggerFactory, UmtModelService modelService, IProviderProxyFactory providerProxyFactory, AssetManager assetManager, ContentItemReferencePopulator contentItemReferencePopulator)
 {
     internal IInfoAdapter<IUmtModel>? CreateAdapter(IUmtModel umtModel, IProviderProxyContext providerProxyContext)
     {
@@ -30,8 +30,8 @@ internal class AdapterFactory(ILoggerFactory loggerFactory, UmtModelService mode
             MediaFileModel => new MediaFileAdapter(loggerFactory.CreateLogger<MediaFileAdapter>(), adapterContext),
             MediaLibraryModel => new GenericInfoAdapter<MediaLibraryInfo>(loggerFactory.CreateLogger<GenericInfoAdapter<MediaLibraryInfo>>(), adapterContext),
             ContentItemLanguageMetadataModel => new GenericInfoAdapter<ContentItemLanguageMetadataInfo>(loggerFactory.CreateLogger<GenericInfoAdapter<ContentItemLanguageMetadataInfo>>(), adapterContext),
-            ContentItemCommonDataModel => new GenericInfoAdapter<ContentItemCommonDataInfo>(loggerFactory.CreateLogger<GenericInfoAdapter<ContentItemCommonDataInfo>>(), adapterContext),
-            ContentItemDataModel => new ContentItemDataAdapter(loggerFactory.CreateLogger<ContentItemDataAdapter>(), adapterContext),
+            ContentItemCommonDataModel => new ContentItemCommonDataAdapter(loggerFactory.CreateLogger<ContentItemCommonDataAdapter>(), adapterContext, contentItemReferencePopulator),
+            ContentItemDataModel => new ContentItemDataAdapter(loggerFactory.CreateLogger<ContentItemDataAdapter>(), adapterContext, contentItemReferencePopulator),
             WebsiteChannelModel => new WebsiteChannelAdapter(Service.Resolve<IInfoProvider<WebPageScopeInfo>>(), loggerFactory.CreateLogger<WebsiteChannelAdapter>(), adapterContext),
             EmailChannelModel => new GenericInfoAdapter<EmailChannelInfo>(loggerFactory.CreateLogger<GenericInfoAdapter<EmailChannelInfo>>(), adapterContext),
             ChannelModel => new GenericInfoAdapter<ChannelInfo>(loggerFactory.CreateLogger<GenericInfoAdapter<ChannelInfo>>(), adapterContext),

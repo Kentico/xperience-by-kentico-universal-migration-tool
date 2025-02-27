@@ -19,12 +19,33 @@ namespace TestAfterMigration.Extensions
         /// <returns></returns>
         public static async Task Debounce(this IPage page, int pollDelayMs = 100, int stableDelayMs = 500)
         {
+            await Task.Delay(500);
+            await page.WaitForLoadStateAsync(LoadState.DOMContentLoaded);
+            await Task.Delay(1000);
+
             string markupPrevious = "";
             var stopwatch = Stopwatch.StartNew();
             bool isStable = false;
             while (!isStable)
             {
-                string markupCurrent = await page.ContentAsync();
+                string markupCurrent;
+                try
+                {
+                    markupCurrent = await page.ContentAsync();
+                }
+                catch (PlaywrightException)
+                {
+                    await Task.Delay(pollDelayMs);
+                    if (stopwatch.ElapsedMilliseconds > 60000)
+                    {
+                        throw new Exception("Debounce timeout");
+                    }
+                    else
+                    {
+                        continue;
+                    }
+                }
+
                 if (markupCurrent == markupPrevious)
                 {
                     double elapsed = stopwatch.ElapsedMilliseconds;

@@ -27,6 +27,7 @@ public static class ServiceCollectionExtensions
         services.AddSingleton<AdapterFactory>();
         services.AddSingleton<AssetManager>();
         services.AddSingleton(_ => new UmtModelService(new[] { typeof(ServiceCollectionExtensions).Assembly }));
+        services.AddSingleton<ContentItemReferencePopulator>();
 
         return services;
     }
