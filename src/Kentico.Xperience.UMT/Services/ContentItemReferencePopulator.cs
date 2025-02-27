@@ -19,12 +19,12 @@ namespace Kentico.Xperience.UMT.Services
             Dictionary<string, object?> customData
         )
         {
-            foreach (var field in SchemaHelper.GetRefFields(className))
+            foreach (var (fieldName, value) in SchemaHelper.GetRefFields(className)
+                                                .Where(field => customData.ContainsKey(field.Name))
+                                                .Select(field => (FieldName: field.Name, Value: customData[field.Name]))
+                                                .Where(x => x.Value is not string))
             {
-                if (customData.TryGetValue(field.Name, out object? contentItemReferenceFieldValue) && contentItemReferenceFieldValue is not string)
-                {
-                    customData[field.Name] = JsonSerializer.Serialize(contentItemReferenceFieldValue);
-                }
+                customData[fieldName] = JsonSerializer.Serialize(value);
             }
         }
 
