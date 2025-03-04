@@ -96,7 +96,8 @@ public static class ContentItemSimplifiedSamples
                         new {Identifier = TaxonomySamples.SampleTagCoffeaRobustaGuid},
                     })
                 },
-                ScheduledPublishWhen = new DateTime(2045, 1, 1, 0, 0, 0, 0, 0, DateTimeKind.Utc)
+                ScheduledPublishWhen = new DateTime(2045, 1, 1, 0, 0, 0, 0, 0, DateTimeKind.Utc),
+                VisualBuilderTemplateConfiguration = new { Identifier = "ArticlePageDefaultTemplate" },
             },
             new()
             {
@@ -116,7 +117,8 @@ public static class ContentItemSimplifiedSamples
                         new {Identifier = TaxonomySamples.SampleTagCoffeaRobustaGuid},
                     })
                 },
-                ScheduledUnpublishWhen = new DateTime(2045, 1, 1, 0, 0, 0, 0, 0, DateTimeKind.Utc)
+                ScheduledUnpublishWhen = new DateTime(2045, 1, 1, 0, 0, 0, 0, 0, DateTimeKind.Utc),
+                VisualBuilderTemplateConfiguration = new { Identifier = "ArticlePageDefaultTemplate" },
             }
         ],
     };
@@ -171,7 +173,8 @@ public static class ContentItemSimplifiedSamples
                     ["ArticleText"] = $"{articleText} for {languageVersion.Language} language{(languageVersion.Status == VersionStatus.Draft ? " ...new draft" : string.Empty)}",
                     ["RelatedArticles"] = null,
                     ["RelatedFaq"] = null
-                }
+                },
+                VisualBuilderTemplateConfiguration = new { Identifier = "ArticlePageDefaultTemplate" },
             }).ToList()
         };
 
@@ -561,7 +564,8 @@ public static class ContentItemSimplifiedSamples
                     {
                         new { Identifier = SampleFaqContentItemLinkedByArticleGuid }
                     }
-                }
+                },
+                VisualBuilderTemplateConfiguration = new { Identifier = "ArticlePageDefaultTemplate" },
             },
             new()
             {
@@ -578,7 +582,8 @@ public static class ContentItemSimplifiedSamples
                     {
                         new { Identifier = SampleFaqContentItemLinkedByArticleGuid }
                     }
-                }
+                },
+                VisualBuilderTemplateConfiguration = new { Identifier = "ArticlePageDefaultTemplate" },
             }
         ],
     };

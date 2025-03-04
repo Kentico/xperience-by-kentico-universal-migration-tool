@@ -90,6 +90,9 @@ public class ContentItemLanguageData
     public DateTime? ScheduledUnpublishWhen { get; set; }
 
     public Dictionary<string, object?>? ContentItemData { get; set; }
+
+    public object? VisualBuilderTemplateConfiguration { get; set; }
+    public object? VisualBuilderWidgets { get; set; }
 }
 
 public class PageDataModel

@@ -1,4 +1,5 @@
 ﻿using System.Text.Json;
+using System.Text.Json.Serialization;
 
 using CMS.ContentEngine;
 using CMS.ContentEngine.Internal;
@@ -152,8 +153,8 @@ public class ContentItemSimplifiedAdapter : IInfoAdapter<ContentItemInfo, IUmtMo
                 ContentItemCommonDataContentItemGuid = contentItemInfo.ContentItemGUID,
                 ContentItemCommonDataContentLanguageGuid = contentLanguageInfo.ContentLanguageGUID,
                 CustomProperties = commonDataCustomProperties,
-                ContentItemCommonDataVisualBuilderWidgets = null,
-                ContentItemCommonDataVisualBuilderTemplateConfiguration = null,
+                ContentItemCommonDataVisualBuilderWidgets = languageData.VisualBuilderWidgets is not null ? JsonSerializer.Serialize(languageData.VisualBuilderWidgets, new JsonSerializerOptions { PropertyNamingPolicy = JsonNamingPolicy.CamelCase }) : null,
+                ContentItemCommonDataVisualBuilderTemplateConfiguration = languageData.VisualBuilderTemplateConfiguration is not null ? JsonSerializer.Serialize(languageData.VisualBuilderTemplateConfiguration, new JsonSerializerOptions { PropertyNamingPolicy = JsonNamingPolicy.CamelCase }) : null,
                 ContentItemCommonDataVersionStatus = languageData.VersionStatus,
                 ContentItemCommonDataIsLatest = languageData.IsLatest,
             };
