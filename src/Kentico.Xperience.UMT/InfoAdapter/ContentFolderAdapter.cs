@@ -21,7 +21,7 @@ public class ContentFolderAdapter : GenericInfoAdapter<ContentFolderInfo>
         this.contentFolderInfoProvider = contentFolderInfoProvider;
         this.workspaceInfoProvider = workspaceInfoProvider;
     }
-    
+
     public override ContentFolderInfo Adapt(IUmtModel input)
     {
         var info = base.Adapt(input);

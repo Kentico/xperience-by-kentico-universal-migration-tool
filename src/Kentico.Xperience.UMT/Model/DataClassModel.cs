@@ -15,14 +15,14 @@ namespace Kentico.Xperience.UMT.Model;
 /// <sample>dataclass.article</sample>
 /// <sample>dataclass.event</sample>
 /// <sample>dataclass.faq</sample>
-[UmtModel(Discriminator)]
+[UmtModel(DISCRIMINATOR)]
 [SuppressMessage("Major Code Smell", "S125:Sections of code should not be commented out", Justification = "For sake of completeness and to avoid unresolved properties in Kentico Info object. All commented properties exist in target model.")]
 public class DataClassModel : UmtModel
 {
     /// <summary>
     /// Discriminator used in serialized structures to identify model 
     /// </summary>
-    public const string Discriminator = "DataClass";
+    public const string DISCRIMINATOR = "DataClass";
 
     // managed internally
     // public int?             ClassID                       { get; private set; }
@@ -48,11 +48,11 @@ public class DataClassModel : UmtModel
     /// <summary>
     /// Short name
     /// </summary>
-    private string? _classShortName;
+    private string? classShortName;
     public string? ClassShortName
     {
-        get => string.IsNullOrWhiteSpace(_classShortName) ? ClassName : _classShortName;
-        set => _classShortName = value;
+        get => string.IsNullOrWhiteSpace(classShortName) ? ClassName : classShortName;
+        set => classShortName = value;
     }
 
     /// <summary>

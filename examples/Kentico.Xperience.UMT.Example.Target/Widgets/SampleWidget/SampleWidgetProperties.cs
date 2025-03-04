@@ -1,5 +1,5 @@
 ﻿using CMS.ContentEngine;
-using CMS.MediaLibrary;
+
 using Kentico.PageBuilder.Web.Mvc;
 using Kentico.Xperience.Admin.Base.FormAnnotations;
 

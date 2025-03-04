@@ -1,8 +1,10 @@
 ﻿using CMS.ContentEngine;
-using Kentico.PageBuilder.Web.Mvc;
-using Microsoft.AspNetCore.Mvc;
-using Kentico.Xperience.UMT.Example.Target.Widgets.SampleWidget;
 using CMS.Websites;
+
+using Kentico.PageBuilder.Web.Mvc;
+using Kentico.Xperience.UMT.Example.Target.Widgets.SampleWidget;
+
+using Microsoft.AspNetCore.Mvc;
 
 [assembly:
     RegisterWidget(SampleWidgetComponent.IDENTIFIER, typeof(SampleWidgetComponent), "Sample Widget",
