@@ -1,11 +1,11 @@
-﻿using CMS.ContentEngine.Internal;
+﻿using System.Text.Json;
+
 using CMS.ContentEngine;
+using CMS.ContentEngine.Internal;
 using CMS.DataEngine;
 using CMS.FormEngine;
 
 using Kentico.Xperience.UMT.Utils;
-
-using System.Text.Json;
 
 namespace Kentico.Xperience.UMT.Services
 {
@@ -24,7 +24,7 @@ namespace Kentico.Xperience.UMT.Services
                                                 .Select(field => (FieldName: field.Name, Value: customData[field.Name]))
                                                 .Where(x => x.Value is not string))
             {
-                customData[fieldName] = JsonSerializer.Serialize(value);
+                customData[fieldName] = value is not null ? JsonSerializer.Serialize(value, new JsonSerializerOptions { PropertyNamingPolicy = JsonNamingPolicy.CamelCase }) : null;
             }
         }
 
@@ -77,7 +77,7 @@ namespace Kentico.Xperience.UMT.Services
                 {
                     if (contentItemReferenceFieldValue is string serializedValue)
                     {
-                        var value = JsonSerializer.Deserialize<IEnumerable<ContentItemReference>>(serializedValue);
+                        var value = JsonSerializer.Deserialize<IEnumerable<ContentItemReference>?>(serializedValue, new JsonSerializerOptions { PropertyNameCaseInsensitive = true });
                         if (value is not null)
                         {
                             foreach (var targetItemGuid in value.Select(x => x.Identifier))
