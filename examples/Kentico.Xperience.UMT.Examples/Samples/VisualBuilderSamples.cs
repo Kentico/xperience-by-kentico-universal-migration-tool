@@ -48,9 +48,7 @@ public static class VisualBuilderSamples
                 VisualBuilderTemplateConfiguration = new { Identifier = "PageWithWidgetsDefaultTemplate" },
 
                 // Value can be of any JSON-serializable type (anonymous, POCO, dictionary, ... or any combination of those)
-                VisualBuilderWidgets = new
-                {
-                    EditableAreas = new[] {
+                VisualBuilderWidgets = new { EditableAreas = new[] {
                     new {
                         Identifier = "main-area",
                         Sections = new[] {
