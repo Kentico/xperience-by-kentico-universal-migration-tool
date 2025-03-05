@@ -1,4 +1,8 @@
-﻿namespace Kentico.Xperience.UMT.Example.Target.Widgets.SampleWidget;
+﻿using CMS.ContentEngine;
+
+using Kentico.Xperience.Admin.Base.FormAnnotations;
+
+namespace Kentico.Xperience.UMT.Example.Target.Widgets.SampleWidget;
 
 public class SampleWidgetViewModel
 {

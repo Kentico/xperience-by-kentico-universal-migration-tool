@@ -1,5 +1,4 @@
 using Kbank.Web.Components;
-
 using Kentico.PageBuilder.Web.Mvc;
 using Kentico.PageBuilder.Web.Mvc.PageTemplates;
 using Kentico.Xperience.UMT.Example.Target.Sections;

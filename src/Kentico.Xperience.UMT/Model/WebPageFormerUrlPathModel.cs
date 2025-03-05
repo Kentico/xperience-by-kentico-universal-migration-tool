@@ -1,10 +1,8 @@
 ﻿using System.ComponentModel.DataAnnotations;
-
+using CMS.Websites.Internal;
+using Kentico.Xperience.UMT.Attributes;
 using CMS.ContentEngine;
 using CMS.Websites;
-using CMS.Websites.Internal;
-
-using Kentico.Xperience.UMT.Attributes;
 
 namespace Kentico.Xperience.UMT.Model
 {
@@ -45,7 +43,7 @@ namespace Kentico.Xperience.UMT.Model
 
         [Map]
         [Required]
-        public bool? WebPageFormerUrlPathIsRedirectScheduled { get; set; }
+        public bool? WebPageFormerUrlPathIsRedirectScheduled { get;set; }
 
         protected override (Guid? uniqueId, string? name, string? displayName) GetPrintArgs() => (WebPageFormerUrlPathGUID, WebPageFormerUrlPath, NOT_AVAILABLE);
     }

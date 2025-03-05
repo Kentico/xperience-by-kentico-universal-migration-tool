@@ -142,7 +142,7 @@ public static class ContentItemSamples
             ["ArticleText"] = "This article is only example of creation UMT model for en-GB language",
             ["RelatedArticles"] = null,
             ["RelatedFaq"] = null,
-            ["CoffeaTaxonomy"] = JsonSerializer.Serialize(new List<object>
+            ["CoffeaTaxonomy"] = System.Text.Json.JsonSerializer.Serialize(new List<object>
             {
                 new {Identifier = TaxonomySamples.SampleTagCoffeaArabicaGuid},
             }),

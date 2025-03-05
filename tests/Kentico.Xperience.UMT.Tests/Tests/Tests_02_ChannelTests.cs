@@ -2,6 +2,7 @@
 
 using Microsoft.Playwright;
 
+using TestAfterMigration.Extensions;
 using TestAfterMigration.Helpers;
 
 namespace TestAfterMigration.Tests
