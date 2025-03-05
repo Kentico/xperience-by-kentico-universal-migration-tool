@@ -1,4 +1,6 @@
-﻿using CMS.ContentEngine;
+﻿using System.Text.Json;
+
+using CMS.ContentEngine;
 
 using Kentico.Xperience.UMT.Model;
 
@@ -33,7 +35,6 @@ public static class ContentItemSamples
         ContentItemGUID = SampleArticleContentItemGuid,
         ContentItemChannelGuid = ChannelSamples.WEBSITE_CHANNEL_SAMPLE_GUID,
         ContentItemDataClassGuid = DataClassSamples.ARTICLE_SAMPLE_GUID,
-        // ContentItemIsSecured = true,
         ContentItemIsReusable = false,
         ContentItemName = "CreationOfUmtModel"
     };
@@ -49,7 +50,7 @@ public static class ContentItemSamples
         ContentItemCommonDataVersionStatus = VersionStatus.Published,
         ContentItemCommonDataIsLatest = true,
         ContentItemCommonDataVisualBuilderWidgets = null,
-        ContentItemCommonDataVisualBuilderTemplateConfiguration = null
+        ContentItemCommonDataVisualBuilderTemplateConfiguration = JsonSerializer.Serialize(new { Identifier = "ArticlePageDefaultTemplate" }, new JsonSerializerOptions { PropertyNamingPolicy = JsonNamingPolicy.CamelCase })
     };
 
     [Sample("ContentItemDataModel.Sample.Article.enUS", "This sample describes how to create content item data inside XbyK", "ContentItemData article sample (en-US)")]
@@ -64,7 +65,7 @@ public static class ContentItemSamples
             ["ArticleText"] = "This article is only example of creation UMT model for en-US language",
             ["RelatedArticles"] = null,
             ["RelatedFaq"] = null,
-            ["CoffeaTaxonomy"] = System.Text.Json.JsonSerializer.Serialize(new List<object>
+            ["CoffeaTaxonomy"] = JsonSerializer.Serialize(new List<object>
             {
                 new {Identifier = TaxonomySamples.SampleTagCoffeaArabicaGuid},
             }),
@@ -126,7 +127,7 @@ public static class ContentItemSamples
         ContentItemCommonDataVersionStatus = VersionStatus.Published,
         ContentItemCommonDataIsLatest = true,
         ContentItemCommonDataVisualBuilderWidgets = null,
-        ContentItemCommonDataVisualBuilderTemplateConfiguration = null
+        ContentItemCommonDataVisualBuilderTemplateConfiguration = JsonSerializer.Serialize(new { Identifier = "ArticlePageDefaultTemplate" }, new JsonSerializerOptions { PropertyNamingPolicy = JsonNamingPolicy.CamelCase }),
     };
 
     [Sample("ContentItemDataModel.Sample.Article.enGB", "This sample describes how to create content item data inside XbyK", "ContentItemData article sample (en-GB)")]
@@ -141,7 +142,7 @@ public static class ContentItemSamples
             ["ArticleText"] = "This article is only example of creation UMT model for en-GB language",
             ["RelatedArticles"] = null,
             ["RelatedFaq"] = null,
-            ["CoffeaTaxonomy"] = System.Text.Json.JsonSerializer.Serialize(new List<object>
+            ["CoffeaTaxonomy"] = JsonSerializer.Serialize(new List<object>
             {
                 new {Identifier = TaxonomySamples.SampleTagCoffeaArabicaGuid},
             }),
@@ -262,7 +263,7 @@ public static class ContentItemSamples
         ContentItemCommonDataVersionStatus = VersionStatus.InitialDraft,
         ContentItemCommonDataIsLatest = true,
         ContentItemCommonDataVisualBuilderWidgets = null,
-        ContentItemCommonDataVisualBuilderTemplateConfiguration = null
+        ContentItemCommonDataVisualBuilderTemplateConfiguration = JsonSerializer.Serialize(new { Identifier = "ArticlePageDefaultTemplate" }, new JsonSerializerOptions { PropertyNamingPolicy = JsonNamingPolicy.CamelCase })
     };
 
     [Sample("ContentItemDataModel.Sample.Article.enUS.WithRelations", "This sample describes how to create content item data inside XbyK", "ContentItemData article sample (en-US)")]
@@ -333,7 +334,7 @@ public static class ContentItemSamples
         ContentItemCommonDataVersionStatus = VersionStatus.Published,
         ContentItemCommonDataIsLatest = true,
         ContentItemCommonDataVisualBuilderWidgets = null,
-        ContentItemCommonDataVisualBuilderTemplateConfiguration = null
+        ContentItemCommonDataVisualBuilderTemplateConfiguration = JsonSerializer.Serialize(new { Identifier = "ArticlePageDefaultTemplate" }, new JsonSerializerOptions { PropertyNamingPolicy = JsonNamingPolicy.CamelCase })
     };
 
     [Sample("ContentItemDataModel.Sample.Article.enGB.WithRelations", "This sample describes how to create content item data inside XbyK", "ContentItemData article sample (en-GB)")]

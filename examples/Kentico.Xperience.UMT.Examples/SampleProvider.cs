@@ -160,6 +160,9 @@ public static class SampleProvider
         sourceData.Add(ContentItemSimplifiedSamples.SampleFaqContentItemSimplifiedLinkedByArticle);
         sourceData.Add(ContentItemSimplifiedSamples.SampleArticleContentItemSimplifiedModelWithLinkedItems);
 
+        sourceData.Add(VisualBuilderSamples.PageWithWidgetsContentType);
+        sourceData.Add(VisualBuilderSamples.SimplifiedModel);
+
         // webpage scope samples
         sourceData.AddRange([
             WebPageScopeSamples.SampleEmptyWebPageScope,

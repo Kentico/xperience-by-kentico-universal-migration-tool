@@ -2,7 +2,6 @@
 
 using Microsoft.Playwright;
 
-using TestAfterMigration.Extensions;
 using TestAfterMigration.Helpers;
 
 namespace TestAfterMigration.Tests
@@ -145,7 +144,7 @@ namespace TestAfterMigration.Tests
             await SelectTopDropdownLanguage("English (United Kingdom)");
 
             var treeItems = await GetPageTreeItems(rootOnly: true);
-            foreach (var item in treeItems)
+            foreach (var item in treeItems.Where(x => !x.Title!.Contains("page with widgets", StringComparison.OrdinalIgnoreCase)))
             {
                 await item.ClickAsync();
                 await Debounce();

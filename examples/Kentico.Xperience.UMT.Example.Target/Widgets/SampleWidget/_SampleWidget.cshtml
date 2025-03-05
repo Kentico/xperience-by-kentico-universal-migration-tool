@@ -1,0 +1,18 @@
+﻿@using Kentico.Xperience.UMT.Example.Target.Widgets.SampleWidget
+@model SampleWidgetViewModel
+
+<div style="padding:15pt;margin:5pt;border:1px solid gray;border-radius:4pt;background-color: #efefef;">
+    <b>Sample Widget</b>
+    <div style="margin-top:5pt">
+        Heading: @Model.Heading
+    </div>
+    <div style="margin-top:5pt">
+        Linked Articles:
+        <ul>
+            @foreach (var articleTitle in Model.LinkedArticleTitles)
+            {
+                <li>@articleTitle</li>
+            }
+        </ul>
+    </div>
+</div>

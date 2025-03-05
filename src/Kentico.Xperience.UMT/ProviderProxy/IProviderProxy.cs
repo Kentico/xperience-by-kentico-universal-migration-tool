@@ -85,7 +85,7 @@ internal class ContentItemDataProxy(IProviderProxyContext context) : IProviderPr
 
 internal class ProviderProxy<TInfo> : IProviderProxy where TInfo : AbstractInfoBase<TInfo>, new()
 {
-    private static readonly Type InfoType = typeof(TInfo);
+    private static readonly Type infoType = typeof(TInfo);
 
     public IProviderProxyContext Context { get; }
 
@@ -114,13 +114,13 @@ internal class ProviderProxy<TInfo> : IProviderProxy where TInfo : AbstractInfoB
         return query.Cast<BaseInfo>().ToList();
     }
 
-    public BaseInfo? GetInfoByGuid(Guid guid, IUmtModel model) => ProviderInstance.Get().WithGuid(guid).FirstOrDefault();
+    public BaseInfo? GetInfoByGuid(Guid guid) => ProviderInstance.Get().WithGuid(guid).FirstOrDefault();
 
-    public BaseInfo? GetBaseInfoByGuid(Guid guid, IUmtModel model) => GetInfoByGuid(guid, model);
+    public BaseInfo? GetBaseInfoByGuid(Guid guid, IUmtModel model) => GetInfoByGuid(guid);
 
-    public BaseInfo? GetInfoBy(Guid guid, string searchedField, IUmtModel model) => ProviderInstance.Get().Where(searchedField, QueryOperator.Like, guid).FirstOrDefault();
+    public BaseInfo? GetInfoBy(Guid guid, string searchedField) => ProviderInstance.Get().Where(searchedField, QueryOperator.Like, guid).FirstOrDefault();
 
-    public BaseInfo? GetBaseInfoBy(Guid guid, string searchedField, IUmtModel model) => GetInfoBy(guid, searchedField, model);
+    public BaseInfo? GetBaseInfoBy(Guid guid, string searchedField, IUmtModel model) => GetInfoBy(guid, searchedField);
     public BaseInfo? GetBaseInfoByCodeName(string? codeName, IUmtModel model) => ProviderInstance.Get().WithCodeName(codeName).FirstOrDefault();
 
     public virtual TInfo Save(TInfo info, IUmtModel model)
@@ -144,7 +144,7 @@ internal class ProviderProxy<TInfo> : IProviderProxy where TInfo : AbstractInfoB
             }
             finally
             {
-                if (InfoType.IsAssignableTo(typeof(WebPageItemInfo)) && info is WebPageItemInfo webPageItemInfo)
+                if (infoType.IsAssignableTo(typeof(WebPageItemInfo)) && info is WebPageItemInfo webPageItemInfo)
                 {
                     var webPageAclMappingManager = Service.Resolve<IWebPageAclMappingManager>();
                     webPageAclMappingManager.CreateMapping(webPageItemInfo.WebPageItemID, webPageItemInfo.WebPageItemParentID, webPageItemInfo.WebPageItemWebsiteChannelID, CancellationToken.None).GetAwaiter().GetResult();
@@ -155,7 +155,7 @@ internal class ProviderProxy<TInfo> : IProviderProxy where TInfo : AbstractInfoB
                         .RestoreInheritance(webPageItemInfo.WebPageItemID)
                         .GetAwaiter().GetResult();
                 }
-                if (InfoType.IsAssignableTo(typeof(WebPageAclInfo)) && info is WebPageAclInfo webPageAclInfo)
+                if (infoType.IsAssignableTo(typeof(WebPageAclInfo)) && info is WebPageAclInfo webPageAclInfo)
                 {
                     var webPageAclMappingManagerFactory = Service.Resolve<IWebPageAclManagerFactory>();
                     webPageAclMappingManagerFactory
