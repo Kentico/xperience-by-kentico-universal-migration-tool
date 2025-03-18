@@ -1,0 +1,15 @@
+﻿@using Kentico.Xperience.UMT.Example.Target.Widgets.CoffeeSampleWidget
+@model CoffeeSampleWidgetViewModel
+
+<div style="padding:15pt;margin:5pt;border:1px solid gray;border-radius:4pt;background-color: #efefef;">
+    <b>Coffee sample widget</b>
+    <div style="margin-top:5pt">
+        Coffees in store:
+        <ul>
+            @foreach (var coffee in Model.Coffees)
+            {
+                <li>@coffee</li>
+            }
+        </ul>
+    </div>
+</div>

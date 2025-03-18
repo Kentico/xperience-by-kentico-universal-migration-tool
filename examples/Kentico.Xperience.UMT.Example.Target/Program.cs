@@ -14,7 +14,8 @@ builder.Services.AddKentico(features =>
         ContentTypeNames =
         [
             "UMT.PageWithWidgets",
-            "UMT.Article"
+            "UMT.Article",
+            "DancingGoatCore.StoreSection"
         ]
     });
     features.UseWebPageRouting(null);
