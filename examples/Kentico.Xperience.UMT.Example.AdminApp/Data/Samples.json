@@ -675,7 +675,7 @@
     "ContentItemCommonDataVersionStatus": 2,
     "ContentItemCommonDataIsLatest": true,
     "ContentItemCommonDataVisualBuilderWidgets": null,
-    "ContentItemCommonDataVisualBuilderTemplateConfiguration": null
+    "ContentItemCommonDataVisualBuilderTemplateConfiguration": "{\u0022identifier\u0022:\u0022ArticlePageDefaultTemplate\u0022}"
   },
   {
     "$type": "ContentItemCommonData",
@@ -685,7 +685,7 @@
     "ContentItemCommonDataVersionStatus": 2,
     "ContentItemCommonDataIsLatest": true,
     "ContentItemCommonDataVisualBuilderWidgets": null,
-    "ContentItemCommonDataVisualBuilderTemplateConfiguration": null
+    "ContentItemCommonDataVisualBuilderTemplateConfiguration": "{\u0022identifier\u0022:\u0022ArticlePageDefaultTemplate\u0022}"
   },
   {
     "$type": "ContentItemData",
@@ -833,7 +833,7 @@
     "ContentItemCommonDataVersionStatus": 0,
     "ContentItemCommonDataIsLatest": true,
     "ContentItemCommonDataVisualBuilderWidgets": null,
-    "ContentItemCommonDataVisualBuilderTemplateConfiguration": null
+    "ContentItemCommonDataVisualBuilderTemplateConfiguration": "{\u0022identifier\u0022:\u0022ArticlePageDefaultTemplate\u0022}"
   },
   {
     "$type": "ContentItemCommonData",
@@ -843,7 +843,7 @@
     "ContentItemCommonDataVersionStatus": 2,
     "ContentItemCommonDataIsLatest": true,
     "ContentItemCommonDataVisualBuilderWidgets": null,
-    "ContentItemCommonDataVisualBuilderTemplateConfiguration": null
+    "ContentItemCommonDataVisualBuilderTemplateConfiguration": "{\u0022identifier\u0022:\u0022ArticlePageDefaultTemplate\u0022}"
   },
   {
     "$type": "ContentItemData",
@@ -997,7 +997,11 @@
           "RelatedArticles": null,
           "RelatedFaq": null,
           "CoffeaTaxonomy": "[{\u0022Identifier\u0022:\u0022a6e3cc11-95a8-482c-beb4-58bbef6e7bdd\u0022},{\u0022Identifier\u0022:\u0022bb181050-79b0-4f42-9280-ef486a139623\u0022}]"
-        }
+        },
+        "VisualBuilderTemplateConfiguration": {
+          "Identifier": "ArticlePageDefaultTemplate"
+        },
+        "VisualBuilderWidgets": null
       },
       {
         "LanguageName": "en-GB",
@@ -1013,7 +1017,11 @@
           "RelatedArticles": null,
           "RelatedFaq": null,
           "CoffeaTaxonomy": "[{\u0022Identifier\u0022:\u0022a6e3cc11-95a8-482c-beb4-58bbef6e7bdd\u0022},{\u0022Identifier\u0022:\u0022bb181050-79b0-4f42-9280-ef486a139623\u0022}]"
-        }
+        },
+        "VisualBuilderTemplateConfiguration": {
+          "Identifier": "ArticlePageDefaultTemplate"
+        },
+        "VisualBuilderWidgets": null
       }
     ],
     "PageData": {
@@ -1068,7 +1076,11 @@
           "ArticleText": "This article is only example of creation UMT simplified model for en-US language",
           "RelatedArticles": null,
           "RelatedFaq": null
-        }
+        },
+        "VisualBuilderTemplateConfiguration": {
+          "Identifier": "ArticlePageDefaultTemplate"
+        },
+        "VisualBuilderWidgets": null
       },
       {
         "LanguageName": "en-GB",
@@ -1083,7 +1095,11 @@
           "ArticleText": "This article is only example of creation UMT simplified model for en-GB language",
           "RelatedArticles": null,
           "RelatedFaq": null
-        }
+        },
+        "VisualBuilderTemplateConfiguration": {
+          "Identifier": "ArticlePageDefaultTemplate"
+        },
+        "VisualBuilderWidgets": null
       }
     ],
     "PageData": {
@@ -1138,7 +1154,11 @@
           "ArticleText": "Created by UMT simplified model in Draft state for en-US language",
           "RelatedArticles": null,
           "RelatedFaq": null
-        }
+        },
+        "VisualBuilderTemplateConfiguration": {
+          "Identifier": "ArticlePageDefaultTemplate"
+        },
+        "VisualBuilderWidgets": null
       },
       {
         "LanguageName": "en-US",
@@ -1153,7 +1173,11 @@
           "ArticleText": "Created by UMT simplified model in Draft state for en-US language ...new draft",
           "RelatedArticles": null,
           "RelatedFaq": null
-        }
+        },
+        "VisualBuilderTemplateConfiguration": {
+          "Identifier": "ArticlePageDefaultTemplate"
+        },
+        "VisualBuilderWidgets": null
       },
       {
         "LanguageName": "en-GB",
@@ -1168,7 +1192,11 @@
           "ArticleText": "Created by UMT simplified model in Draft state for en-GB language",
           "RelatedArticles": null,
           "RelatedFaq": null
-        }
+        },
+        "VisualBuilderTemplateConfiguration": {
+          "Identifier": "ArticlePageDefaultTemplate"
+        },
+        "VisualBuilderWidgets": null
       },
       {
         "LanguageName": "en-GB",
@@ -1183,7 +1211,11 @@
           "ArticleText": "Created by UMT simplified model in Draft state for en-GB language ...new draft",
           "RelatedArticles": null,
           "RelatedFaq": null
-        }
+        },
+        "VisualBuilderTemplateConfiguration": {
+          "Identifier": "ArticlePageDefaultTemplate"
+        },
+        "VisualBuilderWidgets": null
       }
     ],
     "PageData": {
@@ -1250,7 +1282,11 @@
           "ArticleText": "Created by UMT simplified model in Draft state for en-US language",
           "RelatedArticles": null,
           "RelatedFaq": null
-        }
+        },
+        "VisualBuilderTemplateConfiguration": {
+          "Identifier": "ArticlePageDefaultTemplate"
+        },
+        "VisualBuilderWidgets": null
       },
       {
         "LanguageName": "en-US",
@@ -1265,7 +1301,11 @@
           "ArticleText": "Created by UMT simplified model in Draft state for en-US language ...new draft",
           "RelatedArticles": null,
           "RelatedFaq": null
-        }
+        },
+        "VisualBuilderTemplateConfiguration": {
+          "Identifier": "ArticlePageDefaultTemplate"
+        },
+        "VisualBuilderWidgets": null
       },
       {
         "LanguageName": "en-GB",
@@ -1280,7 +1320,11 @@
           "ArticleText": "Created by UMT simplified model in Draft state for en-GB language",
           "RelatedArticles": null,
           "RelatedFaq": null
-        }
+        },
+        "VisualBuilderTemplateConfiguration": {
+          "Identifier": "ArticlePageDefaultTemplate"
+        },
+        "VisualBuilderWidgets": null
       },
       {
         "LanguageName": "en-GB",
@@ -1295,7 +1339,11 @@
           "ArticleText": "Created by UMT simplified model in Draft state for en-GB language ...new draft",
           "RelatedArticles": null,
           "RelatedFaq": null
-        }
+        },
+        "VisualBuilderTemplateConfiguration": {
+          "Identifier": "ArticlePageDefaultTemplate"
+        },
+        "VisualBuilderWidgets": null
       }
     ],
     "PageData": {
@@ -1362,7 +1410,11 @@
           "ArticleText": "This article is only example of creation UMT simplified model for en-US language",
           "RelatedArticles": null,
           "RelatedFaq": null
-        }
+        },
+        "VisualBuilderTemplateConfiguration": {
+          "Identifier": "ArticlePageDefaultTemplate"
+        },
+        "VisualBuilderWidgets": null
       }
     ],
     "PageData": {
@@ -1417,7 +1469,11 @@
           "ArticleText": "This article is only example of creation UMT simplified model for en-US language",
           "RelatedArticles": null,
           "RelatedFaq": null
-        }
+        },
+        "VisualBuilderTemplateConfiguration": {
+          "Identifier": "ArticlePageDefaultTemplate"
+        },
+        "VisualBuilderWidgets": null
       }
     ],
     "PageData": {
@@ -1472,7 +1528,11 @@
           "ArticleText": "This article is only example of creation UMT simplified model for en-US language",
           "RelatedArticles": null,
           "RelatedFaq": null
-        }
+        },
+        "VisualBuilderTemplateConfiguration": {
+          "Identifier": "ArticlePageDefaultTemplate"
+        },
+        "VisualBuilderWidgets": null
       }
     ],
     "PageData": {
@@ -1527,7 +1587,11 @@
           "ArticleText": "This article is only example of creation UMT simplified model for en-US language",
           "RelatedArticles": null,
           "RelatedFaq": null
-        }
+        },
+        "VisualBuilderTemplateConfiguration": {
+          "Identifier": "ArticlePageDefaultTemplate"
+        },
+        "VisualBuilderWidgets": null
       }
     ],
     "PageData": {
@@ -1582,7 +1646,11 @@
           "ArticleText": "This article is only example of creation UMT simplified model for en-US language",
           "RelatedArticles": null,
           "RelatedFaq": null
-        }
+        },
+        "VisualBuilderTemplateConfiguration": {
+          "Identifier": "ArticlePageDefaultTemplate"
+        },
+        "VisualBuilderWidgets": null
       },
       {
         "LanguageName": "en-US",
@@ -1597,7 +1665,11 @@
           "ArticleText": "This article is only example of creation UMT simplified model for en-US language ...new draft",
           "RelatedArticles": null,
           "RelatedFaq": null
-        }
+        },
+        "VisualBuilderTemplateConfiguration": {
+          "Identifier": "ArticlePageDefaultTemplate"
+        },
+        "VisualBuilderWidgets": null
       }
     ],
     "PageData": {
@@ -1661,7 +1733,9 @@
         "ContentItemData": {
           "FaqQuestion": "en-US FAQ question text (reusable)",
           "FaqAnswer": "en-US FAQ answer text (reusable)"
-        }
+        },
+        "VisualBuilderTemplateConfiguration": null,
+        "VisualBuilderWidgets": null
       },
       {
         "LanguageName": "en-GB",
@@ -1674,7 +1748,9 @@
         "ContentItemData": {
           "FaqQuestion": "en-GB FAQ question text (reusable)",
           "FaqAnswer": "en-GB FAQ answer text (reusable)"
-        }
+        },
+        "VisualBuilderTemplateConfiguration": null,
+        "VisualBuilderWidgets": null
       }
     ],
     "PageData": null
@@ -1726,7 +1802,9 @@
             "ImageWidth": null,
             "ImageHeight": null
           }
-        }
+        },
+        "VisualBuilderTemplateConfiguration": null,
+        "VisualBuilderWidgets": null
       },
       {
         "LanguageName": "en-GB",
@@ -1764,7 +1842,9 @@
             "ImageWidth": null,
             "ImageHeight": null
           }
-        }
+        },
+        "VisualBuilderTemplateConfiguration": null,
+        "VisualBuilderWidgets": null
       }
     ],
     "PageData": null
@@ -1811,7 +1891,9 @@
             "ImageWidth": null,
             "ImageHeight": null
           }
-        }
+        },
+        "VisualBuilderTemplateConfiguration": null,
+        "VisualBuilderWidgets": null
       }
     ],
     "PageData": null
@@ -1838,7 +1920,9 @@
         "ContentItemData": {
           "FaqQuestion": "en-us FAQ question text (reusable) linked",
           "FaqAnswer": "en-us FAQ answer text (reusable) linked"
-        }
+        },
+        "VisualBuilderTemplateConfiguration": null,
+        "VisualBuilderWidgets": null
       },
       {
         "LanguageName": "en-GB",
@@ -1851,7 +1935,9 @@
         "ContentItemData": {
           "FaqQuestion": "en-GB FAQ question text (reusable) linked",
           "FaqAnswer": "en-GB FAQ answer text (reusable) linked"
-        }
+        },
+        "VisualBuilderTemplateConfiguration": null,
+        "VisualBuilderWidgets": null
       }
     ],
     "PageData": null
@@ -1883,7 +1969,11 @@
               "Identifier": "1b8e6c4c-49b6-4777-9474-c0d3a97dd832"
             }
           ]
-        }
+        },
+        "VisualBuilderTemplateConfiguration": {
+          "Identifier": "ArticlePageDefaultTemplate"
+        },
+        "VisualBuilderWidgets": null
       },
       {
         "LanguageName": "en-GB",
@@ -1901,7 +1991,11 @@
               "Identifier": "1b8e6c4c-49b6-4777-9474-c0d3a97dd832"
             }
           ]
-        }
+        },
+        "VisualBuilderTemplateConfiguration": {
+          "Identifier": "ArticlePageDefaultTemplate"
+        },
+        "VisualBuilderWidgets": null
       }
     ],
     "PageData": {
@@ -1923,6 +2017,141 @@
       "PageGuid": "56b168a9-2154-40ef-8683-415d71e49822",
       "ParentGuid": null,
       "TreePath": "/simplified-linked-sample",
+      "ItemOrder": null
+    }
+  },
+  {
+    "$type": "DataClass",
+    "ClassDisplayName": "Page with widgets",
+    "ClassName": "UMT.PageWithWidgets",
+    "ClassShortName": "UMT.PageWithWidgets",
+    "ClassTableName": "UMT_PageWithWidgets",
+    "ClassShowTemplateSelection": null,
+    "ClassLastModified": "2024-01-08T22:55:31.7853783\u002B01:00",
+    "ClassGUID": "4154293b-994c-4fe2-a7dd-de89ffd1a1c1",
+    "ClassContactMapping": null,
+    "ClassContactOverwriteEnabled": null,
+    "ClassConnectionString": null,
+    "ClassDefaultObjectType": null,
+    "ClassResourceGuid": null,
+    "ClassCodeGenerationSettings": null,
+    "ClassHasUnmanagedDbSchema": false,
+    "ClassType": "Content",
+    "ClassContentTypeType": "Website",
+    "ClassWebPageHasUrl": true,
+    "Fields": []
+  },
+  {
+    "$type": "ContentItemSimplified",
+    "ContentItemGUID": "0c6ad176-2c53-4c95-901a-6c155c843951",
+    "ContentItemContentFolderGUID": null,
+    "ContentItemWorkspaceGUID": null,
+    "IsSecured": false,
+    "ContentTypeName": "UMT.PageWithWidgets",
+    "Name": "VisualBuilderPageSimplifiedModelSample",
+    "IsReusable": false,
+    "ChannelName": "websitechannelExample",
+    "LanguageData": [
+      {
+        "LanguageName": "en-US",
+        "DisplayName": "Page with widgets (simplified model) - en-us",
+        "VersionStatus": 2,
+        "IsLatest": true,
+        "UserGuid": null,
+        "ScheduledPublishWhen": null,
+        "ScheduledUnpublishWhen": null,
+        "ContentItemData": {},
+        "VisualBuilderTemplateConfiguration": {
+          "Identifier": "PageWithWidgetsDefaultTemplate"
+        },
+        "VisualBuilderWidgets": {
+          "EditableAreas": [
+            {
+              "Identifier": "main-area",
+              "Sections": [
+                {
+                  "Identifier": "d3d434fd-6a8c-464f-88ad-a02a991fbb9b",
+                  "Type": "SingleColumnSection",
+                  "Properties": {
+                    "BackgroundColor": "#EEE"
+                  },
+                  "Zones": [
+                    {
+                      "Identifier": "0513c5d5-3cf0-4bfa-a106-61b2ca10d23e",
+                      "Name": "main-zone",
+                      "Widgets": [
+                        {
+                          "Identifier": "5432d27d-52eb-45f5-8107-3cb08a331cf8",
+                          "Type": "UMT.SampleWidget",
+                          "Variants": [
+                            {
+                              "Identifier": "e0cd9100-d93c-4371-9a05-a3aa781bc526",
+                              "Properties": {
+                                "Heading": "Widget #1",
+                                "LinkedArticles": [
+                                  {
+                                    "Identifier": "9ed8de86-859c-4f6c-94f2-cdd6baed99fe"
+                                  },
+                                  {
+                                    "Identifier": "017edc1e-95c6-43e4-89d5-716c6ae594b2"
+                                  }
+                                ]
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "Identifier": "bca45fe2-2579-4a9f-8672-ffd14196e294",
+                          "Type": "UMT.SampleWidget",
+                          "Variants": [
+                            {
+                              "Identifier": "7f01c403-4f94-4e3c-97de-2676e8a5cee8",
+                              "Properties": {
+                                "Heading": "Widget #2",
+                                "LinkedArticles": [
+                                  {
+                                    "Identifier": "73298f71-0bb1-4083-a674-a876769e3dd9"
+                                  },
+                                  {
+                                    "Identifier": "8e957ecc-083b-4c86-b761-8db516c13737"
+                                  },
+                                  {
+                                    "Identifier": "bb5c0eb4-e688-4a97-99c7-fa97cad8f1d5"
+                                  }
+                                ]
+                              }
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      }
+    ],
+    "PageData": {
+      "PageUrls": [
+        {
+          "UrlPath": "en-us/page-with-widgets-simplified",
+          "PathIsDraft": false,
+          "PathIsLatest": true,
+          "LanguageName": "en-US"
+        },
+        {
+          "UrlPath": "es/page-with-widgets-simplified",
+          "PathIsDraft": false,
+          "PathIsLatest": true,
+          "LanguageName": "es-CU"
+        }
+      ],
+      "PageFormerUrls": null,
+      "PageGuid": "0c6ad176-2c53-4c95-901a-6c155c843951",
+      "ParentGuid": null,
+      "TreePath": "/page-with-widgets-simplified",
       "ItemOrder": null
     }
   },
