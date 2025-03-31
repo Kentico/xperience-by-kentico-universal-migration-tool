@@ -85,6 +85,7 @@ This sample describes how to create content item common data inside XbyK
   "ContentItemCommonDataContentItemGuid": "e09121ad-dd97-472f-b8f6-85fe5428ed6a",
   "ContentItemCommonDataContentLanguageGuid": "f454e93b-5fe9-42a9-b1af-b572234ed9c4",
   "ContentItemCommonDataVersionStatus": 0,
-  "ContentItemCommonDataIsLatest": true
+  "ContentItemCommonDataIsLatest": true,
+  "ContentItemCommonDataVisualBuilderTemplateConfiguration": "{\u0022identifier\u0022:\u0022ArticlePageDefaultTemplate\u0022}"
 }
 ```
