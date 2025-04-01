@@ -42,6 +42,9 @@ Simplified model for importing webpage content item with parent
         "ArticleText": "This article is only example of creation UMT simplified model for en-US language",
         "RelatedArticles": null,
         "RelatedFaq": null
+      },
+      "VisualBuilderTemplateConfiguration": {
+        "Identifier": "ArticlePageDefaultTemplate"
       }
     },
     {
@@ -55,6 +58,9 @@ Simplified model for importing webpage content item with parent
         "ArticleText": "This article is only example of creation UMT simplified model for en-GB language",
         "RelatedArticles": null,
         "RelatedFaq": null
+      },
+      "VisualBuilderTemplateConfiguration": {
+        "Identifier": "ArticlePageDefaultTemplate"
       }
     }
   ],
@@ -110,6 +116,9 @@ Simplified model for importing webpage content item
         "RelatedArticles": null,
         "RelatedFaq": null,
         "CoffeaTaxonomy": "[{\u0022Identifier\u0022:\u0022a6e3cc11-95a8-482c-beb4-58bbef6e7bdd\u0022},{\u0022Identifier\u0022:\u0022bb181050-79b0-4f42-9280-ef486a139623\u0022}]"
+      },
+      "VisualBuilderTemplateConfiguration": {
+        "Identifier": "ArticlePageDefaultTemplate"
       }
     },
     {
@@ -124,6 +133,9 @@ Simplified model for importing webpage content item
         "RelatedArticles": null,
         "RelatedFaq": null,
         "CoffeaTaxonomy": "[{\u0022Identifier\u0022:\u0022a6e3cc11-95a8-482c-beb4-58bbef6e7bdd\u0022},{\u0022Identifier\u0022:\u0022bb181050-79b0-4f42-9280-ef486a139623\u0022}]"
+      },
+      "VisualBuilderTemplateConfiguration": {
+        "Identifier": "ArticlePageDefaultTemplate"
       }
     }
   ],
@@ -237,6 +249,8 @@ This sample describes how to import reusable content item with asset into XbyK
 |ScheduledPublishWhen|Date and time on which draft content item will be published, must be set in future|System.DateTime?||
 |ScheduledUnpublishWhen|Date and time on which published content item will be unpublished, must be set in future|System.DateTime?||
 |ContentItemData||System.Collections.Generic.Dictionary<string, object?>?||
+|VisualBuilderTemplateConfiguration||object?||
+|VisualBuilderWidgets||object?||
 
 <p>*) value is required</p>
 
