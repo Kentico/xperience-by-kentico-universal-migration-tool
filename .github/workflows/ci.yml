@@ -2,7 +2,7 @@ name: "CI: Build and Test"
 
 on:
   push:
-    branches: [main, feat/github-actions-pipeline]
+    branches: [main]
     paths:
       - "**.cs"
       - "**.cshtml"
@@ -23,9 +23,13 @@ on:
       - "**.js"
       - "**.json"
       - "**.csproj"
-      - "**.props"
       - "**.targets"
       - "**.sln"
+      - "**.yml"
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
 
 env:
   XBK_DIR: "${{ github.workspace }}\\xbk"
@@ -51,6 +55,13 @@ jobs:
         with:
           global-json-file: "${{ env.UMT_DIR}}\\global.json"
 
+      - name: <UMT> Install dependencies and build
+        working-directory: ${{ env.UMT_DIR }}
+        run: |
+          dotnet restore --locked-mode
+          dotnet tool restore
+          dotnet build
+
       - name: <DB> Install SQL Server
         uses: Particular/install-sql-server-action@v1.0.0
         with:
@@ -59,7 +70,7 @@ jobs:
 
       - name: <DB> Create Kentico DB user
         run: |
-          sqlcmd -Q "CREATE LOGIN ${{ env.DB_USER}} WITH PASSWORD = '${{ secrets.XPERIENCE_BY_KENTICO_DB_PASSWORD }}'; 
+          sqlcmd -Q "CREATE LOGIN ${{ env.DB_USER}} WITH PASSWORD = '${{ secrets.XPERIENCE_BY_KENTICO_DB_PASSWORD }}';
           CREATE USER kentico FOR LOGIN kentico;
           GO"
 
@@ -97,7 +108,7 @@ jobs:
         run: |
           echo ${{ secrets.XPERIENCE_BY_KENTICO_LICENSE }} > ${{ env.LICENSE_FILE }}
           Write-Output "SQL_SERVER_CONNECTION_STRING: $env:SQL_SERVER_CONNECTION_STRING"
-          dotnet kentico-xperience-dbmanager -- -s "${{ env.SQLSERVER_NAME}}" -d "${{ env.DB_DATABASE }}" -u "${{ env.DB_USER }}" -p "${{ secrets.XPERIENCE_BY_KENTICO_DB_PASSWORD }}" -a "${{ secrets.XPERIENCE_BY_KENTICO_ADMIN_PASSWORD }}" --license-file "${{ env.LICENSE_FILE }}" --use-existing-database --hash-string-salt "<hash_string_salt>" 
+          dotnet kentico-xperience-dbmanager -- -s "${{ env.SQLSERVER_NAME}}" -d "${{ env.DB_DATABASE }}" -u "${{ env.DB_USER }}" -p "${{ secrets.XPERIENCE_BY_KENTICO_DB_PASSWORD }}" -a "${{ secrets.XPERIENCE_BY_KENTICO_ADMIN_PASSWORD }}" --license-file "${{ env.LICENSE_FILE }}" --use-existing-database --hash-string-salt "<hash_string_salt>"
           sqlcmd -S "${{ env.SQLSERVER_NAME}}" -U 'kentico' -P '${{ secrets.XPERIENCE_BY_KENTICO_DB_PASSWORD }}' -d "${{ env.DB_DATABASE }}" -Q "SELECT * FROM CMS_User"
 
       - name: <UMT> Prepare appsettings.json for migration
@@ -111,13 +122,6 @@ jobs:
           $appsettings.WebApplicationPhysicalPath = "${{ env.XBK_DIR }}"
           $appsettings | ConvertTo-Json -Compress | Set-Content $EXAMPLE_APPSETTINGS
           Get-Content $EXAMPLE_APPSETTINGS
-
-      - name: <UMT> Install dependencies and build
-        working-directory: ${{ env.UMT_DIR }}
-        run: |
-          dotnet restore --locked-mode
-          dotnet tool restore
-          dotnet build
 
       - name: <UMT> Run example migration
         working-directory: ${{ env.UMT_DIR }}\examples\Kentico.Xperience.UMT.Example.Console\
