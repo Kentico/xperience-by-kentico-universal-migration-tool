@@ -104,13 +104,6 @@ jobs:
           dotnet kentico-xperience-dbmanager -- -s "${{ env.SQLSERVER_NAME}}" -d "${{ env.DB_DATABASE }}" -u "${{ env.DB_USER }}" -p "${{ secrets.XPERIENCE_BY_KENTICO_DB_PASSWORD }}" -a "${{ secrets.XPERIENCE_BY_KENTICO_ADMIN_PASSWORD }}" --license-file "${{ env.LICENSE_FILE }}" --use-existing-database --hash-string-salt "<hash_string_salt>"
           sqlcmd -S "${{ env.SQLSERVER_NAME}}" -U 'kentico' -P '${{ secrets.XPERIENCE_BY_KENTICO_DB_PASSWORD }}' -d "${{ env.DB_DATABASE }}" -Q "SELECT * FROM CMS_User"
 
-      - name: <UMT> Install dependencies and build
-        working-directory: ${{ env.UMT_DIR }}
-        run: |
-          dotnet restore --locked-mode
-          dotnet tool restore
-          dotnet build
-
       - name: <UMT> Prepare appsettings.json for migration
         working-directory: ${{ env.UMT_DIR }}
         run: |
@@ -122,6 +115,13 @@ jobs:
           $appsettings.WebApplicationPhysicalPath = "${{ env.XBK_DIR }}"
           $appsettings | ConvertTo-Json -Compress | Set-Content $EXAMPLE_APPSETTINGS
           Get-Content $EXAMPLE_APPSETTINGS
+
+      - name: <UMT> Install dependencies and build
+        working-directory: ${{ env.UMT_DIR }}
+        run: |
+          dotnet restore --locked-mode
+          dotnet tool restore
+          dotnet build
 
       - name: <UMT> Run example migration
         working-directory: ${{ env.UMT_DIR }}\examples\Kentico.Xperience.UMT.Example.Console\
