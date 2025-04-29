@@ -355,11 +355,12 @@ namespace TestAfterMigration.Tests
                 await subpage4.ClickAsync();
                 await Debounce();
                 await Page.GetByTestId("create-page-button").ClickAsync();
-                var typeSelectorTile = Page.GetByTestId("item-tile-this-is-article-example").Nth(0);
+                var typeSelectorTile = Page.GetByTestId("item-tile").Nth(0);
 
                 if (allowed)
                 {
                     await Assertions.Expect(typeSelectorTile).ToBeVisibleAsync();
+                    await Assertions.Expect(typeSelectorTile).ToHaveAttributeAsync("aria-label", "This is Article example");
                 }
                 else
                 {
