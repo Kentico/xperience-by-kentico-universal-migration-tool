@@ -4,11 +4,11 @@
     "net8.0": {
       "Kentico.Xperience.ImageProcessing": {
         "type": "Direct",
-        "requested": "[30.4.0, )",
-        "resolved": "30.4.0",
-        "contentHash": "W1BjABuC3AMzQCi7IC+gweREghf6tO+KOZbCpO7fhUI4PtMqRT9iAD6hTBdfcl0w/noi9jj/hUcJBDfFdwXbkg==",
+        "requested": "[30.4.1, )",
+        "resolved": "30.4.1",
+        "contentHash": "a+hNUT67+zjrGRSGHw/jeEwxImnFSS9GEuHlf2N5TtKCQ7Q00GWGyaXLkwvwZNPBXPt2GsjTOCbjg9xdirqwaw==",
         "dependencies": {
-          "Kentico.Xperience.Core": "30.4.0",
+          "Kentico.Xperience.Core": "30.4.1",
           "SkiaSharp": "3.116.1",
           "SkiaSharp.NativeAssets.Linux.NoDependencies": "3.116.1"
         }
@@ -604,7 +604,7 @@
       "kentico.xperience.umt": {
         "type": "Project",
         "dependencies": {
-          "Kentico.Xperience.Core": "[30.4.0, )",
+          "Kentico.Xperience.Core": "[30.4.1, )",
           "Microsoft.Bcl.AsyncInterfaces": "[9.0.3, )"
         }
       },
@@ -616,9 +616,9 @@
       },
       "Kentico.Xperience.Core": {
         "type": "CentralTransitive",
-        "requested": "[30.4.0, )",
-        "resolved": "30.4.0",
-        "contentHash": "siwIyBRzJdgZ3y3ktafpd8Xtzl9/t91tGsHvO653g7Hts6pU1JpWXl1wvfWCAT0APnDF3JfKiRk0kHM5BnRG/w==",
+        "requested": "[30.4.1, )",
+        "resolved": "30.4.1",
+        "contentHash": "P8h+UENe5+MyB1ba18HuzFgYjiPWpCcmCSoQj9Zqy+GSYBaeOZEVANipURYivVsUM0SOSfyt7/hFKBbspniCAA==",
         "dependencies": {
           "AngleSharp": "0.17.1",
           "Magick.NET-Q8-AnyCPU": "14.6.0",

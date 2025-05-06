@@ -7,11 +7,11 @@
   </PropertyGroup>
   <ItemGroup>
     <PackageVersion Include="coverlet.collector" Version="6.0.2" />
-    <PackageVersion Include="Kentico.Xperience.AzureStorage" Version="30.4.0" />
-    <PackageVersion Include="Kentico.Xperience.Core" Version="30.4.0" />
-    <PackageVersion Include="Kentico.Xperience.Admin" Version="30.4.0" />
-    <PackageVersion Include="Kentico.Xperience.ImageProcessing" Version="30.4.0" />
-    <PackageVersion Include="Kentico.Xperience.WebApp" Version="30.4.0" />
+    <PackageVersion Include="Kentico.Xperience.AzureStorage" Version="30.4.1" />
+    <PackageVersion Include="Kentico.Xperience.Core" Version="30.4.1" />
+    <PackageVersion Include="Kentico.Xperience.Admin" Version="30.4.1" />
+    <PackageVersion Include="Kentico.Xperience.ImageProcessing" Version="30.4.1" />
+    <PackageVersion Include="Kentico.Xperience.WebApp" Version="30.4.1" />
     <PackageVersion Include="Microsoft.Bcl.AsyncInterfaces" Version="9.0.3" />
     <PackageVersion Include="Microsoft.CodeAnalysis.CSharp.Features" Version="4.12.0" />
     <PackageVersion Include="Microsoft.CodeAnalysis.Features" Version="4.12.0" />
