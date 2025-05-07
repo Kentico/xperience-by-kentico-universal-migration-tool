@@ -249,7 +249,7 @@ public class GenericInfoAdapter<TTargetInfo> : IInfoAdapter<TTargetInfo, IUmtMod
                         case AssetSource assetSource:
                             asset = assetSource;
                             break;
-                        case JsonElement { ValueKind: JsonValueKind.Object } jsonElement when jsonElement.GetProperty(AssetSource.DISCRIMINATOR_PROPERTY).GetString() is { }:
+                        case JsonElement { ValueKind: JsonValueKind.Object } jsonElement when jsonElement.TryGetProperty(AssetSource.DISCRIMINATOR_PROPERTY, out var discriminator) && discriminator.GetString() is { }:
                             asset = jsonElement.Deserialize<AssetSource>() ?? throw new InvalidOperationException($"Failed to deserialize asse source: {jsonElement}");
                             break;
                         case JsonElement jsonElement:
