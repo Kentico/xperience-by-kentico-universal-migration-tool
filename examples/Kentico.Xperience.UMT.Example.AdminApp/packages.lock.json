@@ -4,12 +4,12 @@
     "net8.0": {
       "Kentico.Xperience.Admin": {
         "type": "Direct",
-        "requested": "[30.4.1, )",
-        "resolved": "30.4.1",
-        "contentHash": "7ukJz2x88bBL9rwblQRk4e2vGZV3N8VPhhoyki0ktWUE8PKjpFXvuS2hTGkYv4ks7kQH02Wq5AxvTef3RYvcaA==",
+        "requested": "[30.4.2, )",
+        "resolved": "30.4.2",
+        "contentHash": "hJiiNk1ds4OOCUsp9d8kNW/665NS7HtCRtYEqBp99epIPV3sWBzV6eq/K4Bee0QPzHmWX8eKmA10YK5C5450Sw==",
         "dependencies": {
           "Kentico.Aira.Client": "3.2.0",
-          "Kentico.Xperience.WebApp": "[30.4.1]",
+          "Kentico.Xperience.WebApp": "[30.4.2]",
           "Microsoft.AspNetCore.SpaServices.Extensions": "8.0.15",
           "Microsoft.Extensions.FileProviders.Embedded": "8.0.15"
         }
@@ -945,15 +945,15 @@
       "kentico.xperience.umt": {
         "type": "Project",
         "dependencies": {
-          "Kentico.Xperience.Core": "[30.4.1, )",
+          "Kentico.Xperience.Core": "[30.4.2, )",
           "Microsoft.Bcl.AsyncInterfaces": "[9.0.3, )"
         }
       },
       "Kentico.Xperience.Core": {
         "type": "CentralTransitive",
-        "requested": "[30.4.1, )",
-        "resolved": "30.4.1",
-        "contentHash": "P8h+UENe5+MyB1ba18HuzFgYjiPWpCcmCSoQj9Zqy+GSYBaeOZEVANipURYivVsUM0SOSfyt7/hFKBbspniCAA==",
+        "requested": "[30.4.2, )",
+        "resolved": "30.4.2",
+        "contentHash": "zqFdkMmwQrVCoXedpA42GOu3U1gINEFWA/6oKNbSOmvtt4heb3HDG6YSQze5UCrkBf/N1sJ1227vw1h1hNRh2w==",
         "dependencies": {
           "AngleSharp": "0.17.1",
           "Magick.NET-Q8-AnyCPU": "14.6.0",
@@ -973,15 +973,15 @@
       },
       "Kentico.Xperience.WebApp": {
         "type": "CentralTransitive",
-        "requested": "[30.4.1, )",
-        "resolved": "30.4.1",
-        "contentHash": "19PPVg0hu0N6ykM6d81Gq8HtrbeaqxZI6ryovHYDUclmPnRceqLS9GuzShTuGc5sdOuZLQ00Z3eXCLY/n0I8rw==",
+        "requested": "[30.4.2, )",
+        "resolved": "30.4.2",
+        "contentHash": "I8fFYZYmGCEI8SaDsneQvaHNnsVHOg2cDimAridw6ZAzH/zPB3B411crTS4xDHOfbz5A86OKGYaSucEVBJT4Pw==",
         "dependencies": {
           "CommandLineParser": "2.9.1",
           "HotChocolate.AspNetCore": "15.0.3",
           "HotChocolate.Data": "15.0.3",
           "HtmlSanitizer": "8.1.870",
-          "Kentico.Xperience.Core": "[30.4.1]",
+          "Kentico.Xperience.Core": "[30.4.2]",
           "Microsoft.AspNetCore.Components": "8.0.15",
           "Microsoft.Extensions.Caching.Memory": "8.0.1",
           "Microsoft.Extensions.FileProviders.Embedded": "8.0.15",

@@ -1,11 +1,13 @@
-﻿using CMS.ContentEngine;
+﻿using CMS.Activities;
+using CMS.ContactManagement;
+using CMS.ContentEngine;
 using CMS.ContentEngine.Internal;
 using CMS.Core;
 using CMS.Core.Internal;
 using CMS.DataEngine;
+using CMS.DataProtection;
 using CMS.EmailLibrary;
 using CMS.MediaLibrary;
-using CMS.Websites;
 using CMS.Websites.Internal;
 using CMS.Workspaces;
 
@@ -51,6 +53,26 @@ internal class AdapterFactory(ILoggerFactory loggerFactory, UmtModelService mode
             WebPageScopeModel => new GenericInfoAdapter<WebPageScopeInfo>(loggerFactory.CreateLogger<GenericInfoAdapter<WebPageScopeInfo>>(), adapterContext),
             WebPageScopeContentTypeModel => new GenericInfoAdapter<WebPageScopeContentTypeInfo>(loggerFactory.CreateLogger<GenericInfoAdapter<WebPageScopeContentTypeInfo>>(), adapterContext),
             AllowedChildContentTypeModel => new GenericInfoAdapter<AllowedChildContentTypeInfo>(loggerFactory.CreateLogger<GenericInfoAdapter<AllowedChildContentTypeInfo>>(), adapterContext),
+
+#pragma warning disable UMTExperimentalModelContact
+            ContactModel => new GenericInfoAdapter<ContactInfo>(loggerFactory.CreateLogger<GenericInfoAdapter<ContactInfo>>(), adapterContext),
+#pragma warning restore UMTExperimentalModelContact
+
+#pragma warning disable UMTExperimentalModelContactGroup
+            ContactGroupModel => new GenericInfoAdapter<ContactGroupInfo>(loggerFactory.CreateLogger<GenericInfoAdapter<ContactGroupInfo>>(), adapterContext),
+#pragma warning restore UMTExperimentalModelContactGroup
+
+#pragma warning disable UMTExperimentalModelContactGroupMember
+            ContactGroupMemberModel => new GenericInfoAdapter<ContactGroupMemberInfo>(loggerFactory.CreateLogger<GenericInfoAdapter<ContactGroupMemberInfo>>(), adapterContext),
+#pragma warning restore UMTExperimentalModelContactGroupMember
+
+#pragma warning disable UMTExperimentalModelActivity
+            ActivityModel => new GenericInfoAdapter<ActivityInfo>(loggerFactory.CreateLogger<GenericInfoAdapter<ActivityInfo>>(), adapterContext),
+#pragma warning restore UMTExperimentalModelActivity
+
+#pragma warning disable UMTExperimentalModelConsentAgreement
+            ConsentAgreementModel => new GenericInfoAdapter<ConsentAgreementInfo>(loggerFactory.CreateLogger<GenericInfoAdapter<ConsentAgreementInfo>>(), adapterContext),
+#pragma warning restore UMTExperimentalModelConsentAgreement
 
             // macro models
             ContentItemSimplifiedModel => new ContentItemSimplifiedAdapter(providerProxyFactory.CreateProviderProxy<ContentItemInfo>(providerProxyContext), providerProxyFactory, Service.Resolve<IDateTimeNowService>(), this,
