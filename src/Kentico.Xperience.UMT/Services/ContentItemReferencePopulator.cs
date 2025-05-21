@@ -1,11 +1,10 @@
 ﻿using CMS.ContentEngine.Internal;
-using CMS.ContentEngine;
 using CMS.DataEngine;
 using CMS.FormEngine;
-
 using Kentico.Xperience.UMT.Utils;
-
 using System.Text.Json;
+using Kentico.Xperience.UMT.Services.Model;
+using System.Text.RegularExpressions;
 
 namespace Kentico.Xperience.UMT.Services
 {
@@ -77,7 +76,8 @@ namespace Kentico.Xperience.UMT.Services
                 {
                     if (contentItemReferenceFieldValue is string serializedValue)
                     {
-                        var value = JsonSerializer.Deserialize<IEnumerable<ContentItemReference>?>(serializedValue, new JsonSerializerOptions { PropertyNameCaseInsensitive = true });
+                        var unescapedSerializedValue = Regex.Unescape(serializedValue).Trim('\"');
+                        var value = JsonSerializer.Deserialize<IEnumerable<ContentItemReference>?>(unescapedSerializedValue, new JsonSerializerOptions { PropertyNameCaseInsensitive = true });
                         if (value is not null)
                         {
                             foreach (var targetItemGuid in value.Select(x => x.Identifier))

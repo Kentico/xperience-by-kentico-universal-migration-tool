@@ -223,7 +223,7 @@ public static class ContentItemSamples
         WebPageItemWebsiteChannelGuid = WebSiteChannelSamples.WebsiteChannelGuid
     };
 
-    public static readonly Guid SAMPLE_ARTICLE_WEBPAGE_ACL_GUID = new("959408C5-D157-4C18-8AE0-A7D9CFB374F5");
+    public static readonly Guid SAMPLE_ARTICLE_WEBPAGE_ACL_GUID = new("DCFBDA0A-8B7A-4A29-896A-54ED556C65D6");
 
     [Sample("webpageitem.sample.article.acl", "This sample describes how to set Web page ACL", "ContentItem ACL Sample")]
     public static WebPageAclModel SampleArticleWebPageAcl => new()
