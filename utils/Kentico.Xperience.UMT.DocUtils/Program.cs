@@ -1,6 +1,7 @@
 ﻿// See https://aka.ms/new-console-template for more information
 
 using System.Collections.Concurrent;
+using System.Diagnostics.CodeAnalysis;
 
 using CMS.Core;
 using CMS.DataEngine;
@@ -205,13 +206,19 @@ foreach (var solutionProject in solution.Projects)
                     {
                         var modelClass = semanticModel.GetDeclaredSymbol(classDeclarationSyntax);
                         Console.WriteLine($"  Model class discovered '{modelClass?.Name}'");
+                        if (true == modelClass?.GetAttributes().Any(x => string.Equals(x?.AttributeClass?.Name, nameof(ExperimentalAttribute))))
+                        {
+                            Console.WriteLine("    Skipped due to being experimental");
+                        }
+                        else
+                        {
+                            var modelVisitor = new UmtModelVisitor(importService);
+                            modelVisitor.Visit(modelClass);
 
-                        var modelVisitor = new UmtModelVisitor(importService);
-                        modelVisitor.Visit(modelClass);
+                            string markdownFilePath = Path.Join(targetDirectory, $"Model\\{modelClass?.Name}.md");
 
-                        string markdownFilePath = Path.Join(targetDirectory, $"Model\\{modelClass?.Name}.md");
-
-                        await MdHelper.RenderTemplateToFile("UmtModel", modelVisitor.ModelClasses, markdownFilePath);
+                            await MdHelper.RenderTemplateToFile("UmtModel", modelVisitor.ModelClasses, markdownFilePath);
+                        }
                     }
                 }
             }

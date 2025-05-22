@@ -90,7 +90,7 @@ namespace TestAfterMigration.Tests
                 await Page.GetByTestId("vertical-menu-item").Filter(new LocatorFilterOptions { HasTextRegex = new Regex("^Properties$") }).ClickAsync();
                 await Debounce();
 
-                await Page.GetByTestId("vertical-menu-item").Filter(new LocatorFilterOptions { HasTextRegex = new Regex("^Usage$") }).ClickAsync();
+                await Page.GetByTestId("vertical-menu-item").Filter(new LocatorFilterOptions { HasTextRegex = new Regex("^Used in") }).ClickAsync();
                 await Debounce();
 
                 await Page.Locator("a").Filter(new LocatorFilterOptions { HasText = "List of content items" }).Nth(0).ClickAsync();
@@ -137,29 +137,18 @@ namespace TestAfterMigration.Tests
             await Page.GetByTestId("table-row").ClickAsync();
             await Debounce();
 
-            await Page.GetByText("Usage").ClickAsync();
+            await Page.GetByText("Used in").ClickAsync();
             await Debounce();
 
-            var usageInChannelsButton = Page.GetByText("In channels");
-            await Assertions.Expect(usageInChannelsButton).ToBeEnabledAsync();
-
-            await usageInChannelsButton.ClickAsync();
-            await Debounce();
-
-            search = Page.GetByTestId("search-input");
-            await search.FillAsync("Simplified model sample with linked items - en-us");
-            await Page.Keyboard.PressAsync("Enter");
-
-            await Assertions.Expect(Page.GetByTestId("table-row")).Not.ToHaveCountAsync(0);
-
-            await Debounce();
+            await Assertions.Expect(Page.GetByTestId("table-cell-ChannelDisplayName")).ToHaveTextAsync("website Channel Example");
         }
 
         [Test]
         public async Task Test00800_Former_URLs_Exists()
         {
-            await OpenAdminApplication("Former URLs");
-
+            await OpenAdminApplication("URLs");
+            await Page.GetByText("Former URLs").ClickAsync();
+            await Debounce();
             await Assertions.Expect(Page.GetByTestId("table-cell-WebPageFormerUrlPath")).Not.ToHaveCountAsync(0);
         }
 
