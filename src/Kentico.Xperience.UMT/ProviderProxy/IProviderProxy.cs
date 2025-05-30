@@ -138,30 +138,43 @@ internal class ProviderProxy<TInfo> : IProviderProxy where TInfo : AbstractInfoB
     {
         if (info.GetType().IsAssignableTo(typeof(TInfo)))
         {
-            try
+            if (InfoType.IsAssignableTo(typeof(WebPageAclInfo)) && info is WebPageAclInfo webPageAclInfo)
             {
-                return Save((TInfo)info, model);
-            }
-            finally
-            {
-                if (InfoType.IsAssignableTo(typeof(WebPageItemInfo)) && info is WebPageItemInfo webPageItemInfo)
-                {
-                    var webPageAclMappingManager = Service.Resolve<IWebPageAclMappingManager>();
-                    webPageAclMappingManager.CreateMapping(webPageItemInfo.WebPageItemID, webPageItemInfo.WebPageItemParentID, webPageItemInfo.WebPageItemWebsiteChannelID, CancellationToken.None).GetAwaiter().GetResult();
+                // No actual saving. WebPageAclModel model is just supposed to break the inheritance
+                var webPageAclMappingManagerFactory = Service.Resolve<IWebPageAclManagerFactory>();
+                webPageAclMappingManagerFactory
+                    .Create(webPageAclInfo.WebPageAclWebsiteChannelID)
+                    .BreakInheritance(webPageAclInfo.WebPageAclWebPageItemID)
+                    .GetAwaiter().GetResult();
 
-                    var webPageAclMappingManagerFactory = Service.Resolve<IWebPageAclManagerFactory>();
-                    webPageAclMappingManagerFactory
-                        .Create(webPageItemInfo.WebPageItemWebsiteChannelID)
-                        .RestoreInheritance(webPageItemInfo.WebPageItemID)
-                        .GetAwaiter().GetResult();
-                }
-                if (InfoType.IsAssignableTo(typeof(WebPageAclInfo)) && info is WebPageAclInfo webPageAclInfo)
+                var savedInfo = ProviderInstance.Get()
+                    .WhereEquals(nameof(WebPageAclInfo.WebPageAclWebsiteChannelID), webPageAclInfo.WebPageAclWebsiteChannelID)
+                    .And().WhereEquals(nameof(WebPageAclInfo.WebPageAclWebPageItemID), webPageAclInfo.WebPageAclWebPageItemID)
+                    .FirstOrDefault();
+                if (savedInfo is not null)
                 {
-                    var webPageAclMappingManagerFactory = Service.Resolve<IWebPageAclManagerFactory>();
-                    webPageAclMappingManagerFactory
-                        .Create(webPageAclInfo.WebPageAclWebsiteChannelID)
-                        .BreakInheritance(webPageAclInfo.WebPageAclWebPageItemID)
-                        .GetAwaiter().GetResult();
+                    return savedInfo;
+                }
+            }
+            else
+            {
+                try
+                {
+                    return Save((TInfo)info, model);
+                }
+                finally
+                {
+                    if (InfoType.IsAssignableTo(typeof(WebPageItemInfo)) && info is WebPageItemInfo webPageItemInfo)
+                    {
+                        var webPageAclMappingManager = Service.Resolve<IWebPageAclMappingManager>();
+                        webPageAclMappingManager.CreateMapping(webPageItemInfo.WebPageItemID, webPageItemInfo.WebPageItemParentID, webPageItemInfo.WebPageItemWebsiteChannelID, CancellationToken.None).GetAwaiter().GetResult();
+
+                        var webPageAclMappingManagerFactory = Service.Resolve<IWebPageAclManagerFactory>();
+                        webPageAclMappingManagerFactory
+                            .Create(webPageItemInfo.WebPageItemWebsiteChannelID)
+                            .RestoreInheritance(webPageItemInfo.WebPageItemID)
+                            .GetAwaiter().GetResult();
+                    }
                 }
             }
         }
