@@ -43,5 +43,11 @@ public class WebPageUrlPathModel : UmtModel
     [Map]
     public bool? WebPageUrlPathIsDraft { get; set; }
 
+    [ReferenceProperty(typeof(WebPageUrlPathInfo), "WebPageUrlPathRedirectWebPageFormerUrlPathID", IsRequired = false)]
+    public Guid? WebPageUrlPathRedirectWebPageFormerUrlPathGUID { get; set; }
+
+    [ReferenceProperty(typeof(WebPageUrlPathInfo), "WebPageUrlPathPublishedWebPageUrlPathID", IsRequired = false)]
+    public Guid? WebPageUrlPathPublishedWebPageUrlPathGUID { get; set; }
+
     protected override (Guid? uniqueId, string? name, string? displayName) GetPrintArgs() => (WebPageUrlPathGUID, WebPageUrlPath, NOT_AVAILABLE);
 }
