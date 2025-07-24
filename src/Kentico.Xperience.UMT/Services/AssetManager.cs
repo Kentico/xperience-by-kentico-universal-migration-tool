@@ -47,10 +47,9 @@ internal class AssetManager(
                     ArgumentNullException.ThrowIfNull(byteSource.Data);
                     ArgumentNullException.ThrowIfNull(byteSource.Identifier);
 
-                    if (isImage && (dimensions.imageWidth is null || dimensions.imageHeight is null) && !imageInfoRetrieverService.TryGetImageDimensions(byteSource.Data, out dimensions))
+                    if (isImage && (dimensions.imageWidth is null || dimensions.imageHeight is null))
                     {
-                        logger.LogError("Unable to get image dimensions");
-                        throw new InvalidOperationException("Unable to create asset");
+                        imageInfoRetrieverService.TryGetImageDimensions(byteSource.Data, out dimensions);
                     }
 
                     assetMetadata = new ContentItemAssetMetadata
@@ -81,10 +80,9 @@ internal class AssetManager(
                         logger.LogError("File {FilePath} does not exist", fileSource.FilePath);
                         throw new InvalidOperationException("Unable to create asset");
                     }
-                    if (isImage && (dimensions.imageWidth is null || dimensions.imageHeight is null) && !imageInfoRetrieverService.TryGetImageDimensions(fileSource.FilePath, out dimensions))
+                    if (isImage && (dimensions.imageWidth is null || dimensions.imageHeight is null))
                     {
-                        logger.LogError("Unable to get image dimensions");
-                        throw new InvalidOperationException("Unable to create asset");
+                        imageInfoRetrieverService.TryGetImageDimensions(fileSource.FilePath, out dimensions);
                     }
 
                     assetMetadata = new ContentItemAssetMetadata
@@ -114,10 +112,9 @@ internal class AssetManager(
                     await response.Content.LoadIntoBufferAsync();
                     byte[] data = await response.Content.ReadAsByteArrayAsync();
 
-                    if (isImage && (dimensions.imageWidth is null || dimensions.imageHeight is null) && !imageInfoRetrieverService.TryGetImageDimensions(data, out dimensions))
+                    if (isImage && (dimensions.imageWidth is null || dimensions.imageHeight is null))
                     {
-                        logger.LogError("Unable to get image dimensions");
-                        throw new InvalidOperationException("Unable to create asset");
+                        imageInfoRetrieverService.TryGetImageDimensions(data, out dimensions);
                     }
 
                     assetMetadata = new ContentItemAssetMetadata
