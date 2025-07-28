@@ -30,14 +30,14 @@ Model [discriminator](../UmtModel.md#discriminator): `Media_File`
 ```json
 {
   "$type": "Media_File",
-  "DataSourcePath": "##ASSETDIR##\\sample.png",
-  "FileGUID": "214e29aa-32d5-40d7-9fea-896591439e74",
-  "FileLibraryGuid": "e3a9c50c-2b76-4ba8-ac19-2f0aa64c47d5",
-  "FileCreatedByUserGuid": "863f796e-823a-4f5e-bbdb-e4a6f15b349b",
-  "FileName": "NewTestFile",
-  "FileTitle": "Title",
-  "FileExtension": ".png",
-  "FilePath": "customdir/NewTestFile.png"
+  "dataSourcePath": "##ASSETDIR##\\sample.png",
+  "fileGUID": "214e29aa-32d5-40d7-9fea-896591439e74",
+  "fileLibraryGuid": "e3a9c50c-2b76-4ba8-ac19-2f0aa64c47d5",
+  "fileCreatedByUserGuid": "863f796e-823a-4f5e-bbdb-e4a6f15b349b",
+  "fileName": "NewTestFile",
+  "fileTitle": "Title",
+  "fileExtension": ".png",
+  "filePath": "customdir/NewTestFile.png"
 }
 ```
 
@@ -46,13 +46,13 @@ Model [discriminator](../UmtModel.md#discriminator): `Media_File`
 ```json
 {
   "$type": "Media_File",
-  "DataSourceUrl": "https://devnet.kentico.com/DevNet/media/devnet/cms_screen.jpg",
-  "FileGUID": "94df1156-c85d-4356-8e28-16d71c6ac899",
-  "FileLibraryGuid": "e3a9c50c-2b76-4ba8-ac19-2f0aa64c47d5",
-  "FileCreatedByUserGuid": "863f796e-823a-4f5e-bbdb-e4a6f15b349b",
-  "FileName": "NewTestFileFromUri",
-  "FileTitle": "Old devnet screen",
-  "FileExtension": ".jpg",
-  "FilePath": "customdir/NewTestFileFromUri.jpg"
+  "dataSourceUrl": "https://devnet.kentico.com/DevNet/media/devnet/cms_screen.jpg",
+  "fileGUID": "94df1156-c85d-4356-8e28-16d71c6ac899",
+  "fileLibraryGuid": "e3a9c50c-2b76-4ba8-ac19-2f0aa64c47d5",
+  "fileCreatedByUserGuid": "863f796e-823a-4f5e-bbdb-e4a6f15b349b",
+  "fileName": "NewTestFileFromUri",
+  "fileTitle": "Old devnet screen",
+  "fileExtension": ".jpg",
+  "filePath": "customdir/NewTestFileFromUri.jpg"
 }
 ```

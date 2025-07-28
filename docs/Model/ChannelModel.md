@@ -20,9 +20,9 @@ This sample describes how to create class inside XbyK to hold Channel data to be
 ```json
 {
   "$type": "Channel",
-  "ChannelDisplayName": "email Channel Example",
-  "ChannelName": "emailChannelExampleBasic",
-  "ChannelGUID": "fc847362-e4b0-40ae-8235-f20098daf09f",
-  "ChannelType": 1
+  "channelDisplayName": "email Channel Example",
+  "channelName": "emailChannelExampleBasic",
+  "channelGUID": "fc847362-e4b0-40ae-8235-f20098daf09f",
+  "channelType": 1
 }
 ```

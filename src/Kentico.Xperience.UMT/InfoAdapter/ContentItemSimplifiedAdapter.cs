@@ -345,7 +345,7 @@ public class ContentItemSimplifiedAdapter : IInfoAdapter<ContentItemInfo, IUmtMo
             }
             case JsonElement { ValueKind: JsonValueKind.Object } jsonElement when jsonElement.GetProperty(AssetSource.DISCRIMINATOR_PROPERTY).GetString() is { }:
             {
-                var asset = jsonElement.Deserialize<AssetSource>() ?? throw new InvalidOperationException($"JSON object with property {AssetSource.DISCRIMINATOR_PROPERTY} cannot be deserialized");
+                var asset = jsonElement.Deserialize<AssetSource>(new JsonSerializerOptions { PropertyNameCaseInsensitive = true }) ?? throw new InvalidOperationException($"JSON object with property {AssetSource.DISCRIMINATOR_PROPERTY} cannot be deserialized");
                 return ImageHelper.IsImage(asset.InferExtension());
             }
             default:

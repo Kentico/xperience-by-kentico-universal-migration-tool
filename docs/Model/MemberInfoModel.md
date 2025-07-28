@@ -24,13 +24,13 @@ Sample demonstrates how to create a member without custom fields
 ```json
 {
   "$type": "MemberInfo",
-  "MemberName": "John Doe",
-  "MemberEmail": "john.doe@sample.localhost",
-  "MemberPassword": "[sample hash]",
-  "MemberEnabled": true,
-  "MemberCreated": "2003-02-01T04:05:06.007Z",
-  "MemberGUID": "4834f3c4-f7a5-46b8-a83d-607fcfc555d7",
-  "MemberIsExternal": false,
-  "MemberSecurityStamp": "[sample security stamp]"
+  "memberName": "John Doe",
+  "memberEmail": "john.doe@sample.localhost",
+  "memberPassword": "[sample hash]",
+  "memberEnabled": true,
+  "memberCreated": "2003-02-01T04:05:06.007Z",
+  "memberGUID": "4834f3c4-f7a5-46b8-a83d-607fcfc555d7",
+  "memberIsExternal": false,
+  "memberSecurityStamp": "[sample security stamp]"
 }
 ```

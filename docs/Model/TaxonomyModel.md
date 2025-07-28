@@ -19,16 +19,16 @@ Sample demonstrates how to create taxonomy
 ```json
 {
   "$type": "Taxonomy",
-  "TaxonomyName": "CoffeaGenus",
-  "TaxonomyGUID": "bd88fd9b-8d36-4d02-a4a6-9a2b26c48488",
-  "TaxonomyTitle": "Coffea genus",
-  "TaxonomyDescription": "Coffea is a genus of flowering plants in the family Rubiaceae",
-  "TaxonomyTranslations": {
+  "taxonomyName": "CoffeaGenus",
+  "taxonomyGUID": "bd88fd9b-8d36-4d02-a4a6-9a2b26c48488",
+  "taxonomyTitle": "Coffea genus",
+  "taxonomyDescription": "Coffea is a genus of flowering plants in the family Rubiaceae",
+  "taxonomyTranslations": {
     "f454e93b-5fe9-42a9-b1af-b572234ed9c4": {
-      "Title": "Coffea enUS"
+      "title": "Coffea enUS"
     },
     "a6c0a558-8b33-47b6-87a8-491b437c9923": {
-      "Title": "Coffea enGB"
+      "title": "Coffea enGB"
     }
   }
 }

@@ -18,7 +18,7 @@ Model [discriminator](../UmtModel.md#discriminator): `ContentTypeChannel`
 ```json
 {
   "$type": "ContentTypeChannel",
-  "ContentTypeChannelChannelGuid": "5322a379-5b5f-4220-9383-8e3115e66cd3",
-  "ContentTypeChannelContentTypeGuid": "06540294-3b56-4cf7-8773-088bb766ac23"
+  "contentTypeChannelChannelGuid": "5322a379-5b5f-4220-9383-8e3115e66cd3",
+  "contentTypeChannelContentTypeGuid": "06540294-3b56-4cf7-8773-088bb766ac23"
 }
 ```

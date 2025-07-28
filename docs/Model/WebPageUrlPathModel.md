@@ -12,6 +12,8 @@ Model [discriminator](../UmtModel.md#discriminator): `WebPageUrlPath`
 |WebPageUrlPathContentLanguageGuid\*||System.Guid?|Reference to [ContentLanguageInfo](../References.md#ContentLanguageInfo) on property WebPageUrlPathContentLanguageID **required**|
 |WebPageUrlPathIsLatest||bool?||
 |WebPageUrlPathIsDraft||bool?||
+|WebPageUrlPathRedirectWebPageFormerUrlPathGUID||System.Guid?|Reference to [WebPageUrlPathInfo](../References.md#WebPageUrlPathInfo) on property WebPageUrlPathRedirectWebPageFormerUrlPathID|
+|WebPageUrlPathPublishedWebPageUrlPathGUID||System.Guid?|Reference to [WebPageUrlPathInfo](../References.md#WebPageUrlPathInfo) on property WebPageUrlPathPublishedWebPageUrlPathID|
 |[customPropertyName]|custom property defined by created [DataClass](./DataClassModel.md)|.NET type defined by data class field||
 
 <p>*) value is required</p>

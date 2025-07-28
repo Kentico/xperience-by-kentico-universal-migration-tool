@@ -15,6 +15,7 @@
 |`MediaFilesSelectorItem[]`|`Kentico.MediaFilesSelector`|`MediaFilesSelector`|`MediaFilesSelectorProperties`||
 |`ObjectSelectorItem[]`|`Kentico.ObjectSelector`|`ObjectSelector`|`ObjectSelectorProperties`||
 |`TSelectorItem[]`||`ObjectSelectorComponentBase`|`TProperties`|**abstract**|
+|`MediaFilesSelectorItem[]`||`ObsoleteMediaFilesSelector`|`MediaFilesSelectorProperties`||
 |`PageSelectorItem[]`|`Kentico.PageSelector`|`PageSelector`|`PageSelectorProperties`||
 |`TValue[]`||`PageSelectorBase`|`TProperties`|**abstract**|
 |`PathSelectorItem[]`|`Kentico.PathSelector`|`PathSelector`|`PathSelectorProperties`||

@@ -22,9 +22,9 @@ Model [discriminator](../UmtModel.md#discriminator): `ContentFolder`
 ```json
 {
   "$type": "ContentFolder",
-  "ContentFolderGUID": "7665a8fc-53a2-4aff-86e8-99b009104ff2",
-  "ContentFolderName": "articles",
-  "ContentFolderDisplayName": "Articles",
-  "ContentFolderTreePath": "/articles"
+  "contentFolderGUID": "7665a8fc-53a2-4aff-86e8-99b009104ff2",
+  "contentFolderName": "articles",
+  "contentFolderDisplayName": "Articles",
+  "contentFolderTreePath": "/articles"
 }
 ```

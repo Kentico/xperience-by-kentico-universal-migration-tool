@@ -32,116 +32,116 @@ This sample describes how to create class inside XbyK to hold Article data
 ```json
 {
   "$type": "DataClass",
-  "ClassDisplayName": "This is Article example",
-  "ClassName": "UMT.Article",
-  "ClassShortName": "UMT.Article",
-  "ClassTableName": "UMT_Article",
-  "ClassLastModified": "2024-01-08T22:55:31.7853783\u002B01:00",
-  "ClassGUID": "06540294-3b56-4cf7-8773-088bb766ac23",
-  "ClassHasUnmanagedDbSchema": false,
-  "ClassType": "Content",
-  "ClassContentTypeType": "Website",
-  "ClassWebPageHasUrl": true,
-  "Fields": [
+  "classDisplayName": "This is Article example",
+  "className": "UMT.Article",
+  "classShortName": "UMT.Article",
+  "classTableName": "UMT_Article",
+  "classLastModified": "2024-01-08T22:55:31.7853783\u002B01:00",
+  "classGUID": "06540294-3b56-4cf7-8773-088bb766ac23",
+  "classHasUnmanagedDbSchema": false,
+  "classType": "Content",
+  "classContentTypeType": "Website",
+  "classWebPageHasUrl": true,
+  "fields": [
     {
-      "AllowEmpty": true,
-      "Column": "ArticleTitle",
-      "ColumnSize": 200,
-      "ColumnType": "text",
-      "Enabled": true,
-      "Guid": "ea7da631-6d9c-413f-a746-93442b623908",
-      "Visible": true,
-      "Properties": {
-        "FieldCaption": "Article title"
+      "allowEmpty": true,
+      "column": "ArticleTitle",
+      "columnSize": 200,
+      "columnType": "text",
+      "enabled": true,
+      "guid": "ea7da631-6d9c-413f-a746-93442b623908",
+      "visible": true,
+      "properties": {
+        "fieldCaption": "Article title"
       },
-      "Settings": {
-        "ControlName": "Kentico.Administration.TextInput"
+      "settings": {
+        "controlName": "Kentico.Administration.TextInput"
       }
     },
     {
-      "AllowEmpty": true,
-      "Column": "ArticleDecimalNumberSample",
-      "ColumnSize": 15,
-      "ColumnType": "decimal",
-      "Enabled": true,
-      "Guid": "8e749651-773b-47b9-a888-c541c3c3e1b7",
-      "Visible": true,
-      "Properties": {
-        "FieldCaption": "Article decimal number sample"
+      "allowEmpty": true,
+      "column": "ArticleDecimalNumberSample",
+      "columnSize": 15,
+      "columnType": "decimal",
+      "enabled": true,
+      "guid": "8e749651-773b-47b9-a888-c541c3c3e1b7",
+      "visible": true,
+      "properties": {
+        "fieldCaption": "Article decimal number sample"
       },
-      "Settings": {
-        "ControlName": "Kentico.Administration.DecimalNumberInput"
+      "settings": {
+        "controlName": "Kentico.Administration.DecimalNumberInput"
       },
-      "Precision": 5
+      "precision": 5
     },
     {
-      "AllowEmpty": true,
-      "Column": "ArticleText",
-      "ColumnSize": 0,
-      "ColumnType": "longtext",
-      "Enabled": true,
-      "Guid": "a54aef74-42b3-438e-92b2-2f5b4386fb57",
-      "Visible": true,
-      "Properties": {
-        "FieldCaption": "Article text"
+      "allowEmpty": true,
+      "column": "ArticleText",
+      "columnSize": 0,
+      "columnType": "longtext",
+      "enabled": true,
+      "guid": "a54aef74-42b3-438e-92b2-2f5b4386fb57",
+      "visible": true,
+      "properties": {
+        "fieldCaption": "Article text"
       },
-      "Settings": {
-        "ControlName": "Kentico.Administration.TextArea"
+      "settings": {
+        "controlName": "Kentico.Administration.TextArea"
       }
     },
     {
-      "AllowEmpty": true,
-      "Column": "RelatedArticles",
-      "ColumnSize": 0,
-      "ColumnType": "webpages",
-      "Enabled": true,
-      "Guid": "4b7a3fec-ee64-4688-b441-fece563b906d",
-      "Visible": true,
-      "Properties": {
-        "FieldCaption": "Related articles",
+      "allowEmpty": true,
+      "column": "RelatedArticles",
+      "columnSize": 0,
+      "columnType": "webpages",
+      "enabled": true,
+      "guid": "4b7a3fec-ee64-4688-b441-fece563b906d",
+      "visible": true,
+      "properties": {
+        "fieldCaption": "Related articles",
         "fieldcaption": "Related articles",
         "fielddescriptionashtml": "False"
       },
-      "Settings": {
-        "ControlName": "Kentico.Administration.WebPageSelector",
+      "settings": {
+        "controlName": "Kentico.Administration.WebPageSelector",
         "MaximumPages": 5,
         "Sortable": "False",
         "TreePath": "/simplified-sample"
       }
     },
     {
-      "AllowEmpty": true,
-      "Column": "RelatedFaq",
-      "ColumnSize": 0,
-      "ColumnType": "contentitemreference",
-      "Enabled": true,
-      "Guid": "fc1fde10-11bf-4174-bd64-d1f114e4b421",
-      "Visible": true,
-      "Properties": {
-        "FieldCaption": "Related articles",
+      "allowEmpty": true,
+      "column": "RelatedFaq",
+      "columnSize": 0,
+      "columnType": "contentitemreference",
+      "enabled": true,
+      "guid": "fc1fde10-11bf-4174-bd64-d1f114e4b421",
+      "visible": true,
+      "properties": {
+        "fieldCaption": "Related articles",
         "fieldcaption": "Related Faq",
         "fielddescriptionashtml": "False"
       },
-      "Settings": {
-        "ControlName": "Kentico.Administration.ContentItemSelector",
+      "settings": {
+        "controlName": "Kentico.Administration.ContentItemSelector",
         "AllowedContentItemTypeIdentifiers": "[\u00227ed6604e-613b-4ce0-8c21-acfb372c416a\u0022]"
       }
     },
     {
-      "AllowEmpty": true,
-      "Column": "CoffeaTaxonomy",
-      "ColumnSize": 0,
-      "ColumnType": "taxonomy",
-      "Enabled": true,
-      "Guid": "36295d61-7f85-4213-8e5c-06772ed67dfb",
-      "Visible": true,
-      "Properties": {
-        "FieldCaption": "Taxonomy coffee",
+      "allowEmpty": true,
+      "column": "CoffeaTaxonomy",
+      "columnSize": 0,
+      "columnType": "taxonomy",
+      "enabled": true,
+      "guid": "36295d61-7f85-4213-8e5c-06772ed67dfb",
+      "visible": true,
+      "properties": {
+        "fieldCaption": "Taxonomy coffee",
         "explanationtextashtml": "False",
         "fielddescriptionashtml": "False"
       },
-      "Settings": {
-        "ControlName": "Kentico.Administration.TagSelector",
+      "settings": {
+        "controlName": "Kentico.Administration.TagSelector",
         "TaxonomyGroup": "[\u0022bd88fd9b-8d36-4d02-a4a6-9a2b26c48488\u0022]"
       }
     }
@@ -154,105 +154,105 @@ This sample describes how to create class inside XbyK to hold Article data
 ```json
 {
   "$type": "DataClass",
-  "ClassDisplayName": "Event",
-  "ClassName": "UMT.Event",
-  "ClassShortName": "UMT.Event",
-  "ClassTableName": "UMT_Event",
-  "ClassLastModified": "2024-01-08T22:56:12.2515785Z",
-  "ClassGUID": "4712c000-4d63-4333-8708-990603f73a1e",
-  "ClassHasUnmanagedDbSchema": false,
-  "ClassType": "Content",
-  "ClassContentTypeType": "Reusable",
-  "Fields": [
+  "classDisplayName": "Event",
+  "className": "UMT.Event",
+  "classShortName": "UMT.Event",
+  "classTableName": "UMT_Event",
+  "classLastModified": "2024-01-08T22:56:12.2515785Z",
+  "classGUID": "4712c000-4d63-4333-8708-990603f73a1e",
+  "classHasUnmanagedDbSchema": false,
+  "classType": "Content",
+  "classContentTypeType": "Reusable",
+  "fields": [
     {
-      "AllowEmpty": true,
-      "Column": "EventTitle",
-      "ColumnSize": 200,
-      "ColumnType": "text",
-      "Enabled": true,
-      "Guid": "0e1e63eb-918a-4135-a627-04393672d6f4",
-      "Visible": true,
-      "Properties": {
-        "FieldCaption": "Title"
+      "allowEmpty": true,
+      "column": "EventTitle",
+      "columnSize": 200,
+      "columnType": "text",
+      "enabled": true,
+      "guid": "0e1e63eb-918a-4135-a627-04393672d6f4",
+      "visible": true,
+      "properties": {
+        "fieldCaption": "Title"
       },
-      "Settings": {
-        "ControlName": "Kentico.Administration.TextInput"
+      "settings": {
+        "controlName": "Kentico.Administration.TextInput"
       }
     },
     {
-      "AllowEmpty": true,
-      "Column": "EventText",
-      "ColumnSize": 0,
-      "ColumnType": "longtext",
-      "Enabled": true,
-      "Guid": "a54aef74-42b3-438e-92b2-2f5b4386fb57",
-      "Visible": true,
-      "Properties": {
-        "FieldCaption": "Text"
+      "allowEmpty": true,
+      "column": "EventText",
+      "columnSize": 0,
+      "columnType": "longtext",
+      "enabled": true,
+      "guid": "a54aef74-42b3-438e-92b2-2f5b4386fb57",
+      "visible": true,
+      "properties": {
+        "fieldCaption": "Text"
       },
-      "Settings": {
-        "ControlName": "Kentico.Administration.TextArea"
+      "settings": {
+        "controlName": "Kentico.Administration.TextArea"
       }
     },
     {
-      "AllowEmpty": true,
-      "Column": "EventDate",
-      "ColumnSize": 0,
-      "ColumnType": "datetime",
-      "Enabled": true,
-      "Guid": "f3356f35-0a78-4a98-8696-a1becb725b0a",
-      "Visible": true,
-      "Properties": {
-        "FieldCaption": "Date"
+      "allowEmpty": true,
+      "column": "EventDate",
+      "columnSize": 0,
+      "columnType": "datetime",
+      "enabled": true,
+      "guid": "f3356f35-0a78-4a98-8696-a1becb725b0a",
+      "visible": true,
+      "properties": {
+        "fieldCaption": "Date"
       },
-      "Settings": {
-        "ControlName": "Kentico.Administration.DateTimeInput"
+      "settings": {
+        "controlName": "Kentico.Administration.DateTimeInput"
       }
     },
     {
-      "AllowEmpty": true,
-      "Column": "EventRecurrentYearly",
-      "ColumnSize": 0,
-      "ColumnType": "boolean",
-      "Enabled": true,
-      "Guid": "98d2cf95-5027-488a-b833-89510f4662c1",
-      "Visible": true,
-      "Properties": {
-        "FieldCaption": "Event occurs every year"
+      "allowEmpty": true,
+      "column": "EventRecurrentYearly",
+      "columnSize": 0,
+      "columnType": "boolean",
+      "enabled": true,
+      "guid": "98d2cf95-5027-488a-b833-89510f4662c1",
+      "visible": true,
+      "properties": {
+        "fieldCaption": "Event occurs every year"
       },
-      "Settings": {
-        "ControlName": "Kentico.Administration.Checkbox"
+      "settings": {
+        "controlName": "Kentico.Administration.Checkbox"
       }
     },
     {
-      "AllowEmpty": true,
-      "Column": "EventTeaser",
-      "ColumnSize": 0,
-      "ColumnType": "contentitemasset",
-      "Enabled": true,
-      "Guid": "89043112-996b-4771-96bb-2347ad6f3526",
-      "Visible": true,
-      "Properties": {
-        "FieldCaption": "Event teaser"
+      "allowEmpty": true,
+      "column": "EventTeaser",
+      "columnSize": 0,
+      "columnType": "contentitemasset",
+      "enabled": true,
+      "guid": "89043112-996b-4771-96bb-2347ad6f3526",
+      "visible": true,
+      "properties": {
+        "fieldCaption": "Event teaser"
       },
-      "Settings": {
-        "ControlName": "Kentico.Administration.ContentItemAssetUploader",
+      "settings": {
+        "controlName": "Kentico.Administration.ContentItemAssetUploader",
         "AllowedExtensions": "_INHERITED_"
       }
     },
     {
-      "AllowEmpty": true,
-      "Column": "EventTeaserOptimized",
-      "ColumnSize": 0,
-      "ColumnType": "contentitemasset",
-      "Enabled": true,
-      "Guid": "4ba81bfd-cd14-4100-8ace-080c25d8ab98",
-      "Visible": true,
-      "Properties": {
-        "FieldCaption": "Event teaser auto-optimized"
+      "allowEmpty": true,
+      "column": "EventTeaserOptimized",
+      "columnSize": 0,
+      "columnType": "contentitemasset",
+      "enabled": true,
+      "guid": "4ba81bfd-cd14-4100-8ace-080c25d8ab98",
+      "visible": true,
+      "properties": {
+        "fieldCaption": "Event teaser auto-optimized"
       },
-      "Settings": {
-        "ControlName": "Kentico.Administration.ContentItemAssetUploader",
+      "settings": {
+        "controlName": "Kentico.Administration.ContentItemAssetUploader",
         "AllowedExtensions": "_INHERITED_",
         "IsFormatConversionEnabled": true,
         "InputImageExtensions": "[\u0022jpg\u0022,\u0022png\u0022]",
@@ -269,44 +269,44 @@ This sample describes how to create class inside XbyK to hold Article data
 ```json
 {
   "$type": "DataClass",
-  "ClassDisplayName": "Faq",
-  "ClassName": "UMT.Faq",
-  "ClassShortName": "UMT.Faq",
-  "ClassTableName": "UMT_Faq",
-  "ClassLastModified": "2024-01-08T22:56:07.1472943Z",
-  "ClassGUID": "7ed6604e-613b-4ce0-8c21-acfb372c416a",
-  "ClassHasUnmanagedDbSchema": false,
-  "ClassType": "Content",
-  "ClassContentTypeType": "Reusable",
-  "Fields": [
+  "classDisplayName": "Faq",
+  "className": "UMT.Faq",
+  "classShortName": "UMT.Faq",
+  "classTableName": "UMT_Faq",
+  "classLastModified": "2024-01-08T22:56:07.1472943Z",
+  "classGUID": "7ed6604e-613b-4ce0-8c21-acfb372c416a",
+  "classHasUnmanagedDbSchema": false,
+  "classType": "Content",
+  "classContentTypeType": "Reusable",
+  "fields": [
     {
-      "AllowEmpty": false,
-      "Column": "FaqQuestion",
-      "ColumnSize": 200,
-      "ColumnType": "text",
-      "Enabled": true,
-      "Guid": "b7a99ef4-6775-4088-acc7-41c21299aabf",
-      "Visible": true,
-      "Properties": {
-        "FieldCaption": "Question"
+      "allowEmpty": false,
+      "column": "FaqQuestion",
+      "columnSize": 200,
+      "columnType": "text",
+      "enabled": true,
+      "guid": "b7a99ef4-6775-4088-acc7-41c21299aabf",
+      "visible": true,
+      "properties": {
+        "fieldCaption": "Question"
       },
-      "Settings": {
-        "ControlName": "Kentico.Administration.TextInput"
+      "settings": {
+        "controlName": "Kentico.Administration.TextInput"
       }
     },
     {
-      "AllowEmpty": false,
-      "Column": "FaqAnswer",
-      "ColumnSize": 200,
-      "ColumnType": "text",
-      "Enabled": true,
-      "Guid": "87995645-5868-470b-b25a-0e2a4e6d0e85",
-      "Visible": true,
-      "Properties": {
-        "FieldCaption": "Answer"
+      "allowEmpty": false,
+      "column": "FaqAnswer",
+      "columnSize": 200,
+      "columnType": "text",
+      "enabled": true,
+      "guid": "87995645-5868-470b-b25a-0e2a4e6d0e85",
+      "visible": true,
+      "properties": {
+        "fieldCaption": "Answer"
       },
-      "Settings": {
-        "ControlName": "Kentico.Administration.TextInput"
+      "settings": {
+        "controlName": "Kentico.Administration.TextInput"
       }
     }
   ]

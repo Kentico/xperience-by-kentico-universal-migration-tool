@@ -277,9 +277,7 @@ public static class ContentItemSamples
             ["ArticleTitle"] = "en-US UMT model creation",
             ["ArticleText"] = "This article is only example of creation UMT model for en-US language",
             ["RelatedArticles"] = $$"""[{"WebPageGuid":"{{SampleArticleWebPageItem.WebPageItemGUID}}"}]""",
-            ["RelatedFaq"] = $$"""
-                             [{"Identifier":"{{SampleFaqContentItemGuid}}"}]
-                             """,
+            ["RelatedFaq"] = new List<object> { new { Identifier = SampleFaqContentItemGuid } },
             ["ArticleDecimalNumberSample"] = 123456.12345M
         }
     };
@@ -348,9 +346,7 @@ public static class ContentItemSamples
             ["ArticleTitle"] = "en-GB UMT model creation",
             ["ArticleText"] = "This article is only example of creation UMT model for en-GB language",
             ["RelatedArticles"] = $$"""[{"WebPageGuid":"{{SampleArticleWebPageItem.WebPageItemGUID}}"}]""",
-            ["RelatedFaq"] = $$"""
-                               [{"Identifier":"{{SampleFaqContentItemGuid}}"}]
-                               """,
+            ["RelatedFaq"] = new List<object> { new { Identifier = SampleFaqContentItemGuid } },
             ["ArticleDecimalNumberSample"] = 123456.12345M
         }
     };
