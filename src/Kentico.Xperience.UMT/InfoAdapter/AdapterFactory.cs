@@ -20,7 +20,8 @@ using Microsoft.Extensions.Logging;
 
 namespace Kentico.Xperience.UMT.InfoAdapter;
 
-internal class AdapterFactory(ILoggerFactory loggerFactory, UmtModelService modelService, IProviderProxyFactory providerProxyFactory, AssetManager assetManager, ContentItemReferencePopulator contentItemReferencePopulator)
+internal class AdapterFactory(ILoggerFactory loggerFactory, UmtModelService modelService, IProviderProxyFactory providerProxyFactory,
+    AssetManager assetManager, WorkspaceService workspaceService, ContentItemReferencePopulator contentItemReferencePopulator)
 {
     internal IInfoAdapter<IUmtModel>? CreateAdapter(IUmtModel umtModel, IProviderProxyContext providerProxyContext)
     {
@@ -30,7 +31,9 @@ internal class AdapterFactory(ILoggerFactory loggerFactory, UmtModelService mode
             UserInfoModel => new UserAdapter(loggerFactory.CreateLogger<UserAdapter>(), adapterContext),
             MemberInfoModel => new MemberAdapter(loggerFactory.CreateLogger<MemberAdapter>(), adapterContext),
             MediaFileModel => new MediaFileAdapter(loggerFactory.CreateLogger<MediaFileAdapter>(), adapterContext),
+#pragma warning disable CS0618 // Type or member is obsolete
             MediaLibraryModel => new GenericInfoAdapter<MediaLibraryInfo>(loggerFactory.CreateLogger<GenericInfoAdapter<MediaLibraryInfo>>(), adapterContext),
+#pragma warning restore CS0618 // Type or member is obsolete
             ContentItemLanguageMetadataModel => new GenericInfoAdapter<ContentItemLanguageMetadataInfo>(loggerFactory.CreateLogger<GenericInfoAdapter<ContentItemLanguageMetadataInfo>>(), adapterContext),
             ContentItemCommonDataModel => new ContentItemCommonDataAdapter(loggerFactory.CreateLogger<ContentItemCommonDataAdapter>(), adapterContext, contentItemReferencePopulator),
             ContentItemDataModel => new ContentItemDataAdapter(loggerFactory.CreateLogger<ContentItemDataAdapter>(), adapterContext, contentItemReferencePopulator),
@@ -38,7 +41,7 @@ internal class AdapterFactory(ILoggerFactory loggerFactory, UmtModelService mode
             EmailChannelModel => new GenericInfoAdapter<EmailChannelInfo>(loggerFactory.CreateLogger<GenericInfoAdapter<EmailChannelInfo>>(), adapterContext),
             ChannelModel => new GenericInfoAdapter<ChannelInfo>(loggerFactory.CreateLogger<GenericInfoAdapter<ChannelInfo>>(), adapterContext),
             ContentLanguageModel => new GenericInfoAdapter<ContentLanguageInfo>(loggerFactory.CreateLogger<GenericInfoAdapter<ContentLanguageInfo>>(), adapterContext),
-            ContentItemModel => new ContentItemAdapter(loggerFactory.CreateLogger<ContentItemAdapter>(), Service.Resolve<IInfoProvider<ContentFolderInfo>>(), Service.Resolve<IInfoProvider<WorkspaceInfo>>(), adapterContext),
+            ContentItemModel => new ContentItemAdapter(loggerFactory.CreateLogger<ContentItemAdapter>(), Service.Resolve<IInfoProvider<ContentFolderInfo>>(), workspaceService, adapterContext),
             WebPageItemModel => new GenericInfoAdapter<WebPageItemInfo>(loggerFactory.CreateLogger<GenericInfoAdapter<WebPageItemInfo>>(), adapterContext),
             WebPageAclModel => new GenericInfoAdapter<WebPageAclInfo>(loggerFactory.CreateLogger<GenericInfoAdapter<WebPageAclInfo>>(), adapterContext),
             WebPageUrlPathModel => new WebPageUrlPathAdapter(loggerFactory.CreateLogger<WebPageUrlPathAdapter>(), adapterContext),
@@ -46,7 +49,7 @@ internal class AdapterFactory(ILoggerFactory loggerFactory, UmtModelService mode
             DataClassModel => new DataClassAdapter(loggerFactory.CreateLogger<DataClassAdapter>(), adapterContext),
             ContentTypeChannelModel => new GenericInfoAdapter<ContentTypeChannelInfo>(loggerFactory.CreateLogger<GenericInfoAdapter<ContentTypeChannelInfo>>(), adapterContext),
             ContentItemReferenceModel => new GenericInfoAdapter<ContentItemReferenceInfo>(loggerFactory.CreateLogger<GenericInfoAdapter<ContentItemReferenceInfo>>(), adapterContext),
-            ContentFolderModel => new ContentFolderAdapter(loggerFactory.CreateLogger<ContentFolderAdapter>(), Service.Resolve<IInfoProvider<ContentFolderInfo>>(), Service.Resolve<IInfoProvider<WorkspaceInfo>>(), adapterContext),
+            ContentFolderModel => new ContentFolderAdapter(loggerFactory.CreateLogger<ContentFolderAdapter>(), Service.Resolve<IInfoProvider<ContentFolderInfo>>(), adapterContext, workspaceService),
             TaxonomyModel => new TaxonomyAdapter(loggerFactory.CreateLogger<TaxonomyAdapter>(), adapterContext),
             TagModel => new TagAdapter(loggerFactory.CreateLogger<TagAdapter>(), adapterContext),
             WorkspaceModel => new GenericInfoAdapter<WorkspaceInfo>(loggerFactory.CreateLogger<GenericInfoAdapter<WorkspaceInfo>>(), adapterContext),
@@ -76,7 +79,7 @@ internal class AdapterFactory(ILoggerFactory loggerFactory, UmtModelService mode
 
             // macro models
             ContentItemSimplifiedModel => new ContentItemSimplifiedAdapter(providerProxyFactory.CreateProviderProxy<ContentItemInfo>(providerProxyContext), providerProxyFactory, Service.Resolve<IDateTimeNowService>(), this,
-                loggerFactory.CreateLogger<ContentItemSimplifiedAdapter>(), Service.Resolve<IInfoProvider<ContentFolderInfo>>(), Service.Resolve<IInfoProvider<WorkspaceInfo>>()),
+                loggerFactory.CreateLogger<ContentItemSimplifiedAdapter>(), Service.Resolve<IInfoProvider<ContentFolderInfo>>(), workspaceService),
             _ => null,
         };
     }

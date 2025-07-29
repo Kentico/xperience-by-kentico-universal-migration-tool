@@ -1340,6 +1340,20 @@
                 "boolean",
                 "null"
               ]
+            },
+            "WebPageUrlPathRedirectWebPageFormerUrlPathGUID": {
+              "type": [
+                "null",
+                "string"
+              ],
+              "format": "guid"
+            },
+            "WebPageUrlPathPublishedWebPageUrlPathGUID": {
+              "type": [
+                "null",
+                "string"
+              ],
+              "format": "guid"
             }
           }
         }

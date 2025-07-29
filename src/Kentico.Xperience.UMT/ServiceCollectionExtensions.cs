@@ -26,6 +26,7 @@ public static class ServiceCollectionExtensions
         services.AddSingleton<IProviderProxyFactory, ProviderProxyFactory>();
         services.AddSingleton<AdapterFactory>();
         services.AddSingleton<AssetManager>();
+        services.AddSingleton<WorkspaceService>();
         services.AddSingleton(_ => new UmtModelService(new[] { typeof(ServiceCollectionExtensions).Assembly }));
         services.AddSingleton<ContentItemReferencePopulator>();
 

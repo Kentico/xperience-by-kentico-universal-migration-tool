@@ -90,6 +90,7 @@ internal class ImportService : IImportService
         var converter = new UmtModelStjConverter(umtModelService.GetAll());
         options ??= new JsonSerializerOptions();
         options.Converters.Add(converter);
+        options.PropertyNamingPolicy = JsonNamingPolicy.CamelCase;
         return JsonSerializer.Serialize(model, options);
     }
 
@@ -99,6 +100,7 @@ internal class ImportService : IImportService
         var converter = new UmtModelStjConverter(umtModelService.GetAll());
         options ??= new JsonSerializerOptions();
         options.Converters.Add(converter);
+        options.PropertyNamingPolicy = JsonNamingPolicy.CamelCase;
         return JsonSerializer.Serialize(model, options);
     }
 
@@ -110,7 +112,8 @@ internal class ImportService : IImportService
         {
             Converters = {
                 converter
-            }
+            },
+            PropertyNameCaseInsensitive = true
         });
     }
 
@@ -123,7 +126,8 @@ internal class ImportService : IImportService
             Converters =
         {
             converter
-        }
+        },
+            PropertyNameCaseInsensitive = true
         })?.Cast<IUmtModel>();
     }
 

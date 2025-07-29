@@ -26,15 +26,15 @@ This sample describes how to create class inside XbyK to hold Content Item Langu
 ```json
 {
   "$type": "ContentItemLanguageMetadata",
-  "ContentItemLanguageMetadataGUID": "192c63ac-e5be-4b0f-b916-b8af6c7e79a9",
-  "ContentItemLanguageMetadataContentItemGuid": "df81215e-1414-4d87-befd-ae123f4e5653",
-  "ContentItemLanguageMetadataDisplayName": "Creation of UMT model",
-  "ContentItemLanguageMetadataLatestVersionStatus": 2,
-  "ContentItemLanguageMetadataCreatedWhen": "2023-12-10T00:00:00Z",
-  "ContentItemLanguageMetadataCreatedByUserGuid": "dbfcc244-2cb9-4934-857f-9d75404c1553",
-  "ContentItemLanguageMetadataModifiedByUserGuid": "dbfcc244-2cb9-4934-857f-9d75404c1553",
-  "ContentItemLanguageMetadataHasImageAsset": false,
-  "ContentItemLanguageMetadataContentLanguageGuid": "f454e93b-5fe9-42a9-b1af-b572234ed9c4"
+  "contentItemLanguageMetadataGUID": "192c63ac-e5be-4b0f-b916-b8af6c7e79a9",
+  "contentItemLanguageMetadataContentItemGuid": "df81215e-1414-4d87-befd-ae123f4e5653",
+  "contentItemLanguageMetadataDisplayName": "Creation of UMT model",
+  "contentItemLanguageMetadataLatestVersionStatus": 2,
+  "contentItemLanguageMetadataCreatedWhen": "2023-12-10T00:00:00Z",
+  "contentItemLanguageMetadataCreatedByUserGuid": "dbfcc244-2cb9-4934-857f-9d75404c1553",
+  "contentItemLanguageMetadataModifiedByUserGuid": "dbfcc244-2cb9-4934-857f-9d75404c1553",
+  "contentItemLanguageMetadataHasImageAsset": false,
+  "contentItemLanguageMetadataContentLanguageGuid": "f454e93b-5fe9-42a9-b1af-b572234ed9c4"
 }
 ```
 
@@ -43,15 +43,15 @@ This sample describes how to create class inside XbyK to hold Content Item Langu
 ```json
 {
   "$type": "ContentItemLanguageMetadata",
-  "ContentItemLanguageMetadataGUID": "7f6a0c0d-a2bb-454c-8e16-adcfe0e38d17",
-  "ContentItemLanguageMetadataContentItemGuid": "df81215e-1414-4d87-befd-ae123f4e5653",
-  "ContentItemLanguageMetadataDisplayName": "Creation of UMT model GB",
-  "ContentItemLanguageMetadataLatestVersionStatus": 2,
-  "ContentItemLanguageMetadataCreatedWhen": "2023-12-10T00:00:00Z",
-  "ContentItemLanguageMetadataCreatedByUserGuid": "dbfcc244-2cb9-4934-857f-9d75404c1553",
-  "ContentItemLanguageMetadataModifiedByUserGuid": "dbfcc244-2cb9-4934-857f-9d75404c1553",
-  "ContentItemLanguageMetadataHasImageAsset": false,
-  "ContentItemLanguageMetadataContentLanguageGuid": "a6c0a558-8b33-47b6-87a8-491b437c9923"
+  "contentItemLanguageMetadataGUID": "7f6a0c0d-a2bb-454c-8e16-adcfe0e38d17",
+  "contentItemLanguageMetadataContentItemGuid": "df81215e-1414-4d87-befd-ae123f4e5653",
+  "contentItemLanguageMetadataDisplayName": "Creation of UMT model GB",
+  "contentItemLanguageMetadataLatestVersionStatus": 2,
+  "contentItemLanguageMetadataCreatedWhen": "2023-12-10T00:00:00Z",
+  "contentItemLanguageMetadataCreatedByUserGuid": "dbfcc244-2cb9-4934-857f-9d75404c1553",
+  "contentItemLanguageMetadataModifiedByUserGuid": "dbfcc244-2cb9-4934-857f-9d75404c1553",
+  "contentItemLanguageMetadataHasImageAsset": false,
+  "contentItemLanguageMetadataContentLanguageGuid": "a6c0a558-8b33-47b6-87a8-491b437c9923"
 }
 ```
 
@@ -60,16 +60,16 @@ This sample describes how to create class inside XbyK to hold Content Item Langu
 ```json
 {
   "$type": "ContentItemLanguageMetadata",
-  "ContentItemLanguageMetadataGUID": "46353800-21b8-48f6-8681-b19966f4b6eb",
-  "ContentItemLanguageMetadataContentItemGuid": "b64b3e3e-f5a9-4d02-8cdb-6d81805c0fee",
-  "ContentItemLanguageMetadataDisplayName": "Sample reusable FAQ",
-  "ContentItemLanguageMetadataLatestVersionStatus": 0,
-  "ContentItemLanguageMetadataCreatedWhen": "2023-12-10T00:00:00Z",
-  "ContentItemLanguageMetadataCreatedByUserGuid": "dbfcc244-2cb9-4934-857f-9d75404c1553",
-  "ContentItemLanguageMetadataModifiedByUserGuid": "dbfcc244-2cb9-4934-857f-9d75404c1553",
-  "ContentItemLanguageMetadataHasImageAsset": false,
-  "ContentItemLanguageMetadataContentLanguageGuid": "f454e93b-5fe9-42a9-b1af-b572234ed9c4",
-  "ContentItemLanguageMetadataScheduledPublishWhen": "2045-01-01T00:00:00Z"
+  "contentItemLanguageMetadataGUID": "46353800-21b8-48f6-8681-b19966f4b6eb",
+  "contentItemLanguageMetadataContentItemGuid": "b64b3e3e-f5a9-4d02-8cdb-6d81805c0fee",
+  "contentItemLanguageMetadataDisplayName": "Sample reusable FAQ",
+  "contentItemLanguageMetadataLatestVersionStatus": 0,
+  "contentItemLanguageMetadataCreatedWhen": "2023-12-10T00:00:00Z",
+  "contentItemLanguageMetadataCreatedByUserGuid": "dbfcc244-2cb9-4934-857f-9d75404c1553",
+  "contentItemLanguageMetadataModifiedByUserGuid": "dbfcc244-2cb9-4934-857f-9d75404c1553",
+  "contentItemLanguageMetadataHasImageAsset": false,
+  "contentItemLanguageMetadataContentLanguageGuid": "f454e93b-5fe9-42a9-b1af-b572234ed9c4",
+  "contentItemLanguageMetadataScheduledPublishWhen": "2045-01-01T00:00:00Z"
 }
 ```
 
@@ -78,15 +78,15 @@ This sample describes how to create class inside XbyK to hold Content Item Langu
 ```json
 {
   "$type": "ContentItemLanguageMetadata",
-  "ContentItemLanguageMetadataGUID": "b15b3d9f-0cb1-405a-bc04-a069daecf72d",
-  "ContentItemLanguageMetadataContentItemGuid": "b64b3e3e-f5a9-4d02-8cdb-6d81805c0fee",
-  "ContentItemLanguageMetadataDisplayName": "Sample reusable FAQ",
-  "ContentItemLanguageMetadataLatestVersionStatus": 2,
-  "ContentItemLanguageMetadataCreatedWhen": "2023-12-10T00:00:00Z",
-  "ContentItemLanguageMetadataCreatedByUserGuid": "dbfcc244-2cb9-4934-857f-9d75404c1553",
-  "ContentItemLanguageMetadataModifiedByUserGuid": "dbfcc244-2cb9-4934-857f-9d75404c1553",
-  "ContentItemLanguageMetadataHasImageAsset": false,
-  "ContentItemLanguageMetadataContentLanguageGuid": "a6c0a558-8b33-47b6-87a8-491b437c9923"
+  "contentItemLanguageMetadataGUID": "b15b3d9f-0cb1-405a-bc04-a069daecf72d",
+  "contentItemLanguageMetadataContentItemGuid": "b64b3e3e-f5a9-4d02-8cdb-6d81805c0fee",
+  "contentItemLanguageMetadataDisplayName": "Sample reusable FAQ",
+  "contentItemLanguageMetadataLatestVersionStatus": 2,
+  "contentItemLanguageMetadataCreatedWhen": "2023-12-10T00:00:00Z",
+  "contentItemLanguageMetadataCreatedByUserGuid": "dbfcc244-2cb9-4934-857f-9d75404c1553",
+  "contentItemLanguageMetadataModifiedByUserGuid": "dbfcc244-2cb9-4934-857f-9d75404c1553",
+  "contentItemLanguageMetadataHasImageAsset": false,
+  "contentItemLanguageMetadataContentLanguageGuid": "a6c0a558-8b33-47b6-87a8-491b437c9923"
 }
 ```
 
@@ -95,15 +95,15 @@ This sample describes how to create class inside XbyK to hold Content Item Langu
 ```json
 {
   "$type": "ContentItemLanguageMetadata",
-  "ContentItemLanguageMetadataGUID": "9ec48558-4e26-4ddf-9804-fa0fbe95142d",
-  "ContentItemLanguageMetadataContentItemGuid": "e09121ad-dd97-472f-b8f6-85fe5428ed6a",
-  "ContentItemLanguageMetadataDisplayName": "Content item with relations",
-  "ContentItemLanguageMetadataLatestVersionStatus": 0,
-  "ContentItemLanguageMetadataCreatedWhen": "2023-12-10T00:00:00Z",
-  "ContentItemLanguageMetadataCreatedByUserGuid": "dbfcc244-2cb9-4934-857f-9d75404c1553",
-  "ContentItemLanguageMetadataModifiedByUserGuid": "dbfcc244-2cb9-4934-857f-9d75404c1553",
-  "ContentItemLanguageMetadataHasImageAsset": false,
-  "ContentItemLanguageMetadataContentLanguageGuid": "f454e93b-5fe9-42a9-b1af-b572234ed9c4"
+  "contentItemLanguageMetadataGUID": "9ec48558-4e26-4ddf-9804-fa0fbe95142d",
+  "contentItemLanguageMetadataContentItemGuid": "e09121ad-dd97-472f-b8f6-85fe5428ed6a",
+  "contentItemLanguageMetadataDisplayName": "Content item with relations",
+  "contentItemLanguageMetadataLatestVersionStatus": 0,
+  "contentItemLanguageMetadataCreatedWhen": "2023-12-10T00:00:00Z",
+  "contentItemLanguageMetadataCreatedByUserGuid": "dbfcc244-2cb9-4934-857f-9d75404c1553",
+  "contentItemLanguageMetadataModifiedByUserGuid": "dbfcc244-2cb9-4934-857f-9d75404c1553",
+  "contentItemLanguageMetadataHasImageAsset": false,
+  "contentItemLanguageMetadataContentLanguageGuid": "f454e93b-5fe9-42a9-b1af-b572234ed9c4"
 }
 ```
 
@@ -112,14 +112,14 @@ This sample describes how to create class inside XbyK to hold Content Item Langu
 ```json
 {
   "$type": "ContentItemLanguageMetadata",
-  "ContentItemLanguageMetadataGUID": "8a3f1795-c0ac-4501-be4e-6fba0cd11654",
-  "ContentItemLanguageMetadataContentItemGuid": "e09121ad-dd97-472f-b8f6-85fe5428ed6a",
-  "ContentItemLanguageMetadataDisplayName": "Content item with relations en-GB",
-  "ContentItemLanguageMetadataLatestVersionStatus": 2,
-  "ContentItemLanguageMetadataCreatedWhen": "2023-12-10T00:00:00Z",
-  "ContentItemLanguageMetadataCreatedByUserGuid": "dbfcc244-2cb9-4934-857f-9d75404c1553",
-  "ContentItemLanguageMetadataModifiedByUserGuid": "dbfcc244-2cb9-4934-857f-9d75404c1553",
-  "ContentItemLanguageMetadataHasImageAsset": false,
-  "ContentItemLanguageMetadataContentLanguageGuid": "a6c0a558-8b33-47b6-87a8-491b437c9923"
+  "contentItemLanguageMetadataGUID": "8a3f1795-c0ac-4501-be4e-6fba0cd11654",
+  "contentItemLanguageMetadataContentItemGuid": "e09121ad-dd97-472f-b8f6-85fe5428ed6a",
+  "contentItemLanguageMetadataDisplayName": "Content item with relations en-GB",
+  "contentItemLanguageMetadataLatestVersionStatus": 2,
+  "contentItemLanguageMetadataCreatedWhen": "2023-12-10T00:00:00Z",
+  "contentItemLanguageMetadataCreatedByUserGuid": "dbfcc244-2cb9-4934-857f-9d75404c1553",
+  "contentItemLanguageMetadataModifiedByUserGuid": "dbfcc244-2cb9-4934-857f-9d75404c1553",
+  "contentItemLanguageMetadataHasImageAsset": false,
+  "contentItemLanguageMetadataContentLanguageGuid": "a6c0a558-8b33-47b6-87a8-491b437c9923"
 }
 ```

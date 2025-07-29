@@ -18,10 +18,10 @@ Sample of relation between 2 content items inside XbyK
 ```json
 {
   "$type": "ContentItemReference",
-  "ContentItemReferenceGUID": "186e37c6-5c55-4637-8feb-ec5cb6547aba",
-  "ContentItemReferenceSourceCommonDataGuid": "8f070195-2f39-463e-b7eb-c180c05fd5e0",
-  "ContentItemReferenceTargetItemGuid": "b64b3e3e-f5a9-4d02-8cdb-6d81805c0fee",
-  "ContentItemReferenceGroupGUID": "fc1fde10-11bf-4174-bd64-d1f114e4b421"
+  "contentItemReferenceGUID": "186e37c6-5c55-4637-8feb-ec5cb6547aba",
+  "contentItemReferenceSourceCommonDataGuid": "8f070195-2f39-463e-b7eb-c180c05fd5e0",
+  "contentItemReferenceTargetItemGuid": "b64b3e3e-f5a9-4d02-8cdb-6d81805c0fee",
+  "contentItemReferenceGroupGUID": "fc1fde10-11bf-4174-bd64-d1f114e4b421"
 }
 ```
 
@@ -30,9 +30,9 @@ Sample of relation between 2 content items inside XbyK
 ```json
 {
   "$type": "ContentItemReference",
-  "ContentItemReferenceGUID": "e95eefe5-5b89-43ab-91c9-777be00d5680",
-  "ContentItemReferenceSourceCommonDataGuid": "49d2caf6-2011-42d7-961d-02614d1b43f4",
-  "ContentItemReferenceTargetItemGuid": "b64b3e3e-f5a9-4d02-8cdb-6d81805c0fee",
-  "ContentItemReferenceGroupGUID": "fc1fde10-11bf-4174-bd64-d1f114e4b421"
+  "contentItemReferenceGUID": "e95eefe5-5b89-43ab-91c9-777be00d5680",
+  "contentItemReferenceSourceCommonDataGuid": "49d2caf6-2011-42d7-961d-02614d1b43f4",
+  "contentItemReferenceTargetItemGuid": "b64b3e3e-f5a9-4d02-8cdb-6d81805c0fee",
+  "contentItemReferenceGroupGUID": "fc1fde10-11bf-4174-bd64-d1f114e4b421"
 }
 ```

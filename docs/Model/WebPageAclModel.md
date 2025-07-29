@@ -19,8 +19,8 @@ This sample describes how to set Web page ACL
 ```json
 {
   "$type": "WebPageAcl",
-  "WebPageAclGUID": "dcfbda0a-8b7a-4a29-896a-54ed556c65d6",
-  "WebPageAclWebsiteChannelGUID": "a6ba6fcb-9d05-4abe-afb4-74b153c90db7",
-  "WebPageAclWebPageItemGUID": "6e995319-77e7-475e-9ebb-607bdbf5af9a"
+  "webPageAclGUID": "dcfbda0a-8b7a-4a29-896a-54ed556c65d6",
+  "webPageAclWebsiteChannelGUID": "a6ba6fcb-9d05-4abe-afb4-74b153c90db7",
+  "webPageAclWebPageItemGUID": "6e995319-77e7-475e-9ebb-607bdbf5af9a"
 }
 ```

@@ -22,12 +22,12 @@ This sample describes how to create content item data inside XbyK
 ```json
 {
   "$type": "ContentItem",
-  "ContentItemGUID": "df81215e-1414-4d87-befd-ae123f4e5653",
-  "ContentItemName": "CreationOfUmtModel",
-  "ContentItemIsReusable": false,
-  "ContentItemIsSecured": false,
-  "ContentItemDataClassGuid": "06540294-3b56-4cf7-8773-088bb766ac23",
-  "ContentItemChannelGuid": "5322a379-5b5f-4220-9383-8e3115e66cd3"
+  "contentItemGUID": "df81215e-1414-4d87-befd-ae123f4e5653",
+  "contentItemName": "CreationOfUmtModel",
+  "contentItemIsReusable": false,
+  "contentItemIsSecured": false,
+  "contentItemDataClassGuid": "06540294-3b56-4cf7-8773-088bb766ac23",
+  "contentItemChannelGuid": "5322a379-5b5f-4220-9383-8e3115e66cd3"
 }
 ```
 
@@ -36,11 +36,11 @@ This sample describes how to create reusable content item data inside XbyK
 ```json
 {
   "$type": "ContentItem",
-  "ContentItemGUID": "b64b3e3e-f5a9-4d02-8cdb-6d81805c0fee",
-  "ContentItemName": "SampleReusableFaq",
-  "ContentItemIsReusable": true,
-  "ContentItemIsSecured": true,
-  "ContentItemDataClassGuid": "7ed6604e-613b-4ce0-8c21-acfb372c416a"
+  "contentItemGUID": "b64b3e3e-f5a9-4d02-8cdb-6d81805c0fee",
+  "contentItemName": "SampleReusableFaq",
+  "contentItemIsReusable": true,
+  "contentItemIsSecured": true,
+  "contentItemDataClassGuid": "7ed6604e-613b-4ce0-8c21-acfb372c416a"
 }
 ```
 
@@ -49,11 +49,11 @@ This sample describes how to create content item with relations to other content
 ```json
 {
   "$type": "ContentItem",
-  "ContentItemGUID": "e09121ad-dd97-472f-b8f6-85fe5428ed6a",
-  "ContentItemName": "Content-item-with-relations",
-  "ContentItemIsReusable": false,
-  "ContentItemIsSecured": true,
-  "ContentItemDataClassGuid": "06540294-3b56-4cf7-8773-088bb766ac23",
-  "ContentItemChannelGuid": "5322a379-5b5f-4220-9383-8e3115e66cd3"
+  "contentItemGUID": "e09121ad-dd97-472f-b8f6-85fe5428ed6a",
+  "contentItemName": "Content-item-with-relations",
+  "contentItemIsReusable": false,
+  "contentItemIsSecured": true,
+  "contentItemDataClassGuid": "06540294-3b56-4cf7-8773-088bb766ac23",
+  "contentItemChannelGuid": "5322a379-5b5f-4220-9383-8e3115e66cd3"
 }
 ```

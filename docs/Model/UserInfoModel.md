@@ -32,16 +32,16 @@ Sample demonstrates how to create administrator user
 ```json
 {
   "$type": "UserInfo",
-  "UserName": "sadmin",
-  "FirstName": "Sample",
-  "LastName": "Admin",
-  "Email": "XYZ@sample.localhost",
-  "UserPassword": "[sample hash]",
-  "UserEnabled": true,
-  "UserCreated": "1990-01-01T00:00:00Z",
-  "UserGUID": "dbfcc244-2cb9-4934-857f-9d75404c1553",
-  "UserIsPendingRegistration": false,
-  "UserAdministrationAccess": true,
-  "UserIsExternal": false
+  "userName": "sadmin",
+  "firstName": "Sample",
+  "lastName": "Admin",
+  "email": "XYZ@sample.localhost",
+  "userPassword": "[sample hash]",
+  "userEnabled": true,
+  "userCreated": "1990-01-01T00:00:00Z",
+  "userGUID": "dbfcc244-2cb9-4934-857f-9d75404c1553",
+  "userIsPendingRegistration": false,
+  "userAdministrationAccess": true,
+  "userIsExternal": false
 }
 ```

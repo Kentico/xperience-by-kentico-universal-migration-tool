@@ -22,11 +22,11 @@ This sample describes how to create content language for English (United States)
 ```json
 {
   "$type": "ContentLanguage",
-  "ContentLanguageGUID": "f454e93b-5fe9-42a9-b1af-b572234ed9c4",
-  "ContentLanguageDisplayName": "English (United States)",
-  "ContentLanguageName": "en-US",
-  "ContentLanguageIsDefault": true,
-  "ContentLanguageCultureFormat": "en-US"
+  "contentLanguageGUID": "f454e93b-5fe9-42a9-b1af-b572234ed9c4",
+  "contentLanguageDisplayName": "English (United States)",
+  "contentLanguageName": "en-US",
+  "contentLanguageIsDefault": true,
+  "contentLanguageCultureFormat": "en-US"
 }
 ```
 
@@ -35,11 +35,11 @@ This sample describes how to create content language for English (United Kingdom
 ```json
 {
   "$type": "ContentLanguage",
-  "ContentLanguageGUID": "a6c0a558-8b33-47b6-87a8-491b437c9923",
-  "ContentLanguageDisplayName": "English (United Kingdom)",
-  "ContentLanguageName": "en-GB",
-  "ContentLanguageIsDefault": false,
-  "ContentLanguageCultureFormat": "en-GB"
+  "contentLanguageGUID": "a6c0a558-8b33-47b6-87a8-491b437c9923",
+  "contentLanguageDisplayName": "English (United Kingdom)",
+  "contentLanguageName": "en-GB",
+  "contentLanguageIsDefault": false,
+  "contentLanguageCultureFormat": "en-GB"
 }
 ```
 
@@ -48,10 +48,10 @@ This sample describes how to create content language for English (United States)
 ```json
 {
   "$type": "ContentLanguage",
-  "ContentLanguageGUID": "f454e93b-5fe9-42a9-b1af-b572234ed9c4",
-  "ContentLanguageDisplayName": "English (United States)",
-  "ContentLanguageName": "en-US",
-  "ContentLanguageIsDefault": true,
-  "ContentLanguageCultureFormat": "en-US"
+  "contentLanguageGUID": "f454e93b-5fe9-42a9-b1af-b572234ed9c4",
+  "contentLanguageDisplayName": "English (United States)",
+  "contentLanguageName": "en-US",
+  "contentLanguageIsDefault": true,
+  "contentLanguageCultureFormat": "en-US"
 }
 ```

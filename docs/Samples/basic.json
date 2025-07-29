@@ -1,697 +1,697 @@
 [
   {
     "$type": "Taxonomy",
-    "TaxonomyName": "CoffeaGenus",
-    "TaxonomyGUID": "bd88fd9b-8d36-4d02-a4a6-9a2b26c48488",
-    "TaxonomyTitle": "Coffea genus",
-    "TaxonomyDescription": "Coffea is a genus of flowering plants in the family Rubiaceae",
-    "TaxonomyTranslations": {
+    "taxonomyName": "CoffeaGenus",
+    "taxonomyGUID": "bd88fd9b-8d36-4d02-a4a6-9a2b26c48488",
+    "taxonomyTitle": "Coffea genus",
+    "taxonomyDescription": "Coffea is a genus of flowering plants in the family Rubiaceae",
+    "taxonomyTranslations": {
       "f454e93b-5fe9-42a9-b1af-b572234ed9c4": {
-        "Title": "Coffea enUS"
+        "title": "Coffea enUS"
       },
       "a6c0a558-8b33-47b6-87a8-491b437c9923": {
-        "Title": "Coffea enGB"
+        "title": "Coffea enGB"
       }
     }
   },
   {
     "$type": "Tag",
-    "TagName": "CoffeaCanephora",
-    "TagGUID": "a6e3cc11-95a8-482c-beb4-58bbef6e7bdd",
-    "TagTaxonomyGUID": "bd88fd9b-8d36-4d02-a4a6-9a2b26c48488",
-    "TagParentGUID": null,
-    "TagOrder": null,
-    "TagTitle": "Coffea canephora (Coffea robusta)",
-    "TagDescription": "Coffea canephora (especially C. canephora var. robusta, so predominantly cultivated that it is often simply termed Coffea robusta, or commonly robusta coffee)",
-    "TagTranslations": {
+    "tagName": "CoffeaCanephora",
+    "tagGUID": "a6e3cc11-95a8-482c-beb4-58bbef6e7bdd",
+    "tagTaxonomyGUID": "bd88fd9b-8d36-4d02-a4a6-9a2b26c48488",
+    "tagParentGUID": null,
+    "tagOrder": null,
+    "tagTitle": "Coffea canephora (Coffea robusta)",
+    "tagDescription": "Coffea canephora (especially C. canephora var. robusta, so predominantly cultivated that it is often simply termed Coffea robusta, or commonly robusta coffee)",
+    "tagTranslations": {
       "f454e93b-5fe9-42a9-b1af-b572234ed9c4": {
-        "Title": "Coffea canephora enUS",
-        "Description": "ENUS Robusta is a species of flowering plant in the family Rubiaceae. Though widely known by the synonym Coffea robusta, the plant is currently scientifically identified as Coffea canephora, which has two main varieties, C. c. robusta and C. c. nganda.[2] The plant has a shallow root system and grows as a robust tree or shrub to about 10 metres (30 feet) tall. It flowers irregularly, taking about 10\u201411 months for the berries to ripen, producing oval-shaped beans."
+        "title": "Coffea canephora enUS",
+        "description": "ENUS Robusta is a species of flowering plant in the family Rubiaceae. Though widely known by the synonym Coffea robusta, the plant is currently scientifically identified as Coffea canephora, which has two main varieties, C. c. robusta and C. c. nganda.[2] The plant has a shallow root system and grows as a robust tree or shrub to about 10 metres (30 feet) tall. It flowers irregularly, taking about 10\u201411 months for the berries to ripen, producing oval-shaped beans."
       },
       "a6c0a558-8b33-47b6-87a8-491b437c9923": {
-        "Title": "Coffea canephora enGB",
-        "Description": "ENGB Robusta is a species of flowering plant in the family Rubiaceae. Though widely known by the synonym Coffea robusta, the plant is currently scientifically identified as Coffea canephora, which has two main varieties, C. c. robusta and C. c. nganda.[2] The plant has a shallow root system and grows as a robust tree or shrub to about 10 metres (30 feet) tall. It flowers irregularly, taking about 10\u201411 months for the berries to ripen, producing oval-shaped beans."
+        "title": "Coffea canephora enGB",
+        "description": "ENGB Robusta is a species of flowering plant in the family Rubiaceae. Though widely known by the synonym Coffea robusta, the plant is currently scientifically identified as Coffea canephora, which has two main varieties, C. c. robusta and C. c. nganda.[2] The plant has a shallow root system and grows as a robust tree or shrub to about 10 metres (30 feet) tall. It flowers irregularly, taking about 10\u201411 months for the berries to ripen, producing oval-shaped beans."
       }
     }
   },
   {
     "$type": "Tag",
-    "TagName": "CoffeaNganda",
-    "TagGUID": "b351f88c-7e0c-4339-bcf8-ed86bb8a2804",
-    "TagTaxonomyGUID": "bd88fd9b-8d36-4d02-a4a6-9a2b26c48488",
-    "TagParentGUID": "a6e3cc11-95a8-482c-beb4-58bbef6e7bdd",
-    "TagOrder": null,
-    "TagTitle": "Coffea nganda",
-    "TagDescription": "Coffea nganda variety of coffea canephora",
-    "TagTranslations": {
+    "tagName": "CoffeaNganda",
+    "tagGUID": "b351f88c-7e0c-4339-bcf8-ed86bb8a2804",
+    "tagTaxonomyGUID": "bd88fd9b-8d36-4d02-a4a6-9a2b26c48488",
+    "tagParentGUID": "a6e3cc11-95a8-482c-beb4-58bbef6e7bdd",
+    "tagOrder": null,
+    "tagTitle": "Coffea nganda",
+    "tagDescription": "Coffea nganda variety of coffea canephora",
+    "tagTranslations": {
       "f454e93b-5fe9-42a9-b1af-b572234ed9c4": {
-        "Title": "Coffea nganda enUS",
-        "Description": "ENUS Coffea nganda variety of coffea canephora."
+        "title": "Coffea nganda enUS",
+        "description": "ENUS Coffea nganda variety of coffea canephora."
       },
       "a6c0a558-8b33-47b6-87a8-491b437c9923": {
-        "Title": "Coffea nganda enGB",
-        "Description": "ENGB Coffea nganda variety of coffea canephora."
+        "title": "Coffea nganda enGB",
+        "description": "ENGB Coffea nganda variety of coffea canephora."
       }
     }
   },
   {
     "$type": "Tag",
-    "TagName": "CoffeaRobusta",
-    "TagGUID": "bb181050-79b0-4f42-9280-ef486a139623",
-    "TagTaxonomyGUID": "bd88fd9b-8d36-4d02-a4a6-9a2b26c48488",
-    "TagParentGUID": "a6e3cc11-95a8-482c-beb4-58bbef6e7bdd",
-    "TagOrder": null,
-    "TagTitle": "Coffea robusta",
-    "TagDescription": "Coffea robusta variety of coffea canephora",
-    "TagTranslations": {
+    "tagName": "CoffeaRobusta",
+    "tagGUID": "bb181050-79b0-4f42-9280-ef486a139623",
+    "tagTaxonomyGUID": "bd88fd9b-8d36-4d02-a4a6-9a2b26c48488",
+    "tagParentGUID": "a6e3cc11-95a8-482c-beb4-58bbef6e7bdd",
+    "tagOrder": null,
+    "tagTitle": "Coffea robusta",
+    "tagDescription": "Coffea robusta variety of coffea canephora",
+    "tagTranslations": {
       "f454e93b-5fe9-42a9-b1af-b572234ed9c4": {
-        "Title": "Coffea robusta enUS",
-        "Description": "ENUS Coffea robusta variety of coffea canephora."
+        "title": "Coffea robusta enUS",
+        "description": "ENUS Coffea robusta variety of coffea canephora."
       },
       "a6c0a558-8b33-47b6-87a8-491b437c9923": {
-        "Title": "Coffea robusta enGB",
-        "Description": "ENGB Coffea robusta variety of coffea canephora."
+        "title": "Coffea robusta enGB",
+        "description": "ENGB Coffea robusta variety of coffea canephora."
       }
     }
   },
   {
     "$type": "Tag",
-    "TagName": "CoffeaArabica",
-    "TagGUID": "ffe48372-2bac-4a14-ad8c-c86f3f54c7c5",
-    "TagTaxonomyGUID": "bd88fd9b-8d36-4d02-a4a6-9a2b26c48488",
-    "TagParentGUID": null,
-    "TagOrder": null,
-    "TagTitle": "Coffea arabica",
-    "TagDescription": "Coffea arabica (/\u0259\u02C8r\u00E6b\u026Ak\u0259/), also known as the Arabica coffee, is a species of flowering plant in the coffee and madder family Rubiaceae.",
-    "TagTranslations": {
+    "tagName": "CoffeaArabica",
+    "tagGUID": "ffe48372-2bac-4a14-ad8c-c86f3f54c7c5",
+    "tagTaxonomyGUID": "bd88fd9b-8d36-4d02-a4a6-9a2b26c48488",
+    "tagParentGUID": null,
+    "tagOrder": null,
+    "tagTitle": "Coffea arabica",
+    "tagDescription": "Coffea arabica (/\u0259\u02C8r\u00E6b\u026Ak\u0259/), also known as the Arabica coffee, is a species of flowering plant in the coffee and madder family Rubiaceae.",
+    "tagTranslations": {
       "f454e93b-5fe9-42a9-b1af-b572234ed9c4": {
-        "Title": "Coffea arabica enUS",
-        "Description": "ENUS Wild plants grow between 9 and 12 m (30 and 39 ft) tall, and have an open branching system; the leaves are opposite, simple elliptic-ovate to oblong, 6\u201312 cm (2.5\u20134.5 in) long and 4\u20138 cm (1.5\u20133 in) broad, glossy dark green. The flowers are white, 10\u201315 mm in diameter, and grow in axillary clusters. The seeds are contained in a drupe (commonly called a \u0022cherry\u0022) 10\u201315 mm in diameter, maturing bright red to purple and typically containing two seeds, often called coffee beans."
+        "title": "Coffea arabica enUS",
+        "description": "ENUS Wild plants grow between 9 and 12 m (30 and 39 ft) tall, and have an open branching system; the leaves are opposite, simple elliptic-ovate to oblong, 6\u201312 cm (2.5\u20134.5 in) long and 4\u20138 cm (1.5\u20133 in) broad, glossy dark green. The flowers are white, 10\u201315 mm in diameter, and grow in axillary clusters. The seeds are contained in a drupe (commonly called a \u0022cherry\u0022) 10\u201315 mm in diameter, maturing bright red to purple and typically containing two seeds, often called coffee beans."
       },
       "a6c0a558-8b33-47b6-87a8-491b437c9923": {
-        "Title": "Coffea arabica enGB",
-        "Description": "ENGB Wild plants grow between 9 and 12 m (30 and 39 ft) tall, and have an open branching system; the leaves are opposite, simple elliptic-ovate to oblong, 6\u201312 cm (2.5\u20134.5 in) long and 4\u20138 cm (1.5\u20133 in) broad, glossy dark green. The flowers are white, 10\u201315 mm in diameter, and grow in axillary clusters. The seeds are contained in a drupe (commonly called a \u0022cherry\u0022) 10\u201315 mm in diameter, maturing bright red to purple and typically containing two seeds, often called coffee beans."
+        "title": "Coffea arabica enGB",
+        "description": "ENGB Wild plants grow between 9 and 12 m (30 and 39 ft) tall, and have an open branching system; the leaves are opposite, simple elliptic-ovate to oblong, 6\u201312 cm (2.5\u20134.5 in) long and 4\u20138 cm (1.5\u20133 in) broad, glossy dark green. The flowers are white, 10\u201315 mm in diameter, and grow in axillary clusters. The seeds are contained in a drupe (commonly called a \u0022cherry\u0022) 10\u201315 mm in diameter, maturing bright red to purple and typically containing two seeds, often called coffee beans."
       }
     }
   },
   {
     "$type": "UserInfo",
-    "UserName": "sadmin",
-    "FirstName": "Sample",
-    "LastName": "Admin",
-    "Email": "admin@sample.localhost",
-    "UserPassword": "[sample hash]",
-    "UserEnabled": true,
-    "UserCreated": "1990-01-01T00:00:00Z",
-    "LastLogon": null,
-    "UserGUID": "dbfcc244-2cb9-4934-857f-9d75404c1553",
-    "UserLastModified": null,
-    "UserSecurityStamp": null,
-    "UserPasswordLastChanged": null,
-    "UserIsPendingRegistration": false,
-    "UserRegistrationLinkExpiration": null,
-    "UserAdministrationAccess": true,
-    "UserIsExternal": false
+    "userName": "sadmin",
+    "firstName": "Sample",
+    "lastName": "Admin",
+    "email": "admin@sample.localhost",
+    "userPassword": "[sample hash]",
+    "userEnabled": true,
+    "userCreated": "1990-01-01T00:00:00Z",
+    "lastLogon": null,
+    "userGUID": "dbfcc244-2cb9-4934-857f-9d75404c1553",
+    "userLastModified": null,
+    "userSecurityStamp": null,
+    "userPasswordLastChanged": null,
+    "userIsPendingRegistration": false,
+    "userRegistrationLinkExpiration": null,
+    "userAdministrationAccess": true,
+    "userIsExternal": false
   },
   {
     "$type": "MemberInfo",
-    "MemberName": "John Doe",
-    "MemberEmail": "john.doe@sample.localhost",
-    "MemberPassword": "[sample hash]",
-    "MemberEnabled": true,
-    "MemberCreated": "2003-02-01T04:05:06.007Z",
-    "MemberGUID": "4834f3c4-f7a5-46b8-a83d-607fcfc555d7",
-    "MemberIsExternal": false,
-    "MemberSecurityStamp": "[sample security stamp]"
+    "memberName": "John Doe",
+    "memberEmail": "john.doe@sample.localhost",
+    "memberPassword": "[sample hash]",
+    "memberEnabled": true,
+    "memberCreated": "2003-02-01T04:05:06.007Z",
+    "memberGUID": "4834f3c4-f7a5-46b8-a83d-607fcfc555d7",
+    "memberIsExternal": false,
+    "memberSecurityStamp": "[sample security stamp]"
   },
   {
     "$type": "ContentLanguage",
-    "ContentLanguageGUID": "f454e93b-5fe9-42a9-b1af-b572234ed9c4",
-    "ContentLanguageDisplayName": "English (United States)",
-    "ContentLanguageName": "en-US",
-    "ContentLanguageIsDefault": true,
-    "ContentLanguageFallbackContentLanguageGuid": null,
-    "ContentLanguageCultureFormat": "en-US"
+    "contentLanguageGUID": "f454e93b-5fe9-42a9-b1af-b572234ed9c4",
+    "contentLanguageDisplayName": "English (United States)",
+    "contentLanguageName": "en-US",
+    "contentLanguageIsDefault": true,
+    "contentLanguageFallbackContentLanguageGuid": null,
+    "contentLanguageCultureFormat": "en-US"
   },
   {
     "$type": "ContentLanguage",
-    "ContentLanguageGUID": "a6c0a558-8b33-47b6-87a8-491b437c9923",
-    "ContentLanguageDisplayName": "English (United Kingdom)",
-    "ContentLanguageName": "en-GB",
-    "ContentLanguageIsDefault": false,
-    "ContentLanguageFallbackContentLanguageGuid": null,
-    "ContentLanguageCultureFormat": "en-GB"
+    "contentLanguageGUID": "a6c0a558-8b33-47b6-87a8-491b437c9923",
+    "contentLanguageDisplayName": "English (United Kingdom)",
+    "contentLanguageName": "en-GB",
+    "contentLanguageIsDefault": false,
+    "contentLanguageFallbackContentLanguageGuid": null,
+    "contentLanguageCultureFormat": "en-GB"
   },
   {
     "$type": "ContentLanguage",
-    "ContentLanguageGUID": "4c80c6dd-a5c2-443d-873a-e9c328024b7c",
-    "ContentLanguageDisplayName": "Cuban Spanish",
-    "ContentLanguageName": "es-CU",
-    "ContentLanguageIsDefault": false,
-    "ContentLanguageFallbackContentLanguageGuid": null,
-    "ContentLanguageCultureFormat": "es-CU"
+    "contentLanguageGUID": "4c80c6dd-a5c2-443d-873a-e9c328024b7c",
+    "contentLanguageDisplayName": "Cuban Spanish",
+    "contentLanguageName": "es-CU",
+    "contentLanguageIsDefault": false,
+    "contentLanguageFallbackContentLanguageGuid": null,
+    "contentLanguageCultureFormat": "es-CU"
   },
   {
     "$type": "Channel",
-    "ChannelDisplayName": "email Channel Example",
-    "ChannelName": "emailChannelExampleBasic",
-    "ChannelGUID": "fc847362-e4b0-40ae-8235-f20098daf09f",
-    "ChannelType": 1
+    "channelDisplayName": "email Channel Example",
+    "channelName": "emailChannelExampleBasic",
+    "channelGUID": "fc847362-e4b0-40ae-8235-f20098daf09f",
+    "channelType": 1
   },
   {
     "$type": "Channel",
-    "ChannelDisplayName": "website Channel Example",
-    "ChannelName": "websitechannelExample",
-    "ChannelGUID": "5322a379-5b5f-4220-9383-8e3115e66cd3",
-    "ChannelType": 0
+    "channelDisplayName": "website Channel Example",
+    "channelName": "websitechannelExample",
+    "channelGUID": "5322a379-5b5f-4220-9383-8e3115e66cd3",
+    "channelType": 0
   },
   {
     "$type": "EmailChannel",
-    "EmailChannelGUID": "2c7309ec-1e24-4715-ae6c-8c7efc98a4c5",
-    "EmailChannelSendingDomain": "emailChannelsample.com",
-    "EmailChannelPrimaryContentLanguageGUID": "f454e93b-5fe9-42a9-b1af-b572234ed9c4",
-    "EmailChannelChannelGuid": "fc847362-e4b0-40ae-8235-f20098daf09f",
-    "EmailChannelServiceDomain": "www.emailChannelSendingDomainSample"
+    "emailChannelGUID": "2c7309ec-1e24-4715-ae6c-8c7efc98a4c5",
+    "emailChannelSendingDomain": "emailChannelsample.com",
+    "emailChannelPrimaryContentLanguageGUID": "f454e93b-5fe9-42a9-b1af-b572234ed9c4",
+    "emailChannelChannelGuid": "fc847362-e4b0-40ae-8235-f20098daf09f",
+    "emailChannelServiceDomain": "www.emailChannelSendingDomainSample"
   },
   {
     "$type": "WebSiteChannel",
-    "WebsiteChannelGUID": "a6ba6fcb-9d05-4abe-afb4-74b153c90db7",
-    "WebsiteChannelChannelGuid": "5322a379-5b5f-4220-9383-8e3115e66cd3",
-    "WebsiteChannelDomain": "websitesamplewebsitedomain.com",
-    "WebsiteChannelHomePage": "home",
-    "WebsiteChannelPrimaryContentLanguageGuid": "f454e93b-5fe9-42a9-b1af-b572234ed9c4",
-    "WebsiteChannelDefaultCookieLevel": 1000,
-    "WebsiteChannelStoreFormerUrls": false
+    "websiteChannelGUID": "a6ba6fcb-9d05-4abe-afb4-74b153c90db7",
+    "websiteChannelChannelGuid": "5322a379-5b5f-4220-9383-8e3115e66cd3",
+    "websiteChannelDomain": "websitesamplewebsitedomain.com",
+    "websiteChannelHomePage": "home",
+    "websiteChannelPrimaryContentLanguageGuid": "f454e93b-5fe9-42a9-b1af-b572234ed9c4",
+    "websiteChannelDefaultCookieLevel": 1000,
+    "websiteChannelStoreFormerUrls": false
   },
   {
     "$type": "DataClass",
-    "ClassDisplayName": "This is Article example",
-    "ClassName": "UMT.Article",
-    "ClassShortName": "UMT.Article",
-    "ClassTableName": "UMT_Article",
-    "ClassShowTemplateSelection": null,
-    "ClassLastModified": "2024-01-08T22:55:31.7853783\u002B01:00",
-    "ClassGUID": "06540294-3b56-4cf7-8773-088bb766ac23",
-    "ClassContactMapping": null,
-    "ClassContactOverwriteEnabled": null,
-    "ClassConnectionString": null,
-    "ClassDefaultObjectType": null,
-    "ClassResourceGuid": null,
-    "ClassCodeGenerationSettings": null,
-    "ClassHasUnmanagedDbSchema": false,
-    "ClassType": "Content",
-    "ClassContentTypeType": "Website",
-    "ClassWebPageHasUrl": true,
-    "Fields": [
+    "classDisplayName": "This is Article example",
+    "className": "UMT.Article",
+    "classShortName": "UMT.Article",
+    "classTableName": "UMT_Article",
+    "classShowTemplateSelection": null,
+    "classLastModified": "2024-01-08T22:55:31.7853783\u002B01:00",
+    "classGUID": "06540294-3b56-4cf7-8773-088bb766ac23",
+    "classContactMapping": null,
+    "classContactOverwriteEnabled": null,
+    "classConnectionString": null,
+    "classDefaultObjectType": null,
+    "classResourceGuid": null,
+    "classCodeGenerationSettings": null,
+    "classHasUnmanagedDbSchema": false,
+    "classType": "Content",
+    "classContentTypeType": "Website",
+    "classWebPageHasUrl": true,
+    "fields": [
       {
-        "AllowEmpty": true,
-        "Column": "ArticleTitle",
-        "ColumnSize": 200,
-        "ColumnType": "text",
-        "Enabled": true,
-        "Guid": "ea7da631-6d9c-413f-a746-93442b623908",
-        "Visible": true,
-        "Properties": {
-          "FieldCaption": "Article title"
+        "allowEmpty": true,
+        "column": "ArticleTitle",
+        "columnSize": 200,
+        "columnType": "text",
+        "enabled": true,
+        "guid": "ea7da631-6d9c-413f-a746-93442b623908",
+        "visible": true,
+        "properties": {
+          "fieldCaption": "Article title"
         },
-        "Settings": {
-          "ControlName": "Kentico.Administration.TextInput"
+        "settings": {
+          "controlName": "Kentico.Administration.TextInput"
         },
-        "Precision": null
+        "precision": null
       },
       {
-        "AllowEmpty": true,
-        "Column": "ArticleDecimalNumberSample",
-        "ColumnSize": 15,
-        "ColumnType": "decimal",
-        "Enabled": true,
-        "Guid": "8e749651-773b-47b9-a888-c541c3c3e1b7",
-        "Visible": true,
-        "Properties": {
-          "FieldCaption": "Article decimal number sample"
+        "allowEmpty": true,
+        "column": "ArticleDecimalNumberSample",
+        "columnSize": 15,
+        "columnType": "decimal",
+        "enabled": true,
+        "guid": "8e749651-773b-47b9-a888-c541c3c3e1b7",
+        "visible": true,
+        "properties": {
+          "fieldCaption": "Article decimal number sample"
         },
-        "Settings": {
-          "ControlName": "Kentico.Administration.DecimalNumberInput"
+        "settings": {
+          "controlName": "Kentico.Administration.DecimalNumberInput"
         },
-        "Precision": 5
+        "precision": 5
       },
       {
-        "AllowEmpty": true,
-        "Column": "ArticleText",
-        "ColumnSize": 0,
-        "ColumnType": "longtext",
-        "Enabled": true,
-        "Guid": "a54aef74-42b3-438e-92b2-2f5b4386fb57",
-        "Visible": true,
-        "Properties": {
-          "FieldCaption": "Article text"
+        "allowEmpty": true,
+        "column": "ArticleText",
+        "columnSize": 0,
+        "columnType": "longtext",
+        "enabled": true,
+        "guid": "a54aef74-42b3-438e-92b2-2f5b4386fb57",
+        "visible": true,
+        "properties": {
+          "fieldCaption": "Article text"
         },
-        "Settings": {
-          "ControlName": "Kentico.Administration.TextArea"
+        "settings": {
+          "controlName": "Kentico.Administration.TextArea"
         },
-        "Precision": null
+        "precision": null
       },
       {
-        "AllowEmpty": true,
-        "Column": "RelatedArticles",
-        "ColumnSize": 0,
-        "ColumnType": "webpages",
-        "Enabled": true,
-        "Guid": "4b7a3fec-ee64-4688-b441-fece563b906d",
-        "Visible": true,
-        "Properties": {
-          "FieldCaption": "Related articles",
+        "allowEmpty": true,
+        "column": "RelatedArticles",
+        "columnSize": 0,
+        "columnType": "webpages",
+        "enabled": true,
+        "guid": "4b7a3fec-ee64-4688-b441-fece563b906d",
+        "visible": true,
+        "properties": {
+          "fieldCaption": "Related articles",
           "fieldcaption": "Related articles",
           "fielddescriptionashtml": "False"
         },
-        "Settings": {
-          "ControlName": "Kentico.Administration.WebPageSelector",
+        "settings": {
+          "controlName": "Kentico.Administration.WebPageSelector",
           "MaximumPages": 5,
           "Sortable": "False",
           "TreePath": "/simplified-sample"
         },
-        "Precision": null
+        "precision": null
       },
       {
-        "AllowEmpty": true,
-        "Column": "RelatedFaq",
-        "ColumnSize": 0,
-        "ColumnType": "contentitemreference",
-        "Enabled": true,
-        "Guid": "fc1fde10-11bf-4174-bd64-d1f114e4b421",
-        "Visible": true,
-        "Properties": {
-          "FieldCaption": "Related articles",
+        "allowEmpty": true,
+        "column": "RelatedFaq",
+        "columnSize": 0,
+        "columnType": "contentitemreference",
+        "enabled": true,
+        "guid": "fc1fde10-11bf-4174-bd64-d1f114e4b421",
+        "visible": true,
+        "properties": {
+          "fieldCaption": "Related articles",
           "fieldcaption": "Related Faq",
           "fielddescriptionashtml": "False"
         },
-        "Settings": {
-          "ControlName": "Kentico.Administration.ContentItemSelector",
+        "settings": {
+          "controlName": "Kentico.Administration.ContentItemSelector",
           "AllowedContentItemTypeIdentifiers": "[\u00227ed6604e-613b-4ce0-8c21-acfb372c416a\u0022]"
         },
-        "Precision": null
+        "precision": null
       },
       {
-        "AllowEmpty": true,
-        "Column": "CoffeaTaxonomy",
-        "ColumnSize": 0,
-        "ColumnType": "taxonomy",
-        "Enabled": true,
-        "Guid": "36295d61-7f85-4213-8e5c-06772ed67dfb",
-        "Visible": true,
-        "Properties": {
-          "FieldCaption": "Taxonomy coffee",
+        "allowEmpty": true,
+        "column": "CoffeaTaxonomy",
+        "columnSize": 0,
+        "columnType": "taxonomy",
+        "enabled": true,
+        "guid": "36295d61-7f85-4213-8e5c-06772ed67dfb",
+        "visible": true,
+        "properties": {
+          "fieldCaption": "Taxonomy coffee",
           "explanationtextashtml": "False",
           "fielddescriptionashtml": "False"
         },
-        "Settings": {
-          "ControlName": "Kentico.Administration.TagSelector",
+        "settings": {
+          "controlName": "Kentico.Administration.TagSelector",
           "TaxonomyGroup": "[\u0022bd88fd9b-8d36-4d02-a4a6-9a2b26c48488\u0022]"
         },
-        "Precision": null
+        "precision": null
       }
     ]
   },
   {
     "$type": "ContentTypeChannel",
-    "ContentTypeChannelChannelGuid": "5322a379-5b5f-4220-9383-8e3115e66cd3",
-    "ContentTypeChannelContentTypeGuid": "06540294-3b56-4cf7-8773-088bb766ac23"
+    "contentTypeChannelChannelGuid": "5322a379-5b5f-4220-9383-8e3115e66cd3",
+    "contentTypeChannelContentTypeGuid": "06540294-3b56-4cf7-8773-088bb766ac23"
   },
   {
     "$type": "AllowedChildContentType",
-    "AllowedChildContentTypeParentGuid": "06540294-3b56-4cf7-8773-088bb766ac23",
-    "AllowedChildContentTypeChildGuid": "06540294-3b56-4cf7-8773-088bb766ac23"
+    "allowedChildContentTypeParentGuid": "06540294-3b56-4cf7-8773-088bb766ac23",
+    "allowedChildContentTypeChildGuid": "06540294-3b56-4cf7-8773-088bb766ac23"
   },
   {
     "$type": "DataClass",
-    "ClassDisplayName": "Faq",
-    "ClassName": "UMT.Faq",
-    "ClassShortName": "UMT.Faq",
-    "ClassTableName": "UMT_Faq",
-    "ClassShowTemplateSelection": null,
-    "ClassLastModified": "2024-01-08T22:56:07.1472943Z",
-    "ClassGUID": "7ed6604e-613b-4ce0-8c21-acfb372c416a",
-    "ClassContactMapping": null,
-    "ClassContactOverwriteEnabled": null,
-    "ClassConnectionString": null,
-    "ClassDefaultObjectType": null,
-    "ClassResourceGuid": null,
-    "ClassCodeGenerationSettings": null,
-    "ClassHasUnmanagedDbSchema": false,
-    "ClassType": "Content",
-    "ClassContentTypeType": "Reusable",
-    "ClassWebPageHasUrl": null,
-    "Fields": [
+    "classDisplayName": "Faq",
+    "className": "UMT.Faq",
+    "classShortName": "UMT.Faq",
+    "classTableName": "UMT_Faq",
+    "classShowTemplateSelection": null,
+    "classLastModified": "2024-01-08T22:56:07.1472943Z",
+    "classGUID": "7ed6604e-613b-4ce0-8c21-acfb372c416a",
+    "classContactMapping": null,
+    "classContactOverwriteEnabled": null,
+    "classConnectionString": null,
+    "classDefaultObjectType": null,
+    "classResourceGuid": null,
+    "classCodeGenerationSettings": null,
+    "classHasUnmanagedDbSchema": false,
+    "classType": "Content",
+    "classContentTypeType": "Reusable",
+    "classWebPageHasUrl": null,
+    "fields": [
       {
-        "AllowEmpty": false,
-        "Column": "FaqQuestion",
-        "ColumnSize": 200,
-        "ColumnType": "text",
-        "Enabled": true,
-        "Guid": "b7a99ef4-6775-4088-acc7-41c21299aabf",
-        "Visible": true,
-        "Properties": {
-          "FieldCaption": "Question"
+        "allowEmpty": false,
+        "column": "FaqQuestion",
+        "columnSize": 200,
+        "columnType": "text",
+        "enabled": true,
+        "guid": "b7a99ef4-6775-4088-acc7-41c21299aabf",
+        "visible": true,
+        "properties": {
+          "fieldCaption": "Question"
         },
-        "Settings": {
-          "ControlName": "Kentico.Administration.TextInput"
+        "settings": {
+          "controlName": "Kentico.Administration.TextInput"
         },
-        "Precision": null
+        "precision": null
       },
       {
-        "AllowEmpty": false,
-        "Column": "FaqAnswer",
-        "ColumnSize": 200,
-        "ColumnType": "text",
-        "Enabled": true,
-        "Guid": "87995645-5868-470b-b25a-0e2a4e6d0e85",
-        "Visible": true,
-        "Properties": {
-          "FieldCaption": "Answer"
+        "allowEmpty": false,
+        "column": "FaqAnswer",
+        "columnSize": 200,
+        "columnType": "text",
+        "enabled": true,
+        "guid": "87995645-5868-470b-b25a-0e2a4e6d0e85",
+        "visible": true,
+        "properties": {
+          "fieldCaption": "Answer"
         },
-        "Settings": {
-          "ControlName": "Kentico.Administration.TextInput"
+        "settings": {
+          "controlName": "Kentico.Administration.TextInput"
         },
-        "Precision": null
+        "precision": null
       }
     ]
   },
   {
     "$type": "DataClass",
-    "ClassDisplayName": "Event",
-    "ClassName": "UMT.Event",
-    "ClassShortName": "UMT.Event",
-    "ClassTableName": "UMT_Event",
-    "ClassShowTemplateSelection": null,
-    "ClassLastModified": "2024-01-08T22:56:12.2515785Z",
-    "ClassGUID": "4712c000-4d63-4333-8708-990603f73a1e",
-    "ClassContactMapping": null,
-    "ClassContactOverwriteEnabled": null,
-    "ClassConnectionString": null,
-    "ClassDefaultObjectType": null,
-    "ClassResourceGuid": null,
-    "ClassCodeGenerationSettings": null,
-    "ClassHasUnmanagedDbSchema": false,
-    "ClassType": "Content",
-    "ClassContentTypeType": "Reusable",
-    "ClassWebPageHasUrl": null,
-    "Fields": [
+    "classDisplayName": "Event",
+    "className": "UMT.Event",
+    "classShortName": "UMT.Event",
+    "classTableName": "UMT_Event",
+    "classShowTemplateSelection": null,
+    "classLastModified": "2024-01-08T22:56:12.2515785Z",
+    "classGUID": "4712c000-4d63-4333-8708-990603f73a1e",
+    "classContactMapping": null,
+    "classContactOverwriteEnabled": null,
+    "classConnectionString": null,
+    "classDefaultObjectType": null,
+    "classResourceGuid": null,
+    "classCodeGenerationSettings": null,
+    "classHasUnmanagedDbSchema": false,
+    "classType": "Content",
+    "classContentTypeType": "Reusable",
+    "classWebPageHasUrl": null,
+    "fields": [
       {
-        "AllowEmpty": true,
-        "Column": "EventTitle",
-        "ColumnSize": 200,
-        "ColumnType": "text",
-        "Enabled": true,
-        "Guid": "0e1e63eb-918a-4135-a627-04393672d6f4",
-        "Visible": true,
-        "Properties": {
-          "FieldCaption": "Title"
+        "allowEmpty": true,
+        "column": "EventTitle",
+        "columnSize": 200,
+        "columnType": "text",
+        "enabled": true,
+        "guid": "0e1e63eb-918a-4135-a627-04393672d6f4",
+        "visible": true,
+        "properties": {
+          "fieldCaption": "Title"
         },
-        "Settings": {
-          "ControlName": "Kentico.Administration.TextInput"
+        "settings": {
+          "controlName": "Kentico.Administration.TextInput"
         },
-        "Precision": null
+        "precision": null
       },
       {
-        "AllowEmpty": true,
-        "Column": "EventText",
-        "ColumnSize": 0,
-        "ColumnType": "longtext",
-        "Enabled": true,
-        "Guid": "a54aef74-42b3-438e-92b2-2f5b4386fb57",
-        "Visible": true,
-        "Properties": {
-          "FieldCaption": "Text"
+        "allowEmpty": true,
+        "column": "EventText",
+        "columnSize": 0,
+        "columnType": "longtext",
+        "enabled": true,
+        "guid": "a54aef74-42b3-438e-92b2-2f5b4386fb57",
+        "visible": true,
+        "properties": {
+          "fieldCaption": "Text"
         },
-        "Settings": {
-          "ControlName": "Kentico.Administration.TextArea"
+        "settings": {
+          "controlName": "Kentico.Administration.TextArea"
         },
-        "Precision": null
+        "precision": null
       },
       {
-        "AllowEmpty": true,
-        "Column": "EventDate",
-        "ColumnSize": 0,
-        "ColumnType": "datetime",
-        "Enabled": true,
-        "Guid": "f3356f35-0a78-4a98-8696-a1becb725b0a",
-        "Visible": true,
-        "Properties": {
-          "FieldCaption": "Date"
+        "allowEmpty": true,
+        "column": "EventDate",
+        "columnSize": 0,
+        "columnType": "datetime",
+        "enabled": true,
+        "guid": "f3356f35-0a78-4a98-8696-a1becb725b0a",
+        "visible": true,
+        "properties": {
+          "fieldCaption": "Date"
         },
-        "Settings": {
-          "ControlName": "Kentico.Administration.DateTimeInput"
+        "settings": {
+          "controlName": "Kentico.Administration.DateTimeInput"
         },
-        "Precision": null
+        "precision": null
       },
       {
-        "AllowEmpty": true,
-        "Column": "EventRecurrentYearly",
-        "ColumnSize": 0,
-        "ColumnType": "boolean",
-        "Enabled": true,
-        "Guid": "98d2cf95-5027-488a-b833-89510f4662c1",
-        "Visible": true,
-        "Properties": {
-          "FieldCaption": "Event occurs every year"
+        "allowEmpty": true,
+        "column": "EventRecurrentYearly",
+        "columnSize": 0,
+        "columnType": "boolean",
+        "enabled": true,
+        "guid": "98d2cf95-5027-488a-b833-89510f4662c1",
+        "visible": true,
+        "properties": {
+          "fieldCaption": "Event occurs every year"
         },
-        "Settings": {
-          "ControlName": "Kentico.Administration.Checkbox"
+        "settings": {
+          "controlName": "Kentico.Administration.Checkbox"
         },
-        "Precision": null
+        "precision": null
       },
       {
-        "AllowEmpty": true,
-        "Column": "EventTeaser",
-        "ColumnSize": 0,
-        "ColumnType": "contentitemasset",
-        "Enabled": true,
-        "Guid": "89043112-996b-4771-96bb-2347ad6f3526",
-        "Visible": true,
-        "Properties": {
-          "FieldCaption": "Event teaser"
+        "allowEmpty": true,
+        "column": "EventTeaser",
+        "columnSize": 0,
+        "columnType": "contentitemasset",
+        "enabled": true,
+        "guid": "89043112-996b-4771-96bb-2347ad6f3526",
+        "visible": true,
+        "properties": {
+          "fieldCaption": "Event teaser"
         },
-        "Settings": {
-          "ControlName": "Kentico.Administration.ContentItemAssetUploader",
+        "settings": {
+          "controlName": "Kentico.Administration.ContentItemAssetUploader",
           "AllowedExtensions": "_INHERITED_"
         },
-        "Precision": null
+        "precision": null
       },
       {
-        "AllowEmpty": true,
-        "Column": "EventTeaserOptimized",
-        "ColumnSize": 0,
-        "ColumnType": "contentitemasset",
-        "Enabled": true,
-        "Guid": "4ba81bfd-cd14-4100-8ace-080c25d8ab98",
-        "Visible": true,
-        "Properties": {
-          "FieldCaption": "Event teaser auto-optimized"
+        "allowEmpty": true,
+        "column": "EventTeaserOptimized",
+        "columnSize": 0,
+        "columnType": "contentitemasset",
+        "enabled": true,
+        "guid": "4ba81bfd-cd14-4100-8ace-080c25d8ab98",
+        "visible": true,
+        "properties": {
+          "fieldCaption": "Event teaser auto-optimized"
         },
-        "Settings": {
-          "ControlName": "Kentico.Administration.ContentItemAssetUploader",
+        "settings": {
+          "controlName": "Kentico.Administration.ContentItemAssetUploader",
           "AllowedExtensions": "_INHERITED_",
           "IsFormatConversionEnabled": true,
           "InputImageExtensions": "[\u0022jpg\u0022,\u0022png\u0022]",
           "OutputImageExtension": "jpg",
           "OutputQuality": "50"
         },
-        "Precision": null
+        "precision": null
       }
     ]
   },
   {
     "$type": "ContentItem",
-    "ContentItemGUID": "c354427d-3d02-4876-8ed4-4de817fae929",
-    "ContentItemContentFolderGUID": null,
-    "ContentItemWorkspaceGUID": null,
-    "ContentItemName": "NewsLetterExampleName",
-    "ContentItemIsReusable": true,
-    "ContentItemIsSecured": true,
-    "ContentItemDataClassGuid": "978b2cd4-c248-4317-86a1-3bdd17444267",
-    "ContentItemChannelGuid": "b186b5a3-f408-4e21-a2f9-e51d68ecac38"
+    "contentItemGUID": "c354427d-3d02-4876-8ed4-4de817fae929",
+    "contentItemContentFolderGUID": null,
+    "contentItemWorkspaceGUID": null,
+    "contentItemName": "NewsLetterExampleName",
+    "contentItemIsReusable": true,
+    "contentItemIsSecured": true,
+    "contentItemDataClassGuid": "978b2cd4-c248-4317-86a1-3bdd17444267",
+    "contentItemChannelGuid": "b186b5a3-f408-4e21-a2f9-e51d68ecac38"
   },
   {
     "$type": "ContentItemLanguageMetadata",
-    "ContentItemLanguageMetadataGUID": "65421553-5f92-44b7-a02f-2b9ca083e14a",
-    "ContentItemLanguageMetadataContentItemGuid": "c354427d-3d02-4876-8ed4-4de817fae929",
-    "ContentItemLanguageMetadataDisplayName": "Basic Language Metadata Example",
-    "ContentItemLanguageMetadataLatestVersionStatus": 1,
-    "ContentItemLanguageMetadataCreatedWhen": "2024-01-06T22:55:48.9503105Z",
-    "ContentItemLanguageMetadataCreatedByUserGuid": null,
-    "ContentItemLanguageMetadataModifiedWhen": "2024-01-08T22:55:52.0392925Z",
-    "ContentItemLanguageMetadataModifiedByUserGuid": null,
-    "ContentItemLanguageMetadataHasImageAsset": false,
-    "ContentItemLanguageMetadataContentLanguageGuid": "f454e93b-5fe9-42a9-b1af-b572234ed9c4",
-    "ContentItemLanguageMetadataScheduledPublishWhen": null,
-    "ContentItemLanguageMetadataScheduledUnpublishWhen": null
+    "contentItemLanguageMetadataGUID": "65421553-5f92-44b7-a02f-2b9ca083e14a",
+    "contentItemLanguageMetadataContentItemGuid": "c354427d-3d02-4876-8ed4-4de817fae929",
+    "contentItemLanguageMetadataDisplayName": "Basic Language Metadata Example",
+    "contentItemLanguageMetadataLatestVersionStatus": 1,
+    "contentItemLanguageMetadataCreatedWhen": "2024-01-06T22:55:48.9503105Z",
+    "contentItemLanguageMetadataCreatedByUserGuid": null,
+    "contentItemLanguageMetadataModifiedWhen": "2024-01-08T22:55:52.0392925Z",
+    "contentItemLanguageMetadataModifiedByUserGuid": null,
+    "contentItemLanguageMetadataHasImageAsset": false,
+    "contentItemLanguageMetadataContentLanguageGuid": "f454e93b-5fe9-42a9-b1af-b572234ed9c4",
+    "contentItemLanguageMetadataScheduledPublishWhen": null,
+    "contentItemLanguageMetadataScheduledUnpublishWhen": null
   },
   {
     "$type": "ContentItemLanguageMetadata",
-    "ContentItemLanguageMetadataGUID": "12191a4b-26d8-40bb-a214-73d9874920fd",
-    "ContentItemLanguageMetadataContentItemGuid": "c354427d-3d02-4876-8ed4-4de817fae929",
-    "ContentItemLanguageMetadataDisplayName": "Language Metadata Example",
-    "ContentItemLanguageMetadataLatestVersionStatus": 2,
-    "ContentItemLanguageMetadataCreatedWhen": "2024-01-06T22:55:58.3208748Z",
-    "ContentItemLanguageMetadataCreatedByUserGuid": "95f42fd4-6a14-4e88-b214-4e136479f788",
-    "ContentItemLanguageMetadataModifiedWhen": "2024-01-08T22:56:01.1939486Z",
-    "ContentItemLanguageMetadataModifiedByUserGuid": "95f42fd4-6a14-4e88-b214-4e136479f788",
-    "ContentItemLanguageMetadataHasImageAsset": false,
-    "ContentItemLanguageMetadataContentLanguageGuid": "f454e93b-5fe9-42a9-b1af-b572234ed9c4",
-    "ContentItemLanguageMetadataScheduledPublishWhen": null,
-    "ContentItemLanguageMetadataScheduledUnpublishWhen": "2045-01-01T00:00:00Z"
+    "contentItemLanguageMetadataGUID": "12191a4b-26d8-40bb-a214-73d9874920fd",
+    "contentItemLanguageMetadataContentItemGuid": "c354427d-3d02-4876-8ed4-4de817fae929",
+    "contentItemLanguageMetadataDisplayName": "Language Metadata Example",
+    "contentItemLanguageMetadataLatestVersionStatus": 2,
+    "contentItemLanguageMetadataCreatedWhen": "2024-01-06T22:55:58.3208748Z",
+    "contentItemLanguageMetadataCreatedByUserGuid": "95f42fd4-6a14-4e88-b214-4e136479f788",
+    "contentItemLanguageMetadataModifiedWhen": "2024-01-08T22:56:01.1939486Z",
+    "contentItemLanguageMetadataModifiedByUserGuid": "95f42fd4-6a14-4e88-b214-4e136479f788",
+    "contentItemLanguageMetadataHasImageAsset": false,
+    "contentItemLanguageMetadataContentLanguageGuid": "f454e93b-5fe9-42a9-b1af-b572234ed9c4",
+    "contentItemLanguageMetadataScheduledPublishWhen": null,
+    "contentItemLanguageMetadataScheduledUnpublishWhen": "2045-01-01T00:00:00Z"
   },
   {
     "$type": "WebPageItem",
-    "WebPageItemGUID": "6e995319-77e7-475e-9ebb-607bdbf5af9a",
-    "WebPageItemParentGuid": null,
-    "WebPageItemName": "NewWebPageItem",
-    "WebPageItemTreePath": "/home",
-    "WebPageItemWebsiteChannelGuid": "a6ba6fcb-9d05-4abe-afb4-74b153c90db7",
-    "WebPageItemContentItemGuid": "c354427d-3d02-4876-8ed4-4de817fae929",
-    "WebPageItemOrder": 1
+    "webPageItemGUID": "6e995319-77e7-475e-9ebb-607bdbf5af9a",
+    "webPageItemParentGuid": null,
+    "webPageItemName": "NewWebPageItem",
+    "webPageItemTreePath": "/home",
+    "webPageItemWebsiteChannelGuid": "a6ba6fcb-9d05-4abe-afb4-74b153c90db7",
+    "webPageItemContentItemGuid": "c354427d-3d02-4876-8ed4-4de817fae929",
+    "webPageItemOrder": 1
   },
   {
     "$type": "Media_Library",
-    "LibraryName": "LibrarySample",
-    "LibraryDisplayName": "LibraryDisplayedName",
-    "LibraryDescription": "TestLibrary",
-    "LibraryFolder": "TestFolder",
-    "LibraryGUID": "e3a9c50c-2b76-4ba8-ac19-2f0aa64c47d5",
-    "LibraryLastModified": null
+    "libraryName": "LibrarySample",
+    "libraryDisplayName": "LibraryDisplayedName",
+    "libraryDescription": "TestLibrary",
+    "libraryFolder": "TestFolder",
+    "libraryGUID": "e3a9c50c-2b76-4ba8-ac19-2f0aa64c47d5",
+    "libraryLastModified": null
   },
   {
     "$type": "Media_File",
-    "DataSourcePath": null,
-    "DataSourceUrl": "https://devnet.kentico.com/DevNet/media/devnet/cms_screen.jpg",
-    "FileGUID": "94df1156-c85d-4356-8e28-16d71c6ac899",
-    "FileLibraryGuid": "e3a9c50c-2b76-4ba8-ac19-2f0aa64c47d5",
-    "FileCreatedByUserGuid": "863f796e-823a-4f5e-bbdb-e4a6f15b349b",
-    "FileModifiedByUserGuid": null,
-    "FileName": "NewTestFileFromUri",
-    "FileTitle": "Old devnet screen",
-    "FileDescription": null,
-    "FileExtension": ".jpg",
-    "FileMimeType": null,
-    "FilePath": "customdir/NewTestFileFromUri.jpg",
-    "FileImageWidth": null,
-    "FileImageHeight": null,
-    "FileCreatedWhen": null,
-    "FileModifiedWhen": null
+    "dataSourcePath": null,
+    "dataSourceUrl": "https://devnet.kentico.com/DevNet/media/devnet/cms_screen.jpg",
+    "fileGUID": "94df1156-c85d-4356-8e28-16d71c6ac899",
+    "fileLibraryGuid": "e3a9c50c-2b76-4ba8-ac19-2f0aa64c47d5",
+    "fileCreatedByUserGuid": "863f796e-823a-4f5e-bbdb-e4a6f15b349b",
+    "fileModifiedByUserGuid": null,
+    "fileName": "NewTestFileFromUri",
+    "fileTitle": "Old devnet screen",
+    "fileDescription": null,
+    "fileExtension": ".jpg",
+    "fileMimeType": null,
+    "filePath": "customdir/NewTestFileFromUri.jpg",
+    "fileImageWidth": null,
+    "fileImageHeight": null,
+    "fileCreatedWhen": null,
+    "fileModifiedWhen": null
   },
   {
     "$type": "ContentItem",
-    "ContentItemGUID": "b64b3e3e-f5a9-4d02-8cdb-6d81805c0fee",
-    "ContentItemContentFolderGUID": null,
-    "ContentItemWorkspaceGUID": null,
-    "ContentItemName": "SampleReusableFaq",
-    "ContentItemIsReusable": true,
-    "ContentItemIsSecured": true,
-    "ContentItemDataClassGuid": "7ed6604e-613b-4ce0-8c21-acfb372c416a",
-    "ContentItemChannelGuid": null
+    "contentItemGUID": "b64b3e3e-f5a9-4d02-8cdb-6d81805c0fee",
+    "contentItemContentFolderGUID": null,
+    "contentItemWorkspaceGUID": null,
+    "contentItemName": "SampleReusableFaq",
+    "contentItemIsReusable": true,
+    "contentItemIsSecured": true,
+    "contentItemDataClassGuid": "7ed6604e-613b-4ce0-8c21-acfb372c416a",
+    "contentItemChannelGuid": null
   },
   {
     "$type": "ContentItemCommonData",
-    "ContentItemCommonDataGUID": "2b1987bf-680b-48c0-85ce-47ff9fde24c7",
-    "ContentItemCommonDataContentItemGuid": "b64b3e3e-f5a9-4d02-8cdb-6d81805c0fee",
-    "ContentItemCommonDataContentLanguageGuid": "f454e93b-5fe9-42a9-b1af-b572234ed9c4",
-    "ContentItemCommonDataVersionStatus": 2,
-    "ContentItemCommonDataIsLatest": true,
-    "ContentItemCommonDataVisualBuilderWidgets": null,
-    "ContentItemCommonDataVisualBuilderTemplateConfiguration": null
+    "contentItemCommonDataGUID": "2b1987bf-680b-48c0-85ce-47ff9fde24c7",
+    "contentItemCommonDataContentItemGuid": "b64b3e3e-f5a9-4d02-8cdb-6d81805c0fee",
+    "contentItemCommonDataContentLanguageGuid": "f454e93b-5fe9-42a9-b1af-b572234ed9c4",
+    "contentItemCommonDataVersionStatus": 2,
+    "contentItemCommonDataIsLatest": true,
+    "contentItemCommonDataVisualBuilderWidgets": null,
+    "contentItemCommonDataVisualBuilderTemplateConfiguration": null
   },
   {
     "$type": "ContentItemCommonData",
-    "ContentItemCommonDataGUID": "96016b05-b3d3-42f9-b5aa-71e2f816eb8f",
-    "ContentItemCommonDataContentItemGuid": "b64b3e3e-f5a9-4d02-8cdb-6d81805c0fee",
-    "ContentItemCommonDataContentLanguageGuid": "a6c0a558-8b33-47b6-87a8-491b437c9923",
-    "ContentItemCommonDataVersionStatus": 2,
-    "ContentItemCommonDataIsLatest": true,
-    "ContentItemCommonDataVisualBuilderWidgets": null,
-    "ContentItemCommonDataVisualBuilderTemplateConfiguration": null
+    "contentItemCommonDataGUID": "96016b05-b3d3-42f9-b5aa-71e2f816eb8f",
+    "contentItemCommonDataContentItemGuid": "b64b3e3e-f5a9-4d02-8cdb-6d81805c0fee",
+    "contentItemCommonDataContentLanguageGuid": "a6c0a558-8b33-47b6-87a8-491b437c9923",
+    "contentItemCommonDataVersionStatus": 2,
+    "contentItemCommonDataIsLatest": true,
+    "contentItemCommonDataVisualBuilderWidgets": null,
+    "contentItemCommonDataVisualBuilderTemplateConfiguration": null
   },
   {
     "$type": "ContentItemData",
-    "ContentItemDataGUID": "d29e7c59-09d5-443c-999d-063ba62e5f97",
-    "ContentItemDataCommonDataGuid": "2b1987bf-680b-48c0-85ce-47ff9fde24c7",
-    "ContentItemContentTypeName": "UMT.Faq",
+    "contentItemDataGUID": "d29e7c59-09d5-443c-999d-063ba62e5f97",
+    "contentItemDataCommonDataGuid": "2b1987bf-680b-48c0-85ce-47ff9fde24c7",
+    "contentItemContentTypeName": "UMT.Faq",
     "FaqQuestion": "en-US FAQ question text",
     "FaqAnswer": "en-US FAQ answer text"
   },
   {
     "$type": "ContentItemData",
-    "ContentItemDataGUID": "93269639-1c4a-48b8-b367-0da00268eeb0",
-    "ContentItemDataCommonDataGuid": "96016b05-b3d3-42f9-b5aa-71e2f816eb8f",
-    "ContentItemContentTypeName": "UMT.Faq",
+    "contentItemDataGUID": "93269639-1c4a-48b8-b367-0da00268eeb0",
+    "contentItemDataCommonDataGuid": "96016b05-b3d3-42f9-b5aa-71e2f816eb8f",
+    "contentItemContentTypeName": "UMT.Faq",
     "FaqQuestion": "en-GB FAQ question text",
     "FaqAnswer": "en-GB FAQ answer text"
   },
   {
     "$type": "ContentItemLanguageMetadata",
-    "ContentItemLanguageMetadataGUID": "46353800-21b8-48f6-8681-b19966f4b6eb",
-    "ContentItemLanguageMetadataContentItemGuid": "b64b3e3e-f5a9-4d02-8cdb-6d81805c0fee",
-    "ContentItemLanguageMetadataDisplayName": "Sample reusable FAQ",
-    "ContentItemLanguageMetadataLatestVersionStatus": 0,
-    "ContentItemLanguageMetadataCreatedWhen": "2023-12-10T00:00:00Z",
-    "ContentItemLanguageMetadataCreatedByUserGuid": "dbfcc244-2cb9-4934-857f-9d75404c1553",
-    "ContentItemLanguageMetadataModifiedWhen": null,
-    "ContentItemLanguageMetadataModifiedByUserGuid": "dbfcc244-2cb9-4934-857f-9d75404c1553",
-    "ContentItemLanguageMetadataHasImageAsset": false,
-    "ContentItemLanguageMetadataContentLanguageGuid": "f454e93b-5fe9-42a9-b1af-b572234ed9c4",
-    "ContentItemLanguageMetadataScheduledPublishWhen": "2045-01-01T00:00:00Z",
-    "ContentItemLanguageMetadataScheduledUnpublishWhen": null
+    "contentItemLanguageMetadataGUID": "46353800-21b8-48f6-8681-b19966f4b6eb",
+    "contentItemLanguageMetadataContentItemGuid": "b64b3e3e-f5a9-4d02-8cdb-6d81805c0fee",
+    "contentItemLanguageMetadataDisplayName": "Sample reusable FAQ",
+    "contentItemLanguageMetadataLatestVersionStatus": 0,
+    "contentItemLanguageMetadataCreatedWhen": "2023-12-10T00:00:00Z",
+    "contentItemLanguageMetadataCreatedByUserGuid": "dbfcc244-2cb9-4934-857f-9d75404c1553",
+    "contentItemLanguageMetadataModifiedWhen": null,
+    "contentItemLanguageMetadataModifiedByUserGuid": "dbfcc244-2cb9-4934-857f-9d75404c1553",
+    "contentItemLanguageMetadataHasImageAsset": false,
+    "contentItemLanguageMetadataContentLanguageGuid": "f454e93b-5fe9-42a9-b1af-b572234ed9c4",
+    "contentItemLanguageMetadataScheduledPublishWhen": "2045-01-01T00:00:00Z",
+    "contentItemLanguageMetadataScheduledUnpublishWhen": null
   },
   {
     "$type": "ContentItemLanguageMetadata",
-    "ContentItemLanguageMetadataGUID": "b15b3d9f-0cb1-405a-bc04-a069daecf72d",
-    "ContentItemLanguageMetadataContentItemGuid": "b64b3e3e-f5a9-4d02-8cdb-6d81805c0fee",
-    "ContentItemLanguageMetadataDisplayName": "Sample reusable FAQ",
-    "ContentItemLanguageMetadataLatestVersionStatus": 2,
-    "ContentItemLanguageMetadataCreatedWhen": "2023-12-10T00:00:00Z",
-    "ContentItemLanguageMetadataCreatedByUserGuid": "dbfcc244-2cb9-4934-857f-9d75404c1553",
-    "ContentItemLanguageMetadataModifiedWhen": null,
-    "ContentItemLanguageMetadataModifiedByUserGuid": "dbfcc244-2cb9-4934-857f-9d75404c1553",
-    "ContentItemLanguageMetadataHasImageAsset": false,
-    "ContentItemLanguageMetadataContentLanguageGuid": "a6c0a558-8b33-47b6-87a8-491b437c9923",
-    "ContentItemLanguageMetadataScheduledPublishWhen": null,
-    "ContentItemLanguageMetadataScheduledUnpublishWhen": null
+    "contentItemLanguageMetadataGUID": "b15b3d9f-0cb1-405a-bc04-a069daecf72d",
+    "contentItemLanguageMetadataContentItemGuid": "b64b3e3e-f5a9-4d02-8cdb-6d81805c0fee",
+    "contentItemLanguageMetadataDisplayName": "Sample reusable FAQ",
+    "contentItemLanguageMetadataLatestVersionStatus": 2,
+    "contentItemLanguageMetadataCreatedWhen": "2023-12-10T00:00:00Z",
+    "contentItemLanguageMetadataCreatedByUserGuid": "dbfcc244-2cb9-4934-857f-9d75404c1553",
+    "contentItemLanguageMetadataModifiedWhen": null,
+    "contentItemLanguageMetadataModifiedByUserGuid": "dbfcc244-2cb9-4934-857f-9d75404c1553",
+    "contentItemLanguageMetadataHasImageAsset": false,
+    "contentItemLanguageMetadataContentLanguageGuid": "a6c0a558-8b33-47b6-87a8-491b437c9923",
+    "contentItemLanguageMetadataScheduledPublishWhen": null,
+    "contentItemLanguageMetadataScheduledUnpublishWhen": null
   },
   {
     "$type": "ContentItem",
-    "ContentItemGUID": "df81215e-1414-4d87-befd-ae123f4e5653",
-    "ContentItemContentFolderGUID": null,
-    "ContentItemWorkspaceGUID": null,
-    "ContentItemName": "CreationOfUmtModel",
-    "ContentItemIsReusable": false,
-    "ContentItemIsSecured": false,
-    "ContentItemDataClassGuid": "06540294-3b56-4cf7-8773-088bb766ac23",
-    "ContentItemChannelGuid": "5322a379-5b5f-4220-9383-8e3115e66cd3"
+    "contentItemGUID": "df81215e-1414-4d87-befd-ae123f4e5653",
+    "contentItemContentFolderGUID": null,
+    "contentItemWorkspaceGUID": null,
+    "contentItemName": "CreationOfUmtModel",
+    "contentItemIsReusable": false,
+    "contentItemIsSecured": false,
+    "contentItemDataClassGuid": "06540294-3b56-4cf7-8773-088bb766ac23",
+    "contentItemChannelGuid": "5322a379-5b5f-4220-9383-8e3115e66cd3"
   },
   {
     "$type": "ContentItemCommonData",
-    "ContentItemCommonDataGUID": "8f070195-2f39-463e-b7eb-c180c05fd5e0",
-    "ContentItemCommonDataContentItemGuid": "df81215e-1414-4d87-befd-ae123f4e5653",
-    "ContentItemCommonDataContentLanguageGuid": "f454e93b-5fe9-42a9-b1af-b572234ed9c4",
-    "ContentItemCommonDataVersionStatus": 2,
-    "ContentItemCommonDataIsLatest": true,
-    "ContentItemCommonDataVisualBuilderWidgets": null,
-    "ContentItemCommonDataVisualBuilderTemplateConfiguration": "{\u0022identifier\u0022:\u0022ArticlePageDefaultTemplate\u0022}"
+    "contentItemCommonDataGUID": "8f070195-2f39-463e-b7eb-c180c05fd5e0",
+    "contentItemCommonDataContentItemGuid": "df81215e-1414-4d87-befd-ae123f4e5653",
+    "contentItemCommonDataContentLanguageGuid": "f454e93b-5fe9-42a9-b1af-b572234ed9c4",
+    "contentItemCommonDataVersionStatus": 2,
+    "contentItemCommonDataIsLatest": true,
+    "contentItemCommonDataVisualBuilderWidgets": null,
+    "contentItemCommonDataVisualBuilderTemplateConfiguration": "{\u0022identifier\u0022:\u0022ArticlePageDefaultTemplate\u0022}"
   },
   {
     "$type": "ContentItemCommonData",
-    "ContentItemCommonDataGUID": "49d2caf6-2011-42d7-961d-02614d1b43f4",
-    "ContentItemCommonDataContentItemGuid": "df81215e-1414-4d87-befd-ae123f4e5653",
-    "ContentItemCommonDataContentLanguageGuid": "a6c0a558-8b33-47b6-87a8-491b437c9923",
-    "ContentItemCommonDataVersionStatus": 2,
-    "ContentItemCommonDataIsLatest": true,
-    "ContentItemCommonDataVisualBuilderWidgets": null,
-    "ContentItemCommonDataVisualBuilderTemplateConfiguration": "{\u0022identifier\u0022:\u0022ArticlePageDefaultTemplate\u0022}"
+    "contentItemCommonDataGUID": "49d2caf6-2011-42d7-961d-02614d1b43f4",
+    "contentItemCommonDataContentItemGuid": "df81215e-1414-4d87-befd-ae123f4e5653",
+    "contentItemCommonDataContentLanguageGuid": "a6c0a558-8b33-47b6-87a8-491b437c9923",
+    "contentItemCommonDataVersionStatus": 2,
+    "contentItemCommonDataIsLatest": true,
+    "contentItemCommonDataVisualBuilderWidgets": null,
+    "contentItemCommonDataVisualBuilderTemplateConfiguration": "{\u0022identifier\u0022:\u0022ArticlePageDefaultTemplate\u0022}"
   },
   {
     "$type": "ContentItemData",
-    "ContentItemDataGUID": "9a5b10e0-d0e6-4de9-9d82-6d8deeea1849",
-    "ContentItemDataCommonDataGuid": "8f070195-2f39-463e-b7eb-c180c05fd5e0",
-    "ContentItemContentTypeName": "UMT.Article",
+    "contentItemDataGUID": "9a5b10e0-d0e6-4de9-9d82-6d8deeea1849",
+    "contentItemDataCommonDataGuid": "8f070195-2f39-463e-b7eb-c180c05fd5e0",
+    "contentItemContentTypeName": "UMT.Article",
     "ArticleTitle": "en-US UMT model creation",
     "ArticleText": "This article is only example of creation UMT model for en-US language",
     "RelatedArticles": null,
@@ -701,9 +701,9 @@
   },
   {
     "$type": "ContentItemData",
-    "ContentItemDataGUID": "21380f91-279b-44be-aad8-2e62c345a0e9",
-    "ContentItemDataCommonDataGuid": "49d2caf6-2011-42d7-961d-02614d1b43f4",
-    "ContentItemContentTypeName": "UMT.Article",
+    "contentItemDataGUID": "21380f91-279b-44be-aad8-2e62c345a0e9",
+    "contentItemDataCommonDataGuid": "49d2caf6-2011-42d7-961d-02614d1b43f4",
+    "contentItemContentTypeName": "UMT.Article",
     "ArticleTitle": "en-GB UMT model creation",
     "ArticleText": "This article is only example of creation UMT model for en-GB language",
     "RelatedArticles": null,
@@ -713,1387 +713,1409 @@
   },
   {
     "$type": "ContentItemLanguageMetadata",
-    "ContentItemLanguageMetadataGUID": "192c63ac-e5be-4b0f-b916-b8af6c7e79a9",
-    "ContentItemLanguageMetadataContentItemGuid": "df81215e-1414-4d87-befd-ae123f4e5653",
-    "ContentItemLanguageMetadataDisplayName": "Creation of UMT model",
-    "ContentItemLanguageMetadataLatestVersionStatus": 2,
-    "ContentItemLanguageMetadataCreatedWhen": "2023-12-10T00:00:00Z",
-    "ContentItemLanguageMetadataCreatedByUserGuid": "dbfcc244-2cb9-4934-857f-9d75404c1553",
-    "ContentItemLanguageMetadataModifiedWhen": null,
-    "ContentItemLanguageMetadataModifiedByUserGuid": "dbfcc244-2cb9-4934-857f-9d75404c1553",
-    "ContentItemLanguageMetadataHasImageAsset": false,
-    "ContentItemLanguageMetadataContentLanguageGuid": "f454e93b-5fe9-42a9-b1af-b572234ed9c4",
-    "ContentItemLanguageMetadataScheduledPublishWhen": null,
-    "ContentItemLanguageMetadataScheduledUnpublishWhen": null
+    "contentItemLanguageMetadataGUID": "192c63ac-e5be-4b0f-b916-b8af6c7e79a9",
+    "contentItemLanguageMetadataContentItemGuid": "df81215e-1414-4d87-befd-ae123f4e5653",
+    "contentItemLanguageMetadataDisplayName": "Creation of UMT model",
+    "contentItemLanguageMetadataLatestVersionStatus": 2,
+    "contentItemLanguageMetadataCreatedWhen": "2023-12-10T00:00:00Z",
+    "contentItemLanguageMetadataCreatedByUserGuid": "dbfcc244-2cb9-4934-857f-9d75404c1553",
+    "contentItemLanguageMetadataModifiedWhen": null,
+    "contentItemLanguageMetadataModifiedByUserGuid": "dbfcc244-2cb9-4934-857f-9d75404c1553",
+    "contentItemLanguageMetadataHasImageAsset": false,
+    "contentItemLanguageMetadataContentLanguageGuid": "f454e93b-5fe9-42a9-b1af-b572234ed9c4",
+    "contentItemLanguageMetadataScheduledPublishWhen": null,
+    "contentItemLanguageMetadataScheduledUnpublishWhen": null
   },
   {
     "$type": "ContentItemLanguageMetadata",
-    "ContentItemLanguageMetadataGUID": "7f6a0c0d-a2bb-454c-8e16-adcfe0e38d17",
-    "ContentItemLanguageMetadataContentItemGuid": "df81215e-1414-4d87-befd-ae123f4e5653",
-    "ContentItemLanguageMetadataDisplayName": "Creation of UMT model GB",
-    "ContentItemLanguageMetadataLatestVersionStatus": 2,
-    "ContentItemLanguageMetadataCreatedWhen": "2023-12-10T00:00:00Z",
-    "ContentItemLanguageMetadataCreatedByUserGuid": "dbfcc244-2cb9-4934-857f-9d75404c1553",
-    "ContentItemLanguageMetadataModifiedWhen": null,
-    "ContentItemLanguageMetadataModifiedByUserGuid": "dbfcc244-2cb9-4934-857f-9d75404c1553",
-    "ContentItemLanguageMetadataHasImageAsset": false,
-    "ContentItemLanguageMetadataContentLanguageGuid": "a6c0a558-8b33-47b6-87a8-491b437c9923",
-    "ContentItemLanguageMetadataScheduledPublishWhen": null,
-    "ContentItemLanguageMetadataScheduledUnpublishWhen": null
+    "contentItemLanguageMetadataGUID": "7f6a0c0d-a2bb-454c-8e16-adcfe0e38d17",
+    "contentItemLanguageMetadataContentItemGuid": "df81215e-1414-4d87-befd-ae123f4e5653",
+    "contentItemLanguageMetadataDisplayName": "Creation of UMT model GB",
+    "contentItemLanguageMetadataLatestVersionStatus": 2,
+    "contentItemLanguageMetadataCreatedWhen": "2023-12-10T00:00:00Z",
+    "contentItemLanguageMetadataCreatedByUserGuid": "dbfcc244-2cb9-4934-857f-9d75404c1553",
+    "contentItemLanguageMetadataModifiedWhen": null,
+    "contentItemLanguageMetadataModifiedByUserGuid": "dbfcc244-2cb9-4934-857f-9d75404c1553",
+    "contentItemLanguageMetadataHasImageAsset": false,
+    "contentItemLanguageMetadataContentLanguageGuid": "a6c0a558-8b33-47b6-87a8-491b437c9923",
+    "contentItemLanguageMetadataScheduledPublishWhen": null,
+    "contentItemLanguageMetadataScheduledUnpublishWhen": null
   },
   {
     "$type": "WebPageUrlPath",
-    "WebPageUrlPathGUID": "2bda2458-e262-4825-b51b-5a7b345ed7bd",
-    "WebPageUrlPath": "en-US/creation-of-umt-model",
-    "WebPageUrlPathHash": null,
-    "WebPageUrlPathWebPageItemGuid": "6e995319-77e7-475e-9ebb-607bdbf5af9a",
-    "WebPageUrlPathWebsiteChannelGuid": "a6ba6fcb-9d05-4abe-afb4-74b153c90db7",
-    "WebPageUrlPathContentLanguageGuid": "f454e93b-5fe9-42a9-b1af-b572234ed9c4",
-    "WebPageUrlPathIsLatest": true,
-    "WebPageUrlPathIsDraft": false
+    "webPageUrlPathGUID": "2bda2458-e262-4825-b51b-5a7b345ed7bd",
+    "webPageUrlPath": "en-US/creation-of-umt-model",
+    "webPageUrlPathHash": null,
+    "webPageUrlPathWebPageItemGuid": "6e995319-77e7-475e-9ebb-607bdbf5af9a",
+    "webPageUrlPathWebsiteChannelGuid": "a6ba6fcb-9d05-4abe-afb4-74b153c90db7",
+    "webPageUrlPathContentLanguageGuid": "f454e93b-5fe9-42a9-b1af-b572234ed9c4",
+    "webPageUrlPathIsLatest": true,
+    "webPageUrlPathIsDraft": false,
+    "webPageUrlPathRedirectWebPageFormerUrlPathGUID": null,
+    "webPageUrlPathPublishedWebPageUrlPathGUID": null
   },
   {
     "$type": "WebPageUrlPath",
-    "WebPageUrlPathGUID": "8083fa41-03fe-49c3-87fb-4f7c530b14cf",
-    "WebPageUrlPath": "en-GB/creation-of-umt-model",
-    "WebPageUrlPathHash": null,
-    "WebPageUrlPathWebPageItemGuid": "6e995319-77e7-475e-9ebb-607bdbf5af9a",
-    "WebPageUrlPathWebsiteChannelGuid": "a6ba6fcb-9d05-4abe-afb4-74b153c90db7",
-    "WebPageUrlPathContentLanguageGuid": "a6c0a558-8b33-47b6-87a8-491b437c9923",
-    "WebPageUrlPathIsLatest": true,
-    "WebPageUrlPathIsDraft": false
+    "webPageUrlPathGUID": "8083fa41-03fe-49c3-87fb-4f7c530b14cf",
+    "webPageUrlPath": "en-GB/creation-of-umt-model",
+    "webPageUrlPathHash": null,
+    "webPageUrlPathWebPageItemGuid": "6e995319-77e7-475e-9ebb-607bdbf5af9a",
+    "webPageUrlPathWebsiteChannelGuid": "a6ba6fcb-9d05-4abe-afb4-74b153c90db7",
+    "webPageUrlPathContentLanguageGuid": "a6c0a558-8b33-47b6-87a8-491b437c9923",
+    "webPageUrlPathIsLatest": true,
+    "webPageUrlPathIsDraft": false,
+    "webPageUrlPathRedirectWebPageFormerUrlPathGUID": null,
+    "webPageUrlPathPublishedWebPageUrlPathGUID": null
   },
   {
     "$type": "WebPageUrlPath",
-    "WebPageUrlPathGUID": "f5824434-ec28-4aa6-95b4-cb995b9acef4",
-    "WebPageUrlPath": "es/creation-of-umt-model",
-    "WebPageUrlPathHash": null,
-    "WebPageUrlPathWebPageItemGuid": "6e995319-77e7-475e-9ebb-607bdbf5af9a",
-    "WebPageUrlPathWebsiteChannelGuid": "a6ba6fcb-9d05-4abe-afb4-74b153c90db7",
-    "WebPageUrlPathContentLanguageGuid": "4c80c6dd-a5c2-443d-873a-e9c328024b7c",
-    "WebPageUrlPathIsLatest": true,
-    "WebPageUrlPathIsDraft": false
+    "webPageUrlPathGUID": "f5824434-ec28-4aa6-95b4-cb995b9acef4",
+    "webPageUrlPath": "es/creation-of-umt-model",
+    "webPageUrlPathHash": null,
+    "webPageUrlPathWebPageItemGuid": "6e995319-77e7-475e-9ebb-607bdbf5af9a",
+    "webPageUrlPathWebsiteChannelGuid": "a6ba6fcb-9d05-4abe-afb4-74b153c90db7",
+    "webPageUrlPathContentLanguageGuid": "4c80c6dd-a5c2-443d-873a-e9c328024b7c",
+    "webPageUrlPathIsLatest": true,
+    "webPageUrlPathIsDraft": false,
+    "webPageUrlPathRedirectWebPageFormerUrlPathGUID": null,
+    "webPageUrlPathPublishedWebPageUrlPathGUID": null
   },
   {
     "$type": "WebPageItem",
-    "WebPageItemGUID": "6e995319-77e7-475e-9ebb-607bdbf5af9a",
-    "WebPageItemParentGuid": null,
-    "WebPageItemName": "CreationOfUmtModelUs",
-    "WebPageItemTreePath": "/creation-of-umt-model",
-    "WebPageItemWebsiteChannelGuid": "a6ba6fcb-9d05-4abe-afb4-74b153c90db7",
-    "WebPageItemContentItemGuid": "df81215e-1414-4d87-befd-ae123f4e5653",
-    "WebPageItemOrder": 1
+    "webPageItemGUID": "6e995319-77e7-475e-9ebb-607bdbf5af9a",
+    "webPageItemParentGuid": null,
+    "webPageItemName": "CreationOfUmtModelUs",
+    "webPageItemTreePath": "/creation-of-umt-model",
+    "webPageItemWebsiteChannelGuid": "a6ba6fcb-9d05-4abe-afb4-74b153c90db7",
+    "webPageItemContentItemGuid": "df81215e-1414-4d87-befd-ae123f4e5653",
+    "webPageItemOrder": 1
   },
   {
     "$type": "WebPageAcl",
-    "WebPageAclGUID": "dcfbda0a-8b7a-4a29-896a-54ed556c65d6",
-    "WebPageAclWebsiteChannelGUID": "a6ba6fcb-9d05-4abe-afb4-74b153c90db7",
-    "WebPageAclWebPageItemGUID": "6e995319-77e7-475e-9ebb-607bdbf5af9a"
+    "webPageAclGUID": "dcfbda0a-8b7a-4a29-896a-54ed556c65d6",
+    "webPageAclWebsiteChannelGUID": "a6ba6fcb-9d05-4abe-afb4-74b153c90db7",
+    "webPageAclWebPageItemGUID": "6e995319-77e7-475e-9ebb-607bdbf5af9a"
   },
   {
     "$type": "WebPageFormerUrlPath",
-    "WebPageFormerUrlPathGUID": "72a4ec78-5c19-4415-b512-e0a74d5face1",
-    "WebPageFormerUrlPath": "/enus-former-url-path",
-    "WebPageFormerUrlPathHash": null,
-    "WebPageFormerUrlPathWebPageItemGuid": "6e995319-77e7-475e-9ebb-607bdbf5af9a",
-    "WebPageFormerUrlPathWebsiteChannelGuid": "a6ba6fcb-9d05-4abe-afb4-74b153c90db7",
-    "WebPageFormerUrlPathContentLanguageGuid": "f454e93b-5fe9-42a9-b1af-b572234ed9c4",
-    "WebPageFormerUrlPathSourceWebPageItemGuid": null,
-    "WebPageFormerUrlPathIsRedirect": false,
-    "WebPageFormerUrlPathIsRedirectScheduled": false
+    "webPageFormerUrlPathGUID": "72a4ec78-5c19-4415-b512-e0a74d5face1",
+    "webPageFormerUrlPath": "/enus-former-url-path",
+    "webPageFormerUrlPathHash": null,
+    "webPageFormerUrlPathWebPageItemGuid": "6e995319-77e7-475e-9ebb-607bdbf5af9a",
+    "webPageFormerUrlPathWebsiteChannelGuid": "a6ba6fcb-9d05-4abe-afb4-74b153c90db7",
+    "webPageFormerUrlPathContentLanguageGuid": "f454e93b-5fe9-42a9-b1af-b572234ed9c4",
+    "webPageFormerUrlPathSourceWebPageItemGuid": null,
+    "webPageFormerUrlPathIsRedirect": false,
+    "webPageFormerUrlPathIsRedirectScheduled": false
   },
   {
     "$type": "WebPageFormerUrlPath",
-    "WebPageFormerUrlPathGUID": "f9b9cdd0-2202-4609-980f-5b136c8beb2a",
-    "WebPageFormerUrlPath": "/engb-former-url-path",
-    "WebPageFormerUrlPathHash": null,
-    "WebPageFormerUrlPathWebPageItemGuid": "6e995319-77e7-475e-9ebb-607bdbf5af9a",
-    "WebPageFormerUrlPathWebsiteChannelGuid": "a6ba6fcb-9d05-4abe-afb4-74b153c90db7",
-    "WebPageFormerUrlPathContentLanguageGuid": "a6c0a558-8b33-47b6-87a8-491b437c9923",
-    "WebPageFormerUrlPathSourceWebPageItemGuid": null,
-    "WebPageFormerUrlPathIsRedirect": false,
-    "WebPageFormerUrlPathIsRedirectScheduled": false
+    "webPageFormerUrlPathGUID": "f9b9cdd0-2202-4609-980f-5b136c8beb2a",
+    "webPageFormerUrlPath": "/engb-former-url-path",
+    "webPageFormerUrlPathHash": null,
+    "webPageFormerUrlPathWebPageItemGuid": "6e995319-77e7-475e-9ebb-607bdbf5af9a",
+    "webPageFormerUrlPathWebsiteChannelGuid": "a6ba6fcb-9d05-4abe-afb4-74b153c90db7",
+    "webPageFormerUrlPathContentLanguageGuid": "a6c0a558-8b33-47b6-87a8-491b437c9923",
+    "webPageFormerUrlPathSourceWebPageItemGuid": null,
+    "webPageFormerUrlPathIsRedirect": false,
+    "webPageFormerUrlPathIsRedirectScheduled": false
   },
   {
     "$type": "ContentItem",
-    "ContentItemGUID": "e09121ad-dd97-472f-b8f6-85fe5428ed6a",
-    "ContentItemContentFolderGUID": null,
-    "ContentItemWorkspaceGUID": null,
-    "ContentItemName": "Content-item-with-relations",
-    "ContentItemIsReusable": false,
-    "ContentItemIsSecured": true,
-    "ContentItemDataClassGuid": "06540294-3b56-4cf7-8773-088bb766ac23",
-    "ContentItemChannelGuid": "5322a379-5b5f-4220-9383-8e3115e66cd3"
+    "contentItemGUID": "e09121ad-dd97-472f-b8f6-85fe5428ed6a",
+    "contentItemContentFolderGUID": null,
+    "contentItemWorkspaceGUID": null,
+    "contentItemName": "Content-item-with-relations",
+    "contentItemIsReusable": false,
+    "contentItemIsSecured": true,
+    "contentItemDataClassGuid": "06540294-3b56-4cf7-8773-088bb766ac23",
+    "contentItemChannelGuid": "5322a379-5b5f-4220-9383-8e3115e66cd3"
   },
   {
     "$type": "ContentItemCommonData",
-    "ContentItemCommonDataGUID": "56f0e676-8fcc-4a5d-8b69-f6eca372b998",
-    "ContentItemCommonDataContentItemGuid": "e09121ad-dd97-472f-b8f6-85fe5428ed6a",
-    "ContentItemCommonDataContentLanguageGuid": "f454e93b-5fe9-42a9-b1af-b572234ed9c4",
-    "ContentItemCommonDataVersionStatus": 0,
-    "ContentItemCommonDataIsLatest": true,
-    "ContentItemCommonDataVisualBuilderWidgets": null,
-    "ContentItemCommonDataVisualBuilderTemplateConfiguration": "{\u0022identifier\u0022:\u0022ArticlePageDefaultTemplate\u0022}"
+    "contentItemCommonDataGUID": "56f0e676-8fcc-4a5d-8b69-f6eca372b998",
+    "contentItemCommonDataContentItemGuid": "e09121ad-dd97-472f-b8f6-85fe5428ed6a",
+    "contentItemCommonDataContentLanguageGuid": "f454e93b-5fe9-42a9-b1af-b572234ed9c4",
+    "contentItemCommonDataVersionStatus": 0,
+    "contentItemCommonDataIsLatest": true,
+    "contentItemCommonDataVisualBuilderWidgets": null,
+    "contentItemCommonDataVisualBuilderTemplateConfiguration": "{\u0022identifier\u0022:\u0022ArticlePageDefaultTemplate\u0022}"
   },
   {
     "$type": "ContentItemCommonData",
-    "ContentItemCommonDataGUID": "a790b2d4-5ac1-4fb0-812c-2ad2171c61c9",
-    "ContentItemCommonDataContentItemGuid": "e09121ad-dd97-472f-b8f6-85fe5428ed6a",
-    "ContentItemCommonDataContentLanguageGuid": "a6c0a558-8b33-47b6-87a8-491b437c9923",
-    "ContentItemCommonDataVersionStatus": 2,
-    "ContentItemCommonDataIsLatest": true,
-    "ContentItemCommonDataVisualBuilderWidgets": null,
-    "ContentItemCommonDataVisualBuilderTemplateConfiguration": "{\u0022identifier\u0022:\u0022ArticlePageDefaultTemplate\u0022}"
+    "contentItemCommonDataGUID": "a790b2d4-5ac1-4fb0-812c-2ad2171c61c9",
+    "contentItemCommonDataContentItemGuid": "e09121ad-dd97-472f-b8f6-85fe5428ed6a",
+    "contentItemCommonDataContentLanguageGuid": "a6c0a558-8b33-47b6-87a8-491b437c9923",
+    "contentItemCommonDataVersionStatus": 2,
+    "contentItemCommonDataIsLatest": true,
+    "contentItemCommonDataVisualBuilderWidgets": null,
+    "contentItemCommonDataVisualBuilderTemplateConfiguration": "{\u0022identifier\u0022:\u0022ArticlePageDefaultTemplate\u0022}"
   },
   {
     "$type": "ContentItemData",
-    "ContentItemDataGUID": "b6847866-12b1-4a4a-aba7-d93860102bc8",
-    "ContentItemDataCommonDataGuid": "56f0e676-8fcc-4a5d-8b69-f6eca372b998",
-    "ContentItemContentTypeName": "UMT.Article",
+    "contentItemDataGUID": "b6847866-12b1-4a4a-aba7-d93860102bc8",
+    "contentItemDataCommonDataGuid": "56f0e676-8fcc-4a5d-8b69-f6eca372b998",
+    "contentItemContentTypeName": "UMT.Article",
     "ArticleTitle": "en-US UMT model creation",
     "ArticleText": "This article is only example of creation UMT model for en-US language",
     "RelatedArticles": "[{\u0022WebPageGuid\u0022:\u00226e995319-77e7-475e-9ebb-607bdbf5af9a\u0022}]",
-    "RelatedFaq": "[{\u0022Identifier\u0022:\u0022b64b3e3e-f5a9-4d02-8cdb-6d81805c0fee\u0022}]",
+    "RelatedFaq": [
+      {
+        "identifier": "b64b3e3e-f5a9-4d02-8cdb-6d81805c0fee"
+      }
+    ],
     "ArticleDecimalNumberSample": 123456.12345
   },
   {
     "$type": "ContentItemReference",
-    "ContentItemReferenceGUID": "186e37c6-5c55-4637-8feb-ec5cb6547aba",
-    "ContentItemReferenceSourceCommonDataGuid": "8f070195-2f39-463e-b7eb-c180c05fd5e0",
-    "ContentItemReferenceTargetItemGuid": "b64b3e3e-f5a9-4d02-8cdb-6d81805c0fee",
-    "ContentItemReferenceGroupGUID": "fc1fde10-11bf-4174-bd64-d1f114e4b421"
+    "contentItemReferenceGUID": "186e37c6-5c55-4637-8feb-ec5cb6547aba",
+    "contentItemReferenceSourceCommonDataGuid": "8f070195-2f39-463e-b7eb-c180c05fd5e0",
+    "contentItemReferenceTargetItemGuid": "b64b3e3e-f5a9-4d02-8cdb-6d81805c0fee",
+    "contentItemReferenceGroupGUID": "fc1fde10-11bf-4174-bd64-d1f114e4b421"
   },
   {
     "$type": "ContentItemData",
-    "ContentItemDataGUID": "a80f91ff-4cfc-4e28-982a-e4a434517680",
-    "ContentItemDataCommonDataGuid": "a790b2d4-5ac1-4fb0-812c-2ad2171c61c9",
-    "ContentItemContentTypeName": "UMT.Article",
+    "contentItemDataGUID": "a80f91ff-4cfc-4e28-982a-e4a434517680",
+    "contentItemDataCommonDataGuid": "a790b2d4-5ac1-4fb0-812c-2ad2171c61c9",
+    "contentItemContentTypeName": "UMT.Article",
     "ArticleTitle": "en-GB UMT model creation",
     "ArticleText": "This article is only example of creation UMT model for en-GB language",
     "RelatedArticles": "[{\u0022WebPageGuid\u0022:\u00226e995319-77e7-475e-9ebb-607bdbf5af9a\u0022}]",
-    "RelatedFaq": "[{\u0022Identifier\u0022:\u0022b64b3e3e-f5a9-4d02-8cdb-6d81805c0fee\u0022}]",
+    "RelatedFaq": [
+      {
+        "identifier": "b64b3e3e-f5a9-4d02-8cdb-6d81805c0fee"
+      }
+    ],
     "ArticleDecimalNumberSample": 123456.12345
   },
   {
     "$type": "ContentItemReference",
-    "ContentItemReferenceGUID": "e95eefe5-5b89-43ab-91c9-777be00d5680",
-    "ContentItemReferenceSourceCommonDataGuid": "49d2caf6-2011-42d7-961d-02614d1b43f4",
-    "ContentItemReferenceTargetItemGuid": "b64b3e3e-f5a9-4d02-8cdb-6d81805c0fee",
-    "ContentItemReferenceGroupGUID": "fc1fde10-11bf-4174-bd64-d1f114e4b421"
+    "contentItemReferenceGUID": "e95eefe5-5b89-43ab-91c9-777be00d5680",
+    "contentItemReferenceSourceCommonDataGuid": "49d2caf6-2011-42d7-961d-02614d1b43f4",
+    "contentItemReferenceTargetItemGuid": "b64b3e3e-f5a9-4d02-8cdb-6d81805c0fee",
+    "contentItemReferenceGroupGUID": "fc1fde10-11bf-4174-bd64-d1f114e4b421"
   },
   {
     "$type": "ContentItemLanguageMetadata",
-    "ContentItemLanguageMetadataGUID": "9ec48558-4e26-4ddf-9804-fa0fbe95142d",
-    "ContentItemLanguageMetadataContentItemGuid": "e09121ad-dd97-472f-b8f6-85fe5428ed6a",
-    "ContentItemLanguageMetadataDisplayName": "Content item with relations",
-    "ContentItemLanguageMetadataLatestVersionStatus": 0,
-    "ContentItemLanguageMetadataCreatedWhen": "2023-12-10T00:00:00Z",
-    "ContentItemLanguageMetadataCreatedByUserGuid": "dbfcc244-2cb9-4934-857f-9d75404c1553",
-    "ContentItemLanguageMetadataModifiedWhen": null,
-    "ContentItemLanguageMetadataModifiedByUserGuid": "dbfcc244-2cb9-4934-857f-9d75404c1553",
-    "ContentItemLanguageMetadataHasImageAsset": false,
-    "ContentItemLanguageMetadataContentLanguageGuid": "f454e93b-5fe9-42a9-b1af-b572234ed9c4",
-    "ContentItemLanguageMetadataScheduledPublishWhen": null,
-    "ContentItemLanguageMetadataScheduledUnpublishWhen": null
+    "contentItemLanguageMetadataGUID": "9ec48558-4e26-4ddf-9804-fa0fbe95142d",
+    "contentItemLanguageMetadataContentItemGuid": "e09121ad-dd97-472f-b8f6-85fe5428ed6a",
+    "contentItemLanguageMetadataDisplayName": "Content item with relations",
+    "contentItemLanguageMetadataLatestVersionStatus": 0,
+    "contentItemLanguageMetadataCreatedWhen": "2023-12-10T00:00:00Z",
+    "contentItemLanguageMetadataCreatedByUserGuid": "dbfcc244-2cb9-4934-857f-9d75404c1553",
+    "contentItemLanguageMetadataModifiedWhen": null,
+    "contentItemLanguageMetadataModifiedByUserGuid": "dbfcc244-2cb9-4934-857f-9d75404c1553",
+    "contentItemLanguageMetadataHasImageAsset": false,
+    "contentItemLanguageMetadataContentLanguageGuid": "f454e93b-5fe9-42a9-b1af-b572234ed9c4",
+    "contentItemLanguageMetadataScheduledPublishWhen": null,
+    "contentItemLanguageMetadataScheduledUnpublishWhen": null
   },
   {
     "$type": "ContentItemLanguageMetadata",
-    "ContentItemLanguageMetadataGUID": "8a3f1795-c0ac-4501-be4e-6fba0cd11654",
-    "ContentItemLanguageMetadataContentItemGuid": "e09121ad-dd97-472f-b8f6-85fe5428ed6a",
-    "ContentItemLanguageMetadataDisplayName": "Content item with relations en-GB",
-    "ContentItemLanguageMetadataLatestVersionStatus": 2,
-    "ContentItemLanguageMetadataCreatedWhen": "2023-12-10T00:00:00Z",
-    "ContentItemLanguageMetadataCreatedByUserGuid": "dbfcc244-2cb9-4934-857f-9d75404c1553",
-    "ContentItemLanguageMetadataModifiedWhen": null,
-    "ContentItemLanguageMetadataModifiedByUserGuid": "dbfcc244-2cb9-4934-857f-9d75404c1553",
-    "ContentItemLanguageMetadataHasImageAsset": false,
-    "ContentItemLanguageMetadataContentLanguageGuid": "a6c0a558-8b33-47b6-87a8-491b437c9923",
-    "ContentItemLanguageMetadataScheduledPublishWhen": null,
-    "ContentItemLanguageMetadataScheduledUnpublishWhen": null
+    "contentItemLanguageMetadataGUID": "8a3f1795-c0ac-4501-be4e-6fba0cd11654",
+    "contentItemLanguageMetadataContentItemGuid": "e09121ad-dd97-472f-b8f6-85fe5428ed6a",
+    "contentItemLanguageMetadataDisplayName": "Content item with relations en-GB",
+    "contentItemLanguageMetadataLatestVersionStatus": 2,
+    "contentItemLanguageMetadataCreatedWhen": "2023-12-10T00:00:00Z",
+    "contentItemLanguageMetadataCreatedByUserGuid": "dbfcc244-2cb9-4934-857f-9d75404c1553",
+    "contentItemLanguageMetadataModifiedWhen": null,
+    "contentItemLanguageMetadataModifiedByUserGuid": "dbfcc244-2cb9-4934-857f-9d75404c1553",
+    "contentItemLanguageMetadataHasImageAsset": false,
+    "contentItemLanguageMetadataContentLanguageGuid": "a6c0a558-8b33-47b6-87a8-491b437c9923",
+    "contentItemLanguageMetadataScheduledPublishWhen": null,
+    "contentItemLanguageMetadataScheduledUnpublishWhen": null
   },
   {
     "$type": "WebPageItem",
-    "WebPageItemGUID": "14784bf0-69d0-40cf-8be6-e5a0d897774b",
-    "WebPageItemParentGuid": null,
-    "WebPageItemName": "ContentItemWithRelations",
-    "WebPageItemTreePath": "/content-item-with-relations",
-    "WebPageItemWebsiteChannelGuid": "a6ba6fcb-9d05-4abe-afb4-74b153c90db7",
-    "WebPageItemContentItemGuid": "e09121ad-dd97-472f-b8f6-85fe5428ed6a",
-    "WebPageItemOrder": 1
+    "webPageItemGUID": "14784bf0-69d0-40cf-8be6-e5a0d897774b",
+    "webPageItemParentGuid": null,
+    "webPageItemName": "ContentItemWithRelations",
+    "webPageItemTreePath": "/content-item-with-relations",
+    "webPageItemWebsiteChannelGuid": "a6ba6fcb-9d05-4abe-afb4-74b153c90db7",
+    "webPageItemContentItemGuid": "e09121ad-dd97-472f-b8f6-85fe5428ed6a",
+    "webPageItemOrder": 1
   },
   {
     "$type": "WebPageUrlPath",
-    "WebPageUrlPathGUID": "c0f97ba5-7a64-4309-8d58-6054fc90ac66",
-    "WebPageUrlPath": "en-US/content-item-with-relations",
-    "WebPageUrlPathHash": null,
-    "WebPageUrlPathWebPageItemGuid": "14784bf0-69d0-40cf-8be6-e5a0d897774b",
-    "WebPageUrlPathWebsiteChannelGuid": "a6ba6fcb-9d05-4abe-afb4-74b153c90db7",
-    "WebPageUrlPathContentLanguageGuid": "f454e93b-5fe9-42a9-b1af-b572234ed9c4",
-    "WebPageUrlPathIsLatest": true,
-    "WebPageUrlPathIsDraft": false
+    "webPageUrlPathGUID": "c0f97ba5-7a64-4309-8d58-6054fc90ac66",
+    "webPageUrlPath": "en-US/content-item-with-relations",
+    "webPageUrlPathHash": null,
+    "webPageUrlPathWebPageItemGuid": "14784bf0-69d0-40cf-8be6-e5a0d897774b",
+    "webPageUrlPathWebsiteChannelGuid": "a6ba6fcb-9d05-4abe-afb4-74b153c90db7",
+    "webPageUrlPathContentLanguageGuid": "f454e93b-5fe9-42a9-b1af-b572234ed9c4",
+    "webPageUrlPathIsLatest": true,
+    "webPageUrlPathIsDraft": false,
+    "webPageUrlPathRedirectWebPageFormerUrlPathGUID": null,
+    "webPageUrlPathPublishedWebPageUrlPathGUID": null
   },
   {
     "$type": "WebPageUrlPath",
-    "WebPageUrlPathGUID": "ccb7af1f-57d9-405a-84fa-d0f4129a17da",
-    "WebPageUrlPath": "en-GB/content-item-with-relations",
-    "WebPageUrlPathHash": null,
-    "WebPageUrlPathWebPageItemGuid": "14784bf0-69d0-40cf-8be6-e5a0d897774b",
-    "WebPageUrlPathWebsiteChannelGuid": "a6ba6fcb-9d05-4abe-afb4-74b153c90db7",
-    "WebPageUrlPathContentLanguageGuid": "a6c0a558-8b33-47b6-87a8-491b437c9923",
-    "WebPageUrlPathIsLatest": true,
-    "WebPageUrlPathIsDraft": false
+    "webPageUrlPathGUID": "ccb7af1f-57d9-405a-84fa-d0f4129a17da",
+    "webPageUrlPath": "en-GB/content-item-with-relations",
+    "webPageUrlPathHash": null,
+    "webPageUrlPathWebPageItemGuid": "14784bf0-69d0-40cf-8be6-e5a0d897774b",
+    "webPageUrlPathWebsiteChannelGuid": "a6ba6fcb-9d05-4abe-afb4-74b153c90db7",
+    "webPageUrlPathContentLanguageGuid": "a6c0a558-8b33-47b6-87a8-491b437c9923",
+    "webPageUrlPathIsLatest": true,
+    "webPageUrlPathIsDraft": false,
+    "webPageUrlPathRedirectWebPageFormerUrlPathGUID": null,
+    "webPageUrlPathPublishedWebPageUrlPathGUID": null
   },
   {
     "$type": "WebPageUrlPath",
-    "WebPageUrlPathGUID": "54059c3d-754d-494e-8c3e-7e06d9b2b71d",
-    "WebPageUrlPath": "es/content-item-with-relations",
-    "WebPageUrlPathHash": null,
-    "WebPageUrlPathWebPageItemGuid": "14784bf0-69d0-40cf-8be6-e5a0d897774b",
-    "WebPageUrlPathWebsiteChannelGuid": "a6ba6fcb-9d05-4abe-afb4-74b153c90db7",
-    "WebPageUrlPathContentLanguageGuid": "4c80c6dd-a5c2-443d-873a-e9c328024b7c",
-    "WebPageUrlPathIsLatest": true,
-    "WebPageUrlPathIsDraft": false
+    "webPageUrlPathGUID": "54059c3d-754d-494e-8c3e-7e06d9b2b71d",
+    "webPageUrlPath": "es/content-item-with-relations",
+    "webPageUrlPathHash": null,
+    "webPageUrlPathWebPageItemGuid": "14784bf0-69d0-40cf-8be6-e5a0d897774b",
+    "webPageUrlPathWebsiteChannelGuid": "a6ba6fcb-9d05-4abe-afb4-74b153c90db7",
+    "webPageUrlPathContentLanguageGuid": "4c80c6dd-a5c2-443d-873a-e9c328024b7c",
+    "webPageUrlPathIsLatest": true,
+    "webPageUrlPathIsDraft": false,
+    "webPageUrlPathRedirectWebPageFormerUrlPathGUID": null,
+    "webPageUrlPathPublishedWebPageUrlPathGUID": null
   },
   {
     "$type": "ContentFolder",
-    "ContentFolderGUID": "7665a8fc-53a2-4aff-86e8-99b009104ff2",
-    "ContentFolderParentFolderGUID": null,
-    "ContentFolderWorkspaceGUID": null,
-    "ContentFolderName": "articles",
-    "ContentFolderDisplayName": "Articles",
-    "ContentFolderTreePath": "/articles"
+    "contentFolderGUID": "7665a8fc-53a2-4aff-86e8-99b009104ff2",
+    "contentFolderParentFolderGUID": null,
+    "contentFolderWorkspaceGUID": null,
+    "contentFolderName": "articles",
+    "contentFolderDisplayName": "Articles",
+    "contentFolderTreePath": "/articles"
   },
   {
     "$type": "ContentFolder",
-    "ContentFolderGUID": "ae29c1d1-217a-45da-8b30-585d1881387e",
-    "ContentFolderParentFolderGUID": "7665a8fc-53a2-4aff-86e8-99b009104ff2",
-    "ContentFolderWorkspaceGUID": null,
-    "ContentFolderName": "obsolete",
-    "ContentFolderDisplayName": "Obsolete",
-    "ContentFolderTreePath": "/articles/obsolete"
+    "contentFolderGUID": "ae29c1d1-217a-45da-8b30-585d1881387e",
+    "contentFolderParentFolderGUID": "7665a8fc-53a2-4aff-86e8-99b009104ff2",
+    "contentFolderWorkspaceGUID": null,
+    "contentFolderName": "obsolete",
+    "contentFolderDisplayName": "Obsolete",
+    "contentFolderTreePath": "/articles/obsolete"
   },
   {
     "$type": "ContentItemSimplified",
-    "ContentItemGUID": "37c3f5dd-6f2a-4eff-b46e-a36eddebf572",
-    "ContentItemContentFolderGUID": null,
-    "ContentItemWorkspaceGUID": null,
-    "IsSecured": false,
-    "ContentTypeName": "UMT.Article",
-    "Name": "SimplifiedModelSample",
-    "IsReusable": false,
-    "ChannelName": "websitechannelExample",
-    "LanguageData": [
+    "contentItemGUID": "37c3f5dd-6f2a-4eff-b46e-a36eddebf572",
+    "contentItemContentFolderGUID": null,
+    "contentItemWorkspaceGUID": null,
+    "isSecured": false,
+    "contentTypeName": "UMT.Article",
+    "name": "SimplifiedModelSample",
+    "isReusable": false,
+    "channelName": "websitechannelExample",
+    "languageData": [
       {
-        "LanguageName": "en-US",
-        "DisplayName": "Simplified model sample - en-us",
-        "VersionStatus": 0,
-        "IsLatest": true,
-        "UserGuid": null,
-        "ScheduledPublishWhen": "2045-01-01T00:00:00Z",
-        "ScheduledUnpublishWhen": null,
-        "ContentItemData": {
+        "languageName": "en-US",
+        "displayName": "Simplified model sample - en-us",
+        "versionStatus": 0,
+        "isLatest": true,
+        "userGuid": null,
+        "scheduledPublishWhen": "2045-01-01T00:00:00Z",
+        "scheduledUnpublishWhen": null,
+        "contentItemData": {
           "ArticleTitle": "en-US UMT simplified model creation",
           "ArticleText": "This article is only example of creation UMT simplified model for en-US language",
           "RelatedArticles": null,
           "RelatedFaq": null,
           "CoffeaTaxonomy": "[{\u0022Identifier\u0022:\u0022a6e3cc11-95a8-482c-beb4-58bbef6e7bdd\u0022},{\u0022Identifier\u0022:\u0022bb181050-79b0-4f42-9280-ef486a139623\u0022}]"
         },
-        "VisualBuilderTemplateConfiguration": {
-          "Identifier": "ArticlePageDefaultTemplate"
+        "visualBuilderTemplateConfiguration": {
+          "identifier": "ArticlePageDefaultTemplate"
         },
-        "VisualBuilderWidgets": null
+        "visualBuilderWidgets": null
       },
       {
-        "LanguageName": "en-GB",
-        "DisplayName": "Simplified model sample - en-gb",
-        "VersionStatus": 2,
-        "IsLatest": true,
-        "UserGuid": null,
-        "ScheduledPublishWhen": null,
-        "ScheduledUnpublishWhen": "2045-01-01T00:00:00Z",
-        "ContentItemData": {
+        "languageName": "en-GB",
+        "displayName": "Simplified model sample - en-gb",
+        "versionStatus": 2,
+        "isLatest": true,
+        "userGuid": null,
+        "scheduledPublishWhen": null,
+        "scheduledUnpublishWhen": "2045-01-01T00:00:00Z",
+        "contentItemData": {
           "ArticleTitle": "en-GB UMT simplified model creation",
           "ArticleText": "This article is only example of creation UMT simplified model for en-GB language",
           "RelatedArticles": null,
           "RelatedFaq": null,
           "CoffeaTaxonomy": "[{\u0022Identifier\u0022:\u0022a6e3cc11-95a8-482c-beb4-58bbef6e7bdd\u0022},{\u0022Identifier\u0022:\u0022bb181050-79b0-4f42-9280-ef486a139623\u0022}]"
         },
-        "VisualBuilderTemplateConfiguration": {
-          "Identifier": "ArticlePageDefaultTemplate"
+        "visualBuilderTemplateConfiguration": {
+          "identifier": "ArticlePageDefaultTemplate"
         },
-        "VisualBuilderWidgets": null
+        "visualBuilderWidgets": null
       }
     ],
-    "PageData": {
-      "PageUrls": [
+    "pageData": {
+      "pageUrls": [
         {
-          "UrlPath": "en-us/simplified-sample",
-          "PathIsDraft": false,
-          "PathIsLatest": true,
-          "LanguageName": "en-US"
+          "urlPath": "en-us/simplified-sample",
+          "pathIsDraft": false,
+          "pathIsLatest": true,
+          "languageName": "en-US"
         },
         {
-          "UrlPath": "en-gb/simplified-sample",
-          "PathIsDraft": false,
-          "PathIsLatest": true,
-          "LanguageName": "en-GB"
+          "urlPath": "en-gb/simplified-sample",
+          "pathIsDraft": false,
+          "pathIsLatest": true,
+          "languageName": "en-GB"
         },
         {
-          "UrlPath": "es/simplified-sample",
-          "PathIsDraft": false,
-          "PathIsLatest": true,
-          "LanguageName": "es-CU"
+          "urlPath": "es/simplified-sample",
+          "pathIsDraft": false,
+          "pathIsLatest": true,
+          "languageName": "es-CU"
         }
       ],
-      "PageFormerUrls": null,
-      "PageGuid": "4ea03de4-977e-48aa-9340-babf3d23bafa",
-      "ParentGuid": null,
-      "TreePath": "/simplified-sample",
-      "ItemOrder": null
+      "pageFormerUrls": null,
+      "pageGuid": "4ea03de4-977e-48aa-9340-babf3d23bafa",
+      "parentGuid": null,
+      "treePath": "/simplified-sample",
+      "itemOrder": null
     }
   },
   {
     "$type": "ContentItemSimplified",
-    "ContentItemGUID": "9ed8de86-859c-4f6c-94f2-cdd6baed99fe",
-    "ContentItemContentFolderGUID": null,
-    "ContentItemWorkspaceGUID": null,
-    "IsSecured": false,
-    "ContentTypeName": "UMT.Article",
-    "Name": "SimplifiedModelSampleAsSubPage",
-    "IsReusable": false,
-    "ChannelName": "websitechannelExample",
-    "LanguageData": [
+    "contentItemGUID": "9ed8de86-859c-4f6c-94f2-cdd6baed99fe",
+    "contentItemContentFolderGUID": null,
+    "contentItemWorkspaceGUID": null,
+    "isSecured": false,
+    "contentTypeName": "UMT.Article",
+    "name": "SimplifiedModelSampleAsSubPage",
+    "isReusable": false,
+    "channelName": "websitechannelExample",
+    "languageData": [
       {
-        "LanguageName": "en-US",
-        "DisplayName": "Simplified model sample sub page - en-US",
-        "VersionStatus": 0,
-        "IsLatest": true,
-        "UserGuid": "dbfcc244-2cb9-4934-857f-9d75404c1553",
-        "ScheduledPublishWhen": null,
-        "ScheduledUnpublishWhen": null,
-        "ContentItemData": {
+        "languageName": "en-US",
+        "displayName": "Simplified model sample sub page - en-US",
+        "versionStatus": 0,
+        "isLatest": true,
+        "userGuid": "dbfcc244-2cb9-4934-857f-9d75404c1553",
+        "scheduledPublishWhen": null,
+        "scheduledUnpublishWhen": null,
+        "contentItemData": {
           "ArticleTitle": "en-US UMT simplified model creation as sub page",
           "ArticleText": "This article is only example of creation UMT simplified model for en-US language",
           "RelatedArticles": null,
           "RelatedFaq": null
         },
-        "VisualBuilderTemplateConfiguration": {
-          "Identifier": "ArticlePageDefaultTemplate"
+        "visualBuilderTemplateConfiguration": {
+          "identifier": "ArticlePageDefaultTemplate"
         },
-        "VisualBuilderWidgets": null
+        "visualBuilderWidgets": null
       },
       {
-        "LanguageName": "en-GB",
-        "DisplayName": "Simplified model sample sub page - en-GB",
-        "VersionStatus": 2,
-        "IsLatest": true,
-        "UserGuid": "dbfcc244-2cb9-4934-857f-9d75404c1553",
-        "ScheduledPublishWhen": null,
-        "ScheduledUnpublishWhen": null,
-        "ContentItemData": {
+        "languageName": "en-GB",
+        "displayName": "Simplified model sample sub page - en-GB",
+        "versionStatus": 2,
+        "isLatest": true,
+        "userGuid": "dbfcc244-2cb9-4934-857f-9d75404c1553",
+        "scheduledPublishWhen": null,
+        "scheduledUnpublishWhen": null,
+        "contentItemData": {
           "ArticleTitle": "en-GB UMT simplified model creation as sub page",
           "ArticleText": "This article is only example of creation UMT simplified model for en-GB language",
           "RelatedArticles": null,
           "RelatedFaq": null
         },
-        "VisualBuilderTemplateConfiguration": {
-          "Identifier": "ArticlePageDefaultTemplate"
+        "visualBuilderTemplateConfiguration": {
+          "identifier": "ArticlePageDefaultTemplate"
         },
-        "VisualBuilderWidgets": null
+        "visualBuilderWidgets": null
       }
     ],
-    "PageData": {
-      "PageUrls": [
+    "pageData": {
+      "pageUrls": [
         {
-          "UrlPath": "en-us/simplified-sample/sub-page",
-          "PathIsDraft": false,
-          "PathIsLatest": true,
-          "LanguageName": "en-US"
+          "urlPath": "en-us/simplified-sample/sub-page",
+          "pathIsDraft": false,
+          "pathIsLatest": true,
+          "languageName": "en-US"
         },
         {
-          "UrlPath": "en-gb/simplified-sample/sub-page",
-          "PathIsDraft": false,
-          "PathIsLatest": true,
-          "LanguageName": "en-GB"
+          "urlPath": "en-gb/simplified-sample/sub-page",
+          "pathIsDraft": false,
+          "pathIsLatest": true,
+          "languageName": "en-GB"
         },
         {
-          "UrlPath": "es-cu/simplified-sample/sub-page",
-          "PathIsDraft": false,
-          "PathIsLatest": true,
-          "LanguageName": "es-CU"
+          "urlPath": "es-cu/simplified-sample/sub-page",
+          "pathIsDraft": false,
+          "pathIsLatest": true,
+          "languageName": "es-CU"
         }
       ],
-      "PageFormerUrls": null,
-      "PageGuid": "008a482c-0b4c-48ff-a87a-0abd0b0fcc40",
-      "ParentGuid": "4ea03de4-977e-48aa-9340-babf3d23bafa",
-      "TreePath": "/simplified-sample/sub-page",
-      "ItemOrder": null
+      "pageFormerUrls": null,
+      "pageGuid": "008a482c-0b4c-48ff-a87a-0abd0b0fcc40",
+      "parentGuid": "4ea03de4-977e-48aa-9340-babf3d23bafa",
+      "treePath": "/simplified-sample/sub-page",
+      "itemOrder": null
     }
   },
   {
     "$type": "ContentItemSimplified",
-    "ContentItemGUID": "017edc1e-95c6-43e4-89d5-716c6ae594b2",
-    "ContentItemContentFolderGUID": null,
-    "ContentItemWorkspaceGUID": null,
-    "IsSecured": false,
-    "ContentTypeName": "UMT.Article",
-    "Name": "SimplifiedModelSampleAsSubPage2_Draft",
-    "IsReusable": false,
-    "ChannelName": "websitechannelExample",
-    "LanguageData": [
+    "contentItemGUID": "017edc1e-95c6-43e4-89d5-716c6ae594b2",
+    "contentItemContentFolderGUID": null,
+    "contentItemWorkspaceGUID": null,
+    "isSecured": false,
+    "contentTypeName": "UMT.Article",
+    "name": "SimplifiedModelSampleAsSubPage2_Draft",
+    "isReusable": false,
+    "channelName": "websitechannelExample",
+    "languageData": [
       {
-        "LanguageName": "en-US",
-        "DisplayName": "Simplified model sample sub page 2 [Draft] - en-US",
-        "VersionStatus": 2,
-        "IsLatest": false,
-        "UserGuid": "dbfcc244-2cb9-4934-857f-9d75404c1553",
-        "ScheduledPublishWhen": null,
-        "ScheduledUnpublishWhen": null,
-        "ContentItemData": {
+        "languageName": "en-US",
+        "displayName": "Simplified model sample sub page 2 [Draft] - en-US",
+        "versionStatus": 2,
+        "isLatest": false,
+        "userGuid": "dbfcc244-2cb9-4934-857f-9d75404c1553",
+        "scheduledPublishWhen": null,
+        "scheduledUnpublishWhen": null,
+        "contentItemData": {
           "ArticleTitle": "en-US UMT simplified model creation as sub page 2 [Draft]",
           "ArticleText": "Created by UMT simplified model in Draft state for en-US language",
           "RelatedArticles": null,
           "RelatedFaq": null
         },
-        "VisualBuilderTemplateConfiguration": {
-          "Identifier": "ArticlePageDefaultTemplate"
+        "visualBuilderTemplateConfiguration": {
+          "identifier": "ArticlePageDefaultTemplate"
         },
-        "VisualBuilderWidgets": null
+        "visualBuilderWidgets": null
       },
       {
-        "LanguageName": "en-US",
-        "DisplayName": "Simplified model sample sub page 2 [Draft] - en-US",
-        "VersionStatus": 1,
-        "IsLatest": true,
-        "UserGuid": "dbfcc244-2cb9-4934-857f-9d75404c1553",
-        "ScheduledPublishWhen": null,
-        "ScheduledUnpublishWhen": null,
-        "ContentItemData": {
+        "languageName": "en-US",
+        "displayName": "Simplified model sample sub page 2 [Draft] - en-US",
+        "versionStatus": 1,
+        "isLatest": true,
+        "userGuid": "dbfcc244-2cb9-4934-857f-9d75404c1553",
+        "scheduledPublishWhen": null,
+        "scheduledUnpublishWhen": null,
+        "contentItemData": {
           "ArticleTitle": "en-US UMT simplified model creation as sub page 2 [Draft]...new draft",
           "ArticleText": "Created by UMT simplified model in Draft state for en-US language ...new draft",
           "RelatedArticles": null,
           "RelatedFaq": null
         },
-        "VisualBuilderTemplateConfiguration": {
-          "Identifier": "ArticlePageDefaultTemplate"
+        "visualBuilderTemplateConfiguration": {
+          "identifier": "ArticlePageDefaultTemplate"
         },
-        "VisualBuilderWidgets": null
+        "visualBuilderWidgets": null
       },
       {
-        "LanguageName": "en-GB",
-        "DisplayName": "Simplified model sample sub page 2 [Draft] - en-GB",
-        "VersionStatus": 2,
-        "IsLatest": false,
-        "UserGuid": "dbfcc244-2cb9-4934-857f-9d75404c1553",
-        "ScheduledPublishWhen": null,
-        "ScheduledUnpublishWhen": null,
-        "ContentItemData": {
+        "languageName": "en-GB",
+        "displayName": "Simplified model sample sub page 2 [Draft] - en-GB",
+        "versionStatus": 2,
+        "isLatest": false,
+        "userGuid": "dbfcc244-2cb9-4934-857f-9d75404c1553",
+        "scheduledPublishWhen": null,
+        "scheduledUnpublishWhen": null,
+        "contentItemData": {
           "ArticleTitle": "en-GB UMT simplified model creation as sub page 2 [Draft]",
           "ArticleText": "Created by UMT simplified model in Draft state for en-GB language",
           "RelatedArticles": null,
           "RelatedFaq": null
         },
-        "VisualBuilderTemplateConfiguration": {
-          "Identifier": "ArticlePageDefaultTemplate"
+        "visualBuilderTemplateConfiguration": {
+          "identifier": "ArticlePageDefaultTemplate"
         },
-        "VisualBuilderWidgets": null
+        "visualBuilderWidgets": null
       },
       {
-        "LanguageName": "en-GB",
-        "DisplayName": "Simplified model sample sub page 2 [Draft] - en-GB",
-        "VersionStatus": 1,
-        "IsLatest": true,
-        "UserGuid": "dbfcc244-2cb9-4934-857f-9d75404c1553",
-        "ScheduledPublishWhen": null,
-        "ScheduledUnpublishWhen": null,
-        "ContentItemData": {
+        "languageName": "en-GB",
+        "displayName": "Simplified model sample sub page 2 [Draft] - en-GB",
+        "versionStatus": 1,
+        "isLatest": true,
+        "userGuid": "dbfcc244-2cb9-4934-857f-9d75404c1553",
+        "scheduledPublishWhen": null,
+        "scheduledUnpublishWhen": null,
+        "contentItemData": {
           "ArticleTitle": "en-GB UMT simplified model creation as sub page 2 [Draft]...new draft",
           "ArticleText": "Created by UMT simplified model in Draft state for en-GB language ...new draft",
           "RelatedArticles": null,
           "RelatedFaq": null
         },
-        "VisualBuilderTemplateConfiguration": {
-          "Identifier": "ArticlePageDefaultTemplate"
+        "visualBuilderTemplateConfiguration": {
+          "identifier": "ArticlePageDefaultTemplate"
         },
-        "VisualBuilderWidgets": null
+        "visualBuilderWidgets": null
       }
     ],
-    "PageData": {
-      "PageUrls": [
+    "pageData": {
+      "pageUrls": [
         {
-          "UrlPath": "en-us/simplified-sample/sub-page-2",
-          "PathIsDraft": false,
-          "PathIsLatest": false,
-          "LanguageName": "en-US"
+          "urlPath": "en-us/simplified-sample/sub-page-2",
+          "pathIsDraft": false,
+          "pathIsLatest": false,
+          "languageName": "en-US"
         },
         {
-          "UrlPath": "en-us/simplified-sample/sub-page-2-new-draft",
-          "PathIsDraft": true,
-          "PathIsLatest": true,
-          "LanguageName": "en-US"
+          "urlPath": "en-us/simplified-sample/sub-page-2-new-draft",
+          "pathIsDraft": true,
+          "pathIsLatest": true,
+          "languageName": "en-US"
         },
         {
-          "UrlPath": "en-gb/simplified-sample/sub-page-2",
-          "PathIsDraft": false,
-          "PathIsLatest": false,
-          "LanguageName": "en-GB"
+          "urlPath": "en-gb/simplified-sample/sub-page-2",
+          "pathIsDraft": false,
+          "pathIsLatest": false,
+          "languageName": "en-GB"
         },
         {
-          "UrlPath": "en-gb/simplified-sample/sub-page-2-new-draft",
-          "PathIsDraft": true,
-          "PathIsLatest": true,
-          "LanguageName": "en-GB"
+          "urlPath": "en-gb/simplified-sample/sub-page-2-new-draft",
+          "pathIsDraft": true,
+          "pathIsLatest": true,
+          "languageName": "en-GB"
         },
         {
-          "UrlPath": "es-cu/simplified-sample/sub-page-2",
-          "PathIsDraft": false,
-          "PathIsLatest": true,
-          "LanguageName": "es-CU"
+          "urlPath": "es-cu/simplified-sample/sub-page-2",
+          "pathIsDraft": false,
+          "pathIsLatest": true,
+          "languageName": "es-CU"
         }
       ],
-      "PageFormerUrls": null,
-      "PageGuid": "f86278cf-9d2a-44eb-b288-6a2f1e128a79",
-      "ParentGuid": "4ea03de4-977e-48aa-9340-babf3d23bafa",
-      "TreePath": "/simplified-sample/sub-page-2",
-      "ItemOrder": null
+      "pageFormerUrls": null,
+      "pageGuid": "f86278cf-9d2a-44eb-b288-6a2f1e128a79",
+      "parentGuid": "4ea03de4-977e-48aa-9340-babf3d23bafa",
+      "treePath": "/simplified-sample/sub-page-2",
+      "itemOrder": null
     }
   },
   {
     "$type": "ContentItemSimplified",
-    "ContentItemGUID": "73298f71-0bb1-4083-a674-a876769e3dd9",
-    "ContentItemContentFolderGUID": null,
-    "ContentItemWorkspaceGUID": null,
-    "IsSecured": false,
-    "ContentTypeName": "UMT.Article",
-    "Name": "SimplifiedModelSampleAsSubPage3_Draft",
-    "IsReusable": false,
-    "ChannelName": "websitechannelExample",
-    "LanguageData": [
+    "contentItemGUID": "73298f71-0bb1-4083-a674-a876769e3dd9",
+    "contentItemContentFolderGUID": null,
+    "contentItemWorkspaceGUID": null,
+    "isSecured": false,
+    "contentTypeName": "UMT.Article",
+    "name": "SimplifiedModelSampleAsSubPage3_Draft",
+    "isReusable": false,
+    "channelName": "websitechannelExample",
+    "languageData": [
       {
-        "LanguageName": "en-US",
-        "DisplayName": "Simplified model sample sub page 3 [Draft] - en-US",
-        "VersionStatus": 2,
-        "IsLatest": false,
-        "UserGuid": "dbfcc244-2cb9-4934-857f-9d75404c1553",
-        "ScheduledPublishWhen": null,
-        "ScheduledUnpublishWhen": null,
-        "ContentItemData": {
+        "languageName": "en-US",
+        "displayName": "Simplified model sample sub page 3 [Draft] - en-US",
+        "versionStatus": 2,
+        "isLatest": false,
+        "userGuid": "dbfcc244-2cb9-4934-857f-9d75404c1553",
+        "scheduledPublishWhen": null,
+        "scheduledUnpublishWhen": null,
+        "contentItemData": {
           "ArticleTitle": "en-US UMT simplified model creation as sub page 3 [Draft]",
           "ArticleText": "Created by UMT simplified model in Draft state for en-US language",
           "RelatedArticles": null,
           "RelatedFaq": null
         },
-        "VisualBuilderTemplateConfiguration": {
-          "Identifier": "ArticlePageDefaultTemplate"
+        "visualBuilderTemplateConfiguration": {
+          "identifier": "ArticlePageDefaultTemplate"
         },
-        "VisualBuilderWidgets": null
+        "visualBuilderWidgets": null
       },
       {
-        "LanguageName": "en-US",
-        "DisplayName": "Simplified model sample sub page 3 [Draft] - en-US",
-        "VersionStatus": 1,
-        "IsLatest": true,
-        "UserGuid": "dbfcc244-2cb9-4934-857f-9d75404c1553",
-        "ScheduledPublishWhen": null,
-        "ScheduledUnpublishWhen": null,
-        "ContentItemData": {
+        "languageName": "en-US",
+        "displayName": "Simplified model sample sub page 3 [Draft] - en-US",
+        "versionStatus": 1,
+        "isLatest": true,
+        "userGuid": "dbfcc244-2cb9-4934-857f-9d75404c1553",
+        "scheduledPublishWhen": null,
+        "scheduledUnpublishWhen": null,
+        "contentItemData": {
           "ArticleTitle": "en-US UMT simplified model creation as sub page 3 [Draft]...new draft",
           "ArticleText": "Created by UMT simplified model in Draft state for en-US language ...new draft",
           "RelatedArticles": null,
           "RelatedFaq": null
         },
-        "VisualBuilderTemplateConfiguration": {
-          "Identifier": "ArticlePageDefaultTemplate"
+        "visualBuilderTemplateConfiguration": {
+          "identifier": "ArticlePageDefaultTemplate"
         },
-        "VisualBuilderWidgets": null
+        "visualBuilderWidgets": null
       },
       {
-        "LanguageName": "en-GB",
-        "DisplayName": "Simplified model sample sub page 3 [Draft] - en-GB",
-        "VersionStatus": 2,
-        "IsLatest": false,
-        "UserGuid": "dbfcc244-2cb9-4934-857f-9d75404c1553",
-        "ScheduledPublishWhen": null,
-        "ScheduledUnpublishWhen": null,
-        "ContentItemData": {
+        "languageName": "en-GB",
+        "displayName": "Simplified model sample sub page 3 [Draft] - en-GB",
+        "versionStatus": 2,
+        "isLatest": false,
+        "userGuid": "dbfcc244-2cb9-4934-857f-9d75404c1553",
+        "scheduledPublishWhen": null,
+        "scheduledUnpublishWhen": null,
+        "contentItemData": {
           "ArticleTitle": "en-GB UMT simplified model creation as sub page 3 [Draft]",
           "ArticleText": "Created by UMT simplified model in Draft state for en-GB language",
           "RelatedArticles": null,
           "RelatedFaq": null
         },
-        "VisualBuilderTemplateConfiguration": {
-          "Identifier": "ArticlePageDefaultTemplate"
+        "visualBuilderTemplateConfiguration": {
+          "identifier": "ArticlePageDefaultTemplate"
         },
-        "VisualBuilderWidgets": null
+        "visualBuilderWidgets": null
       },
       {
-        "LanguageName": "en-GB",
-        "DisplayName": "Simplified model sample sub page 3 [Draft] - en-GB",
-        "VersionStatus": 1,
-        "IsLatest": true,
-        "UserGuid": "dbfcc244-2cb9-4934-857f-9d75404c1553",
-        "ScheduledPublishWhen": null,
-        "ScheduledUnpublishWhen": null,
-        "ContentItemData": {
+        "languageName": "en-GB",
+        "displayName": "Simplified model sample sub page 3 [Draft] - en-GB",
+        "versionStatus": 1,
+        "isLatest": true,
+        "userGuid": "dbfcc244-2cb9-4934-857f-9d75404c1553",
+        "scheduledPublishWhen": null,
+        "scheduledUnpublishWhen": null,
+        "contentItemData": {
           "ArticleTitle": "en-GB UMT simplified model creation as sub page 3 [Draft]...new draft",
           "ArticleText": "Created by UMT simplified model in Draft state for en-GB language ...new draft",
           "RelatedArticles": null,
           "RelatedFaq": null
         },
-        "VisualBuilderTemplateConfiguration": {
-          "Identifier": "ArticlePageDefaultTemplate"
+        "visualBuilderTemplateConfiguration": {
+          "identifier": "ArticlePageDefaultTemplate"
         },
-        "VisualBuilderWidgets": null
+        "visualBuilderWidgets": null
       }
     ],
-    "PageData": {
-      "PageUrls": [
+    "pageData": {
+      "pageUrls": [
         {
-          "UrlPath": "en-us/simplified-sample/sub-page-3",
-          "PathIsDraft": false,
-          "PathIsLatest": false,
-          "LanguageName": "en-US"
+          "urlPath": "en-us/simplified-sample/sub-page-3",
+          "pathIsDraft": false,
+          "pathIsLatest": false,
+          "languageName": "en-US"
         },
         {
-          "UrlPath": "en-us/simplified-sample/sub-page-3-new-draft",
-          "PathIsDraft": true,
-          "PathIsLatest": true,
-          "LanguageName": "en-US"
+          "urlPath": "en-us/simplified-sample/sub-page-3-new-draft",
+          "pathIsDraft": true,
+          "pathIsLatest": true,
+          "languageName": "en-US"
         },
         {
-          "UrlPath": "en-gb/simplified-sample/sub-page-3",
-          "PathIsDraft": false,
-          "PathIsLatest": false,
-          "LanguageName": "en-GB"
+          "urlPath": "en-gb/simplified-sample/sub-page-3",
+          "pathIsDraft": false,
+          "pathIsLatest": false,
+          "languageName": "en-GB"
         },
         {
-          "UrlPath": "en-gb/simplified-sample/sub-page-3-new-draft",
-          "PathIsDraft": true,
-          "PathIsLatest": true,
-          "LanguageName": "en-GB"
+          "urlPath": "en-gb/simplified-sample/sub-page-3-new-draft",
+          "pathIsDraft": true,
+          "pathIsLatest": true,
+          "languageName": "en-GB"
         },
         {
-          "UrlPath": "es-cu/simplified-sample/sub-page-3",
-          "PathIsDraft": false,
-          "PathIsLatest": true,
-          "LanguageName": "es-CU"
+          "urlPath": "es-cu/simplified-sample/sub-page-3",
+          "pathIsDraft": false,
+          "pathIsLatest": true,
+          "languageName": "es-CU"
         }
       ],
-      "PageFormerUrls": null,
-      "PageGuid": "95ef0983-bc5b-4928-aa26-4d6da7f0d0bb",
-      "ParentGuid": "4ea03de4-977e-48aa-9340-babf3d23bafa",
-      "TreePath": "/simplified-sample/sub-page-3",
-      "ItemOrder": null
+      "pageFormerUrls": null,
+      "pageGuid": "95ef0983-bc5b-4928-aa26-4d6da7f0d0bb",
+      "parentGuid": "4ea03de4-977e-48aa-9340-babf3d23bafa",
+      "treePath": "/simplified-sample/sub-page-3",
+      "itemOrder": null
     }
   },
   {
     "$type": "ContentItemSimplified",
-    "ContentItemGUID": "8e957ecc-083b-4c86-b761-8db516c13737",
-    "ContentItemContentFolderGUID": null,
-    "ContentItemWorkspaceGUID": null,
-    "IsSecured": false,
-    "ContentTypeName": "UMT.Article",
-    "Name": "SimplifiedModelSampleAsSubPage4",
-    "IsReusable": false,
-    "ChannelName": "websitechannelExample",
-    "LanguageData": [
+    "contentItemGUID": "8e957ecc-083b-4c86-b761-8db516c13737",
+    "contentItemContentFolderGUID": null,
+    "contentItemWorkspaceGUID": null,
+    "isSecured": false,
+    "contentTypeName": "UMT.Article",
+    "name": "SimplifiedModelSampleAsSubPage4",
+    "isReusable": false,
+    "channelName": "websitechannelExample",
+    "languageData": [
       {
-        "LanguageName": "en-US",
-        "DisplayName": "Simplified model sample sub page 4 - en-US",
-        "VersionStatus": 0,
-        "IsLatest": true,
-        "UserGuid": "dbfcc244-2cb9-4934-857f-9d75404c1553",
-        "ScheduledPublishWhen": "2045-01-01T00:00:00Z",
-        "ScheduledUnpublishWhen": null,
-        "ContentItemData": {
+        "languageName": "en-US",
+        "displayName": "Simplified model sample sub page 4 - en-US",
+        "versionStatus": 0,
+        "isLatest": true,
+        "userGuid": "dbfcc244-2cb9-4934-857f-9d75404c1553",
+        "scheduledPublishWhen": "2045-01-01T00:00:00Z",
+        "scheduledUnpublishWhen": null,
+        "contentItemData": {
           "ArticleTitle": "en-US UMT simplified model creation as sub page 4",
           "ArticleText": "This article is only example of creation UMT simplified model for en-US language",
           "RelatedArticles": null,
           "RelatedFaq": null
         },
-        "VisualBuilderTemplateConfiguration": {
-          "Identifier": "ArticlePageDefaultTemplate"
+        "visualBuilderTemplateConfiguration": {
+          "identifier": "ArticlePageDefaultTemplate"
         },
-        "VisualBuilderWidgets": null
+        "visualBuilderWidgets": null
       }
     ],
-    "PageData": {
-      "PageUrls": [
+    "pageData": {
+      "pageUrls": [
         {
-          "UrlPath": "en-us/simplified-sample/sub-page-4",
-          "PathIsDraft": false,
-          "PathIsLatest": true,
-          "LanguageName": "en-US"
+          "urlPath": "en-us/simplified-sample/sub-page-4",
+          "pathIsDraft": false,
+          "pathIsLatest": true,
+          "languageName": "en-US"
         },
         {
-          "UrlPath": "en-gb/simplified-sample/sub-page-4",
-          "PathIsDraft": false,
-          "PathIsLatest": true,
-          "LanguageName": "en-GB"
+          "urlPath": "en-gb/simplified-sample/sub-page-4",
+          "pathIsDraft": false,
+          "pathIsLatest": true,
+          "languageName": "en-GB"
         },
         {
-          "UrlPath": "es-cu/simplified-sample/sub-page-4",
-          "PathIsDraft": false,
-          "PathIsLatest": true,
-          "LanguageName": "es-CU"
+          "urlPath": "es-cu/simplified-sample/sub-page-4",
+          "pathIsDraft": false,
+          "pathIsLatest": true,
+          "languageName": "es-CU"
         }
       ],
-      "PageFormerUrls": null,
-      "PageGuid": "e45538c5-e3dd-4bbf-9019-e84ea3e4dc32",
-      "ParentGuid": "4ea03de4-977e-48aa-9340-babf3d23bafa",
-      "TreePath": "/simplified-sample/sub-page-4",
-      "ItemOrder": null
+      "pageFormerUrls": null,
+      "pageGuid": "e45538c5-e3dd-4bbf-9019-e84ea3e4dc32",
+      "parentGuid": "4ea03de4-977e-48aa-9340-babf3d23bafa",
+      "treePath": "/simplified-sample/sub-page-4",
+      "itemOrder": null
     }
   },
   {
     "$type": "ContentItemSimplified",
-    "ContentItemGUID": "bb5c0eb4-e688-4a97-99c7-fa97cad8f1d5",
-    "ContentItemContentFolderGUID": null,
-    "ContentItemWorkspaceGUID": null,
-    "IsSecured": false,
-    "ContentTypeName": "UMT.Article",
-    "Name": "SimplifiedModelSampleAsSubPage5",
-    "IsReusable": false,
-    "ChannelName": "websitechannelExample",
-    "LanguageData": [
+    "contentItemGUID": "bb5c0eb4-e688-4a97-99c7-fa97cad8f1d5",
+    "contentItemContentFolderGUID": null,
+    "contentItemWorkspaceGUID": null,
+    "isSecured": false,
+    "contentTypeName": "UMT.Article",
+    "name": "SimplifiedModelSampleAsSubPage5",
+    "isReusable": false,
+    "channelName": "websitechannelExample",
+    "languageData": [
       {
-        "LanguageName": "en-US",
-        "DisplayName": "Simplified model sample sub page 5 - en-US",
-        "VersionStatus": 0,
-        "IsLatest": true,
-        "UserGuid": "dbfcc244-2cb9-4934-857f-9d75404c1553",
-        "ScheduledPublishWhen": "2045-01-01T00:00:00Z",
-        "ScheduledUnpublishWhen": null,
-        "ContentItemData": {
+        "languageName": "en-US",
+        "displayName": "Simplified model sample sub page 5 - en-US",
+        "versionStatus": 0,
+        "isLatest": true,
+        "userGuid": "dbfcc244-2cb9-4934-857f-9d75404c1553",
+        "scheduledPublishWhen": "2045-01-01T00:00:00Z",
+        "scheduledUnpublishWhen": null,
+        "contentItemData": {
           "ArticleTitle": "en-US UMT simplified model creation as sub page 5",
           "ArticleText": "This article is only example of creation UMT simplified model for en-US language",
           "RelatedArticles": null,
           "RelatedFaq": null
         },
-        "VisualBuilderTemplateConfiguration": {
-          "Identifier": "ArticlePageDefaultTemplate"
+        "visualBuilderTemplateConfiguration": {
+          "identifier": "ArticlePageDefaultTemplate"
         },
-        "VisualBuilderWidgets": null
+        "visualBuilderWidgets": null
       }
     ],
-    "PageData": {
-      "PageUrls": [
+    "pageData": {
+      "pageUrls": [
         {
-          "UrlPath": "en-us/simplified-sample/sub-page-5",
-          "PathIsDraft": false,
-          "PathIsLatest": true,
-          "LanguageName": "en-US"
+          "urlPath": "en-us/simplified-sample/sub-page-5",
+          "pathIsDraft": false,
+          "pathIsLatest": true,
+          "languageName": "en-US"
         },
         {
-          "UrlPath": "en-gb/simplified-sample/sub-page-5",
-          "PathIsDraft": false,
-          "PathIsLatest": true,
-          "LanguageName": "en-GB"
+          "urlPath": "en-gb/simplified-sample/sub-page-5",
+          "pathIsDraft": false,
+          "pathIsLatest": true,
+          "languageName": "en-GB"
         },
         {
-          "UrlPath": "es-cu/simplified-sample/sub-page-5",
-          "PathIsDraft": false,
-          "PathIsLatest": true,
-          "LanguageName": "es-CU"
+          "urlPath": "es-cu/simplified-sample/sub-page-5",
+          "pathIsDraft": false,
+          "pathIsLatest": true,
+          "languageName": "es-CU"
         }
       ],
-      "PageFormerUrls": null,
-      "PageGuid": "57b808c0-cdf9-4feb-9c7c-0a0169ffc0f5",
-      "ParentGuid": "4ea03de4-977e-48aa-9340-babf3d23bafa",
-      "TreePath": "/simplified-sample/sub-page-5",
-      "ItemOrder": null
+      "pageFormerUrls": null,
+      "pageGuid": "57b808c0-cdf9-4feb-9c7c-0a0169ffc0f5",
+      "parentGuid": "4ea03de4-977e-48aa-9340-babf3d23bafa",
+      "treePath": "/simplified-sample/sub-page-5",
+      "itemOrder": null
     }
   },
   {
     "$type": "ContentItemSimplified",
-    "ContentItemGUID": "1d542076-dd88-4c13-a8aa-0ffecdabba69",
-    "ContentItemContentFolderGUID": null,
-    "ContentItemWorkspaceGUID": null,
-    "IsSecured": false,
-    "ContentTypeName": "UMT.Article",
-    "Name": "SimplifiedModelSampleAsSubPage6",
-    "IsReusable": false,
-    "ChannelName": "websitechannelExample",
-    "LanguageData": [
+    "contentItemGUID": "1d542076-dd88-4c13-a8aa-0ffecdabba69",
+    "contentItemContentFolderGUID": null,
+    "contentItemWorkspaceGUID": null,
+    "isSecured": false,
+    "contentTypeName": "UMT.Article",
+    "name": "SimplifiedModelSampleAsSubPage6",
+    "isReusable": false,
+    "channelName": "websitechannelExample",
+    "languageData": [
       {
-        "LanguageName": "en-US",
-        "DisplayName": "Simplified model sample sub page 6 - en-US",
-        "VersionStatus": 0,
-        "IsLatest": true,
-        "UserGuid": "dbfcc244-2cb9-4934-857f-9d75404c1553",
-        "ScheduledPublishWhen": null,
-        "ScheduledUnpublishWhen": null,
-        "ContentItemData": {
+        "languageName": "en-US",
+        "displayName": "Simplified model sample sub page 6 - en-US",
+        "versionStatus": 0,
+        "isLatest": true,
+        "userGuid": "dbfcc244-2cb9-4934-857f-9d75404c1553",
+        "scheduledPublishWhen": null,
+        "scheduledUnpublishWhen": null,
+        "contentItemData": {
           "ArticleTitle": "en-US UMT simplified model creation as sub page 6",
           "ArticleText": "This article is only example of creation UMT simplified model for en-US language",
           "RelatedArticles": null,
           "RelatedFaq": null
         },
-        "VisualBuilderTemplateConfiguration": {
-          "Identifier": "ArticlePageDefaultTemplate"
+        "visualBuilderTemplateConfiguration": {
+          "identifier": "ArticlePageDefaultTemplate"
         },
-        "VisualBuilderWidgets": null
+        "visualBuilderWidgets": null
       }
     ],
-    "PageData": {
-      "PageUrls": [
+    "pageData": {
+      "pageUrls": [
         {
-          "UrlPath": "en-us/simplified-sample/sub-page-6",
-          "PathIsDraft": false,
-          "PathIsLatest": true,
-          "LanguageName": "en-US"
+          "urlPath": "en-us/simplified-sample/sub-page-6",
+          "pathIsDraft": false,
+          "pathIsLatest": true,
+          "languageName": "en-US"
         },
         {
-          "UrlPath": "en-gb/simplified-sample/sub-page-6",
-          "PathIsDraft": false,
-          "PathIsLatest": true,
-          "LanguageName": "en-GB"
+          "urlPath": "en-gb/simplified-sample/sub-page-6",
+          "pathIsDraft": false,
+          "pathIsLatest": true,
+          "languageName": "en-GB"
         },
         {
-          "UrlPath": "es-cu/simplified-sample/sub-page-6",
-          "PathIsDraft": false,
-          "PathIsLatest": true,
-          "LanguageName": "es-CU"
+          "urlPath": "es-cu/simplified-sample/sub-page-6",
+          "pathIsDraft": false,
+          "pathIsLatest": true,
+          "languageName": "es-CU"
         }
       ],
-      "PageFormerUrls": null,
-      "PageGuid": "49a345d6-c2d3-43fc-b259-52ac53223c3e",
-      "ParentGuid": "4ea03de4-977e-48aa-9340-babf3d23bafa",
-      "TreePath": "/simplified-sample/sub-page-6",
-      "ItemOrder": null
+      "pageFormerUrls": null,
+      "pageGuid": "49a345d6-c2d3-43fc-b259-52ac53223c3e",
+      "parentGuid": "4ea03de4-977e-48aa-9340-babf3d23bafa",
+      "treePath": "/simplified-sample/sub-page-6",
+      "itemOrder": null
     }
   },
   {
     "$type": "ContentItemSimplified",
-    "ContentItemGUID": "fb66242f-4186-4f71-b0b8-fc68b51d52c1",
-    "ContentItemContentFolderGUID": null,
-    "ContentItemWorkspaceGUID": null,
-    "IsSecured": false,
-    "ContentTypeName": "UMT.Article",
-    "Name": "SimplifiedModelSampleAsSubPage7",
-    "IsReusable": false,
-    "ChannelName": "websitechannelExample",
-    "LanguageData": [
+    "contentItemGUID": "fb66242f-4186-4f71-b0b8-fc68b51d52c1",
+    "contentItemContentFolderGUID": null,
+    "contentItemWorkspaceGUID": null,
+    "isSecured": false,
+    "contentTypeName": "UMT.Article",
+    "name": "SimplifiedModelSampleAsSubPage7",
+    "isReusable": false,
+    "channelName": "websitechannelExample",
+    "languageData": [
       {
-        "LanguageName": "en-US",
-        "DisplayName": "Simplified model sample sub page 7 - en-US",
-        "VersionStatus": 0,
-        "IsLatest": true,
-        "UserGuid": "dbfcc244-2cb9-4934-857f-9d75404c1553",
-        "ScheduledPublishWhen": "2045-01-01T00:00:00Z",
-        "ScheduledUnpublishWhen": null,
-        "ContentItemData": {
+        "languageName": "en-US",
+        "displayName": "Simplified model sample sub page 7 - en-US",
+        "versionStatus": 0,
+        "isLatest": true,
+        "userGuid": "dbfcc244-2cb9-4934-857f-9d75404c1553",
+        "scheduledPublishWhen": "2045-01-01T00:00:00Z",
+        "scheduledUnpublishWhen": null,
+        "contentItemData": {
           "ArticleTitle": "en-US UMT simplified model creation as sub page 7",
           "ArticleText": "This article is only example of creation UMT simplified model for en-US language",
           "RelatedArticles": null,
           "RelatedFaq": null
         },
-        "VisualBuilderTemplateConfiguration": {
-          "Identifier": "ArticlePageDefaultTemplate"
+        "visualBuilderTemplateConfiguration": {
+          "identifier": "ArticlePageDefaultTemplate"
         },
-        "VisualBuilderWidgets": null
+        "visualBuilderWidgets": null
       }
     ],
-    "PageData": {
-      "PageUrls": [
+    "pageData": {
+      "pageUrls": [
         {
-          "UrlPath": "en-us/simplified-sample/sub-page-7",
-          "PathIsDraft": false,
-          "PathIsLatest": true,
-          "LanguageName": "en-US"
+          "urlPath": "en-us/simplified-sample/sub-page-7",
+          "pathIsDraft": false,
+          "pathIsLatest": true,
+          "languageName": "en-US"
         },
         {
-          "UrlPath": "en-gb/simplified-sample/sub-page-7",
-          "PathIsDraft": false,
-          "PathIsLatest": true,
-          "LanguageName": "en-GB"
+          "urlPath": "en-gb/simplified-sample/sub-page-7",
+          "pathIsDraft": false,
+          "pathIsLatest": true,
+          "languageName": "en-GB"
         },
         {
-          "UrlPath": "es-cu/simplified-sample/sub-page-7",
-          "PathIsDraft": false,
-          "PathIsLatest": true,
-          "LanguageName": "es-CU"
+          "urlPath": "es-cu/simplified-sample/sub-page-7",
+          "pathIsDraft": false,
+          "pathIsLatest": true,
+          "languageName": "es-CU"
         }
       ],
-      "PageFormerUrls": null,
-      "PageGuid": "1a8e7a4e-b5e6-4b3a-82b8-00305fb6786f",
-      "ParentGuid": "4ea03de4-977e-48aa-9340-babf3d23bafa",
-      "TreePath": "/simplified-sample/sub-page-7",
-      "ItemOrder": null
+      "pageFormerUrls": null,
+      "pageGuid": "1a8e7a4e-b5e6-4b3a-82b8-00305fb6786f",
+      "parentGuid": "4ea03de4-977e-48aa-9340-babf3d23bafa",
+      "treePath": "/simplified-sample/sub-page-7",
+      "itemOrder": null
     }
   },
   {
     "$type": "ContentItemSimplified",
-    "ContentItemGUID": "c8940315-2329-46b8-ac15-032bd2bf621c",
-    "ContentItemContentFolderGUID": null,
-    "ContentItemWorkspaceGUID": null,
-    "IsSecured": false,
-    "ContentTypeName": "UMT.Article",
-    "Name": "SimplifiedModelSampleAsSubPage8",
-    "IsReusable": false,
-    "ChannelName": "websitechannelExample",
-    "LanguageData": [
+    "contentItemGUID": "c8940315-2329-46b8-ac15-032bd2bf621c",
+    "contentItemContentFolderGUID": null,
+    "contentItemWorkspaceGUID": null,
+    "isSecured": false,
+    "contentTypeName": "UMT.Article",
+    "name": "SimplifiedModelSampleAsSubPage8",
+    "isReusable": false,
+    "channelName": "websitechannelExample",
+    "languageData": [
       {
-        "LanguageName": "en-US",
-        "DisplayName": "Simplified model sample sub page 8 - en-US",
-        "VersionStatus": 2,
-        "IsLatest": false,
-        "UserGuid": "dbfcc244-2cb9-4934-857f-9d75404c1553",
-        "ScheduledPublishWhen": "2045-01-01T00:00:00Z",
-        "ScheduledUnpublishWhen": null,
-        "ContentItemData": {
+        "languageName": "en-US",
+        "displayName": "Simplified model sample sub page 8 - en-US",
+        "versionStatus": 2,
+        "isLatest": false,
+        "userGuid": "dbfcc244-2cb9-4934-857f-9d75404c1553",
+        "scheduledPublishWhen": "2045-01-01T00:00:00Z",
+        "scheduledUnpublishWhen": null,
+        "contentItemData": {
           "ArticleTitle": "en-US UMT simplified model creation as sub page 8",
           "ArticleText": "This article is only example of creation UMT simplified model for en-US language",
           "RelatedArticles": null,
           "RelatedFaq": null
         },
-        "VisualBuilderTemplateConfiguration": {
-          "Identifier": "ArticlePageDefaultTemplate"
+        "visualBuilderTemplateConfiguration": {
+          "identifier": "ArticlePageDefaultTemplate"
         },
-        "VisualBuilderWidgets": null
+        "visualBuilderWidgets": null
       },
       {
-        "LanguageName": "en-US",
-        "DisplayName": "Simplified model sample sub page 8 - en-US",
-        "VersionStatus": 1,
-        "IsLatest": true,
-        "UserGuid": "dbfcc244-2cb9-4934-857f-9d75404c1553",
-        "ScheduledPublishWhen": "2045-01-01T00:00:00Z",
-        "ScheduledUnpublishWhen": null,
-        "ContentItemData": {
+        "languageName": "en-US",
+        "displayName": "Simplified model sample sub page 8 - en-US",
+        "versionStatus": 1,
+        "isLatest": true,
+        "userGuid": "dbfcc244-2cb9-4934-857f-9d75404c1553",
+        "scheduledPublishWhen": "2045-01-01T00:00:00Z",
+        "scheduledUnpublishWhen": null,
+        "contentItemData": {
           "ArticleTitle": "en-US UMT simplified model creation as sub page 8...new draft",
           "ArticleText": "This article is only example of creation UMT simplified model for en-US language ...new draft",
           "RelatedArticles": null,
           "RelatedFaq": null
         },
-        "VisualBuilderTemplateConfiguration": {
-          "Identifier": "ArticlePageDefaultTemplate"
+        "visualBuilderTemplateConfiguration": {
+          "identifier": "ArticlePageDefaultTemplate"
         },
-        "VisualBuilderWidgets": null
+        "visualBuilderWidgets": null
       }
     ],
-    "PageData": {
-      "PageUrls": [
+    "pageData": {
+      "pageUrls": [
         {
-          "UrlPath": "en-us/simplified-sample/sub-page-8",
-          "PathIsDraft": false,
-          "PathIsLatest": false,
-          "LanguageName": "en-US"
+          "urlPath": "en-us/simplified-sample/sub-page-8",
+          "pathIsDraft": false,
+          "pathIsLatest": false,
+          "languageName": "en-US"
         },
         {
-          "UrlPath": "en-us/simplified-sample/sub-page-8-new-draft",
-          "PathIsDraft": true,
-          "PathIsLatest": true,
-          "LanguageName": "en-US"
+          "urlPath": "en-us/simplified-sample/sub-page-8-new-draft",
+          "pathIsDraft": true,
+          "pathIsLatest": true,
+          "languageName": "en-US"
         },
         {
-          "UrlPath": "en-gb/simplified-sample/sub-page-8",
-          "PathIsDraft": false,
-          "PathIsLatest": true,
-          "LanguageName": "en-GB"
+          "urlPath": "en-gb/simplified-sample/sub-page-8",
+          "pathIsDraft": false,
+          "pathIsLatest": true,
+          "languageName": "en-GB"
         },
         {
-          "UrlPath": "es-cu/simplified-sample/sub-page-8",
-          "PathIsDraft": false,
-          "PathIsLatest": true,
-          "LanguageName": "es-CU"
+          "urlPath": "es-cu/simplified-sample/sub-page-8",
+          "pathIsDraft": false,
+          "pathIsLatest": true,
+          "languageName": "es-CU"
         }
       ],
-      "PageFormerUrls": [
+      "pageFormerUrls": [
         {
-          "FormerUrlPath": "/simplified-sample/enus-former-url",
-          "LanguageName": "en-US"
+          "formerUrlPath": "/simplified-sample/enus-former-url",
+          "languageName": "en-US"
         }
       ],
-      "PageGuid": "01aa71d6-0c14-41f0-b762-5f436a0b0b4f",
-      "ParentGuid": "4ea03de4-977e-48aa-9340-babf3d23bafa",
-      "TreePath": "/simplified-sample/sub-page-8",
-      "ItemOrder": null
+      "pageGuid": "01aa71d6-0c14-41f0-b762-5f436a0b0b4f",
+      "parentGuid": "4ea03de4-977e-48aa-9340-babf3d23bafa",
+      "treePath": "/simplified-sample/sub-page-8",
+      "itemOrder": null
     }
   },
   {
     "$type": "ContentItemSimplified",
-    "ContentItemGUID": "f9cb9484-ce90-460f-a5c8-ad953e2b9286",
-    "ContentItemContentFolderGUID": "ae29c1d1-217a-45da-8b30-585d1881387e",
-    "ContentItemWorkspaceGUID": null,
-    "IsSecured": false,
-    "ContentTypeName": "UMT.Faq",
-    "Name": "SimplifiedModelSampleReusable",
-    "IsReusable": true,
-    "ChannelName": null,
-    "LanguageData": [
+    "contentItemGUID": "f9cb9484-ce90-460f-a5c8-ad953e2b9286",
+    "contentItemContentFolderGUID": "ae29c1d1-217a-45da-8b30-585d1881387e",
+    "contentItemWorkspaceGUID": null,
+    "isSecured": false,
+    "contentTypeName": "UMT.Faq",
+    "name": "SimplifiedModelSampleReusable",
+    "isReusable": true,
+    "channelName": null,
+    "languageData": [
       {
-        "LanguageName": "en-US",
-        "DisplayName": "FAQ: reusable simplified model sample - en-us",
-        "VersionStatus": 0,
-        "IsLatest": true,
-        "UserGuid": "dbfcc244-2cb9-4934-857f-9d75404c1553",
-        "ScheduledPublishWhen": null,
-        "ScheduledUnpublishWhen": null,
-        "ContentItemData": {
+        "languageName": "en-US",
+        "displayName": "FAQ: reusable simplified model sample - en-us",
+        "versionStatus": 0,
+        "isLatest": true,
+        "userGuid": "dbfcc244-2cb9-4934-857f-9d75404c1553",
+        "scheduledPublishWhen": null,
+        "scheduledUnpublishWhen": null,
+        "contentItemData": {
           "FaqQuestion": "en-US FAQ question text (reusable)",
           "FaqAnswer": "en-US FAQ answer text (reusable)"
         },
-        "VisualBuilderTemplateConfiguration": null,
-        "VisualBuilderWidgets": null
+        "visualBuilderTemplateConfiguration": null,
+        "visualBuilderWidgets": null
       },
       {
-        "LanguageName": "en-GB",
-        "DisplayName": "FAQ: reusable simplified model sample - en-gb",
-        "VersionStatus": 2,
-        "IsLatest": true,
-        "UserGuid": "dbfcc244-2cb9-4934-857f-9d75404c1553",
-        "ScheduledPublishWhen": null,
-        "ScheduledUnpublishWhen": "2045-01-01T00:00:00Z",
-        "ContentItemData": {
+        "languageName": "en-GB",
+        "displayName": "FAQ: reusable simplified model sample - en-gb",
+        "versionStatus": 2,
+        "isLatest": true,
+        "userGuid": "dbfcc244-2cb9-4934-857f-9d75404c1553",
+        "scheduledPublishWhen": null,
+        "scheduledUnpublishWhen": "2045-01-01T00:00:00Z",
+        "contentItemData": {
           "FaqQuestion": "en-GB FAQ question text (reusable)",
           "FaqAnswer": "en-GB FAQ answer text (reusable)"
         },
-        "VisualBuilderTemplateConfiguration": null,
-        "VisualBuilderWidgets": null
+        "visualBuilderTemplateConfiguration": null,
+        "visualBuilderWidgets": null
       }
     ],
-    "PageData": null
+    "pageData": null
   },
   {
     "$type": "ContentItemSimplified",
-    "ContentItemGUID": "c82cdc96-65ec-4f4c-aec2-3d657e6d5ce1",
-    "ContentItemContentFolderGUID": null,
-    "ContentItemWorkspaceGUID": null,
-    "IsSecured": false,
-    "ContentTypeName": "UMT.Event",
-    "Name": "SimplifiedModelSampleEventWithAssets",
-    "IsReusable": true,
-    "ChannelName": null,
-    "LanguageData": [
+    "contentItemGUID": "c82cdc96-65ec-4f4c-aec2-3d657e6d5ce1",
+    "contentItemContentFolderGUID": null,
+    "contentItemWorkspaceGUID": null,
+    "isSecured": false,
+    "contentTypeName": "UMT.Event",
+    "name": "SimplifiedModelSampleEventWithAssets",
+    "isReusable": true,
+    "channelName": null,
+    "languageData": [
       {
-        "LanguageName": "en-US",
-        "DisplayName": "Event sample 2024 - en-US",
-        "VersionStatus": 0,
-        "IsLatest": true,
-        "UserGuid": "dbfcc244-2cb9-4934-857f-9d75404c1553",
-        "ScheduledPublishWhen": null,
-        "ScheduledUnpublishWhen": null,
-        "ContentItemData": {
+        "languageName": "en-US",
+        "displayName": "Event sample 2024 - en-US",
+        "versionStatus": 0,
+        "isLatest": true,
+        "userGuid": "dbfcc244-2cb9-4934-857f-9d75404c1553",
+        "scheduledPublishWhen": null,
+        "scheduledUnpublishWhen": null,
+        "contentItemData": {
           "EventTitle": "en-US Event sample 2024",
           "EventText": "en-US Event sample 2024 (reusable)",
           "EventDate": "2024-01-01T00:00:00Z",
           "EventRecurrentYearly": true,
           "EventTeaser": {
             "$assetType": "AssetData",
-            "Data": "iVBORw0KGgoAAAANSUhEUgAAARsAAABlCAYAAAB9ckckAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAABAESURBVHhe7d0JkBxVHQbw/xw7u5sN4b4hXEFABQRBQBOSgAYLVOQMkOIyaFQKTdDiUCCJHBZggaCoIVYlqOG\u002BFBFEQxLuMwY5lAgkHJEjkSvJXnM53\u002Bx7tZ2X1zPdMz1vjv1\u002BVZ3t1zPztnuy75vXr4\u002BJ5QuEiKjG4uonEVFNMWyIyAmGDRE5wbAhIicYNkTkBMOGiJxg2BCREwwbInKCYUNETjBsiMgJhg0ROcGwISInGDZE5ERLXfWdfWWJZJe/INk3/yO5d5dL7n9vS371\u002B5LvWSOSSRe2Ni6xVIfEhm8osY02l/hm20l8m10kMXJ3SYzaW\u002BKbbK1qIqKoNXXY5D9aJelnHpDMkoWSefExyff1qEcqk9h2lCT3HCPJfQ\u002BV5KcOUkuJKApNGTbpxQ9K\u002BqHbJf30X9WS6MW32F7aRh8lqXHHS3xT9niIqtVUYZN\u002B5C7pu29OYVfpRbXEjdQhJ0j74ZMlvvXOagkRhdUUYZN5bpH03vkLyb7yD7WkPtoPP0Paj50qsfZOtYSIgmrosMHAbu\u002B8y6R/wS1qSf3FN9lKOk48V9o\u002B/zW1hIiCaNiwwaBvz5yLJLdqhVrSWLBr1fmNiwvvIM8eIAqiIcOm755Z0nvzFarUuBI77ymdU66UxHa7qiVE5KfhwqZn7nTp/9sfVKnxxbo2lGFnXSvJPUerJURk01Bh0/2rsyX96B9VqbkMm/ZradtvgioRkalhBhyaOWig\u002B\u002BrvSGbxfFUiIlNDhE3P3Bk1DZr45tsVp1pbe82Zkl26WJWIyKvuu1F9f75eem\u002B6XJWilTr4GOmcsu5Ac9\u002Bd10r/Q3dIbuVbakm0EGrDZ9xevPaKiAbVtWdTPFmvRkHjp/3o7xVDqFYQYt2zz1MlItLqFjb53rXSM2e6KrmV2ONzaq42cI5Q393XqRIRQd3CBmcG51a\u002BqUpu4dYStdZ721WSfe2fqkREdQmbzPMPS/\u002BDN6tS48LuVscx31el8Hpv\u002BZmaI6K6hE3vndequfDQ\u002BDHVctwF9OAyxngqDZzMC49K\u002BpG7VYloaHMeNulH/1TR4WEc5em6YF6x8WNCEGzw80U1OaRtHsWqZlAZl14QUR3Cpu/\u002BOWounM4pl0tyjwNVaUAxgH48L9LAMYNGQ\u002BBUIvvWUul/\u002BC5VIhq6nIYNjtJUMmiKxm8GjRZl4PgFDaD\u002BSn9H//x5ao5o6HJ6Ul/3tWdJ\u002Bsm/qFJwaOS2no0Xzm9Ze\u002BmkdU7W8wsPPGf11LGqNKBU0GgfTdpFzYU3fPptkvjEvqoUjblz58qiRYtUacDYsWPltNNOU6V1LV\u002B\u002BXGbOnKlK65o\u002BfbrsuOOOqtT8Tj/9dFm4cGFxm7Bt48aNU49QvTgLm/yaD\u002BXjKZ9VpfAqCZzkHgdI1wU3Fue9zLAJEjRrLzlJMv96UpXCS004RTpPjfa8IjQoBI4XGtaMGTNUaV3jx48vNkDTggULWqox2t6XZcuWtVSYNiNnu1H4FoRqICB6Zp1baPBPqCXrQyBhl0pDOOjg8Uo/fKeaGwikckHTM\u002BucqoIGMjW8OXsQCCBb0DTLpz7W3Zxs0HszgwYQQFRfzsIG4zXVCho46Klo6Ong\u002BXjtwOvPkd47rlGPDowHlYLn41qqauU\u002BeLduF2miYdp2nxAyfr2gRoL1R6/MO91www3qUWoW7sLmxcfUXHWCBo6G56\u002B9ZFJxtwmTGRze55qiChot89Ljas4dfNKjcZqwS4Hdp1aD7bLtLmEsi\u002BrLSdhkl70g\u002Be7VqlS9coGTeck/iEx\u002BdUQdNJBZ\u002Bqyac8dv92HOnMpOQWgG5hhUqXEscsdN2NTge578Age3kAgzvoI6UJdXLYIGssueV3Nu\u002BI3TtNqAsEn32nDsAxODpjE4ORrV\u002B/uLpe/\u002B9QftooDdIAzy4icCwgyOIKKoI6gNfvmYxDfeUpWqU\u002BpolB7nMAX9lPcOtOLwOsp6F6XU4XXA68xD8qeeeuo6Y0S6TsByrJe5\u002B4Pnvv7668XnmaGJ55q9F/162\u002B\u002B31a/pbdW/y7teUOq1JqwnJtSFn6gL9eD1O\u002BywQ/F9C1pXq3ESNmuvPEMyS\u002BozPoAAwYBxbLNtJb9qRXEXq9ojS9XouvAmSe4ezS0u/MIGf9A77bSTWjIIf/RBxmnQyP3Ox9HQYBAgtuCyrRd22xAA5nLNVh/C0gwZP97emu33\u002B/Xmqt1WL9vvtcF7USqsW5WTsFlz/hGSfePfqhRMrHO4JD/9BZFS3z7ZvVrSzxU\u002BwbIZtWBdfufZoPeC3S2/Hozu6QThd3jdz7Azr47sC\u002B78wgaN2tYTwLkm5YRp4IBGY47/2NYLv1/3GPzgOahLh0KtwybstuL1trDGdqGuctvnhfctTI\u002BpFTgJm4/PPEjyH76nSuUld99fhk37jcSGb6SW\u002BMt/uFK6r5u63qAwAgMXavpB2HgPgWu4wjvMdVB\u002B9fjpOPlCaf9yNJ9qYRq13ye7l\u002B1THvXhUx0/dYiZ9Zt1B/2Et/GGVy3DBo/jeWHZwjVsaGkIm3K9pVbi5tB37xo1E0z7sdMCBQ3gXr8dJ5yjSoO859rYIFAQSF7ozYS94BK7Z6H0rlUztWELGvxRlwsaNBYzaPAa9IbQIHQjQ6M1P42DNlq8TteBdbLxrj\u002Beg\u002Bfbnot1w2N6MtepHNs6ow78Lqwf6rS9Z2ao4L2xBY1eP12Xbf3wfofpDTU7J2GTz6TVXACJtkKjDzemkdhl78KWJFRpQJBbf8aNoDDDpxZCvRcRwQlw5f6obQ0GjcSERoOejhfqLvfJjtchuBBaaIhopLb6veuJ5\u002Bnnm1AfHtOTrTH7sfW69PphvfTvtYWEua3mQDTowNLrjp9\u002Bl0uUe99aiZueTYjvw451duHfgUJQaMC5rCoMyK0M/x3hlRyFyoYdbI7X9i3HH7YJDQRd/VJw9MSERonGZ06255ZjBhTYQqRcKEbBLyBMCAfdM/FO3tAwwwKP4T2ywWtNtnVpVU7CJlZqkNeUy6mZ4NKL/67mBpULAQSLeVQqt2pFqMDBc8OejxNLdai52sDhVdsfNRpxqd0d2ycsuvm2ydYzCNKzMdmW1Yst\u002BADriAD3Tnq9bcFYapvqFa6Nwk3YdI1Qc\u002BXluz8uXkeUe/u18tN/X5X\u002BhbdKz\u002BwfqVcPKne\u002BDAZ2TXg\u002BrqXCa73XU9kmvB7PDQvfDV5raBC2T2rdU7Gp9R99IwVLVNsaRT1DKWzcnGfzk4mSefkZVXILF1rqE/a0am8XUY2uH86W5D6HqFJ1bEddEDIIFPwR43FbNx89H/NT1nZExRZYflCfrtO2XtgdsX2yx2Lr7zKbf5JYL3M3EIFq68FBud8fZv3KMdcfdaAuG/yfmOc/lXp\u002Bq3HTs3Ew8OoHlx6gB4KAwYWYuAFWPU/qizn4GhnQoWLSIWR\u002Botp6HmgIepym3FRJQ61GNT0C7Gqa/K4ix7Yh6LyTN5TN9w2P\u002Ba2bGXAwlC4QdRI2ia13VnPRQ68F59NsOO/V4g3RbUeUsNtT6uQ7nFuD12NCT6iWR6US29TuvTCVCxwv2x99qQaI13unahp/JUo16nJswYj6sF1eWIYxKvz0Tt6AsdVlBhKgbtQ1lLkJmx32UHPRwrk0OENYhwPu4hf2fsTmSXzFOiO\u002BibqWGLl74Z\u002BkKrnhN36DxuBtXGg0ZsPBJzG6/fipn4\u002BGpAeJ9YRGb\u002BsZRQXrZasf66YnMyhKQX14X7ywDdgu1IVtxO4RfpqwHt51wXtrrhvqwmv1uqEuW9BgPcKsd7NzEzY4DyZiCAXbja8QEkEvNYC2MUeruUGooxaBkxj1GTXnFhqWGSSgP7UBDaZUL0iHjPmJDWHGdqKG9cMUlt86oy7bNmrme4T3zXZYH0qtG143VMZqNDdjNiM2LfRuPqlK1fMLGs0MibZ9D5X2o86S9q9OkcSu\u002B6ilA/wCpRaBE9UFmGH5BQl4d4HwPNsndSmVDqyGhd8TZr3KQV1\u002BJ9r58dtW9E7w/gatC3X4/X\u002B0MidhA8m9xqi56pQLGvBeJ9V5\u002Bk9k2A\u002Bul45jpxYvaxg\u002B43ZJjTtePTpwiNxP1IGT3HO0mnMPDcGv5\u002BLdXUDDQaMq11vB42isLoIG9PqHCYdyUJfe1lL14nEcISu1reg96jOk/erS2\u002BAqoBuNk0PfkF36rKyZOdjIKxEkaLw3vopvO0o2uGL9G41nX1kia6YPXDuFIKnka2LCwhXsXef/TpWah94VwKQbUb0bil4f0OtUKiyCMrdVT5XC7hjqwvsVxfo1O2dhA6vPOUxyK15RpXAQCqWu4gbzDnttBx4hw86ynLz33puyetpgg3EROJ2TL5XUISeoEtHQ42w3ClKjv67mwkOvppRqbuWJAAlyE3XsUlUClyi0jT5SlYiGJrdhM25ioeWFvMhSKXUrhyjuGRwkcHKrKuvVtI2fWAicENeHEbUgp2ETG7GJtE84RZXC8buzXhRBo5UKHDyGr4SpRPuEk9Uc0dDlNGwgdfhkNRcOGrv3mywhyqDRdOB4L9TEvPnd4EGlvjhJ4lutfz9goqHG6QCx1nvbVdJ393WqFA7O\u002BMWJeAiAckETdIDYD8ZpbL2pwJJtssHVCyW\u002ByVZqAdHQ5bxnAx3HTJX4lutfDBcE7verbwNRa1UFTUHHcWczaIiUuoQN7lbXceJ5qhBetSHgAm7a3v6Vb6kSEdUnbAra9p8gqcPs15REJfdu\u002BNtXRqXjlIvUHBFB3cIGOgsNMrnbfqoUPXzHeP/8m1RpUHyL7dVcbXSecVmk14IRtYK6DBB75d57o3gnv9wHwb9XKqzkXgcXr7jGF99JYXPzH62Uvnt/qx6NVvsR35SOkyrfRSRqVXUPG8i8/LSsveyUwky/WtKcUmOOls5vX6lKRORV190oLbnb/tJ19qziwHGzwmF2Bg2Rv4Zp3cm9D5auc\u002BcO7Oo0GfRobOfzENGghtiN8souf1G6r5tW/JqWZoDD2x0nnqtKROSn4cIG8N1RPbPPl/RT96slDSgWk87Jl0lqfHX36CEaKhoybDQcMeq98aeq1DjwXeQ4jyYxsjY3cidqRQ0dNpB9c6n03XqlpBc/qJbUUVu7dBw3rXh4m4jCafiw0dJP3Sd998yS7GvPqyVupb50srQf\u002BV2Jb7yFWkJEYTRN2GjpJ\u002B6V/vk3rnNT81qJdXRJavzEYtDEtxyplhJRJZoubDRcipB\u002B/B5JP/1A8SzkKOGM47YDDpcUbuWZTKmlRFSNpg0bLwRP5qXHi9/ggN2s3PvvqEcCiCeK39iJyxnwvU74upVY14bqQSKKSkuEjSm/\u002BoPiFd8Infzq9yXfs0Ykky5sbVwk1VEIkxES32jz4s2x4jX8HnIiGtSSYUNEjad5L0YioqbCsCEiJxg2ROQEw4aInGDYEJETDBsicoJhQ0ROMGyIyAmGDRE5wbAhIicYNkTkBMOGiJxg2BCREwwbInKCYUNETsTefmsF72dDRDUXu0v6GTZN5P3E2/JO2zLpj/WoJUTNgbtRTYRBQ81L5P9tTCaxUJPzFgAAAABJRU5ErkJggg==",
-            "ContentItemGuid": "c82cdc96-65ec-4f4c-aec2-3d657e6d5ce1",
-            "Identifier": "2a645bab-f2dc-4b94-a226-fd680b9df901",
-            "Name": "byteArraySample.jpg",
-            "Extension": ".jpg",
-            "Size": null,
-            "LastModified": null,
-            "ImageWidth": null,
-            "ImageHeight": null
+            "data": "iVBORw0KGgoAAAANSUhEUgAAARsAAABlCAYAAAB9ckckAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAABAESURBVHhe7d0JkBxVHQbw/xw7u5sN4b4hXEFABQRBQBOSgAYLVOQMkOIyaFQKTdDiUCCJHBZggaCoIVYlqOG\u002BFBFEQxLuMwY5lAgkHJEjkSvJXnM53\u002Bx7tZ2X1zPdMz1vjv1\u002BVZ3t1zPztnuy75vXr4\u002BJ5QuEiKjG4uonEVFNMWyIyAmGDRE5wbAhIicYNkTkBMOGiJxg2BCREwwbInKCYUNETjBsiMgJhg0ROcGwISInGDZE5ERLXfWdfWWJZJe/INk3/yO5d5dL7n9vS371\u002B5LvWSOSSRe2Ni6xVIfEhm8osY02l/hm20l8m10kMXJ3SYzaW\u002BKbbK1qIqKoNXXY5D9aJelnHpDMkoWSefExyff1qEcqk9h2lCT3HCPJfQ\u002BV5KcOUkuJKApNGTbpxQ9K\u002BqHbJf30X9WS6MW32F7aRh8lqXHHS3xT9niIqtVUYZN\u002B5C7pu29OYVfpRbXEjdQhJ0j74ZMlvvXOagkRhdUUYZN5bpH03vkLyb7yD7WkPtoPP0Paj50qsfZOtYSIgmrosMHAbu\u002B8y6R/wS1qSf3FN9lKOk48V9o\u002B/zW1hIiCaNiwwaBvz5yLJLdqhVrSWLBr1fmNiwvvIM8eIAqiIcOm755Z0nvzFarUuBI77ymdU66UxHa7qiVE5KfhwqZn7nTp/9sfVKnxxbo2lGFnXSvJPUerJURk01Bh0/2rsyX96B9VqbkMm/ZradtvgioRkalhBhyaOWig\u002B\u002BrvSGbxfFUiIlNDhE3P3Bk1DZr45tsVp1pbe82Zkl26WJWIyKvuu1F9f75eem\u002B6XJWilTr4GOmcsu5Ac9\u002Bd10r/Q3dIbuVbakm0EGrDZ9xevPaKiAbVtWdTPFmvRkHjp/3o7xVDqFYQYt2zz1MlItLqFjb53rXSM2e6KrmV2ONzaq42cI5Q393XqRIRQd3CBmcG51a\u002BqUpu4dYStdZ721WSfe2fqkREdQmbzPMPS/\u002BDN6tS48LuVscx31el8Hpv\u002BZmaI6K6hE3vndequfDQ\u002BDHVctwF9OAyxngqDZzMC49K\u002BpG7VYloaHMeNulH/1TR4WEc5em6YF6x8WNCEGzw80U1OaRtHsWqZlAZl14QUR3Cpu/\u002BOWounM4pl0tyjwNVaUAxgH48L9LAMYNGQ\u002BBUIvvWUul/\u002BC5VIhq6nIYNjtJUMmiKxm8GjRZl4PgFDaD\u002BSn9H//x5ao5o6HJ6Ul/3tWdJ\u002Bsm/qFJwaOS2no0Xzm9Ze\u002BmkdU7W8wsPPGf11LGqNKBU0GgfTdpFzYU3fPptkvjEvqoUjblz58qiRYtUacDYsWPltNNOU6V1LV\u002B\u002BXGbOnKlK65o\u002BfbrsuOOOqtT8Tj/9dFm4cGFxm7Bt48aNU49QvTgLm/yaD\u002BXjKZ9VpfAqCZzkHgdI1wU3Fue9zLAJEjRrLzlJMv96UpXCS004RTpPjfa8IjQoBI4XGtaMGTNUaV3jx48vNkDTggULWqox2t6XZcuWtVSYNiNnu1H4FoRqICB6Zp1baPBPqCXrQyBhl0pDOOjg8Uo/fKeaGwikckHTM\u002BucqoIGMjW8OXsQCCBb0DTLpz7W3Zxs0HszgwYQQFRfzsIG4zXVCho46Klo6Ong\u002BXjtwOvPkd47rlGPDowHlYLn41qqauU\u002BeLduF2miYdp2nxAyfr2gRoL1R6/MO91www3qUWoW7sLmxcfUXHWCBo6G56\u002B9ZFJxtwmTGRze55qiChot89Ljas4dfNKjcZqwS4Hdp1aD7bLtLmEsi\u002BrLSdhkl70g\u002Be7VqlS9coGTeck/iEx\u002BdUQdNJBZ\u002Bqyac8dv92HOnMpOQWgG5hhUqXEscsdN2NTge578Age3kAgzvoI6UJdXLYIGssueV3Nu\u002BI3TtNqAsEn32nDsAxODpjE4ORrV\u002B/uLpe/\u002B9QftooDdIAzy4icCwgyOIKKoI6gNfvmYxDfeUpWqU\u002BpolB7nMAX9lPcOtOLwOsp6F6XU4XXA68xD8qeeeuo6Y0S6TsByrJe5\u002B4Pnvv7668XnmaGJ55q9F/162\u002B\u002B31a/pbdW/y7teUOq1JqwnJtSFn6gL9eD1O\u002BywQ/F9C1pXq3ESNmuvPEMyS\u002BozPoAAwYBxbLNtJb9qRXEXq9ojS9XouvAmSe4ezS0u/MIGf9A77bSTWjIIf/RBxmnQyP3Ox9HQYBAgtuCyrRd22xAA5nLNVh/C0gwZP97emu33\u002B/Xmqt1WL9vvtcF7USqsW5WTsFlz/hGSfePfqhRMrHO4JD/9BZFS3z7ZvVrSzxU\u002BwbIZtWBdfufZoPeC3S2/Hozu6QThd3jdz7Azr47sC\u002B78wgaN2tYTwLkm5YRp4IBGY47/2NYLv1/3GPzgOahLh0KtwybstuL1trDGdqGuctvnhfctTI\u002BpFTgJm4/PPEjyH76nSuUld99fhk37jcSGb6SW\u002BMt/uFK6r5u63qAwAgMXavpB2HgPgWu4wjvMdVB\u002B9fjpOPlCaf9yNJ9qYRq13ye7l\u002B1THvXhUx0/dYiZ9Zt1B/2Et/GGVy3DBo/jeWHZwjVsaGkIm3K9pVbi5tB37xo1E0z7sdMCBQ3gXr8dJ5yjSoO859rYIFAQSF7ozYS94BK7Z6H0rlUztWELGvxRlwsaNBYzaPAa9IbQIHQjQ6M1P42DNlq8TteBdbLxrj\u002Beg\u002Bfbnot1w2N6MtepHNs6ow78Lqwf6rS9Z2ao4L2xBY1eP12Xbf3wfofpDTU7J2GTz6TVXACJtkKjDzemkdhl78KWJFRpQJBbf8aNoDDDpxZCvRcRwQlw5f6obQ0GjcSERoOejhfqLvfJjtchuBBaaIhopLb6veuJ5\u002Bnnm1AfHtOTrTH7sfW69PphvfTvtYWEua3mQDTowNLrjp9\u002Bl0uUe99aiZueTYjvw451duHfgUJQaMC5rCoMyK0M/x3hlRyFyoYdbI7X9i3HH7YJDQRd/VJw9MSERonGZ06255ZjBhTYQqRcKEbBLyBMCAfdM/FO3tAwwwKP4T2ywWtNtnVpVU7CJlZqkNeUy6mZ4NKL/67mBpULAQSLeVQqt2pFqMDBc8OejxNLdai52sDhVdsfNRpxqd0d2ycsuvm2ydYzCNKzMdmW1Yst\u002BADriAD3Tnq9bcFYapvqFa6Nwk3YdI1Qc\u002BXluz8uXkeUe/u18tN/X5X\u002BhbdKz\u002BwfqVcPKne\u002BDAZ2TXg\u002BrqXCa73XU9kmvB7PDQvfDV5raBC2T2rdU7Gp9R99IwVLVNsaRT1DKWzcnGfzk4mSefkZVXILF1rqE/a0am8XUY2uH86W5D6HqFJ1bEddEDIIFPwR43FbNx89H/NT1nZExRZYflCfrtO2XtgdsX2yx2Lr7zKbf5JYL3M3EIFq68FBud8fZv3KMdcfdaAuG/yfmOc/lXp\u002Bq3HTs3Ew8OoHlx6gB4KAwYWYuAFWPU/qizn4GhnQoWLSIWR\u002Botp6HmgIepym3FRJQ61GNT0C7Gqa/K4ix7Yh6LyTN5TN9w2P\u002Ba2bGXAwlC4QdRI2ia13VnPRQ68F59NsOO/V4g3RbUeUsNtT6uQ7nFuD12NCT6iWR6US29TuvTCVCxwv2x99qQaI13unahp/JUo16nJswYj6sF1eWIYxKvz0Tt6AsdVlBhKgbtQ1lLkJmx32UHPRwrk0OENYhwPu4hf2fsTmSXzFOiO\u002BibqWGLl74Z\u002BkKrnhN36DxuBtXGg0ZsPBJzG6/fipn4\u002BGpAeJ9YRGb\u002BsZRQXrZasf66YnMyhKQX14X7ywDdgu1IVtxO4RfpqwHt51wXtrrhvqwmv1uqEuW9BgPcKsd7NzEzY4DyZiCAXbja8QEkEvNYC2MUeruUGooxaBkxj1GTXnFhqWGSSgP7UBDaZUL0iHjPmJDWHGdqKG9cMUlt86oy7bNmrme4T3zXZYH0qtG143VMZqNDdjNiM2LfRuPqlK1fMLGs0MibZ9D5X2o86S9q9OkcSu\u002B6ilA/wCpRaBE9UFmGH5BQl4d4HwPNsndSmVDqyGhd8TZr3KQV1\u002BJ9r58dtW9E7w/gatC3X4/X\u002B0MidhA8m9xqi56pQLGvBeJ9V5\u002Bk9k2A\u002Bul45jpxYvaxg\u002B43ZJjTtePTpwiNxP1IGT3HO0mnMPDcGv5\u002BLdXUDDQaMq11vB42isLoIG9PqHCYdyUJfe1lL14nEcISu1reg96jOk/erS2\u002BAqoBuNk0PfkF36rKyZOdjIKxEkaLw3vopvO0o2uGL9G41nX1kia6YPXDuFIKnka2LCwhXsXef/TpWah94VwKQbUb0bil4f0OtUKiyCMrdVT5XC7hjqwvsVxfo1O2dhA6vPOUxyK15RpXAQCqWu4gbzDnttBx4hw86ynLz33puyetpgg3EROJ2TL5XUISeoEtHQ42w3ClKjv67mwkOvppRqbuWJAAlyE3XsUlUClyi0jT5SlYiGJrdhM25ioeWFvMhSKXUrhyjuGRwkcHKrKuvVtI2fWAicENeHEbUgp2ETG7GJtE84RZXC8buzXhRBo5UKHDyGr4SpRPuEk9Uc0dDlNGwgdfhkNRcOGrv3mywhyqDRdOB4L9TEvPnd4EGlvjhJ4lutfz9goqHG6QCx1nvbVdJ393WqFA7O\u002BMWJeAiAckETdIDYD8ZpbL2pwJJtssHVCyW\u002ByVZqAdHQ5bxnAx3HTJX4lutfDBcE7verbwNRa1UFTUHHcWczaIiUuoQN7lbXceJ5qhBetSHgAm7a3v6Vb6kSEdUnbAra9p8gqcPs15REJfdu\u002BNtXRqXjlIvUHBFB3cIGOgsNMrnbfqoUPXzHeP/8m1RpUHyL7dVcbXSecVmk14IRtYK6DBB75d57o3gnv9wHwb9XKqzkXgcXr7jGF99JYXPzH62Uvnt/qx6NVvsR35SOkyrfRSRqVXUPG8i8/LSsveyUwky/WtKcUmOOls5vX6lKRORV190oLbnb/tJ19qziwHGzwmF2Bg2Rv4Zp3cm9D5auc\u002BcO7Oo0GfRobOfzENGghtiN8souf1G6r5tW/JqWZoDD2x0nnqtKROSn4cIG8N1RPbPPl/RT96slDSgWk87Jl0lqfHX36CEaKhoybDQcMeq98aeq1DjwXeQ4jyYxsjY3cidqRQ0dNpB9c6n03XqlpBc/qJbUUVu7dBw3rXh4m4jCafiw0dJP3Sd998yS7GvPqyVupb50srQf\u002BV2Jb7yFWkJEYTRN2GjpJ\u002B6V/vk3rnNT81qJdXRJavzEYtDEtxyplhJRJZoubDRcipB\u002B/B5JP/1A8SzkKOGM47YDDpcUbuWZTKmlRFSNpg0bLwRP5qXHi9/ggN2s3PvvqEcCiCeK39iJyxnwvU74upVY14bqQSKKSkuEjSm/\u002BoPiFd8Infzq9yXfs0Ykky5sbVwk1VEIkxES32jz4s2x4jX8HnIiGtSSYUNEjad5L0YioqbCsCEiJxg2ROQEw4aInGDYEJETDBsicoJhQ0ROMGyIyAmGDRE5wbAhIicYNkTkBMOGiJxg2BCREwwbInKCYUNETsTefmsF72dDRDUXu0v6GTZN5P3E2/JO2zLpj/WoJUTNgbtRTYRBQ81L5P9tTCaxUJPzFgAAAABJRU5ErkJggg==",
+            "contentItemGuid": "c82cdc96-65ec-4f4c-aec2-3d657e6d5ce1",
+            "identifier": "2a645bab-f2dc-4b94-a226-fd680b9df901",
+            "name": "byteArraySample.jpg",
+            "extension": ".jpg",
+            "size": null,
+            "lastModified": null,
+            "imageWidth": null,
+            "imageHeight": null
           },
           "EventTeaserOptimized": {
-            "Data": "iVBORw0KGgoAAAANSUhEUgAAARsAAABlCAYAAAB9ckckAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAABAESURBVHhe7d0JkBxVHQbw/xw7u5sN4b4hXEFABQRBQBOSgAYLVOQMkOIyaFQKTdDiUCCJHBZggaCoIVYlqOG\u002BFBFEQxLuMwY5lAgkHJEjkSvJXnM53\u002Bx7tZ2X1zPdMz1vjv1\u002BVZ3t1zPztnuy75vXr4\u002BJ5QuEiKjG4uonEVFNMWyIyAmGDRE5wbAhIicYNkTkBMOGiJxg2BCREwwbInKCYUNETjBsiMgJhg0ROcGwISInGDZE5ERLXfWdfWWJZJe/INk3/yO5d5dL7n9vS371\u002B5LvWSOSSRe2Ni6xVIfEhm8osY02l/hm20l8m10kMXJ3SYzaW\u002BKbbK1qIqKoNXXY5D9aJelnHpDMkoWSefExyff1qEcqk9h2lCT3HCPJfQ\u002BV5KcOUkuJKApNGTbpxQ9K\u002BqHbJf30X9WS6MW32F7aRh8lqXHHS3xT9niIqtVUYZN\u002B5C7pu29OYVfpRbXEjdQhJ0j74ZMlvvXOagkRhdUUYZN5bpH03vkLyb7yD7WkPtoPP0Paj50qsfZOtYSIgmrosMHAbu\u002B8y6R/wS1qSf3FN9lKOk48V9o\u002B/zW1hIiCaNiwwaBvz5yLJLdqhVrSWLBr1fmNiwvvIM8eIAqiIcOm755Z0nvzFarUuBI77ymdU66UxHa7qiVE5KfhwqZn7nTp/9sfVKnxxbo2lGFnXSvJPUerJURk01Bh0/2rsyX96B9VqbkMm/ZradtvgioRkalhBhyaOWig\u002B\u002BrvSGbxfFUiIlNDhE3P3Bk1DZr45tsVp1pbe82Zkl26WJWIyKvuu1F9f75eem\u002B6XJWilTr4GOmcsu5Ac9\u002Bd10r/Q3dIbuVbakm0EGrDZ9xevPaKiAbVtWdTPFmvRkHjp/3o7xVDqFYQYt2zz1MlItLqFjb53rXSM2e6KrmV2ONzaq42cI5Q393XqRIRQd3CBmcG51a\u002BqUpu4dYStdZ721WSfe2fqkREdQmbzPMPS/\u002BDN6tS48LuVscx31el8Hpv\u002BZmaI6K6hE3vndequfDQ\u002BDHVctwF9OAyxngqDZzMC49K\u002BpG7VYloaHMeNulH/1TR4WEc5em6YF6x8WNCEGzw80U1OaRtHsWqZlAZl14QUR3Cpu/\u002BOWounM4pl0tyjwNVaUAxgH48L9LAMYNGQ\u002BBUIvvWUul/\u002BC5VIhq6nIYNjtJUMmiKxm8GjRZl4PgFDaD\u002BSn9H//x5ao5o6HJ6Ul/3tWdJ\u002Bsm/qFJwaOS2no0Xzm9Ze\u002BmkdU7W8wsPPGf11LGqNKBU0GgfTdpFzYU3fPptkvjEvqoUjblz58qiRYtUacDYsWPltNNOU6V1LV\u002B\u002BXGbOnKlK65o\u002BfbrsuOOOqtT8Tj/9dFm4cGFxm7Bt48aNU49QvTgLm/yaD\u002BXjKZ9VpfAqCZzkHgdI1wU3Fue9zLAJEjRrLzlJMv96UpXCS004RTpPjfa8IjQoBI4XGtaMGTNUaV3jx48vNkDTggULWqox2t6XZcuWtVSYNiNnu1H4FoRqICB6Zp1baPBPqCXrQyBhl0pDOOjg8Uo/fKeaGwikckHTM\u002BucqoIGMjW8OXsQCCBb0DTLpz7W3Zxs0HszgwYQQFRfzsIG4zXVCho46Klo6Ong\u002BXjtwOvPkd47rlGPDowHlYLn41qqauU\u002BeLduF2miYdp2nxAyfr2gRoL1R6/MO91www3qUWoW7sLmxcfUXHWCBo6G56\u002B9ZFJxtwmTGRze55qiChot89Ljas4dfNKjcZqwS4Hdp1aD7bLtLmEsi\u002BrLSdhkl70g\u002Be7VqlS9coGTeck/iEx\u002BdUQdNJBZ\u002Bqyac8dv92HOnMpOQWgG5hhUqXEscsdN2NTge578Age3kAgzvoI6UJdXLYIGssueV3Nu\u002BI3TtNqAsEn32nDsAxODpjE4ORrV\u002B/uLpe/\u002B9QftooDdIAzy4icCwgyOIKKoI6gNfvmYxDfeUpWqU\u002BpolB7nMAX9lPcOtOLwOsp6F6XU4XXA68xD8qeeeuo6Y0S6TsByrJe5\u002B4Pnvv7668XnmaGJ55q9F/162\u002B\u002B31a/pbdW/y7teUOq1JqwnJtSFn6gL9eD1O\u002BywQ/F9C1pXq3ESNmuvPEMyS\u002BozPoAAwYBxbLNtJb9qRXEXq9ojS9XouvAmSe4ezS0u/MIGf9A77bSTWjIIf/RBxmnQyP3Ox9HQYBAgtuCyrRd22xAA5nLNVh/C0gwZP97emu33\u002B/Xmqt1WL9vvtcF7USqsW5WTsFlz/hGSfePfqhRMrHO4JD/9BZFS3z7ZvVrSzxU\u002BwbIZtWBdfufZoPeC3S2/Hozu6QThd3jdz7Azr47sC\u002B78wgaN2tYTwLkm5YRp4IBGY47/2NYLv1/3GPzgOahLh0KtwybstuL1trDGdqGuctvnhfctTI\u002BpFTgJm4/PPEjyH76nSuUld99fhk37jcSGb6SW\u002BMt/uFK6r5u63qAwAgMXavpB2HgPgWu4wjvMdVB\u002B9fjpOPlCaf9yNJ9qYRq13ye7l\u002B1THvXhUx0/dYiZ9Zt1B/2Et/GGVy3DBo/jeWHZwjVsaGkIm3K9pVbi5tB37xo1E0z7sdMCBQ3gXr8dJ5yjSoO859rYIFAQSF7ozYS94BK7Z6H0rlUztWELGvxRlwsaNBYzaPAa9IbQIHQjQ6M1P42DNlq8TteBdbLxrj\u002Beg\u002Bfbnot1w2N6MtepHNs6ow78Lqwf6rS9Z2ao4L2xBY1eP12Xbf3wfofpDTU7J2GTz6TVXACJtkKjDzemkdhl78KWJFRpQJBbf8aNoDDDpxZCvRcRwQlw5f6obQ0GjcSERoOejhfqLvfJjtchuBBaaIhopLb6veuJ5\u002Bnnm1AfHtOTrTH7sfW69PphvfTvtYWEua3mQDTowNLrjp9\u002Bl0uUe99aiZueTYjvw451duHfgUJQaMC5rCoMyK0M/x3hlRyFyoYdbI7X9i3HH7YJDQRd/VJw9MSERonGZ06255ZjBhTYQqRcKEbBLyBMCAfdM/FO3tAwwwKP4T2ywWtNtnVpVU7CJlZqkNeUy6mZ4NKL/67mBpULAQSLeVQqt2pFqMDBc8OejxNLdai52sDhVdsfNRpxqd0d2ycsuvm2ydYzCNKzMdmW1Yst\u002BADriAD3Tnq9bcFYapvqFa6Nwk3YdI1Qc\u002BXluz8uXkeUe/u18tN/X5X\u002BhbdKz\u002BwfqVcPKne\u002BDAZ2TXg\u002BrqXCa73XU9kmvB7PDQvfDV5raBC2T2rdU7Gp9R99IwVLVNsaRT1DKWzcnGfzk4mSefkZVXILF1rqE/a0am8XUY2uH86W5D6HqFJ1bEddEDIIFPwR43FbNx89H/NT1nZExRZYflCfrtO2XtgdsX2yx2Lr7zKbf5JYL3M3EIFq68FBud8fZv3KMdcfdaAuG/yfmOc/lXp\u002Bq3HTs3Ew8OoHlx6gB4KAwYWYuAFWPU/qizn4GhnQoWLSIWR\u002Botp6HmgIepym3FRJQ61GNT0C7Gqa/K4ix7Yh6LyTN5TN9w2P\u002Ba2bGXAwlC4QdRI2ia13VnPRQ68F59NsOO/V4g3RbUeUsNtT6uQ7nFuD12NCT6iWR6US29TuvTCVCxwv2x99qQaI13unahp/JUo16nJswYj6sF1eWIYxKvz0Tt6AsdVlBhKgbtQ1lLkJmx32UHPRwrk0OENYhwPu4hf2fsTmSXzFOiO\u002BibqWGLl74Z\u002BkKrnhN36DxuBtXGg0ZsPBJzG6/fipn4\u002BGpAeJ9YRGb\u002BsZRQXrZasf66YnMyhKQX14X7ywDdgu1IVtxO4RfpqwHt51wXtrrhvqwmv1uqEuW9BgPcKsd7NzEzY4DyZiCAXbja8QEkEvNYC2MUeruUGooxaBkxj1GTXnFhqWGSSgP7UBDaZUL0iHjPmJDWHGdqKG9cMUlt86oy7bNmrme4T3zXZYH0qtG143VMZqNDdjNiM2LfRuPqlK1fMLGs0MibZ9D5X2o86S9q9OkcSu\u002B6ilA/wCpRaBE9UFmGH5BQl4d4HwPNsndSmVDqyGhd8TZr3KQV1\u002BJ9r58dtW9E7w/gatC3X4/X\u002B0MidhA8m9xqi56pQLGvBeJ9V5\u002Bk9k2A\u002Bul45jpxYvaxg\u002B43ZJjTtePTpwiNxP1IGT3HO0mnMPDcGv5\u002BLdXUDDQaMq11vB42isLoIG9PqHCYdyUJfe1lL14nEcISu1reg96jOk/erS2\u002BAqoBuNk0PfkF36rKyZOdjIKxEkaLw3vopvO0o2uGL9G41nX1kia6YPXDuFIKnka2LCwhXsXef/TpWah94VwKQbUb0bil4f0OtUKiyCMrdVT5XC7hjqwvsVxfo1O2dhA6vPOUxyK15RpXAQCqWu4gbzDnttBx4hw86ynLz33puyetpgg3EROJ2TL5XUISeoEtHQ42w3ClKjv67mwkOvppRqbuWJAAlyE3XsUlUClyi0jT5SlYiGJrdhM25ioeWFvMhSKXUrhyjuGRwkcHKrKuvVtI2fWAicENeHEbUgp2ETG7GJtE84RZXC8buzXhRBo5UKHDyGr4SpRPuEk9Uc0dDlNGwgdfhkNRcOGrv3mywhyqDRdOB4L9TEvPnd4EGlvjhJ4lutfz9goqHG6QCx1nvbVdJ393WqFA7O\u002BMWJeAiAckETdIDYD8ZpbL2pwJJtssHVCyW\u002ByVZqAdHQ5bxnAx3HTJX4lutfDBcE7verbwNRa1UFTUHHcWczaIiUuoQN7lbXceJ5qhBetSHgAm7a3v6Vb6kSEdUnbAra9p8gqcPs15REJfdu\u002BNtXRqXjlIvUHBFB3cIGOgsNMrnbfqoUPXzHeP/8m1RpUHyL7dVcbXSecVmk14IRtYK6DBB75d57o3gnv9wHwb9XKqzkXgcXr7jGF99JYXPzH62Uvnt/qx6NVvsR35SOkyrfRSRqVXUPG8i8/LSsveyUwky/WtKcUmOOls5vX6lKRORV190oLbnb/tJ19qziwHGzwmF2Bg2Rv4Zp3cm9D5auc\u002BcO7Oo0GfRobOfzENGghtiN8souf1G6r5tW/JqWZoDD2x0nnqtKROSn4cIG8N1RPbPPl/RT96slDSgWk87Jl0lqfHX36CEaKhoybDQcMeq98aeq1DjwXeQ4jyYxsjY3cidqRQ0dNpB9c6n03XqlpBc/qJbUUVu7dBw3rXh4m4jCafiw0dJP3Sd998yS7GvPqyVupb50srQf\u002BV2Jb7yFWkJEYTRN2GjpJ\u002B6V/vk3rnNT81qJdXRJavzEYtDEtxyplhJRJZoubDRcipB\u002B/B5JP/1A8SzkKOGM47YDDpcUbuWZTKmlRFSNpg0bLwRP5qXHi9/ggN2s3PvvqEcCiCeK39iJyxnwvU74upVY14bqQSKKSkuEjSm/\u002BoPiFd8Infzq9yXfs0Ykky5sbVwk1VEIkxES32jz4s2x4jX8HnIiGtSSYUNEjad5L0YioqbCsCEiJxg2ROQEw4aInGDYEJETDBsicoJhQ0ROMGyIyAmGDRE5wbAhIicYNkTkBMOGiJxg2BCREwwbInKCYUNETsTefmsF72dDRDUXu0v6GTZN5P3E2/JO2zLpj/WoJUTNgbtRTYRBQ81L5P9tTCaxUJPzFgAAAABJRU5ErkJggg==",
-            "ContentItemGuid": "c82cdc96-65ec-4f4c-aec2-3d657e6d5ce1",
-            "Identifier": "a6b0554d-0f59-4f9b-8de5-672d4906341a",
-            "Name": "byteArraySample.jpg",
-            "Extension": ".jpg",
-            "Size": null,
-            "LastModified": null,
-            "ImageWidth": null,
-            "ImageHeight": null
+            "$assetType": "AssetData",
+            "data": "iVBORw0KGgoAAAANSUhEUgAAARsAAABlCAYAAAB9ckckAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAABAESURBVHhe7d0JkBxVHQbw/xw7u5sN4b4hXEFABQRBQBOSgAYLVOQMkOIyaFQKTdDiUCCJHBZggaCoIVYlqOG\u002BFBFEQxLuMwY5lAgkHJEjkSvJXnM53\u002Bx7tZ2X1zPdMz1vjv1\u002BVZ3t1zPztnuy75vXr4\u002BJ5QuEiKjG4uonEVFNMWyIyAmGDRE5wbAhIicYNkTkBMOGiJxg2BCREwwbInKCYUNETjBsiMgJhg0ROcGwISInGDZE5ERLXfWdfWWJZJe/INk3/yO5d5dL7n9vS371\u002B5LvWSOSSRe2Ni6xVIfEhm8osY02l/hm20l8m10kMXJ3SYzaW\u002BKbbK1qIqKoNXXY5D9aJelnHpDMkoWSefExyff1qEcqk9h2lCT3HCPJfQ\u002BV5KcOUkuJKApNGTbpxQ9K\u002BqHbJf30X9WS6MW32F7aRh8lqXHHS3xT9niIqtVUYZN\u002B5C7pu29OYVfpRbXEjdQhJ0j74ZMlvvXOagkRhdUUYZN5bpH03vkLyb7yD7WkPtoPP0Paj50qsfZOtYSIgmrosMHAbu\u002B8y6R/wS1qSf3FN9lKOk48V9o\u002B/zW1hIiCaNiwwaBvz5yLJLdqhVrSWLBr1fmNiwvvIM8eIAqiIcOm755Z0nvzFarUuBI77ymdU66UxHa7qiVE5KfhwqZn7nTp/9sfVKnxxbo2lGFnXSvJPUerJURk01Bh0/2rsyX96B9VqbkMm/ZradtvgioRkalhBhyaOWig\u002B\u002BrvSGbxfFUiIlNDhE3P3Bk1DZr45tsVp1pbe82Zkl26WJWIyKvuu1F9f75eem\u002B6XJWilTr4GOmcsu5Ac9\u002Bd10r/Q3dIbuVbakm0EGrDZ9xevPaKiAbVtWdTPFmvRkHjp/3o7xVDqFYQYt2zz1MlItLqFjb53rXSM2e6KrmV2ONzaq42cI5Q393XqRIRQd3CBmcG51a\u002BqUpu4dYStdZ721WSfe2fqkREdQmbzPMPS/\u002BDN6tS48LuVscx31el8Hpv\u002BZmaI6K6hE3vndequfDQ\u002BDHVctwF9OAyxngqDZzMC49K\u002BpG7VYloaHMeNulH/1TR4WEc5em6YF6x8WNCEGzw80U1OaRtHsWqZlAZl14QUR3Cpu/\u002BOWounM4pl0tyjwNVaUAxgH48L9LAMYNGQ\u002BBUIvvWUul/\u002BC5VIhq6nIYNjtJUMmiKxm8GjRZl4PgFDaD\u002BSn9H//x5ao5o6HJ6Ul/3tWdJ\u002Bsm/qFJwaOS2no0Xzm9Ze\u002BmkdU7W8wsPPGf11LGqNKBU0GgfTdpFzYU3fPptkvjEvqoUjblz58qiRYtUacDYsWPltNNOU6V1LV\u002B\u002BXGbOnKlK65o\u002BfbrsuOOOqtT8Tj/9dFm4cGFxm7Bt48aNU49QvTgLm/yaD\u002BXjKZ9VpfAqCZzkHgdI1wU3Fue9zLAJEjRrLzlJMv96UpXCS004RTpPjfa8IjQoBI4XGtaMGTNUaV3jx48vNkDTggULWqox2t6XZcuWtVSYNiNnu1H4FoRqICB6Zp1baPBPqCXrQyBhl0pDOOjg8Uo/fKeaGwikckHTM\u002BucqoIGMjW8OXsQCCBb0DTLpz7W3Zxs0HszgwYQQFRfzsIG4zXVCho46Klo6Ong\u002BXjtwOvPkd47rlGPDowHlYLn41qqauU\u002BeLduF2miYdp2nxAyfr2gRoL1R6/MO91www3qUWoW7sLmxcfUXHWCBo6G56\u002B9ZFJxtwmTGRze55qiChot89Ljas4dfNKjcZqwS4Hdp1aD7bLtLmEsi\u002BrLSdhkl70g\u002Be7VqlS9coGTeck/iEx\u002BdUQdNJBZ\u002Bqyac8dv92HOnMpOQWgG5hhUqXEscsdN2NTge578Age3kAgzvoI6UJdXLYIGssueV3Nu\u002BI3TtNqAsEn32nDsAxODpjE4ORrV\u002B/uLpe/\u002B9QftooDdIAzy4icCwgyOIKKoI6gNfvmYxDfeUpWqU\u002BpolB7nMAX9lPcOtOLwOsp6F6XU4XXA68xD8qeeeuo6Y0S6TsByrJe5\u002B4Pnvv7668XnmaGJ55q9F/162\u002B\u002B31a/pbdW/y7teUOq1JqwnJtSFn6gL9eD1O\u002BywQ/F9C1pXq3ESNmuvPEMyS\u002BozPoAAwYBxbLNtJb9qRXEXq9ojS9XouvAmSe4ezS0u/MIGf9A77bSTWjIIf/RBxmnQyP3Ox9HQYBAgtuCyrRd22xAA5nLNVh/C0gwZP97emu33\u002B/Xmqt1WL9vvtcF7USqsW5WTsFlz/hGSfePfqhRMrHO4JD/9BZFS3z7ZvVrSzxU\u002BwbIZtWBdfufZoPeC3S2/Hozu6QThd3jdz7Azr47sC\u002B78wgaN2tYTwLkm5YRp4IBGY47/2NYLv1/3GPzgOahLh0KtwybstuL1trDGdqGuctvnhfctTI\u002BpFTgJm4/PPEjyH76nSuUld99fhk37jcSGb6SW\u002BMt/uFK6r5u63qAwAgMXavpB2HgPgWu4wjvMdVB\u002B9fjpOPlCaf9yNJ9qYRq13ye7l\u002B1THvXhUx0/dYiZ9Zt1B/2Et/GGVy3DBo/jeWHZwjVsaGkIm3K9pVbi5tB37xo1E0z7sdMCBQ3gXr8dJ5yjSoO859rYIFAQSF7ozYS94BK7Z6H0rlUztWELGvxRlwsaNBYzaPAa9IbQIHQjQ6M1P42DNlq8TteBdbLxrj\u002Beg\u002Bfbnot1w2N6MtepHNs6ow78Lqwf6rS9Z2ao4L2xBY1eP12Xbf3wfofpDTU7J2GTz6TVXACJtkKjDzemkdhl78KWJFRpQJBbf8aNoDDDpxZCvRcRwQlw5f6obQ0GjcSERoOejhfqLvfJjtchuBBaaIhopLb6veuJ5\u002Bnnm1AfHtOTrTH7sfW69PphvfTvtYWEua3mQDTowNLrjp9\u002Bl0uUe99aiZueTYjvw451duHfgUJQaMC5rCoMyK0M/x3hlRyFyoYdbI7X9i3HH7YJDQRd/VJw9MSERonGZ06255ZjBhTYQqRcKEbBLyBMCAfdM/FO3tAwwwKP4T2ywWtNtnVpVU7CJlZqkNeUy6mZ4NKL/67mBpULAQSLeVQqt2pFqMDBc8OejxNLdai52sDhVdsfNRpxqd0d2ycsuvm2ydYzCNKzMdmW1Yst\u002BADriAD3Tnq9bcFYapvqFa6Nwk3YdI1Qc\u002BXluz8uXkeUe/u18tN/X5X\u002BhbdKz\u002BwfqVcPKne\u002BDAZ2TXg\u002BrqXCa73XU9kmvB7PDQvfDV5raBC2T2rdU7Gp9R99IwVLVNsaRT1DKWzcnGfzk4mSefkZVXILF1rqE/a0am8XUY2uH86W5D6HqFJ1bEddEDIIFPwR43FbNx89H/NT1nZExRZYflCfrtO2XtgdsX2yx2Lr7zKbf5JYL3M3EIFq68FBud8fZv3KMdcfdaAuG/yfmOc/lXp\u002Bq3HTs3Ew8OoHlx6gB4KAwYWYuAFWPU/qizn4GhnQoWLSIWR\u002Botp6HmgIepym3FRJQ61GNT0C7Gqa/K4ix7Yh6LyTN5TN9w2P\u002Ba2bGXAwlC4QdRI2ia13VnPRQ68F59NsOO/V4g3RbUeUsNtT6uQ7nFuD12NCT6iWR6US29TuvTCVCxwv2x99qQaI13unahp/JUo16nJswYj6sF1eWIYxKvz0Tt6AsdVlBhKgbtQ1lLkJmx32UHPRwrk0OENYhwPu4hf2fsTmSXzFOiO\u002BibqWGLl74Z\u002BkKrnhN36DxuBtXGg0ZsPBJzG6/fipn4\u002BGpAeJ9YRGb\u002BsZRQXrZasf66YnMyhKQX14X7ywDdgu1IVtxO4RfpqwHt51wXtrrhvqwmv1uqEuW9BgPcKsd7NzEzY4DyZiCAXbja8QEkEvNYC2MUeruUGooxaBkxj1GTXnFhqWGSSgP7UBDaZUL0iHjPmJDWHGdqKG9cMUlt86oy7bNmrme4T3zXZYH0qtG143VMZqNDdjNiM2LfRuPqlK1fMLGs0MibZ9D5X2o86S9q9OkcSu\u002B6ilA/wCpRaBE9UFmGH5BQl4d4HwPNsndSmVDqyGhd8TZr3KQV1\u002BJ9r58dtW9E7w/gatC3X4/X\u002B0MidhA8m9xqi56pQLGvBeJ9V5\u002Bk9k2A\u002Bul45jpxYvaxg\u002B43ZJjTtePTpwiNxP1IGT3HO0mnMPDcGv5\u002BLdXUDDQaMq11vB42isLoIG9PqHCYdyUJfe1lL14nEcISu1reg96jOk/erS2\u002BAqoBuNk0PfkF36rKyZOdjIKxEkaLw3vopvO0o2uGL9G41nX1kia6YPXDuFIKnka2LCwhXsXef/TpWah94VwKQbUb0bil4f0OtUKiyCMrdVT5XC7hjqwvsVxfo1O2dhA6vPOUxyK15RpXAQCqWu4gbzDnttBx4hw86ynLz33puyetpgg3EROJ2TL5XUISeoEtHQ42w3ClKjv67mwkOvppRqbuWJAAlyE3XsUlUClyi0jT5SlYiGJrdhM25ioeWFvMhSKXUrhyjuGRwkcHKrKuvVtI2fWAicENeHEbUgp2ETG7GJtE84RZXC8buzXhRBo5UKHDyGr4SpRPuEk9Uc0dDlNGwgdfhkNRcOGrv3mywhyqDRdOB4L9TEvPnd4EGlvjhJ4lutfz9goqHG6QCx1nvbVdJ393WqFA7O\u002BMWJeAiAckETdIDYD8ZpbL2pwJJtssHVCyW\u002ByVZqAdHQ5bxnAx3HTJX4lutfDBcE7verbwNRa1UFTUHHcWczaIiUuoQN7lbXceJ5qhBetSHgAm7a3v6Vb6kSEdUnbAra9p8gqcPs15REJfdu\u002BNtXRqXjlIvUHBFB3cIGOgsNMrnbfqoUPXzHeP/8m1RpUHyL7dVcbXSecVmk14IRtYK6DBB75d57o3gnv9wHwb9XKqzkXgcXr7jGF99JYXPzH62Uvnt/qx6NVvsR35SOkyrfRSRqVXUPG8i8/LSsveyUwky/WtKcUmOOls5vX6lKRORV190oLbnb/tJ19qziwHGzwmF2Bg2Rv4Zp3cm9D5auc\u002BcO7Oo0GfRobOfzENGghtiN8souf1G6r5tW/JqWZoDD2x0nnqtKROSn4cIG8N1RPbPPl/RT96slDSgWk87Jl0lqfHX36CEaKhoybDQcMeq98aeq1DjwXeQ4jyYxsjY3cidqRQ0dNpB9c6n03XqlpBc/qJbUUVu7dBw3rXh4m4jCafiw0dJP3Sd998yS7GvPqyVupb50srQf\u002BV2Jb7yFWkJEYTRN2GjpJ\u002B6V/vk3rnNT81qJdXRJavzEYtDEtxyplhJRJZoubDRcipB\u002B/B5JP/1A8SzkKOGM47YDDpcUbuWZTKmlRFSNpg0bLwRP5qXHi9/ggN2s3PvvqEcCiCeK39iJyxnwvU74upVY14bqQSKKSkuEjSm/\u002BoPiFd8Infzq9yXfs0Ykky5sbVwk1VEIkxES32jz4s2x4jX8HnIiGtSSYUNEjad5L0YioqbCsCEiJxg2ROQEw4aInGDYEJETDBsicoJhQ0ROMGyIyAmGDRE5wbAhIicYNkTkBMOGiJxg2BCREwwbInKCYUNETsTefmsF72dDRDUXu0v6GTZN5P3E2/JO2zLpj/WoJUTNgbtRTYRBQ81L5P9tTCaxUJPzFgAAAABJRU5ErkJggg==",
+            "contentItemGuid": "c82cdc96-65ec-4f4c-aec2-3d657e6d5ce1",
+            "identifier": "a6b0554d-0f59-4f9b-8de5-672d4906341a",
+            "name": "byteArraySample.jpg",
+            "extension": ".jpg",
+            "size": null,
+            "lastModified": null,
+            "imageWidth": null,
+            "imageHeight": null
           }
         },
-        "VisualBuilderTemplateConfiguration": null,
-        "VisualBuilderWidgets": null
+        "visualBuilderTemplateConfiguration": null,
+        "visualBuilderWidgets": null
       },
       {
-        "LanguageName": "en-GB",
-        "DisplayName": "Event sample 2024 - en-GB",
-        "VersionStatus": 2,
-        "IsLatest": true,
-        "UserGuid": "dbfcc244-2cb9-4934-857f-9d75404c1553",
-        "ScheduledPublishWhen": null,
-        "ScheduledUnpublishWhen": "2045-01-01T00:00:00Z",
-        "ContentItemData": {
+        "languageName": "en-GB",
+        "displayName": "Event sample 2024 - en-GB",
+        "versionStatus": 2,
+        "isLatest": true,
+        "userGuid": "dbfcc244-2cb9-4934-857f-9d75404c1553",
+        "scheduledPublishWhen": null,
+        "scheduledUnpublishWhen": "2045-01-01T00:00:00Z",
+        "contentItemData": {
           "EventTitle": "en-GB Event sample 2024",
           "EventText": "en-GB Event sample 2024 (reusable)",
           "EventDate": "2024-01-01T00:00:00Z",
           "EventRecurrentYearly": true,
           "EventTeaser": {
             "$assetType": "AssetUrl",
-            "Url": "https://devnet.kentico.com/DevNet/media/devnet/cms_screen.jpg",
-            "ContentItemGuid": "c82cdc96-65ec-4f4c-aec2-3d657e6d5ce1",
-            "Identifier": "28337e24-59ef-4f93-b345-f4998cbbd72b",
-            "Name": "urlSourceSample.jpg",
-            "Extension": ".jpg",
-            "Size": null,
-            "LastModified": null,
-            "ImageWidth": null,
-            "ImageHeight": null
+            "url": "https://devnet.kentico.com/DevNet/media/devnet/cms_screen.jpg",
+            "contentItemGuid": "c82cdc96-65ec-4f4c-aec2-3d657e6d5ce1",
+            "identifier": "28337e24-59ef-4f93-b345-f4998cbbd72b",
+            "name": "urlSourceSample.jpg",
+            "extension": ".jpg",
+            "size": null,
+            "lastModified": null,
+            "imageWidth": null,
+            "imageHeight": null
           },
           "EventTeaserOptimized": {
-            "Url": "https://devnet.kentico.com/DevNet/media/devnet/cms_screen.jpg",
-            "ContentItemGuid": "c82cdc96-65ec-4f4c-aec2-3d657e6d5ce1",
-            "Identifier": "3bb12704-bf06-486b-b771-99a82502c3ff",
-            "Name": "urlSourceSample.jpg",
-            "Extension": ".jpg",
-            "Size": null,
-            "LastModified": null,
-            "ImageWidth": null,
-            "ImageHeight": null
+            "$assetType": "AssetUrl",
+            "url": "https://devnet.kentico.com/DevNet/media/devnet/cms_screen.jpg",
+            "contentItemGuid": "c82cdc96-65ec-4f4c-aec2-3d657e6d5ce1",
+            "identifier": "3bb12704-bf06-486b-b771-99a82502c3ff",
+            "name": "urlSourceSample.jpg",
+            "extension": ".jpg",
+            "size": null,
+            "lastModified": null,
+            "imageWidth": null,
+            "imageHeight": null
           }
         },
-        "VisualBuilderTemplateConfiguration": null,
-        "VisualBuilderWidgets": null
+        "visualBuilderTemplateConfiguration": null,
+        "visualBuilderWidgets": null
       }
     ],
-    "PageData": null
+    "pageData": null
   },
   {
     "$type": "Workspace",
-    "WorkspaceGUID": "018fe300-d522-4cc8-9888-b7248e922077",
-    "WorkspaceDisplayName": "Sample Workspace",
-    "WorkspaceName": "SampleWorkspace"
+    "workspaceGUID": "018fe300-d522-4cc8-9888-b7248e922077",
+    "workspaceDisplayName": "Sample Workspace",
+    "workspaceName": "SampleWorkspace"
   },
   {
     "$type": "ContentItemSimplified",
-    "ContentItemGUID": "2867f7b2-2db4-429a-b1b7-7596a502b089",
-    "ContentItemContentFolderGUID": null,
-    "ContentItemWorkspaceGUID": "018fe300-d522-4cc8-9888-b7248e922077",
-    "IsSecured": false,
-    "ContentTypeName": "UMT.Event",
-    "Name": "EventInSampleWorkspace",
-    "IsReusable": true,
-    "ChannelName": null,
-    "LanguageData": [
+    "contentItemGUID": "2867f7b2-2db4-429a-b1b7-7596a502b089",
+    "contentItemContentFolderGUID": null,
+    "contentItemWorkspaceGUID": "018fe300-d522-4cc8-9888-b7248e922077",
+    "isSecured": false,
+    "contentTypeName": "UMT.Event",
+    "name": "EventInSampleWorkspace",
+    "isReusable": true,
+    "channelName": null,
+    "languageData": [
       {
-        "LanguageName": "en-US",
-        "DisplayName": "Sample workspace Event - en-US",
-        "VersionStatus": 2,
-        "IsLatest": true,
-        "UserGuid": "dbfcc244-2cb9-4934-857f-9d75404c1553",
-        "ScheduledPublishWhen": null,
-        "ScheduledUnpublishWhen": null,
-        "ContentItemData": {
+        "languageName": "en-US",
+        "displayName": "Sample workspace Event - en-US",
+        "versionStatus": 2,
+        "isLatest": true,
+        "userGuid": "dbfcc244-2cb9-4934-857f-9d75404c1553",
+        "scheduledPublishWhen": null,
+        "scheduledUnpublishWhen": null,
+        "contentItemData": {
           "EventTitle": "en-US Sample workspace Event",
           "EventText": "en-US Sample workspace Event (reusable)",
           "EventDate": "2024-01-01T00:00:00Z",
           "EventRecurrentYearly": true,
           "EventTeaser": {
             "$assetType": "AssetData",
-            "Data": "iVBORw0KGgoAAAANSUhEUgAAARsAAABlCAYAAAB9ckckAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAABAESURBVHhe7d0JkBxVHQbw/xw7u5sN4b4hXEFABQRBQBOSgAYLVOQMkOIyaFQKTdDiUCCJHBZggaCoIVYlqOG\u002BFBFEQxLuMwY5lAgkHJEjkSvJXnM53\u002Bx7tZ2X1zPdMz1vjv1\u002BVZ3t1zPztnuy75vXr4\u002BJ5QuEiKjG4uonEVFNMWyIyAmGDRE5wbAhIicYNkTkBMOGiJxg2BCREwwbInKCYUNETjBsiMgJhg0ROcGwISInGDZE5ERLXfWdfWWJZJe/INk3/yO5d5dL7n9vS371\u002B5LvWSOSSRe2Ni6xVIfEhm8osY02l/hm20l8m10kMXJ3SYzaW\u002BKbbK1qIqKoNXXY5D9aJelnHpDMkoWSefExyff1qEcqk9h2lCT3HCPJfQ\u002BV5KcOUkuJKApNGTbpxQ9K\u002BqHbJf30X9WS6MW32F7aRh8lqXHHS3xT9niIqtVUYZN\u002B5C7pu29OYVfpRbXEjdQhJ0j74ZMlvvXOagkRhdUUYZN5bpH03vkLyb7yD7WkPtoPP0Paj50qsfZOtYSIgmrosMHAbu\u002B8y6R/wS1qSf3FN9lKOk48V9o\u002B/zW1hIiCaNiwwaBvz5yLJLdqhVrSWLBr1fmNiwvvIM8eIAqiIcOm755Z0nvzFarUuBI77ymdU66UxHa7qiVE5KfhwqZn7nTp/9sfVKnxxbo2lGFnXSvJPUerJURk01Bh0/2rsyX96B9VqbkMm/ZradtvgioRkalhBhyaOWig\u002B\u002BrvSGbxfFUiIlNDhE3P3Bk1DZr45tsVp1pbe82Zkl26WJWIyKvuu1F9f75eem\u002B6XJWilTr4GOmcsu5Ac9\u002Bd10r/Q3dIbuVbakm0EGrDZ9xevPaKiAbVtWdTPFmvRkHjp/3o7xVDqFYQYt2zz1MlItLqFjb53rXSM2e6KrmV2ONzaq42cI5Q393XqRIRQd3CBmcG51a\u002BqUpu4dYStdZ721WSfe2fqkREdQmbzPMPS/\u002BDN6tS48LuVscx31el8Hpv\u002BZmaI6K6hE3vndequfDQ\u002BDHVctwF9OAyxngqDZzMC49K\u002BpG7VYloaHMeNulH/1TR4WEc5em6YF6x8WNCEGzw80U1OaRtHsWqZlAZl14QUR3Cpu/\u002BOWounM4pl0tyjwNVaUAxgH48L9LAMYNGQ\u002BBUIvvWUul/\u002BC5VIhq6nIYNjtJUMmiKxm8GjRZl4PgFDaD\u002BSn9H//x5ao5o6HJ6Ul/3tWdJ\u002Bsm/qFJwaOS2no0Xzm9Ze\u002BmkdU7W8wsPPGf11LGqNKBU0GgfTdpFzYU3fPptkvjEvqoUjblz58qiRYtUacDYsWPltNNOU6V1LV\u002B\u002BXGbOnKlK65o\u002BfbrsuOOOqtT8Tj/9dFm4cGFxm7Bt48aNU49QvTgLm/yaD\u002BXjKZ9VpfAqCZzkHgdI1wU3Fue9zLAJEjRrLzlJMv96UpXCS004RTpPjfa8IjQoBI4XGtaMGTNUaV3jx48vNkDTggULWqox2t6XZcuWtVSYNiNnu1H4FoRqICB6Zp1baPBPqCXrQyBhl0pDOOjg8Uo/fKeaGwikckHTM\u002BucqoIGMjW8OXsQCCBb0DTLpz7W3Zxs0HszgwYQQFRfzsIG4zXVCho46Klo6Ong\u002BXjtwOvPkd47rlGPDowHlYLn41qqauU\u002BeLduF2miYdp2nxAyfr2gRoL1R6/MO91www3qUWoW7sLmxcfUXHWCBo6G56\u002B9ZFJxtwmTGRze55qiChot89Ljas4dfNKjcZqwS4Hdp1aD7bLtLmEsi\u002BrLSdhkl70g\u002Be7VqlS9coGTeck/iEx\u002BdUQdNJBZ\u002Bqyac8dv92HOnMpOQWgG5hhUqXEscsdN2NTge578Age3kAgzvoI6UJdXLYIGssueV3Nu\u002BI3TtNqAsEn32nDsAxODpjE4ORrV\u002B/uLpe/\u002B9QftooDdIAzy4icCwgyOIKKoI6gNfvmYxDfeUpWqU\u002BpolB7nMAX9lPcOtOLwOsp6F6XU4XXA68xD8qeeeuo6Y0S6TsByrJe5\u002B4Pnvv7668XnmaGJ55q9F/162\u002B\u002B31a/pbdW/y7teUOq1JqwnJtSFn6gL9eD1O\u002BywQ/F9C1pXq3ESNmuvPEMyS\u002BozPoAAwYBxbLNtJb9qRXEXq9ojS9XouvAmSe4ezS0u/MIGf9A77bSTWjIIf/RBxmnQyP3Ox9HQYBAgtuCyrRd22xAA5nLNVh/C0gwZP97emu33\u002B/Xmqt1WL9vvtcF7USqsW5WTsFlz/hGSfePfqhRMrHO4JD/9BZFS3z7ZvVrSzxU\u002BwbIZtWBdfufZoPeC3S2/Hozu6QThd3jdz7Azr47sC\u002B78wgaN2tYTwLkm5YRp4IBGY47/2NYLv1/3GPzgOahLh0KtwybstuL1trDGdqGuctvnhfctTI\u002BpFTgJm4/PPEjyH76nSuUld99fhk37jcSGb6SW\u002BMt/uFK6r5u63qAwAgMXavpB2HgPgWu4wjvMdVB\u002B9fjpOPlCaf9yNJ9qYRq13ye7l\u002B1THvXhUx0/dYiZ9Zt1B/2Et/GGVy3DBo/jeWHZwjVsaGkIm3K9pVbi5tB37xo1E0z7sdMCBQ3gXr8dJ5yjSoO859rYIFAQSF7ozYS94BK7Z6H0rlUztWELGvxRlwsaNBYzaPAa9IbQIHQjQ6M1P42DNlq8TteBdbLxrj\u002Beg\u002Bfbnot1w2N6MtepHNs6ow78Lqwf6rS9Z2ao4L2xBY1eP12Xbf3wfofpDTU7J2GTz6TVXACJtkKjDzemkdhl78KWJFRpQJBbf8aNoDDDpxZCvRcRwQlw5f6obQ0GjcSERoOejhfqLvfJjtchuBBaaIhopLb6veuJ5\u002Bnnm1AfHtOTrTH7sfW69PphvfTvtYWEua3mQDTowNLrjp9\u002Bl0uUe99aiZueTYjvw451duHfgUJQaMC5rCoMyK0M/x3hlRyFyoYdbI7X9i3HH7YJDQRd/VJw9MSERonGZ06255ZjBhTYQqRcKEbBLyBMCAfdM/FO3tAwwwKP4T2ywWtNtnVpVU7CJlZqkNeUy6mZ4NKL/67mBpULAQSLeVQqt2pFqMDBc8OejxNLdai52sDhVdsfNRpxqd0d2ycsuvm2ydYzCNKzMdmW1Yst\u002BADriAD3Tnq9bcFYapvqFa6Nwk3YdI1Qc\u002BXluz8uXkeUe/u18tN/X5X\u002BhbdKz\u002BwfqVcPKne\u002BDAZ2TXg\u002BrqXCa73XU9kmvB7PDQvfDV5raBC2T2rdU7Gp9R99IwVLVNsaRT1DKWzcnGfzk4mSefkZVXILF1rqE/a0am8XUY2uH86W5D6HqFJ1bEddEDIIFPwR43FbNx89H/NT1nZExRZYflCfrtO2XtgdsX2yx2Lr7zKbf5JYL3M3EIFq68FBud8fZv3KMdcfdaAuG/yfmOc/lXp\u002Bq3HTs3Ew8OoHlx6gB4KAwYWYuAFWPU/qizn4GhnQoWLSIWR\u002Botp6HmgIepym3FRJQ61GNT0C7Gqa/K4ix7Yh6LyTN5TN9w2P\u002Ba2bGXAwlC4QdRI2ia13VnPRQ68F59NsOO/V4g3RbUeUsNtT6uQ7nFuD12NCT6iWR6US29TuvTCVCxwv2x99qQaI13unahp/JUo16nJswYj6sF1eWIYxKvz0Tt6AsdVlBhKgbtQ1lLkJmx32UHPRwrk0OENYhwPu4hf2fsTmSXzFOiO\u002BibqWGLl74Z\u002BkKrnhN36DxuBtXGg0ZsPBJzG6/fipn4\u002BGpAeJ9YRGb\u002BsZRQXrZasf66YnMyhKQX14X7ywDdgu1IVtxO4RfpqwHt51wXtrrhvqwmv1uqEuW9BgPcKsd7NzEzY4DyZiCAXbja8QEkEvNYC2MUeruUGooxaBkxj1GTXnFhqWGSSgP7UBDaZUL0iHjPmJDWHGdqKG9cMUlt86oy7bNmrme4T3zXZYH0qtG143VMZqNDdjNiM2LfRuPqlK1fMLGs0MibZ9D5X2o86S9q9OkcSu\u002B6ilA/wCpRaBE9UFmGH5BQl4d4HwPNsndSmVDqyGhd8TZr3KQV1\u002BJ9r58dtW9E7w/gatC3X4/X\u002B0MidhA8m9xqi56pQLGvBeJ9V5\u002Bk9k2A\u002Bul45jpxYvaxg\u002B43ZJjTtePTpwiNxP1IGT3HO0mnMPDcGv5\u002BLdXUDDQaMq11vB42isLoIG9PqHCYdyUJfe1lL14nEcISu1reg96jOk/erS2\u002BAqoBuNk0PfkF36rKyZOdjIKxEkaLw3vopvO0o2uGL9G41nX1kia6YPXDuFIKnka2LCwhXsXef/TpWah94VwKQbUb0bil4f0OtUKiyCMrdVT5XC7hjqwvsVxfo1O2dhA6vPOUxyK15RpXAQCqWu4gbzDnttBx4hw86ynLz33puyetpgg3EROJ2TL5XUISeoEtHQ42w3ClKjv67mwkOvppRqbuWJAAlyE3XsUlUClyi0jT5SlYiGJrdhM25ioeWFvMhSKXUrhyjuGRwkcHKrKuvVtI2fWAicENeHEbUgp2ETG7GJtE84RZXC8buzXhRBo5UKHDyGr4SpRPuEk9Uc0dDlNGwgdfhkNRcOGrv3mywhyqDRdOB4L9TEvPnd4EGlvjhJ4lutfz9goqHG6QCx1nvbVdJ393WqFA7O\u002BMWJeAiAckETdIDYD8ZpbL2pwJJtssHVCyW\u002ByVZqAdHQ5bxnAx3HTJX4lutfDBcE7verbwNRa1UFTUHHcWczaIiUuoQN7lbXceJ5qhBetSHgAm7a3v6Vb6kSEdUnbAra9p8gqcPs15REJfdu\u002BNtXRqXjlIvUHBFB3cIGOgsNMrnbfqoUPXzHeP/8m1RpUHyL7dVcbXSecVmk14IRtYK6DBB75d57o3gnv9wHwb9XKqzkXgcXr7jGF99JYXPzH62Uvnt/qx6NVvsR35SOkyrfRSRqVXUPG8i8/LSsveyUwky/WtKcUmOOls5vX6lKRORV190oLbnb/tJ19qziwHGzwmF2Bg2Rv4Zp3cm9D5auc\u002BcO7Oo0GfRobOfzENGghtiN8souf1G6r5tW/JqWZoDD2x0nnqtKROSn4cIG8N1RPbPPl/RT96slDSgWk87Jl0lqfHX36CEaKhoybDQcMeq98aeq1DjwXeQ4jyYxsjY3cidqRQ0dNpB9c6n03XqlpBc/qJbUUVu7dBw3rXh4m4jCafiw0dJP3Sd998yS7GvPqyVupb50srQf\u002BV2Jb7yFWkJEYTRN2GjpJ\u002B6V/vk3rnNT81qJdXRJavzEYtDEtxyplhJRJZoubDRcipB\u002B/B5JP/1A8SzkKOGM47YDDpcUbuWZTKmlRFSNpg0bLwRP5qXHi9/ggN2s3PvvqEcCiCeK39iJyxnwvU74upVY14bqQSKKSkuEjSm/\u002BoPiFd8Infzq9yXfs0Ykky5sbVwk1VEIkxES32jz4s2x4jX8HnIiGtSSYUNEjad5L0YioqbCsCEiJxg2ROQEw4aInGDYEJETDBsicoJhQ0ROMGyIyAmGDRE5wbAhIicYNkTkBMOGiJxg2BCREwwbInKCYUNETsTefmsF72dDRDUXu0v6GTZN5P3E2/JO2zLpj/WoJUTNgbtRTYRBQ81L5P9tTCaxUJPzFgAAAABJRU5ErkJggg==",
-            "ContentItemGuid": "2867f7b2-2db4-429a-b1b7-7596a502b089",
-            "Identifier": "57c26660-ef2f-4288-8f30-886135c2c8fb",
-            "Name": "byteArraySample.jpg",
-            "Extension": ".jpg",
-            "Size": null,
-            "LastModified": null,
-            "ImageWidth": null,
-            "ImageHeight": null
+            "data": "iVBORw0KGgoAAAANSUhEUgAAARsAAABlCAYAAAB9ckckAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAABAESURBVHhe7d0JkBxVHQbw/xw7u5sN4b4hXEFABQRBQBOSgAYLVOQMkOIyaFQKTdDiUCCJHBZggaCoIVYlqOG\u002BFBFEQxLuMwY5lAgkHJEjkSvJXnM53\u002Bx7tZ2X1zPdMz1vjv1\u002BVZ3t1zPztnuy75vXr4\u002BJ5QuEiKjG4uonEVFNMWyIyAmGDRE5wbAhIicYNkTkBMOGiJxg2BCREwwbInKCYUNETjBsiMgJhg0ROcGwISInGDZE5ERLXfWdfWWJZJe/INk3/yO5d5dL7n9vS371\u002B5LvWSOSSRe2Ni6xVIfEhm8osY02l/hm20l8m10kMXJ3SYzaW\u002BKbbK1qIqKoNXXY5D9aJelnHpDMkoWSefExyff1qEcqk9h2lCT3HCPJfQ\u002BV5KcOUkuJKApNGTbpxQ9K\u002BqHbJf30X9WS6MW32F7aRh8lqXHHS3xT9niIqtVUYZN\u002B5C7pu29OYVfpRbXEjdQhJ0j74ZMlvvXOagkRhdUUYZN5bpH03vkLyb7yD7WkPtoPP0Paj50qsfZOtYSIgmrosMHAbu\u002B8y6R/wS1qSf3FN9lKOk48V9o\u002B/zW1hIiCaNiwwaBvz5yLJLdqhVrSWLBr1fmNiwvvIM8eIAqiIcOm755Z0nvzFarUuBI77ymdU66UxHa7qiVE5KfhwqZn7nTp/9sfVKnxxbo2lGFnXSvJPUerJURk01Bh0/2rsyX96B9VqbkMm/ZradtvgioRkalhBhyaOWig\u002B\u002BrvSGbxfFUiIlNDhE3P3Bk1DZr45tsVp1pbe82Zkl26WJWIyKvuu1F9f75eem\u002B6XJWilTr4GOmcsu5Ac9\u002Bd10r/Q3dIbuVbakm0EGrDZ9xevPaKiAbVtWdTPFmvRkHjp/3o7xVDqFYQYt2zz1MlItLqFjb53rXSM2e6KrmV2ONzaq42cI5Q393XqRIRQd3CBmcG51a\u002BqUpu4dYStdZ721WSfe2fqkREdQmbzPMPS/\u002BDN6tS48LuVscx31el8Hpv\u002BZmaI6K6hE3vndequfDQ\u002BDHVctwF9OAyxngqDZzMC49K\u002BpG7VYloaHMeNulH/1TR4WEc5em6YF6x8WNCEGzw80U1OaRtHsWqZlAZl14QUR3Cpu/\u002BOWounM4pl0tyjwNVaUAxgH48L9LAMYNGQ\u002BBUIvvWUul/\u002BC5VIhq6nIYNjtJUMmiKxm8GjRZl4PgFDaD\u002BSn9H//x5ao5o6HJ6Ul/3tWdJ\u002Bsm/qFJwaOS2no0Xzm9Ze\u002BmkdU7W8wsPPGf11LGqNKBU0GgfTdpFzYU3fPptkvjEvqoUjblz58qiRYtUacDYsWPltNNOU6V1LV\u002B\u002BXGbOnKlK65o\u002BfbrsuOOOqtT8Tj/9dFm4cGFxm7Bt48aNU49QvTgLm/yaD\u002BXjKZ9VpfAqCZzkHgdI1wU3Fue9zLAJEjRrLzlJMv96UpXCS004RTpPjfa8IjQoBI4XGtaMGTNUaV3jx48vNkDTggULWqox2t6XZcuWtVSYNiNnu1H4FoRqICB6Zp1baPBPqCXrQyBhl0pDOOjg8Uo/fKeaGwikckHTM\u002BucqoIGMjW8OXsQCCBb0DTLpz7W3Zxs0HszgwYQQFRfzsIG4zXVCho46Klo6Ong\u002BXjtwOvPkd47rlGPDowHlYLn41qqauU\u002BeLduF2miYdp2nxAyfr2gRoL1R6/MO91www3qUWoW7sLmxcfUXHWCBo6G56\u002B9ZFJxtwmTGRze55qiChot89Ljas4dfNKjcZqwS4Hdp1aD7bLtLmEsi\u002BrLSdhkl70g\u002Be7VqlS9coGTeck/iEx\u002BdUQdNJBZ\u002Bqyac8dv92HOnMpOQWgG5hhUqXEscsdN2NTge578Age3kAgzvoI6UJdXLYIGssueV3Nu\u002BI3TtNqAsEn32nDsAxODpjE4ORrV\u002B/uLpe/\u002B9QftooDdIAzy4icCwgyOIKKoI6gNfvmYxDfeUpWqU\u002BpolB7nMAX9lPcOtOLwOsp6F6XU4XXA68xD8qeeeuo6Y0S6TsByrJe5\u002B4Pnvv7668XnmaGJ55q9F/162\u002B\u002B31a/pbdW/y7teUOq1JqwnJtSFn6gL9eD1O\u002BywQ/F9C1pXq3ESNmuvPEMyS\u002BozPoAAwYBxbLNtJb9qRXEXq9ojS9XouvAmSe4ezS0u/MIGf9A77bSTWjIIf/RBxmnQyP3Ox9HQYBAgtuCyrRd22xAA5nLNVh/C0gwZP97emu33\u002B/Xmqt1WL9vvtcF7USqsW5WTsFlz/hGSfePfqhRMrHO4JD/9BZFS3z7ZvVrSzxU\u002BwbIZtWBdfufZoPeC3S2/Hozu6QThd3jdz7Azr47sC\u002B78wgaN2tYTwLkm5YRp4IBGY47/2NYLv1/3GPzgOahLh0KtwybstuL1trDGdqGuctvnhfctTI\u002BpFTgJm4/PPEjyH76nSuUld99fhk37jcSGb6SW\u002BMt/uFK6r5u63qAwAgMXavpB2HgPgWu4wjvMdVB\u002B9fjpOPlCaf9yNJ9qYRq13ye7l\u002B1THvXhUx0/dYiZ9Zt1B/2Et/GGVy3DBo/jeWHZwjVsaGkIm3K9pVbi5tB37xo1E0z7sdMCBQ3gXr8dJ5yjSoO859rYIFAQSF7ozYS94BK7Z6H0rlUztWELGvxRlwsaNBYzaPAa9IbQIHQjQ6M1P42DNlq8TteBdbLxrj\u002Beg\u002Bfbnot1w2N6MtepHNs6ow78Lqwf6rS9Z2ao4L2xBY1eP12Xbf3wfofpDTU7J2GTz6TVXACJtkKjDzemkdhl78KWJFRpQJBbf8aNoDDDpxZCvRcRwQlw5f6obQ0GjcSERoOejhfqLvfJjtchuBBaaIhopLb6veuJ5\u002Bnnm1AfHtOTrTH7sfW69PphvfTvtYWEua3mQDTowNLrjp9\u002Bl0uUe99aiZueTYjvw451duHfgUJQaMC5rCoMyK0M/x3hlRyFyoYdbI7X9i3HH7YJDQRd/VJw9MSERonGZ06255ZjBhTYQqRcKEbBLyBMCAfdM/FO3tAwwwKP4T2ywWtNtnVpVU7CJlZqkNeUy6mZ4NKL/67mBpULAQSLeVQqt2pFqMDBc8OejxNLdai52sDhVdsfNRpxqd0d2ycsuvm2ydYzCNKzMdmW1Yst\u002BADriAD3Tnq9bcFYapvqFa6Nwk3YdI1Qc\u002BXluz8uXkeUe/u18tN/X5X\u002BhbdKz\u002BwfqVcPKne\u002BDAZ2TXg\u002BrqXCa73XU9kmvB7PDQvfDV5raBC2T2rdU7Gp9R99IwVLVNsaRT1DKWzcnGfzk4mSefkZVXILF1rqE/a0am8XUY2uH86W5D6HqFJ1bEddEDIIFPwR43FbNx89H/NT1nZExRZYflCfrtO2XtgdsX2yx2Lr7zKbf5JYL3M3EIFq68FBud8fZv3KMdcfdaAuG/yfmOc/lXp\u002Bq3HTs3Ew8OoHlx6gB4KAwYWYuAFWPU/qizn4GhnQoWLSIWR\u002Botp6HmgIepym3FRJQ61GNT0C7Gqa/K4ix7Yh6LyTN5TN9w2P\u002Ba2bGXAwlC4QdRI2ia13VnPRQ68F59NsOO/V4g3RbUeUsNtT6uQ7nFuD12NCT6iWR6US29TuvTCVCxwv2x99qQaI13unahp/JUo16nJswYj6sF1eWIYxKvz0Tt6AsdVlBhKgbtQ1lLkJmx32UHPRwrk0OENYhwPu4hf2fsTmSXzFOiO\u002BibqWGLl74Z\u002BkKrnhN36DxuBtXGg0ZsPBJzG6/fipn4\u002BGpAeJ9YRGb\u002BsZRQXrZasf66YnMyhKQX14X7ywDdgu1IVtxO4RfpqwHt51wXtrrhvqwmv1uqEuW9BgPcKsd7NzEzY4DyZiCAXbja8QEkEvNYC2MUeruUGooxaBkxj1GTXnFhqWGSSgP7UBDaZUL0iHjPmJDWHGdqKG9cMUlt86oy7bNmrme4T3zXZYH0qtG143VMZqNDdjNiM2LfRuPqlK1fMLGs0MibZ9D5X2o86S9q9OkcSu\u002B6ilA/wCpRaBE9UFmGH5BQl4d4HwPNsndSmVDqyGhd8TZr3KQV1\u002BJ9r58dtW9E7w/gatC3X4/X\u002B0MidhA8m9xqi56pQLGvBeJ9V5\u002Bk9k2A\u002Bul45jpxYvaxg\u002B43ZJjTtePTpwiNxP1IGT3HO0mnMPDcGv5\u002BLdXUDDQaMq11vB42isLoIG9PqHCYdyUJfe1lL14nEcISu1reg96jOk/erS2\u002BAqoBuNk0PfkF36rKyZOdjIKxEkaLw3vopvO0o2uGL9G41nX1kia6YPXDuFIKnka2LCwhXsXef/TpWah94VwKQbUb0bil4f0OtUKiyCMrdVT5XC7hjqwvsVxfo1O2dhA6vPOUxyK15RpXAQCqWu4gbzDnttBx4hw86ynLz33puyetpgg3EROJ2TL5XUISeoEtHQ42w3ClKjv67mwkOvppRqbuWJAAlyE3XsUlUClyi0jT5SlYiGJrdhM25ioeWFvMhSKXUrhyjuGRwkcHKrKuvVtI2fWAicENeHEbUgp2ETG7GJtE84RZXC8buzXhRBo5UKHDyGr4SpRPuEk9Uc0dDlNGwgdfhkNRcOGrv3mywhyqDRdOB4L9TEvPnd4EGlvjhJ4lutfz9goqHG6QCx1nvbVdJ393WqFA7O\u002BMWJeAiAckETdIDYD8ZpbL2pwJJtssHVCyW\u002ByVZqAdHQ5bxnAx3HTJX4lutfDBcE7verbwNRa1UFTUHHcWczaIiUuoQN7lbXceJ5qhBetSHgAm7a3v6Vb6kSEdUnbAra9p8gqcPs15REJfdu\u002BNtXRqXjlIvUHBFB3cIGOgsNMrnbfqoUPXzHeP/8m1RpUHyL7dVcbXSecVmk14IRtYK6DBB75d57o3gnv9wHwb9XKqzkXgcXr7jGF99JYXPzH62Uvnt/qx6NVvsR35SOkyrfRSRqVXUPG8i8/LSsveyUwky/WtKcUmOOls5vX6lKRORV190oLbnb/tJ19qziwHGzwmF2Bg2Rv4Zp3cm9D5auc\u002BcO7Oo0GfRobOfzENGghtiN8souf1G6r5tW/JqWZoDD2x0nnqtKROSn4cIG8N1RPbPPl/RT96slDSgWk87Jl0lqfHX36CEaKhoybDQcMeq98aeq1DjwXeQ4jyYxsjY3cidqRQ0dNpB9c6n03XqlpBc/qJbUUVu7dBw3rXh4m4jCafiw0dJP3Sd998yS7GvPqyVupb50srQf\u002BV2Jb7yFWkJEYTRN2GjpJ\u002B6V/vk3rnNT81qJdXRJavzEYtDEtxyplhJRJZoubDRcipB\u002B/B5JP/1A8SzkKOGM47YDDpcUbuWZTKmlRFSNpg0bLwRP5qXHi9/ggN2s3PvvqEcCiCeK39iJyxnwvU74upVY14bqQSKKSkuEjSm/\u002BoPiFd8Infzq9yXfs0Ykky5sbVwk1VEIkxES32jz4s2x4jX8HnIiGtSSYUNEjad5L0YioqbCsCEiJxg2ROQEw4aInGDYEJETDBsicoJhQ0ROMGyIyAmGDRE5wbAhIicYNkTkBMOGiJxg2BCREwwbInKCYUNETsTefmsF72dDRDUXu0v6GTZN5P3E2/JO2zLpj/WoJUTNgbtRTYRBQ81L5P9tTCaxUJPzFgAAAABJRU5ErkJggg==",
+            "contentItemGuid": "2867f7b2-2db4-429a-b1b7-7596a502b089",
+            "identifier": "57c26660-ef2f-4288-8f30-886135c2c8fb",
+            "name": "byteArraySample.jpg",
+            "extension": ".jpg",
+            "size": null,
+            "lastModified": null,
+            "imageWidth": null,
+            "imageHeight": null
           }
         },
-        "VisualBuilderTemplateConfiguration": null,
-        "VisualBuilderWidgets": null
+        "visualBuilderTemplateConfiguration": null,
+        "visualBuilderWidgets": null
       }
     ],
-    "PageData": null
+    "pageData": null
   },
   {
     "$type": "ContentItemSimplified",
-    "ContentItemGUID": "1b8e6c4c-49b6-4777-9474-c0d3a97dd832",
-    "ContentItemContentFolderGUID": "ae29c1d1-217a-45da-8b30-585d1881387e",
-    "ContentItemWorkspaceGUID": null,
-    "IsSecured": false,
-    "ContentTypeName": "UMT.Faq",
-    "Name": "SimplifiedModelSampleLinkedyByArticle",
-    "IsReusable": true,
-    "ChannelName": null,
-    "LanguageData": [
+    "contentItemGUID": "1b8e6c4c-49b6-4777-9474-c0d3a97dd832",
+    "contentItemContentFolderGUID": "ae29c1d1-217a-45da-8b30-585d1881387e",
+    "contentItemWorkspaceGUID": null,
+    "isSecured": false,
+    "contentTypeName": "UMT.Faq",
+    "name": "SimplifiedModelSampleLinkedyByArticle",
+    "isReusable": true,
+    "channelName": null,
+    "languageData": [
       {
-        "LanguageName": "en-US",
-        "DisplayName": "FAQ: reusable simplified model sample linked by an article - en-us",
-        "VersionStatus": 2,
-        "IsLatest": true,
-        "UserGuid": "dbfcc244-2cb9-4934-857f-9d75404c1553",
-        "ScheduledPublishWhen": null,
-        "ScheduledUnpublishWhen": null,
-        "ContentItemData": {
+        "languageName": "en-US",
+        "displayName": "FAQ: reusable simplified model sample linked by an article - en-us",
+        "versionStatus": 2,
+        "isLatest": true,
+        "userGuid": "dbfcc244-2cb9-4934-857f-9d75404c1553",
+        "scheduledPublishWhen": null,
+        "scheduledUnpublishWhen": null,
+        "contentItemData": {
           "FaqQuestion": "en-us FAQ question text (reusable) linked",
           "FaqAnswer": "en-us FAQ answer text (reusable) linked"
         },
-        "VisualBuilderTemplateConfiguration": null,
-        "VisualBuilderWidgets": null
+        "visualBuilderTemplateConfiguration": null,
+        "visualBuilderWidgets": null
       },
       {
-        "LanguageName": "en-GB",
-        "DisplayName": "FAQ: reusable simplified model sample linked by an article - en-gb",
-        "VersionStatus": 2,
-        "IsLatest": true,
-        "UserGuid": "dbfcc244-2cb9-4934-857f-9d75404c1553",
-        "ScheduledPublishWhen": null,
-        "ScheduledUnpublishWhen": null,
-        "ContentItemData": {
+        "languageName": "en-GB",
+        "displayName": "FAQ: reusable simplified model sample linked by an article - en-gb",
+        "versionStatus": 2,
+        "isLatest": true,
+        "userGuid": "dbfcc244-2cb9-4934-857f-9d75404c1553",
+        "scheduledPublishWhen": null,
+        "scheduledUnpublishWhen": null,
+        "contentItemData": {
           "FaqQuestion": "en-GB FAQ question text (reusable) linked",
           "FaqAnswer": "en-GB FAQ answer text (reusable) linked"
         },
-        "VisualBuilderTemplateConfiguration": null,
-        "VisualBuilderWidgets": null
+        "visualBuilderTemplateConfiguration": null,
+        "visualBuilderWidgets": null
       }
     ],
-    "PageData": null
+    "pageData": null
   },
   {
     "$type": "ContentItemSimplified",
-    "ContentItemGUID": "04df81e3-666b-4ec5-970f-3221bbb399cd",
-    "ContentItemContentFolderGUID": null,
-    "ContentItemWorkspaceGUID": null,
-    "IsSecured": false,
-    "ContentTypeName": "UMT.Article",
-    "Name": "SimplifiedModelSampleWithLinkedItems",
-    "IsReusable": false,
-    "ChannelName": "websitechannelExample",
-    "LanguageData": [
+    "contentItemGUID": "04df81e3-666b-4ec5-970f-3221bbb399cd",
+    "contentItemContentFolderGUID": null,
+    "contentItemWorkspaceGUID": null,
+    "isSecured": false,
+    "contentTypeName": "UMT.Article",
+    "name": "SimplifiedModelSampleWithLinkedItems",
+    "isReusable": false,
+    "channelName": "websitechannelExample",
+    "languageData": [
       {
-        "LanguageName": "en-US",
-        "DisplayName": "Simplified model sample with linked items - en-us",
-        "VersionStatus": 2,
-        "IsLatest": true,
-        "UserGuid": "dbfcc244-2cb9-4934-857f-9d75404c1553",
-        "ScheduledPublishWhen": null,
-        "ScheduledUnpublishWhen": null,
-        "ContentItemData": {
+        "languageName": "en-US",
+        "displayName": "Simplified model sample with linked items - en-us",
+        "versionStatus": 2,
+        "isLatest": true,
+        "userGuid": "dbfcc244-2cb9-4934-857f-9d75404c1553",
+        "scheduledPublishWhen": null,
+        "scheduledUnpublishWhen": null,
+        "contentItemData": {
           "ArticleTitle": "en-US UMT simplified model with linked items creation",
           "ArticleText": "This article is only example of creation UMT simplified model for en-US language with linked items",
           "RelatedFaq": [
             {
-              "Identifier": "1b8e6c4c-49b6-4777-9474-c0d3a97dd832"
+              "identifier": "1b8e6c4c-49b6-4777-9474-c0d3a97dd832"
             }
           ]
         },
-        "VisualBuilderTemplateConfiguration": {
-          "Identifier": "ArticlePageDefaultTemplate"
+        "visualBuilderTemplateConfiguration": {
+          "identifier": "ArticlePageDefaultTemplate"
         },
-        "VisualBuilderWidgets": null
+        "visualBuilderWidgets": null
       },
       {
-        "LanguageName": "en-GB",
-        "DisplayName": "Simplified model sample with linked items - en-gb",
-        "VersionStatus": 2,
-        "IsLatest": true,
-        "UserGuid": "dbfcc244-2cb9-4934-857f-9d75404c1553",
-        "ScheduledPublishWhen": null,
-        "ScheduledUnpublishWhen": null,
-        "ContentItemData": {
+        "languageName": "en-GB",
+        "displayName": "Simplified model sample with linked items - en-gb",
+        "versionStatus": 2,
+        "isLatest": true,
+        "userGuid": "dbfcc244-2cb9-4934-857f-9d75404c1553",
+        "scheduledPublishWhen": null,
+        "scheduledUnpublishWhen": null,
+        "contentItemData": {
           "ArticleTitle": "en-GB UMT simplified model with linked items creation",
           "ArticleText": "This article is only example of creation UMT simplified model for en-GB language with linked items",
           "RelatedFaq": [
             {
-              "Identifier": "1b8e6c4c-49b6-4777-9474-c0d3a97dd832"
+              "identifier": "1b8e6c4c-49b6-4777-9474-c0d3a97dd832"
             }
           ]
         },
-        "VisualBuilderTemplateConfiguration": {
-          "Identifier": "ArticlePageDefaultTemplate"
+        "visualBuilderTemplateConfiguration": {
+          "identifier": "ArticlePageDefaultTemplate"
         },
-        "VisualBuilderWidgets": null
+        "visualBuilderWidgets": null
       }
     ],
-    "PageData": {
-      "PageUrls": [
+    "pageData": {
+      "pageUrls": [
         {
-          "UrlPath": "en-us/simplified-linked-sample",
-          "PathIsDraft": false,
-          "PathIsLatest": true,
-          "LanguageName": "en-US"
+          "urlPath": "en-us/simplified-linked-sample",
+          "pathIsDraft": false,
+          "pathIsLatest": true,
+          "languageName": "en-US"
         },
         {
-          "UrlPath": "en-gb/simplified-linked-sample",
-          "PathIsDraft": false,
-          "PathIsLatest": true,
-          "LanguageName": "en-GB"
+          "urlPath": "en-gb/simplified-linked-sample",
+          "pathIsDraft": false,
+          "pathIsLatest": true,
+          "languageName": "en-GB"
         }
       ],
-      "PageFormerUrls": null,
-      "PageGuid": "56b168a9-2154-40ef-8683-415d71e49822",
-      "ParentGuid": null,
-      "TreePath": "/simplified-linked-sample",
-      "ItemOrder": null
+      "pageFormerUrls": null,
+      "pageGuid": "56b168a9-2154-40ef-8683-415d71e49822",
+      "parentGuid": null,
+      "treePath": "/simplified-linked-sample",
+      "itemOrder": null
     }
   },
   {
     "$type": "DataClass",
-    "ClassDisplayName": "Page with widgets",
-    "ClassName": "UMT.PageWithWidgets",
-    "ClassShortName": "UMT.PageWithWidgets",
-    "ClassTableName": "UMT_PageWithWidgets",
-    "ClassShowTemplateSelection": null,
-    "ClassLastModified": "2024-01-08T22:55:31.7853783\u002B01:00",
-    "ClassGUID": "4154293b-994c-4fe2-a7dd-de89ffd1a1c1",
-    "ClassContactMapping": null,
-    "ClassContactOverwriteEnabled": null,
-    "ClassConnectionString": null,
-    "ClassDefaultObjectType": null,
-    "ClassResourceGuid": null,
-    "ClassCodeGenerationSettings": null,
-    "ClassHasUnmanagedDbSchema": false,
-    "ClassType": "Content",
-    "ClassContentTypeType": "Website",
-    "ClassWebPageHasUrl": true,
-    "Fields": []
+    "classDisplayName": "Page with widgets",
+    "className": "UMT.PageWithWidgets",
+    "classShortName": "UMT.PageWithWidgets",
+    "classTableName": "UMT_PageWithWidgets",
+    "classShowTemplateSelection": null,
+    "classLastModified": "2024-01-08T22:55:31.7853783\u002B01:00",
+    "classGUID": "4154293b-994c-4fe2-a7dd-de89ffd1a1c1",
+    "classContactMapping": null,
+    "classContactOverwriteEnabled": null,
+    "classConnectionString": null,
+    "classDefaultObjectType": null,
+    "classResourceGuid": null,
+    "classCodeGenerationSettings": null,
+    "classHasUnmanagedDbSchema": false,
+    "classType": "Content",
+    "classContentTypeType": "Website",
+    "classWebPageHasUrl": true,
+    "fields": []
   },
   {
     "$type": "ContentItemSimplified",
-    "ContentItemGUID": "0c6ad176-2c53-4c95-901a-6c155c843951",
-    "ContentItemContentFolderGUID": null,
-    "ContentItemWorkspaceGUID": null,
-    "IsSecured": false,
-    "ContentTypeName": "UMT.PageWithWidgets",
-    "Name": "VisualBuilderPageSimplifiedModelSample",
-    "IsReusable": false,
-    "ChannelName": "websitechannelExample",
-    "LanguageData": [
+    "contentItemGUID": "0c6ad176-2c53-4c95-901a-6c155c843951",
+    "contentItemContentFolderGUID": null,
+    "contentItemWorkspaceGUID": null,
+    "isSecured": false,
+    "contentTypeName": "UMT.PageWithWidgets",
+    "name": "VisualBuilderPageSimplifiedModelSample",
+    "isReusable": false,
+    "channelName": "websitechannelExample",
+    "languageData": [
       {
-        "LanguageName": "en-US",
-        "DisplayName": "Page with widgets (simplified model) - en-us",
-        "VersionStatus": 2,
-        "IsLatest": true,
-        "UserGuid": null,
-        "ScheduledPublishWhen": null,
-        "ScheduledUnpublishWhen": null,
-        "ContentItemData": {},
-        "VisualBuilderTemplateConfiguration": {
-          "Identifier": "PageWithWidgetsDefaultTemplate"
+        "languageName": "en-US",
+        "displayName": "Page with widgets (simplified model) - en-us",
+        "versionStatus": 2,
+        "isLatest": true,
+        "userGuid": null,
+        "scheduledPublishWhen": null,
+        "scheduledUnpublishWhen": null,
+        "contentItemData": {},
+        "visualBuilderTemplateConfiguration": {
+          "identifier": "PageWithWidgetsDefaultTemplate"
         },
-        "VisualBuilderWidgets": {
-          "EditableAreas": [
+        "visualBuilderWidgets": {
+          "editableAreas": [
             {
-              "Identifier": "main-area",
-              "Sections": [
+              "identifier": "main-area",
+              "sections": [
                 {
-                  "Identifier": "d3d434fd-6a8c-464f-88ad-a02a991fbb9b",
-                  "Type": "SingleColumnSection",
-                  "Properties": {
-                    "BackgroundColor": "#EEE"
+                  "identifier": "d3d434fd-6a8c-464f-88ad-a02a991fbb9b",
+                  "type": "SingleColumnSection",
+                  "properties": {
+                    "backgroundColor": "#EEE"
                   },
-                  "Zones": [
+                  "zones": [
                     {
-                      "Identifier": "0513c5d5-3cf0-4bfa-a106-61b2ca10d23e",
-                      "Name": "main-zone",
-                      "Widgets": [
+                      "identifier": "0513c5d5-3cf0-4bfa-a106-61b2ca10d23e",
+                      "name": "main-zone",
+                      "widgets": [
                         {
-                          "Identifier": "5432d27d-52eb-45f5-8107-3cb08a331cf8",
-                          "Type": "UMT.SampleWidget",
-                          "Variants": [
+                          "identifier": "5432d27d-52eb-45f5-8107-3cb08a331cf8",
+                          "type": "UMT.SampleWidget",
+                          "variants": [
                             {
-                              "Identifier": "e0cd9100-d93c-4371-9a05-a3aa781bc526",
-                              "Properties": {
-                                "Heading": "Widget #1",
-                                "LinkedArticles": [
+                              "identifier": "e0cd9100-d93c-4371-9a05-a3aa781bc526",
+                              "properties": {
+                                "heading": "Widget #1",
+                                "linkedArticles": [
                                   {
-                                    "Identifier": "9ed8de86-859c-4f6c-94f2-cdd6baed99fe"
+                                    "identifier": "9ed8de86-859c-4f6c-94f2-cdd6baed99fe"
                                   },
                                   {
-                                    "Identifier": "017edc1e-95c6-43e4-89d5-716c6ae594b2"
+                                    "identifier": "017edc1e-95c6-43e4-89d5-716c6ae594b2"
                                   }
                                 ]
                               }
@@ -2101,22 +2123,22 @@
                           ]
                         },
                         {
-                          "Identifier": "bca45fe2-2579-4a9f-8672-ffd14196e294",
-                          "Type": "UMT.SampleWidget",
-                          "Variants": [
+                          "identifier": "bca45fe2-2579-4a9f-8672-ffd14196e294",
+                          "type": "UMT.SampleWidget",
+                          "variants": [
                             {
-                              "Identifier": "7f01c403-4f94-4e3c-97de-2676e8a5cee8",
-                              "Properties": {
-                                "Heading": "Widget #2",
-                                "LinkedArticles": [
+                              "identifier": "7f01c403-4f94-4e3c-97de-2676e8a5cee8",
+                              "properties": {
+                                "heading": "Widget #2",
+                                "linkedArticles": [
                                   {
-                                    "Identifier": "73298f71-0bb1-4083-a674-a876769e3dd9"
+                                    "identifier": "73298f71-0bb1-4083-a674-a876769e3dd9"
                                   },
                                   {
-                                    "Identifier": "8e957ecc-083b-4c86-b761-8db516c13737"
+                                    "identifier": "8e957ecc-083b-4c86-b761-8db516c13737"
                                   },
                                   {
-                                    "Identifier": "bb5c0eb4-e688-4a97-99c7-fa97cad8f1d5"
+                                    "identifier": "bb5c0eb4-e688-4a97-99c7-fa97cad8f1d5"
                                   }
                                 ]
                               }
@@ -2133,45 +2155,45 @@
         }
       }
     ],
-    "PageData": {
-      "PageUrls": [
+    "pageData": {
+      "pageUrls": [
         {
-          "UrlPath": "en-us/page-with-widgets-simplified",
-          "PathIsDraft": false,
-          "PathIsLatest": true,
-          "LanguageName": "en-US"
+          "urlPath": "en-us/page-with-widgets-simplified",
+          "pathIsDraft": false,
+          "pathIsLatest": true,
+          "languageName": "en-US"
         },
         {
-          "UrlPath": "es/page-with-widgets-simplified",
-          "PathIsDraft": false,
-          "PathIsLatest": true,
-          "LanguageName": "es-CU"
+          "urlPath": "es/page-with-widgets-simplified",
+          "pathIsDraft": false,
+          "pathIsLatest": true,
+          "languageName": "es-CU"
         }
       ],
-      "PageFormerUrls": null,
-      "PageGuid": "0c6ad176-2c53-4c95-901a-6c155c843951",
-      "ParentGuid": null,
-      "TreePath": "/page-with-widgets-simplified",
-      "ItemOrder": null
+      "pageFormerUrls": null,
+      "pageGuid": "0c6ad176-2c53-4c95-901a-6c155c843951",
+      "parentGuid": null,
+      "treePath": "/page-with-widgets-simplified",
+      "itemOrder": null
     }
   },
   {
     "$type": "WebPageScope",
-    "WebPageScopeGUID": "86f11122-d4f3-4886-a0e6-1c31ca1dc21b",
-    "WebPageScopeWebsiteChannelGuid": "a6ba6fcb-9d05-4abe-afb4-74b153c90db7",
-    "WebPageScopeWebPageItemGuid": "e45538c5-e3dd-4bbf-9019-e84ea3e4dc32",
-    "WebPageScopeIncludeChildren": true
+    "webPageScopeGUID": "86f11122-d4f3-4886-a0e6-1c31ca1dc21b",
+    "webPageScopeWebsiteChannelGuid": "a6ba6fcb-9d05-4abe-afb4-74b153c90db7",
+    "webPageScopeWebPageItemGuid": "e45538c5-e3dd-4bbf-9019-e84ea3e4dc32",
+    "webPageScopeIncludeChildren": true
   },
   {
     "$type": "WebPageScope",
-    "WebPageScopeGUID": "b8944002-1792-46fb-b14b-d185ce904085",
-    "WebPageScopeWebsiteChannelGuid": "a6ba6fcb-9d05-4abe-afb4-74b153c90db7",
-    "WebPageScopeWebPageItemGuid": "57b808c0-cdf9-4feb-9c7c-0a0169ffc0f5",
-    "WebPageScopeIncludeChildren": true
+    "webPageScopeGUID": "b8944002-1792-46fb-b14b-d185ce904085",
+    "webPageScopeWebsiteChannelGuid": "a6ba6fcb-9d05-4abe-afb4-74b153c90db7",
+    "webPageScopeWebPageItemGuid": "57b808c0-cdf9-4feb-9c7c-0a0169ffc0f5",
+    "webPageScopeIncludeChildren": true
   },
   {
     "$type": "WebPageScopeContentType",
-    "WebPageScopeContentTypeWebPageScopeGuid": "b8944002-1792-46fb-b14b-d185ce904085",
-    "WebPageScopeContentTypeContentTypeGuid": "06540294-3b56-4cf7-8773-088bb766ac23"
+    "webPageScopeContentTypeWebPageScopeGuid": "b8944002-1792-46fb-b14b-d185ce904085",
+    "webPageScopeContentTypeContentTypeGuid": "06540294-3b56-4cf7-8773-088bb766ac23"
   }
 ]

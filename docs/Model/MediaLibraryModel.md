@@ -20,10 +20,10 @@ Model [discriminator](../UmtModel.md#discriminator): `Media_Library`
 ```json
 {
   "$type": "Media_Library",
-  "LibraryName": "LibrarySample",
-  "LibraryDisplayName": "LibraryDisplayedName",
-  "LibraryDescription": "TestLibrary",
-  "LibraryFolder": "TestFolder",
-  "LibraryGUID": "e3a9c50c-2b76-4ba8-ac19-2f0aa64c47d5"
+  "libraryName": "LibrarySample",
+  "libraryDisplayName": "LibraryDisplayedName",
+  "libraryDescription": "TestLibrary",
+  "libraryFolder": "TestFolder",
+  "libraryGUID": "e3a9c50c-2b76-4ba8-ac19-2f0aa64c47d5"
 }
 ```

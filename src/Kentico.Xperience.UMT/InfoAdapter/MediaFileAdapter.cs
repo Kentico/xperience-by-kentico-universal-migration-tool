@@ -8,13 +8,20 @@ using Microsoft.Extensions.Logging;
 
 namespace Kentico.Xperience.UMT.InfoAdapter;
 
-internal class MediaFileAdapter(ILogger<MediaFileAdapter> logger, GenericInfoAdapterContext adapterContext) : GenericInfoAdapter<MediaFileInfo>(logger, adapterContext)
+internal class MediaFileAdapter(ILogger<MediaFileAdapter> logger, GenericInfoAdapterContext adapterContext)
+#pragma warning disable CS0618 // Type or member is obsolete
+    : GenericInfoAdapter<MediaFileInfo>(logger, adapterContext)
+#pragma warning restore CS0618 // Type or member is obsolete
 {
     private static readonly Lazy<HttpClient> httpClient = new(() => new HttpClient());
 
+#pragma warning disable CS0618 // Type or member is obsolete
     protected override MediaFileInfo ObjectFactory(UmtModelInfo umtModelInfo, IUmtModel umtModel)
+#pragma warning restore CS0618 // Type or member is obsolete
     {
+#pragma warning disable CS0618 // Type or member is obsolete
         MediaFileInfo mediaFileInfo;
+#pragma warning restore CS0618 // Type or member is obsolete
 
         var model = (MediaFileModel)umtModel;
 
@@ -60,15 +67,24 @@ internal class MediaFileAdapter(ILogger<MediaFileAdapter> logger, GenericInfoAda
             throw new InvalidOperationException("File download failed");
         }
 
+#pragma warning disable CS0618 // Type or member is obsolete
         var mediaLibrary = MediaLibraryInfoProvider.ProviderObject.Get(model.FileLibraryGuid!.Value);
-        MediaLibraryInfoProvider.CreateMediaLibraryFolder(mediaLibrary.LibraryID, Path.GetDirectoryName(model.FilePath));
+#pragma warning restore CS0618 // Type or member is obsolete
 
+#pragma warning disable CS0618 // Type or member is obsolete
+        MediaLibraryInfoProvider.CreateMediaLibraryFolder(mediaLibrary.LibraryID, Path.GetDirectoryName(model.FilePath));
+#pragma warning restore CS0618 // Type or member is obsolete
+
+#pragma warning disable CS0618 // Type or member is obsolete
         mediaFileInfo = new MediaFileInfo(uploadedFile, 0);
+#pragma warning restore CS0618 // Type or member is obsolete
         mediaFileInfo.SaveFileToDisk(true);
         return mediaFileInfo;
     }
 
+#pragma warning disable CS0618 // Type or member is obsolete
     protected override MediaFileInfo MapProperties(IUmtModel umtModel, MediaFileInfo current)
+#pragma warning restore CS0618 // Type or member is obsolete
     {
         var mediaModel = (MediaFileModel)umtModel;
 

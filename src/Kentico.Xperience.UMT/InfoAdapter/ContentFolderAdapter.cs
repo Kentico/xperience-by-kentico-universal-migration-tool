@@ -3,9 +3,9 @@ using CMS.Core;
 using CMS.Core.Internal;
 using CMS.DataEngine;
 using CMS.Helpers;
-using CMS.Workspaces;
 
 using Kentico.Xperience.UMT.Model;
+using Kentico.Xperience.UMT.Services;
 
 using Microsoft.Extensions.Logging;
 
@@ -14,14 +14,15 @@ namespace Kentico.Xperience.UMT.InfoAdapter;
 public class ContentFolderAdapter : GenericInfoAdapter<ContentFolderInfo>
 {
     private readonly IInfoProvider<ContentFolderInfo> contentFolderInfoProvider;
-    private readonly IInfoProvider<WorkspaceInfo> workspaceInfoProvider;
+    private readonly WorkspaceService workspaceService;
 
-    internal ContentFolderAdapter(ILogger<ContentFolderAdapter> logger, IInfoProvider<ContentFolderInfo> contentFolderInfoProvider, IInfoProvider<WorkspaceInfo> workspaceInfoProvider, GenericInfoAdapterContext adapterContext) : base(logger, adapterContext)
+    internal ContentFolderAdapter(ILogger<ContentFolderAdapter> logger, IInfoProvider<ContentFolderInfo> contentFolderInfoProvider,
+        GenericInfoAdapterContext adapterContext, WorkspaceService workspaceService) : base(logger, adapterContext)
     {
         this.contentFolderInfoProvider = contentFolderInfoProvider;
-        this.workspaceInfoProvider = workspaceInfoProvider;
+        this.workspaceService = workspaceService;
     }
-    
+
     public override ContentFolderInfo Adapt(IUmtModel input)
     {
         var info = base.Adapt(input);
@@ -51,18 +52,7 @@ public class ContentFolderAdapter : GenericInfoAdapter<ContentFolderInfo>
 
         if (input is ContentFolderModel { ContentFolderWorkspaceGUID: null })
         {
-            var defaultWorkspace = workspaceInfoProvider.Get()
-                .WhereEquals(nameof(WorkspaceInfo.WorkspaceName), DEFAULT_WORKSPACE_NAME)
-                .FirstOrDefault();
-
-            if (defaultWorkspace != null)
-            {
-                info.ContentFolderWorkspaceID = defaultWorkspace.WorkspaceID;
-            }
-            else
-            {
-                Logger.LogError("Failed to locate default workspace");
-            }
+            info.ContentFolderWorkspaceID = workspaceService.FallbackWorkspace.Value.WorkspaceID;
         }
 
         return info;
