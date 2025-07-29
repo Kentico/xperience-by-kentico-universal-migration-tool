@@ -27,7 +27,9 @@ public class MediaFileModel : UmtModel
     public Guid? FileGUID { get; set; }
 
     [Required]
+#pragma warning disable CS0618 // Type or member is obsolete
     [ReferenceProperty(typeof(MediaLibraryInfo), "FileLibraryID", IsRequired = true)]
+#pragma warning restore CS0618 // Type or member is obsolete
     public Guid? FileLibraryGuid { get; set; }
 
     [ReferenceProperty(typeof(UserInfo), "FileCreatedByUserID", IsRequired = false)]

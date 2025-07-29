@@ -31,7 +31,9 @@ internal class AdapterFactory(ILoggerFactory loggerFactory, UmtModelService mode
             UserInfoModel => new UserAdapter(loggerFactory.CreateLogger<UserAdapter>(), adapterContext),
             MemberInfoModel => new MemberAdapter(loggerFactory.CreateLogger<MemberAdapter>(), adapterContext),
             MediaFileModel => new MediaFileAdapter(loggerFactory.CreateLogger<MediaFileAdapter>(), adapterContext),
+#pragma warning disable CS0618 // Type or member is obsolete
             MediaLibraryModel => new GenericInfoAdapter<MediaLibraryInfo>(loggerFactory.CreateLogger<GenericInfoAdapter<MediaLibraryInfo>>(), adapterContext),
+#pragma warning restore CS0618 // Type or member is obsolete
             ContentItemLanguageMetadataModel => new GenericInfoAdapter<ContentItemLanguageMetadataInfo>(loggerFactory.CreateLogger<GenericInfoAdapter<ContentItemLanguageMetadataInfo>>(), adapterContext),
             ContentItemCommonDataModel => new ContentItemCommonDataAdapter(loggerFactory.CreateLogger<ContentItemCommonDataAdapter>(), adapterContext, contentItemReferencePopulator),
             ContentItemDataModel => new ContentItemDataAdapter(loggerFactory.CreateLogger<ContentItemDataAdapter>(), adapterContext, contentItemReferencePopulator),
