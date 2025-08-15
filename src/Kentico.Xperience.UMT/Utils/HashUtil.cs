@@ -9,8 +9,7 @@ public static class HashUtil
     {
         string lowered = input.ToLowerInvariant();
 
-        Encoding encoding1252 = Encoding.GetEncoding(1252);
-        byte[] bytes = encoding1252.GetBytes(lowered);
+        byte[] bytes = Encoding.Unicode.GetBytes(lowered);
 
         using var sha256 = SHA256.Create();
         byte[] hash = sha256.ComputeHash(bytes);
