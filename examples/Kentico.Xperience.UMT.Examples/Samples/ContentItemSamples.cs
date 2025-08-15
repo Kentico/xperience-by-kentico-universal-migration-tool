@@ -100,6 +100,38 @@ public static class ContentItemSamples
         WebPageUrlPathIsDraft = false
     };
 
+
+    [Sample("webpageitem.vanityurl1.sample.article.enus", "", "Page vanity url sample")]
+    public static WebPageUrlPathModel SampleArticleVanityUrl1PathModelEnUs => new()
+    {
+        WebPageUrlPathGUID = new Guid("3AEF8467-EF61-43A4-BB6E-D2132E897A0E"),
+        WebPageUrlPath = "creation-of-umt-model-vanity-1",
+        WebPageUrlPathHash = null,
+        WebPageUrlPathWebPageItemGuid = SampleArticleWebPageItem.WebPageItemGUID,
+        WebPageUrlPathWebsiteChannelGuid = WebSiteChannelSamples.WebsiteChannelGuid,
+        WebPageUrlPathContentLanguageGuid = ContentLanguageSamples.CONTENT_LANGUAGE_ENUS_SAMPLE_GUID,
+        WebPageUrlPathIsLatest = true,
+        WebPageUrlPathIsDraft = false,
+        WebPageUrlPathIsCanonical = false,
+        WebPageUrlPathType = 1
+    };
+
+    [Sample("webpageitem.vanityurl2.sample.article.enus", "", "Page vanity url sample")]
+    public static WebPageUrlPathModel SampleArticleVanityUrl2PathModelEnUs => new()
+    {
+        WebPageUrlPathGUID = new Guid("90729A19-E323-4817-B827-EF8C19959820"),
+        WebPageUrlPath = "creation-of-umt-model-vanity-2",
+        WebPageUrlPathHash = null,
+        WebPageUrlPathWebPageItemGuid = SampleArticleWebPageItem.WebPageItemGUID,
+        WebPageUrlPathWebsiteChannelGuid = WebSiteChannelSamples.WebsiteChannelGuid,
+        WebPageUrlPathContentLanguageGuid = ContentLanguageSamples.CONTENT_LANGUAGE_ENUS_SAMPLE_GUID,
+        WebPageUrlPathIsLatest = true,
+        WebPageUrlPathIsDraft = false,
+        WebPageUrlPathIsCanonical = false,
+        WebPageUrlPathType = 1
+    };
+
+
     [Sample("webpageitem.formerurlpath.sample.article.enus", "", "Page former url path sample")]
     public static WebPageFormerUrlPathModel SampleArticleWebPathFormerUrlPathEnUs => new()
     {

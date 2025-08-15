@@ -1,4 +1,5 @@
 ﻿using System.Globalization;
+using System.Text.RegularExpressions;
 
 using Microsoft.Playwright;
 
@@ -371,6 +372,44 @@ namespace TestAfterMigration.Tests
             await ExpectChildrenAllowed("Simplified model sample sub page 4", false);
             await ExpectChildrenAllowed("Simplified model sample sub page 5", true);
             await ExpectChildrenAllowed("Simplified model sample sub page 6", true);
+        }
+
+        [Test]
+        public async Task Test01500_Vanity_URLs_Show_In_Page_URLs()
+        {
+            await OpenAdminApplication("website Channel Example");
+            await SelectTopDropdownLanguage("English (United States)");
+
+            var treeItems = await GetPageTreeItemsFlat();
+
+            var item = treeItems.First(x => string.Equals(x.Title, "Creation of UMT model", StringComparison.OrdinalIgnoreCase));
+            await item.ClickAsync();
+
+            await Page.Locator($"button[aria-label=\"URLs\"]").ClickAsync();
+            await Debounce();
+
+            Task ExpectVanityURLRowVisible(string url) => Assertions.Expect(Page
+                .GetByTestId("edit-page")
+                .GetByRole(AriaRole.Row)
+                .Filter(new() { Has = Page.GetByRole(AriaRole.Cell).Filter(new() { HasText = "Vanity URL" }) })
+                .Filter(new() { Has = Page.GetByRole(AriaRole.Cell).Filter(new() { HasText = url }) })
+                .Nth(0))
+                .ToBeVisibleAsync();
+
+            await ExpectVanityURLRowVisible("https://websitesamplewebsitedomain.com/creation-of-umt-model-vanity-1");
+            await ExpectVanityURLRowVisible("https://websitesamplewebsitedomain.com/creation-of-umt-model-vanity-2");
+        }
+
+        [Test]
+        public async Task Test01600_Vanity_URLs_Show_In_URLs_App()
+        {
+            await OpenAdminApplication("URLs");
+
+            await Page.GetByTestId("vertical-menu-item").Filter(new LocatorFilterOptions { HasTextRegex = new Regex("^Vanity URLs$") }).ClickAsync();
+            await Debounce();
+
+            await Assertions.Expect(Page.GetByText("creation-of-umt-model-vanity-1")).ToBeVisibleAsync();
+            await Assertions.Expect(Page.GetByText("creation-of-umt-model-vanity-2")).ToBeVisibleAsync();
         }
     }
 }

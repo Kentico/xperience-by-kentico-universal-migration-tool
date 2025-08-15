@@ -43,6 +43,12 @@ public class WebPageUrlPathModel : UmtModel
     [Map]
     public bool? WebPageUrlPathIsDraft { get; set; }
 
+    [Map]
+    public int? WebPageUrlPathType { get; set; }
+
+    [Map]
+    public bool? WebPageUrlPathIsCanonical { get; set; }
+
     [ReferenceProperty(typeof(WebPageUrlPathInfo), "WebPageUrlPathRedirectWebPageFormerUrlPathID", IsRequired = false)]
     public Guid? WebPageUrlPathRedirectWebPageFormerUrlPathGUID { get; set; }
 
