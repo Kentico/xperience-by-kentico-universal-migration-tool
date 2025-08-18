@@ -17,8 +17,9 @@ internal class WebPageUrlPathAdapter : GenericInfoAdapter<WebPageUrlPathInfo>
 
     public override WebPageUrlPathInfo Adapt(IUmtModel input)
     {
-        var adapted = base.Adapt(input);
+        ((WebPageUrlPathModel)input).WebPageUrlPathIsCanonical ??= true;
 
+        var adapted = base.Adapt(input);
         using var conn = new SqlConnection(ConnectionHelper.ConnectionString);
         conn.Open();
         using var cmd = conn.CreateCommand();
