@@ -65,6 +65,7 @@
 |`int`|`Kentico.Administration.NumberWithLabel`|`NumberWithLabelComponent`|`FormComponentProperties`||
 |`System.DateTime?`|`Kentico.Administration.DateInput`|`DateInputComponent`|`FormComponentProperties`||
 |`System.DateTime?`|`Kentico.Administration.DateTimeInput`|`DateTimeInputComponent`|`FormComponentProperties`||
+|`System.DateTime?`|`Kentico.Administration.DateTimeString`|`DateTimeStringComponent`|`DateTimeStringProperties`||
 |`decimal?`|`Kentico.Administration.DecimalNumberInput`|`DecimalNumberInputComponent`|`DecimalNumberInputProperties`||
 |`int?`|`Kentico.Administration.NumberInput`|`NumberInputComponent`|`NumberInputProperties`||
 |`int?`|`Kentico.Administration.SingleObjectIdSelector`|`SingleObjectIdSelectorComponent`|`SingleObjectSelectorProperties`||
