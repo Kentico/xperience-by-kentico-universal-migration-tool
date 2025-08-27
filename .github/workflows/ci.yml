@@ -108,9 +108,17 @@ jobs:
       - name: <XbK> Run kentico dbmanager with license
         working-directory: ${{ env.XBK_DIR }}
         run: |
-          echo ${{ secrets.XPERIENCE_BY_KENTICO_LICENSE }} > ${{ env.LICENCE_FILE }}
-          dotnet kentico-xperience-dbmanager -- -s "localhost" -d "pwtest" -u "sa" -p "${{ env.SA_PASSWORD }}" -a "${{ secrets.XPERIENCE_BY_KENTICO_ADMIN_PASSWORD }}" --recreate-existing-database --hash-string-salt "<hash_string_salt>" --license-file "${{ env.LICENCE_FILE }}"
-          rm ${{ env.LICENCE_FILE }}
+          echo ${{ secrets.XPERIENCE_BY_KENTICO_LICENSE }} > ${{ env.LICENSE_FILE }}
+          dotnet kentico-xperience-dbmanager -- \
+          -s "localhost" \
+          -d "pwtest" \
+          -u "sa" \
+          -p "${{ env.SA_PASSWORD }}" \
+          -a "${{ secrets.XPERIENCE_BY_KENTICO_ADMIN_PASSWORD }}" \
+          --recreate-existing-database \
+          --hash-string-salt "<hash_string_salt>" \
+          --license-file "${{ env.LICENSE_FILE }}"
+          rm ${{ env.LICENSE_FILE }}
 
       - name: <UMT> Prepare appsettings.json for migration
         working-directory: ${{ env.UMT_DIR }}
