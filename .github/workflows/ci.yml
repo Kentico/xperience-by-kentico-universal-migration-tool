@@ -147,10 +147,9 @@ jobs:
         run: |
           dotnet run --no-build
 
-      - name: Install Playwright
+      - name: Ensure browsers are installed
         working-directory: ${{ env.UMT_DIR }}/tests/Kentico.Xperience.UMT.Tests
-        run: |
-          pwsh bin\Debug\net8.0\playwright.ps1 install --with-deps
+        run: pwsh bin/Debug/net8.0/playwright.ps1 install --with-deps
 
       - name: Prepare test.runsettings
         working-directory: ${{ env.UMT_DIR }}
