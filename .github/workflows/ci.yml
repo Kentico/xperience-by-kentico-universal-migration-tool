@@ -150,7 +150,7 @@ jobs:
       - name: Install Playwright
         working-directory: ${{ env.UMT_DIR }}/tests/Kentico.Xperience.UMT.Tests
         run: |
-          bin\Debug\net8.0\playwright.sh install --with-deps
+          pwsh bin\Debug\net8.0\playwright.ps1 install --with-deps
 
       - name: Prepare test.runsettings
         working-directory: ${{ env.UMT_DIR }}
