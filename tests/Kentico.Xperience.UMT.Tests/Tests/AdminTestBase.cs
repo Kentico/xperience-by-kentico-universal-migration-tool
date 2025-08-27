@@ -23,7 +23,7 @@ namespace TestAfterMigration.Tests
 
             Browser = await Playwright.Chromium.LaunchAsync(new BrowserTypeLaunchOptions
             {
-                Headless = false,
+                Headless = true,
             });
 
             Page = await Browser.NewPageAsync();
