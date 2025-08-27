@@ -18,7 +18,7 @@ namespace TestAfterMigration.Tests
             if (!(await Page.GetByTestId("WorkspaceSelector").TextContentAsync())?.Contains(workspaceTitle, StringComparison.OrdinalIgnoreCase) ?? false)
             {
                 await Page.GetByTestId("WorkspaceSelector").Locator("div[class^=\"select_\"]").Nth(0).ClickAsync();
-                await Page.GetByTestId("WorkspaceSelector").GetByTestId("WorkspaceSelectorDropdownActionMenu").GetByTestId("menu-item").Filter(new LocatorFilterOptions { HasText = workspaceTitle }).ClickAsync();
+                await Page.GetByTestId("WorkspaceSelector").GetByTestId("CommonSelectorDropdownActionMenu").GetByTestId("menu-item").Filter(new LocatorFilterOptions { HasText = workspaceTitle }).ClickAsync();
                 await Debounce();
             }
         }
@@ -26,7 +26,7 @@ namespace TestAfterMigration.Tests
         public new async Task SelectTopDropdownLanguage(string languageTitle)
         {
             await Page.GetByTestId("WorkspaceSelector").Locator("div[class^=\"select_\"]").Nth(1).ClickAsync();
-            await Page.GetByTestId("WorkspaceSelector").GetByTestId("WorkspaceSelectorDropdownActionMenu").GetByTestId("menu-item").Filter(new LocatorFilterOptions { HasText = languageTitle }).ClickAsync();
+            await Page.GetByTestId("WorkspaceSelector").GetByTestId("CommonSelectorDropdownActionMenu").GetByTestId("menu-item").Filter(new LocatorFilterOptions { HasText = languageTitle }).ClickAsync();
             await Debounce();
         }
 

@@ -266,7 +266,7 @@ namespace TestAfterMigration.Tests
             await Page.GetByTestId("content-item-menu-split-button-publish").ClickAsync();
             await Page.GetByTestId("schedule-publish").ClickAsync();
             await Debounce();
-            await Page.GetByTestId("ScheduledTime").FillAsync(DateTime.Now.AddDays(365).ToString("MM/dd/yyyy hh:mm tt", CultureInfo.GetCultureInfo("en-US")));
+            await Page.GetByTestId("ScheduledTime").FillAsync(DateTime.Now.AddDays(365).ToString("MM/dd/yyyy h:mm tt", CultureInfo.GetCultureInfo("en-US")));
 
             // Make UI recognize the new date input
             await Page.WaitForTimeoutAsync(3000);
