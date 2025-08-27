@@ -109,15 +109,7 @@ jobs:
         working-directory: ${{ env.XBK_DIR }}
         run: |
           echo ${{ secrets.XPERIENCE_BY_KENTICO_LICENSE }} > ${{ env.LICENCE_FILE }}
-          dotnet kentico-xperience-dbmanager -- \
-          -s "localhost" \
-          -d "pwtest" \
-          -u "sa" \
-          -p "${{ env.SA_PASSWORD }}" \
-          -a "${{ secrets.XPERIENCE_BY_KENTICO_ADMIN_PASSWORD }}" \
-          --recreate-existing-database \
-          --hash-string-salt "<hash_string_salt>" \
-          --license-file "${{ env.LICENCE_FILE }}"
+          dotnet kentico-xperience-dbmanager -- -s "localhost" -d "pwtest" -u "sa" -p "${{ env.SA_PASSWORD }}" -a "${{ secrets.XPERIENCE_BY_KENTICO_ADMIN_PASSWORD }}" --recreate-existing-database --hash-string-salt "<hash_string_salt>" --license-file "${{ env.LICENCE_FILE }}"
           rm ${{ env.LICENCE_FILE }}
 
       - name: <UMT> Prepare appsettings.json for migration
