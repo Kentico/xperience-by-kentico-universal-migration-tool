@@ -143,12 +143,12 @@ jobs:
           dotnet build
 
       - name: <UMT> Run example migration
-        working-directory: ${{ env.UMT_DIR }}\examples\Kentico.Xperience.UMT.Example.Console\
+        working-directory: ${{ env.UMT_DIR }}/examples/Kentico.Xperience.UMT.Example.Console/
         run: |
           dotnet run --no-build
 
       - name: Install Playwright
-        working-directory: ${{ env.UMT_DIR }}\tests\Kentico.Xperience.UMT.Tests
+        working-directory: ${{ env.UMT_DIR }}/tests/Kentico.Xperience.UMT.Tests
         run: |
           bin\Debug\net8.0\playwright.sh install --with-deps
 
