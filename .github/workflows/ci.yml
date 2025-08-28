@@ -38,7 +38,6 @@ env:
   DB_DATABASE: "pwtest"
   LICENSE_FILE: "${{ github.workspace }}/license.txt"
   XBK_URL: ""
-  SA_PASSWORD: "Your_password123"
 
 jobs:
   build:
@@ -47,7 +46,7 @@ jobs:
       sqlserver:
         image: mcr.microsoft.com/mssql/server:2019-latest
         env:
-          SA_PASSWORD: "${{ env.SA_PASSWORD }}"
+          SA_PASSWORD: "${{ secrets.XPERIENCE_BY_KENTICO_DB_PASSWORD }}"
           ACCEPT_EULA: "Y"
         ports:
           - 1433:1433
@@ -66,29 +65,6 @@ jobs:
       - name: Setup .NET
         uses: actions/setup-dotnet@v4
 
-      # - name: <DB> Create Kentico DB user
-      #   run: |
-      #     sqlcmd -Q "CREATE LOGIN ${{ env.DB_USER}} WITH PASSWORD = '${{ secrets.XPERIENCE_BY_KENTICO_DB_PASSWORD }}';
-      #     CREATE USER kentico FOR LOGIN kentico;
-      #     GO"
-
-      # - name: <DB> Add kentico user to sysadmin role
-      #   run: |
-      #     sqlcmd -Q "sp_addsrvrolemember '${{ env.DB_USER}}', 'sysadmin';
-      #     GO"
-
-      # - name: <DB> Enable SQL authentication
-      #   run: |
-      #     Write-Output "SQL Server: Setting Mixed Mode Authentication."
-      #     New-ItemProperty 'HKLM:\Software\Microsoft\Microsoft SQL Server\MSSQL16.SQLEXPRESS\MSSQLServer\' -Name 'LoginMode' -Value 2 -Force
-      #     Write-Output "SQL Server: Forcing Restart of Instance."
-      #     Restart-Service -Force 'MSSQL$SQLEXPRESS'
-
-      # - name: <DB> Create database
-      #   run: |
-      #     sqlcmd -S "${{ env.SQLSERVER_NAME}}" -U '${{ env.DB_USER}}' -P '${{ secrets.XPERIENCE_BY_KENTICO_DB_PASSWORD }}' -Q "CREATE DATABASE ${{ env.DB_DATABASE}};"
-
-      # Xperience by Kentico setup
       - name: <XbK> Install kentico templates
         working-directory: ${{ env.UMT_DIR }}
         run: |
@@ -113,7 +89,7 @@ jobs:
           -s "localhost" \
           -d "pwtest" \
           -u "sa" \
-          -p "${{ env.SA_PASSWORD }}" \
+          -p "${{ secrets.XPERIENCE_BY_KENTICO_DB_PASSWORD }}" \
           -a "${{ secrets.XPERIENCE_BY_KENTICO_ADMIN_PASSWORD }}" \
           --recreate-existing-database \
           --hash-string-salt "<hash_string_salt>" \
@@ -166,7 +142,7 @@ jobs:
       - name: Start xbk and run tests
         run: |
           cd ${{ env.XBK_DIR }}
-          dotnet run --project "${{ env.XBK_DIR }}/kentico-boilerplate.csproj" &
+          dotnet run --project "${{ env.XBK_DIR }}/kentico-boilerplate.csproj" > /dev/null &
           XBK_PID=$!
           echo "XbK starting..."
           
@@ -194,5 +170,5 @@ jobs:
         if: ${{ !cancelled() }}
         with:
           name: playwright-report
-          path: ${{ env.UMT_DIR }}\reports\
+          path: ${{ env.UMT_DIR }}/reports/
           retention-days: 10
