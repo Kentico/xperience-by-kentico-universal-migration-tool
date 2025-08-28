@@ -16,7 +16,7 @@ namespace TestAfterMigration.Tests
         protected static string AdministratorUser => Environment.GetEnvironmentVariable("ADMINISTRATION_USER") ?? "";
         protected static string AdministratorPassword => Environment.GetEnvironmentVariable("ADMINISTRATION_PASSWORD") ?? "";
 
-        private bool IsCIEnvironment => Environment.GetEnvironmentVariable("CI") == "false";
+        private static bool IsCIEnvironment => Environment.GetEnvironmentVariable("CI") == "true";
 
         [SetUp]
         public async Task Setup()
