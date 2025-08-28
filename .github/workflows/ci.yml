@@ -167,10 +167,18 @@ jobs:
           dotnet test --settings:test.runsettings \
           --logger:"html;LogFileName=${{ env.UMT_DIR }}/reports/logFile.html" \
           -e CI=false
+          tree ${{ env.UMT_DIR }}/tests
 
       - uses: actions/upload-artifact@v4
         if: ${{ !cancelled() }}
         with:
-          name: playwright-report
-          path: ${{ env.UMT_DIR }}/tests/Kentico.Xperinece.UMT.Tests/bin/Debug/net8.0/playwright-traces/trace.zip
+          name: test-report
+          path: ${{ env.UMT_DIR }}/reports/
+          retention-days: 10
+
+      - uses: actions/upload-artifact@v4
+        if: ${{ !cancelled() }}
+        with:
+          name: playwright-trace
+          path: ${{ env.UMT_DIR }}/tests/Kentico.Xperinece.UMT.Tests/bin/Debug/net8.0/playwright-traces/
           retention-days: 10
