@@ -40,7 +40,7 @@ env:
   XBK_URL: ""
 
 jobs:
-  build:
+  build-and-test:
     runs-on: ubuntu-latest 
     services:
       sqlserver:
@@ -123,9 +123,9 @@ jobs:
         run: |
           dotnet run --no-build
 
-      - name: Ensure browsers are installed
+      - name: Ensure browser is installed
         working-directory: ${{ env.UMT_DIR }}/tests/Kentico.Xperience.UMT.Tests
-        run: pwsh bin/Debug/net8.0/playwright.ps1 install --with-deps
+        run: pwsh bin/Debug/net8.0/playwright.ps1 install chromium --with-deps
 
       - name: Prepare test.runsettings
         working-directory: ${{ env.UMT_DIR }}
@@ -164,11 +164,13 @@ jobs:
           cd ${{ env.UMT_DIR }}
           echo "Running tests..."
           mkdir -p reports
-          dotnet test --settings:test.runsettings --logger:"html;LogFileName=${{ env.UMT_DIR }}/reports/logFile.html"
+          dotnet test --settings:test.runsettings \
+          --logger:"html;LogFileName=${{ env.UMT_DIR }}/reports/logFile.html" \
+          -e CI=false
 
       - uses: actions/upload-artifact@v4
         if: ${{ !cancelled() }}
         with:
           name: playwright-report
-          path: ${{ env.UMT_DIR }}/reports/
+          path: ${{ env.UMT_DIR }}/tests/Kentico.Xperinece.UMT.Tests/bin/Debug/net8.0/playwright-traces/trace.zip
           retention-days: 10
