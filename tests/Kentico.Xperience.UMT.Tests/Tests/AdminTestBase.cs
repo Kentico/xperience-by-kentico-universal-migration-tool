@@ -60,14 +60,16 @@ namespace TestAfterMigration.Tests
             await Page.CloseAsync();
             if (IsCIEnvironment)
             {
+                var failed = TestContext.CurrentContext.Result.Outcome == NUnit.Framework.Interfaces.ResultState.Error
+                    || TestContext.CurrentContext.Result.Outcome == NUnit.Framework.Interfaces.ResultState.Failure;
                 var traceFileName = $"trace-{Guid.NewGuid():N}.zip";
                 await Context.Tracing.StopAsync(new()
                 {
-                    Path = Path.Combine(
+                    Path = failed ? Path.Combine(
                         TestContext.CurrentContext.WorkDirectory,
                         "playwright-traces",
                         traceFileName
-                    )
+                    ) : null
                 });
             }
             await Browser.CloseAsync();

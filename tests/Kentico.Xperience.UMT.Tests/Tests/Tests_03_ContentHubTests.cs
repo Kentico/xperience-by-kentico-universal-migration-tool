@@ -31,6 +31,26 @@ namespace TestAfterMigration.Tests
         }
 
         [Test]
+        public async Task TestFailureExample()
+        {
+            await OpenContentHub();
+            var folderDiv = Page.Locator("div[class*=\"folder-view\"]");
+            var parentFolder = folderDiv.GetByRole(AriaRole.Treeitem);
+            await Assertions.Expect(parentFolder).ToBeVisibleAsync();
+            // This test intentionally fails to demonstrate trace file generation
+            Assert.Fail("This test is designed to fail to demonstrate trace file generation for failed tests");
+        }
+
+        [Test]
+        public async Task TestFailureExample2()
+        {
+            await OpenContentHub();
+
+            // This test intentionally fails to demonstrate trace file generation
+            Assert.Fail("This test is designed to fail to demonstrate trace file generation for failed tests");
+        }
+
+        [Test]
         public async Task Test00100_Folder_With_Subfolder_Exists()
         {
             await OpenContentHub();
