@@ -181,5 +181,5 @@ jobs:
         if: ${{ !cancelled() }}
         with:
           name: playwright-trace
-          path: ${{ env.UMT_DIR }}/tests/Kentico.Xperience.UMT.Tests/bin/Debug/net8.0/playwright-traces/trace.zip
+          path: ${{ env.UMT_DIR }}/tests/Kentico.Xperience.UMT.Tests/bin/Debug/net8.0/playwright-traces/
           retention-days: 10

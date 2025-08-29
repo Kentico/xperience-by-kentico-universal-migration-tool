@@ -60,12 +60,13 @@ namespace TestAfterMigration.Tests
             await Page.CloseAsync();
             if (IsCIEnvironment)
             {
+                var traceFileName = $"trace-{Guid.NewGuid():N}.zip";
                 await Context.Tracing.StopAsync(new()
                 {
                     Path = Path.Combine(
                         TestContext.CurrentContext.WorkDirectory,
                         "playwright-traces",
-                        "trace.zip"
+                        traceFileName
                     )
                 });
             }
