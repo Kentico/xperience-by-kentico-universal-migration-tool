@@ -10,23 +10,47 @@ namespace TestAfterMigration.Tests
     {
         protected IPlaywright Playwright = null!;
         protected IBrowser Browser = null!;
+        protected IBrowserContext Context = null!;
         protected IPage Page = null!;
         protected static string BaseURL => Environment.GetEnvironmentVariable("BASE_URL") ?? "";
         protected static string AdministratorUser => Environment.GetEnvironmentVariable("ADMINISTRATION_USER") ?? "";
         protected static string AdministratorPassword => Environment.GetEnvironmentVariable("ADMINISTRATION_PASSWORD") ?? "";
+
+        private static bool IsCIEnvironment => Environment.GetEnvironmentVariable("CI") == "true";
 
         [SetUp]
         public async Task Setup()
         {
             Playwright = await Microsoft.Playwright.Playwright.CreateAsync();
             Playwright.Selectors.SetTestIdAttribute("data-testid");
-
-            Browser = await Playwright.Chromium.LaunchAsync(new BrowserTypeLaunchOptions
+            if (IsCIEnvironment)
             {
-                Headless = false,
-            });
+                Browser = await Playwright.Chromium.LaunchAsync(new BrowserTypeLaunchOptions
+                {
+                    Headless = true,
+                });
 
-            Page = await Browser.NewPageAsync();
+                Context = await Browser.NewContextAsync();
+
+                await Context.Tracing.StartAsync(new()
+                {
+                    Title = TestContext.CurrentContext.Test.ClassName + "." + TestContext.CurrentContext.Test.Name,
+                    Screenshots = true,
+                    Snapshots = true,
+                    Sources = true
+                });
+            }
+            else
+            {
+                Browser = await Playwright.Chromium.LaunchAsync(new BrowserTypeLaunchOptions
+                {
+                    Headless = false,
+                });
+
+                Context = await Browser.NewContextAsync();
+            }
+
+            Page = await Context.NewPageAsync();
             await LoginAdmin();
         }
 
@@ -34,6 +58,20 @@ namespace TestAfterMigration.Tests
         public async Task TearDown()
         {
             await Page.CloseAsync();
+            if (IsCIEnvironment)
+            {
+                var failed = TestContext.CurrentContext.Result.Outcome == NUnit.Framework.Interfaces.ResultState.Error
+                    || TestContext.CurrentContext.Result.Outcome == NUnit.Framework.Interfaces.ResultState.Failure;
+                var traceFileName = $"trace-{Guid.NewGuid():N}.zip";
+                await Context.Tracing.StopAsync(new()
+                {
+                    Path = failed ? Path.Combine(
+                        TestContext.CurrentContext.WorkDirectory,
+                        "playwright-traces",
+                        traceFileName
+                    ) : null
+                });
+            }
             await Browser.CloseAsync();
         }
 
