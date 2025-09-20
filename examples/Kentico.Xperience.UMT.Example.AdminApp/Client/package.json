@@ -14,7 +14,7 @@
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
     "sse": "^0.0.8",
-    "sse.js": "^2.6.0"
+    "sse.js": "^2.7.0"
   },
   "devDependencies": {
     "@babel/core": "^7.28.3",
