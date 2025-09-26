@@ -266,7 +266,20 @@ namespace TestAfterMigration.Tests
             await Page.GetByTestId("content-item-menu-split-button-publish").ClickAsync();
             await Page.GetByTestId("schedule-publish").ClickAsync();
             await Debounce();
-            await Page.GetByTestId("ScheduledTime").FillAsync(DateTime.Now.AddDays(365).ToString("MM/dd/yyyy h:mm tt", CultureInfo.GetCultureInfo("en-US")));
+
+            DateTime scheduledDate = DateTime.Now.AddDays(365);
+            var spanValues = new Dictionary<string, string>
+            {
+                ["day, Date picker"] = scheduledDate.Day.ToString("D2"),
+                ["month, Date picker"] = scheduledDate.Month.ToString("D2"),
+                ["year, Date picker"] = scheduledDate.Year.ToString("D4"),
+                ["hour, Date picker"] = "03",
+                ["minute, Date picker"] = "00",
+            };
+            foreach (var (ariaLabel, value) in spanValues)
+            {
+                await Page.GetByLabel(ariaLabel).FillAsync(value.ToString());
+            }
 
             // Make UI recognize the new date input
             await Page.WaitForTimeoutAsync(3000);
