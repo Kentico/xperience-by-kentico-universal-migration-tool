@@ -7,7 +7,7 @@ namespace TestAfterMigration.Tests
         [Test]
         public async Task Test00100_Expected_Taxonomy_Structure_Created_And_Explorable()
         {
-            await OpenAdminApplication("Taxonomies");
+            await OpenAdminApplication("taxonomies");
 
             await Page.GetByTestId("table-row").ClickAsync();     // also checks that an item exists
             await Debounce();

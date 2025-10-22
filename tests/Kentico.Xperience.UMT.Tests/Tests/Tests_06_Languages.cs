@@ -7,7 +7,7 @@ namespace TestAfterMigration.Tests
         [Test]
         public async Task Test00100_All_Expected_Languages_Present_And_Clickable_Without_Errors()
         {
-            await OpenAdminApplication("Languages");
+            await OpenAdminApplication("languages");
 
             string[] expectedLanguages = new[] { "English", "English (United Kingdom)", "English (United States)", "Spanish" };
 

@@ -7,7 +7,7 @@ namespace TestAfterMigration.Tests
         [Test]
         public async Task Test00100_Expected_Content_Types_Created_And_Explorable_Without_Errors()
         {
-            await OpenAdminApplication("Content types");
+            await OpenAdminApplication("content-types");
 
             string[] expectedTypes = new[] { "UMT.Event", "UMT.Faq", "UMT.Article" };
 

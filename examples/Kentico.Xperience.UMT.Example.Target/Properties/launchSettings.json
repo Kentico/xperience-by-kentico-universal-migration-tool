@@ -18,7 +18,7 @@
     "Kentico.Xperience.UMT.Example.Target": {
       "commandName": "Project",
       "launchBrowser": true,
-      "applicationUrl": "http://localhost:55766",
+      "applicationUrl": "https://localhost:55766",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }

@@ -8,7 +8,7 @@ namespace TestAfterMigration.Tests
     {
         private async Task OpenContentHub(string workspace = "Default")
         {
-            await OpenAdminApplication("Content hub");
+            await OpenAdminApplication("content-hub");
             await SelectTopDropdownLanguage("English (United States)");
             await SelectTopDropdownWorkspace(workspace);
         }
@@ -146,7 +146,7 @@ namespace TestAfterMigration.Tests
         [Test]
         public async Task Test00800_Former_URLs_Exists()
         {
-            await OpenAdminApplication("URLs");
+            await OpenAdminApplication("urls");
             await Page.GetByText("Former URLs").ClickAsync();
             await Debounce();
             await Assertions.Expect(Page.GetByTestId("table-cell-WebPageFormerUrlPath")).Not.ToHaveCountAsync(0);
