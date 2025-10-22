@@ -9,7 +9,7 @@ namespace TestAfterMigration.Tests
         [Test]
         public async Task Test00100_Email_Channel_Exists_And_Is_Explorable()
         {
-            await OpenAdminApplication("Channel management");
+            await OpenAdminApplication("channel-management");
 
             await Page.GetByTestId("table-cell-ChannelType").Filter(new LocatorFilterOptions { HasText = "Email" }).Nth(0).ClickAsync();
             await Debounce();
@@ -35,7 +35,7 @@ namespace TestAfterMigration.Tests
         [Test]
         public async Task Test00200_Website_Channel_Exists_And_Is_Explorable()
         {
-            await OpenAdminApplication("Channel management");
+            await OpenAdminApplication("channel-management");
 
             await Page.GetByTestId("table-cell-ChannelType").Filter(new LocatorFilterOptions { HasText = "Website" }).Nth(0).ClickAsync();
             await Debounce();

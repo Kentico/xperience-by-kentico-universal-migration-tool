@@ -13,7 +13,7 @@ namespace TestAfterMigration.Tests
         [Test]
         public async Task Test00100_Email_Channel_Was_Created()
         {
-            await OpenAdminApplication("Channel management");
+            await OpenAdminApplication("channel-management");
             await Assertions.Expect(Page.GetByTestId("table-cell-ChannelDisplayName")
                 .Filter(new LocatorFilterOptions { HasText = "email Channel Example" }))
                 .ToHaveCountAsync(1);
@@ -22,7 +22,7 @@ namespace TestAfterMigration.Tests
         [Test]
         public async Task Test00200_Web_Channel_Was_Created()
         {
-            await OpenAdminApplication("Channel management");
+            await OpenAdminApplication("channel-management");
             await Assertions.Expect(Page.GetByTestId("table-cell-ChannelDisplayName")
                 .Filter(new LocatorFilterOptions { HasText = "website Channel Example" }))
                 .ToHaveCountAsync(1);
@@ -31,7 +31,7 @@ namespace TestAfterMigration.Tests
         [Test]
         public async Task Test00300_Web_Channel_Has_Page_In_Different_Publish_States()
         {
-            await OpenAdminApplication("website Channel Example");
+            await OpenAdminApplication("website-channel-example");
             await SelectTopDropdownLanguage("English (United States)");
 
             string[] expectedStates = ["Draft (Initial)", "Published", "Scheduled"];
@@ -55,7 +55,7 @@ namespace TestAfterMigration.Tests
         [Test]
         public async Task Test00400_Web_Channel_Has_Page_With_Child()
         {
-            await OpenAdminApplication("website Channel Example");
+            await OpenAdminApplication("website-channel-example");
             await SelectTopDropdownLanguage("English (United States)");
 
             var treeItems = await GetPageTreeItems();
@@ -66,7 +66,7 @@ namespace TestAfterMigration.Tests
         [Test]
         public async Task Test00400_New_Page_Create_And_Delete_Succeeds()
         {
-            await OpenAdminApplication("website Channel Example");
+            await OpenAdminApplication("website-channel-example");
             await SelectTopDropdownLanguage("English (United States)");
 
             string displayName = $"NewPage{Guid.NewGuid()}";
@@ -114,7 +114,7 @@ namespace TestAfterMigration.Tests
         [Test]
         public async Task Test00500_Web_Channel_No_Errors_When_Viewing_Tabs()
         {
-            await OpenAdminApplication("website Channel Example");
+            await OpenAdminApplication("website-channel-example");
             await SelectTopDropdownLanguage("English (United States)");
 
             var treeItems = await GetPageTreeItems();
@@ -132,7 +132,7 @@ namespace TestAfterMigration.Tests
             await Debounce();
             foreach (string tab in new string[] { "Preview", "Content", "URLs", "Properties" })
             {
-                await Page.Locator($"button[aria-label=\"{tab}\"]").ClickAsync();
+                await Page.Locator($"div[data-testid=\"application-tile\"]").Filter(new LocatorFilterOptions { HasTextRegex = new Regex($"^{tab}$") }).ClickAsync();
                 await Debounce();
                 await Assertions.Expect(Page.GetByText("error")).Not.ToBeVisibleAsync();
                 await Assertions.Expect(Page.GetByText("exception")).Not.ToBeVisibleAsync();
@@ -142,7 +142,7 @@ namespace TestAfterMigration.Tests
         [Test]
         public async Task Test00600_English_UK_Is_Populated()
         {
-            await OpenAdminApplication("website Channel Example");
+            await OpenAdminApplication("website-channel-example");
             await SelectTopDropdownLanguage("English (United Kingdom)");
 
             var treeItems = await GetPageTreeItems(rootOnly: true);
@@ -157,7 +157,7 @@ namespace TestAfterMigration.Tests
         [Test]
         public async Task Test00700_Spanish_Is_Not_Populated()
         {
-            await OpenAdminApplication("website Channel Example");
+            await OpenAdminApplication("website-channel-example");
             await SelectTopDropdownLanguage("Spanish");
 
             var treeItems = await GetPageTreeItems(rootOnly: true);
@@ -172,7 +172,7 @@ namespace TestAfterMigration.Tests
         [Test]
         public async Task Test00800_Draft_Can_Be_Published()
         {
-            await OpenAdminApplication("website Channel Example");
+            await OpenAdminApplication("website-channel-example");
             await SelectTopDropdownLanguage("English (United States)");
             var treeItems = await GetPageTreeItemsFlat();
 
@@ -186,7 +186,7 @@ namespace TestAfterMigration.Tests
             string? status = await Page.GetByTestId("breadcrumbs-status").TextContentAsync();
 
             Assert.That("Published" == status);
-            await Page.Locator($"button[aria-label=\"Content\"]").ClickAsync();
+            await Page.Locator($"div[data-testid=\"application-tile\"]").Filter(new LocatorFilterOptions { HasTextRegex = new Regex($"^Content$") }).ClickAsync();
             await Debounce();
             await Assertions.Expect(Page.GetByTestId("ArticleText")).ToHaveTextAsync("Created by UMT simplified model in Draft state for en-US language ...new draft");
             await AssertNoEventlogErrors();
@@ -195,7 +195,7 @@ namespace TestAfterMigration.Tests
         [Test]
         public async Task Test00900_Draft_Can_Be_Reverted()
         {
-            await OpenAdminApplication("website Channel Example");
+            await OpenAdminApplication("website-channel-example");
             await SelectTopDropdownLanguage("English (United States)");
             var treeItems = await GetPageTreeItemsFlat();
 
@@ -217,7 +217,7 @@ namespace TestAfterMigration.Tests
         [Test]
         public async Task Test01000_Edit_And_Publish_Scheduled_Page()
         {
-            await OpenAdminApplication("website Channel Example");
+            await OpenAdminApplication("website-channel-example");
             await SelectTopDropdownLanguage("English (United States)");
             var treeItems = await GetPageTreeItemsFlat();
 
@@ -248,7 +248,7 @@ namespace TestAfterMigration.Tests
         [Test]
         public async Task Test01100_Edit_And_Reschedule_Scheduled_Page()
         {
-            await OpenAdminApplication("website Channel Example");
+            await OpenAdminApplication("website-channel-example");
             await SelectTopDropdownLanguage("English (United States)");
             var treeItems = await GetPageTreeItemsFlat();
 
@@ -301,7 +301,7 @@ namespace TestAfterMigration.Tests
         [Test]
         public async Task Test01200_Publish_Initial_Draft()
         {
-            await OpenAdminApplication("website Channel Example");
+            await OpenAdminApplication("website-channel-example");
             await SelectTopDropdownLanguage("English (United States)");
             var treeItems = await GetPageTreeItemsFlat();
 
@@ -329,7 +329,7 @@ namespace TestAfterMigration.Tests
         [Test]
         public async Task Test01300_Cancel_Scheduled_Publish()
         {
-            await OpenAdminApplication("website Channel Example");
+            await OpenAdminApplication("website-channel-example");
             await SelectTopDropdownLanguage("English (United States)");
             var treeItems = await GetPageTreeItemsFlat();
 
@@ -358,7 +358,7 @@ namespace TestAfterMigration.Tests
         [Test]
         public async Task Test01400_Page_Children_Limitation_Works()
         {
-            await OpenAdminApplication("website Channel Example");
+            await OpenAdminApplication("website-channel-example");
             await SelectTopDropdownLanguage("English (United States)");
 
             var treeItems = await GetPageTreeItemsFlat();
@@ -390,7 +390,7 @@ namespace TestAfterMigration.Tests
         [Test]
         public async Task Test01500_Vanity_URLs_Show_In_Page_URLs()
         {
-            await OpenAdminApplication("website Channel Example");
+            await OpenAdminApplication("website-channel-example");
             await SelectTopDropdownLanguage("English (United States)");
 
             var treeItems = await GetPageTreeItemsFlat();
@@ -398,7 +398,7 @@ namespace TestAfterMigration.Tests
             var item = treeItems.First(x => string.Equals(x.Title, "Creation of UMT model", StringComparison.OrdinalIgnoreCase));
             await item.ClickAsync();
 
-            await Page.Locator($"button[aria-label=\"URLs\"]").ClickAsync();
+            await Page.Locator($"div[data-testid=\"application-tile\"]").Filter(new LocatorFilterOptions { HasTextRegex = new Regex($"^URLs$") }).ClickAsync();
             await Debounce();
 
             Task ExpectVanityURLRowVisible(string url) => Assertions.Expect(Page
@@ -416,7 +416,7 @@ namespace TestAfterMigration.Tests
         [Test]
         public async Task Test01600_Vanity_URLs_Show_In_URLs_App()
         {
-            await OpenAdminApplication("URLs");
+            await OpenAdminApplication("urls");
 
             await Page.GetByTestId("vertical-menu-item").Filter(new LocatorFilterOptions { HasTextRegex = new Regex("^Vanity URLs$") }).ClickAsync();
             await Debounce();

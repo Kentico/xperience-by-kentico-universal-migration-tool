@@ -92,12 +92,12 @@ namespace TestAfterMigration.Tests
         /// <summary>
         /// Consider using <see cref="Debounce"/> after calling this method based on complexity of concrete application page
         /// </summary>
-        /// <param name="applicationName"></param>
+        /// <param name="appTestId">The ID part of the tile's data-testid="action-tile-ID"</param>
         /// <returns></returns>
-        protected async Task OpenAdminApplication(string applicationName)
+        protected async Task OpenAdminApplication(string appTestId)
         {
             await LoginAdmin();
-            await Page.ClickAsync($"button[aria-label='{applicationName}']");
+            await Page.ClickAsync($"a[data-testid='action-tile-{appTestId}']");
             await Debounce();
         }
 
@@ -166,7 +166,7 @@ namespace TestAfterMigration.Tests
 
         protected async Task AssertNoEventlogErrors()
         {
-            await OpenAdminApplication("Event log");
+            await OpenAdminApplication("event-log");
 
             var logs = await GetEventLogRowsFirstPage(EventLogSeverity.Error);
 

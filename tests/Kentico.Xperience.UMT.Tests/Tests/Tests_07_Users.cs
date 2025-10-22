@@ -7,7 +7,7 @@ namespace TestAfterMigration.Tests
         [Test]
         public async Task Test00100_sadmin_Explorable_Without_Errors()
         {
-            await OpenAdminApplication("Users");
+            await OpenAdminApplication("users");
 
             await Page.GetByTestId("table-cell-UserName").Filter(new LocatorFilterOptions { HasText = "sadmin" }).Nth(0).ClickAsync();
             await Debounce();
