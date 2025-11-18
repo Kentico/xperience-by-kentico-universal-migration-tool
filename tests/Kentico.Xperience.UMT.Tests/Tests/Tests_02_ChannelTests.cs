@@ -108,7 +108,7 @@ namespace TestAfterMigration.Tests
             await Page.GetByTestId("delete-action").ClickAsync();
             await Page.GetByTestId("confirm-action").ClickAsync();
 
-            await Assertions.Expect(Page.GetByText("successfully deleted").Nth(0)).ToBeVisibleAsync();
+            await Assertions.Expect(Page.GetByText("was moved to the recycle bin").Nth(0)).ToBeVisibleAsync();
         }
 
         [Test]
