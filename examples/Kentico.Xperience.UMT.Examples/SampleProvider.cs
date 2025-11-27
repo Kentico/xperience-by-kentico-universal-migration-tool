@@ -172,6 +172,20 @@ public static class SampleProvider
             WebPageScopeSamples.SampleWebPageScopeContentType,
         ]);
 
+        // ecommerce samples
+        sourceData.AddRange([
+            CustomerSamples.SampleCustomerBasic,
+            CustomerSamples.SampleCustomerWithMember,
+            CustomerAddressSamples.SampleCustomerAddress,
+            OrderStatusSamples.SampleOrderStatusNew,
+            OrderStatusSamples.SampleOrderStatusCompleted,
+            OrderSamples.SampleOrder,
+            OrderItemSamples.SampleOrderItem,
+            OrderItemSamples.SampleOrderItemSecond,
+            OrderAddressSamples.SampleOrderAddressBilling,
+            OrderAddressSamples.SampleOrderAddressShipping,
+        ]);
+
         return sourceData;
     }
 }
