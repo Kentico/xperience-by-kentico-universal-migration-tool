@@ -2238,7 +2238,7 @@
   },
   {
     "$type": "Customer",
-    "customerGUID": "a1b2c3d4-e5f6-4789-a0b1-c2d3e4f5a6b7",
+    "customerGUID": "a1b2c3d4-e5f6-4789-a012-3456789abcde",
     "customerFirstName": "John",
     "customerLastName": "Doe",
     "customerEmail": "john.doe@sample.localhost",
@@ -2249,7 +2249,7 @@
   {
     "$type": "CustomerAddress",
     "customerAddressGUID": "b2c3d4e5-f6a7-4890-b1c2-d3e4f5a6b7c8",
-    "customerAddressCustomerGUID": "a1b2c3d4-e5f6-4789-a0b1-c2d3e4f5a6b7",
+    "customerAddressCustomerGUID": "a1b2c3d4-e5f6-4789-a012-3456789abcde",
     "customerAddressFirstName": "John",
     "customerAddressLastName": "Doe",
     "customerAddressCompany": null,
@@ -2321,7 +2321,7 @@
     "orderGUID": "c9d0e1f2-a3b4-4567-c8d9-e0f1a2b3c4d5",
     "orderNumber": "ORD-2024-001",
     "orderCreatedWhen": "2024-01-20T14:30:00Z",
-    "orderCustomerGUID": "a1b2c3d4-e5f6-4789-a0b1-c2d3e4f5a6b7",
+    "orderCustomerGUID": "a1b2c3d4-e5f6-4789-a012-3456789abcde",
     "orderOrderStatusGUID": "c3d4e5f6-a7b8-4901-c2d3-e4f5a6b7c8d9",
     "orderTotalPrice": 129.99,
     "orderTotalShipping": 9.99,
