@@ -1,0 +1,44 @@
+using System.ComponentModel.DataAnnotations;
+
+using CMS.Membership;
+
+using Kentico.Xperience.UMT.Attributes;
+
+namespace Kentico.Xperience.UMT.Model;
+
+/// <summary>
+/// Model represents XbyK CustomerInfo
+/// </summary>
+[UmtModel(DISCRIMINATOR)]
+public class CustomerModel : UmtModel
+{
+    public const string DISCRIMINATOR = "Customer";
+
+    [Map]
+    [Required]
+    [UniqueIdProperty]
+    public Guid? CustomerGUID { get; set; }
+
+    [Map]
+    public string? CustomerFirstName { get; set; }
+
+    [Map]
+    public string? CustomerLastName { get; set; }
+
+    [Map]
+    public string? CustomerEmail { get; set; }
+
+    [Map]
+    public string? CustomerPhone { get; set; }
+
+    /// <summary>
+    /// reference to member
+    /// </summary>
+    [ReferenceProperty(typeof(MemberInfo), "CustomerMemberID", IsRequired = false)]
+    public Guid? CustomerMemberGUID { get; set; }
+
+    [Map]
+    public DateTime? CustomerCreatedWhen { get; set; }
+
+    protected override (Guid? uniqueId, string? name, string? displayName) GetPrintArgs() => (CustomerGUID, $"{CustomerFirstName} {CustomerLastName}", NOT_AVAILABLE);
+}
