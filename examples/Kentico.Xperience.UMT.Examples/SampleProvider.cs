@@ -172,6 +172,13 @@ public static class SampleProvider
             WebPageScopeSamples.SampleWebPageScopeContentType,
         ]);
 
+        // ecommerce samples
+        sourceData.AddRange([
+            CustomerSamples.SampleCustomerBasic,
+            CustomerSamples.SampleCustomerWithMember,
+            CustomerAddressSamples.SampleCustomerAddress
+        ]);
+
         return sourceData;
     }
 }
