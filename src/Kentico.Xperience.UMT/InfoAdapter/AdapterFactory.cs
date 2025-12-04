@@ -54,6 +54,8 @@ internal class AdapterFactory(ILoggerFactory loggerFactory, UmtModelService mode
             ContentFolderModel => new ContentFolderAdapter(loggerFactory.CreateLogger<ContentFolderAdapter>(), Service.Resolve<IInfoProvider<ContentFolderInfo>>(), adapterContext, workspaceService),
             TaxonomyModel => new TaxonomyAdapter(loggerFactory.CreateLogger<TaxonomyAdapter>(), adapterContext),
             TagModel => new TagAdapter(loggerFactory.CreateLogger<TagAdapter>(), adapterContext),
+            CustomerModel => new GenericInfoAdapter<CustomerInfo>(loggerFactory.CreateLogger<GenericInfoAdapter<CustomerInfo>>(), adapterContext),
+            CustomerAddressModel => new GenericInfoAdapter<CustomerAddressInfo>(loggerFactory.CreateLogger<GenericInfoAdapter<CustomerAddressInfo>>(), adapterContext),
             WorkspaceModel => new GenericInfoAdapter<WorkspaceInfo>(loggerFactory.CreateLogger<GenericInfoAdapter<WorkspaceInfo>>(), adapterContext),
             WebPageScopeModel => new GenericInfoAdapter<WebPageScopeInfo>(loggerFactory.CreateLogger<GenericInfoAdapter<WebPageScopeInfo>>(), adapterContext),
             WebPageScopeContentTypeModel => new GenericInfoAdapter<WebPageScopeContentTypeInfo>(loggerFactory.CreateLogger<GenericInfoAdapter<WebPageScopeContentTypeInfo>>(), adapterContext),
