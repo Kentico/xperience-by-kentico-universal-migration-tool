@@ -56,6 +56,11 @@ internal class AdapterFactory(ILoggerFactory loggerFactory, UmtModelService mode
             TagModel => new TagAdapter(loggerFactory.CreateLogger<TagAdapter>(), adapterContext),
             CustomerModel => new GenericInfoAdapter<CustomerInfo>(loggerFactory.CreateLogger<GenericInfoAdapter<CustomerInfo>>(), adapterContext),
             CustomerAddressModel => new GenericInfoAdapter<CustomerAddressInfo>(loggerFactory.CreateLogger<GenericInfoAdapter<CustomerAddressInfo>>(), adapterContext),
+            OrderModel => new GenericInfoAdapter<OrderInfo>(loggerFactory.CreateLogger<GenericInfoAdapter<OrderInfo>>(), adapterContext),
+            OrderItemModel => new GenericInfoAdapter<OrderItemInfo>(loggerFactory.CreateLogger<GenericInfoAdapter<OrderItemInfo>>(), adapterContext),
+            OrderAddressModel => new GenericInfoAdapter<OrderAddressInfo>(loggerFactory.CreateLogger<GenericInfoAdapter<OrderAddressInfo>>(), adapterContext),
+            OrderStatusModel => new GenericInfoAdapter<OrderStatusInfo>(loggerFactory.CreateLogger<GenericInfoAdapter<OrderStatusInfo>>(), adapterContext),
+            OrderStatusNotificationModel => new GenericInfoAdapter<OrderStatusNotificationInfo>(loggerFactory.CreateLogger<GenericInfoAdapter<OrderStatusNotificationInfo>>(), adapterContext),
             WorkspaceModel => new GenericInfoAdapter<WorkspaceInfo>(loggerFactory.CreateLogger<GenericInfoAdapter<WorkspaceInfo>>(), adapterContext),
             WebPageScopeModel => new GenericInfoAdapter<WebPageScopeInfo>(loggerFactory.CreateLogger<GenericInfoAdapter<WebPageScopeInfo>>(), adapterContext),
             WebPageScopeContentTypeModel => new GenericInfoAdapter<WebPageScopeContentTypeInfo>(loggerFactory.CreateLogger<GenericInfoAdapter<WebPageScopeContentTypeInfo>>(), adapterContext),
@@ -81,11 +86,6 @@ internal class AdapterFactory(ILoggerFactory loggerFactory, UmtModelService mode
             ConsentAgreementModel => new GenericInfoAdapter<ConsentAgreementInfo>(loggerFactory.CreateLogger<GenericInfoAdapter<ConsentAgreementInfo>>(), adapterContext),
 #pragma warning restore UMTExperimentalModelConsentAgreement
 
-            OrderModel => new GenericInfoAdapter<OrderInfo>(loggerFactory.CreateLogger<GenericInfoAdapter<OrderInfo>>(), adapterContext),
-            OrderItemModel => new GenericInfoAdapter<OrderItemInfo>(loggerFactory.CreateLogger<GenericInfoAdapter<OrderItemInfo>>(), adapterContext),
-            OrderAddressModel => new GenericInfoAdapter<OrderAddressInfo>(loggerFactory.CreateLogger<GenericInfoAdapter<OrderAddressInfo>>(), adapterContext),
-            OrderStatusModel => new GenericInfoAdapter<OrderStatusInfo>(loggerFactory.CreateLogger<GenericInfoAdapter<OrderStatusInfo>>(), adapterContext),
-            OrderStatusNotificationModel => new GenericInfoAdapter<OrderStatusNotificationInfo>(loggerFactory.CreateLogger<GenericInfoAdapter<OrderStatusNotificationInfo>>(), adapterContext),
 
             // macro models
             ContentItemSimplifiedModel => new ContentItemSimplifiedAdapter(providerProxyFactory.CreateProviderProxy<ContentItemInfo>(providerProxyContext), providerProxyFactory, Service.Resolve<IDateTimeNowService>(), this,
