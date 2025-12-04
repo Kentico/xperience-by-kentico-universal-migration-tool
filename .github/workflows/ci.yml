@@ -15,7 +15,7 @@ on:
       - "**.sln"
       - "**.yml"
   pull_request:
-    branches: [main]
+    branches: [main, feature/KX-21557_ecom_migrations]
     paths:
       - "**.cs"
       - "**.cshtml"
