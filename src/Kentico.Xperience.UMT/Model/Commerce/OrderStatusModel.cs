@@ -1,18 +1,22 @@
 using System.ComponentModel.DataAnnotations;
-using System.Diagnostics.CodeAnalysis;
+
+using CMS.Commerce;
 
 using Kentico.Xperience.UMT.Attributes;
 
 namespace Kentico.Xperience.UMT.Model;
 
+/// <summary>
+/// Model represents XbyK <see cref="OrderStatusInfo"/>.
+/// </summary>
 [UmtModel(DISCRIMINATOR)]
-[Experimental("UMTExperimentalModelOrderStatus")]
 public class OrderStatusModel : UmtModel
 {
     public const string DISCRIMINATOR = "OrderStatus";
 
-    [UniqueIdProperty]
+    [Map]
     [Required]
+    [UniqueIdProperty]
     public Guid? OrderStatusGUID { get; set; }
 
     [Map]
@@ -24,13 +28,19 @@ public class OrderStatusModel : UmtModel
     public string? OrderStatusDisplayName { get; set; }
 
     [Map]
+    [Required]
     public int? OrderStatusOrder { get; set; }
 
     [Map]
+    [Required]
     public bool? OrderStatusInternalNotificationEnabled { get; set; }
 
     [Map]
+    [Required]
     public bool? OrderStatusCustomerNotificationEnabled { get; set; }
+
+    [Map]
+    public int? OrderStatusCustomerNotificationEmailConfigurationID { get; set; }
 
     protected override (Guid? uniqueId, string? name, string? displayName) GetPrintArgs() => (OrderStatusGUID, OrderStatusName, OrderStatusDisplayName);
 }

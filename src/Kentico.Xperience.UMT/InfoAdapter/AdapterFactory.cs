@@ -79,25 +79,11 @@ internal class AdapterFactory(ILoggerFactory loggerFactory, UmtModelService mode
             ConsentAgreementModel => new GenericInfoAdapter<ConsentAgreementInfo>(loggerFactory.CreateLogger<GenericInfoAdapter<ConsentAgreementInfo>>(), adapterContext),
 #pragma warning restore UMTExperimentalModelConsentAgreement
 
-#pragma warning disable UMTExperimentalModelOrderStatus
-            OrderStatusModel => new GenericInfoAdapter<OrderStatusInfo>(loggerFactory.CreateLogger<GenericInfoAdapter<OrderStatusInfo>>(), adapterContext),
-#pragma warning restore UMTExperimentalModelOrderStatus
-
-#pragma warning disable UMTExperimentalModelOrderStatusNotification
-            OrderStatusNotificationModel => new GenericInfoAdapter<OrderStatusNotificationInfo>(loggerFactory.CreateLogger<GenericInfoAdapter<OrderStatusNotificationInfo>>(), adapterContext),
-#pragma warning restore UMTExperimentalModelOrderStatusNotification
-
-#pragma warning disable UMTExperimentalModelOrder
             OrderModel => new GenericInfoAdapter<OrderInfo>(loggerFactory.CreateLogger<GenericInfoAdapter<OrderInfo>>(), adapterContext),
-#pragma warning restore UMTExperimentalModelOrder
-
-#pragma warning disable UMTExperimentalModelOrderItem
             OrderItemModel => new GenericInfoAdapter<OrderItemInfo>(loggerFactory.CreateLogger<GenericInfoAdapter<OrderItemInfo>>(), adapterContext),
-#pragma warning restore UMTExperimentalModelOrderItem
-
-#pragma warning disable UMTExperimentalModelOrderAddress
             OrderAddressModel => new GenericInfoAdapter<OrderAddressInfo>(loggerFactory.CreateLogger<GenericInfoAdapter<OrderAddressInfo>>(), adapterContext),
-#pragma warning restore UMTExperimentalModelOrderAddress
+            OrderStatusModel => new GenericInfoAdapter<OrderStatusInfo>(loggerFactory.CreateLogger<GenericInfoAdapter<OrderStatusInfo>>(), adapterContext),
+            OrderStatusNotificationModel => new GenericInfoAdapter<OrderStatusNotificationInfo>(loggerFactory.CreateLogger<GenericInfoAdapter<OrderStatusNotificationInfo>>(), adapterContext),
 
             // macro models
             ContentItemSimplifiedModel => new ContentItemSimplifiedAdapter(providerProxyFactory.CreateProviderProxy<ContentItemInfo>(providerProxyContext), providerProxyFactory, Service.Resolve<IDateTimeNowService>(), this,

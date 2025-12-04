@@ -1,5 +1,4 @@
 using System.ComponentModel.DataAnnotations;
-using System.Diagnostics.CodeAnalysis;
 
 using CMS.Commerce;
 
@@ -7,14 +6,16 @@ using Kentico.Xperience.UMT.Attributes;
 
 namespace Kentico.Xperience.UMT.Model;
 
+/// <summary>
+/// Model represents XbyK <see cref="OrderInfo"/>.
+/// </summary>
 [UmtModel(DISCRIMINATOR)]
-[Experimental("UMTExperimentalModelOrder")]
 public class OrderModel : UmtModel
 {
     public const string DISCRIMINATOR = "Order";
 
-    [UniqueIdProperty]
     [Required]
+    [UniqueIdProperty]
     public Guid? OrderGUID { get; set; }
 
     [Map]
@@ -22,18 +23,32 @@ public class OrderModel : UmtModel
     public string? OrderNumber { get; set; }
 
     [Map]
+    [Required]
     public DateTime? OrderCreatedWhen { get; set; }
 
     [Map]
+    [Required]
     public DateTime? OrderModifiedWhen { get; set; }
 
-    [ReferenceProperty(typeof(CustomerInfo), "OrderCustomerID", IsRequired = true)]
     [Required]
-    public Guid? OrderCustomerGUID { get; set; }
-
     [ReferenceProperty(typeof(OrderStatusInfo), "OrderOrderStatusID", IsRequired = true)]
-    [Required]
     public Guid? OrderOrderStatusGUID { get; set; }
+
+    [Map]
+    public decimal? OrderTotalPrice { get; set; }
+
+    [Map]
+    public decimal? OrderTotalShipping { get; set; }
+
+    [Map]
+    public decimal? OrderTotalTax { get; set; }
+
+    [Map]
+    public decimal? OrderGrandTotal { get; set; }
+
+    [Required]
+    [ReferenceProperty(typeof(CustomerInfo), "OrderCustomerID", IsRequired = true)]
+    public Guid? OrderCustomerGUID { get; set; }
 
     [ReferenceProperty(typeof(PaymentMethodInfo), "OrderPaymentMethodID")]
     public Guid? OrderPaymentMethodGUID { get; set; }
@@ -49,18 +64,6 @@ public class OrderModel : UmtModel
 
     [Map]
     public decimal? OrderShippingMethodPrice { get; set; }
-
-    [Map]
-    public decimal? OrderTotalPrice { get; set; }
-
-    [Map]
-    public decimal? OrderTotalShipping { get; set; }
-
-    [Map]
-    public decimal? OrderTotalTax { get; set; }
-
-    [Map]
-    public decimal? OrderGrandTotal { get; set; }
 
     protected override (Guid? uniqueId, string? name, string? displayName) GetPrintArgs() => (OrderGUID, OrderNumber, NOT_AVAILABLE);
 }

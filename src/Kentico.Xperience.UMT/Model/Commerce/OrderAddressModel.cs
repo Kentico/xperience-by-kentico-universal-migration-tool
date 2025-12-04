@@ -1,5 +1,4 @@
 using System.ComponentModel.DataAnnotations;
-using System.Diagnostics.CodeAnalysis;
 
 using CMS.Commerce;
 using CMS.Globalization;
@@ -8,8 +7,10 @@ using Kentico.Xperience.UMT.Attributes;
 
 namespace Kentico.Xperience.UMT.Model;
 
+/// <summary>
+/// Model represents XbyK <see cref="OrderAddressInfo"/>.
+/// </summary>
 [UmtModel(DISCRIMINATOR)]
-[Experimental("UMTExperimentalModelOrderAddress")]
 public class OrderAddressModel : UmtModel
 {
     public const string DISCRIMINATOR = "OrderAddress";

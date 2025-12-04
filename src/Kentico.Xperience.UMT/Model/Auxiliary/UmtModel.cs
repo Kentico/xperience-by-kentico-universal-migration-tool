@@ -33,21 +33,11 @@ public interface IUmtModel
 [KnownType(typeof(WebsiteChannelModel))]
 [KnownType(typeof(TaxonomyModel))]
 [KnownType(typeof(TagModel))]
-#pragma warning disable UMTExperimentalModelOrderStatus
-#pragma warning disable UMTExperimentalModelOrderStatusNotification
-#pragma warning disable UMTExperimentalModelOrder
-#pragma warning disable UMTExperimentalModelOrderItem
-#pragma warning disable UMTExperimentalModelOrderAddress
 [KnownType(typeof(OrderStatusModel))]
 [KnownType(typeof(OrderStatusNotificationModel))]
 [KnownType(typeof(OrderModel))]
 [KnownType(typeof(OrderItemModel))]
 [KnownType(typeof(OrderAddressModel))]
-#pragma warning restore UMTExperimentalModelOrderStatus
-#pragma warning restore UMTExperimentalModelOrderStatusNotification
-#pragma warning restore UMTExperimentalModelOrder
-#pragma warning restore UMTExperimentalModelOrderItem
-#pragma warning restore UMTExperimentalModelOrderAddress
 public abstract class UmtModel : IUmtModel
 {
     public virtual string PrintMe()
