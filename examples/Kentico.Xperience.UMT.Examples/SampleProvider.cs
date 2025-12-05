@@ -172,6 +172,28 @@ public static class SampleProvider
             WebPageScopeSamples.SampleWebPageScopeContentType,
         ]);
 
+        // ecommerce samples
+        sourceData.AddRange([
+            CustomerSamples.SampleCustomerBasic,
+            CustomerSamples.SampleCustomerWithMember,
+            CustomerAddressSamples.SampleCustomerAddress,
+            OrderStatusSamples.SampleOrderStatusNew,
+            OrderStatusSamples.SampleOrderStatusCompleted,
+            OrderStatusNotificationSamples.SampleOrderStatusNotificationNew,
+            OrderStatusNotificationSamples.SampleOrderStatusNotificationCompleted,
+            ShippingMethodSamples.SampleShippingMethodStandard,
+            ShippingMethodSamples.SampleShippingMethodExpress,
+            PaymentMethodSamples.SamplePaymentMethodCreditCard,
+            PaymentMethodSamples.SamplePaymentMethodPayPal,
+            ShoppingCartSamples.SampleShoppingCartWithMember,
+            ShoppingCartSamples.SampleShoppingCartAnonymous,
+            OrderSamples.SampleOrder,
+            OrderItemSamples.SampleOrderItem,
+            OrderItemSamples.SampleOrderItemSecond,
+            OrderAddressSamples.SampleOrderAddressBilling,
+            OrderAddressSamples.SampleOrderAddressShipping,
+        ]);
+
         return sourceData;
     }
 }

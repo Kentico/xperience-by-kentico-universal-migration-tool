@@ -49,6 +49,24 @@
       "problemMatcher": [],
       "label": "npm: start - Examples/Kentico.Xperience.UMT.Example.AdminApp/Client",
       "detail": "webpack serve --mode development"
+    },
+    {
+      "label": ".NET: pack (UMT)",
+      "command": "dotnet",
+      "type": "process",
+      "args": [
+        "pack",
+        "./src/Kentico.Xperience.UMT",
+        "-c",
+        "Release",
+        "-o",
+        "nuget-local",
+        "-p:SIGN_FILE=false"
+      ],
+      "problemMatcher": "$msCompile",
+      "options": {
+        "cwd": "${workspaceFolder}"
+      }
     }
   ]
 }

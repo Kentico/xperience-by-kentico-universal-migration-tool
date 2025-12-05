@@ -33,6 +33,16 @@ public interface IUmtModel
 [KnownType(typeof(WebsiteChannelModel))]
 [KnownType(typeof(TaxonomyModel))]
 [KnownType(typeof(TagModel))]
+[KnownType(typeof(CustomerModel))]
+[KnownType(typeof(CustomerAddressModel))]
+[KnownType(typeof(OrderModel))]
+[KnownType(typeof(OrderItemModel))]
+[KnownType(typeof(OrderAddressModel))]
+[KnownType(typeof(OrderStatusModel))]
+[KnownType(typeof(ShippingMethodModel))]
+[KnownType(typeof(PaymentMethodModel))]
+[KnownType(typeof(OrderStatusNotificationModel))]
+[KnownType(typeof(ShoppingCartModel))]
 public abstract class UmtModel : IUmtModel
 {
     public virtual string PrintMe()
