@@ -58,7 +58,7 @@ internal class AdapterFactory(ILoggerFactory loggerFactory, UmtModelService mode
             CustomerAddressModel => new GenericInfoAdapter<CustomerAddressInfo>(loggerFactory.CreateLogger<GenericInfoAdapter<CustomerAddressInfo>>(), adapterContext),
             OrderModel => new GenericInfoAdapter<OrderInfo>(loggerFactory.CreateLogger<GenericInfoAdapter<OrderInfo>>(), adapterContext),
             OrderItemModel => new GenericInfoAdapter<OrderItemInfo>(loggerFactory.CreateLogger<GenericInfoAdapter<OrderItemInfo>>(), adapterContext),
-            OrderAddressModel => new GenericInfoAdapter<OrderAddressInfo>(loggerFactory.CreateLogger<GenericInfoAdapter<OrderAddressInfo>>(), adapterContext),
+            OrderAddressModel => new OrderAddressAdapter(loggerFactory.CreateLogger<OrderAddressAdapter>(), adapterContext),
             OrderStatusModel => new GenericInfoAdapter<OrderStatusInfo>(loggerFactory.CreateLogger<GenericInfoAdapter<OrderStatusInfo>>(), adapterContext),
             OrderStatusNotificationModel => new GenericInfoAdapter<OrderStatusNotificationInfo>(loggerFactory.CreateLogger<GenericInfoAdapter<OrderStatusNotificationInfo>>(), adapterContext),
             WorkspaceModel => new GenericInfoAdapter<WorkspaceInfo>(loggerFactory.CreateLogger<GenericInfoAdapter<WorkspaceInfo>>(), adapterContext),

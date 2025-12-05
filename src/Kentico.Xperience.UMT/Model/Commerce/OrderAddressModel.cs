@@ -15,12 +15,12 @@ public class OrderAddressModel : UmtModel
 {
     public const string DISCRIMINATOR = "OrderAddress";
 
-    [UniqueIdProperty]
     [Required]
+    [UniqueIdProperty]
     public Guid? OrderAddressGUID { get; set; }
 
-    [ReferenceProperty(typeof(OrderInfo), "OrderAddressOrderID", IsRequired = true)]
     [Required]
+    [ReferenceProperty(typeof(OrderInfo), "OrderAddressOrderID", IsRequired = true)]
     public Guid? OrderAddressOrderGUID { get; set; }
 
     [Map]

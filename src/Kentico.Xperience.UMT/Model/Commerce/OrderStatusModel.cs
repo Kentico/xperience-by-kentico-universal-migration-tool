@@ -1,6 +1,7 @@
 using System.ComponentModel.DataAnnotations;
 
 using CMS.Commerce;
+using CMS.EmailLibrary;
 
 using Kentico.Xperience.UMT.Attributes;
 
@@ -39,8 +40,8 @@ public class OrderStatusModel : UmtModel
     [Required]
     public bool? OrderStatusCustomerNotificationEnabled { get; set; }
 
-    [Map]
-    public int? OrderStatusCustomerNotificationEmailConfigurationID { get; set; }
+    [ReferenceProperty(typeof(EmailConfigurationInfo), "OrderStatusCustomerNotificationEmailConfigurationID")]
+    public Guid? OrderStatusCustomerNotificationEmailConfigurationGUID { get; set; }
 
     protected override (Guid? uniqueId, string? name, string? displayName) GetPrintArgs() => (OrderStatusGUID, OrderStatusName, OrderStatusDisplayName);
 }
