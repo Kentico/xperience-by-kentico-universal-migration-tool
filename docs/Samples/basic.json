@@ -2366,13 +2366,11 @@
   },
   {
     "$type": "OrderStatusNotification",
-    "orderStatusNotificationGUID": "afcb1085-522c-4852-94d9-65b9022b67bd",
     "orderStatusNotificationOrderStatusGUID": "e5f6a7b8-c9d0-4123-e456-789abcdef012",
     "orderStatusNotificationUserGUID": "dbfcc244-2cb9-4934-857f-9d75404c1553"
   },
   {
     "$type": "OrderStatusNotification",
-    "orderStatusNotificationGUID": "f285fafb-3434-4a67-a199-62c32f532af7",
     "orderStatusNotificationOrderStatusGUID": "f6a7b8c9-d0e1-4234-f567-89abcdef0123",
     "orderStatusNotificationUserGUID": "dbfcc244-2cb9-4934-857f-9d75404c1553"
   }
