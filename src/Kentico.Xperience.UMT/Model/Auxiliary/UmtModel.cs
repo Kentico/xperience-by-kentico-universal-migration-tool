@@ -35,6 +35,11 @@ public interface IUmtModel
 [KnownType(typeof(TagModel))]
 [KnownType(typeof(CustomerModel))]
 [KnownType(typeof(CustomerAddressModel))]
+[KnownType(typeof(OrderStatusModel))]
+[KnownType(typeof(OrderStatusNotificationModel))]
+[KnownType(typeof(OrderModel))]
+[KnownType(typeof(OrderItemModel))]
+[KnownType(typeof(OrderAddressModel))]
 public abstract class UmtModel : IUmtModel
 {
     public virtual string PrintMe()
