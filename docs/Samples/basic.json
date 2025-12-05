@@ -2270,7 +2270,7 @@
     "orderStatusOrder": 1,
     "orderStatusInternalNotificationEnabled": true,
     "orderStatusCustomerNotificationEnabled": true,
-    "orderStatusCustomerNotificationEmailConfigurationID": null
+    "orderStatusCustomerNotificationEmailConfigurationGUID": null
   },
   {
     "$type": "OrderStatus",
@@ -2280,7 +2280,7 @@
     "orderStatusOrder": 2,
     "orderStatusInternalNotificationEnabled": false,
     "orderStatusCustomerNotificationEnabled": true,
-    "orderStatusCustomerNotificationEmailConfigurationID": null
+    "orderStatusCustomerNotificationEmailConfigurationGUID": null
   },
   {
     "$type": "OrderStatus",
@@ -2290,7 +2290,7 @@
     "orderStatusOrder": 3,
     "orderStatusInternalNotificationEnabled": true,
     "orderStatusCustomerNotificationEnabled": false,
-    "orderStatusCustomerNotificationEmailConfigurationID": null
+    "orderStatusCustomerNotificationEmailConfigurationGUID": null
   },
   {
     "$type": "Order",
@@ -2349,7 +2349,7 @@
   },
   {
     "$type": "OrderAddress",
-    "orderAddressGUID": "a3b4c5d6-e7f8-4901-a2b3-c4d5e6f7a8b9",
+    "orderAddressGUID": "a3b4c5d6-e7f8-4901-a234-56789abcdef0",
     "orderAddressOrderGUID": "e1f2a3b4-c5d6-4789-e012-3456789abcde",
     "orderAddressType": "Shipping",
     "orderAddressFirstName": "John",

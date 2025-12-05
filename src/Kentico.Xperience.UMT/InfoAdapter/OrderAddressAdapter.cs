@@ -16,7 +16,7 @@ internal class OrderAddressAdapter : GenericInfoAdapter<OrderAddressInfo>
     {
         if (propertyName == nameof(OrderAddressModel.OrderAddressType) && value is string orderAddressType)
         {
-            current.OrderAddressType = orderAddressType?.ToLowerInvariant() switch
+            current.OrderAddressType = orderAddressType.ToLowerInvariant() switch
             {
                 "billing" => OrderAddressType.Billing,
                 "shipping" => OrderAddressType.Shipping,

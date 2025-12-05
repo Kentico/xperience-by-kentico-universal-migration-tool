@@ -14,6 +14,7 @@ public class OrderModel : UmtModel
 {
     public const string DISCRIMINATOR = "Order";
 
+    [Map]
     [Required]
     [UniqueIdProperty]
     public Guid? OrderGUID { get; set; }

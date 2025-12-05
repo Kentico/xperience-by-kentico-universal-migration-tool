@@ -8,7 +8,7 @@ public static class OrderStatusSamples
     public static readonly Guid SAMPLE_ORDER_STATUS_PROCESSING_GUID = new("E5F6A7B8-C9D0-4123-E456-789ABCDEF012");
     public static readonly Guid SAMPLE_ORDER_STATUS_COMPLETED_GUID = new("F6A7B8C9-D0E1-4234-F567-89ABCDEF0123");
 
-    [Sample("orderstatus.sample.new", "Sample demonstrates how to create a new order status", "Instance of  OrderStatusInfo - Sample new order status")]
+    [Sample("orderstatus.sample.new", "Sample demonstrates how to create a new order status", "Instance of OrderStatusInfo - Sample new order status")]
     public static OrderStatusModel SampleOrderStatusNew => new()
     {
         OrderStatusGUID = SAMPLE_ORDER_STATUS_NEW_GUID,
@@ -25,7 +25,7 @@ public static class OrderStatusSamples
         OrderStatusGUID = SAMPLE_ORDER_STATUS_PROCESSING_GUID,
         OrderStatusName = "Processing",
         OrderStatusDisplayName = "Processing Order",
-        OrderStatusOrder = 3,
+        OrderStatusOrder = 2,
         OrderStatusInternalNotificationEnabled = false,
         OrderStatusCustomerNotificationEnabled = true
     };
