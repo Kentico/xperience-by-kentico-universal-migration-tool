@@ -5,14 +5,14 @@ namespace Kentico.Xperience.UMT.Examples;
 public static class ShoppingCartSamples
 {
     public static readonly Guid SAMPLE_SHOPPING_CART_WITH_MEMBER_GUID = new("C3D4E5F6-A7B8-4901-C234-56789ABCDEF0");
-    public static readonly Guid SAMPLE_SHOPPING_CART_ANONYMOUS_GUID = new("D4E5F6A7-B8C9-4012-D345-6789ABCDEF01");
+    public static readonly Guid SAMPLE_SHOPPING_CART_ANONYMOUS_GUID = new("E5F6A7B8-C9D0-4123-E456-789ABCDEF012");
 
 
     [Sample("shoppingcart.sample.withmember", "Sample demonstrates how to create a shopping cart for a member", "Instance of ShoppingCartInfo - Sample shopping cart with member")]
     public static ShoppingCartModel SampleShoppingCartWithMember => new()
     {
         ShoppingCartGUID = SAMPLE_SHOPPING_CART_WITH_MEMBER_GUID,
-        ShoppingCartUniqueIdentifier = Guid.NewGuid().ToString(),
+        ShoppingCartUniqueIdentifier = "identifier1",
         ShoppingCartModifiedWhen = DateTime.UtcNow,
         ShoppingCartMemberGUID = MemberSamples.SampleMemberNoCustomFields.MemberGUID,
         ShoppingCartData = "{\"Items\":[{\"ProductIdentifier\":{\"VariantIdentifier\":null,\"Identifier\":132},\"Quantity\":4},{\"ProductIdentifier\":{\"VariantIdentifier\":null,\"Identifier\":108},\"Quantity\":1}]}"
@@ -23,7 +23,7 @@ public static class ShoppingCartSamples
     public static ShoppingCartModel SampleShoppingCartAnonymous => new()
     {
         ShoppingCartGUID = SAMPLE_SHOPPING_CART_ANONYMOUS_GUID,
-        ShoppingCartUniqueIdentifier = Guid.NewGuid().ToString(),
+        ShoppingCartUniqueIdentifier = "identifier2",
         ShoppingCartModifiedWhen = DateTime.UtcNow,
         ShoppingCartMemberGUID = null,
         ShoppingCartData = "{\"Items\":[{\"ProductIdentifier\":{\"VariantIdentifier\":null,\"Identifier\":132},\"Quantity\":4},{\"ProductIdentifier\":{\"VariantIdentifier\":null,\"Identifier\":108},\"Quantity\":1}]}"

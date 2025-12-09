@@ -40,9 +40,7 @@ public static class OrderSamples
         OrderTotalTax = 12.00m,
         OrderGrandTotal = 186.98m,
         OrderPaymentMethodGUID = PaymentMethodSamples.SAMPLE_PAYMENT_METHOD_CREDIT_CARD_GUID,
-        OrderPaymentMethodDisplayName = "Credit Card",
         OrderShippingMethodGUID = ShippingMethodSamples.SAMPLE_SHIPPING_METHOD_EXPRESS_GUID,
-        OrderShippingMethodDisplayName = "Express Shipping",
         OrderShippingMethodPrice = 24.99m
     };
 }

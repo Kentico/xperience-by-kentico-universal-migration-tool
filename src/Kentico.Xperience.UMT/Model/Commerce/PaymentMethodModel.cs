@@ -1,12 +1,13 @@
 using System.ComponentModel.DataAnnotations;
 
+using CMS.Commerce;
+
 using Kentico.Xperience.UMT.Attributes;
-// ReSharper disable InconsistentNaming
 
 namespace Kentico.Xperience.UMT.Model;
 
 /// <summary>
-/// Model represents XbyK PaymentMethodInfo
+/// Model represents XbyK <see cref="PaymentMethodInfo"/>. 
 /// </summary>
 [UmtModel(DISCRIMINATOR)]
 public class PaymentMethodModel : UmtModel

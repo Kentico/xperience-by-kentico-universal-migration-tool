@@ -1,12 +1,13 @@
 using System.ComponentModel.DataAnnotations;
 
+using CMS.Commerce;
+
 using Kentico.Xperience.UMT.Attributes;
-// ReSharper disable InconsistentNaming
 
 namespace Kentico.Xperience.UMT.Model;
 
 /// <summary>
-/// Model represents XbyK ShippingMethodInfo
+/// Model represents XbyK <see cref="ShippingMethodInfo"/>. 
 /// </summary>
 [UmtModel(DISCRIMINATOR)]
 public class ShippingMethodModel : UmtModel

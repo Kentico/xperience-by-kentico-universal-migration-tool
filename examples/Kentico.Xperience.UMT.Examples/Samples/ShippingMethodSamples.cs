@@ -4,8 +4,8 @@ namespace Kentico.Xperience.UMT.Examples;
 
 public static class ShippingMethodSamples
 {
-    public static readonly Guid SAMPLE_SHIPPING_METHOD_STANDARD_GUID = new("E5F6A7B8-C9D0-4123-E456-789ABCDEF012");
-    public static readonly Guid SAMPLE_SHIPPING_METHOD_EXPRESS_GUID = new("F6A7B8C9-D0E1-4234-F567-89ABCDEF0123");
+    public static readonly Guid SAMPLE_SHIPPING_METHOD_STANDARD_GUID = new("A1B2C3D4-E5F6-4789-ABCD-1234567890AB");
+    public static readonly Guid SAMPLE_SHIPPING_METHOD_EXPRESS_GUID = new("B1B2C3D4-E5F6-4789-ABCD-0123456789AB");
 
 
     [Sample("shippingmethod.sample.standard", "Sample demonstrates how to create a standard shipping method", "Instance of ShippingMethodInfo - Sample standard shipping method")]

@@ -1,14 +1,14 @@
 using System.ComponentModel.DataAnnotations;
 
+using CMS.Commerce;
 using CMS.Membership;
 
 using Kentico.Xperience.UMT.Attributes;
-// ReSharper disable InconsistentNaming
 
 namespace Kentico.Xperience.UMT.Model;
 
 /// <summary>
-/// Model represents XbyK ShoppingCartInfo
+/// Model represents XbyK  <see cref="ShoppingCartInfo"/>.
 /// </summary>
 [UmtModel(DISCRIMINATOR)]
 public class ShoppingCartModel : UmtModel

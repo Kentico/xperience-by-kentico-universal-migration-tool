@@ -2373,5 +2373,55 @@
     "$type": "OrderStatusNotification",
     "orderStatusNotificationOrderStatusGUID": "f6a7b8c9-d0e1-4234-f567-89abcdef0123",
     "orderStatusNotificationUserGUID": "dbfcc244-2cb9-4934-857f-9d75404c1553"
+  },
+  {
+    "$type": "PaymentMethod",
+    "paymentMethodGUID": "a7b8c9d0-e1f2-4345-a678-9abcdef01234",
+    "paymentMethodName": "CreditCard",
+    "paymentMethodDisplayName": "Credit Card",
+    "paymentMethodDescription": "Pay with credit or debit card",
+    "paymentMethodEnabled": true
+  },
+  {
+    "$type": "PaymentMethod",
+    "paymentMethodGUID": "b8c9d0e1-f2a3-4456-b789-abcdef012345",
+    "paymentMethodName": "PayPal",
+    "paymentMethodDisplayName": "PayPal",
+    "paymentMethodDescription": "Pay with PayPal account",
+    "paymentMethodEnabled": true
+  },
+  {
+    "$type": "ShippingMethod",
+    "shippingMethodGUID": "a1b2c3d4-e5f6-4789-abcd-1234567890ab",
+    "shippingMethodName": "StandardShipping",
+    "shippingMethodDisplayName": "Standard Shipping",
+    "shippingMethodDescription": "Standard shipping method with 5-7 business days delivery",
+    "shippingMethodEnabled": true,
+    "shippingMethodPrice": 9.99
+  },
+  {
+    "$type": "ShippingMethod",
+    "shippingMethodGUID": "b1b2c3d4-e5f6-4789-abcd-0123456789ab",
+    "shippingMethodName": "ExpressShipping",
+    "shippingMethodDisplayName": "Express Shipping",
+    "shippingMethodDescription": "Express shipping method with 1-2 business days delivery",
+    "shippingMethodEnabled": true,
+    "shippingMethodPrice": 24.99
+  },
+  {
+    "$type": "ShoppingCart",
+    "shoppingCartGUID": "c3d4e5f6-a7b8-4901-c234-56789abcdef0",
+    "shoppingCartUniqueIdentifier": "identifier1",
+    "shoppingCartModifiedWhen": "2024-03-20T14:15:00.000Z",
+    "shoppingCartMemberGUID": "4834f3c4-f7a5-46b8-a83d-607fcfc555d7",
+    "shoppingCartData": "{\"Items\":[{\"ProductIdentifier\":{\"VariantIdentifier\":null,\"Identifier\":132},\"Quantity\":4},{\"ProductIdentifier\":{\"VariantIdentifier\":null,\"Identifier\":108},\"Quantity\":1}]}"
+  },
+  {
+    "$type": "ShoppingCart",
+    "shoppingCartGUID": "e5f6a7b8-c9d0-4123-e456-789abcdef012",
+    "shoppingCartUniqueIdentifier": "identifier2",
+    "shoppingCartModifiedWhen": "2024-03-20T14:15:00.000Z",
+    "shoppingCartMemberGUID": null,
+    "shoppingCartData": "{\"Items\":[{\"ProductIdentifier\":{\"VariantIdentifier\":null,\"Identifier\":132},\"Quantity\":4},{\"ProductIdentifier\":{\"VariantIdentifier\":null,\"Identifier\":108},\"Quantity\":1}]}"
   }
 ]

@@ -31,5 +31,18 @@ public static class OrderItemSamples
         OrderItemUnitPrice = 29.99m,
         OrderItemTotalPrice = 29.99m
     };
+
+
+    [Sample("orderitem.sample.basic", "Sample demonstrates how to create an order item", "Instance of OrderItemInfo - Sample order item")]
+    public static OrderItemModel SampleOrderItemWithMethods => new()
+    {
+        OrderItemGUID = SAMPLE_ORDER_ITEM_1_GUID,
+        OrderItemOrderGUID = OrderSamples.SAMPLE_ORDER_WITH_METHODS_GUID,
+        OrderItemSKU = "PROD-003",
+        OrderItemName = "Sample Product with methods",
+        OrderItemQuantity = 2,
+        OrderItemUnitPrice = 9.99m,
+        OrderItemTotalPrice = 19.98m
+    };
 }
 

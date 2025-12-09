@@ -177,23 +177,24 @@ public static class SampleProvider
             CustomerSamples.SampleCustomerBasic,
             CustomerSamples.SampleCustomerWithMember,
             CustomerAddressSamples.SampleCustomerAddress,
+            PaymentMethodSamples.SamplePaymentMethodCreditCard,
+            PaymentMethodSamples.SamplePaymentMethodPayPal,
+            ShippingMethodSamples.SampleShippingMethodStandard,
+            ShippingMethodSamples.SampleShippingMethodExpress,
             OrderStatusSamples.SampleOrderStatusNew,
             OrderStatusSamples.SampleOrderStatusProcessing,
             OrderStatusSamples.SampleOrderStatusCompleted,
             OrderStatusNotificationSamples.SampleOrderStatusNotificationNew,
             OrderStatusNotificationSamples.SampleOrderStatusNotificationCompleted,
             OrderSamples.SampleOrder,
-            OrderSamples.SampleOrderWithMethods,
             OrderItemSamples.SampleOrderItem,
             OrderItemSamples.SampleOrderItemSecond,
+            OrderSamples.SampleOrderWithMethods,
+            OrderItemSamples.SampleOrderItemWithMethods,
             OrderAddressSamples.SampleOrderAddressBilling,
             OrderAddressSamples.SampleOrderAddressShipping,
             ShoppingCartSamples.SampleShoppingCartWithMember,
-            ShoppingCartSamples.SampleShoppingCartAnonymous,
-            PaymentMethodSamples.SamplePaymentMethodCreditCard,
-            PaymentMethodSamples.SamplePaymentMethodPayPal,
-            ShippingMethodSamples.SampleShippingMethodStandard,
-            ShippingMethodSamples.SampleShippingMethodExpress
+            ShoppingCartSamples.SampleShoppingCartAnonymous
         ]);
 
         return sourceData;
