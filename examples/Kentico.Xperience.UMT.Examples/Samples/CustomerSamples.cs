@@ -7,7 +7,6 @@ public static class CustomerSamples
     public static readonly Guid SAMPLE_CUSTOMER_GUID = new("A1B2C3D4-E5F6-4789-A012-3456789ABCDE");
     public static readonly Guid SAMPLE_CUSTOMER_WITH_MEMBER_GUID = new("B2C3D4E5-F6A7-4890-B123-456789ABCDEF");
 
-
     [Sample("customer.sample.basic", "Sample demonstrates how to create a customer without member reference", "Instance of CustomerInfo - Sample customer without member")]
     public static CustomerModel SampleCustomerBasic => new()
     {

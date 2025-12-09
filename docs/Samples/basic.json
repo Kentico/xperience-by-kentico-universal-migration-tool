@@ -2261,5 +2261,117 @@
     "customerAddressZip": "10001",
     "customerAddressCountryGUID": null,
     "customerAddressStateGUID": null
+  },
+  {
+    "$type": "OrderStatus",
+    "orderStatusGUID": "d4e5f6a7-b8c9-4012-d345-6789abcdef01",
+    "orderStatusName": "New",
+    "orderStatusDisplayName": "New Order",
+    "orderStatusOrder": 1,
+    "orderStatusInternalNotificationEnabled": true,
+    "orderStatusCustomerNotificationEnabled": true,
+    "orderStatusCustomerNotificationEmailConfigurationGUID": null
+  },
+  {
+    "$type": "OrderStatus",
+    "orderStatusGUID": "e5f6a7b8-c9d0-4123-e456-789abcdef012",
+    "orderStatusName": "Processing",
+    "orderStatusDisplayName": "Processing Order",
+    "orderStatusOrder": 2,
+    "orderStatusInternalNotificationEnabled": false,
+    "orderStatusCustomerNotificationEnabled": true,
+    "orderStatusCustomerNotificationEmailConfigurationGUID": null
+  },
+  {
+    "$type": "OrderStatus",
+    "orderStatusGUID": "f6a7b8c9-d0e1-4234-f567-89abcdef0123",
+    "orderStatusName": "Completed",
+    "orderStatusDisplayName": "Completed Order",
+    "orderStatusOrder": 3,
+    "orderStatusInternalNotificationEnabled": true,
+    "orderStatusCustomerNotificationEnabled": false,
+    "orderStatusCustomerNotificationEmailConfigurationGUID": null
+  },
+  {
+    "$type": "Order",
+    "orderGUID": "e1f2a3b4-c5d6-4789-e012-3456789abcde",
+    "orderNumber": "ORD-2024-001",
+    "orderCreatedWhen": "2024-01-20T14:30:00Z",
+    "orderModifiedWhen": "2024-01-21T09:15:00Z",
+    "orderCustomerGUID": "a1b2c3d4-e5f6-4789-a012-3456789abcde",
+    "orderOrderStatusGUID": "e5f6a7b8-c9d0-4123-e456-789abcdef012",
+    "orderTotalPrice": 129.99,
+    "orderTotalShipping": 9.99,
+    "orderTotalTax": 10.4,
+    "orderGrandTotal": 150.38,
+    "orderPaymentMethodGUID": null,
+    "orderPaymentMethodDisplayName": "Credit Card",
+    "orderShippingMethodGUID": null,
+    "orderShippingMethodDisplayName": "Standard Shipping",
+    "orderShippingMethodPrice": 9.99
+  },
+  {
+    "$type": "OrderItem",
+    "orderItemGUID": "b4c5d6e7-f8a9-4012-b345-6789abcdef01",
+    "orderItemOrderGUID": "e1f2a3b4-c5d6-4789-e012-3456789abcde",
+    "orderItemSKU": "PROD-001",
+    "orderItemName": "Sample Product 1",
+    "orderItemQuantity": 2,
+    "orderItemUnitPrice": 49.99,
+    "orderItemTotalPrice": 99.98
+  },
+  {
+    "$type": "OrderItem",
+    "orderItemGUID": "c5d6e7f8-a9b0-4123-c456-789abcdef012",
+    "orderItemOrderGUID": "e1f2a3b4-c5d6-4789-e012-3456789abcde",
+    "orderItemSKU": "PROD-002",
+    "orderItemName": "Sample Product 2",
+    "orderItemQuantity": 1,
+    "orderItemUnitPrice": 30.01,
+    "orderItemTotalPrice": 30.01
+  },
+  {
+    "$type": "OrderAddress",
+    "orderAddressGUID": "f2a3b4c5-d6e7-4890-f123-456789abcdef",
+    "orderAddressOrderGUID": "e1f2a3b4-c5d6-4789-e012-3456789abcde",
+    "orderAddressType": "Billing",
+    "orderAddressFirstName": "John",
+    "orderAddressLastName": "Doe",
+    "orderAddressCompany": null,
+    "orderAddressEmail": "john.doe@sample.localhost",
+    "orderAddressPhone": "+1-555-123-4567",
+    "orderAddressLine1": "123 Main Street",
+    "orderAddressLine2": "Suite 100",
+    "orderAddressCity": "New York",
+    "orderAddressZip": "10001",
+    "orderAddressCountryGUID": null,
+    "orderAddressStateGUID": null
+  },
+  {
+    "$type": "OrderAddress",
+    "orderAddressGUID": "a3b4c5d6-e7f8-4901-a234-56789abcdef0",
+    "orderAddressOrderGUID": "e1f2a3b4-c5d6-4789-e012-3456789abcde",
+    "orderAddressType": "Shipping",
+    "orderAddressFirstName": "John",
+    "orderAddressLastName": "Doe",
+    "orderAddressCompany": null,
+    "orderAddressEmail": "john.doe@sample.localhost",
+    "orderAddressPhone": "+1-555-123-4567",
+    "orderAddressLine1": "123 Main Street",
+    "orderAddressLine2": "Suite 100",
+    "orderAddressCity": "New York",
+    "orderAddressZip": "10001",
+    "orderAddressCountryGUID": null,
+    "orderAddressStateGUID": null
+  },
+  {
+    "$type": "OrderStatusNotification",
+    "orderStatusNotificationOrderStatusGUID": "e5f6a7b8-c9d0-4123-e456-789abcdef012",
+    "orderStatusNotificationUserGUID": "dbfcc244-2cb9-4934-857f-9d75404c1553"
+  },
+  {
+    "$type": "OrderStatusNotification",
+    "orderStatusNotificationOrderStatusGUID": "f6a7b8c9-d0e1-4234-f567-89abcdef0123",
+    "orderStatusNotificationUserGUID": "dbfcc244-2cb9-4934-857f-9d75404c1553"
   }
 ]

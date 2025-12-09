@@ -176,7 +176,16 @@ public static class SampleProvider
         sourceData.AddRange([
             CustomerSamples.SampleCustomerBasic,
             CustomerSamples.SampleCustomerWithMember,
-            CustomerAddressSamples.SampleCustomerAddress
+            CustomerAddressSamples.SampleCustomerAddress,
+            OrderStatusSamples.SampleOrderStatusNew,
+            OrderStatusSamples.SampleOrderStatusCompleted,
+            OrderStatusNotificationSamples.SampleOrderStatusNotificationNew,
+            OrderStatusNotificationSamples.SampleOrderStatusNotificationCompleted,
+            OrderSamples.SampleOrder,
+            OrderItemSamples.SampleOrderItem,
+            OrderItemSamples.SampleOrderItemSecond,
+            OrderAddressSamples.SampleOrderAddressBilling,
+            OrderAddressSamples.SampleOrderAddressShipping,
         ]);
 
         return sourceData;

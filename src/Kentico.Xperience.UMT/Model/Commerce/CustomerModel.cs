@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
+using CMS.Commerce;
 using CMS.Membership;
 
 using Kentico.Xperience.UMT.Attributes;
@@ -7,7 +8,7 @@ using Kentico.Xperience.UMT.Attributes;
 namespace Kentico.Xperience.UMT.Model;
 
 /// <summary>
-/// Model represents XbyK CustomerInfo
+/// Model represents XbyK <see cref="CustomerInfo"/>.
 /// </summary>
 [UmtModel(DISCRIMINATOR)]
 public class CustomerModel : UmtModel
