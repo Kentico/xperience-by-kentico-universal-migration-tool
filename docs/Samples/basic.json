@@ -2311,6 +2311,34 @@
     "orderShippingMethodPrice": 9.99
   },
   {
+    "$type": "Order",
+    "orderGUID": "f2a3b4c5-d6e7-4890-f123-456789abcdef",
+    "orderNumber": "ORD-2024-002",
+    "orderCreatedWhen": "2024-03-20T14:15:00.000Z",
+    "orderModifiedWhen": "2024-03-20T14:15:00.000Z",
+    "orderCustomerGUID": "a1b2c3d4-e5f6-4789-a012-3456789abcde",
+    "orderOrderStatusGUID": "d4e5f6a7-b8c9-4012-d345-6789abcdef01",
+    "orderTotalPrice": 19.98,
+    "orderTotalShipping": 24.99,
+    "orderTotalTax": 1.98,
+    "orderGrandTotal": 46.94,
+    "orderPaymentMethodGUID": "a7b8c9d0-e1f2-4345-a678-9abcdef01234",
+    "orderPaymentMethodDisplayName": "Credit Card",
+    "orderShippingMethodGUID": "b1b2c3d4-e5f6-4789-abcd-0123456789ab",
+    "orderShippingMethodDisplayName": "Express Shipping",
+    "orderShippingMethodPrice": 24.99
+  },
+  {
+    "$type": "OrderItem",
+    "orderItemGUID": "a5d6e7f8-a9b0-4123-c456-789abcdef012",
+    "orderItemOrderGUID": "f2a3b4c5-d6e7-4890-f123-456789abcdef",
+    "orderItemSKU": "PROD-003",
+    "orderItemName": "Sample Product with methods",
+    "orderItemQuantity": 2,
+    "orderItemUnitPrice": 9.99,
+    "orderItemTotalPrice": 19.98
+  },
+  {
     "$type": "OrderItem",
     "orderItemGUID": "b4c5d6e7-f8a9-4012-b345-6789abcdef01",
     "orderItemOrderGUID": "e1f2a3b4-c5d6-4789-e012-3456789abcde",

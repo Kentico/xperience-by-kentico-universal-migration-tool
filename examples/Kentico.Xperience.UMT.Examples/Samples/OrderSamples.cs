@@ -35,10 +35,10 @@ public static class OrderSamples
         OrderModifiedWhen = new DateTime(2024, 03, 20, 14, 15, 0, DateTimeKind.Utc),
         OrderCustomerGUID = CustomerSamples.SAMPLE_CUSTOMER_GUID,
         OrderOrderStatusGUID = OrderStatusSamples.SAMPLE_ORDER_STATUS_NEW_GUID,
-        OrderTotalPrice = 149.99m,
+        OrderTotalPrice = 19.98m,
         OrderTotalShipping = 24.99m,
-        OrderTotalTax = 12.00m,
-        OrderGrandTotal = 186.98m,
+        OrderTotalTax = 1.98m,
+        OrderGrandTotal = 46.94m,
         OrderPaymentMethodGUID = PaymentMethodSamples.SAMPLE_PAYMENT_METHOD_CREDIT_CARD_GUID,
         OrderShippingMethodGUID = ShippingMethodSamples.SAMPLE_SHIPPING_METHOD_EXPRESS_GUID,
         OrderShippingMethodPrice = 24.99m

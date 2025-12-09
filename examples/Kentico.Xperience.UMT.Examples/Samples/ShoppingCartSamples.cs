@@ -13,7 +13,7 @@ public static class ShoppingCartSamples
     {
         ShoppingCartGUID = SAMPLE_SHOPPING_CART_WITH_MEMBER_GUID,
         ShoppingCartUniqueIdentifier = "identifier1",
-        ShoppingCartModifiedWhen = DateTime.UtcNow,
+        ShoppingCartModifiedWhen = new DateTime(2023, 03, 15, 9, 30, 0, DateTimeKind.Utc),
         ShoppingCartMemberGUID = MemberSamples.SampleMemberNoCustomFields.MemberGUID,
         ShoppingCartData = "{\"Items\":[{\"ProductIdentifier\":{\"VariantIdentifier\":null,\"Identifier\":132},\"Quantity\":4},{\"ProductIdentifier\":{\"VariantIdentifier\":null,\"Identifier\":108},\"Quantity\":1}]}"
     };
@@ -24,7 +24,7 @@ public static class ShoppingCartSamples
     {
         ShoppingCartGUID = SAMPLE_SHOPPING_CART_ANONYMOUS_GUID,
         ShoppingCartUniqueIdentifier = "identifier2",
-        ShoppingCartModifiedWhen = DateTime.UtcNow,
+        ShoppingCartModifiedWhen = new DateTime(2024, 03, 15, 9, 30, 0, DateTimeKind.Utc),
         ShoppingCartMemberGUID = null,
         ShoppingCartData = "{\"Items\":[{\"ProductIdentifier\":{\"VariantIdentifier\":null,\"Identifier\":132},\"Quantity\":4},{\"ProductIdentifier\":{\"VariantIdentifier\":null,\"Identifier\":108},\"Quantity\":1}]}"
     };
