@@ -2299,7 +2299,7 @@
     "orderCreatedWhen": "2024-01-20T14:30:00Z",
     "orderModifiedWhen": "2024-01-21T09:15:00Z",
     "orderCustomerGUID": "a1b2c3d4-e5f6-4789-a012-3456789abcde",
-    "orderOrderStatusGUID": "e5f6a7b8-c9d0-4123-e456-789abcdef012",
+    "orderOrderStatusGUID": "d4e5f6a7-b8c9-4012-d345-6789abcdef01",
     "orderTotalPrice": 129.99,
     "orderTotalShipping": 9.99,
     "orderTotalTax": 10.4,
