@@ -172,20 +172,29 @@ public static class SampleProvider
             WebPageScopeSamples.SampleWebPageScopeContentType,
         ]);
 
-        // ecommerce samples
+        // commerce samples
         sourceData.AddRange([
             CustomerSamples.SampleCustomerBasic,
             CustomerSamples.SampleCustomerWithMember,
             CustomerAddressSamples.SampleCustomerAddress,
+            PaymentMethodSamples.SamplePaymentMethodCreditCard,
+            PaymentMethodSamples.SamplePaymentMethodPayPal,
+            ShippingMethodSamples.SampleShippingMethodStandard,
+            ShippingMethodSamples.SampleShippingMethodExpress,
             OrderStatusSamples.SampleOrderStatusNew,
+            OrderStatusSamples.SampleOrderStatusProcessing,
             OrderStatusSamples.SampleOrderStatusCompleted,
             OrderStatusNotificationSamples.SampleOrderStatusNotificationNew,
             OrderStatusNotificationSamples.SampleOrderStatusNotificationCompleted,
             OrderSamples.SampleOrder,
             OrderItemSamples.SampleOrderItem,
             OrderItemSamples.SampleOrderItemSecond,
+            OrderSamples.SampleOrderWithMethods,
+            OrderItemSamples.SampleOrderItemWithMethods,
             OrderAddressSamples.SampleOrderAddressBilling,
             OrderAddressSamples.SampleOrderAddressShipping,
+            ShoppingCartSamples.SampleShoppingCartWithMember,
+            ShoppingCartSamples.SampleShoppingCartAnonymous
         ]);
 
         return sourceData;
