@@ -1583,6 +1583,731 @@
           "type": "string"
         }
       }
+    },
+    "CustomerModel": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/UmtModel"
+        },
+        {
+          "type": "object",
+          "description": "Model represents XbyK CustomerInfo.",
+          "additionalProperties": {
+            "oneOf": [
+              {},
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "required": [
+            "CustomerGUID"
+          ],
+          "properties": {
+            "CustomerGUID": {
+              "type": "string",
+              "format": "guid",
+              "minLength": 1
+            },
+            "CustomerFirstName": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "CustomerLastName": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "CustomerEmail": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "CustomerPhone": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "CustomerMemberGUID": {
+              "type": [
+                "null",
+                "string"
+              ],
+              "format": "guid"
+            },
+            "CustomerCreatedWhen": {
+              "type": [
+                "null",
+                "string"
+              ],
+              "format": "date-time"
+            }
+          }
+        }
+      ]
+    },
+    "CustomerAddressModel": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/UmtModel"
+        },
+        {
+          "type": "object",
+          "description": "Model represents XbyK CustomerAddressInfo.",
+          "additionalProperties": {
+            "oneOf": [
+              {},
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "required": [
+            "CustomerAddressGUID"
+          ],
+          "properties": {
+            "CustomerAddressGUID": {
+              "type": "string",
+              "format": "guid",
+              "minLength": 1
+            },
+            "CustomerAddressCustomerGUID": {
+              "type": [
+                "null",
+                "string"
+              ],
+              "format": "guid"
+            },
+            "CustomerAddressFirstName": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "CustomerAddressLastName": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "CustomerAddressCompany": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "CustomerAddressEmail": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "CustomerAddressPhone": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "CustomerAddressLine1": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "CustomerAddressLine2": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "CustomerAddressCity": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "CustomerAddressZip": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "CustomerAddressCountryGUID": {
+              "type": [
+                "null",
+                "string"
+              ],
+              "format": "guid"
+            },
+            "CustomerAddressStateGUID": {
+              "type": [
+                "null",
+                "string"
+              ],
+              "format": "guid"
+            }
+          }
+        }
+      ]
+    },
+    "OrderStatusModel": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/UmtModel"
+        },
+        {
+          "type": "object",
+          "description": "Model represents XbyK OrderStatusInfo.",
+          "additionalProperties": {
+            "oneOf": [
+              {},
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "required": [
+            "OrderStatusGUID",
+            "OrderStatusName",
+            "OrderStatusDisplayName",
+            "OrderStatusOrder",
+            "OrderStatusInternalNotificationEnabled",
+            "OrderStatusCustomerNotificationEnabled"
+          ],
+          "properties": {
+            "OrderStatusGUID": {
+              "type": "string",
+              "format": "guid",
+              "minLength": 1
+            },
+            "OrderStatusName": {
+              "type": "string",
+              "minLength": 1
+            },
+            "OrderStatusDisplayName": {
+              "type": "string",
+              "minLength": 1
+            },
+            "OrderStatusOrder": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "OrderStatusInternalNotificationEnabled": {
+              "type": "boolean"
+            },
+            "OrderStatusCustomerNotificationEnabled": {
+              "type": "boolean"
+            },
+            "OrderStatusCustomerNotificationEmailConfigurationGUID": {
+              "type": [
+                "null",
+                "string"
+              ],
+              "format": "guid"
+            }
+          }
+        }
+      ]
+    },
+    "OrderStatusNotificationModel": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/UmtModel"
+        },
+        {
+          "type": "object",
+          "description": "Model represents XbyK OrderStatusNotificationInfo.",
+          "additionalProperties": {
+            "oneOf": [
+              {},
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "required": [
+            "OrderStatusNotificationOrderStatusGUID",
+            "OrderStatusNotificationUserGUID"
+          ],
+          "properties": {
+            "OrderStatusNotificationOrderStatusGUID": {
+              "type": "string",
+              "format": "guid",
+              "minLength": 1
+            },
+            "OrderStatusNotificationUserGUID": {
+              "type": "string",
+              "format": "guid",
+              "minLength": 1
+            }
+          }
+        }
+      ]
+    },
+    "OrderModel": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/UmtModel"
+        },
+        {
+          "type": "object",
+          "description": "Model represents XbyK OrderInfo.",
+          "additionalProperties": {
+            "oneOf": [
+              {},
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "required": [
+            "OrderGUID",
+            "OrderNumber",
+            "OrderCreatedWhen",
+            "OrderModifiedWhen",
+            "OrderOrderStatusGUID",
+            "OrderCustomerGUID"
+          ],
+          "properties": {
+            "OrderGUID": {
+              "type": "string",
+              "format": "guid",
+              "minLength": 1
+            },
+            "OrderNumber": {
+              "type": "string",
+              "minLength": 1
+            },
+            "OrderCreatedWhen": {
+              "type": "string",
+              "format": "date-time",
+              "minLength": 1
+            },
+            "OrderModifiedWhen": {
+              "type": "string",
+              "format": "date-time",
+              "minLength": 1
+            },
+            "OrderOrderStatusGUID": {
+              "type": "string",
+              "format": "guid",
+              "minLength": 1
+            },
+            "OrderTotalPrice": {
+              "type": [
+                "null",
+                "number"
+              ],
+              "format": "decimal"
+            },
+            "OrderTotalShipping": {
+              "type": [
+                "null",
+                "number"
+              ],
+              "format": "decimal"
+            },
+            "OrderTotalTax": {
+              "type": [
+                "null",
+                "number"
+              ],
+              "format": "decimal"
+            },
+            "OrderGrandTotal": {
+              "type": [
+                "null",
+                "number"
+              ],
+              "format": "decimal"
+            },
+            "OrderCustomerGUID": {
+              "type": "string",
+              "format": "guid",
+              "minLength": 1
+            },
+            "OrderPaymentMethodGUID": {
+              "type": [
+                "null",
+                "string"
+              ],
+              "format": "guid"
+            },
+            "OrderPaymentMethodDisplayName": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "OrderShippingMethodGUID": {
+              "type": [
+                "null",
+                "string"
+              ],
+              "format": "guid"
+            },
+            "OrderShippingMethodDisplayName": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "OrderShippingMethodPrice": {
+              "type": [
+                "null",
+                "number"
+              ],
+              "format": "decimal"
+            }
+          }
+        }
+      ]
+    },
+    "OrderItemModel": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/UmtModel"
+        },
+        {
+          "type": "object",
+          "description": "Model represents XbyK OrderItemInfo.",
+          "additionalProperties": {
+            "oneOf": [
+              {},
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "required": [
+            "OrderItemGUID",
+            "OrderItemOrderGUID"
+          ],
+          "properties": {
+            "OrderItemGUID": {
+              "type": "string",
+              "format": "guid",
+              "minLength": 1
+            },
+            "OrderItemOrderGUID": {
+              "type": "string",
+              "format": "guid",
+              "minLength": 1
+            },
+            "OrderItemSKU": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "OrderItemName": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "OrderItemQuantity": {
+              "type": [
+                "null",
+                "number"
+              ],
+              "format": "decimal"
+            },
+            "OrderItemUnitPrice": {
+              "type": [
+                "null",
+                "number"
+              ],
+              "format": "decimal"
+            },
+            "OrderItemTotalPrice": {
+              "type": [
+                "null",
+                "number"
+              ],
+              "format": "decimal"
+            }
+          }
+        }
+      ]
+    },
+    "OrderAddressModel": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/UmtModel"
+        },
+        {
+          "type": "object",
+          "description": "Model represents XbyK OrderAddressInfo.",
+          "additionalProperties": {
+            "oneOf": [
+              {},
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "required": [
+            "OrderAddressGUID",
+            "OrderAddressOrderGUID"
+          ],
+          "properties": {
+            "OrderAddressGUID": {
+              "type": "string",
+              "format": "guid",
+              "minLength": 1
+            },
+            "OrderAddressOrderGUID": {
+              "type": "string",
+              "format": "guid",
+              "minLength": 1
+            },
+            "OrderAddressType": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "OrderAddressFirstName": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "OrderAddressLastName": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "OrderAddressCompany": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "OrderAddressEmail": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "OrderAddressPhone": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "OrderAddressLine1": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "OrderAddressLine2": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "OrderAddressCity": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "OrderAddressZip": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "OrderAddressCountryGUID": {
+              "type": [
+                "null",
+                "string"
+              ],
+              "format": "guid"
+            },
+            "OrderAddressStateGUID": {
+              "type": [
+                "null",
+                "string"
+              ],
+              "format": "guid"
+            }
+          }
+        }
+      ]
+    },
+    "ShoppingCartModel": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/UmtModel"
+        },
+        {
+          "type": "object",
+          "description": "Model represents XbyK  ShoppingCartInfo.",
+          "additionalProperties": {
+            "oneOf": [
+              {},
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "required": [
+            "ShoppingCartGUID",
+            "ShoppingCartUniqueIdentifier"
+          ],
+          "properties": {
+            "ShoppingCartGUID": {
+              "type": "string",
+              "format": "guid",
+              "minLength": 1
+            },
+            "ShoppingCartUniqueIdentifier": {
+              "type": "string",
+              "minLength": 1
+            },
+            "ShoppingCartModifiedWhen": {
+              "type": [
+                "null",
+                "string"
+              ],
+              "format": "date-time"
+            },
+            "ShoppingCartMemberGUID": {
+              "type": [
+                "null",
+                "string"
+              ],
+              "description": "reference to member",
+              "format": "guid"
+            },
+            "ShoppingCartData": {
+              "type": [
+                "null",
+                "string"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    "PaymentMethodModel": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/UmtModel"
+        },
+        {
+          "type": "object",
+          "description": "Model represents XbyK PaymentMethodInfo. ",
+          "additionalProperties": {
+            "oneOf": [
+              {},
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "required": [
+            "PaymentMethodGUID",
+            "PaymentMethodName",
+            "PaymentMethodDisplayName"
+          ],
+          "properties": {
+            "PaymentMethodGUID": {
+              "type": "string",
+              "format": "guid",
+              "minLength": 1
+            },
+            "PaymentMethodName": {
+              "type": "string",
+              "minLength": 1
+            },
+            "PaymentMethodDisplayName": {
+              "type": "string",
+              "minLength": 1
+            },
+            "PaymentMethodDescription": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "PaymentMethodEnabled": {
+              "type": [
+                "boolean",
+                "null"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    "ShippingMethodModel": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/UmtModel"
+        },
+        {
+          "type": "object",
+          "description": "Model represents XbyK ShippingMethodInfo. ",
+          "additionalProperties": {
+            "oneOf": [
+              {},
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "required": [
+            "ShippingMethodGUID",
+            "ShippingMethodName",
+            "ShippingMethodDisplayName"
+          ],
+          "properties": {
+            "ShippingMethodGUID": {
+              "type": "string",
+              "format": "guid",
+              "minLength": 1
+            },
+            "ShippingMethodName": {
+              "type": "string",
+              "minLength": 1
+            },
+            "ShippingMethodDisplayName": {
+              "type": "string",
+              "minLength": 1
+            },
+            "ShippingMethodDescription": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "ShippingMethodEnabled": {
+              "type": [
+                "boolean",
+                "null"
+              ]
+            },
+            "ShippingMethodPrice": {
+              "type": [
+                "null",
+                "number"
+              ],
+              "format": "decimal"
+            }
+          }
+        }
+      ]
     }
   }
 }

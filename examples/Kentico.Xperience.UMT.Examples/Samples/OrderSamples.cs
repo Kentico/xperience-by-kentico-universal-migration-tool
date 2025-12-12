@@ -16,10 +16,10 @@ public static class OrderSamples
         OrderModifiedWhen = new DateTime(2024, 03, 16, 9, 30, 0, DateTimeKind.Utc),
         OrderCustomerGUID = CustomerSamples.SAMPLE_CUSTOMER_GUID,
         OrderOrderStatusGUID = OrderStatusSamples.SAMPLE_ORDER_STATUS_NEW_GUID,
-        OrderTotalPrice = 99.99m,
+        OrderTotalPrice = 129.97m,
         OrderTotalShipping = 5.99m,
         OrderTotalTax = 8.00m,
-        OrderGrandTotal = 113.98m,
+        OrderGrandTotal = 149.95m,
         OrderPaymentMethodDisplayName = "Credit Card",
         OrderShippingMethodDisplayName = "Standard Shipping",
         OrderShippingMethodPrice = 5.99m
@@ -41,6 +41,8 @@ public static class OrderSamples
         OrderGrandTotal = 46.94m,
         OrderPaymentMethodGUID = PaymentMethodSamples.SAMPLE_PAYMENT_METHOD_CREDIT_CARD_GUID,
         OrderShippingMethodGUID = ShippingMethodSamples.SAMPLE_SHIPPING_METHOD_EXPRESS_GUID,
-        OrderShippingMethodPrice = 24.99m
+        OrderShippingMethodPrice = 24.99m,
+        OrderPaymentMethodDisplayName = "Credit Card",
+        OrderShippingMethodDisplayName = "Express Shipping"
     };
 }
