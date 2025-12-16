@@ -16,7 +16,7 @@
 
         <VersionSuffix Condition="$(Configuration) == 'Debug'">$([System.DateTime]::Now.ToString('yyMMddHHmm'))</VersionSuffix>
         <PackageOutputDir Condition="$(Configuration) == 'Debug'">$(LOCAL_NUGET_REPO)\</PackageOutputDir>
-        <TargetFramework>net8.0</TargetFramework>
+        <TargetFramework>net10.0</TargetFramework>
         <PackageReadmeFile>README.md</PackageReadmeFile>
     </PropertyGroup>
 
