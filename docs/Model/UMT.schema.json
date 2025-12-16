@@ -2152,7 +2152,7 @@
         },
         {
           "type": "object",
-          "description": "Model represents XbyK  ShoppingCartInfo.",
+          "description": "Model represents XbyK ShoppingCartInfo.",
           "additionalProperties": {
             "oneOf": [
               {},
@@ -2207,7 +2207,7 @@
         },
         {
           "type": "object",
-          "description": "Model represents XbyK PaymentMethodInfo. ",
+          "description": "Model represents XbyK PaymentMethodInfo.",
           "additionalProperties": {
             "oneOf": [
               {},
@@ -2258,7 +2258,7 @@
         },
         {
           "type": "object",
-          "description": "Model represents XbyK ShippingMethodInfo. ",
+          "description": "Model represents XbyK ShippingMethodInfo.",
           "additionalProperties": {
             "oneOf": [
               {},
