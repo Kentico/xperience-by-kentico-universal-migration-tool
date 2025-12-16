@@ -7,8 +7,9 @@ using Kentico.Xperience.UMT.Attributes;
 namespace Kentico.Xperience.UMT.Model;
 
 /// <summary>
-/// Model represents XbyK <see cref="PaymentMethodInfo"/>. 
+/// Model represents XbyK PaymentMethodInfo. 
 /// </summary>
+/// <seealso cref="PaymentMethodInfo"/>
 [UmtModel(DISCRIMINATOR)]
 public class PaymentMethodModel : UmtModel
 {

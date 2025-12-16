@@ -193,6 +193,7 @@ public static class SampleProvider
             OrderItemSamples.SampleOrderItemWithMethods,
             OrderAddressSamples.SampleOrderAddressBilling,
             OrderAddressSamples.SampleOrderAddressShipping,
+            OrderAddressSamples.SampleOrderWithMethodsAddressBilling,
             ShoppingCartSamples.SampleShoppingCartWithMember,
             ShoppingCartSamples.SampleShoppingCartAnonymous
         ]);

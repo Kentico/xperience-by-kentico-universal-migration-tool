@@ -8,8 +8,9 @@ using Kentico.Xperience.UMT.Attributes;
 namespace Kentico.Xperience.UMT.Model;
 
 /// <summary>
-/// Model represents XbyK <see cref="OrderStatusInfo"/>.
+/// Model represents XbyK OrderStatusInfo.
 /// </summary>
+/// <seealso cref="OrderStatusInfo"/>
 [UmtModel(DISCRIMINATOR)]
 public class OrderStatusModel : UmtModel
 {
