@@ -2414,7 +2414,7 @@
   },
   {
     "$type": "OrderAddress",
-    "orderAddressGUID": "f2a3b4c5-d6e7-4890-f123-456789abcdef",
+    "orderAddressGUID": "f2a3b4c5-d6e7-4890-f123-456789abcde1",
     "orderAddressOrderGUID": "e1f2a3b4-c5d6-4789-e012-3456789abcde",
     "orderAddressType": "billing",
     "orderAddressFirstName": "John",

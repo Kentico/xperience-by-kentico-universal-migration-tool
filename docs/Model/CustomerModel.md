@@ -1,6 +1,6 @@
 <!-- generated file with tool "Kentico.Xperience.UMT.DocUtils" - edited through template "UmtModel.cshtml" -->
 ## CustomerModel
-Model represents XbyK .
+Model represents XbyK CustomerInfo.
 
 Model [discriminator](../UmtModel.md#discriminator): `Customer`
 

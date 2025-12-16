@@ -1,6 +1,6 @@
 <!-- generated file with tool "Kentico.Xperience.UMT.DocUtils" - edited through template "UmtModel.cshtml" -->
 ## OrderStatusModel
-Model represents XbyK .
+Model represents XbyK OrderStatusInfo.
 
 Model [discriminator](../UmtModel.md#discriminator): `OrderStatus`
 

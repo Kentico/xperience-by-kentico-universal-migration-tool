@@ -1,6 +1,6 @@
 <!-- generated file with tool "Kentico.Xperience.UMT.DocUtils" - edited through template "UmtModel.cshtml" -->
 ## ShoppingCartModel
-Model represents XbyK  .
+Model represents XbyK ShoppingCartInfo.
 
 Model [discriminator](../UmtModel.md#discriminator): `ShoppingCart`
 

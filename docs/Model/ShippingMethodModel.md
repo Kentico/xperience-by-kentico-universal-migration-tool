@@ -1,6 +1,6 @@
 <!-- generated file with tool "Kentico.Xperience.UMT.DocUtils" - edited through template "UmtModel.cshtml" -->
 ## ShippingMethodModel
-Model represents XbyK .
+Model represents XbyK ShippingMethodInfo.
 
 Model [discriminator](../UmtModel.md#discriminator): `ShippingMethod`
 

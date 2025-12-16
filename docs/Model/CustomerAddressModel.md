@@ -1,13 +1,13 @@
 <!-- generated file with tool "Kentico.Xperience.UMT.DocUtils" - edited through template "UmtModel.cshtml" -->
 ## CustomerAddressModel
-Model represents XbyK .
+Model represents XbyK CustomerAddressInfo.
 
 Model [discriminator](../UmtModel.md#discriminator): `CustomerAddress`
 
 |PropertyName|Summary|.NET Type|Notes|
 |---|---|---|---|
 |CustomerAddressGUID\*||System.Guid?|[UniqueId](../UmtModel.md#UniqueId)|
-|CustomerAddressCustomerGUID||System.Guid?|Reference to [CustomerInfo](../References.md#CustomerInfo) on property CustomerAddressCustomerID **required**|
+|CustomerAddressCustomerGUID||System.Guid?|Reference to [CustomerInfo](../References.md#CustomerInfo) on property CustomerAddressCustomerID|
 |CustomerAddressFirstName||string?||
 |CustomerAddressLastName||string?||
 |CustomerAddressCompany||string?||

@@ -4,7 +4,7 @@ namespace Kentico.Xperience.UMT.Examples;
 
 public static class OrderAddressSamples
 {
-    public static readonly Guid SAMPLE_ORDER_ADDRESS_BILLING_GUID = new("F2A3B4C5-D6E7-4890-F123-456789ABCDEF");
+    public static readonly Guid SAMPLE_ORDER_ADDRESS_BILLING_GUID = new("B1C2D3E4-F5A6-4789-B012-3456789ABCDE");
     public static readonly Guid SAMPLE_ORDER_ADDRESS_SHIPPING_GUID = new("A3B4C5D6-E7F8-4901-A234-56789ABCDEF0");
     public static readonly Guid SAMPLE_ORDER_WITH_METHODS_ADDRESS_BILLING_GUID = new("F2A3B4C5-D6E7-4890-F123-456789ABCDE1");
 

@@ -1,6 +1,6 @@
 <!-- generated file with tool "Kentico.Xperience.UMT.DocUtils" - edited through template "UmtModel.cshtml" -->
 ## PaymentMethodModel
-Model represents XbyK .
+Model represents XbyK PaymentMethodInfo.
 
 Model [discriminator](../UmtModel.md#discriminator): `PaymentMethod`
 
