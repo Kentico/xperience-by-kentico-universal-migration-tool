@@ -5,7 +5,7 @@
     <AssemblyName>Kentico.Xperience.UMT.DocUtils</AssemblyName>
     <PreserveCompilationContext>true</PreserveCompilationContext>
     <SonarQubeExclude>true</SonarQubeExclude>
-    <TargetFramework>net10.0</TargetFramework>
+    <TargetFramework>net8.0</TargetFramework>
   </PropertyGroup>
 
   <ItemGroup>
