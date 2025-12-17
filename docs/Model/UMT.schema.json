@@ -142,14 +142,12 @@
         "InitialDraft",
         "Draft",
         "Published",
-        "Unpublished",
-        "Archived"
+        "Unpublished"
       ],
       "enum": [
         0,
         1,
         2,
-        3,
         3
       ]
     },

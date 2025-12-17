@@ -3,6 +3,7 @@
   <PropertyGroup>
     <AssemblyName>Kentico.Xperience.UMT.Examples</AssemblyName>
     <SonarQubeExclude>true</SonarQubeExclude>
+    <TargetFramework>net8.0</TargetFramework>
   </PropertyGroup>
 
   <ItemGroup>
