@@ -28,6 +28,7 @@ namespace Kentico.Xperience.UMT.Utils
         }
 
         internal const string CONTENT_ITEM_REFERENCE_DATA_TYPE_NAME = "contentitemreference";
+        internal const string WEBPAGES_DATA_TYPE_NAME = "webpages";
 
         internal static IEnumerable<FormFieldInfo> GetRefFields(string className)
         {

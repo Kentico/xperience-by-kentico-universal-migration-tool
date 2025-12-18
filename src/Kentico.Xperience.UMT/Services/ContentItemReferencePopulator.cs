@@ -37,8 +37,8 @@ namespace Kentico.Xperience.UMT.Services
             // Retrieve them
             var commonDataInfo = ContentItemCommonDataInfo.Provider.Get(commonDataID);
             var fi = FormHelper.GetFormInfo(className, false);
-            var classRefFields = fi.GetFields(true, true).Where(x => x.DataType == SchemaHelper.CONTENT_ITEM_REFERENCE_DATA_TYPE_NAME);
-            var reusableSchemaRefFields = SchemaHelper.UnpackReusableFieldSchemas(fi.GetFields<FormSchemaInfo>()).Where(x => x.DataType == SchemaHelper.CONTENT_ITEM_REFERENCE_DATA_TYPE_NAME);
+            var classRefFields = fi.GetFields(true, true).Where(x => x.DataType is SchemaHelper.CONTENT_ITEM_REFERENCE_DATA_TYPE_NAME or SchemaHelper.WEBPAGES_DATA_TYPE_NAME);
+            var reusableSchemaRefFields = SchemaHelper.UnpackReusableFieldSchemas(fi.GetFields<FormSchemaInfo>()).Where(x => x.DataType is SchemaHelper.CONTENT_ITEM_REFERENCE_DATA_TYPE_NAME or SchemaHelper.WEBPAGES_DATA_TYPE_NAME);
             var refFields = classRefFields.Concat(reusableSchemaRefFields).ToArray();
 
             var refInfos = CreateContentItemReferenceInfos(refFields, customData, commonDataInfo);
