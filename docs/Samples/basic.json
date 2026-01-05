@@ -2532,7 +2532,7 @@
     "$type": "OrderPromotion",
     "orderPromotionPromotionGuid": "e2f3a4b5-c6d7-4890-e123-456789abcdef",
     "orderPromotionOrderGuid": "e1f2a3b4-c5d6-4789-e012-3456789abcde",
-    "orderPromotionOrderItemGuid": "b4c5d6e7-f8a9-4012-b345-6789abcdef01",
+    "orderPromotionOrderItemGuid": "c5d6e7f8-a9b0-4123-c456-789abcdef012",
     "orderPromotionPromotionDisplayName": "Buy One Get One Free",
     "orderPromotionDiscountAmount": 49.99,
     "orderPromotionPromotionType": 1
@@ -2544,14 +2544,5 @@
     "orderPromotionPromotionDisplayName": "Free Shipping",
     "orderPromotionDiscountAmount": 24.99,
     "orderPromotionPromotionType": 0
-  },
-  {
-    "$type": "OrderPromotion",
-    "orderPromotionPromotionGuid": "e2f3a4b5-c6d7-4890-e123-456789abcdef",
-    "orderPromotionOrderGuid": "e1f2a3b4-c5d6-4789-e012-3456789abcde",
-    "orderPromotionOrderItemGuid": "c5d6e7f8-a9b0-4123-c456-789abcdef012",
-    "orderPromotionPromotionDisplayName": "Buy One Get One Free",
-    "orderPromotionDiscountAmount": 29.99,
-    "orderPromotionPromotionType": 1
   }
 ]
