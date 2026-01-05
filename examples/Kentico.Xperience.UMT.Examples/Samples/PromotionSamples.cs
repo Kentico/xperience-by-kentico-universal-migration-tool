@@ -1,6 +1,6 @@
 using CMS.Commerce;
 
-using UmtPromotionModel = Kentico.Xperience.UMT.Model.Commerce.PromotionModel;
+using UmtPromotionModel = Kentico.Xperience.UMT.Model.PromotionModel;
 
 namespace Kentico.Xperience.UMT.Examples;
 

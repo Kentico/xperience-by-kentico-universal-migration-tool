@@ -1,8 +1,6 @@
 ﻿using System.Runtime.Serialization;
 using System.Text;
 
-using Kentico.Xperience.UMT.Model.Commerce;
-
 namespace Kentico.Xperience.UMT.Model;
 
 /// <summary>

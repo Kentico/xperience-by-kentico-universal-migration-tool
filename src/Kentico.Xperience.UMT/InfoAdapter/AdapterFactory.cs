@@ -14,7 +14,6 @@ using CMS.Websites.Internal;
 using CMS.Workspaces;
 
 using Kentico.Xperience.UMT.Model;
-using Kentico.Xperience.UMT.Model.Commerce;
 using Kentico.Xperience.UMT.ProviderProxy;
 using Kentico.Xperience.UMT.Services;
 using Kentico.Xperience.UMT.Services.Model;

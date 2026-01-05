@@ -1,6 +1,6 @@
 using CMS.Commerce;
 
-using Kentico.Xperience.UMT.Model.Commerce;
+using Kentico.Xperience.UMT.Model;
 
 namespace Kentico.Xperience.UMT.Examples;
 
