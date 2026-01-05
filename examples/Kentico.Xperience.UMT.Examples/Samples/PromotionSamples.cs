@@ -54,6 +54,7 @@ public static class PromotionSamples
         PromotionCreatedWhen = new DateTime(2024, 03, 01, 0, 0, 0, DateTimeKind.Utc),
         PromotionModifiedWhen = new DateTime(2024, 03, 01, 0, 0, 0, DateTimeKind.Utc),
         PromotionActiveFromWhen = new DateTime(2024, 03, 01, 0, 0, 0, DateTimeKind.Utc),
+        PromotionActiveToWhen = new DateTime(2024, 12, 31, 23, 59, 59, DateTimeKind.Utc),
         PromotionType = PromotionType.Order,
         PromotionRuleIdentifier = "OrderFreeShipping",
         PromotionRuleConfiguration = "{\"MinimumOrderAmount\":50}"
