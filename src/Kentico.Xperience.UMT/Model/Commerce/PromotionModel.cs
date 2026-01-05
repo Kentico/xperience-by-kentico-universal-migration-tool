@@ -4,10 +4,10 @@ using CMS.Commerce;
 
 using Kentico.Xperience.UMT.Attributes;
 
-namespace Kentico.Xperience.UMT.Model.Commerce;
+namespace Kentico.Xperience.UMT.Model;
 
 /// <summary>
-/// Model represents XbyK PromotionInfo. 
+/// Model represents XbyK PromotionInfo.
 /// </summary>
 /// <seealso cref="PromotionInfo"/>
 [UmtModel(DISCRIMINATOR)]
