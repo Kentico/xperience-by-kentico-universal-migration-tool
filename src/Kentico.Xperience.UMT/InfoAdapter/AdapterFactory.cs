@@ -14,6 +14,7 @@ using CMS.Websites.Internal;
 using CMS.Workspaces;
 
 using Kentico.Xperience.UMT.Model;
+using Kentico.Xperience.UMT.Model.Commerce;
 using Kentico.Xperience.UMT.ProviderProxy;
 using Kentico.Xperience.UMT.Services;
 using Kentico.Xperience.UMT.Services.Model;
@@ -64,6 +65,8 @@ internal class AdapterFactory(ILoggerFactory loggerFactory, UmtModelService mode
             ShoppingCartModel => new GenericInfoAdapter<ShoppingCartInfo>(loggerFactory.CreateLogger<GenericInfoAdapter<ShoppingCartInfo>>(), adapterContext),
             PaymentMethodModel => new GenericInfoAdapter<PaymentMethodInfo>(loggerFactory.CreateLogger<GenericInfoAdapter<PaymentMethodInfo>>(), adapterContext),
             ShippingMethodModel => new GenericInfoAdapter<ShippingMethodInfo>(loggerFactory.CreateLogger<GenericInfoAdapter<ShippingMethodInfo>>(), adapterContext),
+            Model.Commerce.PromotionModel => new GenericInfoAdapter<PromotionInfo>(loggerFactory.CreateLogger<GenericInfoAdapter<PromotionInfo>>(), adapterContext),
+            OrderPromotionModel => new GenericInfoAdapter<OrderPromotionInfo>(loggerFactory.CreateLogger<GenericInfoAdapter<OrderPromotionInfo>>(), adapterContext),
             WorkspaceModel => new GenericInfoAdapter<WorkspaceInfo>(loggerFactory.CreateLogger<GenericInfoAdapter<WorkspaceInfo>>(), adapterContext),
             WebPageScopeModel => new GenericInfoAdapter<WebPageScopeInfo>(loggerFactory.CreateLogger<GenericInfoAdapter<WebPageScopeInfo>>(), adapterContext),
             WebPageScopeContentTypeModel => new GenericInfoAdapter<WebPageScopeContentTypeInfo>(loggerFactory.CreateLogger<GenericInfoAdapter<WebPageScopeContentTypeInfo>>(), adapterContext),

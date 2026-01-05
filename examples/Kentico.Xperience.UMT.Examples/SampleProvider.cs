@@ -195,7 +195,13 @@ public static class SampleProvider
             OrderAddressSamples.SampleOrderAddressShipping,
             OrderAddressSamples.SampleOrderWithMethodsAddressBilling,
             ShoppingCartSamples.SampleShoppingCartWithMember,
-            ShoppingCartSamples.SampleShoppingCartAnonymous
+            ShoppingCartSamples.SampleShoppingCartAnonymous,
+            PromotionSamples.SamplePromotionOrderFreeShipping,
+            PromotionSamples.SamplePromotionOrder10PercentOff,
+            PromotionSamples.SamplePromotionCatalogBuyOneGetOne,
+            OrderPromotionSamples.SampleOrderPromotionFreeShipping,
+            OrderPromotionSamples.SampleOrderPromotionCatalogItem,
+            OrderPromotionSamples.SampleOrderPromotionOrderLevel
         ]);
 
         return sourceData;

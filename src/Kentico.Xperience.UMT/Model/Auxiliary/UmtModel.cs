@@ -1,6 +1,8 @@
 ﻿using System.Runtime.Serialization;
 using System.Text;
 
+using Kentico.Xperience.UMT.Model.Commerce;
+
 namespace Kentico.Xperience.UMT.Model;
 
 /// <summary>
@@ -43,6 +45,8 @@ public interface IUmtModel
 [KnownType(typeof(ShoppingCartModel))]
 [KnownType(typeof(PaymentMethodModel))]
 [KnownType(typeof(ShippingMethodModel))]
+[KnownType(typeof(PromotionModel))]
+[KnownType(typeof(OrderPromotionModel))]
 public abstract class UmtModel : IUmtModel
 {
     public virtual string PrintMe()
