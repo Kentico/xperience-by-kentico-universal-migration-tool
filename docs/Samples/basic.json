@@ -2516,6 +2516,7 @@
     "promotionCreatedWhen": "2024-03-01T00:00:00Z",
     "promotionModifiedWhen": "2024-03-01T00:00:00Z",
     "promotionActiveFromWhen": "2024-03-01T00:00:00Z",
+    "promotionActiveToWhen": "2024-12-31T23:59:59Z",
     "promotionType": 0,
     "promotionRuleIdentifier": "OrderFreeShipping",
     "promotionRuleConfiguration": "{\"MinimumOrderAmount\":50}"
