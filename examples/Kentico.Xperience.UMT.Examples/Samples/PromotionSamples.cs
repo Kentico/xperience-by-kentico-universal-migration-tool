@@ -23,7 +23,9 @@ public static class PromotionSamples
         PromotionActiveToWhen = new DateTime(2024, 12, 31, 23, 59, 59, DateTimeKind.Utc),
         PromotionType = PromotionType.Order,
         PromotionRuleIdentifier = "OrderPercentageDiscount",
-        PromotionRuleConfiguration = "{\"DiscountPercentage\":10}"
+        PromotionRuleConfiguration = "{\"DiscountValueType\":\"Percentage\",\"DiscountValue\":0,\"MinimumRequirementValueType\":\"None\",\"MinimumRequirementValue\":0}",
+        PromotionCreatedByUserGUID = null,
+        PromotionModifiedByUserGUID = null
     };
 
 
@@ -31,7 +33,7 @@ public static class PromotionSamples
     public static UmtPromotionModel SamplePromotionCatalogBuyOneGetOne => new()
     {
         PromotionGUID = SAMPLE_PROMOTION_CATALOG_BUY_ONE_GET_ONE_GUID,
-        PromotionName = "CatalogBuyOneGetOne",
+        PromotionName = "BuyOneGetOneFree",
         PromotionDisplayName = "Buy One Get One Free",
         PromotionDescription = "Buy one product and get another one free",
         PromotionCreatedWhen = new DateTime(2024, 02, 01, 0, 0, 0, DateTimeKind.Utc),
@@ -39,24 +41,9 @@ public static class PromotionSamples
         PromotionActiveFromWhen = new DateTime(2024, 02, 01, 0, 0, 0, DateTimeKind.Utc),
         PromotionActiveToWhen = new DateTime(2024, 03, 31, 23, 59, 59, DateTimeKind.Utc),
         PromotionType = PromotionType.Catalog,
-        PromotionRuleIdentifier = "CatalogBuyXGetY",
-        PromotionRuleConfiguration = "{\"BuyQuantity\":1,\"GetQuantity\":1,\"DiscountPercentage\":100}"
-    };
-
-
-    [Sample("promotion.sample.freeshipping", "Sample demonstrates how to create an order promotion with free shipping", "Instance of PromotionInfo - Sample free shipping promotion")]
-    public static UmtPromotionModel SamplePromotionOrderFreeShipping => new()
-    {
-        PromotionGUID = SAMPLE_PROMOTION_ORDER_FREE_SHIPPING_GUID,
-        PromotionName = "OrderFreeShipping",
-        PromotionDisplayName = "Free Shipping",
-        PromotionDescription = "Free shipping on orders over $50",
-        PromotionCreatedWhen = new DateTime(2024, 03, 01, 0, 0, 0, DateTimeKind.Utc),
-        PromotionModifiedWhen = new DateTime(2024, 03, 01, 0, 0, 0, DateTimeKind.Utc),
-        PromotionActiveFromWhen = new DateTime(2024, 03, 01, 0, 0, 0, DateTimeKind.Utc),
-        PromotionActiveToWhen = new DateTime(2024, 12, 31, 23, 59, 59, DateTimeKind.Utc),
-        PromotionType = PromotionType.Order,
-        PromotionRuleIdentifier = "OrderFreeShipping",
-        PromotionRuleConfiguration = "{\"MinimumOrderAmount\":50}"
+        PromotionRuleIdentifier = "CatalogDiscountBasedOnProductCategory",
+        PromotionRuleConfiguration = "{\"ProductCategories\":\"Cafe\",\"DiscountValueType\":\"Percentage\",\"DiscountValue\":0}",
+        PromotionCreatedByUserGUID = null,
+        PromotionModifiedByUserGUID = null
     };
 }

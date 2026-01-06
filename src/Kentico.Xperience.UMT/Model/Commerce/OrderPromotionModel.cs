@@ -16,17 +16,17 @@ public class OrderPromotionModel : UmtModel
     public const string DISCRIMINATOR = "OrderPromotion";
 
     [ReferenceProperty(typeof(PromotionInfo), nameof(OrderPromotionInfo.OrderPromotionPromotionID), IsRequired = false)]
-    [UniqueKeyPart(nameof(OrderPromotionInfo.OrderPromotionPromotionID), typeof(OrderPromotionInfo))]
-    public Guid OrderPromotionPromotionGuid { get; set; }
+    [UniqueKeyPart(nameof(OrderPromotionInfo.OrderPromotionPromotionID), typeof(PromotionInfo))]
+    public Guid? OrderPromotionPromotionGUID { get; set; }
 
     [Required]
     [ReferenceProperty(typeof(OrderInfo), nameof(OrderPromotionInfo.OrderPromotionOrderID), IsRequired = true)]
-    [UniqueKeyPart(nameof(OrderPromotionInfo.OrderPromotionOrderID), typeof(OrderPromotionInfo))]
-    public Guid OrderPromotionOrderGuid { get; set; }
+    [UniqueKeyPart(nameof(OrderPromotionInfo.OrderPromotionOrderID), typeof(OrderInfo))]
+    public Guid? OrderPromotionOrderGUID { get; set; }
 
     [ReferenceProperty(typeof(OrderItemInfo), nameof(OrderPromotionInfo.OrderPromotionOrderItemID), IsRequired = false)]
-    [UniqueKeyPart(nameof(OrderPromotionInfo.OrderPromotionOrderItemID), typeof(OrderPromotionInfo))]
-    public Guid OrderPromotionOrderItemGuid { get; set; }
+    [UniqueKeyPart(nameof(OrderPromotionInfo.OrderPromotionOrderItemID), typeof(OrderItemInfo))]
+    public Guid? OrderPromotionOrderItemGUID { get; set; }
 
     [Map]
     [Required]

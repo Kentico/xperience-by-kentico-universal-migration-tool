@@ -196,10 +196,8 @@ public static class SampleProvider
             OrderAddressSamples.SampleOrderWithMethodsAddressBilling,
             ShoppingCartSamples.SampleShoppingCartWithMember,
             ShoppingCartSamples.SampleShoppingCartAnonymous,
-            PromotionSamples.SamplePromotionOrderFreeShipping,
             PromotionSamples.SamplePromotionOrder10PercentOff,
             PromotionSamples.SamplePromotionCatalogBuyOneGetOne,
-            OrderPromotionSamples.SampleOrderPromotionFreeShipping,
             OrderPromotionSamples.SampleOrderPromotionCatalogItem,
             OrderPromotionSamples.SampleOrderPromotionOrderLevel
         ]);

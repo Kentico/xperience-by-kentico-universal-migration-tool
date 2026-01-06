@@ -2486,64 +2486,47 @@
     "promotionDisplayName": "10% Off Your Order",
     "promotionDescription": "Get 10% off your entire order",
     "promotionCreatedWhen": "2024-01-01T00:00:00Z",
+    "PromotionCreatedByUserGUID": null,
     "promotionModifiedWhen": "2024-01-01T00:00:00Z",
+    "PromotionModifiedByUserGUID": null,
     "promotionActiveFromWhen": "2024-01-01T00:00:00Z",
     "promotionActiveToWhen": "2024-12-31T23:59:59Z",
     "promotionType": 0,
     "promotionRuleIdentifier": "OrderPercentageDiscount",
-    "promotionRuleConfiguration": "{\"DiscountPercentage\":10}"
+    "promotionRuleConfiguration": "{\"DiscountValueType\":\"Percentage\",\"DiscountValue\":0,\"MinimumRequirementValueType\":\"None\",\"MinimumRequirementValue\":0}"
   },
   {
     "$type": "Promotion",
     "promotionGUID": "e2f3a4b5-c6d7-4890-e123-456789abcdef",
-    "promotionName": "CatalogBuyOneGetOne",
+    "promotionName": "BuyOneGetOneFree",
     "promotionDisplayName": "Buy One Get One Free",
     "promotionDescription": "Buy one product and get another one free",
     "promotionCreatedWhen": "2024-02-01T00:00:00Z",
+    "PromotionCreatedByUserGUID": null,
     "promotionModifiedWhen": "2024-02-01T00:00:00Z",
+    "PromotionModifiedByUserGUID": null,
     "promotionActiveFromWhen": "2024-02-01T00:00:00Z",
     "promotionActiveToWhen": "2024-03-31T23:59:59Z",
     "promotionType": 1,
-    "promotionRuleIdentifier": "CatalogBuyXGetY",
-    "promotionRuleConfiguration": "{\"BuyQuantity\":1,\"GetQuantity\":1,\"DiscountPercentage\":100}"
-  },
-  {
-    "$type": "Promotion",
-    "promotionGUID": "f3a4b5c6-d7e8-4901-f234-56789abcdef0",
-    "promotionName": "OrderFreeShipping",
-    "promotionDisplayName": "Free Shipping",
-    "promotionDescription": "Free shipping on orders over $50",
-    "promotionCreatedWhen": "2024-03-01T00:00:00Z",
-    "promotionModifiedWhen": "2024-03-01T00:00:00Z",
-    "promotionActiveFromWhen": "2024-03-01T00:00:00Z",
-    "promotionActiveToWhen": "2024-12-31T23:59:59Z",
-    "promotionType": 0,
-    "promotionRuleIdentifier": "OrderFreeShipping",
-    "promotionRuleConfiguration": "{\"MinimumOrderAmount\":50}"
+    "promotionRuleIdentifier": "CatalogDiscountBasedOnProductCategory",
+    "promotionRuleConfiguration": "{\"ProductCategories\":\"Cafe\",\"DiscountValueType\":\"Percentage\",\"DiscountValue\":0}"
   },
   {
     "$type": "OrderPromotion",
-    "orderPromotionPromotionGuid": "d1e2f3a4-b5c6-4789-d012-3456789abcde",
-    "orderPromotionOrderGuid": "e1f2a3b4-c5d6-4789-e012-3456789abcde",
+    "orderPromotionPromotionGUID": "d1e2f3a4-b5c6-4789-d012-3456789abcde",
+    "orderPromotionOrderGUID": "e1f2a3b4-c5d6-4789-e012-3456789abcde",
+    "orderPromotionOrderItemGUID": "c5d6e7f8-a9b0-4123-c456-789abcdef012",
     "orderPromotionPromotionDisplayName": "10% Off Your Order",
     "orderPromotionDiscountAmount": 12.99,
     "orderPromotionPromotionType": 0
   },
   {
     "$type": "OrderPromotion",
-    "orderPromotionPromotionGuid": "e2f3a4b5-c6d7-4890-e123-456789abcdef",
-    "orderPromotionOrderGuid": "e1f2a3b4-c5d6-4789-e012-3456789abcde",
-    "orderPromotionOrderItemGuid": "c5d6e7f8-a9b0-4123-c456-789abcdef012",
+    "orderPromotionPromotionGUID": "e2f3a4b5-c6d7-4890-e123-456789abcdef",
+    "orderPromotionOrderGUID": "e1f2a3b4-c5d6-4789-e012-3456789abcde",
+    "orderPromotionOrderItemGUID": "c5d6e7f8-a9b0-4123-c456-789abcdef012",
     "orderPromotionPromotionDisplayName": "Buy One Get One Free",
     "orderPromotionDiscountAmount": 49.99,
     "orderPromotionPromotionType": 1
-  },
-  {
-    "$type": "OrderPromotion",
-    "orderPromotionPromotionGuid": "f3a4b5c6-d7e8-4901-f234-56789abcdef0",
-    "orderPromotionOrderGuid": "f2a3b4c5-d6e7-4890-f123-456789abcdef",
-    "orderPromotionPromotionDisplayName": "Free Shipping",
-    "orderPromotionDiscountAmount": 24.99,
-    "orderPromotionPromotionType": 0
-  }
+  }  
 ]

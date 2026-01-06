@@ -64,7 +64,7 @@ internal class AdapterFactory(ILoggerFactory loggerFactory, UmtModelService mode
             ShoppingCartModel => new GenericInfoAdapter<ShoppingCartInfo>(loggerFactory.CreateLogger<GenericInfoAdapter<ShoppingCartInfo>>(), adapterContext),
             PaymentMethodModel => new GenericInfoAdapter<PaymentMethodInfo>(loggerFactory.CreateLogger<GenericInfoAdapter<PaymentMethodInfo>>(), adapterContext),
             ShippingMethodModel => new GenericInfoAdapter<ShippingMethodInfo>(loggerFactory.CreateLogger<GenericInfoAdapter<ShippingMethodInfo>>(), adapterContext),
-            Model.PromotionModel => new GenericInfoAdapter<PromotionInfo>(loggerFactory.CreateLogger<GenericInfoAdapter<PromotionInfo>>(), adapterContext),
+            Model.PromotionModel => new PromotionAdapter(loggerFactory.CreateLogger<PromotionAdapter>(), adapterContext),
             OrderPromotionModel => new GenericInfoAdapter<OrderPromotionInfo>(loggerFactory.CreateLogger<GenericInfoAdapter<OrderPromotionInfo>>(), adapterContext),
             WorkspaceModel => new GenericInfoAdapter<WorkspaceInfo>(loggerFactory.CreateLogger<GenericInfoAdapter<WorkspaceInfo>>(), adapterContext),
             WebPageScopeModel => new GenericInfoAdapter<WebPageScopeInfo>(loggerFactory.CreateLogger<GenericInfoAdapter<WebPageScopeInfo>>(), adapterContext),

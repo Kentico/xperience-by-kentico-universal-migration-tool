@@ -1,6 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
 using CMS.Commerce;
+using CMS.Membership;
 
 using Kentico.Xperience.UMT.Attributes;
 
@@ -35,15 +36,15 @@ public class PromotionModel : UmtModel
     [Required]
     public DateTime? PromotionCreatedWhen { get; set; }
 
-    [Map]
-    public int? PromotionCreatedByUserID { get; set; }
+    [ReferenceProperty(typeof(UserInfo), nameof(PromotionInfo.PromotionCreatedByUserID), IsRequired = false)]
+    public Guid? PromotionCreatedByUserGUID { get; set; }
 
     [Map]
     [Required]
     public DateTime? PromotionModifiedWhen { get; set; }
 
-    [Map]
-    public int? PromotionModifiedByUserID { get; set; }
+    [ReferenceProperty(typeof(UserInfo), nameof(PromotionInfo.PromotionModifiedByUserID), IsRequired = false)]
+    public Guid? PromotionModifiedByUserGUID { get; set; }
 
     [Map]
     public DateTime? PromotionActiveFromWhen { get; set; }

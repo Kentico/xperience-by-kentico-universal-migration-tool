@@ -9,8 +9,9 @@ public static class OrderPromotionSamples
     [Sample("orderpromotion.sample.order", "Sample demonstrates how to create an order promotion applied to an entire order", "Instance of OrderPromotionInfo - Sample order level promotion")]
     public static OrderPromotionModel SampleOrderPromotionOrderLevel => new()
     {
-        OrderPromotionPromotionGuid = PromotionSamples.SAMPLE_PROMOTION_ORDER_10_PERCENT_OFF_GUID,
-        OrderPromotionOrderGuid = OrderSamples.SAMPLE_ORDER_GUID,
+        OrderPromotionPromotionGUID = PromotionSamples.SAMPLE_PROMOTION_ORDER_10_PERCENT_OFF_GUID,
+        OrderPromotionOrderGUID = OrderSamples.SAMPLE_ORDER_GUID,
+        OrderPromotionOrderItemGUID = OrderItemSamples.SAMPLE_ORDER_ITEM_2_GUID,
         OrderPromotionPromotionDisplayName = "10% Off Your Order",
         OrderPromotionDiscountAmount = 12.99m,
         OrderPromotionPromotionType = PromotionType.Order
@@ -20,22 +21,11 @@ public static class OrderPromotionSamples
     [Sample("orderpromotion.sample.catalog", "Sample demonstrates how to create a catalog promotion applied to a specific order item", "Instance of OrderPromotionInfo - Sample catalog promotion on order item")]
     public static OrderPromotionModel SampleOrderPromotionCatalogItem => new()
     {
-        OrderPromotionPromotionGuid = PromotionSamples.SAMPLE_PROMOTION_CATALOG_BUY_ONE_GET_ONE_GUID,
-        OrderPromotionOrderGuid = OrderSamples.SAMPLE_ORDER_GUID,
-        OrderPromotionOrderItemGuid = OrderItemSamples.SAMPLE_ORDER_ITEM_2_GUID,
+        OrderPromotionPromotionGUID = PromotionSamples.SAMPLE_PROMOTION_CATALOG_BUY_ONE_GET_ONE_GUID,
+        OrderPromotionOrderGUID = OrderSamples.SAMPLE_ORDER_GUID,
+        OrderPromotionOrderItemGUID = OrderItemSamples.SAMPLE_ORDER_ITEM_2_GUID,
         OrderPromotionPromotionDisplayName = "Buy One Get One Free",
         OrderPromotionDiscountAmount = 49.99m,
         OrderPromotionPromotionType = PromotionType.Catalog
-    };
-
-
-    [Sample("orderpromotion.sample.freeshipping", "Sample demonstrates how to create a free shipping promotion applied to an order", "Instance of OrderPromotionInfo - Sample free shipping promotion")]
-    public static OrderPromotionModel SampleOrderPromotionFreeShipping => new()
-    {
-        OrderPromotionPromotionGuid = PromotionSamples.SAMPLE_PROMOTION_ORDER_FREE_SHIPPING_GUID,
-        OrderPromotionOrderGuid = OrderSamples.SAMPLE_ORDER_WITH_METHODS_GUID,
-        OrderPromotionPromotionDisplayName = "Free Shipping",
-        OrderPromotionDiscountAmount = 24.99m,
-        OrderPromotionPromotionType = PromotionType.Order
     };
 }
