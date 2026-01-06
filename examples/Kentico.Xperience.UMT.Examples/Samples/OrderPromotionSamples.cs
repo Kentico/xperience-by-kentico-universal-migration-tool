@@ -23,7 +23,7 @@ public static class OrderPromotionSamples
     {
         OrderPromotionPromotionGUID = PromotionSamples.SAMPLE_PROMOTION_CATALOG_BUY_ONE_GET_ONE_GUID,
         OrderPromotionOrderGUID = OrderSamples.SAMPLE_ORDER_GUID,
-        OrderPromotionOrderItemGUID = OrderItemSamples.SAMPLE_ORDER_ITEM_2_GUID,
+        OrderPromotionOrderItemGUID = OrderItemSamples.SAMPLE_ORDER_ITEM_1_GUID,
         OrderPromotionPromotionDisplayName = "Buy One Get One Free",
         OrderPromotionDiscountAmount = 49.99m,
         OrderPromotionPromotionType = PromotionType.Catalog
