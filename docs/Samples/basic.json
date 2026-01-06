@@ -2521,7 +2521,7 @@
     "$type": "OrderPromotion",
     "orderPromotionPromotionGUID": "d1e2f3a4-b5c6-4789-d012-3456789abcde",
     "orderPromotionOrderGUID": "e1f2a3b4-c5d6-4789-e012-3456789abcde",
-    "orderPromotionOrderItemGUID": "c5d6e7f8-a9b0-4123-c456-789abcdef012",
+    "orderPromotionOrderItemGUID": null,
     "orderPromotionPromotionDisplayName": "10% Off Your Order",
     "orderPromotionDiscountAmount": 12.99,
     "orderPromotionPromotionType": 0
