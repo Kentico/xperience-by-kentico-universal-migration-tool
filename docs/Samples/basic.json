@@ -2372,7 +2372,9 @@
     "orderItemName": "Sample Product",
     "orderItemQuantity": 2,
     "orderItemUnitPrice": 49.99,
-    "orderItemTotalPrice": 99.98
+    "orderItemTotalPrice": 99.98,
+    "orderItemTotalTax": 7.99,
+    "orderItemTaxRate": 0.08
   },
   {
     "$type": "OrderItem",
@@ -2382,7 +2384,9 @@
     "orderItemName": "Another Sample Product",
     "orderItemQuantity": 1,
     "orderItemUnitPrice": 29.99,
-    "orderItemTotalPrice": 29.99
+    "orderItemTotalPrice": 29.99,
+    "orderItemTotalTax": 8.00,
+    "orderItemTaxRate": 0.10
   },
   {
     "$type": "Order",
@@ -2410,7 +2414,9 @@
     "orderItemName": "Sample Product with methods",
     "orderItemQuantity": 2,
     "orderItemUnitPrice": 9.99,
-    "orderItemTotalPrice": 19.98
+    "orderItemTotalPrice": 19.98,
+    "orderItemTotalTax": 7.99,
+    "orderItemTaxRate": 0.08
   },
   {
     "$type": "OrderAddress",
@@ -2528,5 +2534,5 @@
     "orderPromotionPromotionDisplayName": "Buy One Get One Free",
     "orderPromotionDiscountAmount": 49.99,
     "orderPromotionPromotionType": 1
-  }  
+  }
 ]

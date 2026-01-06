@@ -35,8 +35,8 @@ public class Tests_11_Orders : AdminTestBase
         await Debounce();
         var itemRows = await Page.GetByTestId("table-row").AllAsync();
 
-        await ValidateOrderItem(itemRows[0], "PROD-001", "Sample Product", "2", "49.99", "99.98");
-        await ValidateOrderItem(itemRows[1], "PROD-002", "Another Sample Product", "1", "29.99", "29.99");
+        await ValidateOrderItem(itemRows[0], "PROD-001", "Sample Product", "2", "49.99", "99.98", "7.99", "0.08%");
+        await ValidateOrderItem(itemRows[1], "PROD-002", "Another Sample Product", "1", "29.99", "29.99", "8.00", "0.1%");
     }
 
 
@@ -56,7 +56,7 @@ public class Tests_11_Orders : AdminTestBase
         await Debounce();
         var itemRows = await Page.GetByTestId("table-row").AllAsync();
 
-        await ValidateOrderItem(itemRows[0], "PROD-003", "Sample Product with methods", "2", "9.99", "19.98");
+        await ValidateOrderItem(itemRows[0], "PROD-003", "Sample Product with methods", "2", "9.99", "19.98", "7.99", "0.08%");
     }
 
 
@@ -73,13 +73,16 @@ public class Tests_11_Orders : AdminTestBase
     }
 
 
-    private static async Task ValidateOrderItem(ILocator itemRow, string sku, string name, string quantity, string unitPrice, string totalPrice)
+    private static async Task ValidateOrderItem(ILocator itemRow, string sku, string name, string quantity, string unitPrice,
+        string totalPrice, string totalTax, string taxRate)
     {
         var itemSku = await itemRow.GetByTestId("table-cell-OrderItemSKU").First.TextContentAsync();
         var itemName = await itemRow.GetByTestId("table-cell-OrderItemName").First.TextContentAsync();
         var itemQuantity = await itemRow.GetByTestId("table-cell-OrderItemQuantity").First.TextContentAsync();
         var itemUnitPrice = await itemRow.GetByTestId("table-cell-OrderItemUnitPrice").First.TextContentAsync();
         var itemTotalPrice = await itemRow.GetByTestId("table-cell-OrderItemTotalPrice").First.TextContentAsync();
+        var itemTotalTax = await itemRow.GetByTestId("table-cell-OrderItemTotalTax").First.TextContentAsync();
+        var itemTaxRate = await itemRow.GetByTestId("table-cell-OrderItemTaxRate").First.TextContentAsync();
 
         Assert.Multiple(() =>
         {
@@ -88,6 +91,8 @@ public class Tests_11_Orders : AdminTestBase
             Assert.That(itemQuantity, Is.EqualTo(quantity));
             Assert.That(itemUnitPrice, Is.EqualTo(unitPrice));
             Assert.That(itemTotalPrice, Is.EqualTo(totalPrice));
+            Assert.That(itemTotalTax, Is.EqualTo(totalTax));
+            Assert.That(itemTaxRate, Is.EqualTo(taxRate));
         });
     }
 
