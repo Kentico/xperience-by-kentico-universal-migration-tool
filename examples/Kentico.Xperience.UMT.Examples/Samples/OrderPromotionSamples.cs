@@ -11,7 +11,7 @@ public static class OrderPromotionSamples
     {
         OrderPromotionPromotionGUID = PromotionSamples.SAMPLE_PROMOTION_ORDER_10_PERCENT_OFF_GUID,
         OrderPromotionOrderGUID = OrderSamples.SAMPLE_ORDER_GUID,
-        OrderPromotionOrderItemGUID = null,
+        OrderPromotionOrderItemGUID = OrderItemSamples.SAMPLE_ORDER_ITEM_1_GUID,
         OrderPromotionPromotionDisplayName = "10% Off Your Order",
         OrderPromotionDiscountAmount = 12.99m,
         OrderPromotionPromotionType = PromotionType.Order

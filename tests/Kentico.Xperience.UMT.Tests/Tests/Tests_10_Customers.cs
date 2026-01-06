@@ -17,9 +17,12 @@ namespace TestAfterMigration.Tests
             await Debounce();
             await Page.GetByTestId("vertical-menu-item").Filter(new LocatorFilterOptions { HasText = "Addresses" }).Nth(1).ClickAsync();
 
-            var addressRow = Page.GetByTestId("table-row");
+            await Debounce();
+            var addresses = await Page.GetByTestId("table-row").AllAsync();
 
-            await ValidateAddresses(addressRow, "John", "Doe", "Sample Company Inc.", "john.doe@sample.localhost", "+1-555-0123", "123 Main Street", "Suite 100", "New York", "10001");
+            Assert.That(addresses, Has.Count.EqualTo(1), "Expected 1 address");
+
+            await ValidateAddresses(addresses[0], "John", "Doe", "Sample Company Inc.", "john.doe@sample.localhost", "+1-555-0123", "123 Main Street", "Suite 100", "New York", "10001");
 
             await AssertNoEventlogErrors();
         }
@@ -40,17 +43,17 @@ namespace TestAfterMigration.Tests
         }
 
 
-        private static async Task ValidateAddresses(ILocator customerRow, string addressFirstName, string addressLastName, string addressCompany, string addressEmail, string phoneNumber, string addressLine1, string addressLine2, string addressCity, string addressZip)
+        private static async Task ValidateAddresses(ILocator addressRow, string addressFirstName, string addressLastName, string addressCompany, string addressEmail, string phoneNumber, string addressLine1, string addressLine2, string addressCity, string addressZip)
         {
-            var firstName = await customerRow.GetByTestId("table-cell-CustomerAddressFirstName").TextContentAsync();
-            var lastName = await customerRow.GetByTestId("table-cell-CustomerAddressLastName").TextContentAsync();
-            var company = await customerRow.GetByTestId("table-cell-CustomerAddressCompany").TextContentAsync();
-            var email = await customerRow.GetByTestId("table-cell-CustomerAddressEmail").TextContentAsync();
-            var phone = await customerRow.GetByTestId("table-cell-CustomerAddressPhone").TextContentAsync();
-            var line1 = await customerRow.GetByTestId("table-cell-CustomerAddressLine1").TextContentAsync();
-            var line2 = await customerRow.GetByTestId("table-cell-CustomerAddressLine2").TextContentAsync();
-            var city = await customerRow.GetByTestId("table-cell-CustomerAddressCity").TextContentAsync();
-            var zip = await customerRow.GetByTestId("table-cell-CustomerAddressZip").TextContentAsync();
+            var firstName = await addressRow.GetByTestId("table-cell-CustomerAddressFirstName").TextContentAsync();
+            var lastName = await addressRow.GetByTestId("table-cell-CustomerAddressLastName").TextContentAsync();
+            var company = await addressRow.GetByTestId("table-cell-CustomerAddressCompany").TextContentAsync();
+            var email = await addressRow.GetByTestId("table-cell-CustomerAddressEmail").TextContentAsync();
+            var phone = await addressRow.GetByTestId("table-cell-CustomerAddressPhone").TextContentAsync();
+            var line1 = await addressRow.GetByTestId("table-cell-CustomerAddressLine1").TextContentAsync();
+            var line2 = await addressRow.GetByTestId("table-cell-CustomerAddressLine2").TextContentAsync();
+            var city = await addressRow.GetByTestId("table-cell-CustomerAddressCity").TextContentAsync();
+            var zip = await addressRow.GetByTestId("table-cell-CustomerAddressZip").TextContentAsync();
 
             Assert.Multiple(() =>
             {

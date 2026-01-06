@@ -12,7 +12,7 @@ public class Tests_12_Promotions : AdminTestBase
     private const string ORDER_PROMOTION_DISPLAY_NAME = "10% Off Your Order";
     private const string ORDER_PROMOTION_ACTIVE_TO = "12/31/2024";
     private const string ORDER_PROMOTION_CREATED = "01/01/2024";
-    private const string ORDER_PROMOTION_REDEEMED = "0";
+    private const string ORDER_PROMOTION_REDEEMED = "1";
 
 
     [Test]
