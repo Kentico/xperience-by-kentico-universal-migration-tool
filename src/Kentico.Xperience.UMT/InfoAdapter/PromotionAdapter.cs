@@ -28,6 +28,9 @@ internal class PromotionAdapter : GenericInfoAdapter<PromotionInfo>
                 propertyInfo.SetValue(current, ruleConfiguration);
                 return;
             }
+
+            Logger.LogWarning("Failed to find property {PropertyName} via reflection on {TypeName}",
+                propertyName, nameof(PromotionInfo));
         }
 
         base.SetValue(current, propertyName, value);
