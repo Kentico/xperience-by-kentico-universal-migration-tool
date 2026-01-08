@@ -17,7 +17,9 @@ public static class OrderItemSamples
         OrderItemName = "Sample Product",
         OrderItemQuantity = 2,
         OrderItemUnitPrice = 49.99m,
-        OrderItemTotalPrice = 99.98m
+        OrderItemTotalPrice = 99.98m,
+        OrderItemTotalTax = 7.99m,
+        OrderItemTaxRate = 0.08m
     };
 
 
@@ -30,7 +32,9 @@ public static class OrderItemSamples
         OrderItemName = "Another Sample Product",
         OrderItemQuantity = 1,
         OrderItemUnitPrice = 29.99m,
-        OrderItemTotalPrice = 29.99m
+        OrderItemTotalPrice = 29.99m,
+        OrderItemTotalTax = 8.00m,
+        OrderItemTaxRate = 0.10m
     };
 
 
@@ -43,7 +47,9 @@ public static class OrderItemSamples
         OrderItemName = "Sample Product with methods",
         OrderItemQuantity = 2,
         OrderItemUnitPrice = 9.99m,
-        OrderItemTotalPrice = 19.98m
+        OrderItemTotalPrice = 19.98m,
+        OrderItemTotalTax = 7.99m,
+        OrderItemTaxRate = 0.08m
     };
 }
 

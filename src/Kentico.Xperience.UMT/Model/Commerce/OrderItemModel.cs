@@ -39,5 +39,11 @@ public class OrderItemModel : UmtModel
     [Map]
     public decimal? OrderItemTotalPrice { get; set; }
 
+    [Map]
+    public decimal? OrderItemTotalTax { get; set; }
+
+    [Map]
+    public decimal? OrderItemTaxRate { get; set; }
+
     protected override (Guid? uniqueId, string? name, string? displayName) GetPrintArgs() => (OrderItemGUID, OrderItemName, NOT_AVAILABLE);
 }
