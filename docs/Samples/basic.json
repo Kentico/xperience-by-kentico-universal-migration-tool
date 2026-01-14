@@ -2420,7 +2420,7 @@
   },
   {
     "$type": "OrderAddress",
-    "orderAddressGUID": "f2a3b4c5-d6e7-4890-f123-456789abcde1",
+    "orderAddressGUID": "b1c2d3e4-f5a6-4789-b012-3456789abcde",
     "orderAddressOrderGUID": "e1f2a3b4-c5d6-4789-e012-3456789abcde",
     "orderAddressType": "billing",
     "orderAddressFirstName": "John",
@@ -2487,9 +2487,9 @@
   },
   {
     "$type": "Promotion",
-    "promotionGUID": "d1e2f3a4-b5c6-4789-d012-3456789abcde",
-    "promotionName": "Order10PercentOff",
     "promotionDisplayName": "10% Off Your Order",
+    "promotionName": "Order10PercentOff",
+    "promotionGUID": "d1e2f3a4-b5c6-4789-d012-3456789abcde",
     "promotionDescription": "Get 10% off your entire order",
     "promotionCreatedWhen": "2024-01-01T00:00:00Z",
     "promotionCreatedByUserGUID": null,
@@ -2499,13 +2499,13 @@
     "promotionActiveToWhen": "2024-12-31T23:59:59Z",
     "promotionType": 0,
     "promotionRuleIdentifier": "OrderPercentageDiscount",
-    "promotionRuleConfiguration": "{\"DiscountValueType\":\"Percentage\",\"DiscountValue\":0,\"MinimumRequirementValueType\":\"None\",\"MinimumRequirementValue\":0}"
+    "promotionRuleConfiguration": "{\u0022DiscountValueType\u0022:\u0022Percentage\u0022,\u0022DiscountValue\u0022:0,\u0022MinimumRequirementValueType\u0022:\u0022None\u0022,\u0022MinimumRequirementValue\u0022:0}"
   },
   {
     "$type": "Promotion",
-    "promotionGUID": "e2f3a4b5-c6d7-4890-e123-456789abcdef",
-    "promotionName": "BuyOneGetOneFree",
     "promotionDisplayName": "Buy One Get One Free",
+    "promotionName": "BuyOneGetOneFree",
+    "promotionGUID": "e2f3a4b5-c6d7-4890-e123-456789abcdef",
     "promotionDescription": "Buy one product and get another one free",
     "promotionCreatedWhen": "2024-02-01T00:00:00Z",
     "promotionCreatedByUserGUID": null,
@@ -2515,24 +2515,24 @@
     "promotionActiveToWhen": "2024-03-31T23:59:59Z",
     "promotionType": 1,
     "promotionRuleIdentifier": "CatalogDiscountBasedOnProductCategory",
-    "promotionRuleConfiguration": "{\"ProductCategories\":\"Cafe\",\"DiscountValueType\":\"Percentage\",\"DiscountValue\":0}"
-  },
-  {
-    "$type": "OrderPromotion",
-    "orderPromotionPromotionGUID": "d1e2f3a4-b5c6-4789-d012-3456789abcde",
-    "orderPromotionOrderGUID": "e1f2a3b4-c5d6-4789-e012-3456789abcde",
-    "orderPromotionOrderItemGUID": "c5d6e7f8-a9b0-4123-c456-789abcdef012",
-    "orderPromotionPromotionDisplayName": "10% Off Your Order",
-    "orderPromotionDiscountAmount": 12.99,
-    "orderPromotionPromotionType": 0
+    "promotionRuleConfiguration": "{\u0022ProductCategories\u0022:\u0022Cafe\u0022,\u0022DiscountValueType\u0022:\u0022Percentage\u0022,\u0022DiscountValue\u0022:0}"
   },
   {
     "$type": "OrderPromotion",
     "orderPromotionPromotionGUID": "e2f3a4b5-c6d7-4890-e123-456789abcdef",
     "orderPromotionOrderGUID": "e1f2a3b4-c5d6-4789-e012-3456789abcde",
-    "orderPromotionOrderItemGUID": "c5d6e7f8-a9b0-4123-c456-789abcdef012",
+    "orderPromotionOrderItemGUID": "b4c5d6e7-f8a9-4012-b345-6789abcdef01",
     "orderPromotionPromotionDisplayName": "Buy One Get One Free",
     "orderPromotionDiscountAmount": 49.99,
     "orderPromotionPromotionType": 1
+  },
+  {
+    "$type": "OrderPromotion",
+    "orderPromotionPromotionGUID": "d1e2f3a4-b5c6-4789-d012-3456789abcde",
+    "orderPromotionOrderGUID": "e1f2a3b4-c5d6-4789-e012-3456789abcde",
+    "orderPromotionOrderItemGUID": "b4c5d6e7-f8a9-4012-b345-6789abcdef01",
+    "orderPromotionPromotionDisplayName": "10% Off Your Order",
+    "orderPromotionDiscountAmount": 12.99,
+    "orderPromotionPromotionType": 0
   }
 ]

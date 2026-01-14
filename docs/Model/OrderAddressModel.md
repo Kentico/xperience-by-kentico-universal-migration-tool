@@ -24,3 +24,26 @@ Model [discriminator](../UmtModel.md#discriminator): `OrderAddress`
 
 <p>*) value is required</p>
 
+
+### Sample of order address
+
+```json
+{
+  "$type": "OrderAddress",
+  "orderAddressGUID": "d4e5f6a7-b8c9-4902-e345-6789abcdef01",
+  "orderAddressOrderGUID": "c3d4e5f6-a7b8-4901-c234-56789abcdef0",
+  "orderAddressType": "Billing",
+  "orderAddressFirstName": "John",
+  "orderAddressLastName": "Doe",
+  "orderAddressCompany": "Acme Corporation",
+  "orderAddressEmail": "john.doe@example.com",
+  "orderAddressPhone": "+1-555-123-4567",
+  "orderAddressLine1": "123 Main Street",
+  "orderAddressLine2": "Suite 100",
+  "orderAddressCity": "New York",
+  "orderAddressZip": "10001",
+  "orderAddressCountryGUID": null,
+  "orderAddressStateGUID": null
+}
+```
+

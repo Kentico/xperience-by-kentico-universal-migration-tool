@@ -2029,6 +2029,20 @@
                 "number"
               ],
               "format": "decimal"
+            },
+            "OrderItemTotalTax": {
+              "type": [
+                "null",
+                "number"
+              ],
+              "format": "decimal"
+            },
+            "OrderItemTaxRate": {
+              "type": [
+                "null",
+                "number"
+              ],
+              "format": "decimal"
             }
           }
         }
@@ -2205,7 +2219,7 @@
         },
         {
           "type": "object",
-          "description": "Model represents XbyK PaymentMethodInfo.",
+          "description": "Model represents XbyK PaymentMethodInfo. ",
           "additionalProperties": {
             "oneOf": [
               {},
@@ -2302,6 +2316,174 @@
                 "number"
               ],
               "format": "decimal"
+            }
+          }
+        }
+      ]
+    },
+    "PromotionModel": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/UmtModel"
+        },
+        {
+          "type": "object",
+          "description": "Model represents XbyK PromotionInfo.",
+          "additionalProperties": {
+            "oneOf": [
+              {},
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "required": [
+            "PromotionDisplayName",
+            "PromotionName",
+            "PromotionGUID",
+            "PromotionCreatedWhen",
+            "PromotionModifiedWhen",
+            "PromotionType",
+            "PromotionRuleIdentifier",
+            "PromotionRuleConfiguration"
+          ],
+          "properties": {
+            "PromotionDisplayName": {
+              "type": "string",
+              "minLength": 1
+            },
+            "PromotionName": {
+              "type": "string",
+              "minLength": 1
+            },
+            "PromotionGUID": {
+              "type": "string",
+              "format": "guid",
+              "minLength": 1
+            },
+            "PromotionDescription": {
+              "type": [
+                "null",
+                "string"
+              ]
+            },
+            "PromotionCreatedWhen": {
+              "type": "string",
+              "format": "date-time",
+              "minLength": 1
+            },
+            "PromotionCreatedByUserGUID": {
+              "type": [
+                "null",
+                "string"
+              ],
+              "format": "guid"
+            },
+            "PromotionModifiedWhen": {
+              "type": "string",
+              "format": "date-time",
+              "minLength": 1
+            },
+            "PromotionModifiedByUserGUID": {
+              "type": [
+                "null",
+                "string"
+              ],
+              "format": "guid"
+            },
+            "PromotionActiveFromWhen": {
+              "type": [
+                "null",
+                "string"
+              ],
+              "format": "date-time"
+            },
+            "PromotionActiveToWhen": {
+              "type": [
+                "null",
+                "string"
+              ],
+              "format": "date-time"
+            },
+            "PromotionType": {
+              "$ref": "#/definitions/PromotionType"
+            },
+            "PromotionRuleIdentifier": {
+              "type": "string",
+              "minLength": 1
+            },
+            "PromotionRuleConfiguration": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        }
+      ]
+    },
+    "PromotionType": {
+      "type": "integer",
+      "description": "Represents the type of a promotion.",
+      "x-enumNames": [
+        "Order",
+        "Catalog"
+      ],
+      "enum": [
+        0,
+        1
+      ]
+    },
+    "OrderPromotionModel": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/UmtModel"
+        },
+        {
+          "type": "object",
+          "description": "Model represents XbyK OrderPromotionInfo.",
+          "additionalProperties": {
+            "oneOf": [
+              {},
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "required": [
+            "OrderPromotionOrderGUID",
+            "OrderPromotionPromotionDisplayName",
+            "OrderPromotionDiscountAmount",
+            "OrderPromotionPromotionType"
+          ],
+          "properties": {
+            "OrderPromotionPromotionGUID": {
+              "type": [
+                "null",
+                "string"
+              ],
+              "format": "guid"
+            },
+            "OrderPromotionOrderGUID": {
+              "type": "string",
+              "format": "guid",
+              "minLength": 1
+            },
+            "OrderPromotionOrderItemGUID": {
+              "type": [
+                "null",
+                "string"
+              ],
+              "format": "guid"
+            },
+            "OrderPromotionPromotionDisplayName": {
+              "type": "string",
+              "minLength": 1
+            },
+            "OrderPromotionDiscountAmount": {
+              "type": "number",
+              "format": "decimal"
+            },
+            "OrderPromotionPromotionType": {
+              "$ref": "#/definitions/PromotionType"
             }
           }
         }

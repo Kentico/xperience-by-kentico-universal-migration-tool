@@ -2372,7 +2372,9 @@
     "orderItemName": "Sample Product",
     "orderItemQuantity": 2,
     "orderItemUnitPrice": 49.99,
-    "orderItemTotalPrice": 99.98
+    "orderItemTotalPrice": 99.98,
+    "orderItemTotalTax": 7.99,
+    "orderItemTaxRate": 0.08
   },
   {
     "$type": "OrderItem",
@@ -2382,7 +2384,9 @@
     "orderItemName": "Another Sample Product",
     "orderItemQuantity": 1,
     "orderItemUnitPrice": 29.99,
-    "orderItemTotalPrice": 29.99
+    "orderItemTotalPrice": 29.99,
+    "orderItemTotalTax": 8.00,
+    "orderItemTaxRate": 0.10
   },
   {
     "$type": "Order",
@@ -2410,11 +2414,13 @@
     "orderItemName": "Sample Product with methods",
     "orderItemQuantity": 2,
     "orderItemUnitPrice": 9.99,
-    "orderItemTotalPrice": 19.98
+    "orderItemTotalPrice": 19.98,
+    "orderItemTotalTax": 7.99,
+    "orderItemTaxRate": 0.08
   },
   {
     "$type": "OrderAddress",
-    "orderAddressGUID": "f2a3b4c5-d6e7-4890-f123-456789abcde1",
+    "orderAddressGUID": "b1c2d3e4-f5a6-4789-b012-3456789abcde",
     "orderAddressOrderGUID": "e1f2a3b4-c5d6-4789-e012-3456789abcde",
     "orderAddressType": "billing",
     "orderAddressFirstName": "John",
@@ -2478,5 +2484,55 @@
     "shoppingCartModifiedWhen": "2024-03-15T09:30:00Z",
     "shoppingCartMemberGUID": null,
     "shoppingCartData": "{\u0022Items\u0022:[{\u0022ProductIdentifier\u0022:{\u0022VariantIdentifier\u0022:null,\u0022Identifier\u0022:132},\u0022Quantity\u0022:4},{\u0022ProductIdentifier\u0022:{\u0022VariantIdentifier\u0022:null,\u0022Identifier\u0022:108},\u0022Quantity\u0022:1}]}"
+  },
+  {
+    "$type": "Promotion",
+    "promotionDisplayName": "10% Off Your Order",
+    "promotionName": "Order10PercentOff",
+    "promotionGUID": "d1e2f3a4-b5c6-4789-d012-3456789abcde",
+    "promotionDescription": "Get 10% off your entire order",
+    "promotionCreatedWhen": "2024-01-01T00:00:00Z",
+    "promotionCreatedByUserGUID": null,
+    "promotionModifiedWhen": "2024-01-01T00:00:00Z",
+    "promotionModifiedByUserGUID": null,
+    "promotionActiveFromWhen": "2024-01-01T00:00:00Z",
+    "promotionActiveToWhen": "2024-12-31T23:59:59Z",
+    "promotionType": 0,
+    "promotionRuleIdentifier": "OrderPercentageDiscount",
+    "promotionRuleConfiguration": "{\u0022DiscountValueType\u0022:\u0022Percentage\u0022,\u0022DiscountValue\u0022:0,\u0022MinimumRequirementValueType\u0022:\u0022None\u0022,\u0022MinimumRequirementValue\u0022:0}"
+  },
+  {
+    "$type": "Promotion",
+    "promotionDisplayName": "Buy One Get One Free",
+    "promotionName": "BuyOneGetOneFree",
+    "promotionGUID": "e2f3a4b5-c6d7-4890-e123-456789abcdef",
+    "promotionDescription": "Buy one product and get another one free",
+    "promotionCreatedWhen": "2024-02-01T00:00:00Z",
+    "promotionCreatedByUserGUID": null,
+    "promotionModifiedWhen": "2024-02-01T00:00:00Z",
+    "promotionModifiedByUserGUID": null,
+    "promotionActiveFromWhen": "2024-02-01T00:00:00Z",
+    "promotionActiveToWhen": "2024-03-31T23:59:59Z",
+    "promotionType": 1,
+    "promotionRuleIdentifier": "CatalogDiscountBasedOnProductCategory",
+    "promotionRuleConfiguration": "{\u0022ProductCategories\u0022:\u0022Cafe\u0022,\u0022DiscountValueType\u0022:\u0022Percentage\u0022,\u0022DiscountValue\u0022:0}"
+  },
+  {
+    "$type": "OrderPromotion",
+    "orderPromotionPromotionGUID": "e2f3a4b5-c6d7-4890-e123-456789abcdef",
+    "orderPromotionOrderGUID": "e1f2a3b4-c5d6-4789-e012-3456789abcde",
+    "orderPromotionOrderItemGUID": "b4c5d6e7-f8a9-4012-b345-6789abcdef01",
+    "orderPromotionPromotionDisplayName": "Buy One Get One Free",
+    "orderPromotionDiscountAmount": 49.99,
+    "orderPromotionPromotionType": 1
+  },
+  {
+    "$type": "OrderPromotion",
+    "orderPromotionPromotionGUID": "d1e2f3a4-b5c6-4789-d012-3456789abcde",
+    "orderPromotionOrderGUID": "e1f2a3b4-c5d6-4789-e012-3456789abcde",
+    "orderPromotionOrderItemGUID": "b4c5d6e7-f8a9-4012-b345-6789abcdef01",
+    "orderPromotionPromotionDisplayName": "10% Off Your Order",
+    "orderPromotionDiscountAmount": 12.99,
+    "orderPromotionPromotionType": 0
   }
 ]
