@@ -17,6 +17,8 @@ Model [discriminator](../UmtModel.md#discriminator): `OrderPromotion`
 
 <p>*) value is required</p>
 
+> **Note**: Promotions do not work out of the box. Once promotions are migrated, it is necessary to implement and register [promotion rules](https://docs.kentico.com/x/commerce_promotions_xp).
+
 ### Sample of order promotion
 
 ```json
