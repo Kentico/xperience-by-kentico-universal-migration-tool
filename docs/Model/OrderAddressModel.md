@@ -46,4 +46,3 @@ Model [discriminator](../UmtModel.md#discriminator): `OrderAddress`
   "orderAddressStateGUID": null
 }
 ```
-

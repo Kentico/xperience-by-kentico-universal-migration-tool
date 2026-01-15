@@ -37,4 +37,3 @@ Model [discriminator](../UmtModel.md#discriminator): `OrderItem`
   "orderItemTaxRate": 0.08
 }
 ```
-

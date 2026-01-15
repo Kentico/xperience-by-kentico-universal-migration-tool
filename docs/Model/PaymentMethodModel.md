@@ -28,4 +28,3 @@ Model [discriminator](../UmtModel.md#discriminator): `PaymentMethod`
   "paymentMethodEnabled": true
 }
 ```
-

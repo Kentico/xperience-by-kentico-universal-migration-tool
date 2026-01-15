@@ -30,4 +30,3 @@ Model [discriminator](../UmtModel.md#discriminator): `ShippingMethod`
   "shippingMethodPrice": 15.00
 }
 ```
-
