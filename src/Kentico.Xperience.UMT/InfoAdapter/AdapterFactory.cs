@@ -1,4 +1,6 @@
 ﻿using CMS.Activities;
+using CMS.Commerce;
+using CMS.Commerce.Internal;
 using CMS.ContactManagement;
 using CMS.ContentEngine;
 using CMS.ContentEngine.Internal;
@@ -52,6 +54,18 @@ internal class AdapterFactory(ILoggerFactory loggerFactory, UmtModelService mode
             ContentFolderModel => new ContentFolderAdapter(loggerFactory.CreateLogger<ContentFolderAdapter>(), Service.Resolve<IInfoProvider<ContentFolderInfo>>(), adapterContext, workspaceService),
             TaxonomyModel => new TaxonomyAdapter(loggerFactory.CreateLogger<TaxonomyAdapter>(), adapterContext),
             TagModel => new TagAdapter(loggerFactory.CreateLogger<TagAdapter>(), adapterContext),
+            CustomerModel => new GenericInfoAdapter<CustomerInfo>(loggerFactory.CreateLogger<GenericInfoAdapter<CustomerInfo>>(), adapterContext),
+            CustomerAddressModel => new GenericInfoAdapter<CustomerAddressInfo>(loggerFactory.CreateLogger<GenericInfoAdapter<CustomerAddressInfo>>(), adapterContext),
+            OrderModel => new GenericInfoAdapter<OrderInfo>(loggerFactory.CreateLogger<GenericInfoAdapter<OrderInfo>>(), adapterContext),
+            OrderItemModel => new GenericInfoAdapter<OrderItemInfo>(loggerFactory.CreateLogger<GenericInfoAdapter<OrderItemInfo>>(), adapterContext),
+            OrderAddressModel => new OrderAddressAdapter(loggerFactory.CreateLogger<OrderAddressAdapter>(), adapterContext),
+            OrderStatusModel => new GenericInfoAdapter<OrderStatusInfo>(loggerFactory.CreateLogger<GenericInfoAdapter<OrderStatusInfo>>(), adapterContext),
+            OrderStatusNotificationModel => new GenericInfoAdapter<OrderStatusNotificationInfo>(loggerFactory.CreateLogger<GenericInfoAdapter<OrderStatusNotificationInfo>>(), adapterContext),
+            ShoppingCartModel => new GenericInfoAdapter<ShoppingCartInfo>(loggerFactory.CreateLogger<GenericInfoAdapter<ShoppingCartInfo>>(), adapterContext),
+            PaymentMethodModel => new GenericInfoAdapter<PaymentMethodInfo>(loggerFactory.CreateLogger<GenericInfoAdapter<PaymentMethodInfo>>(), adapterContext),
+            ShippingMethodModel => new GenericInfoAdapter<ShippingMethodInfo>(loggerFactory.CreateLogger<GenericInfoAdapter<ShippingMethodInfo>>(), adapterContext),
+            Model.PromotionModel => new PromotionAdapter(loggerFactory.CreateLogger<PromotionAdapter>(), adapterContext),
+            OrderPromotionModel => new GenericInfoAdapter<OrderPromotionInfo>(loggerFactory.CreateLogger<GenericInfoAdapter<OrderPromotionInfo>>(), adapterContext),
             WorkspaceModel => new GenericInfoAdapter<WorkspaceInfo>(loggerFactory.CreateLogger<GenericInfoAdapter<WorkspaceInfo>>(), adapterContext),
             WebPageScopeModel => new GenericInfoAdapter<WebPageScopeInfo>(loggerFactory.CreateLogger<GenericInfoAdapter<WebPageScopeInfo>>(), adapterContext),
             WebPageScopeContentTypeModel => new GenericInfoAdapter<WebPageScopeContentTypeInfo>(loggerFactory.CreateLogger<GenericInfoAdapter<WebPageScopeContentTypeInfo>>(), adapterContext),
