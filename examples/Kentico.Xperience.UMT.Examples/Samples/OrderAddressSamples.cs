@@ -44,6 +44,7 @@ public static class OrderAddressSamples
     };
 
 
+    [Sample("orderaddress.sample.orderwithmethods.billing", "Sample demonstrates how to create a billing address for an order that uses methods", "Instance of OrderAddressInfo - Sample billing address for order with methods")]
     public static OrderAddressModel SampleOrderWithMethodsAddressBilling => new()
     {
         OrderAddressGUID = SAMPLE_ORDER_WITH_METHODS_ADDRESS_BILLING_GUID,
