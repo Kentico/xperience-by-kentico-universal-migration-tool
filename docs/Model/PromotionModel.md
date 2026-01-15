@@ -1,28 +1,28 @@
 <!-- generated file with tool "Kentico.Xperience.UMT.DocUtils" - edited through template "UmtModel.cshtml" -->
-
 ## PromotionModel
-
 Model represents XbyK PromotionInfo.
 
 Model [discriminator](../UmtModel.md#discriminator): `Promotion`
 
-| PropertyName                 | Summary | .NET Type                   | Notes                               |
-| ---------------------------- | ------- | --------------------------- | ----------------------------------- |
-| PromotionGUID\*              |         | System.Guid?                | [UniqueId](../UmtModel.md#UniqueId) |
-| PromotionDisplayName\*       |         | string?                     |                                     |
-| PromotionName\*              |         | string?                     |                                     |
-| PromotionDescription         |         | string?                     |                                     |
-| PromotionCreatedWhen\*       |         | System.DateTime?            |                                     |
-| PromotionCreatedByUserGUID   |         | System.Guid?                |                                     |
-| PromotionModifiedWhen\*      |         | System.DateTime?            |                                     |
-| PromotionModifiedByUserGUID  |         | System.Guid?                |                                     |
-| PromotionActiveFromWhen      |         | System.DateTime?            |                                     |
-| PromotionActiveToWhen        |         | System.DateTime?            |                                     |
-| PromotionType\*              |         | CMS.Commerce.PromotionType? |                                     |
-| PromotionRuleIdentifier\*    |         | string?                     |                                     |
-| PromotionRuleConfiguration\* |         | string?                     |                                     |
+|PropertyName|Summary|.NET Type|Notes|
+|---|---|---|---|
+|PromotionDisplayName\*||string?||
+|PromotionName\*||string?||
+|PromotionGUID\*||System.Guid?|[UniqueId](../UmtModel.md#UniqueId)|
+|PromotionDescription||string?||
+|PromotionCreatedWhen\*||System.DateTime?||
+|PromotionCreatedByUserGUID||System.Guid?|Reference to [UserInfo](../References.md#UserInfo) on property PromotionCreatedByUserID|
+|PromotionModifiedWhen\*||System.DateTime?||
+|PromotionModifiedByUserGUID||System.Guid?|Reference to [UserInfo](../References.md#UserInfo) on property PromotionModifiedByUserID|
+|PromotionActiveFromWhen||System.DateTime?||
+|PromotionActiveToWhen||System.DateTime?||
+|PromotionType\*||CMS.Commerce.PromotionType?||
+|PromotionRuleIdentifier\*||string?||
+|PromotionRuleConfiguration\*||string?||
+|[customPropertyName]|custom property defined by created [DataClass](./DataClassModel.md)|.NET type defined by data class field||
 
 <p>*) value is required</p>
+
 
 > **Note**: Promotions do not work out of the box. Once promotions are migrated, it is necessary to implement and register [promotion rules](https://docs.kentico.com/x/commerce_promotions_xp).
 

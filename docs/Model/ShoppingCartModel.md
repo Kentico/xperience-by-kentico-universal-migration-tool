@@ -15,3 +15,15 @@ Model [discriminator](../UmtModel.md#discriminator): `ShoppingCart`
 
 <p>*) value is required</p>
 
+### Sample of shopping cart
+
+```json
+{
+  "$type": "ShoppingCart",
+  "shoppingCartGUID": "b8c9d0e1-f2a3-4124-a567-89abcdef0123",
+  "shoppingCartUniqueIdentifier": "cart-abc123def456",
+  "shoppingCartModifiedWhen": "2024-02-15T14:20:00Z",
+  "shoppingCartMemberGUID": null,
+  "shoppingCartData": null
+}
+```

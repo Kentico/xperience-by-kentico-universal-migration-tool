@@ -16,3 +16,17 @@ Model [discriminator](../UmtModel.md#discriminator): `ShippingMethod`
 
 <p>*) value is required</p>
 
+
+### Sample of shipping method
+
+```json
+{
+  "$type": "ShippingMethod",
+  "shippingMethodGUID": "a7b8c9d0-e1f2-4234-f567-89abcdef0123",
+  "shippingMethodName": "StandardShipping",
+  "shippingMethodDisplayName": "Standard Shipping",
+  "shippingMethodDescription": "Standard shipping with 5-7 business days delivery",
+  "shippingMethodEnabled": true,
+  "shippingMethodPrice": 15.00
+}
+```

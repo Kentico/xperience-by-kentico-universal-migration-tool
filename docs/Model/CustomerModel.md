@@ -17,3 +17,18 @@ Model [discriminator](../UmtModel.md#discriminator): `Customer`
 
 <p>*) value is required</p>
 
+
+### Sample of customer
+
+```json
+{
+  "$type": "Customer",
+  "customerGUID": "a1b2c3d4-e5f6-4789-a012-3456789abcde",
+  "customerFirstName": "John",
+  "customerLastName": "Doe",
+  "customerEmail": "john.doe@example.com",
+  "customerPhone": "+1-555-123-4567",
+  "customerMemberGUID": null,
+  "customerCreatedWhen": "2024-01-15T10:30:00Z"
+}
+```
