@@ -91,7 +91,6 @@ internal class AdapterFactory(ILoggerFactory loggerFactory, UmtModelService mode
             ConsentAgreementModel => new GenericInfoAdapter<ConsentAgreementInfo>(loggerFactory.CreateLogger<GenericInfoAdapter<ConsentAgreementInfo>>(), adapterContext),
 #pragma warning restore UMTExperimentalModelConsentAgreement
 
-
             // macro models
             ContentItemSimplifiedModel => new ContentItemSimplifiedAdapter(providerProxyFactory.CreateProviderProxy<ContentItemInfo>(providerProxyContext), providerProxyFactory, Service.Resolve<IDateTimeNowService>(), this,
                 loggerFactory.CreateLogger<ContentItemSimplifiedAdapter>(), Service.Resolve<IInfoProvider<ContentFolderInfo>>(), workspaceService),
