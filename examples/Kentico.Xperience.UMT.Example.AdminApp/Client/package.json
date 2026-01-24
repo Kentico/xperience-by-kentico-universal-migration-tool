@@ -8,7 +8,7 @@
     "build": "webpack --mode=production"
   },
   "dependencies": {
-    "@kentico/xperience-admin-base": "^31.0.0",
+    "@kentico/xperience-admin-base": "^31.1.0",
     "@kentico/xperience-admin-components": "^31.0.0",
     "copy-webpack-plugin": "^13.0.1",
     "react": "^19.2.3",
