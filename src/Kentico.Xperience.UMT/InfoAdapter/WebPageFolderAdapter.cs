@@ -1,10 +1,8 @@
-using CMS.Base;
 using CMS.ContentEngine;
 using CMS.ContentEngine.Internal;
 using CMS.Core;
 using CMS.Core.Internal;
 using CMS.DataEngine;
-using CMS.Membership;
 using CMS.Websites;
 using CMS.Websites.Internal;
 
@@ -24,18 +22,21 @@ internal class WebPageFolderAdapter : IInfoAdapter<ContentItemInfo, IUmtModel>
     private readonly ILogger<WebPageFolderAdapter> logger;
     private readonly IProviderProxyFactory providerProxyFactory;
     private readonly IDateTimeNowService dateTimeNowService;
+    private readonly AdapterFactory adapterFactory;
 
     public IProviderProxy ProviderProxy { get; }
 
     internal WebPageFolderAdapter(
-        ILogger<WebPageFolderAdapter> logger,
+        IProviderProxy providerProxy,
         IProviderProxyFactory providerProxyFactory,
-        IProviderProxyContext providerProxyContext)
+        ILogger<WebPageFolderAdapter> logger,
+        AdapterFactory adapterFactory)
     {
         this.logger = logger;
         this.providerProxyFactory = providerProxyFactory;
         this.dateTimeNowService = Service.Resolve<IDateTimeNowService>();
-        ProviderProxy = providerProxyFactory.CreateProviderProxy<ContentItemInfo>(providerProxyContext);
+        this.adapterFactory = adapterFactory;
+        ProviderProxy = providerProxy;
     }
 
     public ContentItemInfo Adapt(IUmtModel input)
@@ -56,60 +57,58 @@ internal class WebPageFolderAdapter : IInfoAdapter<ContentItemInfo, IUmtModel>
 
         var now = dateTimeNowService.GetDateTimeNow();
 
-        // Resolve website channel
+        // Resolve channel using proxy
         var channelProxy = providerProxyFactory.CreateProviderProxy<ChannelInfo>(new ProviderProxyContext());
         var channel = channelProxy.GetBaseInfoByCodeName(model.WebsiteChannelName, null!) as ChannelInfo;
         ArgumentNullException.ThrowIfNull(channel, $"Channel '{model.WebsiteChannelName}' not found");
 
-        var websiteChannel = Provider<WebsiteChannelInfo>.Instance.Get()
-            .WhereEquals(nameof(WebsiteChannelInfo.WebsiteChannelChannelID), channel.ChannelID)
-            .FirstOrDefault();
+        // Resolve website channel using proxy
+        var websiteChannelProxy = providerProxyFactory.CreateProviderProxy<WebsiteChannelInfo>(new ProviderProxyContext());
+        var websiteChannel = websiteChannelProxy.GetBaseInfoBy(channel.ChannelGUID, nameof(WebsiteChannelInfo.WebsiteChannelChannelID), null!) as WebsiteChannelInfo;
+        if (websiteChannel == null)
+        {
+            // Fallback: query by channel ID since the reference is by ID not GUID
+            var websiteChannels = websiteChannelProxy.GetInfoByKeys(null!, [(nameof(WebsiteChannelInfo.WebsiteChannelChannelID), channel.ChannelID)]);
+            websiteChannel = websiteChannels.FirstOrDefault() as WebsiteChannelInfo;
+        }
         ArgumentNullException.ThrowIfNull(websiteChannel, $"WebsiteChannel for channel '{model.WebsiteChannelName}' not found");
 
-        // Resolve language
+        // Resolve language using proxy
         var languageProxy = providerProxyFactory.CreateProviderProxy<ContentLanguageInfo>(new ProviderProxyContext());
         var language = languageProxy.GetBaseInfoByCodeName(model.LanguageName, null!) as ContentLanguageInfo;
         ArgumentNullException.ThrowIfNull(language, $"Language '{model.LanguageName}' not found");
 
-        // Check for existing ContentItem
-        var existingContentItem = Provider<ContentItemInfo>.Instance.Get()
-            .WhereEquals(nameof(ContentItemInfo.ContentItemGUID), model.WebPageFolderGUID)
-            .FirstOrDefault();
-
-        // Create or update ContentItem (folders have ContentItemContentTypeID = 0)
-        var contentItem = existingContentItem ?? new ContentItemInfo();
-        contentItem.ContentItemGUID = model.WebPageFolderGUID.Value;
-        contentItem.ContentItemName = model.WebPageFolderName;
-        contentItem.ContentItemContentTypeID = 0;  // Folders have no content type
-        contentItem.ContentItemChannelID = channel.ChannelID;
-        contentItem.ContentItemIsReusable = false;
-        contentItem.ContentItemIsSecured = false;
-
-        var context = new CMSActionContext(UserInfoProvider.AdministratorUser)
+        // Create ContentItem model (folders have ContentItemContentTypeID = 0, so we don't set ContentItemDataClassGuid)
+        var contentItemModel = new ContentItemModel
         {
-            User = UserInfoProvider.AdministratorUser,
-            UseGlobalAdminContext = true
+            ContentItemGUID = model.WebPageFolderGUID,
+            ContentItemName = model.WebPageFolderName,
+            ContentItemIsReusable = false,
+            ContentItemIsSecured = false,
+            ContentItemChannelGuid = channel.ChannelGUID
         };
 
-        using (context)
-        {
-            Provider<ContentItemInfo>.Instance.Set(contentItem);
-        }
+        var contentItemAdapter = adapterFactory.CreateAdapter(contentItemModel, new ProviderProxyContext());
+        ArgumentNullException.ThrowIfNull(contentItemAdapter);
+
+        var contentItemInfo = (ContentItemInfo)contentItemAdapter.Adapt(contentItemModel);
+        // Folders have ContentItemContentTypeID = 0 (no content type)
+        contentItemInfo.ContentItemContentTypeID = 0;
+        contentItemInfo = (ContentItemInfo)contentItemAdapter.ProviderProxy.Save(contentItemInfo, contentItemModel);
 
         logger.LogTrace("ContentItem created/updated with GUID {Guid} for folder {Name}",
-            contentItem.ContentItemGUID, model.WebPageFolderName);
+            contentItemInfo.ContentItemGUID, model.WebPageFolderName);
 
-        // Resolve parent WebPageItem if specified
-        int parentWebPageItemId = 0;
+        // Resolve parent WebPageItem if specified using proxy
+        Guid? parentWebPageItemGuid = null;
         if (model.WebPageFolderParentGUID.HasValue)
         {
-            var parentWebPageItem = Provider<WebPageItemInfo>.Instance.Get()
-                .WhereEquals(nameof(WebPageItemInfo.WebPageItemGUID), model.WebPageFolderParentGUID.Value)
-                .FirstOrDefault();
+            var webPageItemProxy = providerProxyFactory.CreateProviderProxy<WebPageItemInfo>(new ProviderProxyContext());
+            var parentWebPageItem = webPageItemProxy.GetBaseInfoByGuid(model.WebPageFolderParentGUID.Value, null!) as WebPageItemInfo;
 
             if (parentWebPageItem != null)
             {
-                parentWebPageItemId = parentWebPageItem.WebPageItemID;
+                parentWebPageItemGuid = parentWebPageItem.WebPageItemGUID;
             }
             else
             {
@@ -118,75 +117,69 @@ internal class WebPageFolderAdapter : IInfoAdapter<ContentItemInfo, IUmtModel>
             }
         }
 
-        // Check for existing WebPageItem
-        var existingWebPageItem = Provider<WebPageItemInfo>.Instance.Get()
-            .WhereEquals(nameof(WebPageItemInfo.WebPageItemContentItemID), contentItem.ContentItemID)
-            .WhereEquals(nameof(WebPageItemInfo.WebPageItemWebsiteChannelID), websiteChannel.WebsiteChannelID)
-            .FirstOrDefault();
+        // Check for existing WebPageItem using proxy
+        var webPageItemProxyForExisting = providerProxyFactory.CreateProviderProxy<WebPageItemInfo>(new ProviderProxyContext());
+        var existingWebPageItems = webPageItemProxyForExisting.GetInfoByKeys(null!, [
+            (nameof(WebPageItemInfo.WebPageItemContentItemID), contentItemInfo.ContentItemID),
+            (nameof(WebPageItemInfo.WebPageItemWebsiteChannelID), websiteChannel.WebsiteChannelID)
+        ]);
+        var existingWebPageItem = existingWebPageItems.FirstOrDefault() as WebPageItemInfo;
 
-        // Create or update WebPageItem
-        var webPageItem = existingWebPageItem ?? new WebPageItemInfo();
-        webPageItem.WebPageItemGUID = model.WebPageFolderGUID.Value;  // Use same GUID for consistency
-        webPageItem.WebPageItemName = model.WebPageFolderName;
-        webPageItem.WebPageItemTreePath = model.WebPageFolderTreePath;
-        webPageItem.WebPageItemContentItemID = contentItem.ContentItemID;
-        webPageItem.WebPageItemWebsiteChannelID = websiteChannel.WebsiteChannelID;
-        webPageItem.WebPageItemParentID = parentWebPageItemId;
-        webPageItem.WebPageItemOrder = model.WebPageFolderOrder ?? 0;
-
-        using (context)
+        // Create WebPageItem model
+        var webPageItemModel = new WebPageItemModel
         {
-            Provider<WebPageItemInfo>.Instance.Set(webPageItem);
-        }
+            WebPageItemGUID = existingWebPageItem?.WebPageItemGUID ?? model.WebPageFolderGUID,
+            WebPageItemName = model.WebPageFolderName,
+            WebPageItemTreePath = model.WebPageFolderTreePath,
+            WebPageItemWebsiteChannelGuid = websiteChannel.WebsiteChannelGUID,
+            WebPageItemContentItemGuid = contentItemInfo.ContentItemGUID,
+            WebPageItemParentGuid = parentWebPageItemGuid,
+            WebPageItemOrder = model.WebPageFolderOrder ?? 0
+        };
 
-        // Handle ACL mapping (same as ProviderProxy does for WebPageItemInfo)
-        var webPageAclMappingManager = Service.Resolve<IWebPageAclMappingManager>();
-        webPageAclMappingManager.CreateMapping(
-            webPageItem.WebPageItemID,
-            webPageItem.WebPageItemParentID,
-            webPageItem.WebPageItemWebsiteChannelID,
-            CancellationToken.None).GetAwaiter().GetResult();
+        var webPageItemAdapter = adapterFactory.CreateAdapter(webPageItemModel, new ProviderProxyContext());
+        ArgumentNullException.ThrowIfNull(webPageItemAdapter);
 
-        var webPageAclManagerFactory = Service.Resolve<IWebPageAclManagerFactory>();
-        webPageAclManagerFactory
-            .Create(webPageItem.WebPageItemWebsiteChannelID)
-            .RestoreInheritance(webPageItem.WebPageItemID)
-            .GetAwaiter().GetResult();
+        var webPageItemInfo = (WebPageItemInfo)webPageItemAdapter.Adapt(webPageItemModel);
+        webPageItemInfo = (WebPageItemInfo)webPageItemAdapter.ProviderProxy.Save(webPageItemInfo, webPageItemModel);
+        // Note: ACL mapping is automatically handled by ProviderProxy<WebPageItemInfo>.Save()
 
         logger.LogTrace("WebPageItem created/updated with GUID {Guid} for folder {Name}",
-            webPageItem.WebPageItemGUID, model.WebPageFolderName);
+            webPageItemInfo.WebPageItemGUID, model.WebPageFolderName);
 
-        // Check for existing LanguageMetadata
-        var existingLanguageMetadata = Provider<ContentItemLanguageMetadataInfo>.Instance.Get()
-            .WhereEquals(nameof(ContentItemLanguageMetadataInfo.ContentItemLanguageMetadataContentItemID), contentItem.ContentItemID)
-            .WhereEquals(nameof(ContentItemLanguageMetadataInfo.ContentItemLanguageMetadataContentLanguageID), language.ContentLanguageID)
-            .FirstOrDefault();
+        // Check for existing LanguageMetadata using proxy
+        var languageMetadataProxy = providerProxyFactory.CreateProviderProxy<ContentItemLanguageMetadataInfo>(new ProviderProxyContext());
+        var existingLanguageMetadataList = languageMetadataProxy.GetInfoByKeys(null!, [
+            (nameof(ContentItemLanguageMetadataInfo.ContentItemLanguageMetadataContentItemID), contentItemInfo.ContentItemID),
+            (nameof(ContentItemLanguageMetadataInfo.ContentItemLanguageMetadataContentLanguageID), language.ContentLanguageID)
+        ]);
+        var existingLanguageMetadata = existingLanguageMetadataList.FirstOrDefault() as ContentItemLanguageMetadataInfo;
 
-        // Create or update ContentItemLanguageMetadata for the display name
-        var languageMetadata = existingLanguageMetadata ?? new ContentItemLanguageMetadataInfo();
-        if (existingLanguageMetadata == null)
+        // Create ContentItemLanguageMetadata model
+        var languageMetadataModel = new ContentItemLanguageMetadataModel
         {
-            languageMetadata.ContentItemLanguageMetadataGUID = Guid.NewGuid();
-        }
-        languageMetadata.ContentItemLanguageMetadataContentItemID = contentItem.ContentItemID;
-        languageMetadata.ContentItemLanguageMetadataContentLanguageID = language.ContentLanguageID;
-        languageMetadata.ContentItemLanguageMetadataDisplayName = model.WebPageFolderDisplayName;
-        languageMetadata.ContentItemLanguageMetadataLatestVersionStatus = VersionStatus.Published;
-        languageMetadata.ContentItemLanguageMetadataCreatedWhen = existingLanguageMetadata?.ContentItemLanguageMetadataCreatedWhen ?? now;
-        languageMetadata.ContentItemLanguageMetadataModifiedWhen = now;
-        languageMetadata.ContentItemLanguageMetadataHasImageAsset = false;
+            ContentItemLanguageMetadataGUID = existingLanguageMetadata?.ContentItemLanguageMetadataGUID ?? Guid.NewGuid(),
+            ContentItemLanguageMetadataContentItemGuid = contentItemInfo.ContentItemGUID,
+            ContentItemLanguageMetadataContentLanguageGuid = language.ContentLanguageGUID,
+            ContentItemLanguageMetadataDisplayName = model.WebPageFolderDisplayName,
+            ContentItemLanguageMetadataLatestVersionStatus = VersionStatus.Published,
+            ContentItemLanguageMetadataCreatedWhen = existingLanguageMetadata?.ContentItemLanguageMetadataCreatedWhen ?? now,
+            ContentItemLanguageMetadataModifiedWhen = now,
+            ContentItemLanguageMetadataHasImageAsset = false
+        };
 
-        using (context)
-        {
-            Provider<ContentItemLanguageMetadataInfo>.Instance.Set(languageMetadata);
-        }
+        var languageMetadataAdapter = adapterFactory.CreateAdapter(languageMetadataModel, new ProviderProxyContext());
+        ArgumentNullException.ThrowIfNull(languageMetadataAdapter);
+
+        var languageMetadataInfo = (ContentItemLanguageMetadataInfo)languageMetadataAdapter.Adapt(languageMetadataModel);
+        languageMetadataAdapter.ProviderProxy.Save(languageMetadataInfo, languageMetadataModel);
 
         logger.LogTrace("ContentItemLanguageMetadata created/updated for folder {Name} in language {Language}",
             model.WebPageFolderName, model.LanguageName);
 
         scope.Commit();
 
-        return contentItem;
+        return contentItemInfo;
     }
 
     BaseInfo IInfoAdapter<IUmtModel>.Adapt(IUmtModel input) => Adapt(input);
