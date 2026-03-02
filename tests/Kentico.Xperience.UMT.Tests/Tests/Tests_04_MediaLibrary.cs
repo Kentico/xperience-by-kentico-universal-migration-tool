@@ -7,7 +7,7 @@ namespace TestAfterMigration.Tests
         [Test]
         public async Task Test00100_Expected_Library_Structure_Was_Created()
         {
-            await OpenAdminApplication("media-libraries");
+            await OpenAdminApplication("Media libraries");
 
             await Page.GetByTestId("table-row").ClickAsync();     // also checks that an item exists
             await Debounce();
@@ -22,7 +22,7 @@ namespace TestAfterMigration.Tests
         [Test]
         public async Task Test00200_Subfolder_Contains_Image()
         {
-            await OpenAdminApplication("media-libraries");
+            await OpenAdminApplication("Media libraries");
 
             await Page.GetByTestId("table-row").ClickAsync();     // also checks that an item exists
             await Debounce();
@@ -39,7 +39,7 @@ namespace TestAfterMigration.Tests
         [Test]
         public async Task Test00300_Subfolder_Image_Can_Be_Explored()
         {
-            await OpenAdminApplication("media-libraries");
+            await OpenAdminApplication("Media libraries");
 
             await Page.GetByTestId("table-row").ClickAsync();     // also checks that an item exists
             await Debounce();

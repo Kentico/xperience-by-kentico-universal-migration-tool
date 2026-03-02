@@ -7,7 +7,7 @@ public class Tests_11_Orders : AdminTestBase
     [Test]
     public async Task Test00100_Expected_Order_Structure_Created_And_Explorable()
     {
-        await OpenAdminApplication("orders");
+        await OpenAdminApplication("Orders");
 
         var orders = await Page.GetByTestId("table-row").AllAsync();
         await ValidateOrder(orders[0], "ORD-2024-002", "46.94");
@@ -22,7 +22,7 @@ public class Tests_11_Orders : AdminTestBase
 
     private async Task ValidateOrder1(ILocator order)
     {
-        await OpenAdminApplication("orders");
+        await OpenAdminApplication("Orders");
 
         await order.ClickAsync();
         await Debounce();
@@ -42,7 +42,7 @@ public class Tests_11_Orders : AdminTestBase
 
     private async Task ValidateOrder2(ILocator order)
     {
-        await OpenAdminApplication("orders");
+        await OpenAdminApplication("Orders");
 
         await order.ClickAsync();
         await Debounce();
