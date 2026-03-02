@@ -240,7 +240,7 @@ namespace TestAfterMigration.Tests
             status = await Page.GetByTestId("breadcrumbs-status").TextContentAsync();
             Assert.That("Published" == status);
 
-            await Assertions.Expect(Page.GetByTestId("ArticleTitle")).ToHaveAttributeAsync("value", "New published value");
+            await Assertions.Expect(Page.GetByTestId("ArticleTitle")).ToHaveTextAsync("New published value");
 
             await AssertNoEventlogErrors();
         }
@@ -293,7 +293,7 @@ namespace TestAfterMigration.Tests
             status = await Page.GetByTestId("breadcrumbs-status").TextContentAsync();
             Assert.That("Scheduled" == status);
 
-            await Assertions.Expect(Page.GetByTestId("ArticleTitle")).ToHaveAttributeAsync("value", "New scheduled value");
+            await Assertions.Expect(Page.GetByTestId("ArticleTitle")).ToHaveTextAsync("New scheduled value");
 
             await AssertNoEventlogErrors();
         }
@@ -321,7 +321,7 @@ namespace TestAfterMigration.Tests
             status = await Page.GetByTestId("breadcrumbs-status").TextContentAsync();
             Assert.That("Published" == status);
 
-            await Assertions.Expect(Page.GetByTestId("ArticleTitle")).ToHaveAttributeAsync("value", "en-US UMT simplified model creation as sub page 6");
+            await Assertions.Expect(Page.GetByTestId("ArticleTitle")).ToHaveTextAsync("en-US UMT simplified model creation as sub page 6");
 
             await AssertNoEventlogErrors();
         }
