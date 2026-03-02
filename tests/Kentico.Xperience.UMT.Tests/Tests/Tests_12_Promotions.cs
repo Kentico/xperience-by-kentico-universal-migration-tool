@@ -18,7 +18,7 @@ public class Tests_12_Promotions : AdminTestBase
     [Test]
     public async Task Test00100_Expected_Promotion_Structure_Created_And_Explorable()
     {
-        await OpenAdminApplication("promotions");
+        await OpenAdminApplication("Promotions");
 
         await NavigateToCatalogDiscountsTab();
 

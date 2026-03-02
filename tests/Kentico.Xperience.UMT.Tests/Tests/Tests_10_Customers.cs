@@ -7,7 +7,7 @@ namespace TestAfterMigration.Tests
         [Test]
         public async Task Test00100_Expected_Customer_Structure_Created_And_Explorable()
         {
-            await OpenAdminApplication("customers");
+            await OpenAdminApplication("Customers");
 
             var customers = await Page.GetByTestId("table-row").AllAsync();
             await ValidateCustomer(customers[0], "John", "Doe", "john.doe@sample.localhost");
