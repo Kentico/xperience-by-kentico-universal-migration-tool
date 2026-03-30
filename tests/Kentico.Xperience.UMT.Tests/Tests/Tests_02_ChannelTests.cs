@@ -424,5 +424,29 @@ namespace TestAfterMigration.Tests
             await Assertions.Expect(Page.GetByText("creation-of-umt-model-vanity-1")).ToBeVisibleAsync();
             await Assertions.Expect(Page.GetByText("creation-of-umt-model-vanity-2")).ToBeVisibleAsync();
         }
+
+        [Test]
+        public async Task Test01700_Web_Channel_Has_Folders()
+        {
+            await OpenAdminApplication("website-channel-example");
+            await SelectTopDropdownLanguage("English (United States)");
+
+            var treeItems = await GetPageTreeItems(rootOnly: true);
+
+            Assert.That(treeItems.Any(x => x.Title == "Test Folder"), "Expected 'Test Folder' to exist in page tree");
+        }
+
+        [Test]
+        public async Task Test01800_Web_Channel_Folder_Has_Nested_Folder()
+        {
+            await OpenAdminApplication("website-channel-example");
+            await SelectTopDropdownLanguage("English (United States)");
+
+            var treeItems = await GetPageTreeItems();
+
+            var testFolder = treeItems.FirstOrDefault(x => x.Title == "Test Folder");
+            Assert.That(testFolder, Is.Not.Null, "Expected 'Test Folder' to exist in page tree");
+            Assert.That(testFolder!.Children.Any(x => x.Title == "Nested Test Folder"), "Expected 'Nested Test Folder' to be a child of 'Test Folder'");
+        }
     }
 }
