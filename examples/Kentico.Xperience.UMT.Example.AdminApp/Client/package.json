@@ -8,29 +8,29 @@
     "build": "webpack --mode=production"
   },
   "dependencies": {
-    "@kentico/xperience-admin-base": "^31.2.0",
-    "@kentico/xperience-admin-components": "^31.2.0",
-    "copy-webpack-plugin": "^13.0.1",
-    "react": "^19.2.3",
-    "react-dom": "^19.2.3",
+    "@kentico/xperience-admin-base": "^31.4.0",
+    "@kentico/xperience-admin-components": "^31.4.0",
+    "copy-webpack-plugin": "^14.0.0",
+    "react": "^19.2.5",
+    "react-dom": "^19.2.5",
     "sse": "^0.0.8",
-    "sse.js": "^2.7.2"
+    "sse.js": "^2.8.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.28.5",
-    "@babel/plugin-transform-runtime": "^7.28.5",
-    "@babel/preset-env": "^7.28.5",
+    "@babel/core": "^7.29.0",
+    "@babel/plugin-transform-runtime": "^7.29.0",
+    "@babel/preset-env": "^7.29.2",
     "@babel/preset-react": "^7.28.5",
     "@babel/preset-typescript": "^7.28.5",
-    "@kentico/xperience-webpack-config": "^31.2.0",
-    "@types/react": "^19.2.7",
+    "@kentico/xperience-webpack-config": "^31.4.0",
+    "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",
-    "babel-loader": "^10.0.0",
-    "css-loader": "^7.1.2",
+    "babel-loader": "^10.1.1",
+    "css-loader": "^7.1.4",
     "style-loader": "^4.0.0",
-    "webpack": "^5.103.0",
-    "webpack-cli": "^6.0.1",
-    "webpack-dev-server": "^5.2.2"
+    "webpack": "^5.106.2",
+    "webpack-cli": "^7.0.2",
+    "webpack-dev-server": "^5.2.3"
   },
   "overrides": {
     "react": "$react",
