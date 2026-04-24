@@ -90,12 +90,11 @@ namespace Kentico.Xperience.UMT.Services
                                 foreach (var targetWebPageGuid in value.Select(x => x.WebPageGuid))
                                 {
                                     var targetWebPageItem = CMS.Websites.Internal.WebPageItemInfo.Provider.Get(targetWebPageGuid) ?? throw new ArgumentNullException($"The linked webpage with GUID '{targetWebPageGuid}' referenced by a ContentItemCommonData with GUID '{commonDataInfo.ContentItemCommonDataGUID}' does not exist or could not be found.");
-                                    var contentItemInfo = ContentItemInfo.Provider.Get(targetWebPageItem.WebPageItemContentItemID) ?? throw new ArgumentNullException($"The linked content item with id '{targetWebPageItem.WebPageItemContentItemID}' referenced by a ContentItemCommonData with GUID '{commonDataInfo.ContentItemCommonDataGUID}' does not exist or could not be found.");
                                     yield return new()
                                     {
                                         ContentItemReferenceGroupGUID = groupGuid,
                                         ContentItemReferenceSourceCommonDataID = commonDataInfo.ContentItemCommonDataID,
-                                        ContentItemReferenceTargetItemID = contentItemInfo.ContentItemID,
+                                        ContentItemReferenceTargetItemID = targetWebPageItem.WebPageItemContentItemID
                                     };
                                 }
                             }
