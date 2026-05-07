@@ -30,6 +30,7 @@ public interface IUmtModel
 [KnownType(typeof(WebPageItemModel))]
 [KnownType(typeof(WebPageAclModel))]
 [KnownType(typeof(WebPageUrlPathModel))]
+[KnownType(typeof(WebPageFolderModel))]
 [KnownType(typeof(WebsiteChannelModel))]
 [KnownType(typeof(TaxonomyModel))]
 [KnownType(typeof(TagModel))]
