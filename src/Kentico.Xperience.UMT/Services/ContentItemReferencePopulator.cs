@@ -49,23 +49,26 @@ namespace Kentico.Xperience.UMT.Services
             var refInfos = CreateContentItemReferenceInfos(refFields, customData, commonDataInfo);
             foreach (var refInfo in refInfos)
             {
+                bool contentItemInfoExists = ContentItemInfo.Provider.Get(refInfo.ContentItemReferenceTargetItemID) is not null;
+                if (!contentItemInfoExists)
+                {
+                    logger.LogWarning("The target content item with ID '{TargetItemID}' referenced by a ContentItemCommonData with ID '{SourceCommonDataID}' does not exist. Skipping creation of content item reference record for group GUID '{GroupGUID}'.", refInfo.ContentItemReferenceTargetItemID, refInfo.ContentItemReferenceSourceCommonDataID, refInfo.ContentItemReferenceGroupGUID);
+                    continue;
+                }
+
                 bool contentItemReferenceExists = Provider<ContentItemReferenceInfo>.Instance.Get()
                     .WhereEquals(nameof(ContentItemReferenceInfo.ContentItemReferenceGroupGUID), refInfo.ContentItemReferenceGroupGUID)
                     .WhereEquals(nameof(ContentItemReferenceInfo.ContentItemReferenceSourceCommonDataID), refInfo.ContentItemReferenceSourceCommonDataID)
                     .WhereEquals(nameof(ContentItemReferenceInfo.ContentItemReferenceTargetItemID), refInfo.ContentItemReferenceTargetItemID)
                 .Any();
 
-                if (!contentItemReferenceExists)
+                if (contentItemReferenceExists)
                 {
-                    try
-                    {
-                        ContentItemReferenceInfo.Provider.Set(refInfo);
-                    }
-                    catch (Exception ex)
-                    {
-                        logger.LogError(ex, "Failed to insert content item reference record for source common data ID '{SourceCommonDataID}', target item ID '{TargetItemID}' and group GUID '{GroupGUID}'.", refInfo.ContentItemReferenceSourceCommonDataID, refInfo.ContentItemReferenceTargetItemID, refInfo.ContentItemReferenceGroupGUID);
-                    }
+                    logger.LogInformation("A content item reference record for source common data ID '{SourceCommonDataID}', target item ID '{TargetItemID}' and group GUID '{GroupGUID}' already exists. Skipping creation of duplicate record.", refInfo.ContentItemReferenceSourceCommonDataID, refInfo.ContentItemReferenceTargetItemID, refInfo.ContentItemReferenceGroupGUID);
+                    continue;
                 }
+
+                ContentItemReferenceInfo.Provider.Set(refInfo);
             }
         }
 
