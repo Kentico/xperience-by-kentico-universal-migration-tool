@@ -9,9 +9,11 @@ using CMS.Websites;
 using Kentico.Xperience.UMT.Services.Model;
 using Kentico.Xperience.UMT.Utils;
 
+using Microsoft.Extensions.Logging;
+
 namespace Kentico.Xperience.UMT.Services
 {
-    internal class ContentItemReferencePopulator
+    internal class ContentItemReferencePopulator(ILogger<ContentItemReferencePopulator> logger)
     {
         /// <summary>
         /// Call before adapting the model
@@ -55,7 +57,14 @@ namespace Kentico.Xperience.UMT.Services
 
                 if (!contentItemReferenceExists)
                 {
-                    ContentItemReferenceInfo.Provider.Set(refInfo);
+                    try
+                    {
+                        ContentItemReferenceInfo.Provider.Set(refInfo);
+                    }
+                    catch (Exception ex)
+                    {
+                        logger.LogError(ex, "Failed to insert content item reference record for source common data ID '{SourceCommonDataID}', target item ID '{TargetItemID}' and group GUID '{GroupGUID}'.", refInfo.ContentItemReferenceSourceCommonDataID, refInfo.ContentItemReferenceTargetItemID, refInfo.ContentItemReferenceGroupGUID);
+                    }
                 }
             }
         }
