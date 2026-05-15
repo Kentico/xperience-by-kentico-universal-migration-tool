@@ -68,7 +68,7 @@ internal class MediaFileAdapter(ILogger<MediaFileAdapter> logger, GenericInfoAda
         }
 
 #pragma warning disable CS0618 // Type or member is obsolete
-        var mediaLibrary = MediaLibraryInfoProvider.ProviderObject.Get(model.FileLibraryGuid!.Value);
+        var mediaLibrary = MediaLibraryInfo.Provider.Get(model.FileLibraryGuid!.Value);
 #pragma warning restore CS0618 // Type or member is obsolete
 
 #pragma warning disable CS0618 // Type or member is obsolete

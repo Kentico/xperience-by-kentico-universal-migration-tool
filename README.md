@@ -18,6 +18,7 @@ The Xperience by Kentico: Universal Migration Tool (UMT) is an open-source set o
 
 | Xperience Version | Library Version |
 | ----------------- | --------------- |
+| 31.5.0            | >= 4.3.0        |
 | 31.2.0            | >= 4.2.0        |
 | 31.1.0            | >= 4.1.0        |
 | 31.0.0            | >= 4.0.0        |
