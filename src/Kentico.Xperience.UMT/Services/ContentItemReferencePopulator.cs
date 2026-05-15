@@ -63,7 +63,8 @@ namespace Kentico.Xperience.UMT.Services
                     }
                     catch (Exception ex)
                     {
-                        logger.LogError(ex, "Failed to insert content item reference record for source common data ID '{SourceCommonDataID}', target item ID '{TargetItemID}' and group GUID '{GroupGUID}'.", refInfo.ContentItemReferenceSourceCommonDataID, refInfo.ContentItemReferenceTargetItemID, refInfo.ContentItemReferenceGroupGUID);
+                        var fieldName = refFields.First(x => x.Guid == refInfo.ContentItemReferenceGroupGUID).Name;
+                        logger.LogError(ex, "Failed to insert content item reference record for source common data ID '{SourceCommonDataID}', target item ID '{TargetItemID}' and field name '{FieldName}'.", refInfo.ContentItemReferenceSourceCommonDataID, refInfo.ContentItemReferenceTargetItemID, fieldName);
                     }
                 }
             }
