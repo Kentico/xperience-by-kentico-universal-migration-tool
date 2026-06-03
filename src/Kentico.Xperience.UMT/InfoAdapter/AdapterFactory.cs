@@ -70,6 +70,7 @@ internal class AdapterFactory(ILoggerFactory loggerFactory, UmtModelService mode
             WebPageScopeModel => new GenericInfoAdapter<WebPageScopeInfo>(loggerFactory.CreateLogger<GenericInfoAdapter<WebPageScopeInfo>>(), adapterContext),
             WebPageScopeContentTypeModel => new GenericInfoAdapter<WebPageScopeContentTypeInfo>(loggerFactory.CreateLogger<GenericInfoAdapter<WebPageScopeContentTypeInfo>>(), adapterContext),
             AllowedChildContentTypeModel => new GenericInfoAdapter<AllowedChildContentTypeInfo>(loggerFactory.CreateLogger<GenericInfoAdapter<AllowedChildContentTypeInfo>>(), adapterContext),
+            WebPageFolderModel => new WebPageFolderAdapter(providerProxyFactory.CreateProviderProxy<ContentItemInfo>(providerProxyContext), providerProxyFactory, loggerFactory.CreateLogger<WebPageFolderAdapter>(), this),
 
 #pragma warning disable UMTExperimentalModelContact
             ContactModel => new GenericInfoAdapter<ContactInfo>(loggerFactory.CreateLogger<GenericInfoAdapter<ContactInfo>>(), adapterContext),
