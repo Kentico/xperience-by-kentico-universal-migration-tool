@@ -89,10 +89,10 @@ namespace Kentico.Xperience.UMT.Services
                 {
                     if (contentItemReferenceFieldValue is string serializedValue)
                     {
-                        if (!string.IsNullOrWhiteSpace(serializedValue))
-                        {
-                            var unescapedSerializedValue = Regex.Unescape(serializedValue).Trim('\"');
+                        var unescapedSerializedValue = Regex.Unescape(serializedValue).Trim('\"');
 
+                        if (!string.IsNullOrEmpty(unescapedSerializedValue))
+                        {
                             if (field.DataType is SchemaHelper.WEBPAGES_DATA_TYPE_NAME)
                             {
                                 var value = JsonSerializer.Deserialize<IEnumerable<WebPageRelatedItem>?>(unescapedSerializedValue, new JsonSerializerOptions { PropertyNameCaseInsensitive = true });
