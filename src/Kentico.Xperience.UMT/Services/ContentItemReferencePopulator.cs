@@ -91,38 +91,41 @@ namespace Kentico.Xperience.UMT.Services
                     {
                         var unescapedSerializedValue = Regex.Unescape(serializedValue).Trim('\"');
 
-                        if (field.DataType is SchemaHelper.WEBPAGES_DATA_TYPE_NAME)
+                        if (!string.IsNullOrEmpty(unescapedSerializedValue))
                         {
-                            var value = JsonSerializer.Deserialize<IEnumerable<WebPageRelatedItem>?>(unescapedSerializedValue, new JsonSerializerOptions { PropertyNameCaseInsensitive = true });
-
-                            if (value is not null)
+                            if (field.DataType is SchemaHelper.WEBPAGES_DATA_TYPE_NAME)
                             {
-                                foreach (var targetWebPageGuid in value.Select(x => x.WebPageGuid))
+                                var value = JsonSerializer.Deserialize<IEnumerable<WebPageRelatedItem>?>(unescapedSerializedValue, new JsonSerializerOptions { PropertyNameCaseInsensitive = true });
+
+                                if (value is not null)
                                 {
-                                    var targetWebPageItem = CMS.Websites.Internal.WebPageItemInfo.Provider.Get(targetWebPageGuid) ?? throw new ArgumentNullException($"The linked webpage with GUID '{targetWebPageGuid}' referenced by a ContentItemCommonData with GUID '{commonDataInfo.ContentItemCommonDataGUID}' does not exist or could not be found.");
-                                    yield return new()
+                                    foreach (var targetWebPageGuid in value.Select(x => x.WebPageGuid))
                                     {
-                                        ContentItemReferenceGroupGUID = groupGuid,
-                                        ContentItemReferenceSourceCommonDataID = commonDataInfo.ContentItemCommonDataID,
-                                        ContentItemReferenceTargetItemID = targetWebPageItem.WebPageItemContentItemID
-                                    };
+                                        var targetWebPageItem = CMS.Websites.Internal.WebPageItemInfo.Provider.Get(targetWebPageGuid) ?? throw new ArgumentNullException($"The linked webpage with GUID '{targetWebPageGuid}' referenced by a ContentItemCommonData with GUID '{commonDataInfo.ContentItemCommonDataGUID}' does not exist or could not be found.");
+                                        yield return new()
+                                        {
+                                            ContentItemReferenceGroupGUID = groupGuid,
+                                            ContentItemReferenceSourceCommonDataID = commonDataInfo.ContentItemCommonDataID,
+                                            ContentItemReferenceTargetItemID = targetWebPageItem.WebPageItemContentItemID
+                                        };
+                                    }
                                 }
                             }
-                        }
-                        else
-                        {
-                            var value = JsonSerializer.Deserialize<IEnumerable<ContentItemReference>?>(unescapedSerializedValue, new JsonSerializerOptions { PropertyNameCaseInsensitive = true });
-                            if (value is not null)
+                            else
                             {
-                                foreach (var targetItemGuid in value.Select(x => x.Identifier))
+                                var value = JsonSerializer.Deserialize<IEnumerable<ContentItemReference>?>(unescapedSerializedValue, new JsonSerializerOptions { PropertyNameCaseInsensitive = true });
+                                if (value is not null)
                                 {
-                                    var contentItemInfo = ContentItemInfo.Provider.Get(targetItemGuid) ?? throw new ArgumentNullException($"The linked content item with GUID '{targetItemGuid}' referenced by a ContentItemCommonData with GUID '{commonDataInfo.ContentItemCommonDataGUID}' does not exist or could not be found.");
-                                    yield return new()
+                                    foreach (var targetItemGuid in value.Select(x => x.Identifier))
                                     {
-                                        ContentItemReferenceGroupGUID = groupGuid,
-                                        ContentItemReferenceSourceCommonDataID = commonDataInfo.ContentItemCommonDataID,
-                                        ContentItemReferenceTargetItemID = contentItemInfo.ContentItemID,
-                                    };
+                                        var contentItemInfo = ContentItemInfo.Provider.Get(targetItemGuid) ?? throw new ArgumentNullException($"The linked content item with GUID '{targetItemGuid}' referenced by a ContentItemCommonData with GUID '{commonDataInfo.ContentItemCommonDataGUID}' does not exist or could not be found.");
+                                        yield return new()
+                                        {
+                                            ContentItemReferenceGroupGUID = groupGuid,
+                                            ContentItemReferenceSourceCommonDataID = commonDataInfo.ContentItemCommonDataID,
+                                            ContentItemReferenceTargetItemID = contentItemInfo.ContentItemID,
+                                        };
+                                    }
                                 }
                             }
                         }
