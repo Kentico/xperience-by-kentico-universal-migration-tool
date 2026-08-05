@@ -458,7 +458,8 @@
         "type": "Project",
         "dependencies": {
           "Kentico.Xperience.Core": "[31.7.0, )",
-          "Microsoft.Bcl.AsyncInterfaces": "[9.0.5, )"
+          "Microsoft.Bcl.AsyncInterfaces": "[9.0.5, )",
+          "Microsoft.Extensions.Logging.Abstractions": "[9.0.17, )"
         }
       },
       "Kentico.Xperience.Core": {
@@ -495,7 +496,7 @@
       },
       "Microsoft.Extensions.Logging.Abstractions": {
         "type": "CentralTransitive",
-        "requested": "[10.0.2, )",
+        "requested": "[9.0.17, )",
         "resolved": "9.0.17",
         "contentHash": "b1onT7ZvIrpkQ9swhLqSuj1eKvOtElXig2tk7b3ckBfXUu//Y6P7rzz15qTW0SCyYqanoflPYNQ76kqGutQ3iw==",
         "dependencies": {
