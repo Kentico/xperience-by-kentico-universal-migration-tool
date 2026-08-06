@@ -1032,8 +1032,7 @@
         "type": "Project",
         "dependencies": {
           "Kentico.Xperience.Core": "[31.7.0, )",
-          "Microsoft.Bcl.AsyncInterfaces": "[9.0.5, )",
-          "Microsoft.Extensions.Logging.Abstractions": "[9.0.17, )"
+          "Microsoft.Bcl.AsyncInterfaces": "[9.0.5, )"
         }
       },
       "kentico.xperience.umt.examples": {
