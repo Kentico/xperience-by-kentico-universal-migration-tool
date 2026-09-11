@@ -1912,6 +1912,48 @@
     "pageData": null
   },
   {
+    "$type": "ContentItemSimplified",
+    "contentItemGUID": "26f14255-942f-4c13-ab7e-e8d61509b1f5",
+    "contentItemContentFolderGUID": null,
+    "contentItemWorkspaceGUID": null,
+    "isSecured": false,
+    "contentTypeName": "UMT.Event",
+    "name": "SimplifiedModelSampleEventWithAssetMetadata",
+    "isReusable": true,
+    "channelName": null,
+    "languageData": [
+      {
+        "languageName": "en-US",
+        "displayName": "Event metadata sample 2024 - en-US",
+        "versionStatus": 0,
+        "isLatest": true,
+        "userGuid": "dbfcc244-2cb9-4934-857f-9d75404c1553",
+        "scheduledPublishWhen": null,
+        "scheduledUnpublishWhen": null,
+        "contentItemData": {
+          "EventTitle": "en-US Event metadata sample 2024",
+          "EventText": "en-US Event metadata sample 2024 (reusable)",
+          "EventDate": "2024-01-01T00:00:00Z",
+          "EventRecurrentYearly": true,
+          "EventTeaser": {
+            "$assetType": "AssetMetadata",
+            "contentItemGuid": "26f14255-942f-4c13-ab7e-e8d61509b1f5",
+            "identifier": "2f58f1b6-9e27-4620-9180-7703422e7012",
+            "name": "metadataOnlySample.jpg",
+            "extension": ".jpg",
+            "size": 123456,
+            "lastModified": "2024-01-01T00:00:00Z",
+            "imageWidth": 1280,
+            "imageHeight": 720
+          }
+        },
+        "visualBuilderTemplateConfiguration": null,
+        "visualBuilderWidgets": null
+      }
+    ],
+    "pageData": null
+  },
+  {
     "$type": "Workspace",
     "workspaceGUID": "018fe300-d522-4cc8-9888-b7248e922077",
     "workspaceDisplayName": "Sample Workspace",

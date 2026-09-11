@@ -237,6 +237,48 @@ This sample describes how to import reusable content item with asset into XbyK
   ]
 }
 ```
+
+### Reusable content item sample with asset metadata
+
+This sample describes how to import reusable content item with asset metadata only into XbyK
+
+```json
+{
+  "$type": "ContentItemSimplified",
+  "contentItemGUID": "26f14255-942f-4c13-ab7e-e8d61509b1f5",
+  "isSecured": false,
+  "contentTypeName": "UMT.Event",
+  "name": "SimplifiedModelSampleEventWithAssetMetadata",
+  "isReusable": true,
+  "languageData": [
+    {
+      "languageName": "en-US",
+      "displayName": "Event metadata sample 2024 - en-US",
+      "versionStatus": 0,
+      "isLatest": true,
+      "userGuid": "dbfcc244-2cb9-4934-857f-9d75404c1553",
+      "contentItemData": {
+        "EventTitle": "en-US Event metadata sample 2024",
+        "EventText": "en-US Event metadata sample 2024 (reusable)",
+        "EventDate": "2024-01-01T00:00:00Z",
+        "EventRecurrentYearly": true,
+        "EventTeaser": {
+          "$assetType": "AssetMetadata",
+          "contentItemGuid": "26f14255-942f-4c13-ab7e-e8d61509b1f5",
+          "identifier": "2f58f1b6-9e27-4620-9180-7703422e7012",
+          "name": "metadataOnlySample.jpg",
+          "extension": ".jpg",
+          "size": 123456,
+          "lastModified": "2024-01-01T00:00:00Z",
+          "imageWidth": 1280,
+          "imageHeight": 720
+        }
+      }
+    }
+  ]
+}
+```
+
 ## ContentItemLanguageData
 
 |PropertyName|Summary|.NET Type|Notes|
