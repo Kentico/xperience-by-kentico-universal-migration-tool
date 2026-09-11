@@ -43,6 +43,8 @@ internal class AssetManager(
                 }
 
                 ArgumentNullException.ThrowIfNull(metadataSource.Identifier);
+                ArgumentException.ThrowIfNullOrWhiteSpace(metadataSource.Name);
+                ArgumentException.ThrowIfNullOrWhiteSpace(metadataSource.Extension);
 
                 return new ContentItemAssetMetadata
                 {
