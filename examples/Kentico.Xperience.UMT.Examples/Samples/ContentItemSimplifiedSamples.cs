@@ -13,7 +13,6 @@ public static class ContentItemSimplifiedSamples
     public static readonly Guid SampleFaqContentItemGuid = new("F9CB9484-CE90-460F-A5C8-AD953E2B9286");
     public static readonly Guid SampleFaqContentItemLinkedByArticleGuid = new("1B8E6C4C-49B6-4777-9474-C0D3A97DD832");
     public static readonly Guid SampleEvent2024ContentItemGuid = new("C82CDC96-65EC-4F4C-AEC2-3D657E6D5CE1");
-    public static readonly Guid SampleEventMetadataContentItemGuid = new("26F14255-942F-4C13-AB7E-E8D61509B1F5");
     public static readonly Guid EventInSampleWorkspaceGuid = new("2867F7B2-2DB4-429A-B1B7-7596A502B089");
 
     public static readonly Guid SampleArticleWebPageGuid = new("4EA03DE4-977E-48AA-9340-BABF3D23BAFA");
@@ -481,43 +480,6 @@ public static class ContentItemSimplifiedSamples
         ],
     };
 
-    [Sample("ContentItemSimplifiedModel.Sample.Event2024.Metadata", "This sample describes how to import reusable content item with asset metadata only into XbyK", "Reusable content item sample with asset metadata")]
-    public static ContentItemSimplifiedModel SampleEventContentItemWithAssetMetadata => new()
-    {
-        ContentItemGUID = SampleEventMetadataContentItemGuid,
-        Name = "SimplifiedModelSampleEventWithAssetMetadata",
-        IsSecured = false,
-        ContentTypeName = DataClassSamples.EventDataClass.ClassName,
-        IsReusable = true,
-        LanguageData =
-        [
-            new()
-            {
-                LanguageName = ContentLanguageSamples.SampleContentLanguageEnUs.ContentLanguageName!,
-                DisplayName = "Event metadata sample 2024 - en-US",
-                VersionStatus = VersionStatus.InitialDraft,
-                UserGuid = UserSamples.SampleAdminGuid,
-                ContentItemData = new Dictionary<string, object?>
-                {
-                    ["EventTitle"] = "en-US Event metadata sample 2024",
-                    ["EventText"] = "en-US Event metadata sample 2024 (reusable)",
-                    ["EventDate"] = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc),
-                    ["EventRecurrentYearly"] = true,
-                    ["EventTeaser"] = new AssetMetadataSource
-                    {
-                        ContentItemGuid = SampleEventMetadataContentItemGuid,
-                        Identifier = new Guid("2F58F1B6-9E27-4620-9180-7703422E7012"),
-                        Name = "metadataOnlySample.jpg",
-                        Extension = ".jpg",
-                        Size = 123456,
-                        LastModified = new DateTime(2024, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc),
-                        ImageWidth = 1280,
-                        ImageHeight = 720
-                    }
-                },
-            }
-        ],
-    };
 
     [Sample("ContentItemSimplifiedModel.Sample.EventInSampleWorkspace", "This sample describes how to import reusable content item into non-default workspace", "Reusable content item sample in non-default workspace")]
     public static ContentItemSimplifiedModel EventInSampleWorkspace => new()

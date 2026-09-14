@@ -1912,48 +1912,6 @@
     "pageData": null
   },
   {
-    "$type": "ContentItemSimplified",
-    "contentItemGUID": "26f14255-942f-4c13-ab7e-e8d61509b1f5",
-    "contentItemContentFolderGUID": null,
-    "contentItemWorkspaceGUID": null,
-    "isSecured": false,
-    "contentTypeName": "UMT.Event",
-    "name": "SimplifiedModelSampleEventWithAssetMetadata",
-    "isReusable": true,
-    "channelName": null,
-    "languageData": [
-      {
-        "languageName": "en-US",
-        "displayName": "Event metadata sample 2024 - en-US",
-        "versionStatus": 0,
-        "isLatest": true,
-        "userGuid": "dbfcc244-2cb9-4934-857f-9d75404c1553",
-        "scheduledPublishWhen": null,
-        "scheduledUnpublishWhen": null,
-        "contentItemData": {
-          "EventTitle": "en-US Event metadata sample 2024",
-          "EventText": "en-US Event metadata sample 2024 (reusable)",
-          "EventDate": "2024-01-01T00:00:00Z",
-          "EventRecurrentYearly": true,
-          "EventTeaser": {
-            "$assetType": "AssetMetadata",
-            "contentItemGuid": "26f14255-942f-4c13-ab7e-e8d61509b1f5",
-            "identifier": "2f58f1b6-9e27-4620-9180-7703422e7012",
-            "name": "metadataOnlySample.jpg",
-            "extension": ".jpg",
-            "size": 123456,
-            "lastModified": "2024-01-01T00:00:00Z",
-            "imageWidth": 1280,
-            "imageHeight": 720
-          }
-        },
-        "visualBuilderTemplateConfiguration": null,
-        "visualBuilderWidgets": null
-      }
-    ],
-    "pageData": null
-  },
-  {
     "$type": "Workspace",
     "workspaceGUID": "018fe300-d522-4cc8-9888-b7248e922077",
     "workspaceDisplayName": "Sample Workspace",
@@ -2397,7 +2355,7 @@
     "orderOrderStatusGUID": "d4e5f6a7-b8c9-4012-d345-6789abcdef01",
     "orderTotalPrice": 129.97,
     "orderTotalShipping": 5.99,
-    "orderTotalTax": 8.00,
+    "orderTotalTax": 8.0,
     "orderGrandTotal": 149.95,
     "orderCustomerGUID": "a1b2c3d4-e5f6-4789-a012-3456789abcde",
     "orderPaymentMethodGUID": null,
@@ -2427,8 +2385,8 @@
     "orderItemQuantity": 1,
     "orderItemUnitPrice": 29.99,
     "orderItemTotalPrice": 29.99,
-    "orderItemTotalTax": 8.00,
-    "orderItemTaxRate": 0.10
+    "orderItemTotalTax": 8.0,
+    "orderItemTaxRate": 0.1
   },
   {
     "$type": "Order",

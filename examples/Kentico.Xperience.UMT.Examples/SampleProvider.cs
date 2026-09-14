@@ -155,7 +155,6 @@ public static class SampleProvider
         sourceData.Add(ContentItemSimplifiedSamples.SampleArticleSubPage8ContentItemSimplifiedModel_Published);
         sourceData.Add(ContentItemSimplifiedSamples.SampleFaqContentItemSimplifiedModel); // references sample content subfolder
         sourceData.Add(ContentItemSimplifiedSamples.SampleEventContentItemWithAsset);
-        sourceData.Add(ContentItemSimplifiedSamples.SampleEventContentItemWithAssetMetadata);
 
         sourceData.Add(WorkspaceSamples.SampleWorkspace);
         sourceData.Add(ContentItemSimplifiedSamples.EventInSampleWorkspace);
