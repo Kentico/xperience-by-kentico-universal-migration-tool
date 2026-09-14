@@ -480,7 +480,6 @@ public static class ContentItemSimplifiedSamples
         ],
     };
 
-
     [Sample("ContentItemSimplifiedModel.Sample.EventInSampleWorkspace", "This sample describes how to import reusable content item into non-default workspace", "Reusable content item sample in non-default workspace")]
     public static ContentItemSimplifiedModel EventInSampleWorkspace => new()
     {

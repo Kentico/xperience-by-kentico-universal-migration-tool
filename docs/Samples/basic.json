@@ -2355,7 +2355,7 @@
     "orderOrderStatusGUID": "d4e5f6a7-b8c9-4012-d345-6789abcdef01",
     "orderTotalPrice": 129.97,
     "orderTotalShipping": 5.99,
-    "orderTotalTax": 8.0,
+    "orderTotalTax": 8.00,
     "orderGrandTotal": 149.95,
     "orderCustomerGUID": "a1b2c3d4-e5f6-4789-a012-3456789abcde",
     "orderPaymentMethodGUID": null,
@@ -2385,8 +2385,8 @@
     "orderItemQuantity": 1,
     "orderItemUnitPrice": 29.99,
     "orderItemTotalPrice": 29.99,
-    "orderItemTotalTax": 8.0,
-    "orderItemTaxRate": 0.1
+    "orderItemTotalTax": 8.00,
+    "orderItemTaxRate": 0.10
   },
   {
     "$type": "Order",
