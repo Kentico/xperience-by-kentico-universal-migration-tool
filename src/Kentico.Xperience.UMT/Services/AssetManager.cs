@@ -36,15 +36,15 @@ internal class AssetManager(
             // Metadata-only source carries no binary, so it skips file save/delete and optimization entirely.
             if (assetSource is AssetMetadataSource metadataSource)
             {
+                ArgumentNullException.ThrowIfNull(metadataSource.Identifier);
+                ArgumentException.ThrowIfNullOrWhiteSpace(metadataSource.Name);
+                ArgumentException.ThrowIfNullOrWhiteSpace(metadataSource.Extension);
+
                 if (existingValue is not null && !metadataSource.ForceUpdate)
                 {
                     logger.LogTrace("Asset field {ClassName}.{ColumnName} already has a value, skipping metadata-only update", className, columnName);
                     return existingValue;
                 }
-
-                ArgumentNullException.ThrowIfNull(metadataSource.Identifier);
-                ArgumentException.ThrowIfNullOrWhiteSpace(metadataSource.Name);
-                ArgumentException.ThrowIfNullOrWhiteSpace(metadataSource.Extension);
 
                 return new ContentItemAssetMetadata
                 {
