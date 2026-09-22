@@ -1,4 +1,4 @@
-﻿using CMS.Base;
+using CMS.Base;
 using CMS.ContentEngine;
 using CMS.ContentEngine.Internal;
 using CMS.Core;
@@ -26,13 +26,42 @@ internal class AssetManager(
 
     private readonly HttpClient httpClient = new();
 
-    public async Task<object?> SetAsset(string className, AssetSource assetSource, string columnName, Guid contentItemGuid, CancellationToken cancellationToken)
+    public async Task<object?> SetAsset(string className, AssetSource assetSource, string columnName, Guid contentItemGuid, object? existingValue, CancellationToken cancellationToken)
     {
         logger.LogTrace("SetAsset {Args}", new { className, assetSource, columnName, contentItemGuid });
         if (contentItemAssetFieldsProvider
                 .GetAssetFields(className)
                 .FirstOrDefault(info => info.Name.Equals(columnName, StringComparison.InvariantCultureIgnoreCase)) is { } assetField)
         {
+            // Metadata-only source carries no binary, so it skips file save/delete and optimization entirely.
+            if (assetSource is AssetMetadataSource metadataSource)
+            {
+                ArgumentNullException.ThrowIfNull(metadataSource.Identifier);
+
+                ArgumentException.ThrowIfNullOrWhiteSpace(metadataSource.Name);
+
+                ArgumentException.ThrowIfNullOrWhiteSpace(metadataSource.Extension);
+
+
+
+                if (existingValue is not null && !metadataSource.ForceUpdate)
+                {
+                    logger.LogTrace("Asset field {ClassName}.{ColumnName} already has a value, skipping metadata-only update", className, columnName);
+                    return existingValue;
+                }
+
+                return new ContentItemAssetMetadata
+                {
+                    Identifier = metadataSource.Identifier.Value,
+                    Name = metadataSource.Name,
+                    Extension = metadataSource.InferExtension(),
+                    LastModified = metadataSource.LastModified ?? dateTimeNowService.GetDateTimeNow(),
+                    Size = metadataSource.Size ?? 0,
+                    Width = metadataSource.ImageWidth,
+                    Height = metadataSource.ImageHeight,
+                };
+            }
+
             // assumption & copnsideration: setting new assets doesn't mean removal of old ones
             ContentItemAssetMetadataWithSource source;
             ContentItemAssetMetadata assetMetadata;

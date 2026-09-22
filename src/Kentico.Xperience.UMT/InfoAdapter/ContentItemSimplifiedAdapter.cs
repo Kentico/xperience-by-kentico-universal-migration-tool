@@ -190,7 +190,10 @@ public class ContentItemSimplifiedAdapter : IInfoAdapter<ContentItemInfo, IUmtMo
                 ContentItemLanguageMetadataCreatedByUserGuid = languageData.UserGuid,
                 ContentItemLanguageMetadataModifiedWhen = null,
                 ContentItemLanguageMetadataModifiedByUserGuid = languageData.UserGuid,
-                ContentItemLanguageMetadataHasImageAsset = languageData.ContentItemData?.Values.Any(IsImageAsset) ?? false,
+                // Use the persisted field values (commonDataInfo/itemDataInfo), not the raw input, since a metadata-only source may preserve an existing, differently-typed asset
+                ContentItemLanguageMetadataHasImageAsset = commonDataCustomProperties.Keys.Select(key => commonDataInfo[key])
+                    .Concat(customData.Keys.Select(key => itemDataInfo[key]))
+                    .Any(IsImageAsset),
                 ContentItemLanguageMetadataContentLanguageGuid = contentLanguageInfo.ContentLanguageGUID,
                 ContentItemLanguageMetadataScheduledPublishWhen = languageData.ScheduledPublishWhen,
                 ContentItemLanguageMetadataScheduledUnpublishWhen = languageData.ScheduledUnpublishWhen,
@@ -339,6 +342,10 @@ public class ContentItemSimplifiedAdapter : IInfoAdapter<ContentItemInfo, IUmtMo
     {
         switch (value)
         {
+            case ContentItemAssetMetadata assetMetadata:
+            {
+                return !string.IsNullOrEmpty(assetMetadata.Extension) && ImageHelper.IsImage(assetMetadata.Extension);
+            }
             case AssetSource assetSource:
             {
                 return ImageHelper.IsImage(assetSource.InferExtension());
