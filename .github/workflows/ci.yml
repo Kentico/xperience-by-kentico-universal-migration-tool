@@ -23,6 +23,7 @@ on:
       - "**.js"
       - "**.json"
       - "**.csproj"
+      - "**.props"
       - "**.targets"
       - "**.sln"
       - "**.yml"
