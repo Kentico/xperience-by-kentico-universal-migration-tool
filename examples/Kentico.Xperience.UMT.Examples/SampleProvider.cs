@@ -165,6 +165,9 @@ public static class SampleProvider
         sourceData.Add(VisualBuilderSamples.PageWithWidgetsContentType);
         sourceData.Add(VisualBuilderSamples.SimplifiedModel);
 
+        sourceData.Add(WebPageFolderSamples.SampleWebPageFolder);
+        sourceData.Add(WebPageFolderSamples.SampleNestedWebPageFolder);
+
         // webpage scope samples
         sourceData.AddRange([
             WebPageScopeSamples.SampleEmptyWebPageScope,

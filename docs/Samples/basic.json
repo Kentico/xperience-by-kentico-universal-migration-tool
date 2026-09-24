@@ -542,6 +542,28 @@
     "contentItemLanguageMetadataScheduledUnpublishWhen": "2045-01-01T00:00:00Z"
   },
   {
+    "$type": "WebPageFolder",
+    "webPageFolderGUID": "f47ac10b-58cc-4372-a567-0e02b2c3d479",
+    "webPageFolderName": "TestFolder",
+    "webPageFolderDisplayName": "Test Folder",
+    "webPageFolderTreePath": "/test-folder",
+    "webPageFolderParentGUID": null,
+    "websiteChannelName": "websitechannelExample",
+    "languageName": "en-US",
+    "webPageFolderOrder": 0
+  },
+  {
+    "$type": "WebPageFolder",
+    "webPageFolderGUID": "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+    "webPageFolderName": "NestedTestFolder",
+    "webPageFolderDisplayName": "Nested Test Folder",
+    "webPageFolderTreePath": "/test-folder/nested-folder",
+    "webPageFolderParentGUID": "f47ac10b-58cc-4372-a567-0e02b2c3d479",
+    "websiteChannelName": "websitechannelExample",
+    "languageName": "en-US",
+    "webPageFolderOrder": 0
+  },
+  {
     "$type": "WebPageItem",
     "webPageItemGUID": "6e995319-77e7-475e-9ebb-607bdbf5af9a",
     "webPageItemParentGuid": null,
