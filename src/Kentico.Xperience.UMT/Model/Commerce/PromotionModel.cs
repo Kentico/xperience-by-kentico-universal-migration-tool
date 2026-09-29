@@ -1,4 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations;
 
 using CMS.Commerce;
 using CMS.Membership;
@@ -11,6 +11,7 @@ namespace Kentico.Xperience.UMT.Model;
 /// Model represents XbyK PromotionInfo.
 /// </summary>
 /// <seealso cref="PromotionInfo"/>
+/// <sample>promotion.sample.order</sample>
 [UmtModel(DISCRIMINATOR)]
 public class PromotionModel : UmtModel
 {

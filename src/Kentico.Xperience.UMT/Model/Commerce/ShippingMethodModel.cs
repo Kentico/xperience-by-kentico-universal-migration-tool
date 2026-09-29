@@ -10,6 +10,7 @@ namespace Kentico.Xperience.UMT.Model;
 /// Model represents XbyK ShippingMethodInfo.
 /// </summary>
 /// <seealso cref="ShippingMethodInfo"/>
+/// <sample>shippingmethod.sample.standard</sample>
 [UmtModel(DISCRIMINATOR)]
 public class ShippingMethodModel : UmtModel
 {

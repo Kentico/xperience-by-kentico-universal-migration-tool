@@ -1426,9 +1426,31 @@
             },
             "WebsiteChannelStoreFormerUrls": {
               "type": "boolean"
+            },
+            "WebsiteChannelLanguageRoutingMode": {
+              "oneOf": [
+                {
+                  "type": "null"
+                },
+                {
+                  "$ref": "#/definitions/WebsiteChannelLanguageRoutingMode"
+                }
+              ]
             }
           }
         }
+      ]
+    },
+    "WebsiteChannelLanguageRoutingMode": {
+      "type": "integer",
+      "description": "Determines how a website channel routes its content languages. Stored per channel in the\nWebsiteChannelLanguageRoutingMode database column.",
+      "x-enumNames": [
+        "PathPrefix",
+        "LanguageDomains"
+      ],
+      "enum": [
+        0,
+        1
       ]
     },
     "TaxonomyModel": {
@@ -2425,11 +2447,13 @@
       "description": "Represents the type of a promotion.",
       "x-enumNames": [
         "Order",
-        "Catalog"
+        "Catalog",
+        "Shipping"
       ],
       "enum": [
         0,
-        1
+        1,
+        2
       ]
     },
     "OrderPromotionModel": {

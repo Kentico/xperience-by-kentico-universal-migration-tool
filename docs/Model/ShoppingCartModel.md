@@ -15,15 +15,15 @@ Model [discriminator](../UmtModel.md#discriminator): `ShoppingCart`
 
 <p>*) value is required</p>
 
-### Sample of shopping cart
 
+### Instance of ShoppingCartInfo - Sample anonymous shopping cart
+Sample demonstrates how to create an anonymous shopping cart
 ```json
 {
   "$type": "ShoppingCart",
-  "shoppingCartGUID": "b8c9d0e1-f2a3-4124-a567-89abcdef0123",
-  "shoppingCartUniqueIdentifier": "cart-abc123def456",
-  "shoppingCartModifiedWhen": "2024-02-15T14:20:00Z",
-  "shoppingCartMemberGUID": null,
-  "shoppingCartData": null
+  "shoppingCartGUID": "e5f6a7b8-c9d0-4123-e456-789abcdef012",
+  "shoppingCartUniqueIdentifier": "identifier2",
+  "shoppingCartModifiedWhen": "2024-03-15T09:30:00Z",
+  "shoppingCartData": "{\u0022Items\u0022:[{\u0022ProductIdentifier\u0022:{\u0022VariantIdentifier\u0022:null,\u0022Identifier\u0022:132},\u0022Quantity\u0022:4},{\u0022ProductIdentifier\u0022:{\u0022VariantIdentifier\u0022:null,\u0022Identifier\u0022:108},\u0022Quantity\u0022:1}]}"
 }
 ```

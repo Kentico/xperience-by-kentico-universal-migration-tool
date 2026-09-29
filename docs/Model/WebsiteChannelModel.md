@@ -13,6 +13,7 @@ Model [discriminator](../UmtModel.md#discriminator): `WebSiteChannel`
 |WebsiteChannelPrimaryContentLanguageGuid\*||System.Guid?|Reference to [ContentLanguageInfo](../References.md#ContentLanguageInfo) on property WebsiteChannelPrimaryContentLanguageID **required**|
 |WebsiteChannelDefaultCookieLevel\*||int?||
 |WebsiteChannelStoreFormerUrls\*||bool?||
+|WebsiteChannelLanguageRoutingMode||CMS.Websites.WebsiteChannelLanguageRoutingMode?||
 |[customPropertyName]|custom property defined by created [DataClass](./DataClassModel.md)|.NET type defined by data class field||
 
 <p>*) value is required</p>
@@ -29,6 +30,7 @@ This sample describes how to create class inside XbyK to hold WebSiteChannel lan
   "websiteChannelHomePage": "home",
   "websiteChannelPrimaryContentLanguageGuid": "f454e93b-5fe9-42a9-b1af-b572234ed9c4",
   "websiteChannelDefaultCookieLevel": 1000,
-  "websiteChannelStoreFormerUrls": false
+  "websiteChannelStoreFormerUrls": false,
+  "websiteChannelLanguageRoutingMode": 0
 }
 ```

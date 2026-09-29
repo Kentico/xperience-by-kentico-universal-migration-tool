@@ -10,6 +10,7 @@ namespace Kentico.Xperience.UMT.Model;
 /// Model represents XbyK OrderInfo.
 /// </summary>
 /// <seealso cref="OrderInfo"/>
+/// <sample>order.sample.basic</sample>
 [UmtModel(DISCRIMINATOR)]
 public class OrderModel : UmtModel
 {

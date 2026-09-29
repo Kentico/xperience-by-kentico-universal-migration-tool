@@ -18,17 +18,16 @@ Model [discriminator](../UmtModel.md#discriminator): `Customer`
 <p>*) value is required</p>
 
 
-### Sample of customer
-
+### Instance of CustomerInfo - Sample customer without member
+Sample demonstrates how to create a customer without member reference
 ```json
 {
   "$type": "Customer",
   "customerGUID": "a1b2c3d4-e5f6-4789-a012-3456789abcde",
   "customerFirstName": "John",
   "customerLastName": "Doe",
-  "customerEmail": "john.doe@example.com",
-  "customerPhone": "+1-555-123-4567",
-  "customerMemberGUID": null,
+  "customerEmail": "john.doe@sample.localhost",
+  "customerPhone": "\u002B1-555-0123",
   "customerCreatedWhen": "2024-01-15T10:30:00Z"
 }
 ```

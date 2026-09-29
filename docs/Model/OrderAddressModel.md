@@ -25,24 +25,22 @@ Model [discriminator](../UmtModel.md#discriminator): `OrderAddress`
 <p>*) value is required</p>
 
 
-### Sample of order address
-
+### Instance of OrderAddressInfo - Sample billing address
+Sample demonstrates how to create a billing address for an order
 ```json
 {
   "$type": "OrderAddress",
-  "orderAddressGUID": "d4e5f6a7-b8c9-4902-e345-6789abcdef01",
-  "orderAddressOrderGUID": "c3d4e5f6-a7b8-4901-c234-56789abcdef0",
-  "orderAddressType": "Billing",
+  "orderAddressGUID": "b1c2d3e4-f5a6-4789-b012-3456789abcde",
+  "orderAddressOrderGUID": "e1f2a3b4-c5d6-4789-e012-3456789abcde",
+  "orderAddressType": "billing",
   "orderAddressFirstName": "John",
   "orderAddressLastName": "Doe",
-  "orderAddressCompany": "Acme Corporation",
-  "orderAddressEmail": "john.doe@example.com",
-  "orderAddressPhone": "+1-555-123-4567",
+  "orderAddressCompany": "Sample Company Inc.",
+  "orderAddressEmail": "john.doe@sample.localhost",
+  "orderAddressPhone": "\u002B1-555-0123",
   "orderAddressLine1": "123 Main Street",
   "orderAddressLine2": "Suite 100",
   "orderAddressCity": "New York",
-  "orderAddressZip": "10001",
-  "orderAddressCountryGUID": null,
-  "orderAddressStateGUID": null
+  "orderAddressZip": "10001"
 }
 ```

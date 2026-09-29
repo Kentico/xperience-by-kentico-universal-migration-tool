@@ -1,4 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations;
 
 using CMS.Commerce;
 using CMS.Globalization;
@@ -11,6 +11,7 @@ namespace Kentico.Xperience.UMT.Model;
 /// Model represents XbyK CustomerAddressInfo.
 /// </summary>
 /// <seealso cref="CustomerAddressInfo"/>
+/// <sample>customeraddress.sample.basic</sample>
 [UmtModel(DISCRIMINATOR)]
 public class CustomerAddressModel : UmtModel
 {

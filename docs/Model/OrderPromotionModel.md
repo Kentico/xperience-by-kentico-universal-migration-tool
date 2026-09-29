@@ -17,16 +17,14 @@ Model [discriminator](../UmtModel.md#discriminator): `OrderPromotion`
 <p>*) value is required</p>
 
 
-> **Note**: Promotions do not work out of the box. Once promotions are migrated, it is necessary to implement and register [promotion rules](https://docs.kentico.com/x/commerce_promotions_xp).
-
-### Sample of order promotion
-
+### Instance of OrderPromotionInfo - Sample order level promotion
+Sample demonstrates how to create an order promotion applied to an entire order
 ```json
 {
   "$type": "OrderPromotion",
   "orderPromotionPromotionGUID": "d1e2f3a4-b5c6-4789-d012-3456789abcde",
   "orderPromotionOrderGUID": "e1f2a3b4-c5d6-4789-e012-3456789abcde",
-  "orderPromotionOrderItemGUID": "c5d6e7f8-a9b0-4123-c456-789abcdef012",
+  "orderPromotionOrderItemGUID": "b4c5d6e7-f8a9-4012-b345-6789abcdef01",
   "orderPromotionPromotionDisplayName": "10% Off Your Order",
   "orderPromotionDiscountAmount": 12.99,
   "orderPromotionPromotionType": 0

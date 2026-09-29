@@ -11,6 +11,7 @@ namespace Kentico.Xperience.UMT.Model;
 /// Model represents XbyK OrderStatusInfo.
 /// </summary>
 /// <seealso cref="OrderStatusInfo"/>
+/// <sample>orderstatus.sample.new</sample>
 [UmtModel(DISCRIMINATOR)]
 public class OrderStatusModel : UmtModel
 {

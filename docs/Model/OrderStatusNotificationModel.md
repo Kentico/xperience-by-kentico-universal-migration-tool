@@ -12,12 +12,13 @@ Model [discriminator](../UmtModel.md#discriminator): `OrderStatusNotification`
 
 <p>*) value is required</p>
 
-### Sample of order status notification
 
+### Instance of OrderStatusNotificationInfo - Sample notification for new order status
+Sample demonstrates how to create an order status notification for new orders
 ```json
 {
   "$type": "OrderStatusNotification",
-  "orderStatusNotificationOrderStatusGUID": "e5f6a7b8-c9d0-4012-d345-6789abcdef01",
-  "orderStatusNotificationUserGUID": "b8c9d0e1-f2a3-4124-a567-89abcdef0123"
+  "orderStatusNotificationOrderStatusGUID": "d4e5f6a7-b8c9-4012-d345-6789abcdef01",
+  "orderStatusNotificationUserGUID": "dbfcc244-2cb9-4934-857f-9d75404c1553"
 }
 ```

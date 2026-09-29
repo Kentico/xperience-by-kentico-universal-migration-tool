@@ -11,6 +11,7 @@ namespace Kentico.Xperience.UMT.Model;
 /// Model represents XbyK ShoppingCartInfo.
 /// </summary>
 /// <seealso cref="ShoppingCartInfo"/>
+/// <sample>shoppingcart.sample.anonymous</sample>
 [UmtModel(DISCRIMINATOR)]
 public class ShoppingCartModel : UmtModel
 {

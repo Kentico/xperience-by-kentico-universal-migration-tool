@@ -10,6 +10,7 @@ namespace Kentico.Xperience.UMT.Model;
 /// Model represents XbyK PaymentMethodInfo. 
 /// </summary>
 /// <seealso cref="PaymentMethodInfo"/>
+/// <sample>paymentmethod.sample.creditcard</sample>
 [UmtModel(DISCRIMINATOR)]
 public class PaymentMethodModel : UmtModel
 {

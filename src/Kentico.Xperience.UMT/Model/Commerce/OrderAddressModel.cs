@@ -11,6 +11,7 @@ namespace Kentico.Xperience.UMT.Model;
 /// Model represents XbyK OrderAddressInfo.
 /// </summary>
 /// <seealso cref="OrderAddressInfo"/>
+/// <sample>orderaddress.sample.billing</sample>
 [UmtModel(DISCRIMINATOR)]
 public class OrderAddressModel : UmtModel
 {
