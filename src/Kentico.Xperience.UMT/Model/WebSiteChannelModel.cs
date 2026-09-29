@@ -46,13 +46,6 @@ public class WebsiteChannelModel : UmtModel
     [Required]
     public bool? WebsiteChannelStoreFormerUrls { get; set; }
 
-    /// <summary>
-    /// optional, language routing mode of the website channel (available since Xperience by Kentico 31.9.0).
-    /// PathPrefix (default) routes languages by URL path prefix (example.com/fr/...),
-    /// LanguageDomains serves each language on its own domain configured in the application's WebsiteChannelDomainOptions
-    /// (fr.example.com) - URL paths of such channel are stored without the language prefix.
-    /// When null, the value is not imported and the channel keeps the default (PathPrefix) or its existing mode
-    /// </summary>
     [Map]
     public WebsiteChannelLanguageRoutingMode? WebsiteChannelLanguageRoutingMode { get; set; }
 

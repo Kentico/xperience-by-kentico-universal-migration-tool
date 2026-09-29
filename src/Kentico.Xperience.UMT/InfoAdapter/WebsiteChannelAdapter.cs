@@ -16,7 +16,7 @@ public class WebsiteChannelAdapter : GenericInfoAdapter<WebsiteChannelInfo>
 
     protected override void SetValue(WebsiteChannelInfo current, string propertyName, object? value)
     {
-        // null means "not specified" - reflection would coerce it to default (PathPrefix) and reset an existing channel's routing mode on reimport
+        // When omitting the property on reimport, reflection would coerce it to default (PathPrefix) and reset an existing channel's routing mode
         if (propertyName == nameof(WebsiteChannelInfo.WebsiteChannelLanguageRoutingMode) && value is null)
         {
             return;

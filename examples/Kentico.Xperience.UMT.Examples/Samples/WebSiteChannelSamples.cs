@@ -18,8 +18,6 @@ public static class WebSiteChannelSamples
         WebsiteChannelHomePage = "home",
         WebsiteChannelPrimaryContentLanguageGuid = ContentLanguageSamples.CONTENT_LANGUAGE_ENUS_SAMPLE_GUID,
         WebsiteChannelStoreFormerUrls = false,
-        // PathPrefix keeps today's routing; LanguageDomains serves each language on its own domain
-        // configured in WebsiteChannelDomainOptions (appsettings), available since XbyK 31.9.0
         WebsiteChannelLanguageRoutingMode = WebsiteChannelLanguageRoutingMode.PathPrefix
     };
 }
