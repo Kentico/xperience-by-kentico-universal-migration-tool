@@ -1,6 +1,6 @@
 <!-- generated file with tool "Kentico.Xperience.UMT.DocUtils" - edited through template "UmtModel.cshtml" -->
 ## OrderPromotionModel
-Model represents XbyK OrderPromotionInfo.
+Model represents XbyK OrderPromotionInfo.<br/>    **Note**: Promotions do not work out of the box. Once promotions are migrated, it is necessary to implement and register [promotion rules](https://docs.kentico.com/x/commerce_promotions_xp).
 
 Model [discriminator](../UmtModel.md#discriminator): `OrderPromotion`
 

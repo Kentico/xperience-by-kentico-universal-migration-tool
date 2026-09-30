@@ -29,8 +29,9 @@ namespace TestAfterMigration.Extensions
             await Task.Delay(1000);
 
             string markupPrevious = "";
+            // stabilityStopwatch restarts on every markup change, so a separate stopwatch is needed to cap the total duration
             var totalStopwatch = Stopwatch.StartNew();
-            var stopwatch = Stopwatch.StartNew();
+            var stabilityStopwatch = Stopwatch.StartNew();
             bool isStable = false;
             while (!isStable)
             {
@@ -54,13 +55,13 @@ namespace TestAfterMigration.Extensions
 
                 if (markupCurrent == markupPrevious)
                 {
-                    double elapsed = stopwatch.ElapsedMilliseconds;
+                    double elapsed = stabilityStopwatch.ElapsedMilliseconds;
                     isStable = stableDelayMs <= elapsed;
                 }
                 else
                 {
                     markupPrevious = markupCurrent;
-                    stopwatch.Restart();
+                    stabilityStopwatch.Restart();
                 }
                 if (!isStable)
                 {

@@ -1,6 +1,6 @@
 <!-- generated file with tool "Kentico.Xperience.UMT.DocUtils" - edited through template "UmtModel.cshtml" -->
 ## PromotionModel
-Model represents XbyK PromotionInfo.
+Model represents XbyK PromotionInfo.<br/>    **Note**: Promotions do not work out of the box. Once promotions are migrated, it is necessary to implement and register [promotion rules](https://docs.kentico.com/x/commerce_promotions_xp).
 
 Model [discriminator](../UmtModel.md#discriminator): `Promotion`
 
@@ -39,6 +39,6 @@ Sample demonstrates how to create an order promotion with 10% discount
   "promotionActiveToWhen": "2024-12-31T23:59:59Z",
   "promotionType": 0,
   "promotionRuleIdentifier": "OrderPercentageDiscount",
-  "promotionRuleConfiguration": "{\u0022DiscountValueType\u0022:\u0022Percentage\u0022,\u0022DiscountValue\u0022:0,\u0022MinimumRequirementValueType\u0022:\u0022None\u0022,\u0022MinimumRequirementValue\u0022:0}"
+  "promotionRuleConfiguration": "{\u0022DiscountValueType\u0022:\u0022Percentage\u0022,\u0022DiscountValue\u0022:10,\u0022MinimumRequirementValueType\u0022:\u0022None\u0022,\u0022MinimumRequirementValue\u0022:0}"
 }
 ```

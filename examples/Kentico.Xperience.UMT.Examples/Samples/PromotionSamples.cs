@@ -23,7 +23,7 @@ public static class PromotionSamples
         PromotionActiveToWhen = new DateTime(2024, 12, 31, 23, 59, 59, DateTimeKind.Utc),
         PromotionType = PromotionType.Order,
         PromotionRuleIdentifier = "OrderPercentageDiscount",
-        PromotionRuleConfiguration = "{\"DiscountValueType\":\"Percentage\",\"DiscountValue\":0,\"MinimumRequirementValueType\":\"None\",\"MinimumRequirementValue\":0}",
+        PromotionRuleConfiguration = "{\"DiscountValueType\":\"Percentage\",\"DiscountValue\":10,\"MinimumRequirementValueType\":\"None\",\"MinimumRequirementValue\":0}",
         PromotionCreatedByUserGUID = null,
         PromotionModifiedByUserGUID = null
     };
