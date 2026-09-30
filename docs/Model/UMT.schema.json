@@ -1389,8 +1389,6 @@
           "required": [
             "WebsiteChannelGUID",
             "WebsiteChannelChannelGuid",
-            "WebsiteChannelDomain",
-            "WebsiteChannelPrimaryContentLanguageGuid",
             "WebsiteChannelDefaultCookieLevel",
             "WebsiteChannelStoreFormerUrls"
           ],
@@ -1406,8 +1404,11 @@
               "minLength": 1
             },
             "WebsiteChannelDomain": {
-              "type": "string",
-              "minLength": 1
+              "type": [
+                "null",
+                "string"
+              ],
+              "description": "required for PathPrefix routing, must be null for LanguageDomains routing (domains live in WebsiteChannelDomainOptions configuration)"
             },
             "WebsiteChannelHomePage": {
               "type": [
@@ -1416,9 +1417,12 @@
               ]
             },
             "WebsiteChannelPrimaryContentLanguageGuid": {
-              "type": "string",
-              "format": "guid",
-              "minLength": 1
+              "type": [
+                "null",
+                "string"
+              ],
+              "description": "required for PathPrefix routing, must be null for LanguageDomains routing (a language-domains channel has no primary language)",
+              "format": "guid"
             },
             "WebsiteChannelDefaultCookieLevel": {
               "type": "integer",
@@ -2350,7 +2354,7 @@
         },
         {
           "type": "object",
-          "description": "Model represents XbyK PromotionInfo.",
+          "description": "Model represents XbyK PromotionInfo.\n**Note**: Promotions do not work out of the box. Once promotions are migrated, it is necessary to implement and register [promotion rules](https://docs.kentico.com/x/commerce_promotions_xp).",
           "additionalProperties": {
             "oneOf": [
               {},
@@ -2463,7 +2467,7 @@
         },
         {
           "type": "object",
-          "description": "Model represents XbyK OrderPromotionInfo.",
+          "description": "Model represents XbyK OrderPromotionInfo.\n**Note**: Promotions do not work out of the box. Once promotions are migrated, it is necessary to implement and register [promotion rules](https://docs.kentico.com/x/commerce_promotions_xp).",
           "additionalProperties": {
             "oneOf": [
               {},

@@ -8,9 +8,9 @@ Model [discriminator](../UmtModel.md#discriminator): `WebSiteChannel`
 |---|---|---|---|
 |WebsiteChannelGUID\*||System.Guid?|[UniqueId](../UmtModel.md#UniqueId)|
 |WebsiteChannelChannelGuid\*||System.Guid?|Reference to [ChannelInfo](../References.md#ChannelInfo) on property WebsiteChannelChannelID **required**|
-|WebsiteChannelDomain\*||string?||
+|WebsiteChannelDomain|required for PathPrefix routing, must be null for LanguageDomains routing (domains live in WebsiteChannelDomainOptions configuration)|string?||
 |WebsiteChannelHomePage||string?||
-|WebsiteChannelPrimaryContentLanguageGuid\*||System.Guid?|Reference to [ContentLanguageInfo](../References.md#ContentLanguageInfo) on property WebsiteChannelPrimaryContentLanguageID **required**|
+|WebsiteChannelPrimaryContentLanguageGuid|required for PathPrefix routing, must be null for LanguageDomains routing (a language-domains channel has no primary language)|System.Guid?|Reference to [ContentLanguageInfo](../References.md#ContentLanguageInfo) on property WebsiteChannelPrimaryContentLanguageID|
 |WebsiteChannelDefaultCookieLevel\*||int?||
 |WebsiteChannelStoreFormerUrls\*||bool?||
 |WebsiteChannelLanguageRoutingMode||CMS.Websites.WebsiteChannelLanguageRoutingMode?||
@@ -32,5 +32,19 @@ This sample describes how to create class inside XbyK to hold WebSiteChannel lan
   "websiteChannelDefaultCookieLevel": 1000,
   "websiteChannelStoreFormerUrls": false,
   "websiteChannelLanguageRoutingMode": 0
+}
+```
+
+### WebSiteChannel Sample with language-specific domains
+This sample describes how to create a WebSiteChannel that serves each language on its own domain (language-specific domains). Such channel has no database domain and no primary language - the per-language domains are configured in the application's WebsiteChannelDomainOptions
+```json
+{
+  "$type": "WebSiteChannel",
+  "websiteChannelGUID": "3a6c4e10-16c1-45d7-88e5-ef6b9c1d24ab",
+  "websiteChannelChannelGuid": "0b41bf6e-9d8f-45f0-a9b3-8218ca733fe1",
+  "websiteChannelHomePage": "home",
+  "websiteChannelDefaultCookieLevel": 1000,
+  "websiteChannelStoreFormerUrls": false,
+  "websiteChannelLanguageRoutingMode": 1
 }
 ```

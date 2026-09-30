@@ -166,6 +166,13 @@
     "channelType": 0
   },
   {
+    "$type": "Channel",
+    "channelDisplayName": "website Channel with language domains Example",
+    "channelName": "websitechannelLanguageDomainsExample",
+    "channelGUID": "0b41bf6e-9d8f-45f0-a9b3-8218ca733fe1",
+    "channelType": 0
+  },
+  {
     "$type": "EmailChannel",
     "emailChannelGUID": "2c7309ec-1e24-4715-ae6c-8c7efc98a4c5",
     "emailChannelSendingDomain": "emailChannelsample.com",
@@ -183,6 +190,17 @@
     "websiteChannelDefaultCookieLevel": 1000,
     "websiteChannelStoreFormerUrls": false,
     "websiteChannelLanguageRoutingMode": 0
+  },
+  {
+    "$type": "WebSiteChannel",
+    "websiteChannelGUID": "3a6c4e10-16c1-45d7-88e5-ef6b9c1d24ab",
+    "websiteChannelChannelGuid": "0b41bf6e-9d8f-45f0-a9b3-8218ca733fe1",
+    "websiteChannelDomain": null,
+    "websiteChannelHomePage": "home",
+    "websiteChannelPrimaryContentLanguageGuid": null,
+    "websiteChannelDefaultCookieLevel": 1000,
+    "websiteChannelStoreFormerUrls": false,
+    "websiteChannelLanguageRoutingMode": 1
   },
   {
     "$type": "DataClass",
@@ -2500,7 +2518,7 @@
     "promotionActiveToWhen": "2024-12-31T23:59:59Z",
     "promotionType": 0,
     "promotionRuleIdentifier": "OrderPercentageDiscount",
-    "promotionRuleConfiguration": "{\u0022DiscountValueType\u0022:\u0022Percentage\u0022,\u0022DiscountValue\u0022:0,\u0022MinimumRequirementValueType\u0022:\u0022None\u0022,\u0022MinimumRequirementValue\u0022:0}"
+    "promotionRuleConfiguration": "{\u0022DiscountValueType\u0022:\u0022Percentage\u0022,\u0022DiscountValue\u0022:10,\u0022MinimumRequirementValueType\u0022:\u0022None\u0022,\u0022MinimumRequirementValue\u0022:0}"
   },
   {
     "$type": "Promotion",
