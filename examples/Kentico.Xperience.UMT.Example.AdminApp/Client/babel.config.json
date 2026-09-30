@@ -5,12 +5,7 @@
       "@babel/preset-typescript"
     ],
     "plugins": [
-      [
-        "@babel/plugin-transform-runtime",
-        {
-          "useESModules": true
-        }
-      ]
+      "@babel/plugin-transform-runtime"
     ],
     "env": {
       "test": {

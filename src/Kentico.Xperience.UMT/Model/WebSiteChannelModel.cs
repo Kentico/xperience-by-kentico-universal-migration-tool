@@ -1,6 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
 using CMS.ContentEngine;
+using CMS.Websites;
 
 using Kentico.Xperience.UMT.Attributes;
 // ReSharper disable InconsistentNaming
@@ -11,8 +12,9 @@ namespace Kentico.Xperience.UMT.Model;
 /// Model represents XbyK WebSiteChannelInfo
 /// </summary>
 /// <sample>websitechannels.sample</sample>
+/// <sample>websitechannels.lsd.sample</sample>
 [UmtModel(DISCRIMINATOR)]
-public class WebsiteChannelModel : UmtModel
+public class WebsiteChannelModel : UmtModel, IValidatableObject
 {
     public const string DISCRIMINATOR = "WebSiteChannel";
 
@@ -26,15 +28,19 @@ public class WebsiteChannelModel : UmtModel
     [ReferenceProperty(typeof(ChannelInfo), "WebsiteChannelChannelID", IsRequired = true)]
     public Guid? WebsiteChannelChannelGuid { get; set; }
 
+    /// <summary>
+    /// required for PathPrefix routing, must be null for LanguageDomains routing (domains live in WebsiteChannelDomainOptions configuration)
+    /// </summary>
     [Map]
-    [Required]
     public string? WebsiteChannelDomain { get; set; }
 
     [Map]
     public string? WebsiteChannelHomePage { get; set; }
 
-    [Required]
-    [ReferenceProperty(typeof(ContentLanguageInfo), "WebsiteChannelPrimaryContentLanguageID", IsRequired = true)]
+    /// <summary>
+    /// required for PathPrefix routing, must be null for LanguageDomains routing (a language-domains channel has no primary language)
+    /// </summary>
+    [ReferenceProperty(typeof(ContentLanguageInfo), "WebsiteChannelPrimaryContentLanguageID", IsRequired = false)]
     public Guid? WebsiteChannelPrimaryContentLanguageGuid { get; set; }
 
     [Map]
@@ -44,6 +50,36 @@ public class WebsiteChannelModel : UmtModel
     [Map]
     [Required]
     public bool? WebsiteChannelStoreFormerUrls { get; set; }
+
+    [Map]
+    public WebsiteChannelLanguageRoutingMode? WebsiteChannelLanguageRoutingMode { get; set; }
+
+    public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
+    {
+        // mirrors CHECK_CMS_WebsiteChannel_LanguageRoutingMode_DomainAndPrimaryContentLanguage
+        if (WebsiteChannelLanguageRoutingMode == CMS.Websites.WebsiteChannelLanguageRoutingMode.LanguageDomains)
+        {
+            if (!string.IsNullOrEmpty(WebsiteChannelDomain))
+            {
+                yield return new ValidationResult($"{nameof(WebsiteChannelDomain)} must not be set when {nameof(WebsiteChannelLanguageRoutingMode)} is LanguageDomains - per-language domains are configured in the application's WebsiteChannelDomainOptions", [nameof(WebsiteChannelDomain)]);
+            }
+            if (WebsiteChannelPrimaryContentLanguageGuid is not null)
+            {
+                yield return new ValidationResult($"{nameof(WebsiteChannelPrimaryContentLanguageGuid)} must not be set when {nameof(WebsiteChannelLanguageRoutingMode)} is LanguageDomains - a language-domains channel has no primary language", [nameof(WebsiteChannelPrimaryContentLanguageGuid)]);
+            }
+        }
+        else
+        {
+            if (string.IsNullOrEmpty(WebsiteChannelDomain))
+            {
+                yield return new ValidationResult($"{nameof(WebsiteChannelDomain)} is required for path-prefix routed website channels", [nameof(WebsiteChannelDomain)]);
+            }
+            if (WebsiteChannelPrimaryContentLanguageGuid is null)
+            {
+                yield return new ValidationResult($"{nameof(WebsiteChannelPrimaryContentLanguageGuid)} is required for path-prefix routed website channels", [nameof(WebsiteChannelPrimaryContentLanguageGuid)]);
+            }
+        }
+    }
 
     protected override (Guid? uniqueId, string? name, string? displayName) GetPrintArgs() => (WebsiteChannelGUID, NOT_AVAILABLE, NOT_AVAILABLE);
 }

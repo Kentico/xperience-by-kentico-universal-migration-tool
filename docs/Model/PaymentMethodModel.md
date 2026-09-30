@@ -16,15 +16,15 @@ Model [discriminator](../UmtModel.md#discriminator): `PaymentMethod`
 <p>*) value is required</p>
 
 
-### Sample of payment method
-
+### Instance of PaymentMethodInfo - Sample credit card payment method
+Sample demonstrates how to create a credit card payment method
 ```json
 {
   "$type": "PaymentMethod",
-  "paymentMethodGUID": "f6a7b8c9-d0e1-4123-e456-789abcdef012",
+  "paymentMethodGUID": "a7b8c9d0-e1f2-4345-a678-9abcdef01234",
   "paymentMethodName": "CreditCard",
   "paymentMethodDisplayName": "Credit Card",
-  "paymentMethodDescription": "Pay securely with your credit or debit card",
+  "paymentMethodDescription": "Pay with credit or debit card",
   "paymentMethodEnabled": true
 }
 ```

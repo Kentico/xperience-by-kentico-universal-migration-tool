@@ -24,23 +24,21 @@ Model [discriminator](../UmtModel.md#discriminator): `CustomerAddress`
 <p>*) value is required</p>
 
 
-### Sample of customer address
-
+### Instance of CustomerAddressInfo - Sample customer address
+Sample demonstrates how to create a customer address
 ```json
 {
   "$type": "CustomerAddress",
-  "customerAddressGUID": "b2c3d4e5-f6a7-4890-b123-456789abcdef",
+  "customerAddressGUID": "c3d4e5f6-a7b8-4901-c234-56789abcdef0",
   "customerAddressCustomerGUID": "a1b2c3d4-e5f6-4789-a012-3456789abcde",
   "customerAddressFirstName": "John",
   "customerAddressLastName": "Doe",
-  "customerAddressCompany": "Acme Corporation",
-  "customerAddressEmail": "john.doe@example.com",
-  "customerAddressPhone": "+1-555-123-4567",
+  "customerAddressCompany": "Sample Company Inc.",
+  "customerAddressEmail": "john.doe@sample.localhost",
+  "customerAddressPhone": "\u002B1-555-0123",
   "customerAddressLine1": "123 Main Street",
   "customerAddressLine2": "Suite 100",
   "customerAddressCity": "New York",
-  "customerAddressZip": "10001",
-  "customerAddressCountryGUID": null,
-  "customerAddressStateGUID": null
+  "customerAddressZip": "10001"
 }
 ```

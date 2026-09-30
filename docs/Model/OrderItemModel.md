@@ -20,20 +20,19 @@ Model [discriminator](../UmtModel.md#discriminator): `OrderItem`
 <p>*) value is required</p>
 
 
-
-### Sample of order item
-
+### Instance of OrderItemInfo - Sample order item
+Sample demonstrates how to create an order item
 ```json
 {
   "$type": "OrderItem",
-  "orderItemGUID": "e5f6a7b8-c9d0-4903-f456-789abcdef012",
-  "orderItemOrderGUID": "c3d4e5f6-a7b8-4901-c234-56789abcdef0",
+  "orderItemGUID": "b4c5d6e7-f8a9-4012-b345-6789abcdef01",
+  "orderItemOrderGUID": "e1f2a3b4-c5d6-4789-e012-3456789abcde",
   "orderItemSKU": "PROD-001",
-  "orderItemName": "Premium Widget",
-  "orderItemQuantity": 2.0,
-  "orderItemUnitPrice": 149.99,
-  "orderItemTotalPrice": 299.98,
-  "orderItemTotalTax": 24.00,
+  "orderItemName": "Sample Product",
+  "orderItemQuantity": 2,
+  "orderItemUnitPrice": 49.99,
+  "orderItemTotalPrice": 99.98,
+  "orderItemTotalTax": 7.99,
   "orderItemTaxRate": 0.08
 }
 ```

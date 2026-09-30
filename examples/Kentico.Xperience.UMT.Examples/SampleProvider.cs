@@ -64,8 +64,10 @@ public static class SampleProvider
 
             ChannelSamples.SampleChannelForEmailChannel,
             ChannelSamples.SampleChannelForWebSiteChannel,
+            ChannelSamples.SampleChannelForLanguageDomainsWebSiteChannel,
             EmailChannelSamples.SampleEmailChannel,
             WebSiteChannelSamples.SampleWebSiteChannel,
+            WebSiteChannelSamples.SampleLanguageDomainsWebSiteChannel,
 
             DataClassSamples.ArticleClassSample,
             DataClassSamples.ArticleAssignedToWebSiteChannel,

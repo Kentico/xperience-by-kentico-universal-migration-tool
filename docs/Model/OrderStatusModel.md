@@ -18,17 +18,16 @@ Model [discriminator](../UmtModel.md#discriminator): `OrderStatus`
 <p>*) value is required</p>
 
 
-### Sample of order status
-
+### Instance of OrderStatusInfo - Sample new order status
+Sample demonstrates how to create a new order status
 ```json
 {
   "$type": "OrderStatus",
-  "orderStatusGUID": "e5f6a7b8-c9d0-4012-d345-6789abcdef01",
-  "orderStatusName": "Processing",
-  "orderStatusDisplayName": "Processing",
+  "orderStatusGUID": "d4e5f6a7-b8c9-4012-d345-6789abcdef01",
+  "orderStatusName": "New",
+  "orderStatusDisplayName": "New Order",
   "orderStatusOrder": 1,
   "orderStatusInternalNotificationEnabled": true,
-  "orderStatusCustomerNotificationEnabled": true,
-  "orderStatusCustomerNotificationEmailConfigurationGUID": null
+  "orderStatusCustomerNotificationEnabled": true
 }
 ```

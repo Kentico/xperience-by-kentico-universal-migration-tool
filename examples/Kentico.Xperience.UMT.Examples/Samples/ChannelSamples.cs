@@ -24,4 +24,15 @@ public static class ChannelSamples
         ChannelName = "websitechannelExample",
         ChannelType = CMS.ContentEngine.ChannelType.Website
     };
+
+    public static readonly Guid LANGUAGE_DOMAINS_CHANNEL_SAMPLE_GUID = new("0B41BF6E-9D8F-45F0-A9B3-8218CA733FE1");
+
+    [Sample("websitechannelchannel.lsd.sample", "This sample describes how to create class inside XbyK to hold Channel data to be used with a WebSiteChannel routed by language-specific domains", "Channel Sample for WebSite Channel with language-specific domains")]
+    public static ChannelModel SampleChannelForLanguageDomainsWebSiteChannel => new()
+    {
+        ChannelGUID = LANGUAGE_DOMAINS_CHANNEL_SAMPLE_GUID,
+        ChannelDisplayName = "website Channel with language domains Example",
+        ChannelName = "websitechannelLanguageDomainsExample",
+        ChannelType = CMS.ContentEngine.ChannelType.Website
+    };
 }

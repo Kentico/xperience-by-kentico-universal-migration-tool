@@ -1,4 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations;
 
 using CMS.Commerce;
 using CMS.Membership;
@@ -8,9 +8,11 @@ using Kentico.Xperience.UMT.Attributes;
 namespace Kentico.Xperience.UMT.Model;
 
 /// <summary>
-/// Model represents XbyK PromotionInfo.
+/// Model represents XbyK PromotionInfo.<br/>
+/// **Note**: Promotions do not work out of the box. Once promotions are migrated, it is necessary to implement and register [promotion rules](https://docs.kentico.com/x/commerce_promotions_xp).
 /// </summary>
 /// <seealso cref="PromotionInfo"/>
+/// <sample>promotion.sample.order</sample>
 [UmtModel(DISCRIMINATOR)]
 public class PromotionModel : UmtModel
 {

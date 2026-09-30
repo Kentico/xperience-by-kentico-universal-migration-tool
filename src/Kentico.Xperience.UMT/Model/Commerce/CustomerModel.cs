@@ -1,4 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations;
 
 using CMS.Commerce;
 using CMS.Membership;
@@ -11,6 +11,7 @@ namespace Kentico.Xperience.UMT.Model;
 /// Model represents XbyK CustomerInfo.
 /// </summary>
 /// <seealso cref="CustomerInfo"/>
+/// <sample>customer.sample.basic</sample>
 [UmtModel(DISCRIMINATOR)]
 public class CustomerModel : UmtModel
 {

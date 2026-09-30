@@ -29,6 +29,24 @@ namespace TestAfterMigration.Tests
         }
 
         [Test]
+        public async Task Test00250_Web_Channel_Language_Routing_Mode_Was_Migrated()
+        {
+            // channel with language-specific domains routing
+            await OpenAdminApplication("Channel management");
+            await Page.GetByTestId("table-cell-ChannelDisplayName")
+                .Filter(new LocatorFilterOptions { HasText = "website Channel with language domains Example" }).ClickAsync();
+            await Page.Debounce();
+            await Assertions.Expect(Page.GetByTestId("domain-per-language").Locator("label")).ToHaveClassAsync(new Regex("selected"));
+
+            // channel with the default path-prefix routing
+            await OpenAdminApplication("Channel management");
+            await Page.GetByTestId("table-cell-ChannelDisplayName")
+                .Filter(new LocatorFilterOptions { HasText = "website Channel Example" }).ClickAsync();
+            await Page.Debounce();
+            await Assertions.Expect(Page.GetByTestId("language-prefix").Locator("label")).ToHaveClassAsync(new Regex("selected"));
+        }
+
+        [Test]
         public async Task Test00300_Web_Channel_Has_Page_In_Different_Publish_States()
         {
             await OpenAdminApplication("website Channel Example");
