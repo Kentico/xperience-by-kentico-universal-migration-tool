@@ -1029,21 +1029,21 @@
       "kentico.xperience.umt": {
         "type": "Project",
         "dependencies": {
-          "Kentico.Xperience.Core": "[31.9.0, )",
+          "Kentico.Xperience.Core": "[31.9.2, )",
           "Microsoft.Bcl.AsyncInterfaces": "[9.0.5, )"
         }
       },
       "kentico.xperience.umt.examples": {
         "type": "Project",
         "dependencies": {
-          "Kentico.Xperience.UMT": "[4.5.0, )"
+          "Kentico.Xperience.UMT": "[4.5.1, )"
         }
       },
       "Kentico.Xperience.Core": {
         "type": "CentralTransitive",
-        "requested": "[31.9.0, )",
-        "resolved": "31.9.0",
-        "contentHash": "qeC/4NTpijGKH7CVVD+1pADS557DloJ5oBx+LtYWyLLONZZrHxF5Qpmp+6ZuvVitKwQ5VxIcfwTmgBnNsAVMjw==",
+        "requested": "[31.9.2, )",
+        "resolved": "31.9.2",
+        "contentHash": "3m40TpW58k8rvyp1jb6wn9Z3yyAeIhDb8FTHoDaG2wtudqt66hPhtsdcSCophEVG3+IEKTptTyb3TCiKbjRlsw==",
         "dependencies": {
           "AngleSharp": "1.8.1",
           "Kentico.Aira.Client": "6.1.0",
